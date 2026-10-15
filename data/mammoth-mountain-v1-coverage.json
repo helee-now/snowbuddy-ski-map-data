@@ -1,0 +1,105 @@
+{
+  "key": "mammoth-mountain-v1",
+  "ski_sha256": "26210726f2cb2ed669b6dd8bb4150872297b88fa96c6d0768f655f29a190f596",
+  "osm_timestamp": "2026-10-15T06:16:51Z",
+  "box": [
+    -119.1,
+    37.59,
+    -118.96,
+    37.68
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -119.056717,
+    37.623529,
+    -118.985159,
+    37.655168
+  ],
+  "margins_km": {
+    "west": 3.81,
+    "south": 3.73,
+    "east": 2.22,
+    "north": 2.76
+  },
+  "counts": {
+    "lifts": 28,
+    "runs_in_bounds": 198,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 2,
+    "lift_stations": 44,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 27.3,
+    "runs_in_bounds": 101.3,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [
+    "Hollywood Chute",
+    "Red Cone Bowl"
+  ],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1143796676",
+      "name": "Red Cone Bowl",
+      "difficulty": "intermediate",
+      "area_m2": 18500,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1143796677",
+      "name": "Hollywood Chute",
+      "difficulty": "expert",
+      "area_m2": 2142,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -119.179688,
+      37.579413,
+      -118.828125,
+      37.71859
+    ],
+    "12": [
+      -119.179688,
+      37.579413,
+      -118.916016,
+      37.71859
+    ],
+    "13": [
+      -119.135742,
+      37.579413,
+      -118.959961,
+      37.68382
+    ],
+    "14": [
+      -119.11377,
+      37.579413,
+      -118.959961,
+      37.68382
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

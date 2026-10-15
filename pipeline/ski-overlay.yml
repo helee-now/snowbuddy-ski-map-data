@@ -1,0 +1,156 @@
+# Planetiler custom-map profile: the SnowBuddy ski overlay, the second vector source of a resort pack (ADR-036).
+#
+# Input: the resort's PBF, written by osmium from normalize_osm.py's output (its elements carry only sb:* tags, so
+# all the OSM logic lives in normalize_osm.py), and the contour GeoPackage from contours.sh.
+# Layers, fields and zooms must match pack-schema.json: the packs test compares the archive's vector_layers with it.
+# Boolean fields are written only when true, so a missing field means false.
+#
+# Run (build-pack.sh does this):
+#   planetiler generate-custom --schema=ski-overlay.yml --osm_path=<pbf> --contours_path=<gpkg> \
+#     --bounds=W,S,E,N --output=<key>-ski.pmtiles --archive_attribution='<linked HTML>'
+# Check the profile logic without data:  planetiler verify ski-overlay.yml
+schema_name: SnowBuddy ski overlay
+# The archive's `description`. The file is a Derivative Database of OpenStreetMap (ADR-036), so it names the ODbL and
+# its URI itself (ODbL 4.2(b)); the packs test checks the built files for it.
+schema_description: 'Runs, lifts, the ski-area boundary and contour lines for one resort. This database is made available under the Open Database License 1.0: https://opendatacommons.org/licenses/odbl/1-0/'
+attribution: <a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>
+is_overlay: true
+examples: ski-overlay.spec.yml
+args:
+  osm_path:
+    default: data/resort.osm.pbf
+    description: The resort's PBF (normalize_osm.py output sorted by osmium)
+  contours_path:
+    default: data/contours.gpkg
+    description: GeoPackage with one line layer and an integer "ele" column (gdal_contour -a ele)
+  minzoom: 9
+  maxzoom: 14
+sources:
+  osm:
+    type: osm
+    local_path: '${ args.osm_path }'
+  contours:
+    type: geopackage
+    local_path: '${ args.contours_path }'
+definitions:
+  piste_attributes: &piste_attributes
+    - key: type
+      tag_value: sb:type
+    - key: difficulty
+      tag_value: sb:difficulty
+    - key: ungroomed
+      value: true
+      include_when:
+        sb:ungroomed: 'yes'
+    - key: gladed
+      value: true
+      include_when:
+        sb:gladed: 'yes'
+    - key: park
+      value: true
+      include_when:
+        sb:park: 'yes'
+    - key: out_of_bounds
+      value: true
+      include_when:
+        sb:out_of_bounds: 'yes'
+    - key: name
+      tag_value: sb:name
+    - key: ref
+      tag_value: sb:ref
+layers:
+  - id: contour
+    features:
+      - source: contours
+        geometry: line
+        # 20 m lines; every 100 m is an index line. Index lines from z11, the others at z14 (the archive's max
+        # zoom, overzoomed above it). Literals only: Planetiler 0.10.2 does not declare `args` in these scripts.
+        min_zoom: '${ int(feature.tags.ele) % 100 == 0 ? 11 : 14 }'
+        attributes:
+          - key: ele
+            value: '${ int(feature.tags.ele) }'
+          - key: idx
+            value: true
+            include_when: '${ int(feature.tags.ele) % 100 == 0 }'
+    tile_post_process:
+      merge_line_strings:
+        min_length: 2
+        min_length_at_max_zoom: 0
+        tolerance: 0.5
+        tolerance_at_max_zoom: 0.25
+        buffer: 4
+
+  - id: piste
+    features:
+      - source: osm
+        geometry: line
+        min_zoom: 11
+        include_when:
+          sb:layer: piste
+        attributes: *piste_attributes
+    # Joins the ways of one run (same name, rating and flags) so a run split into short ways still gets a label.
+    # Nothing is dropped or simplified again (min_length 0, tolerance -1).
+    tile_post_process:
+      merge_line_strings:
+        min_length: 0
+        min_length_at_max_zoom: 0
+        tolerance: -1
+        tolerance_at_max_zoom: -1
+        buffer: 4
+
+  - id: piste_area
+    features:
+      - source: osm
+        geometry: polygon
+        min_zoom: 11
+        include_when:
+          sb:layer: piste_area
+        attributes: *piste_attributes
+
+  - id: lift
+    features:
+      - source: osm
+        geometry: line
+        min_zoom: 10
+        include_when:
+          sb:layer: lift
+        attributes:
+          - key: kind
+            tag_value: sb:kind
+          - key: name
+            tag_value: sb:name
+          - key: ref
+            tag_value: sb:ref
+          - key: occupancy
+            tag_value: sb:occupancy
+            type: integer
+
+  - id: lift_station
+    features:
+      - source: osm
+        geometry: point
+        min_zoom: 13
+        include_when:
+          sb:layer: lift_station
+        attributes:
+          - key: name
+            tag_value: sb:name
+      - source: osm
+        geometry: polygon_centroid
+        min_zoom: 13
+        include_when:
+          sb:layer: lift_station
+        attributes:
+          - key: name
+            tag_value: sb:name
+
+  - id: ski_area
+    features:
+      - source: osm
+        geometry: polygon
+        min_zoom: 9
+        include_when:
+          sb:layer: ski_area
+        attributes:
+          - key: name
+            tag_value: sb:name

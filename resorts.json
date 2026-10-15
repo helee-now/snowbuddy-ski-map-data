@@ -1,0 +1,132 @@
+{
+  "comment": "Resorts of the SnowBuddy ski map data, one per published ski file (written by scripts/export-public-data.mjs in the SnowBuddy repository). Boxes are W, S, E, N in degrees (WGS84): the resort's lifts and runs with at least 2 km to spare on every side, and the out-of-bounds runs in out_of_bounds_named whole at every zoom. osm_timestamp is the OpenStreetMap data the file was built from; pipeline/build-ski.sh rebuilds from it and compares the result with ski_file.sha256.",
+  "credits": {
+    "osm_html": "<a href=\"https://www.openstreetmap.org/copyright\">&copy; OpenStreetMap contributors</a>",
+    "osm_text": "Map data © OpenStreetMap contributors, available under the Open Database License (ODbL) 1.0. openstreetmap.org/copyright"
+  },
+  "elevation_sources": {
+    "mrdem30": {
+      "name": "NRCan MRDEM-30 DTM",
+      "resolution_m": 30,
+      "licence": "Open Government Licence - Canada",
+      "data_url": "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif",
+      "credit_html": "<a href=\"https://open.canada.ca/en/open-government-licence-canada\">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)",
+      "credit_text": "Contours and shaded relief: Contains information licensed under the Open Government Licence – Canada (NRCan MRDEM-30). This product was in part produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved. The organisations in charge of the Copernicus program by law or by delegation do not incur any liability for any use of the Copernicus WorldDEM-30."
+    },
+    "3dep13": {
+      "name": "USGS 3DEP 1/3 arc-second",
+      "resolution_m": 10,
+      "licence": "Public domain (U.S. Geological Survey)",
+      "data_url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/",
+      "credit_html": "<a href=\"https://www.usgs.gov/3d-elevation-program\">3DEP data courtesy of the U.S. Geological Survey</a>",
+      "credit_text": "Contours and shaded relief: 3DEP data courtesy of the U.S. Geological Survey."
+    }
+  },
+  "resorts": [
+    {
+      "slug": "whistler-blackcomb",
+      "name": "Whistler Blackcomb",
+      "version": 2,
+      "key": "whistler-blackcomb-v2",
+      "box": [
+        -123.08,
+        49.98,
+        -122.83,
+        50.17
+      ],
+      "ski_area": "way/474288286",
+      "elevation": "mrdem30",
+      "out_of_bounds_named": [
+        "Body Bag Bowl",
+        "Chamonix Chutes",
+        "DOA (Down, Over, and Around)",
+        "Helm's Deep",
+        "Helm's Gate"
+      ],
+      "osm_timestamp": "2026-10-15T06:13:50Z",
+      "overpass_box": [
+        -123.12,
+        49.96,
+        -122.79,
+        50.19
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-10-15T12:57:42Z",
+      "ski_file": {
+        "path": "data/whistler-blackcomb-v2-ski.pmtiles",
+        "bytes": 872075,
+        "sha256": "0d3663fce69c1596d03b128c9c88d265616b96d2222f73ca8d109beba6f5c020"
+      },
+      "coverage": "data/whistler-blackcomb-v2-coverage.json"
+    },
+    {
+      "slug": "big-white",
+      "name": "Big White",
+      "version": 1,
+      "key": "big-white-v1",
+      "box": [
+        -119.01,
+        49.68,
+        -118.88,
+        49.78
+      ],
+      "ski_area": "way/476836855",
+      "elevation": "mrdem30",
+      "osm_timestamp": "2026-10-15T06:15:47Z",
+      "overpass_box": [
+        -119.05,
+        49.66,
+        -118.84,
+        49.8
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-10-15T12:57:48Z",
+      "ski_file": {
+        "path": "data/big-white-v1-ski.pmtiles",
+        "bytes": 160253,
+        "sha256": "ccb514d1eac053d2e30cf1355592cab2542d516f1d269dcc6716a04d1a0b1b82"
+      },
+      "coverage": "data/big-white-v1-coverage.json"
+    },
+    {
+      "slug": "mammoth-mountain",
+      "name": "Mammoth Mountain",
+      "version": 1,
+      "key": "mammoth-mountain-v1",
+      "box": [
+        -119.1,
+        37.59,
+        -118.96,
+        37.68
+      ],
+      "ski_area": "way/682231907",
+      "elevation": "3dep13",
+      "out_of_bounds_named": [
+        "Hollywood Chute",
+        "Red Cone Bowl"
+      ],
+      "osm_timestamp": "2026-10-15T06:16:51Z",
+      "overpass_box": [
+        -119.14,
+        37.57,
+        -118.92,
+        37.7
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n38w119/USGS_13_n38w119.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n38w120/USGS_13_n38w120.tif"
+      ],
+      "built_at": "2026-10-15T12:57:54Z",
+      "ski_file": {
+        "path": "data/mammoth-mountain-v1-ski.pmtiles",
+        "bytes": 247816,
+        "sha256": "26210726f2cb2ed669b6dd8bb4150872297b88fa96c6d0768f655f29a190f596"
+      },
+      "coverage": "data/mammoth-mountain-v1-coverage.json"
+    }
+  ]
+}

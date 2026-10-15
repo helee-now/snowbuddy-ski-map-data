@@ -1,0 +1,60 @@
+{
+  "slug": "whistler-blackcomb",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). Each entry names one OSM element, the reason, what OSM holds today (`expect`, checked on every build: if OSM changes, the build stops so a fix made in OSM is never silently overwritten) and the change: `set` (name, or null to hide it; difficulty; park; out_of_bounds) or `hide: true`. Plain factual errors should also be fixed in OSM itself.",
+  "overrides": [
+    {
+      "id": "way/1323298990",
+      "reason": "Website text pasted into the name.",
+      "expect": { "name": "Search Ski Areas, Lifts, and Runs Stuie's Slope" },
+      "set": { "name": "Stuie's Slope" }
+    },
+    {
+      "id": "way/1482734758",
+      "reason": "Offensive name; the short form given in the OSM name is kept.",
+      "expect": { "name": "Asian Pussy (AP)" },
+      "set": { "name": "AP" }
+    },
+    {
+      "id": "way/1251510656",
+      "reason": "The name \"4.6\" looks like a stray number, not a run name (the OSM description calls it an alternative exit from Grand Finale). Shown unnamed until checked against the resort's run list.",
+      "expect": { "name": "4.6" },
+      "set": { "name": null }
+    },
+    {
+      "id": "way/1250670053",
+      "reason": "Capital letter missing.",
+      "expect": { "name": "kadenwood Gondola Upper Line" },
+      "set": { "name": "Kadenwood Gondola Upper Line" }
+    },
+    {
+      "id": "way/39993422",
+      "reason": "Terrain park by its name; OSM has no park tag.",
+      "expect": { "name": "Blackcomb Terrain Park Intermediate Zone", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/39993423",
+      "reason": "Terrain park by its name; OSM has no park tag.",
+      "expect": { "name": "Blackcomb Terrain Park Expert Zone", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/1168800865",
+      "reason": "Halfpipe by its name (the matching area is tagged as one); OSM has no park tag on the line.",
+      "expect": { "name": "Blackcomb Upper Halfpipe", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/1171004995",
+      "reason": "Terrain park by its name; OSM has no park tag.",
+      "expect": { "name": "Whistler Beginner Terrain Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/1171004996",
+      "reason": "Terrain park by its name; OSM has no park tag.",
+      "expect": { "name": "Whistler Beginner Terrain Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    }
+  ]
+}

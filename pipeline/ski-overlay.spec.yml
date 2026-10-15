@@ -1,0 +1,147 @@
+# Examples for `planetiler verify ski-overlay.yml` (build-pack.sh runs it before every build).
+# Inputs carry the sb:* tags that normalize_osm.py writes.
+examples:
+  - name: groomed blue run
+    input:
+      source: osm
+      geometry: line
+      tags:
+        sb:layer: piste
+        sb:type: downhill
+        sb:difficulty: intermediate
+        sb:name: Example Run
+    output:
+      layer: piste
+      geometry: line
+      min_zoom: 11
+      tags:
+        type: downhill
+        difficulty: intermediate
+        name: Example Run
+        ungroomed: null
+        out_of_bounds: null
+        park: null
+
+  - name: out-of-bounds backcountry line keeps its flags
+    input:
+      source: osm
+      geometry: line
+      tags:
+        sb:layer: piste
+        sb:type: downhill
+        sb:difficulty: advanced
+        sb:ungroomed: 'yes'
+        sb:out_of_bounds: 'yes'
+        sb:name: Example Bowl
+    output:
+      layer: piste
+      geometry: line
+      min_zoom: 11
+      tags:
+        difficulty: advanced
+        ungroomed: true
+        out_of_bounds: true
+        name: Example Bowl
+
+  - name: park area
+    input:
+      source: osm
+      geometry: polygon
+      tags:
+        sb:layer: piste_area
+        sb:type: snow_park
+        sb:difficulty: unknown
+        sb:park: 'yes'
+    output:
+      layer: piste_area
+      geometry: polygon
+      min_zoom: 11
+      tags:
+        type: snow_park
+        difficulty: unknown
+        park: true
+
+  - name: chair lift with occupancy
+    input:
+      source: osm
+      geometry: line
+      tags:
+        sb:layer: lift
+        sb:kind: chair_lift
+        sb:name: Example Express
+        sb:ref: '7'
+        sb:occupancy: '6'
+    output:
+      layer: lift
+      geometry: line
+      min_zoom: 10
+      tags:
+        kind: chair_lift
+        name: Example Express
+        ref: '7'
+        occupancy: 6
+
+  - name: station point
+    input:
+      source: osm
+      geometry: point
+      tags:
+        sb:layer: lift_station
+        sb:name: Example Station
+    output:
+      layer: lift_station
+      geometry: point
+      min_zoom: 13
+      tags:
+        name: Example Station
+
+  - name: ski area outline
+    input:
+      source: osm
+      geometry: polygon
+      tags:
+        sb:layer: ski_area
+        sb:name: Example Resort
+    output:
+      layer: ski_area
+      geometry: polygon
+      min_zoom: 9
+      tags:
+        name: Example Resort
+
+  - name: index contour
+    input:
+      source: contours
+      geometry: line
+      tags:
+        ele: 1800
+    output:
+      layer: contour
+      geometry: line
+      min_zoom: 11
+      tags:
+        ele: 1800
+        idx: true
+
+  - name: 20 m contour
+    input:
+      source: contours
+      geometry: line
+      tags:
+        ele: 1820
+    output:
+      layer: contour
+      geometry: line
+      min_zoom: 14
+      tags:
+        ele: 1820
+        idx: null
+
+  - name: raw OSM tags are ignored (normalize_osm.py decides what is drawn)
+    input:
+      source: osm
+      geometry: line
+      tags:
+        piste:type: downhill
+        piste:difficulty: easy
+    output: []

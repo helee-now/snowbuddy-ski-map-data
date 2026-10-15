@@ -1,0 +1,414 @@
+{
+  "key": "whistler-blackcomb-v2",
+  "ski_sha256": "0d3663fce69c1596d03b128c9c88d265616b96d2222f73ca8d109beba6f5c020",
+  "osm_timestamp": "2026-10-15T06:13:50Z",
+  "box": [
+    -123.08,
+    49.98,
+    -122.83,
+    50.17
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -122.993845,
+    50.039157,
+    -122.858727,
+    50.122077
+  ],
+  "margins_km": {
+    "west": 6.15,
+    "south": 6.58,
+    "east": 2.05,
+    "north": 5.33
+  },
+  "counts": {
+    "lifts": 36,
+    "runs_in_bounds": 737,
+    "run_areas_in_bounds": 72,
+    "runs_out_of_bounds": 24,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 20,
+    "ski_area": 1,
+    "other_lifts_and_runs": 2
+  },
+  "length_km": {
+    "lifts": 44.4,
+    "runs_in_bounds": 341.4,
+    "runs_out_of_bounds": 16.3
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [
+    "Body Bag Bowl",
+    "Chamonix Chutes",
+    "DOA (Down, Over, and Around)",
+    "Helm's Deep",
+    "Helm's Gate"
+  ],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1169399417",
+      "name": "Blackcomb Home Run",
+      "difficulty": "intermediate",
+      "length_m": 101,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1169399418",
+      "name": "Blackcomb Home Run",
+      "difficulty": "intermediate",
+      "length_m": 109,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/140799449",
+      "name": null,
+      "difficulty": "intermediate",
+      "length_m": 144,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1512345297",
+      "name": "The Bussy",
+      "difficulty": "advanced",
+      "length_m": 183,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1512364218",
+      "name": "Helm's Gate",
+      "difficulty": "advanced",
+      "length_m": 706,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1512378030",
+      "name": "Helm's Deep",
+      "difficulty": "advanced",
+      "length_m": 578,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/254397022",
+      "name": "Blackcomb Home Run",
+      "difficulty": "intermediate",
+      "length_m": 231,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/258224688",
+      "name": null,
+      "difficulty": "intermediate",
+      "length_m": 733,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/258224689",
+      "name": null,
+      "difficulty": "intermediate",
+      "length_m": 1143,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/258224690",
+      "name": null,
+      "difficulty": "intermediate",
+      "length_m": 743,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/258224691",
+      "name": null,
+      "difficulty": "advanced",
+      "length_m": 598,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12
+      ],
+      "drawn_part_at": [
+        13,
+        14
+      ]
+    },
+    {
+      "osm": "way/258224692",
+      "name": "Rainbow North Glacier",
+      "difficulty": "intermediate",
+      "length_m": 1677,
+      "inside_box": false,
+      "drawn_whole_at": [],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/258224693",
+      "name": null,
+      "difficulty": "advanced",
+      "length_m": 712,
+      "inside_box": false,
+      "drawn_whole_at": [],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/258225077",
+      "name": null,
+      "difficulty": "intermediate",
+      "length_m": 1582,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/258225078",
+      "name": null,
+      "difficulty": "advanced",
+      "length_m": 1332,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/292816606",
+      "name": "DOA (Down, Over, and Around)",
+      "difficulty": "advanced",
+      "length_m": 534,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/360676440",
+      "name": "East Knob",
+      "difficulty": "intermediate",
+      "length_m": 1288,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/360676746",
+      "name": null,
+      "difficulty": "intermediate",
+      "length_m": 812,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/360676750",
+      "name": null,
+      "difficulty": "intermediate",
+      "length_m": 1374,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/376911842",
+      "name": null,
+      "difficulty": "easy",
+      "length_m": 435,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/376911843",
+      "name": null,
+      "difficulty": "easy",
+      "length_m": 273,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/399343702",
+      "name": "Chamonix Chutes",
+      "difficulty": "expert",
+      "length_m": 89,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/399343703",
+      "name": "Chamonix Chutes",
+      "difficulty": "expert",
+      "length_m": 87,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/472098498",
+      "name": "Body Bag Bowl",
+      "difficulty": "advanced",
+      "length_m": 828,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -123.222656,
+      49.95122,
+      -122.695312,
+      50.176898
+    ],
+    "12": [
+      -123.134766,
+      49.95122,
+      -122.783203,
+      50.176898
+    ],
+    "13": [
+      -123.09082,
+      49.979488,
+      -122.827148,
+      50.176898
+    ],
+    "14": [
+      -123.09082,
+      49.979488,
+      -122.827148,
+      50.176898
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [
+    {
+      "osm": "way/477416304",
+      "layer": "piste_area",
+      "name": null,
+      "kind": "snow_park",
+      "inside_box": false
+    },
+    {
+      "osm": "way/85546636",
+      "layer": "lift",
+      "name": null,
+      "kind": "chair_lift",
+      "inside_box": false
+    }
+  ],
+  "problems": [],
+  "ok": true
+}

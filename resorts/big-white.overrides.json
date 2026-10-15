@@ -1,0 +1,12 @@
+{
+  "slug": "big-white",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format.",
+  "overrides": [
+    {
+      "id": "way/269444355",
+      "reason": "Quote marks pasted into the name.",
+      "expect": { "name": "\"Bunny Hill\"" },
+      "set": { "name": "Bunny Hill" }
+    }
+  ]
+}

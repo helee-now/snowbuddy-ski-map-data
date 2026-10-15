@@ -1,0 +1,117 @@
+{
+  "comment": "What a resort map pack contains (ADR-036). One source of truth for the pipeline (normalize_osm.py, build-pack.sh), the style generator, write-packs.mjs and the tests. Changing a layer, a field or a zoom here is a schema change: rebuild the packs and the styles.",
+  "glyph_ranges": [[0, 1023], [8192, 8447]],
+  "fontstacks": ["Noto Sans Regular", "Noto Sans Medium", "Noto Sans Italic"],
+  "roles": {
+    "base": {
+      "suffix": "",
+      "tile_type": "mvt",
+      "tile_compression": ["gzip", "none"],
+      "minzoom": 0,
+      "maxzoom": 15,
+      "placeholder": "__PMTILES_URL__",
+      "source": "protomaps"
+    },
+    "ski": {
+      "suffix": "-ski",
+      "tile_type": "mvt",
+      "tile_compression": ["gzip", "none"],
+      "minzoom": 9,
+      "maxzoom": 14,
+      "placeholder": "__PMTILES_SKI_URL__",
+      "source": "ski"
+    },
+    "hillshade": {
+      "suffix": "-hillshade",
+      "tile_type": "webp",
+      "tile_compression": ["none", "gzip"],
+      "minzoom": 9,
+      "maxzoom": 13,
+      "tile_size": 512,
+      "placeholder": "__PMTILES_HILLSHADE_URL__",
+      "source": "hillshade"
+    }
+  },
+  "ski_layers": {
+    "piste": {
+      "geometry": "line",
+      "minzoom": 11,
+      "fields": {
+        "type": "String",
+        "difficulty": "String",
+        "ungroomed": "Boolean",
+        "gladed": "Boolean",
+        "park": "Boolean",
+        "out_of_bounds": "Boolean",
+        "name": "String",
+        "ref": "String"
+      },
+      "required": ["type", "difficulty"]
+    },
+    "piste_area": {
+      "geometry": "polygon",
+      "minzoom": 11,
+      "fields": {
+        "type": "String",
+        "difficulty": "String",
+        "ungroomed": "Boolean",
+        "gladed": "Boolean",
+        "park": "Boolean",
+        "out_of_bounds": "Boolean",
+        "name": "String",
+        "ref": "String"
+      },
+      "required": ["type", "difficulty"],
+      "optional_layer": true
+    },
+    "lift": {
+      "geometry": "line",
+      "minzoom": 10,
+      "fields": {
+        "kind": "String",
+        "name": "String",
+        "ref": "String",
+        "occupancy": "Number"
+      },
+      "required": ["kind"]
+    },
+    "lift_station": {
+      "geometry": "point",
+      "minzoom": 13,
+      "fields": {
+        "name": "String"
+      },
+      "required": [],
+      "optional_layer": true
+    },
+    "ski_area": {
+      "geometry": "polygon",
+      "minzoom": 9,
+      "fields": {
+        "name": "String"
+      },
+      "required": []
+    },
+    "contour": {
+      "geometry": "line",
+      "minzoom": 11,
+      "fields": {
+        "ele": "Number",
+        "idx": "Boolean"
+      },
+      "required": ["ele"]
+    }
+  },
+  "values": {
+    "difficulty": ["novice", "easy", "intermediate", "advanced", "expert", "freeride", "extreme", "unknown"],
+    "piste_type": ["downhill", "snow_park", "playground", "connection"],
+    "dropped_piste_types": ["nordic", "skitour", "snowshoe"],
+    "lift_kind": ["cable_car", "gondola", "mixed_lift", "chair_lift", "drag_lift", "t-bar", "j-bar", "platter", "rope_tow", "magic_carpet"]
+  },
+  "contours": {
+    "interval_m": 20,
+    "index_every_m": 100,
+    "index_minzoom": 11,
+    "minor_minzoom": 14
+  }
+}

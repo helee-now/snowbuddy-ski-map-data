@@ -1,0 +1,232 @@
+#!/usr/bin/env python3
+"""Small helpers for build-pack.sh, kept in Python so they can be tested (test/pipeline.test.mjs).
+
+  packlib.py check-box W,S,E,N [MAX_SQ_DEG]     exit 0 if the box is safe to extract, else 1 with the reason
+  packlib.py expand W,S,E,N DLON DLAT           prints the box grown by DLON/DLAT degrees on each side
+  packlib.py covers OUTER INNER                 exit 0 if box OUTER contains box INNER
+  packlib.py dry-run-bytes LOG                  prints the archive size `pmtiles extract --dry-run` reported
+  packlib.py osm-info OVERPASS.osm [DATE]       prints shell assignments OSM_BASE=... OSM_BOUNDS=W,S,E,N; DATE is
+                                                the [date:...] the answer was asked for, which then is OSM_BASE
+  packlib.py resort RESORTS.json SLUG           prints shell assignments for one resort (values shell-quoted)
+  packlib.py slugs RESORTS.json                 prints every slug, one per line
+  packlib.py run-zooms SCHEMA.json              prints MIN-MAX: the run layers' minzoom to the ski file's maxzoom
+  packlib.py recorded FIELD RESORTS.json SLUG [PACK.json]
+                                                prints a built pack's recorded osm_timestamp or ski_sha256: from the
+                                                resort's entry (the public data repository's resorts.json carries
+                                                them), else from its record packs/<key>/pack.json; exit 1 if none
+  packlib.py verify-log LOG                     exit 0 if a `planetiler verify` log passed every example
+  packlib.py record OUT.json KEY=VALUE...       writes a JSON object (values that parse as JSON are kept typed)
+
+The box guard exists because `pmtiles extract` with an empty --bbox copies the whole planet (about 129 GB):
+that happened during the research. Every extract goes through check-box first, then a dry run.
+"""
+import json
+import math
+import os
+import re
+import shlex
+import sys
+
+MAX_BOX_SQ_DEG = 0.1      # about 750 km2 at 50 N: far larger than any resort, far smaller than a region
+MIN_BOX_SIDE_DEG = 0.01   # about 1 km
+KEY_RE = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*-v[1-9][0-9]*$')
+SLUG_RE = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
+OSM_ID_RE = re.compile(r'^(way|relation)/[1-9][0-9]*$')
+
+
+def parse_box(text):
+    parts = str(text).split(',')
+    if len(parts) != 4:
+        raise ValueError(f'box must be W,S,E,N (got {text!r})')
+    try:
+        vals = [float(p) for p in parts]
+    except ValueError:
+        raise ValueError(f'box values must be numbers (got {text!r})') from None
+    if not all(math.isfinite(v) for v in vals):
+        raise ValueError(f'box values must be finite (got {text!r})')
+    return vals
+
+
+def box_problem(text, max_sq_deg=MAX_BOX_SQ_DEG):
+    """Returns None for a safe box, else the reason it is refused."""
+    try:
+        w, s, e, n = parse_box(text)
+    except ValueError as err:
+        return str(err)
+    if not (-180.0 <= w < e <= 180.0):
+        return f'need -180 <= W < E <= 180 (got W={w}, E={e})'
+    if not (-85.0 <= s < n <= 85.0):
+        return f'need -85 <= S < N <= 85 (got S={s}, N={n})'
+    if e - w < MIN_BOX_SIDE_DEG or n - s < MIN_BOX_SIDE_DEG:
+        return f'box sides must be at least {MIN_BOX_SIDE_DEG} degrees'
+    area = (e - w) * (n - s)
+    if area >= max_sq_deg:
+        return f'box covers {area:.3f} square degrees; the limit is {max_sq_deg}'
+    return None
+
+
+def fmt(v):
+    return format(round(v, 6), '.6f').rstrip('0').rstrip('.')
+
+
+def dry_run_bytes(text):
+    """`pmtiles extract --dry-run` ends with: 'Extract transferred 1.0 MB (overfetch 0.05) for an archive size
+    of 995 kB'. Returns the archive size in bytes, or None when the line is missing."""
+    m = re.search(r'archive size of\s+([0-9]+(?:\.[0-9]+)?)\s*(B|kB|KB|MB|GB|TB)\b', text)
+    if not m:
+        return None
+    unit = {'B': 1, 'kB': 1e3, 'KB': 1e3, 'MB': 1e6, 'GB': 1e9, 'TB': 1e12}[m.group(2)]
+    return int(float(m.group(1)) * unit)
+
+
+OSM_DATE_RE = re.compile(r'^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$')
+
+
+def osm_info(path, date=None):
+    """Reads the head of an Overpass XML answer for its data timestamp and bounds.
+
+    For the answer to a date-pinned query ([date:"..."]) the data timestamp is the date asked for: Overpass still
+    reports its current database time in <meta osm_base> (seen 2026-10-15: asked for 06:13:50Z, answered with
+    osm_base 09:24:49Z), so the caller passes the date and it wins."""
+    with open(path, encoding='utf-8', errors='replace') as f:
+        head = f.read(65536)
+    base = re.search(r'<meta\s[^>]*osm_base="([^"]+)"', head)
+    b = re.search(r'<bounds\s+minlat="([-0-9.]+)"\s+minlon="([-0-9.]+)"\s+maxlat="([-0-9.]+)"\s+maxlon="([-0-9.]+)"', head)
+    if not base:
+        raise ValueError(f'{path}: no <meta osm_base=...>')
+    if date is not None:
+        if not OSM_DATE_RE.match(date):
+            raise ValueError(f'the OSM date must look like 2026-10-15T06:13:50Z (got {date!r})')
+        if date > base.group(1):
+            raise ValueError(f'{path}: asked for the data at {date}, but the answer is from {base.group(1)}')
+    bounds = f'{b.group(2)},{b.group(1)},{b.group(4)},{b.group(3)}' if b else ''
+    return date or base.group(1), bounds
+
+
+def resort_entry(resorts, slug):
+    entry = next((r for r in resorts['resorts'] if r.get('slug') == slug), None)
+    if entry is None:
+        raise ValueError(f'no resort {slug!r}; known: {", ".join(r["slug"] for r in resorts["resorts"])}')
+    if not SLUG_RE.match(slug):
+        raise ValueError(f'bad slug {slug!r}')
+    key = entry.get('key', '')
+    if not KEY_RE.match(key) or key != f'{slug}-v{entry.get("version")}':
+        raise ValueError(f'{slug}: key must be <slug>-v<version> (got {key!r}, version {entry.get("version")!r})')
+    box = ','.join(fmt(v) for v in entry['box'])
+    problem = box_problem(box)
+    if problem:
+        raise ValueError(f'{slug}: {problem}')
+    if not OSM_ID_RE.match(entry.get('ski_area', '')):
+        raise ValueError(f'{slug}: ski_area must look like way/123 or relation/123')
+    elev = resorts.get('elevation_sources', {}).get(entry.get('elevation'))
+    if elev is None:
+        raise ValueError(f'{slug}: elevation source {entry.get("elevation")!r} is not in elevation_sources')
+    if not re.search(r'<a href="https://[^"]+">', elev.get('credit_html', '')):
+        raise ValueError(f'{slug}: the elevation credit must be linked HTML (<a href="https://...">)')
+    return {
+        'SLUG': slug, 'KEY': key, 'VERSION': str(entry['version']), 'BOX': box,
+        'SKI_AREA': entry['ski_area'], 'ELEV': entry['elevation'], 'ELEV_RES': str(elev['resolution_m']),
+        'OSM_CREDIT_HTML': resorts['credits']['osm_html'], 'TERRAIN_CREDIT_HTML': elev['credit_html'],
+    }
+
+
+def verify_log_ok(text):
+    clean = re.sub(r'\x1b\[[0-9;]*m', '', text)
+    return bool(re.search(r'^\s*[1-9][0-9]* passed\s*$', clean, re.M)) and not re.search(r'\bFAIL\b|\bfailed\b', clean)
+
+
+def main(argv):
+    if not argv:
+        print(__doc__, file=sys.stderr)
+        return 2
+    cmd, args = argv[0], argv[1:]
+    try:
+        if cmd == 'check-box':
+            limit = float(args[1]) if len(args) > 1 else MAX_BOX_SQ_DEG
+            if not 0 < limit <= 1.0:
+                raise ValueError('the area limit must be above 0 and at most 1 square degree')
+            problem = box_problem(args[0] if args else '', limit)
+            if problem:
+                print(f'refused box: {problem}', file=sys.stderr)
+                return 1
+            return 0
+        if cmd == 'expand':
+            w, s, e, n = parse_box(args[0])
+            dx, dy = float(args[1]), float(args[2])
+            print(','.join(fmt(v) for v in (w - dx, s - dy, e + dx, n + dy)))
+            return 0
+        if cmd == 'covers':
+            ow, os_, oe, on = parse_box(args[0])
+            iw, is_, ie, in_ = parse_box(args[1])
+            return 0 if (ow <= iw and os_ <= is_ and oe >= ie and on >= in_) else 1
+        if cmd == 'dry-run-bytes':
+            with open(args[0], encoding='utf-8', errors='replace') as f:
+                size = dry_run_bytes(f.read())
+            if size is None:
+                print('no "archive size of" line in the dry-run log', file=sys.stderr)
+                return 1
+            print(size)
+            return 0
+        if cmd == 'osm-info':
+            base, bounds = osm_info(args[0], args[1] if len(args) > 1 and args[1] else None)
+            print(f'OSM_BASE={shlex.quote(base)}\nOSM_BOUNDS={shlex.quote(bounds)}')
+            return 0
+        if cmd == 'resort':
+            with open(args[0], encoding='utf-8') as f:
+                resorts = json.load(f)
+            for k, v in resort_entry(resorts, args[1]).items():
+                print(f'{k}={shlex.quote(v)}')
+            return 0
+        if cmd == 'slugs':
+            with open(args[0], encoding='utf-8') as f:
+                for r in json.load(f)['resorts']:
+                    print(r['slug'])
+            return 0
+        if cmd == 'run-zooms':
+            with open(args[0], encoding='utf-8') as f:
+                schema = json.load(f)
+            lo = min(schema['ski_layers'][layer]['minzoom'] for layer in ('piste', 'piste_area'))
+            print(f'{lo}-{schema["roles"]["ski"]["maxzoom"]}')
+            return 0
+        if cmd == 'recorded':
+            field, resorts_path, slug = args[0], args[1], args[2]
+            if field not in ('osm_timestamp', 'ski_sha256'):
+                raise ValueError(f'unknown field {field!r}')
+            with open(resorts_path, encoding='utf-8') as f:
+                entry = next((r for r in json.load(f)['resorts'] if r.get('slug') == slug), None)
+            if entry is None:
+                raise ValueError(f'no resort {slug!r}')
+            value = entry.get('osm_timestamp') if field == 'osm_timestamp' else (entry.get('ski_file') or {}).get('sha256')
+            if not value and len(args) > 3 and os.path.exists(args[3]):
+                with open(args[3], encoding='utf-8') as f:
+                    record = json.load(f)
+                value = record.get('osm_timestamp') if field == 'osm_timestamp' else next(
+                    (x['sha256'] for x in record.get('files', []) if x.get('role') == 'ski'), None)
+            if not value:
+                return 1
+            print(value)
+            return 0
+        if cmd == 'verify-log':
+            with open(args[0], encoding='utf-8', errors='replace') as f:
+                return 0 if verify_log_ok(f.read()) else 1
+        if cmd == 'record':
+            doc = {}
+            for kv in args[1:]:
+                k, _, v = kv.partition('=')
+                try:
+                    doc[k] = json.loads(v)
+                except ValueError:
+                    doc[k] = v
+            with open(args[0], 'w', encoding='utf-8') as f:
+                json.dump(doc, f, ensure_ascii=False, indent=1)
+                f.write('\n')
+            return 0
+    except (ValueError, IndexError, OSError, KeyError) as err:
+        print(f'packlib {cmd}: {err}', file=sys.stderr)
+        return 2
+    print(f'unknown command {cmd!r}', file=sys.stderr)
+    return 2
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1:]))

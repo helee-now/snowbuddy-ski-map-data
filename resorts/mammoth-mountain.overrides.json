@@ -1,0 +1,36 @@
+{
+  "slug": "mammoth-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Mammoth's parks are rated intermediate in OSM; the park flag draws them in the park colour (the resort sizes its parks rather than rating them).",
+  "overrides": [
+    {
+      "id": "way/87096654",
+      "reason": "Terrain park (Main Park) without a park tag in OSM.",
+      "expect": { "name": "Main Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/87096650",
+      "reason": "Halfpipe in Main Park without a park tag in OSM.",
+      "expect": { "name": "Main Park Half Pipe", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/87208034",
+      "reason": "Terrain park (South Park) without a park tag in OSM.",
+      "expect": { "name": "South Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/87096672",
+      "reason": "Terrain park (Forest Trail Park) without a park tag in OSM.",
+      "expect": { "name": "Forest Trail Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/87208035",
+      "reason": "Terrain park (Jibs & More) without a park tag in OSM.",
+      "expect": { "name": "Jibs & More", "piste:type": "downhill" },
+      "set": { "park": true }
+    }
+  ]
+}

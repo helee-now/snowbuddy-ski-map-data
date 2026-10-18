@@ -6,12 +6,15 @@
 CONTOUR_INTERVAL_M=20   # pack-schema.json contours.interval_m; the 100 m index lines are marked in ski-overlay.yml
 CONTOUR_GRID_M=10
 
-# dem_path / contours_path <work dir> <elevation source>: the cached elevation window and contours of a work folder,
-# both named after their source, so a source changed under a key that never shipped gets its own window and contours
-# (the hillshade and the contours always come from one model). forget_stale_cuts (lib.sh) drops all of them when the
-# box changes.
+# dem_path / contours_path <work dir> <elevation source> [<smoothing m>]: the cached elevation window and contours of a
+# work folder, both named after their source (and the contours after their smoothing, when there is one), so a source
+# or a smoothing changed under a key that never shipped gets its own window and contours (the hillshade and the
+# contours always come from one model). forget_stale_cuts (lib.sh) drops all of them when the box changes.
 dem_path() { echo "$1/dem-$2.tif"; }
-contours_path() { echo "$1/contours-$2-${CONTOUR_INTERVAL_M}m.gpkg"; }
+contours_path() {
+  local smooth="${3:-0}"
+  if [ "$smooth" = 0 ]; then echo "$1/contours-$2-${CONTOUR_INTERVAL_M}m.gpkg"; else echo "$1/contours-$2-${CONTOUR_INTERVAL_M}m-s$smooth.gpkg"; fi
+}
 
 # check_osm_date_arg: refuses a malformed --osm-date before any work.
 check_osm_date_arg() {
@@ -93,38 +96,46 @@ fetch_osm() {
   OSM_RAW="$raw"
 }
 
-# build_ski <work dir>: OSM answer -> normalize_osm.py -> osmium (PBF with the data timestamp) -> coverage.py ->
-# elevation window -> contours -> Planetiler. Needs the resort's assignments from `packlib.py resort` (SLUG, KEY, BOX,
-# ELEV, OSM_CREDIT_HTML, TERRAIN_CREDIT_HTML); sets OSM_DATE, OSM_RAW, OSM_BASE, OSM_QBOX, OSM_ANSWER_BOX and DEM,
-# which the caller declares local. Writes <wk>/ski.pmtiles, <wk>/coverage.json and <wk>/normalize.json.
+# build_ski <work dir>: OSM answer -> normalize_osm.py -> coverage.py -> elevation window -> contours -> orient.py
+# (runs downhill, lifts uphill) -> osmium (PBF with the data timestamp) -> Planetiler. Needs the resort's assignments
+# from `packlib.py resort` (SLUG, KEY, BOX, ELEV, ELEV_PROJECT, CONTOUR_SMOOTH_M, OSM_CREDIT_HTML,
+# TERRAIN_CREDIT_HTML); sets OSM_DATE, OSM_RAW, OSM_BASE, OSM_QBOX, OSM_ANSWER_BOX and DEM, which the caller declares
+# local. Writes <wk>/ski.pmtiles, <wk>/coverage.json, <wk>/normalize.json and <wk>/orient.json.
 build_ski() {
   local wk="$1"
   forget_stale_cuts "$wk" "$BOX"
 
-  # OSM: Overpass answer -> normalised XML (relation tags, overrides, flags, glyph filter) -> PBF -> coverage.
+  # OSM: Overpass answer -> normalised XML (relation tags, overrides, flags, ranks, glyph filter) -> coverage.
   resolve_osm_date
   fetch_osm "$SLUG" "$BOX"
   python3 -I "$PIPE/normalize_osm.py" --resorts "$MAPS_ROOT/resorts.json" --schema "$MAPS_ROOT/pack-schema.json" \
     --slug "$SLUG" --in "$OSM_RAW" --osm-base "$OSM_BASE" \
     --out-osm "$wk/ski.osm" --out-features "$wk/features.geojson" --out-report "$wk/normalize.json"
-  ensure_osmium_image
-  osmium_run sort --overwrite --output-header="osmosis_replication_timestamp=$OSM_BASE" \
-    -o "$(in_root "$wk/ski.osm.pbf")" "$(in_root "$wk/ski.osm")"
   python3 -I "$PIPE/coverage.py" --features "$wk/features.geojson" --box="$BOX" --out "$wk/coverage.json" \
     --slug "$SLUG" --key "$KEY" --osm-base "$OSM_BASE" --resorts "$MAPS_ROOT/resorts.json" \
     --zooms "$(python3 -I "$PIPE/packlib.py" run-zooms "$MAPS_ROOT/pack-schema.json")" \
     || die "coverage check failed for $KEY (see $wk/coverage.json)"
 
-  # Elevation: the box plus 0.04 degrees, on the source's own grid.
+  # Elevation: the box plus 0.04 degrees, on the source's own grid (the 1 m sources: averaged onto the z14 pixel grid,
+  # covering the box, holes filled from the coarser model).
   local dbox
   DEM="$(dem_path "$wk" "$ELEV")"
   dbox="$(python3 -I "$PIPE/packlib.py" expand "$BOX" 0.04 0.04)"
-  [ -s "$DEM" ] || bash "$PIPE/fetch-dem.sh" "$ELEV" "$DEM" "$dbox"
+  [ -s "$DEM" ] || bash "$PIPE/fetch-dem.sh" "$ELEV" "$DEM" "$dbox" --box="$BOX" ${ELEV_PROJECT:+"--project=$ELEV_PROJECT"}
 
-  # Contours every 20 m, from that window.
+  # Contours every 20 m, from that window (smoothed first for the lidar sources: contour_smoothing_m in resorts.json).
   local contours
-  contours="$(contours_path "$wk" "$ELEV")"
-  [ -s "$contours" ] || bash "$PIPE/contours.sh" "$DEM" "$contours" "$BOX" "$CONTOUR_INTERVAL_M" "$CONTOUR_GRID_M"
+  contours="$(contours_path "$wk" "$ELEV" "${CONTOUR_SMOOTH_M:-0}")"
+  [ -s "$contours" ] || bash "$PIPE/contours.sh" "$DEM" "$contours" "$BOX" "$CONTOUR_INTERVAL_M" "$CONTOUR_GRID_M" 0.005 "${CONTOUR_SMOOTH_M:-0}"
+
+  # Directions from the same window: runs turned downhill and lifts uphill where the elevation says so clearly,
+  # tagged for the style's arrows (orient.py), then the PBF with the data timestamp in its header.
+  rm -f "$wk/ski.oriented.osm"
+  gd python3 -I /w/pipeline/orient.py "$(in_root "$wk/ski.osm")" "$(in_root "$DEM")" "$(in_root "$wk/ski.oriented.osm")" \
+    "$(in_root "$wk/orient.json")" >&2 || die "orient.py failed for $KEY"
+  ensure_osmium_image
+  osmium_run sort --overwrite --output-header="osmosis_replication_timestamp=$OSM_BASE" \
+    -o "$(in_root "$wk/ski.osm.pbf")" "$(in_root "$wk/ski.oriented.osm")"
 
   # The ski file with Planetiler, z9-14, with the linked credit in the archive metadata.
   mkdir -p "$CACHE/planetiler-tmp"

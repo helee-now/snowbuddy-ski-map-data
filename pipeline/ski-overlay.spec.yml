@@ -1,7 +1,7 @@
 # Examples for `planetiler verify ski-overlay.yml` (build-pack.sh runs it before every build).
-# Inputs carry the sb:* tags that normalize_osm.py writes.
+# Inputs carry the sb:* tags that normalize_osm.py and orient.py write.
 examples:
-  - name: groomed blue run
+  - name: groomed blue trunk run that runs downhill as drawn
     input:
       source: osm
       geometry: line
@@ -10,6 +10,8 @@ examples:
         sb:type: downhill
         sb:difficulty: intermediate
         sb:name: Example Run
+        sb:rank: '1'
+        sb:oriented: 'yes'
     output:
       layer: piste
       geometry: line
@@ -18,9 +20,31 @@ examples:
         type: downhill
         difficulty: intermediate
         name: Example Run
+        rank: 1
+        oriented: true
         ungroomed: null
         out_of_bounds: null
         park: null
+
+  - name: minor run too flat for a direction (no arrows)
+    input:
+      source: osm
+      geometry: line
+      tags:
+        sb:layer: piste
+        sb:type: downhill
+        sb:difficulty: easy
+        sb:rank: '3'
+    output:
+      layer: piste
+      geometry: line
+      min_zoom: 11
+      tags:
+        type: downhill
+        difficulty: easy
+        rank: 3
+        oriented: null
+        name: null
 
   - name: out-of-bounds backcountry line keeps its flags
     input:
@@ -43,7 +67,7 @@ examples:
         out_of_bounds: true
         name: Example Bowl
 
-  - name: park area
+  - name: park area (run areas carry no rank or direction)
     input:
       source: osm
       geometry: polygon
@@ -52,6 +76,8 @@ examples:
         sb:type: snow_park
         sb:difficulty: unknown
         sb:park: 'yes'
+        sb:rank: '2'
+        sb:oriented: 'yes'
     output:
       layer: piste_area
       geometry: polygon
@@ -60,8 +86,10 @@ examples:
         type: snow_park
         difficulty: unknown
         park: true
+        rank: null
+        oriented: null
 
-  - name: chair lift with occupancy
+  - name: chair lift with occupancy, running uphill as drawn
     input:
       source: osm
       geometry: line
@@ -71,6 +99,7 @@ examples:
         sb:name: Example Express
         sb:ref: '7'
         sb:occupancy: '6'
+        sb:oriented: 'yes'
     output:
       layer: lift
       geometry: line
@@ -80,6 +109,7 @@ examples:
         name: Example Express
         ref: '7'
         occupancy: 6
+        oriented: true
 
   - name: station point
     input:

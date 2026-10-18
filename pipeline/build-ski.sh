@@ -49,7 +49,7 @@ CACHE="$MAPS_ROOT/.cache"
 mkdir -p "$CACHE"
 
 build_one() {
-  local SLUG KEY VERSION BOX SKI_AREA ELEV ELEV_RES OSM_CREDIT_HTML TERRAIN_CREDIT_HTML assigns
+  local SLUG KEY VERSION BOX SKI_AREA ELEV ELEV_RES ELEV_PROJECT CONTOUR_SMOOTH_M OSM_CREDIT_HTML TERRAIN_CREDIT_HTML assigns
   assigns="$(python3 -I "$PIPE/packlib.py" resort "$MAPS_ROOT/resorts.json" "$1")" || die "resorts.json has no usable entry for '$1'"
   eval "$assigns"
   check_box "$BOX"

@@ -21,9 +21,16 @@ In order, it:
                           decision 2026-10-15);
        lift               aerialway in the lift list. Zip lines and goods lifts are dropped; lifecycle keys such as
                           proposed:aerialway are ignored, so only `aerialway` decides;
-       lift_station       aerialway=station within 100 m of a kept lift;
+       lift_station       aerialway=station within 100 m of a kept lift, and the two ends of every kept lift (its
+                          bottom and top terminals) unless a station is already within 40 m of the end;
        ski_area           the resort's own polygon, picked by its OSM id;
-  4. reduces every string to the glyph ranges the app bundles (ADR-015).
+  4. ranks every run line by importance (sb:rank, for the style's overview zooms): 1 for the trunk runs, in each
+     rating the style draws in its own colour (easy, intermediate, advanced, expert, park, unrated) the longest named
+     runs that together make up half of that rating's named in-bounds run length; 3 for runs under 300 m (a named
+     run's length summed over all its ways, an unnamed way's own length); 2 for the others;
+  5. reduces every string to the glyph ranges the app bundles (ADR-015).
+
+orient.py then turns runs downhill and lifts uphill from the elevation model (ski.sh runs it after the contours).
 
 Outputs: an OSM XML file whose elements carry only `sb:*` tags (osmium turns it into the PBF that
 ski-overlay.yml reads through Planetiler), a GeoJSON file of the kept features (read by coverage.py) and a JSON
@@ -61,6 +68,19 @@ UNGROOMED_GROOMING = {'backcountry', 'mogul', 'no'}
 UNGROOMED_DIFFICULTY = {'freeride', 'extreme'}
 PARK_TAGS = (('amenity', 'snow_park'), ('leisure', 'snow_park'), ('man_made', 'piste:halfpipe'))
 FLAG_KEYS = {'sb:ungroomed', 'sb:gladed', 'sb:park', 'sb:out_of_bounds'}
+# Run importance (sb:rank): within each rating, the trunk runs (rank 1) are the longest named in-bounds runs that
+# together make up this share of that rating's named in-bounds run length; runs shorter than MINOR_RUN_M are minor
+# (rank 3). Ranked per rating since the review of 2026-10-17: one share for the whole resort gave the trunk to the long
+# blue cruisers, and short expert runs never had it (8% of Mammoth's expert length, none of Big White's).
+TRUNK_SHARE = 0.5
+MINOR_RUN_M = 300.0
+# The ratings as the style colours a run, the harder first: a named run split equally between two belongs to the harder.
+RATINGS = ('expert', 'advanced', 'intermediate', 'easy', 'park', 'unrated')
+RATING_OF_DIFFICULTY = {'novice': 'easy', 'easy': 'easy', 'intermediate': 'intermediate', 'advanced': 'advanced',
+                        'expert': 'expert', 'freeride': 'expert', 'extreme': 'expert'}
+# A lift's end is a station of its own unless a kept station is this close (an OSM station node at the end, or a
+# station building's centre beside it).
+LIFT_END_STATION_M = 40.0
 
 
 class InputError(Exception):
@@ -241,6 +261,58 @@ def glyph_safe(value, ranges):
             out.append(ch)
     text = re.sub(r'\s+', ' ', ''.join(out)).strip()
     return text or None
+
+
+# --- ranks -----------------------------------------------------------------------------------------------------
+
+def rating_of(difficulty, park):
+    """The rating a run is drawn in (build-style.mjs runColour): parks orange whatever their difficulty, else by
+    difficulty; anything unrated is 'unrated'."""
+    return 'park' if park else RATING_OF_DIFFICULTY.get(difficulty, 'unrated')
+
+
+def run_ranks(runs, trunk_share=TRUNK_SHARE, minor_m=MINOR_RUN_M):
+    """Ranks run lines by importance. `runs` is a list of (name or None, length in metres, out of bounds, rating);
+    returns (ranks in the same order, per rating with named in-bounds runs: how many, how many are trunk runs and
+    the length of the shortest trunk run).
+
+    A named run is all the ways of that name, whose lengths add up; it belongs to the rating holding most of its
+    in-bounds length (equal lengths: the harder rating, in RATINGS order). In each rating, its trunk runs (rank 1) are
+    the longest of its named runs with at least one in-bounds way, taken longest first (ties by name) until they make
+    up `trunk_share` of the rating's named in-bounds length. Runs shorter than `minor_m` (a named run's total, an
+    unnamed way's own length) are rank 3, the others rank 2."""
+    totals, inbound, split = {}, {}, {}
+    for name, length, oob, rating in runs:
+        if rating not in RATINGS:
+            raise InputError(f'unknown rating {rating!r}')
+        if name:
+            totals[name] = totals.get(name, 0.0) + length
+            if not oob:
+                inbound[name] = inbound.get(name, 0.0) + length
+                by = split.setdefault(name, {})
+                by[rating] = by.get(rating, 0.0) + length
+    home = {n: max(RATINGS, key=lambda g: (split[n].get(g, 0.0), -RATINGS.index(g))) for n in inbound}
+    trunk, stats = set(), {}
+    for rating in RATINGS:
+        names = sorted((n for n in inbound if home[n] == rating), key=lambda n: (-totals[n], n))
+        if not names:
+            continue
+        target = trunk_share * sum(inbound[n] for n in names)
+        acc, taken, shortest = 0.0, 0, None
+        for name in names:
+            if acc >= target:
+                break
+            trunk.add(name)
+            acc += inbound[name]
+            taken += 1
+            shortest = totals[name]
+        stats[rating] = {'named_runs': len(names), 'trunk_runs': taken,
+                         'shortest_trunk_run_m': round(shortest) if shortest is not None else None}
+    ranks = []
+    for name, length, _, _ in runs:
+        size = totals[name] if name else length
+        ranks.append(1 if name in trunk else 3 if size < minor_m else 2)
+    return ranks, stats
 
 
 # --- overrides -------------------------------------------------------------------------------------------------
@@ -473,6 +545,7 @@ def run(a):
             return 'snow_park', None
         return None, None
 
+    run_lines = []   # indexes in kept of the run lines, for their ranks
     candidates = [('way', wid, ways[wid]['tags']) for wid in sorted(ways)]
     candidates += [('relation', rid, rels[rid]['tags']) for rid in sorted(rels) if rels[rid]['tags'].get('type') == 'multipolygon']
     for otype, oid, t in candidates:
@@ -559,9 +632,21 @@ def run(a):
             report['outside_ski_area_in_bounds'].append(info)
         geom = ({'type': 'Polygon', 'coordinates': rings_ll} if area else {'type': 'LineString', 'coordinates': coords})
         kept.append((otype, oid, sb, geom, {'out_of_bounds': oob, 'in_frac': round(in_frac, 3), **size}))
+        if not area:
+            run_lines.append(len(kept) - 1)
+
+    # Ranks: the trunk runs, minor runs and the others (the style draws the overview zooms by rank).
+    ranks, by_rating = run_ranks([(kept[i][2].get('sb:name'), kept[i][4]['length_m'], kept[i][4]['out_of_bounds'],
+                                   rating_of(kept[i][2]['sb:difficulty'], kept[i][2].get('sb:park') == 'yes'))
+                                  for i in run_lines])
+    for i, rank in zip(run_lines, ranks):
+        kept[i][2]['sb:rank'] = str(rank)
+    report['ranks'] = {'trunk_share': TRUNK_SHARE, 'trunk_per': 'rating', 'minor_run_m': MINOR_RUN_M,
+                       'ratings': by_rating, 'runs': {str(r): ranks.count(r) for r in (1, 2, 3)}}
 
     # 5. Lifts.
     lift_segments = []
+    lift_ends = set()   # node ids of the kept lifts' ends
     for wid in sorted(ways):
         t = ways[wid]['tags']
         kind = t.get('aerialway')
@@ -593,6 +678,7 @@ def run(a):
             sb['sb:occupancy'] = str(int(occ))
         xy = [proj(*p) for p in coords]
         lift_segments += list(zip(xy, xy[1:]))
+        lift_ends.update((ways[wid]['nds'][0], ways[wid]['nds'][-1]))
         kept.append(('way', wid, sb, {'type': 'LineString', 'coordinates': coords}, {'length_m': round(line_length(xy))}))
 
     # 6. Lift stations near a kept lift.
@@ -626,6 +712,19 @@ def run(a):
             sb['sb:name'] = name
         geom = {'type': 'Point', 'coordinates': list(centre)}
         kept.append((otype, oid, sb, geom, {}))
+
+    # The two ends of every kept lift are its terminals: a station each, unless a kept station is already within
+    # LIFT_END_STATION_M (OpenStreetMap maps many terminals only as the lift's end node, or not at all).
+    station_xy = [proj(*k[3]['coordinates']) for k in kept if k[2]['sb:layer'] == 'lift_station']
+    station_nodes = {k[1] for k in kept if k[0] == 'node' and k[2]['sb:layer'] == 'lift_station'}
+    report['lift_end_stations'] = 0
+    for nid in sorted(lift_ends):
+        p = proj(*nodes[nid])
+        if nid in station_nodes or any(math.hypot(p[0] - q[0], p[1] - q[1]) <= LIFT_END_STATION_M for q in station_xy):
+            continue
+        kept.append(('node', nid, {'sb:layer': 'lift_station'}, {'type': 'Point', 'coordinates': list(nodes[nid])}, {'lift_end': True}))
+        station_xy.append(p)
+        report['lift_end_stations'] += 1
 
     # 7. The ski area itself.
     sb = {'sb:layer': 'ski_area'}
@@ -663,7 +762,7 @@ def features(kept):
                 continue
             if k in FLAG_KEYS:
                 props[k[3:]] = True
-            elif k == 'sb:occupancy':
+            elif k in ('sb:occupancy', 'sb:rank'):
                 props[k[3:]] = int(v)
             else:
                 props[k[3:]] = v

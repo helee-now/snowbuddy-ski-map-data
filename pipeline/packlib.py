@@ -13,7 +13,18 @@
   packlib.py recorded FIELD RESORTS.json SLUG [PACK.json]
                                                 prints a built pack's recorded osm_timestamp or ski_sha256: from the
                                                 resort's entry (the public data repository's resorts.json carries
-                                                them), else from its record packs/<key>/pack.json; exit 1 if none
+                                                them), else from its record packs/<key>/pack.json; exit 1 if none.
+                                                A new version without a record yet takes the osm_timestamp of the
+                                                newest earlier version's record (packs/<slug>-v<N>/pack.json), so a
+                                                pack rebuilt for new elevation keeps its runs and lifts
+  packlib.py tnm-tiles ANSWER.json PROJECT      prints the GeoTIFF URLs of one 3DEP project in an answer of The
+                                                National Map's product API, sorted (fetch-dem.sh 3dep1)
+  packlib.py stac-assets ANSWER.json ASSET      prints the ASSET hrefs of the items in a STAC item search answer,
+                                                sorted (fetch-dem.sh hrdem1)
+  packlib.py lidar-plan COVERAGE_JSON MIN_PCT   what fetch-dem.sh does with a 1 m window whose coverage (dem.py
+                                                coverage) it is given: prints `fill` (any pixel of the window missing,
+                                                by the exact count) or `none`; exit 1 when the lidar holds less than
+                                                MIN_PCT of the box, 2 when the coverage has no count of missing pixels
   packlib.py verify-log LOG                     exit 0 if a `planetiler verify` log passed every example
   packlib.py record OUT.json KEY=VALUE...       writes a JSON object (values that parse as JSON are kept typed)
 
@@ -32,6 +43,7 @@ MIN_BOX_SIDE_DEG = 0.01   # about 1 km
 KEY_RE = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*-v[1-9][0-9]*$')
 SLUG_RE = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
 OSM_ID_RE = re.compile(r'^(way|relation)/[1-9][0-9]*$')
+PROJECT_RE = re.compile(r'^[A-Za-z0-9_]+$')
 
 
 def parse_box(text):
@@ -123,11 +135,106 @@ def resort_entry(resorts, slug):
         raise ValueError(f'{slug}: elevation source {entry.get("elevation")!r} is not in elevation_sources')
     if not re.search(r'<a href="https://[^"]+">', elev.get('credit_html', '')):
         raise ValueError(f'{slug}: the elevation credit must be linked HTML (<a href="https://...">)')
+    project = entry.get('elevation_project', '')
+    if project and not PROJECT_RE.match(project):
+        raise ValueError(f'{slug}: bad elevation_project {project!r}')
+    if elev.get('needs_project') and not project:
+        raise ValueError(f'{slug}: elevation source {entry["elevation"]!r} needs elevation_project (the tiles to read)')
+    if project and not elev.get('needs_project'):
+        raise ValueError(f'{slug}: elevation source {entry["elevation"]!r} takes no elevation_project')
+    smooth = elev.get('contour_smoothing_m', 0)
+    if not isinstance(smooth, (int, float)) or isinstance(smooth, bool) or not 0 <= smooth <= 100:
+        raise ValueError(f'{slug}: contour_smoothing_m must be a number of metres from 0 to 100')
     return {
         'SLUG': slug, 'KEY': key, 'VERSION': str(entry['version']), 'BOX': box,
         'SKI_AREA': entry['ski_area'], 'ELEV': entry['elevation'], 'ELEV_RES': str(elev['resolution_m']),
+        'ELEV_PROJECT': project, 'CONTOUR_SMOOTH_M': fmt(float(smooth)),
         'OSM_CREDIT_HTML': resorts['credits']['osm_html'], 'TERRAIN_CREDIT_HTML': elev['credit_html'],
     }
+
+
+def earlier_record(pack_json, slug, field):
+    """The field from the newest record of an earlier version of the resort, next to PACK.json's folder
+    (packs/<slug>-v<N>/pack.json with N below the version in PACK.json's folder name), as (value, folder) or None."""
+    folder = os.path.dirname(os.path.abspath(pack_json))
+    m = re.match(rf'^{re.escape(slug)}-v([1-9][0-9]*)$', os.path.basename(folder))
+    if not m:
+        return None
+    version = int(m.group(1))
+    packs = os.path.dirname(folder)
+    found = []
+    for name in os.listdir(packs) if os.path.isdir(packs) else []:
+        mm = re.match(rf'^{re.escape(slug)}-v([1-9][0-9]*)$', name)
+        if mm and int(mm.group(1)) < version and os.path.exists(os.path.join(packs, name, 'pack.json')):
+            found.append((int(mm.group(1)), name))
+    for _, name in sorted(found, reverse=True):
+        with open(os.path.join(packs, name, 'pack.json'), encoding='utf-8') as f:
+            value = json.load(f).get(field)
+        if value:
+            return value, name
+    return None
+
+
+HTTPS_TIF_RE = re.compile(r'^https://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+-]+\.tif$')
+
+
+def tnm_tiles(doc, project):
+    """The GeoTIFF URLs of one 3DEP project in a TNM product API answer, sorted. Refuses an answer that says it
+    holds more products than it lists (another page would be needed)."""
+    if not PROJECT_RE.match(project or ''):
+        raise ValueError(f'bad 3DEP project {project!r}')
+    items = doc.get('items')
+    if not isinstance(items, list):
+        raise ValueError('not a product API answer (no items)')
+    total = doc.get('total')
+    if isinstance(total, int) and total > len(items):
+        raise ValueError(f'the answer lists {len(items)} of {total} products; ask for more per page')
+    urls = set()
+    for it in items:
+        url = it.get('downloadURL') if isinstance(it, dict) else None
+        if isinstance(url, str) and f'/Projects/{project}/TIFF/' in url:
+            if not HTTPS_TIF_RE.match(url):
+                raise ValueError(f'unexpected tile URL {url!r}')
+            urls.add(url)
+    return sorted(urls)
+
+
+class LidarRefused(ValueError):
+    """The lidar holds too little of the box for a 1 m source."""
+
+
+def lidar_plan(coverage, min_box_pct):
+    """'fill' or 'none' for a 1 m window with this coverage (dem.py coverage); LidarRefused when the lidar holds too
+    little of the box, so the resort stays on a coarser model rather than a mosaic of two resolutions. Holes are
+    filled whenever any pixel of the window is missing, by the exact count: the shares are rounded to 3 decimals and
+    read 100.0 with up to about 128 pixels missing in a Mammoth-sized window, which would have stayed holes. KeyError
+    or ValueError without a valid count."""
+    box_pct = float(coverage['box_pct'])
+    if box_pct < min_box_pct:
+        raise LidarRefused(f'the lidar holds {box_pct}% of the box, under {min_box_pct}%')
+    missing = coverage['window_missing_px']
+    if not isinstance(missing, int) or isinstance(missing, bool) or missing < 0:
+        raise ValueError(f'bad count of missing pixels {missing!r}')
+    return 'fill' if missing > 0 else 'none'
+
+
+def stac_assets(doc, asset):
+    """The hrefs of one asset of every item in a STAC item search answer, sorted. Refuses a partial answer."""
+    feats = doc.get('features')
+    if not isinstance(feats, list):
+        raise ValueError('not a STAC item search answer (no features)')
+    matched = doc.get('numberMatched')
+    if (isinstance(matched, int) and matched > len(feats)) or any(isinstance(l, dict) and l.get('rel') == 'next' for l in doc.get('links') or []):
+        raise ValueError('the answer has more items than it lists; ask for more per page')
+    urls = set()
+    for f in feats:
+        href = ((f.get('assets') or {}).get(asset) or {}).get('href') if isinstance(f, dict) else None
+        if href is None:
+            continue
+        if not isinstance(href, str) or not HTTPS_TIF_RE.match(href):
+            raise ValueError(f'unexpected asset URL {href!r}')
+        urls.add(href)
+    return sorted(urls)
 
 
 def verify_log_ok(text):
@@ -202,9 +309,29 @@ def main(argv):
                     record = json.load(f)
                 value = record.get('osm_timestamp') if field == 'osm_timestamp' else next(
                     (x['sha256'] for x in record.get('files', []) if x.get('role') == 'ski'), None)
+            elif not value and len(args) > 3 and field == 'osm_timestamp':
+                # A new version: the OSM data of the newest earlier version, never its ski file's hash.
+                earlier = earlier_record(args[3], slug, field)
+                if earlier:
+                    value = earlier[0]
+                    print(f'packlib recorded: no record of this version yet; the OSM data of {earlier[1]}', file=sys.stderr)
             if not value:
                 return 1
             print(value)
+            return 0
+        if cmd == 'lidar-plan':
+            try:
+                print(lidar_plan(json.loads(args[0]), float(args[1])))
+            except LidarRefused as err:
+                print(f'packlib lidar-plan: {err}', file=sys.stderr)
+                return 1
+            return 0
+        if cmd in ('tnm-tiles', 'stac-assets'):
+            with open(args[0], encoding='utf-8') as f:
+                doc = json.load(f)
+            urls = tnm_tiles(doc, args[1]) if cmd == 'tnm-tiles' else stac_assets(doc, args[1])
+            for url in urls:
+                print(url)
             return 0
         if cmd == 'verify-log':
             with open(args[0], encoding='utf-8', errors='replace') as f:

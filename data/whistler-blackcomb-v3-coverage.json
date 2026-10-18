@@ -1,6 +1,6 @@
 {
-  "key": "whistler-blackcomb-v2",
-  "ski_sha256": "0d3663fce69c1596d03b128c9c88d265616b96d2222f73ca8d109beba6f5c020",
+  "key": "whistler-blackcomb-v3",
+  "ski_sha256": "ff73c9a03c7c9484f2a4a3137401acd1df8b16e62c22bd1948ae9b37e261a366",
   "osm_timestamp": "2026-10-15T06:13:50Z",
   "box": [
     -123.08,
@@ -27,7 +27,7 @@
     "run_areas_in_bounds": 72,
     "runs_out_of_bounds": 24,
     "run_areas_out_of_bounds": 0,
-    "lift_stations": 20,
+    "lift_stations": 68,
     "ski_area": 1,
     "other_lifts_and_runs": 2
   },

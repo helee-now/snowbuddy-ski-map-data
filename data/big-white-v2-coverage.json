@@ -1,6 +1,6 @@
 {
-  "key": "big-white-v1",
-  "ski_sha256": "ccb514d1eac053d2e30cf1355592cab2542d516f1d269dcc6716a04d1a0b1b82",
+  "key": "big-white-v2",
+  "ski_sha256": "2441855b7379ad42f1de4f2e7fa815755a8926626e387ab01b00d11bbef3921a",
   "osm_timestamp": "2026-10-15T06:15:47Z",
   "box": [
     -119.01,
@@ -27,7 +27,7 @@
     "run_areas_in_bounds": 3,
     "runs_out_of_bounds": 0,
     "run_areas_out_of_bounds": 0,
-    "lift_stations": 24,
+    "lift_stations": 31,
     "ski_area": 1,
     "other_lifts_and_runs": 0
   },

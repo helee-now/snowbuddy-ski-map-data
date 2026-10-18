@@ -44,9 +44,11 @@
         "park": "Boolean",
         "out_of_bounds": "Boolean",
         "name": "String",
-        "ref": "String"
+        "ref": "String",
+        "rank": "Number",
+        "oriented": "Boolean"
       },
-      "required": ["type", "difficulty"]
+      "required": ["type", "difficulty", "rank"]
     },
     "piste_area": {
       "geometry": "polygon",
@@ -71,7 +73,8 @@
         "kind": "String",
         "name": "String",
         "ref": "String",
-        "occupancy": "Number"
+        "occupancy": "Number",
+        "oriented": "Boolean"
       },
       "required": ["kind"]
     },
@@ -106,7 +109,14 @@
     "difficulty": ["novice", "easy", "intermediate", "advanced", "expert", "freeride", "extreme", "unknown"],
     "piste_type": ["downhill", "snow_park", "playground", "connection"],
     "dropped_piste_types": ["nordic", "skitour", "snowshoe"],
-    "lift_kind": ["cable_car", "gondola", "mixed_lift", "chair_lift", "drag_lift", "t-bar", "j-bar", "platter", "rope_tow", "magic_carpet"]
+    "lift_kind": ["cable_car", "gondola", "mixed_lift", "chair_lift", "drag_lift", "t-bar", "j-bar", "platter", "rope_tow", "magic_carpet"],
+    "rank": [1, 2, 3]
+  },
+  "field_notes": {
+    "piste.rank": "importance, from normalize_osm.py: 1 the trunk runs (within each rating as the style colours it, the longest named runs making up half of that rating's named in-bounds run length), 3 runs under 300 m, 2 the others",
+    "piste.oriented": "the line runs downhill as drawn, checked against the elevation model (orient.py); absent when too flat or ambiguous: no arrows",
+    "lift.oriented": "the line runs uphill as drawn, checked against the elevation model (orient.py)",
+    "lift_station": "OpenStreetMap stations within 100 m of a kept lift, and the two ends of every kept lift unless a station is within 40 m"
   },
   "contours": {
     "interval_m": 20,

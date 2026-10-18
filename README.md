@@ -9,17 +9,17 @@ repository holds the files the app ships, their build records, and the scripts t
 
 | Resort | Ski file | OSM data of | Bytes | SHA-256 (all in `SHA256SUMS`) |
 |---|---|---|---|---|
-| Whistler Blackcomb | [`data/whistler-blackcomb-v2-ski.pmtiles`](data/whistler-blackcomb-v2-ski.pmtiles) | 2026-10-15 06:13:50 UTC | 872,075 | `0d3663fce69c1596…` |
-| Big White | [`data/big-white-v1-ski.pmtiles`](data/big-white-v1-ski.pmtiles) | 2026-10-15 06:15:47 UTC | 160,253 | `ccb514d1eac053d2…` |
-| Mammoth Mountain | [`data/mammoth-mountain-v1-ski.pmtiles`](data/mammoth-mountain-v1-ski.pmtiles) | 2026-10-15 06:16:51 UTC | 247,816 | `26210726f2cb2ed6…` |
+| Whistler Blackcomb | [`data/whistler-blackcomb-v3-ski.pmtiles`](data/whistler-blackcomb-v3-ski.pmtiles) | 2026-10-15 06:13:50 UTC | 838,922 | `ff73c9a03c7c9484…` |
+| Big White | [`data/big-white-v2-ski.pmtiles`](data/big-white-v2-ski.pmtiles) | 2026-10-15 06:15:47 UTC | 159,044 | `2441855b7379ad42…` |
+| Mammoth Mountain | [`data/mammoth-mountain-v2-ski.pmtiles`](data/mammoth-mountain-v2-ski.pmtiles) | 2026-10-15 06:16:51 UTC | 220,545 | `c2ef3f52f95a4917…` |
 
 | Resort | Box (W, S, E, N) | Ski-area boundary in OSM | Contours from |
 |---|---|---|---|
 | Whistler Blackcomb | -123.08, 49.98, -122.83, 50.17 | [way/474288286](https://www.openstreetmap.org/way/474288286) | NRCan MRDEM-30 DTM |
 | Big White | -119.01, 49.68, -118.88, 49.78 | [way/476836855](https://www.openstreetmap.org/way/476836855) | NRCan MRDEM-30 DTM |
-| Mammoth Mountain | -119.1, 37.59, -118.96, 37.68 | [way/682231907](https://www.openstreetmap.org/way/682231907) | USGS 3DEP 1/3 arc-second |
+| Mammoth Mountain | -119.1, 37.59, -118.96, 37.68 | [way/682231907](https://www.openstreetmap.org/way/682231907) | USGS 3DEP 1 m DEM |
 
-OpenStreetMap data of 2026-10-15: 06:13:50 UTC for Whistler Blackcomb, 06:15:47 UTC for Big White and 06:16:51 UTC for Mammoth Mountain. Built on 2026-10-15.
+OpenStreetMap data of 2026-10-15: 06:13:50 UTC for Whistler Blackcomb, 06:15:47 UTC for Big White and 06:16:51 UTC for Mammoth Mountain. Built on 2026-10-18.
 
 > **Not for navigation or safety decisions.** Run ratings come from OpenStreetMap and can differ from the resort's own
 > signs and trail map. Lines marked out of bounds lie outside the resort boundary. Always follow the resort's signs,
@@ -33,10 +33,10 @@ fields are present only when true):
 
 | Layer | Geometry | From zoom | Fields |
 |---|---|---|---|
-| `piste` | line | 11 | `type` (downhill, snow_park, playground, connection), `difficulty` (novice, easy, intermediate, advanced, expert, freeride, extreme, unknown), `ungroomed`, `gladed`, `park`, `out_of_bounds`, `name`, `ref` |
-| `piste_area` | polygon | 11 | as `piste` |
-| `lift` | line | 10 | `kind` (the OSM `aerialway` value), `name`, `ref`, `occupancy` |
-| `lift_station` | point | 13 | `name` |
+| `piste` | line | 11 | `type` (downhill, snow_park, playground, connection), `difficulty` (novice, easy, intermediate, advanced, expert, freeride, extreme, unknown), `ungroomed`, `gladed`, `park`, `out_of_bounds`, `name`, `ref`, `rank` (1 trunk run, 2 other, 3 minor), `oriented` (runs downhill as drawn, checked against the elevation model) |
+| `piste_area` | polygon | 11 | as `piste`, without `rank` and `oriented` |
+| `lift` | line | 10 | `kind` (the OSM `aerialway` value), `name`, `ref`, `occupancy`, `oriented` (runs uphill as drawn) |
+| `lift_station` | point | 13 | `name`; also the two ends of every lift, unnamed, where no station is within 40 m |
 | `ski_area` | polygon | 9 | `name`: the resort's own boundary, chosen by its OSM id |
 | `contour` | line | 11 (index), 14 (all) | `ele` in metres every 20 m, `idx` on every 100 m line |
 
@@ -51,10 +51,25 @@ How OpenStreetMap tags become these fields (`pipeline/normalize_osm.py`):
   parks and halfpipes.
 - Left out: nordic, ski-touring and snowshoe trails, winter hiking, sledding and sleigh trails, zip lines and goods
   lifts. Lifts are chosen by `aerialway` alone (lifecycle keys such as `proposed:aerialway` are ignored), and lift
-  stations only within 100 m of a kept lift.
+  stations only within 100 m of a kept lift; each lift's two ends are stations too, unless one is within 40 m.
+- `rank` (run lines): a named run is all its ways, their lengths added up, and belongs to the rating that holds most
+  of its in-bounds length (easy, intermediate, advanced, expert with freeride and extreme, park, unrated). Rank 1 are,
+  within each rating, the longest named runs with an in-bounds way, taken longest first until they make up half of
+  that rating's named in-bounds run length; rank 3 are runs under 300 m (an unnamed way counts its own length); rank 2
+  the others.
 - Text is reduced to the characters the app's map fonts can draw (Unicode 0–1023 and 8192–8447).
 - `resorts/<slug>.overrides.json` holds the corrections applied on top of OpenStreetMap, each with a reason and the OSM
   value it expects; when OpenStreetMap changes, the build stops, so a fix made in OSM is never overwritten silently.
+
+### Directions
+
+`pipeline/orient.py` reads the elevation model every 10 m along each run (smoothed over 20 m on each side). A run
+whose ends are at least 10 m and 3% of its length apart, with climbs on the way down (rises of more than 3 m) adding
+up to at most 30% of that drop, is written to run downhill (reversed if OpenStreetMap draws it uphill) and marked
+`oriented`; others keep OpenStreetMap's direction without the mark. Ways of one run join end to end where no third
+way with the same fields ends: marked ways only head to tail, unmarked ones either way round, so two runs flowing into
+one junction never become one line. Lifts are decided the same way, uphill, with 5% instead of 3%. An arrow drawn
+along a marked line follows the run's direction of travel; on unmarked lines the direction is not known.
 
 ### Run ratings
 
@@ -122,7 +137,7 @@ Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Big Whi
 
   Nothing here implies endorsement by Natural Resources Canada or the Government of Canada.
 
-- **USGS 3DEP 1/3 arc-second** (10 m), for Mammoth Mountain: Public domain (U.S. Geological Survey) (https://www.usgs.gov/3d-elevation-program). Data: https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/
+- **USGS 3DEP 1 m DEM** (1 m), for Mammoth Mountain: Public domain (U.S. Geological Survey) (https://www.usgs.gov/3d-elevation-program). Data: https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/
 
   > 3DEP data courtesy of the U.S. Geological Survey.
 
@@ -130,9 +145,9 @@ Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Big Whi
 the Open Database License 1.0: https://opendatacommons.org/licenses/odbl/1-0/"), and the credit as linked HTML, in
 `attribution`:
 
-- `whistler-blackcomb-v2-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://open.canada.ca/en/open-government-licence-canada">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)`
-- `big-white-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://open.canada.ca/en/open-government-licence-canada">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)`
-- `mammoth-mountain-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `whistler-blackcomb-v3-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://open.canada.ca/en/open-government-licence-canada">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)`
+- `big-white-v2-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://open.canada.ca/en/open-government-licence-canada">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)`
+- `mammoth-mountain-v2-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 
 ## Licence
 
@@ -166,16 +181,19 @@ published one. Per resort it:
    it, and reused only for the same query: the same box, date and selection. With `--osm-date` the query carries
    `[date:"…"]`. Overpass reports its current time in a date-pinned answer, so the date asked for is what the file
    records;
-3. normalises the answer (`normalize_osm.py`), writes a PBF with the data timestamp in its header (osmium), and checks
-   the box (`coverage.py`);
-4. reads the needed blocks of the elevation model over HTTPS (`fetch-dem.sh`) and draws contours on a 10 m grid
-   (`contours.sh`, GDAL);
-5. builds the tiles with Planetiler (`ski-overlay.yml`).
+3. normalises the answer and ranks the runs (`normalize_osm.py`), and checks the box (`coverage.py`);
+4. reads the needed blocks of the elevation model over HTTPS (`fetch-dem.sh`: a 1 m lidar model is found in its
+   catalogue, The National Map's product API for 3DEP, and averaged onto a 4.8 m grid) and draws contours on a 10 m
+   grid (`contours.sh`, GDAL; contours from lidar are smoothed with a 15 m Gaussian first, `dem.py`);
+5. turns runs downhill and lifts uphill from the same elevation (`orient.py`, GDAL), and writes a PBF with the data
+   timestamp in its header (osmium);
+6. builds the tiles with Planetiler (`ski-overlay.yml`).
 
 The tools run in Docker images pinned by digest in `pipeline/lib.sh`: `ghcr.io/osgeo/gdal:ubuntu-small-3.13.3@sha256:64250faf833c06d4b21afce4c27190039ba7ab58d70f0eebc87cf77d929c0b40` and `ghcr.io/onthegomap/planetiler:0.10.2@sha256:cf32202dbc001a9ab4bc11534b642b13de3798179817da8558e567a3d13dd403`, plus osmium 1.18.0 built from `pipeline/docker/osmium` on a Debian image pinned by digest.
 
 With the recorded OSM data and unchanged elevation models the rebuild is byte-identical to `data/`. The publishers can
-update the elevation models (3DEP's "current" tiles in particular), and then the contours, and the file, differ.
+update the elevation models (3DEP's "current" 1/3″ tiles in particular, or a 3DEP project's 1 m tiles), and then the
+contours, and the file, differ.
 
 The scripts come from the SnowBuddy app's repository, where they are tested and also build the rest of each map pack
 (the base map and the hillshade, which are not published here); comments that mention `build-pack.sh`,

@@ -1,7 +1,7 @@
 # Planetiler custom-map profile: the SnowBuddy ski overlay, the second vector source of a resort pack (ADR-036).
 #
-# Input: the resort's PBF, written by osmium from normalize_osm.py's output (its elements carry only sb:* tags, so
-# all the OSM logic lives in normalize_osm.py), and the contour GeoPackage from contours.sh.
+# Input: the resort's PBF, written by osmium from normalize_osm.py's output after orient.py (its elements carry only
+# sb:* tags, so all the OSM logic lives in those two scripts), and the contour GeoPackage from contours.sh.
 # Layers, fields and zooms must match pack-schema.json: the packs test compares the archive's vector_layers with it.
 # Boolean fields are written only when true, so a missing field means false.
 #
@@ -58,6 +58,41 @@ definitions:
       tag_value: sb:name
     - key: ref
       tag_value: sb:ref
+  # Run lines: the attributes above (YAML cannot splice lists, so they are repeated), their importance (1 trunk,
+  # 2 other, 3 minor: normalize_osm.py) and whether they run downhill as drawn, checked against the elevation model
+  # (orient.py): the style draws arrows only on those.
+  run_line_attributes: &run_line_attributes
+    - key: type
+      tag_value: sb:type
+    - key: difficulty
+      tag_value: sb:difficulty
+    - key: ungroomed
+      value: true
+      include_when:
+        sb:ungroomed: 'yes'
+    - key: gladed
+      value: true
+      include_when:
+        sb:gladed: 'yes'
+    - key: park
+      value: true
+      include_when:
+        sb:park: 'yes'
+    - key: out_of_bounds
+      value: true
+      include_when:
+        sb:out_of_bounds: 'yes'
+    - key: name
+      tag_value: sb:name
+    - key: ref
+      tag_value: sb:ref
+    - key: rank
+      tag_value: sb:rank
+      type: integer
+    - key: oriented
+      value: true
+      include_when:
+        sb:oriented: 'yes'
 layers:
   - id: contour
     features:
@@ -80,6 +115,9 @@ layers:
         tolerance_at_max_zoom: 0.25
         buffer: 4
 
+  # No merge_line_strings here: orient.py has already joined the ways of each run end to end (so a run split into
+  # short ways still gets a label), and Planetiler's merge could join two runs that meet head to head, turning half
+  # of the line, and its arrows, uphill.
   - id: piste
     features:
       - source: osm
@@ -87,16 +125,7 @@ layers:
         min_zoom: 11
         include_when:
           sb:layer: piste
-        attributes: *piste_attributes
-    # Joins the ways of one run (same name, rating and flags) so a run split into short ways still gets a label.
-    # Nothing is dropped or simplified again (min_length 0, tolerance -1).
-    tile_post_process:
-      merge_line_strings:
-        min_length: 0
-        min_length_at_max_zoom: 0
-        tolerance: -1
-        tolerance_at_max_zoom: -1
-        buffer: 4
+        attributes: *run_line_attributes
 
   - id: piste_area
     features:
@@ -124,6 +153,11 @@ layers:
           - key: occupancy
             tag_value: sb:occupancy
             type: integer
+          # Runs uphill as drawn, checked against the elevation model (orient.py).
+          - key: oriented
+            value: true
+            include_when:
+              sb:oriented: 'yes'
 
   - id: lift_station
     features:

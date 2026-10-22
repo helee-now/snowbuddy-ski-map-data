@@ -1,0 +1,120 @@
+{
+  "slug": "steamboat",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Checked 2026-10-21 against Steamboat's own trail map (the current map with Mahogany Ridge and Greenhorn Ranch, as OnTheSnow serves it; steamboat.com is behind a bot wall): every rated OSM run name matched the map's symbol, so only the unrated pieces of rated runs get a rating. Howelsen Hill, the city's ski area in town, is left off through resorts.json's neighbours, not here. Two terrain parks are rated runs in OSM; Maverick's Halfpipe needs nothing (man_made=piste:halfpipe) and Perry Park is a black-diamond run on the map, not a park. The Wildhorse Gondola stays drawn: a working gondola that skiers staying at Wildhorse Meadows use to reach the base (lead's decision 2026-10-22). The Hike Out, which the map draws as an unrated dotted path out of Fish Creek Canyon, is hidden as the pipeline leaves out hiking trails (review of 2026-10-21).",
+  "overrides": [
+    {
+      "id": "way/697652161",
+      "reason": "Terrain park (Rabbit Ears Terrain Park on the map) without a park tag in OSM.",
+      "expect": { "name": "Rabbit Ears Terrain Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/144866024",
+      "reason": "Terrain park (Lil' Rodeo Terrain Park on the map) without a park tag in OSM.",
+      "expect": { "name": "Lil' Rodeo Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/862397841",
+      "reason": "Odd capital; the map and the run's other way say Alarm Clock (one run split into two names).",
+      "expect": { "name": "Alarm CLock" },
+      "set": { "name": "Alarm Clock" }
+    },
+    {
+      "id": "way/902039595",
+      "reason": "The map spells it FOOLS GOLD, as the run's other way does (one run split into two names).",
+      "expect": { "name": "Fool's Gold" },
+      "set": { "name": "Fools Gold" }
+    },
+    {
+      "id": "way/771497807",
+      "reason": "The map spells it JESS' CUT-OFF; OSM has two spellings for one run (Jess' Cut Off, Jess' Cutoff).",
+      "expect": { "name": "Jess' Cut Off" },
+      "set": { "name": "Jess' Cut-Off" }
+    },
+    {
+      "id": "way/144866028",
+      "reason": "The map spells it JESS' CUT-OFF; OSM has two spellings for one run (Jess' Cut Off, Jess' Cutoff).",
+      "expect": { "name": "Jess' Cutoff" },
+      "set": { "name": "Jess' Cut-Off" }
+    },
+    {
+      "id": "way/771497809",
+      "reason": "The map spells it YOO HOO, as the run's other way does (one run split into two names).",
+      "expect": { "name": "Yoo-Hoo" },
+      "set": { "name": "Yoo Hoo" }
+    },
+    {
+      "id": "way/1049322883",
+      "reason": "The map spells it PONY EXPRESS LIFTLINE, as the run's other way does; the 143 m piece under its own spelling was a minor run hidden at z11-12.",
+      "expect": { "name": "Pony Express Lift Line" },
+      "set": { "name": "Pony Express Liftline" }
+    },
+    {
+      "id": "way/387939513",
+      "reason": "Lowercase word; the map labels it SNOOZE BAR.",
+      "expect": { "name": "Snooze bar" },
+      "set": { "name": "Snooze Bar" }
+    },
+    {
+      "id": "way/376743403",
+      "reason": "Lowercase word; the map labels it SOUTH PEAK FLATS.",
+      "expect": { "name": "South Peak flats" },
+      "set": { "name": "South Peak Flats" }
+    },
+    {
+      "id": "way/397898190",
+      "reason": "A description, not a run name (seven more ways carry it, all piste:type=yes and dropped); the resort's map names no such run. Shown unnamed.",
+      "expect": { "name": "Ski-in/ski-out access trail", "piste:type": "downhill" },
+      "set": { "name": null }
+    },
+    {
+      "id": "way/1213474443",
+      "reason": "A description, not a run name: the traverse from the top of the Mahogany Ridge Express to the Pony Express top at Last Chance, which the resort's map draws as an unlabelled dashed line with an arrow. Shown unnamed, as the Ski-in/ski-out access trail.",
+      "expect": { "name": "To Pony", "piste:type": "downhill" },
+      "set": { "name": null }
+    },
+    {
+      "id": "way/1282583885",
+      "reason": "Unrated 42 m piece of BC Liftline, which the map and OSM's other piece rate black diamond.",
+      "expect": { "name": "BC Liftline", "piste:difficulty": null },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/252080851",
+      "reason": "Unrated 208 m piece of Heavenly Daze, which the map and OSM's main piece rate blue (intermediate).",
+      "expect": { "name": "Heavenly Daze", "piste:difficulty": null },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1282583890",
+      "reason": "Unrated 54 m piece of Heavenly Daze, which the map and OSM's main piece rate blue (intermediate).",
+      "expect": { "name": "Heavenly Daze", "piste:difficulty": null },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1282583886",
+      "reason": "Unrated 173 m piece of Sunnyside; OSM's other piece is intermediate and the map gives the run its More Difficult (advanced intermediate) blue square with diamond.",
+      "expect": { "name": "Sunnyside", "piste:difficulty": null },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1246223457",
+      "reason": "Hike Out: the walk out of Fish Creek Canyon, from the foot of Endless Gully to the bottom of the Mahogany Ridge Express. The resort's map draws HIKE OUT as a black dotted path with no rating symbol, not a run; tagged as a 2.7 km expert run it would be Steamboat's longest expert line and an expert trunk run in the overview. Hidden, as the pipeline leaves out hiking trails (OSM's Mt. Werner Hike is piste:type=hike and dropped).",
+      "expect": { "name": "Hike Out", "piste:type": "downhill", "piste:difficulty": "expert" },
+      "hide": true
+    },
+    {
+      "id": "way/51722274",
+      "reason": "The resort names the lift Morningside (map label and lift legend); OSM adds Lift.",
+      "expect": { "name": "Morningside Lift", "aerialway": "chair_lift" },
+      "set": { "name": "Morningside" }
+    },
+    {
+      "id": "way/51722278",
+      "reason": "The resort names the lift Bar-UE (lift legend on its trail map), as Wikipedia's lift table does; OSM writes Bar UE.",
+      "expect": { "name": "Bar UE", "aerialway": "chair_lift" },
+      "set": { "name": "Bar-UE" }
+    }
+  ]
+}

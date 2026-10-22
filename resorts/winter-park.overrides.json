@@ -1,0 +1,96 @@
+{
+  "slug": "winter-park",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Checked 2026-10-21 against Winter Park's own winter trail map 2025-26 (the resort's PDF). The map's Extreme Terrain (EX) runs are tagged expert here, like the Cirque's chutes in OSM. Halfpipe and the snow_park runs (Railyard, Re-Railer, Ambush) are parks in OSM already. Lifts that are not Winter Park's are hidden: the tubing hill's carpet and four unnamed surface lifts at a tubing hill in Fraser, north of the box. Wildwood Glade's two outlines, closed ways without area=yes that would draw as dashed blue loops, are hidden until OpenStreetMap marks them as areas (review of 2026-10-22).",
+  "overrides": [
+    {
+      "id": "way/86180660",
+      "reason": "Lowercase name: the pipeline reads piste:name, which is trestle (name is Trestle); the map labels it TRESTLE.",
+      "expect": { "piste:name": "trestle", "name": "Trestle", "piste:difficulty": "advanced" },
+      "set": { "name": "Trestle" }
+    },
+    {
+      "id": "way/1455906518",
+      "reason": "Tripled letter; the map's Cirque key reads 4 - WEST HEADWALL.",
+      "expect": { "name": "West Headwalll" },
+      "set": { "name": "West Headwall" }
+    },
+    {
+      "id": "way/107391916",
+      "reason": "Odd capital; the map labels it OUTRIGGER TRAIL.",
+      "expect": { "name": "OutRigger Trail" },
+      "set": { "name": "Outrigger Trail" }
+    },
+    {
+      "id": "way/107391952",
+      "reason": "A description, not a run name: the 293 m link from Mary Jane to Lower Arrowhead Loop, which the resort's map does not name. Shown unnamed.",
+      "expect": { "name": "To Lower Arrowhead Loop", "piste:type": "downhill" },
+      "set": { "name": null }
+    },
+    {
+      "id": "way/1046554059",
+      "reason": "The map marks 100's as Extreme Terrain (EX, experts only); OSM rates it advanced.",
+      "expect": { "name": "100's", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/410144944",
+      "reason": "The map marks Rollover as Extreme Terrain (EX, experts only); OSM rates it advanced.",
+      "expect": { "name": "Rollover", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/410144945",
+      "reason": "The map marks Eldorado as Extreme Terrain (EX, experts only); OSM rates it advanced.",
+      "expect": { "name": "Eldorado", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/258676847",
+      "reason": "The resort spells the lift ENDEAVOUR (trail map and lift chart).",
+      "expect": { "name": "Endeavor", "aerialway": "chair_lift" },
+      "set": { "name": "Endeavour" }
+    },
+    {
+      "id": "way/1214436867",
+      "reason": "The Coca-Cola Tubing Hill's carpet: not a ski lift.",
+      "expect": { "name": "Tubing", "aerialway": "magic_carpet" },
+      "hide": true
+    },
+    {
+      "id": "way/231512933",
+      "reason": "Unnamed carpet at a tubing hill in Fraser, 3 km north of the resort and outside its polygon: not Winter Park's.",
+      "expect": { "aerialway": "magic_carpet", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/1386518265",
+      "reason": "Unnamed carpet at a tubing hill in Fraser, 3 km north of the resort and outside its polygon: not Winter Park's.",
+      "expect": { "aerialway": "magic_carpet", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/1350330217",
+      "reason": "Unnamed rope tow at a tubing hill in Fraser, 3 km north of the resort and outside its polygon: not Winter Park's.",
+      "expect": { "aerialway": "rope_tow", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/1350330218",
+      "reason": "Unnamed rope tow at a tubing hill in Fraser, 3 km north of the resort and outside its polygon: not Winter Park's.",
+      "expect": { "aerialway": "rope_tow", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/1316201128",
+      "reason": "Wildwood Glade, the smaller of its two outlines: a closed way tagged natural=wood, gladed=yes and piste:type=downhill without area=yes, so the pipeline would draw the glade's outline as an 870 m dashed blue loop and rank it with the intermediate trunk runs (bold at z11-12 below Lunch Rock). The resort's 2025-26 map shows WILDWOOD GLADE as a labelled glade zone between Edelweiss and the Sunnyside Express, with no run line. Hidden until OpenStreetMap tags it area=yes; this expect then stops the build, and the entry goes (review of 2026-10-22).",
+      "expect": { "name": "Wildwood Glade", "piste:type": "downhill", "natural": "wood", "gladed": "yes", "area": null },
+      "hide": true
+    },
+    {
+      "id": "way/1316201134",
+      "reason": "Wildwood Glade, the larger of its two outlines: a closed way tagged natural=wood, gladed=yes and piste:type=downhill without area=yes, so the pipeline would draw the glade's outline as a 2,088 m dashed blue loop and rank it with the intermediate trunk runs. The resort's 2025-26 map shows WILDWOOD GLADE as a labelled glade zone between Edelweiss and the Sunnyside Express, with no run line. Hidden until OpenStreetMap tags it area=yes; this expect then stops the build, and the entry goes (review of 2026-10-22).",
+      "expect": { "name": "Wildwood Glade", "piste:type": "downhill", "natural": "wood", "gladed": "yes", "area": null },
+      "hide": true
+    }
+  ]
+}

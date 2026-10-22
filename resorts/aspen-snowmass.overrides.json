@@ -1,0 +1,318 @@
+{
+  "slug": "aspen-snowmass",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Four mountains on one map. Checked 2026-10-21 against the resort's own sources: the grooming-report trail lists for Snowmass and Buttermilk (aspensnowmass.com, each trail with its rating) and the 2025-26 trail maps of all four mountains (their text layers give the spellings). Ratings follow the resort's maps and lists where they agree, or a map where it alone rates a run, also where OpenStreetMap rates a run one step harder (Grinder, Cookies, Lower Roch Run, Kandahar's start and three Highlands catwalks). Where the resort's own sources disagree on a rating, the harder of their ratings and OpenStreetMap's is kept, so such a run is never drawn easier than any of them (lead's decision 2026-10-22): OSM already holds the harder one at Snowmass's Cabin (black on the map, blue in the list) and Buttermilk's Ridge Trail (listed green and blue). Hidden: the World Cup course outline laid over Aspen Mountain's runs, a private residential chair at Highlands and two residential platters at The Pines (Snowmass), none of them on the resort's maps. Only dedicated terrain parks and pipes the resort lists as such get the park flag (lead's decision 2026-10-22): Buttermilk's Superpipe, Government, Spruce Face, Uncle Chuck's Glades and Alex's Alley, rated runs in OSM, which the resort lists under Pipes/Parks and its map draws inside its Freestyle Terrain Areas. Red's Rover, a green trail with small features, stays green. Extreme Terrain (EX on the maps, whose legends rank it above Expert Only; extreme in the resort's lists) is extreme here, as OSM has Aspen Mountain's T1-T6, Highlands' Audacious and Filip's Leap and Snowmass's Rock Band Chute (review of 2026-10-21).",
+  "overrides": [
+    {
+      "id": "way/1194834859",
+      "reason": "America's Downhill: a 5.5 km unrated outline of the World Cup course laid over Aspen Mountain's runs; it would draw as one large grey run area. Not a run on the resort's map.",
+      "expect": { "name": "America's Downhill", "area": "yes", "piste:type": "downhill", "piste:difficulty": null },
+      "hide": true
+    },
+    {
+      "id": "way/1212154522",
+      "reason": "Five Trees: a private chair from homes beside Aspen Highlands (access=private), not on the resort's map or lift list.",
+      "expect": { "name": "Five Trees", "aerialway": "chair_lift", "access": "private" },
+      "hide": true
+    },
+    {
+      "id": "way/1210150814",
+      "reason": "Pines Upper: a residential platter at The Pines, Snowmass, 270 m outside the ski-area polygon; not on the resort's map or lift list.",
+      "expect": { "name": "Pines Upper", "aerialway": "platter" },
+      "hide": true
+    },
+    {
+      "id": "way/1210150815",
+      "reason": "Pines Lower: a residential platter at The Pines, Snowmass, nine tenths of it outside the ski-area polygon; not on the resort's map or lift list.",
+      "expect": { "name": "Pines Lower", "aerialway": "platter" },
+      "hide": true
+    },
+    {
+      "id": "way/99957848",
+      "reason": "Buttermilk's Superpipe (the X Games pipe; Super Pipe under Pipes/Parks in the resort's list) without a park tag in OSM.",
+      "expect": { "name": "Superpipe", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/99957851",
+      "reason": "Government: a terrain park in the resort's list (Pipes/Parks) and freestyle terrain on its map; OSM has no park tag.",
+      "expect": { "name": "Government", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/99957843",
+      "reason": "Spruce Face: a terrain park in the resort's list (Pipes/Parks) and freestyle terrain on its map; OSM has no park tag.",
+      "expect": { "name": "Spruce Face", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/99961333",
+      "reason": "Uncle Chuck's Glades: a terrain park in the resort's list (Pipes/Parks) and freestyle terrain on its map; OSM has no park tag.",
+      "expect": { "piste:name": "Uncle Chuck's Glades", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/99961337",
+      "reason": "The resort's list now names this park Alex's Alley (formerly Jacob's ladder), under Pipes/Parks; the 2025-26 map still says Jacob's Ladder and draws it as freestyle terrain. OSM has the old name and no park tag.",
+      "expect": { "name": "Jacob's Ladder", "piste:type": "downhill" },
+      "set": { "name": "Alex's Alley", "park": true }
+    },
+    {
+      "id": "way/99962999",
+      "reason": "200 m end of Eagle Hill rated easy; the resort's list and map rate Eagle Hill blue (intermediate), as OSM's other piece is.",
+      "expect": { "name": "Eagle Hill", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/99961332",
+      "reason": "Rabbit Run is blue (intermediate) in the resort's list and on its map; OSM rates it easy.",
+      "expect": { "name": "Rabbit Run", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/99962996",
+      "reason": "The run Magic Carpet (Tiehack) is blue (intermediate) in the resort's list and on its map; OSM rates it easy.",
+      "expect": { "name": "Magic Carpet", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/99961330",
+      "reason": "Parenthesised extra: the resort's list names it Oregon Trail (the map adds the direction, to Tiehack).",
+      "expect": { "piste:name": "Oregon Trail (To Tiehack)", "name": null },
+      "set": { "name": "Oregon Trail" }
+    },
+    {
+      "id": "way/1566846712",
+      "reason": "Grinder is advanced in the resort's list and a black-diamond run on its map; OSM rates it expert.",
+      "expect": { "name": "Grinder", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/556749587",
+      "reason": "Cookies is advanced in the resort's list and a black (Most Difficult) run on its map; OSM rates it expert.",
+      "expect": { "name": "Cookies", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/556749687",
+      "reason": "Typo: the resort's list, its map and the lift say Sheer Bliss; OSM's other piece is Sheer Bliss too (one run split into two names).",
+      "expect": { "name": "Shear Bliss" },
+      "set": { "name": "Sheer Bliss" }
+    },
+    {
+      "id": "way/1451781851",
+      "reason": "Extreme Terrain: the Snowmass map marks Rock Island EX and the resort's list rates it extreme (Cirque); OSM rates it expert, so it also lacked the ungroomed dash. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Rock Island", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1451781853",
+      "reason": "Extreme Terrain: the Snowmass map marks Buckskin Cliffs EX and the resort's list rates it extreme (Cirque); OSM rates it expert, so it also lacked the ungroomed dash. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Buckskin Cliffs", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1451781826",
+      "reason": "Extreme Terrain: the Snowmass map marks Cirque Cornice EX and the resort's list rates it extreme (Cirque); OSM rates it expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Cirque Cornice", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/772798774",
+      "reason": "Extreme Terrain: the resort's list rates Gowdy's extreme (Cirque) and the Snowmass map marks its line EX; OSM rates it expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Gowdy's", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1451781834",
+      "reason": "Extreme Terrain: the Snowmass map marks Baby Ruth EX and the resort's list rates it extreme (Hanging Valley); OSM rates it expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Baby Ruth", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1378349660",
+      "reason": "Extreme Terrain: the Snowmass map marks Possible EX and the resort's list rates it extreme (Hanging Valley); OSM rates it expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Possible", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1378349659",
+      "reason": "Extreme Terrain: the Snowmass map marks Roberto's EX and the resort's list rates it extreme (Hanging Valley); OSM rates it expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Roberto's", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1451781829",
+      "reason": "Extreme Terrain: the Snowmass map marks WEST I & II EX and the resort's list rates West 1 & 2 extreme (Hanging Valley); OSM rates West I expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "West I", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1451781830",
+      "reason": "Extreme Terrain: the Snowmass map marks WEST I & II EX and the resort's list rates West 1 & 2 extreme (Hanging Valley); OSM rates West II expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "West II", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/423698146",
+      "reason": "Lower Roch Run is a blue (More Difficult) run on the Aspen Mountain map; OSM rates it advanced.",
+      "expect": { "name": "Lower Roch Run", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1443980875",
+      "reason": "Typo; the Aspen Mountain map labels it LEGAL TENDER.",
+      "expect": { "name": "Legel Tender" },
+      "set": { "name": "Legal Tender" }
+    },
+    {
+      "id": "way/423526680",
+      "reason": "Typo; the Aspen Mountain map labels it KLEENEX CORNER.",
+      "expect": { "name": "Kleenex Cornner" },
+      "set": { "name": "Kleenex Corner" }
+    },
+    {
+      "id": "way/1443980876",
+      "reason": "Typo; the Aspen Mountain map labels it HERE'S TO...",
+      "expect": { "name": "Here's Too..." },
+      "set": { "name": "Here's To..." }
+    },
+    {
+      "id": "way/423698153",
+      "reason": "Missing space; the Aspen Mountain map labels it LAZY 8 GULLY.",
+      "expect": { "name": "Lazy8 Gully" },
+      "set": { "name": "Lazy 8 Gully" }
+    },
+    {
+      "id": "way/1049271287",
+      "reason": "Near-duplicate spelling of North Star (the map's NORTH STAR), whose main way it continues (one run split into two names).",
+      "expect": { "name": "Northstar" },
+      "set": { "name": "North Star" }
+    },
+    {
+      "id": "way/423507039",
+      "reason": "Truncated: the Aspen Mountain map labels this connector below the Sundeck BUCKHORN CUTOFF.",
+      "expect": { "name": "Cutoff" },
+      "set": { "name": "Buckhorn Cutoff" }
+    },
+    {
+      "id": "way/1049271337",
+      "reason": "Truncated: the Aspen Mountain map labels this connector below the Sundeck BUCKHORN CUTOFF.",
+      "expect": { "name": "Cutoff" },
+      "set": { "name": "Buckhorn Cutoff" }
+    },
+    {
+      "id": "way/1049271330",
+      "reason": "A mapper's descriptor added to the name: the Aspen Mountain map labels the run's lower part 1 & 2 LEAF as well (its upper-mountain view names the run twice, never Bottom Half), and this way ends on OSM's main 1 & 2 Leaf way (one run split into two names).",
+      "expect": { "name": "1 & 2 Leaf Bottom Half" },
+      "set": { "name": "1 & 2 Leaf" }
+    },
+    {
+      "id": "way/1049271296",
+      "reason": "Typo (letters swapped): the headwall's ways join Dipsy Doodle, which the Aspen Mountain map labels DIPSY DOODLE; the map does not name the headwall itself.",
+      "expect": { "name": "Dispy Headwall" },
+      "set": { "name": "Dipsy Headwall" }
+    },
+    {
+      "id": "way/423526685",
+      "reason": "Typo (doubled t): the run beside it is Face of Bell Cut-off in OSM; the map does not name either cut-off.",
+      "expect": { "name": "Back of Bell Cutt-off" },
+      "set": { "name": "Back of Bell Cut-off" }
+    },
+    {
+      "id": "way/772755570",
+      "reason": "Typo; the Highlands map labels it EXHIBITION, like the lift beside it.",
+      "expect": { "name": "Exibition" },
+      "set": { "name": "Exhibition" }
+    },
+    {
+      "id": "way/1080644837",
+      "reason": "Truncated; the Highlands map labels it GRAND PRIX.",
+      "expect": { "name": "Grand Pr" },
+      "set": { "name": "Grand Prix" }
+    },
+    {
+      "id": "way/772755573",
+      "reason": "Near-duplicate spelling: the Highlands map and the lift say THUNDERBOWL, as the run's other ways do (one run split into two names).",
+      "expect": { "name": "Thunder Bowl" },
+      "set": { "name": "Thunderbowl" }
+    },
+    {
+      "id": "way/1049084957",
+      "reason": "Typo: the Highlands map spells the bowl OLYMPIC BOWL.",
+      "expect": { "name": "Olymic Bowl Exit" },
+      "set": { "name": "Olympic Bowl Exit" }
+    },
+    {
+      "id": "way/772755554",
+      "reason": "Typo; the Highlands map labels it FACE OF OLY.",
+      "expect": { "name": "Face of Olly" },
+      "set": { "name": "Face of Oly" }
+    },
+    {
+      "id": "way/1049084953",
+      "reason": "Typo; the Highlands map labels it AEROBIE.",
+      "expect": { "name": "Aeroble" },
+      "set": { "name": "Aerobie" }
+    },
+    {
+      "id": "way/1015108584",
+      "reason": "Typo; the Highlands map labels it FILIP'S LEAP.",
+      "expect": { "name": "Flip's Leap" },
+      "set": { "name": "Filip's Leap" }
+    },
+    {
+      "id": "way/1466107548",
+      "reason": "Parenthesised extra; the Highlands map labels it NO NAME.",
+      "expect": { "name": "No Name (Highlands)" },
+      "set": { "name": "No Name" }
+    },
+    {
+      "id": "way/772755566",
+      "reason": "Truncated; the Highlands map labels it T-LAZY-7 CATWALK.",
+      "expect": { "name": "T-Lazy Catwalk" },
+      "set": { "name": "T-Lazy-7 Catwalk" }
+    },
+    {
+      "id": "way/579412453",
+      "reason": "The Highlands map draws Grand Traverse as a black (Most Difficult) catwalk; OSM rates it expert.",
+      "expect": { "name": "Grand Traverse", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/579412454",
+      "reason": "The Highlands map draws Grand Reverse as a black (Most Difficult) catwalk; OSM rates it expert.",
+      "expect": { "name": "Grand Reverse", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/579412472",
+      "reason": "The Highlands map draws Bear Hollow Road as a black (Most Difficult) catwalk; OSM rates it expert.",
+      "expect": { "piste:name": "Bear Hollow Road", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1015108586",
+      "reason": "The Highlands map draws South Fork in the Expert Only yellow; OSM rates it advanced.",
+      "expect": { "name": "South Fork", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1049084924",
+      "reason": "The Highlands map draws Middle Fork in the Expert Only yellow; OSM rates it advanced.",
+      "expect": { "name": "Middle Fork", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1049084947",
+      "reason": "The Highlands map draws North Fork in the Expert Only yellow; OSM rates it advanced.",
+      "expect": { "name": "North Fork", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1372693164",
+      "reason": "The 163 m start of Kandahar, from Face of Oly across the head of Cloud Nine to OSM's main Kandahar way, rated advanced; the Highlands map draws Kandahar blue (More Difficult) for its whole length from beside the Cloud Nine top, with no black piece, as OSM's main way is.",
+      "expect": { "name": "Kandahar", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "intermediate" }
+    }
+  ]
+}

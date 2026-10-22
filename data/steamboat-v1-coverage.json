@@ -1,0 +1,73 @@
+{
+  "key": "steamboat-v1",
+  "ski_sha256": "1a40436ff7ae6734ab7b8b040f82c7fec6f76dbf40e6351554879a08afc13b8a",
+  "osm_timestamp": "2026-10-22T06:46:56Z",
+  "box": [
+    -106.85,
+    40.41,
+    -106.71,
+    40.51
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -106.812474,
+    40.430536,
+    -106.736272,
+    40.481438
+  ],
+  "margins_km": {
+    "west": 3.17,
+    "south": 2.28,
+    "east": 2.22,
+    "north": 3.18
+  },
+  "counts": {
+    "lifts": 20,
+    "runs_in_bounds": 212,
+    "run_areas_in_bounds": 10,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 41,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 26.2,
+    "runs_in_bounds": 121.7,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -106.875,
+      40.313043,
+      -106.699219,
+      40.580585
+    ],
+    "12": [
+      -106.875,
+      40.380028,
+      -106.699219,
+      40.513799
+    ],
+    "13": [
+      -106.875,
+      40.380028,
+      -106.699219,
+      40.513799
+    ],
+    "14": [
+      -106.853027,
+      40.396764,
+      -106.699219,
+      40.513799
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

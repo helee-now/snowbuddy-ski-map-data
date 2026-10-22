@@ -7,7 +7,9 @@
   packlib.py dry-run-bytes LOG                  prints the archive size `pmtiles extract --dry-run` reported
   packlib.py osm-info OVERPASS.osm [DATE]       prints shell assignments OSM_BASE=... OSM_BOUNDS=W,S,E,N; DATE is
                                                 the [date:...] the answer was asked for, which then is OSM_BASE
-  packlib.py resort RESORTS.json SLUG           prints shell assignments for one resort (values shell-quoted)
+  packlib.py resort RESORTS.json SLUG           prints shell assignments for one resort (values shell-quoted; SKI_AREA
+                                                is its ski-area id, or its ids comma-separated for several mountains),
+                                                after checking the entry (its neighbours too)
   packlib.py slugs RESORTS.json                 prints every slug, one per line
   packlib.py run-zooms SCHEMA.json              prints MIN-MAX: the run layers' minzoom to the ski file's maxzoom
   packlib.py recorded FIELD RESORTS.json SLUG [PACK.json]
@@ -26,6 +28,12 @@
                                                 by the exact count) or `none`; exit 1 when the lidar holds less than
                                                 MIN_PCT of the box, 2 when the coverage has no count of missing pixels
   packlib.py verify-log LOG                     exit 0 if a `planetiler verify` log passed every example
+  packlib.py planetiler-errors LOG              exit 1, naming them, when a Planetiler log's data errors say a
+                                                multipolygon was not drawn as written (it could not be built, or a
+                                                member way was missing); 2 when the log has no data-errors block
+  packlib.py published KEY PUBLISHED.json       prints `<sha256>  <file>` for each file of a published pack (the list
+                                                of everything on the maps bucket, written by mark-published.mjs);
+                                                exit 1 when KEY is not published, 2 when the list cannot be read
   packlib.py record OUT.json KEY=VALUE...       writes a JSON object (values that parse as JSON are kept typed)
 
 The box guard exists because `pmtiles extract` with an empty --bbox copies the whole planet (about 129 GB):
@@ -115,6 +123,49 @@ def osm_info(path, date=None):
     return date or base.group(1), bounds
 
 
+def ski_area_ids(entry, slug):
+    """The OSM ids of a resort's ski area: `ski_area` is one id (way/123 or relation/123), or a list of at least two
+    distinct ids for a resort of several mountains on one map (each its own landuse=winter_sports polygon)."""
+    sa = entry.get('ski_area')
+    if isinstance(sa, str) and OSM_ID_RE.match(sa):
+        return [sa]
+    if (isinstance(sa, list) and len(sa) >= 2 and all(isinstance(x, str) and OSM_ID_RE.match(x) for x in sa)
+            and len(set(sa)) == len(sa)):
+        return list(sa)
+    raise ValueError(f'{slug}: ski_area must look like way/123 or relation/123, or be a list of at least two distinct such ids')
+
+
+NEIGHBOUR_KEYS = {'id', 'name', 'reason'}
+
+
+def neighbour_entries(entry, slug, ski_ids):
+    """A resort's `neighbours`: other resorts' ski areas inside its box, left out of its map (owner decision
+    2026-10-21). Each is {"id": way/… or relation/…, "name": its OSM name tag, as OSM has it, "reason": why}; the ids
+    are distinct and none is one of the resort's own. Optional: [] when absent."""
+    nb = entry.get('neighbours')
+    if nb is None:
+        return []
+    if not isinstance(nb, list) or not nb:
+        raise ValueError(f'{slug}: neighbours must be a list of {{"id", "name", "reason"}} objects (leave it out for none)')
+    seen = set()
+    for i, n in enumerate(nb):
+        where = f'{slug}: neighbours[{i}]'
+        if not isinstance(n, dict) or set(n) != NEIGHBOUR_KEYS:
+            raise ValueError(f'{where} must hold exactly id, name and reason')
+        if not isinstance(n['id'], str) or not OSM_ID_RE.match(n['id']):
+            raise ValueError(f'{where}: id must look like way/123 or relation/123')
+        if not isinstance(n['name'], str) or not n['name'].strip():
+            raise ValueError(f'{where} ({n["id"]}): name must be the OSM name tag of that ski area')
+        if not isinstance(n['reason'], str) or not n['reason'].strip():
+            raise ValueError(f'{where} ({n["id"]}): every neighbour needs a reason')
+        if n['id'] in seen:
+            raise ValueError(f'{where}: {n["id"]} appears twice')
+        if n['id'] in ski_ids:
+            raise ValueError(f'{where}: {n["id"]} is the resort\'s own ski area')
+        seen.add(n['id'])
+    return nb
+
+
 def resort_entry(resorts, slug):
     entry = next((r for r in resorts['resorts'] if r.get('slug') == slug), None)
     if entry is None:
@@ -128,8 +179,8 @@ def resort_entry(resorts, slug):
     problem = box_problem(box)
     if problem:
         raise ValueError(f'{slug}: {problem}')
-    if not OSM_ID_RE.match(entry.get('ski_area', '')):
-        raise ValueError(f'{slug}: ski_area must look like way/123 or relation/123')
+    ski_ids = ski_area_ids(entry, slug)
+    neighbour_entries(entry, slug, ski_ids)
     elev = resorts.get('elevation_sources', {}).get(entry.get('elevation'))
     if elev is None:
         raise ValueError(f'{slug}: elevation source {entry.get("elevation")!r} is not in elevation_sources')
@@ -147,7 +198,7 @@ def resort_entry(resorts, slug):
         raise ValueError(f'{slug}: contour_smoothing_m must be a number of metres from 0 to 100')
     return {
         'SLUG': slug, 'KEY': key, 'VERSION': str(entry['version']), 'BOX': box,
-        'SKI_AREA': entry['ski_area'], 'ELEV': entry['elevation'], 'ELEV_RES': str(elev['resolution_m']),
+        'SKI_AREA': ','.join(ski_ids), 'ELEV': entry['elevation'], 'ELEV_RES': str(elev['resolution_m']),
         'ELEV_PROJECT': project, 'CONTOUR_SMOOTH_M': fmt(float(smooth)),
         'OSM_CREDIT_HTML': resorts['credits']['osm_html'], 'TERRAIN_CREDIT_HTML': elev['credit_html'],
     }
@@ -237,9 +288,54 @@ def stac_assets(doc, asset):
     return sorted(urls)
 
 
+SHA256_RE = re.compile(r'^[0-9a-f]{64}$')
+FILE_RE = re.compile(r'^[A-Za-z0-9][A-Za-z0-9._-]*$')
+
+
+def published_files(doc, key):
+    """The (file, sha256) pairs of a published pack, sorted by file, or None when KEY is not published."""
+    if not KEY_RE.match(key or ''):
+        raise ValueError(f'bad key {key!r}')
+    if not isinstance(doc, dict) or doc.get('format') != 1 or not isinstance(doc.get('packs'), dict):
+        raise ValueError('not a published list of format 1')
+    entry = doc['packs'].get(key)
+    if entry is None:
+        return None
+    files = entry.get('files') if isinstance(entry, dict) else None
+    if not isinstance(files, dict) or not files:
+        raise ValueError(f'{key}: the published entry lists no files')
+    for name, sha in files.items():
+        if not FILE_RE.match(name) or not isinstance(sha, str) or not SHA256_RE.match(sha):
+            raise ValueError(f'{key}: a malformed file entry')
+    return sorted(files.items())
+
+
 def verify_log_ok(text):
     clean = re.sub(r'\x1b\[[0-9;]*m', '', text)
     return bool(re.search(r'^\s*[1-9][0-9]* passed\s*$', clean, re.M)) and not re.search(r'\bFAIL\b|\bfailed\b', clean)
+
+
+# Planetiler's data errors (INF lines at the end of its log) that mean a multipolygon is not in the tiles as written:
+# it could not be built (osm_invalid_multipolygon and its variants, after a prefix such as feature_polygon_), or a
+# member way was missing. Planetiler logs them only as information and draws nothing for that polygon. Others are not
+# refused: render_snap_fix_input (a polygon mended after snapping to the tile grid) is in every pilot's log, and
+# osm_multipolygon_duplicate_member (a way listed twice) is drawn from one copy, as OSM data can hold it.
+REFUSED_DATA_ERROR_RE = re.compile(r'invalid_multipolygon|multipolygon_missing_way')
+
+
+def planetiler_data_errors(text):
+    """The data errors at the end of a Planetiler log, {name: count}; None when the log has no data-errors block."""
+    lines = re.sub(r'\x1b\[[0-9;]*m', '', text).splitlines()
+    start = next((i for i, line in enumerate(lines) if line.rstrip().endswith(' - data errors:')), None)
+    if start is None:
+        return None
+    errors = {}
+    for line in lines[start + 1:]:
+        m = re.search(r' - \t([A-Za-z0-9_]+)\t([0-9]+)\s*$', line)
+        if not m:
+            break
+        errors[m.group(1)] = int(m.group(2))
+    return errors
 
 
 def main(argv):
@@ -333,9 +429,26 @@ def main(argv):
             for url in urls:
                 print(url)
             return 0
+        if cmd == 'published':
+            with open(args[1], encoding='utf-8') as f:
+                files = published_files(json.load(f), args[0])
+            if files is None:
+                return 1
+            for name, sha in files:
+                print(f'{sha}  {name}')
+            return 0
         if cmd == 'verify-log':
             with open(args[0], encoding='utf-8', errors='replace') as f:
                 return 0 if verify_log_ok(f.read()) else 1
+        if cmd == 'planetiler-errors':
+            with open(args[0], encoding='utf-8', errors='replace') as f:
+                errors = planetiler_data_errors(f.read())
+            if errors is None:
+                raise ValueError('the log has no "data errors:" block (did Planetiler finish?)')
+            refused = {k: v for k, v in sorted(errors.items()) if REFUSED_DATA_ERROR_RE.search(k)}
+            for k, v in refused.items():
+                print(f'packlib planetiler-errors: {k} {v}', file=sys.stderr)
+            return 1 if refused else 0
         if cmd == 'record':
             doc = {}
             for kv in args[1:]:

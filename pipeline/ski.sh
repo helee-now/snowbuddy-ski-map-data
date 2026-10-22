@@ -150,4 +150,8 @@ build_ski() {
     sed 's/\x1b\[[0-9;]*m//g' "$wk/planetiler.log" | grep -m5 -E '(^|[[:space:]])ERR([[:space:]]|$)' >&2
     die "Planetiler logged errors for $KEY (see $wk/planetiler.log)"
   fi
+  # A multipolygon Planetiler could not build (the ski area, or a run area) is only an INF data error in its log, and
+  # the tiles then lack it: stop (packlib.py planetiler-errors names the errors it refuses).
+  python3 -I "$PIPE/packlib.py" planetiler-errors "$wk/planetiler.log" \
+    || die "Planetiler could not draw a multipolygon as written for $KEY (see the data errors at the end of $wk/planetiler.log)"
 }

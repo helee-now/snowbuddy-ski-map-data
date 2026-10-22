@@ -5,21 +5,39 @@ Ski runs, lifts, ski-area boundaries and contour lines for the resort maps in th
 each other on the mountain; its resort maps work offline and draw this data on top of a base map.
 
 The runs, lifts and ski areas come from **OpenStreetMap**. The contour lines come from public elevation models. This
-repository holds the files the app ships, their build records, and the scripts that rebuild them.
+repository holds the files the app downloads, their build records, and the scripts that rebuild them.
 
 | Resort | Ski file | OSM data of | Bytes | SHA-256 (all in `SHA256SUMS`) |
 |---|---|---|---|---|
-| Whistler Blackcomb | [`data/whistler-blackcomb-v3-ski.pmtiles`](data/whistler-blackcomb-v3-ski.pmtiles) | 2026-10-15 06:13:50 UTC | 838,922 | `ff73c9a03c7c9484…` |
+| Aspen Snowmass | [`data/aspen-snowmass-v1-ski.pmtiles`](data/aspen-snowmass-v1-ski.pmtiles) | 2026-10-22 06:51:06 UTC | 865,404 | `56080678da141fe7…` |
+| Big Bear Mountain Resort | [`data/big-bear-mountain-resort-v1-ski.pmtiles`](data/big-bear-mountain-resort-v1-ski.pmtiles) | 2026-10-22 06:41:51 UTC | 149,841 | `efe20319e7bac54f…` |
 | Big White | [`data/big-white-v2-ski.pmtiles`](data/big-white-v2-ski.pmtiles) | 2026-10-15 06:15:47 UTC | 159,044 | `2441855b7379ad42…` |
+| Brighton | [`data/brighton-v1-ski.pmtiles`](data/brighton-v1-ski.pmtiles) | 2026-10-22 06:47:58 UTC | 168,044 | `a3c2201ad03cdc02…` |
+| Deer Valley | [`data/deer-valley-v1-ski.pmtiles`](data/deer-valley-v1-ski.pmtiles) | 2026-10-22 06:50:06 UTC | 349,533 | `9abd659e02893978…` |
 | Mammoth Mountain | [`data/mammoth-mountain-v2-ski.pmtiles`](data/mammoth-mountain-v2-ski.pmtiles) | 2026-10-15 06:16:51 UTC | 220,545 | `c2ef3f52f95a4917…` |
+| Palisades Tahoe | [`data/palisades-tahoe-v1-ski.pmtiles`](data/palisades-tahoe-v1-ski.pmtiles) | 2026-10-22 06:44:51 UTC | 327,807 | `aa35add590a951c2…` |
+| Park City Mountain | [`data/park-city-mountain-v1-ski.pmtiles`](data/park-city-mountain-v1-ski.pmtiles) | 2026-10-22 06:50:06 UTC | 442,987 | `3b945de31b84783c…` |
+| Snow Valley | [`data/snow-valley-v1-ski.pmtiles`](data/snow-valley-v1-ski.pmtiles) | 2026-10-22 06:42:51 UTC | 164,349 | `ba03bd7803225c79…` |
+| Steamboat | [`data/steamboat-v1-ski.pmtiles`](data/steamboat-v1-ski.pmtiles) | 2026-10-22 06:46:56 UTC | 250,322 | `1a40436ff7ae6734…` |
+| Whistler Blackcomb | [`data/whistler-blackcomb-v3-ski.pmtiles`](data/whistler-blackcomb-v3-ski.pmtiles) | 2026-10-15 06:13:50 UTC | 838,922 | `ff73c9a03c7c9484…` |
+| Winter Park | [`data/winter-park-v1-ski.pmtiles`](data/winter-park-v1-ski.pmtiles) | 2026-10-22 06:47:58 UTC | 249,857 | `5d52e67139620123…` |
 
 | Resort | Box (W, S, E, N) | Ski-area boundary in OSM | Contours from |
 |---|---|---|---|
-| Whistler Blackcomb | -123.08, 49.98, -122.83, 50.17 | [way/474288286](https://www.openstreetmap.org/way/474288286) | NRCan MRDEM-30 DTM |
+| Aspen Snowmass | -107.01, 39.09, -106.78, 39.24 | [way/1144096092](https://www.openstreetmap.org/way/1144096092), [way/530531926](https://www.openstreetmap.org/way/530531926), [way/530531925](https://www.openstreetmap.org/way/530531925), [way/530538581](https://www.openstreetmap.org/way/530538581) | USGS 3DEP 1/3 arc-second |
+| Big Bear Mountain Resort | -116.93, 34.19, -116.82, 34.26 | [way/1554647623](https://www.openstreetmap.org/way/1554647623), [way/682224991](https://www.openstreetmap.org/way/682224991) | USGS 3DEP 1 m DEM |
 | Big White | -119.01, 49.68, -118.88, 49.78 | [way/476836855](https://www.openstreetmap.org/way/476836855) | NRCan MRDEM-30 DTM |
+| Brighton | -111.63, 40.56, -111.53, 40.62 | [way/682230007](https://www.openstreetmap.org/way/682230007) | USGS 3DEP 1 m DEM |
+| Deer Valley | -111.56, 40.56, -111.41, 40.67 | [way/682241434](https://www.openstreetmap.org/way/682241434) | USGS 3DEP 1/3 arc-second |
 | Mammoth Mountain | -119.1, 37.59, -118.96, 37.68 | [way/682231907](https://www.openstreetmap.org/way/682231907) | USGS 3DEP 1 m DEM |
+| Palisades Tahoe | -120.32, 39.11, -120.19, 39.23 | [relation/13336421](https://www.openstreetmap.org/relation/13336421), [relation/6704136](https://www.openstreetmap.org/relation/6704136) | USGS 3DEP 1 m DEM |
+| Park City Mountain | -111.63, 40.59, -111.47, 40.72 | [way/918681867](https://www.openstreetmap.org/way/918681867) | USGS 3DEP 1/3 arc-second |
+| Snow Valley | -117.07, 34.18, -117, 34.25 | [way/668577806](https://www.openstreetmap.org/way/668577806) | USGS 3DEP 1/3 arc-second |
+| Steamboat | -106.85, 40.41, -106.71, 40.51 | [way/530998526](https://www.openstreetmap.org/way/530998526) | USGS 3DEP 1/3 arc-second |
+| Whistler Blackcomb | -123.08, 49.98, -122.83, 50.17 | [way/474288286](https://www.openstreetmap.org/way/474288286) | NRCan MRDEM-30 DTM |
+| Winter Park | -105.84, 39.81, -105.72, 39.93 | [way/460246666](https://www.openstreetmap.org/way/460246666) | USGS 3DEP 1 m DEM |
 
-OpenStreetMap data of 2026-10-15: 06:13:50 UTC for Whistler Blackcomb, 06:15:47 UTC for Big White and 06:16:51 UTC for Mammoth Mountain. Built on 2026-10-18.
+OpenStreetMap data of 2026-10-22 06:51:06 UTC for Aspen Snowmass, 2026-10-22 06:41:51 UTC for Big Bear Mountain Resort, 2026-10-15 06:15:47 UTC for Big White, 2026-10-22 06:47:58 UTC for Brighton, 2026-10-22 06:50:06 UTC for Deer Valley, 2026-10-15 06:16:51 UTC for Mammoth Mountain, 2026-10-22 06:44:51 UTC for Palisades Tahoe, 2026-10-22 06:50:06 UTC for Park City Mountain, 2026-10-22 06:42:51 UTC for Snow Valley, 2026-10-22 06:46:56 UTC for Steamboat, 2026-10-15 06:13:50 UTC for Whistler Blackcomb and 2026-10-22 06:47:58 UTC for Winter Park. Built on 2026-10-22 and 2026-10-18.
 
 > **Not for navigation or safety decisions.** Run ratings come from OpenStreetMap and can differ from the resort's own
 > signs and trail map. Lines marked out of bounds lie outside the resort boundary. Always follow the resort's signs,
@@ -37,7 +55,7 @@ fields are present only when true):
 | `piste_area` | polygon | 11 | as `piste`, without `rank` and `oriented` |
 | `lift` | line | 10 | `kind` (the OSM `aerialway` value), `name`, `ref`, `occupancy`, `oriented` (runs uphill as drawn) |
 | `lift_station` | point | 13 | `name`; also the two ends of every lift, unnamed, where no station is within 40 m |
-| `ski_area` | polygon | 9 | `name`: the resort's own boundary, chosen by its OSM id |
+| `ski_area` | polygon | 9 | `name`: the resort's own boundary, chosen by its OSM id; for a resort of several mountains on one map, one multipolygon, the union of every mountain's polygon (`ski_area` lists their ids), named after the resort |
 | `contour` | line | 11 (index), 14 (all) | `ele` in metres every 20 m, `idx` on every 100 m line |
 
 How OpenStreetMap tags become these fields (`pipeline/normalize_osm.py`):
@@ -52,11 +70,16 @@ How OpenStreetMap tags become these fields (`pipeline/normalize_osm.py`):
 - Left out: nordic, ski-touring and snowshoe trails, winter hiking, sledding and sleigh trails, zip lines and goods
   lifts. Lifts are chosen by `aerialway` alone (lifecycle keys such as `proposed:aerialway` are ignored), and lift
   stations only within 100 m of a kept lift; each lift's two ends are stations too, unless one is within 40 m.
+- Each file draws only its own resort. Another resort's ski area inside the box is listed under `neighbours` in
+  `resorts.json`, with its OSM name, which the build checks. A lift, run or run area lying at least half in such a
+  polygon is left out, with the stations of its lifts; one lying at least half in no polygon goes to the nearest
+  polygon within 250 m, the resort's own or a neighbour's (when two are as near, to the one holding more of it, then to
+  the resort), and is kept when none is that near. The neighbour's ground keeps its contours.
 - `rank` (run lines): a named run is all its ways, their lengths added up, and belongs to the rating that holds most
   of its in-bounds length (easy, intermediate, advanced, expert with freeride and extreme, park, unrated). Rank 1 are,
   within each rating, the longest named runs with an in-bounds way, taken longest first until they make up half of
   that rating's named in-bounds run length; rank 3 are runs under 300 m (an unnamed way counts its own length); rank 2
-  the others.
+  the others. For a resort of several mountains, a named run is the ways of that name on one mountain.
 - Text is reduced to the characters the app's map fonts can draw (Unicode 0–1023 and 8192–8447).
 - `resorts/<slug>.overrides.json` holds the corrections applied on top of OpenStreetMap, each with a reason and the OSM
   value it expects; when OpenStreetMap changes, the build stops, so a fix made in OSM is never overwritten silently.
@@ -81,8 +104,8 @@ levels. Always follow the resort's signs.
 ### Out-of-bounds runs
 
 A run tagged `piste:grooming=backcountry` or `patrolled=no` (on the way, or on its route relation) that lies mostly
-outside the resort's ski-area boundary is kept with `out_of_bounds=true`, together with the boundary itself, so a map
-can draw it in a distinct style with a warning.
+outside the resort's ski-area boundary (all of its mountains' polygons together, for a resort of several) is kept with
+`out_of_bounds=true`, together with the boundary itself, so a map can draw it in a distinct style with a warning.
 **These lines are outside the resort: not patrolled, not avalanche-controlled, and not a recommendation.** They are
 published because they are in OpenStreetMap and skiers use them; going there needs avalanche training, equipment and
 partners.
@@ -92,10 +115,18 @@ listed in `out_of_bounds_named` whole at every zoom. Other out-of-bounds runs be
 out, like everything else there. The coverage reports (`data/<key>-coverage.json`) list every out-of-bounds run with the
 zooms whose tiles hold all of it (`drawn_whole_at`) or part of it (`drawn_part_at`).
 
-Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Big White has none:
+Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Big Bear Mountain Resort, Big White, Deer Valley, Snow Valley, Steamboat and Winter Park have none:
 
 | Resort | Run | OSM | In the box | Whole at | In part at |
 |---|---|---|---|---|---|
+| Aspen Snowmass | North Face of North Maroon Peak | [way/1228768990](https://www.openstreetmap.org/way/1228768990) | no | z11–13 | z14 |
+| Aspen Snowmass | The Landry Line | [way/1228765519](https://www.openstreetmap.org/way/1228765519) | no | z11–13 | – |
+| Brighton | Suicide Chute | [way/1382646253](https://www.openstreetmap.org/way/1382646253) | no | z11–13 | – |
+| Mammoth Mountain | Hollywood Chute (named) | [way/1143796677](https://www.openstreetmap.org/way/1143796677) | yes | z11–14 | – |
+| Mammoth Mountain | Red Cone Bowl (named) | [way/1143796676](https://www.openstreetmap.org/way/1143796676) | yes | z11–14 | – |
+| Palisades Tahoe | Outer Outer (named) | [way/455183677](https://www.openstreetmap.org/way/455183677) | yes | z11–14 | – |
+| Palisades Tahoe | Outer Outer Outer (named) | [way/455183676](https://www.openstreetmap.org/way/455183676) | yes | z11–14 | – |
+| Park City Mountain | Suicide Chute | [way/1382646253](https://www.openstreetmap.org/way/1382646253) | no | z11–13 | – |
 | Whistler Blackcomb | Body Bag Bowl (named) | [way/472098498](https://www.openstreetmap.org/way/472098498) | yes | z11–14 | – |
 | Whistler Blackcomb | Chamonix Chutes (named) | [way/399343702](https://www.openstreetmap.org/way/399343702) | yes | z11–14 | – |
 | Whistler Blackcomb | Chamonix Chutes (named) | [way/399343703](https://www.openstreetmap.org/way/399343703) | yes | z11–14 | – |
@@ -120,8 +151,6 @@ Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Big Whi
 | Whistler Blackcomb | (unnamed) | [way/360676750](https://www.openstreetmap.org/way/360676750) | no | z11–12 | – |
 | Whistler Blackcomb | (unnamed) | [way/376911842](https://www.openstreetmap.org/way/376911842) | no | z11–14 | – |
 | Whistler Blackcomb | (unnamed) | [way/376911843](https://www.openstreetmap.org/way/376911843) | no | z11–14 | – |
-| Mammoth Mountain | Hollywood Chute (named) | [way/1143796677](https://www.openstreetmap.org/way/1143796677) | yes | z11–14 | – |
-| Mammoth Mountain | Red Cone Bowl (named) | [way/1143796676](https://www.openstreetmap.org/way/1143796676) | yes | z11–14 | – |
 
 ## Sources and licences
 
@@ -131,23 +160,36 @@ Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Big Whi
 
 **Contour lines.** Contours every 20 m are computed from one elevation model per resort:
 
-- **NRCan MRDEM-30 DTM** (30 m), for Whistler Blackcomb and Big White: Open Government Licence - Canada (https://open.canada.ca/en/open-government-licence-canada). Data: https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif
+- **USGS 3DEP 1/3 arc-second** (10 m), for Aspen Snowmass, Deer Valley, Park City Mountain, Snow Valley and Steamboat: Public domain (U.S. Geological Survey) (https://www.usgs.gov/3d-elevation-program). Data: https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/
+
+  > 3DEP data courtesy of the U.S. Geological Survey.
+
+- **USGS 3DEP 1 m DEM** (1 m), for Big Bear Mountain Resort, Brighton, Mammoth Mountain, Palisades Tahoe and Winter Park: Public domain (U.S. Geological Survey) (https://www.usgs.gov/3d-elevation-program). Data: https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/
+
+  > 3DEP data courtesy of the U.S. Geological Survey.
+
+- **NRCan MRDEM-30 DTM** (30 m), for Big White and Whistler Blackcomb: Open Government Licence - Canada (https://open.canada.ca/en/open-government-licence-canada). Data: https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif
 
   > Contains information licensed under the Open Government Licence – Canada (NRCan MRDEM-30). This product was in part produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved. The organisations in charge of the Copernicus program by law or by delegation do not incur any liability for any use of the Copernicus WorldDEM-30.
 
   Nothing here implies endorsement by Natural Resources Canada or the Government of Canada.
 
-- **USGS 3DEP 1 m DEM** (1 m), for Mammoth Mountain: Public domain (U.S. Geological Survey) (https://www.usgs.gov/3d-elevation-program). Data: https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/
-
-  > 3DEP data courtesy of the U.S. Geological Survey.
-
 **In each file.** The archive metadata carries the licence, in `description` ("This database is made available under
 the Open Database License 1.0: https://opendatacommons.org/licenses/odbl/1-0/"), and the credit as linked HTML, in
 `attribution`:
 
-- `whistler-blackcomb-v3-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://open.canada.ca/en/open-government-licence-canada">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)`
+- `aspen-snowmass-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `big-bear-mountain-resort-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `big-white-v2-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://open.canada.ca/en/open-government-licence-canada">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)`
+- `brighton-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `deer-valley-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `mammoth-mountain-v2-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `palisades-tahoe-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `park-city-mountain-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `snow-valley-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `steamboat-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `whistler-blackcomb-v3-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://open.canada.ca/en/open-government-licence-canada">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)`
+- `winter-park-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 
 ## Licence
 

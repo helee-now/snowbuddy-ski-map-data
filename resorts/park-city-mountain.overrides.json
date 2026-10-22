@@ -1,0 +1,372 @@
+{
+  "slug": "park-city-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Checked 2026-10-21 against Park City Mountain's own 2025-2026 winter trail map (the resort's PDF, read from its copy on skimap.org because parkcitymountain.com refuses this pipeline's user agent): names follow its labels, ratings its symbols, parks its orange runs (no park carries a park tag in OSM). That map is the resort's only source here, so its symbols win where OpenStreetMap rates a run harder (Cobalt Woods, Mid-Mtn Cutoff) as where it rates one easier. The Cabriolet is renamed for its replacement on the same line, the Canyons Village Skyway (2026-27). The stations of the zip lines (left out, as every zip line is) and Payday's summer mid-station are hidden, so they draw no lift-station circle with no lift (review of 2026-10-22).",
+  "overrides": [
+    {
+      "id": "way/260779451",
+      "reason": "Odd capitals: UPPER MAINLINE on the resort's trail map (it then ranks with Upper Mainline, way/260779461).",
+      "expect": { "name": "Upper MAinline" },
+      "set": { "name": "Upper Mainline" }
+    },
+    {
+      "id": "way/137624963",
+      "reason": "Odd capitals: PAYDAY on the resort's trail map, as the Payday lift.",
+      "expect": { "name": "PayDay" },
+      "set": { "name": "Payday" }
+    },
+    {
+      "id": "way/266249824",
+      "reason": "Misspelt: ECSTASY on the resort's trail map.",
+      "expect": { "name": "Ectasy" },
+      "set": { "name": "Ecstasy" }
+    },
+    {
+      "id": "way/777199437",
+      "reason": "Misspelt: SAM'S KNOB on the resort's trail map.",
+      "expect": { "name": "Sam's Know" },
+      "set": { "name": "Sam's Knob" }
+    },
+    {
+      "id": "way/266249431",
+      "reason": "Misspelt: DUTCH HOLLOW on the resort's trail map.",
+      "expect": { "name": "Dutch Hallow" },
+      "set": { "name": "Dutch Hollow" }
+    },
+    {
+      "id": "way/693627318",
+      "reason": "Doubled letter: BUCKEYE on the resort's trail map.",
+      "expect": { "name": "Buckkeye" },
+      "set": { "name": "Buckeye" }
+    },
+    {
+      "id": "way/137624985",
+      "reason": "Misspelt: ASSESSMENT on the resort's trail map.",
+      "expect": { "name": "Assesment" },
+      "set": { "name": "Assessment" }
+    },
+    {
+      "id": "way/266245949",
+      "reason": "BOOGEYMAN on the resort's trail map.",
+      "expect": { "name": "Bogeyman" },
+      "set": { "name": "Boogeyman" }
+    },
+    {
+      "id": "way/301858996",
+      "reason": "BOOGEYMAN on the resort's trail map.",
+      "expect": { "name": "Bogeyman" },
+      "set": { "name": "Boogeyman" }
+    },
+    {
+      "id": "way/301858997",
+      "reason": "BOOGEYMAN on the resort's trail map (the bridge of the same run).",
+      "expect": { "name": "Bogeyman" },
+      "set": { "name": "Boogeyman" }
+    },
+    {
+      "id": "way/906390971",
+      "reason": "Misspelt: CANIS LUPUS on the resort's trail map.",
+      "expect": { "name": "Canis Lupis" },
+      "set": { "name": "Canis Lupus" }
+    },
+    {
+      "id": "way/906390973",
+      "reason": "Misspelt: DESCHUTES on the resort's trail map.",
+      "expect": { "name": "Deshutes" },
+      "set": { "name": "Deschutes" }
+    },
+    {
+      "id": "way/777199438",
+      "reason": "HOMELITE on the resort's trail map (between Sam's Knob and Pinecone Ridge).",
+      "expect": { "name": "Homesite" },
+      "set": { "name": "Homelite" }
+    },
+    {
+      "id": "way/777199439",
+      "reason": "LIMELITE on the resort's trail map (below Pinecone Ridge).",
+      "expect": { "name": "Linelite" },
+      "set": { "name": "Limelite" }
+    },
+    {
+      "id": "way/137757215",
+      "reason": "Misplaced apostrophe: LADIES' SL on the resort's trail map.",
+      "expect": { "name": "Ladie's SL" },
+      "set": { "name": "Ladies' SL" }
+    },
+    {
+      "id": "way/770890705",
+      "reason": "Misspelt: LIGETY SPLIT on the resort's trail map.",
+      "expect": { "name": "Ligity Split" },
+      "set": { "name": "Ligety Split" }
+    },
+    {
+      "id": "way/1103646549",
+      "reason": "Misspelt: LIGETY SPLIT on the resort's trail map.",
+      "expect": { "name": "Ligity Split" },
+      "set": { "name": "Ligety Split" }
+    },
+    {
+      "id": "way/137624959",
+      "reason": "Misspelt: PORTUGUESE GAP on the resort's trail map.",
+      "expect": { "name": "Portuguse Gap" },
+      "set": { "name": "Portuguese Gap" }
+    },
+    {
+      "id": "way/260785505",
+      "reason": "POWER ALLEY, labelled twice on the resort's trail map (by Royal and Middle Crowning Glory).",
+      "expect": { "name": "Powder Alley" },
+      "set": { "name": "Power Alley" }
+    },
+    {
+      "id": "way/1078085049",
+      "reason": "POWER ALLEY on the resort's trail map.",
+      "expect": { "name": "Powder Alley" },
+      "set": { "name": "Power Alley" }
+    },
+    {
+      "id": "way/1078085050",
+      "reason": "POWER ALLEY on the resort's trail map (the bridge of the same run).",
+      "expect": { "name": "Powder Alley" },
+      "set": { "name": "Power Alley" }
+    },
+    {
+      "id": "way/266250080",
+      "reason": "ONE HUNDRED TURNS on the resort's trail map (OSM: \"100 turns\", lower-case t).",
+      "expect": { "name": "100 turns" },
+      "set": { "name": "One Hundred Turns" }
+    },
+    {
+      "id": "way/260782608",
+      "reason": "Capital letter missing: GOLDEN SPRUCE on the resort's trail map.",
+      "expect": { "name": "Golden spruce" },
+      "set": { "name": "Golden Spruce" }
+    },
+    {
+      "id": "way/1429347952",
+      "reason": "Capital letter missing: PAINTED HORSE on the resort's trail map.",
+      "expect": { "name": "Painted horse" },
+      "set": { "name": "Painted Horse" }
+    },
+    {
+      "id": "way/32217165",
+      "reason": "Capital letter missing: SOUTH FORK on the resort's trail map.",
+      "expect": { "name": "South fork" },
+      "set": { "name": "South Fork" }
+    },
+    {
+      "id": "way/1036071253",
+      "reason": "The top of HOMERUN, one word on the resort's trail map: this way and way/1343884062 continue Homerun (way/137624990) uphill, and the spelling Home Run splits the run's rank.",
+      "expect": { "piste:name": "Home Run", "name": "Meadow Road" },
+      "set": { "name": "Homerun" }
+    },
+    {
+      "id": "way/1343884062",
+      "reason": "Upper Homerun (one word on the resort's trail map); it ends where way/137624990 Homerun begins.",
+      "expect": { "name": "Home Run" },
+      "set": { "name": "Homerun" }
+    },
+    {
+      "id": "way/844809432",
+      "reason": "TOMBSTONE ALLEY on the resort's trail map: from Chicane by Encore across Cloud 9 and Escapade Woods to Another World, as this way runs.",
+      "expect": { "name": "Chicane Bypass" },
+      "set": { "name": "Tombstone Alley" }
+    },
+    {
+      "id": "way/260543223",
+      "reason": "THE DRAIN on the resort's trail map: off Doc's Run beside Lynx, as this way runs.",
+      "expect": { "name": "The Draw" },
+      "set": { "name": "The Drain" }
+    },
+    {
+      "id": "way/880789818",
+      "reason": "The lower end of SHORTLINE on the resort's trail map (it reaches the Homerun junction); the spelling Shortliner splits the run's rank.",
+      "expect": { "name": "Shortliner" },
+      "set": { "name": "Shortline" }
+    },
+    {
+      "id": "way/260782610",
+      "reason": "SNOWONDER on the resort's trail map: from Blaise's Way by the Flat Iron past Golden Spruce to White Pine, as this way runs. Snow Dancer is a different run at Saddleback and High Meadow (way/32217202).",
+      "expect": { "name": "Snowdancer" },
+      "set": { "name": "Snowonder" }
+    },
+    {
+      "id": "way/32217174",
+      "reason": "The lower part of DAWN on the resort's trail map, which runs on from the Day Break top past the lift to Elk Dance; OSM's note that this is Winter Way or 002 is out of date (both are other lines on the map).",
+      "expect": { "name": null, "piste:name": null, "piste:difficulty": "intermediate" },
+      "set": { "name": "Dawn" }
+    },
+    {
+      "id": "way/260786240",
+      "reason": "Double black (expert) on the resort's trail map; OSM rates it advanced.",
+      "expect": { "name": "Aspen Grove", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/260782601",
+      "reason": "Black (advanced) on the resort's trail map; OSM rates it intermediate (Bugle Ridge Bypass is the blue run beside it).",
+      "expect": { "name": "Bugle Ridge", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/137748807",
+      "reason": "Black (advanced) on the resort's trail map; OSM rates it intermediate.",
+      "expect": { "name": "Climax", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/260785089",
+      "reason": "Black (advanced) on the resort's trail map; OSM rates it expert.",
+      "expect": { "name": "Cobalt Woods", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/137624954",
+      "reason": "Double black (expert) on the resort's trail map; OSM rates it advanced.",
+      "expect": { "name": "Dead Tree", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/880789819",
+      "reason": "Green (easy) on the resort's trail map; OSM rates it intermediate.",
+      "expect": { "name": "Mid-Mtn Cutoff", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "easy" }
+    },
+    {
+      "id": "way/137750297",
+      "reason": "Black (advanced) on the resort's trail map; OSM rates it intermediate.",
+      "expect": { "name": "Seldom Seen", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/266244986",
+      "reason": "Black (advanced) on the resort's trail map; OSM rates it intermediate.",
+      "expect": { "name": "Tranquility", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/366237310",
+      "reason": "The 14 m foot of Super Fury at the Sun Peak Express, rated easy in OSM; the run is black (advanced) on the resort's trail map, as its main way is.",
+      "expect": { "name": "Super Fury", "piste:difficulty": "easy" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/770890707",
+      "reason": "Terrain park 3 Kings (orange, size M on the resort's trail map; OSM description Terrain Park) without a park tag.",
+      "expect": { "name": "3 Kings", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/770890708",
+      "reason": "Terrain park Pick 'n Shovel (orange, size L on the resort's trail map; OSM description Terrain Park) without a park tag.",
+      "expect": { "name": "Pick'n Shovel", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/260779445",
+      "reason": "Terrain park Transitions (orange, size M on the resort's trail map) without a park tag.",
+      "expect": { "name": "Transitions", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/10158573",
+      "reason": "Terrain park Pick Axe (orange, size M on the resort's trail map, beside the Eaglet lift) without a park tag. OSM rates it freeride, which would draw it as an ungroomed run; the map gives parks a size, not a rating, so the rating is left unknown.",
+      "expect": { "piste:name": "Pick Axe", "name": "Crescent Ridge", "piste:difficulty": "freeride" },
+      "set": { "park": true, "difficulty": "unknown" }
+    },
+    {
+      "id": "way/266245093",
+      "reason": "OSM notes it as closed (\"Closed due to colony\"), and the resort's 2025-26 trail map does not show it.",
+      "expect": { "name": "Vertigo", "note": "Closed due to colony" },
+      "hide": true
+    },
+    {
+      "id": "way/1465072809",
+      "reason": "An unnamed magic carpet at 40.727, -111.448, about 9 km from Park City Mountain and in no ski area: not the resort's (it would draw in the pack's edge tiles).",
+      "expect": { "aerialway": "magic_carpet", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/257820569",
+      "reason": "EAGLET is the only lift the resort's 2025-26 trail map draws in grey, with grey ends and no seat badge (every working lift is maroon, and the legend has no grey lift), and the map's CHAIRLIFTS table of 42 lifts leaves it out: not a lift the public rides this season, so it is not drawn as one.",
+      "expect": { "name": "Eaglet Lift", "aerialway": "chair_lift" },
+      "hide": true
+    },
+    {
+      "id": "node/2632829195",
+      "reason": "The unnamed bottom station of Eaglet (way/257820569, hidden above), 42 m from the Eagle lift: it would otherwise draw as a lift-end circle 59 m from Eagle's top station, with no lift.",
+      "expect": { "aerialway": "station", "name": null },
+      "hide": true
+    },
+    {
+      "id": "node/3698124926",
+      "reason": "Red Pine Zip's entry station, an end of the zip line way/365800780: zip lines are left out (not ski lifts), but the 100 m rule would keep this station, 33 m from a magic carpet's end (way/257815624) at the top of the Red Pine Gondola, as a lift-station circle with no lift (review of 2026-10-22).",
+      "expect": { "aerialway": "station", "name": "Red Pine Zip" },
+      "hide": true
+    },
+    {
+      "id": "node/3698125125",
+      "reason": "Red Pine Zip's exit station (zip line way/365800780, left out), 10 m from the end of the magic carpet way/257815624: it stood in for the carpet's own end circle, which the build draws at the carpet's end once this zip-line station is hidden (review of 2026-10-22).",
+      "expect": { "aerialway": "station", "name": "Red Pine Zip" },
+      "hide": true
+    },
+    {
+      "id": "node/3698124243",
+      "reason": "Lookout Zip's exit station (zip line way/365800781, left out), 44 m from the magic carpet way/257815624 at the top of the Red Pine Gondola: a zip-line station, not a ski lift's (review of 2026-10-22).",
+      "expect": { "aerialway": "station", "name": "Lookout Zip" },
+      "hide": true
+    },
+    {
+      "id": "node/3698124432",
+      "reason": "Lookout Zip's entry station (zip line way/365800781, left out), 26 m beside the Orange Bubble Express, 1 km from its ends: a zip-line station, not a ski lift's (review of 2026-10-22).",
+      "expect": { "aerialway": "station", "name": "Lookout Zip" },
+      "hide": true
+    },
+    {
+      "id": "node/8912713514",
+      "reason": "The unnamed station of the zip line way/963534636 (left out), 53 m from the Crescent Express's end: a zip-line station, not a ski lift's (review of 2026-10-22).",
+      "expect": { "aerialway": "station", "name": null },
+      "hide": true
+    },
+    {
+      "id": "node/10537057110",
+      "reason": "A summer-only mid-station on the Payday Express (OpenStreetMap names it Summer midstation), 768 m up the lift: the resort's 2025-26 winter trail map draws Payday with its two terminals only, so a circle partway up would suggest a winter stop (review of 2026-10-22).",
+      "expect": { "aerialway": "station", "name": "Summer midstation" },
+      "hide": true
+    },
+    {
+      "id": "way/31560006",
+      "reason": "The Cabriolet is replaced for 2026-27 by the 10-person Canyons Village Skyway on the same line (KPCW, 2025-07-15: the route does not change; a new mid-station is not mapped yet).",
+      "expect": { "name": "Cabriolet", "aerialway": "gondola" },
+      "set": { "name": "Canyons Village Skyway" }
+    },
+    {
+      "id": "way/31773248",
+      "reason": "PAYDAY EXPRESS on the resort's 2025-26 trail map; OSM has the old name.",
+      "expect": { "name": "Payday Hi-Speed Six-Pack", "aerialway": "chair_lift" },
+      "set": { "name": "Payday Express" }
+    },
+    {
+      "id": "way/31773295",
+      "reason": "BONANZA EXPRESS on the resort's 2025-26 trail map; OSM has the old name.",
+      "expect": { "name": "Bonanza Hi-Speed Six-Pack", "aerialway": "chair_lift" },
+      "set": { "name": "Bonanza Express" }
+    },
+    {
+      "id": "way/52186624",
+      "reason": "McCONKEY'S EXPRESS on the resort's 2025-26 trail map; OSM has the old name.",
+      "expect": { "name": "McConkey's Hi-Speed Six-Pack", "aerialway": "chair_lift" },
+      "set": { "name": "McConkey's Express" }
+    },
+    {
+      "id": "way/168077031",
+      "reason": "SILVERLODE EXPRESS on the resort's 2025-26 trail map; OSM has the old name.",
+      "expect": { "name": "Silverlode Hi-Speed Six-Pack", "aerialway": "chair_lift" },
+      "set": { "name": "Silverlode Express" }
+    },
+    {
+      "id": "way/52181953",
+      "reason": "CRESCENT EXPRESS on the resort's 2025-26 trail map; OSM has the old name.",
+      "expect": { "name": "Crescent Hi-Speed Quad", "aerialway": "chair_lift" },
+      "set": { "name": "Crescent Express" }
+    }
+  ]
+}

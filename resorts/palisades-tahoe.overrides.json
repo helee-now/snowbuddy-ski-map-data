@@ -1,0 +1,276 @@
+{
+  "slug": "palisades-tahoe",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One map for Olympic Valley (relation/13336421) and Alpine Meadows (relation/6704136). Every named run checked on 2026-10-21 against the resort's 2024 trail maps (palisadestahoe.com: the Palisades and the two Alpine PDFs, rendered and read at full resolution) and, for the Palisades back side, which has no PDF, the resort's interactive trail map (vicoMap 1416, linked from its trail-maps page). OpenStreetMap rated six KT-22 and Headwall double blacks one step easy, and several Alpine single blacks one step hard. Lift names follow the 2024 maps and the resort's interactive lift lists where they agree; a carpet the two name differently is shown unnamed. Ratings follow the printed maps, also where OpenStreetMap rates a run one step harder (the eight Alpine single blacks). Where the resort's own sources disagree on a rating, or only its interactive map rates a run, the harder of their ratings and OpenStreetMap's is kept, so such a run is never drawn easier than any of them (lead's decision 2026-10-22): Rainbow Bowl, blue only on the interactive back-side map, keeps OpenStreetMap's advanced, and Gold Coast, printed blue and interactive novice, takes the printed map's blue.",
+  "overrides": [
+    {
+      "id": "way/248622081",
+      "reason": "Bullet is a black line with a single black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf), from the Headwall top down to Mountain Run, with no blue section; OSM rates it intermediate (the line drops 450 m over its 1.9 km).",
+      "expect": { "name": "Bullet", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/248622078",
+      "reason": "Dead Tree on KT-22 is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf); OSM rates it advanced.",
+      "expect": { "name": "Dead Tree", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/248622082",
+      "reason": "KT-22's Rock Garden is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf); OSM rates it advanced. (Alpine's Rock Garden, way/452735765, is a different run, blue on both.)",
+      "expect": { "name": "Rock Garden", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/249144526",
+      "reason": "Tamara's is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf) and in the resort's interactive trail maps' run list; OSM rates it advanced.",
+      "expect": { "name": "Tamara's", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/248622077",
+      "reason": "Chute 75 on KT-22 is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf); OSM rates it advanced and names it '75 Chute' (the map and the resort's run list say Chute 75).",
+      "expect": { "name": "75 Chute", "piste:difficulty": "advanced" },
+      "set": { "name": "Chute 75", "difficulty": "expert" }
+    },
+    {
+      "id": "way/248622084",
+      "reason": "Moseley's on KT-22 is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf); OSM rates it advanced, and its name carries a bracketed alias that would print on the map ('Moseley's (aka West Face)').",
+      "expect": { "name": "Moseley's (aka West Face)", "piste:difficulty": "advanced" },
+      "set": { "name": "Moseley's", "difficulty": "expert" }
+    },
+    {
+      "id": "way/553033659",
+      "reason": "North Bowl, below the Headwall, is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf) and in the resort's interactive trail maps' run list; OSM rates it advanced.",
+      "expect": { "name": "North Bowl", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/248622377",
+      "reason": "The Slot, beside the Headwall Express, is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf) and in the resort's interactive trail maps' run list; OSM rates it advanced.",
+      "expect": { "name": "The Slot", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/556797396",
+      "reason": "Granite Chief Peak is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf) and on the interactive back-side map; OSM rates it advanced.",
+      "expect": { "name": "Granite Chief Peak", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/249144528",
+      "reason": "Poulsen's Gully is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf); OSM rates all three of its ways advanced.",
+      "expect": { "piste:name": "Poulsen's Gully", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/993519220",
+      "reason": "Poulsen's Gully is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf); OSM rates all three of its ways advanced.",
+      "expect": { "name": "Poulsen's Gully", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/993519221",
+      "reason": "Poulsen's Gully is a double black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf); OSM rates all three of its ways advanced.",
+      "expect": { "name": "Poulsen's Gully", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/553033665",
+      "reason": "Saddle, from the top of KT-22 to Mountain Run, is a single black diamond on the 2024 Palisades trail map (palisadesmaintrailmap.pdf), named Saddle there and in the resort's run list; OSM rates it intermediate and names it 'The Saddle'.",
+      "expect": { "name": "The Saddle", "piste:difficulty": "intermediate" },
+      "set": { "name": "Saddle", "difficulty": "advanced" }
+    },
+    {
+      "id": "way/553033644",
+      "reason": "Gold Coast, beside the Gold Coast Express, is a blue line with a blue square on the 2024 Palisades trail map (palisadesmaintrailmap.pdf); OSM rates it easy. (The interactive map's class says novice; the printed map is followed.)",
+      "expect": { "name": "Gold Coast", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/909851414",
+      "reason": "D-5 is a single black diamond on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf); OSM rates it expert.",
+      "expect": { "piste:name": "D5", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/909851415",
+      "reason": "D-6 is a single black diamond on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf); OSM rates it expert.",
+      "expect": { "piste:name": "D6", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/452731601",
+      "reason": "Face Cliffs is a single black diamond on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf); OSM rates it expert.",
+      "expect": { "piste:name": "Face Cliffs", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/909851372",
+      "reason": "Hidden Knolls (the map's Hidden Knoll's) is a single black diamond on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf); OSM rates it expert.",
+      "expect": { "piste:name": "Hidden Knolls", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/452731568",
+      "reason": "Poma Rocks is a single black diamond on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf); OSM rates it expert.",
+      "expect": { "piste:name": "Poma Rocks", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/452731569",
+      "reason": "Pond Slope is a single black diamond on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf); OSM rates it expert.",
+      "expect": { "piste:name": "Pond Slope", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/452731594",
+      "reason": "Three Sisters is a single black diamond on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf); OSM rates it expert.",
+      "expect": { "piste:name": "Three Sisters", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/452731595",
+      "reason": "Waterfall is a single black diamond on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf); OSM rates it expert.",
+      "expect": { "piste:name": "Waterfall", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/452731674",
+      "reason": "Tiegel is a blue line with a blue square on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf); OSM rates it easy.",
+      "expect": { "name": "Tiegel", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/909851399",
+      "reason": "Bracketed extra in the name ('Dancefloor (Red Trail)'); the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf) and the resort's run list name it Dance Floor.",
+      "expect": { "piste:name": "Dancefloor (Red Trail)" },
+      "set": { "name": "Dance Floor" }
+    },
+    {
+      "id": "way/452735631",
+      "reason": "Bracketed extra in the name ('Boomerang (Green Trail)'); the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf) and the resort's run list name it Boomerang.",
+      "expect": { "piste:name": "Boomerang (Green Trail)" },
+      "set": { "name": "Boomerang" }
+    },
+    {
+      "id": "way/452735620",
+      "reason": "Bracketed extra in the name ('Charity (Red-Green)'), which also splits the run from its third way, named Charity; the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf) and the resort's run list name it Charity.",
+      "expect": { "piste:name": "Charity (Red-Green)" },
+      "set": { "name": "Charity" }
+    },
+    {
+      "id": "way/909851398",
+      "reason": "Bracketed extra in the name ('Charity (Red-Green)'), which also splits the run from its third way, named Charity; the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf) and the resort's run list name it Charity.",
+      "expect": { "piste:name": "Charity (Red-Green)" },
+      "set": { "name": "Charity" }
+    },
+    {
+      "id": "way/452731651",
+      "reason": "Misspelt name ('Maid Marion'); the 2024 Alpine back-side trail map (alpine-back-side-trail.pdf) and the resort's run list spell it Maid Marian.",
+      "expect": { "piste:name": "Maid Marion" },
+      "set": { "name": "Maid Marian" }
+    },
+    {
+      "id": "way/909851387",
+      "reason": "the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf) and the resort's run list name it Pete's Peril, not Peter's Peril.",
+      "expect": { "piste:name": "Peter's Peril" },
+      "set": { "name": "Pete's Peril" }
+    },
+    {
+      "id": "way/452731621",
+      "reason": "the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf) and the resort's run list name it Expert Shortcut, not Expert's Shortcut.",
+      "expect": { "piste:name": "Expert's Shortcut" },
+      "set": { "name": "Expert Shortcut" }
+    },
+    {
+      "id": "way/906204540",
+      "reason": "Offensive name: the slur the resort dropped from its own name in 2021 and the US Department of the Interior declared derogatory (2021) and removed from federal place names (2022); OSM keeps it only as old_name elsewhere. The resort's maps do not name this traverse, so it is shown unnamed.",
+      "expect": { "piste:name": "Squaw Creek Traverse" },
+      "set": { "name": null }
+    },
+    {
+      "id": "way/452731645",
+      "reason": "The double black diamond beside the Scott chair (8-43 m north of it along most of its length) is Scott Chute on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf) and on the resort's interactive Alpine map (vicoMap 152, whose run list has Scott Chute, expert); Chute That Seldom Slides is on the chair's far side, as in OSM. OSM's name tag says Scott Chute, but its piste:name, 'Juniper Face', a name on neither resort map, would print instead.",
+      "expect": { "name": "Scott Chute", "piste:name": "Juniper Face" },
+      "set": { "name": "Scott Chute" }
+    },
+    {
+      "id": "way/452731643",
+      "reason": "Misspelt name ('Murhpy's Mistake'). The run is on neither resort map, so only the spelling is fixed, as Whistler Blackcomb's 'kadenwood' was.",
+      "expect": { "piste:name": "Murhpy's Mistake" },
+      "set": { "name": "Murphy's Mistake" }
+    },
+    {
+      "id": "way/906424390",
+      "reason": "Misspelt name ('Controversey'). The run is on neither resort map, so only the spelling is fixed.",
+      "expect": { "piste:name": "Controversey" },
+      "set": { "name": "Controversy" }
+    },
+    {
+      "id": "way/452731588",
+      "reason": "Misspelt name ('Piston Bulley Slope', after the PistenBully snowcat?) on neither resort map, so the intended spelling cannot be checked: shown unnamed, as Whistler Blackcomb's stray '4.6' was.",
+      "expect": { "piste:name": "Piston Bulley Slope" },
+      "set": { "name": null }
+    },
+    {
+      "id": "way/10481191",
+      "reason": "The six-seat chair to the top of Alpine Meadows is Summit Express on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf) and in the resort's interactive lift list (vicoMap 152); 'Summit Six', its old name, survives only in that list's description.",
+      "expect": { "aerialway": "chair_lift", "name": "Summit Six" },
+      "set": { "name": "Summit Express" }
+    },
+    {
+      "id": "way/258143191",
+      "reason": "The two carpets at the Alpine base, between the Subway and Meadow chairs, are Big Carpet and Little Carpet on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf) and on the resort's interactive Alpine map (vicoMap 152, same places); this one, the longer (61 m) and the one by the Meadow chair's bottom, is Big Carpet. 'Sun Daddy' is on neither.",
+      "expect": { "aerialway": "magic_carpet", "name": "Sun Daddy" },
+      "set": { "name": "Big Carpet" }
+    },
+    {
+      "id": "way/1211471870",
+      "reason": "The two carpets at the Alpine base are Big Carpet and Little Carpet on the 2024 Alpine front-side trail map (alpine-front-side-trail.pdf) and on the resort's interactive Alpine map (vicoMap 152); this one, the shorter (35 m), about 150 m nearer the base than the other, is Little Carpet. 'Sun Kid' is on neither.",
+      "expect": { "aerialway": "magic_carpet", "name": "Sun Kid" },
+      "set": { "name": "Little Carpet" }
+    },
+    {
+      "id": "way/551282914",
+      "reason": "The three carpets beside Palisades Kids are Camper, Jackson and Boomer, east to west, on the 2024 Palisades trail map (palisadesmaintrailmap.pdf) and on the resort's interactive map (vicoMap 1446, the same drawing); this one, the westernmost and longest (50 m), is Boomer, a name the resort's lift list also gives. 'Murphy' is on neither.",
+      "expect": { "aerialway": "magic_carpet", "name": "Murphy" },
+      "set": { "name": "Boomer" }
+    },
+    {
+      "id": "way/258146201",
+      "reason": "The three carpets beside Palisades Kids are Camper, Jackson and Boomer, east to west, on the 2024 Palisades trail map (palisadesmaintrailmap.pdf) and on the resort's interactive map (vicoMap 1446); this one, the easternmost, is Camper, a name the resort's lift list also gives. 'Boone' is on neither.",
+      "expect": { "aerialway": "magic_carpet", "name": "Boone" },
+      "set": { "name": "Camper" }
+    },
+    {
+      "id": "way/258146202",
+      "reason": "The middle one of the three carpets beside Palisades Kids: Jackson on the 2024 Palisades trail map (palisadesmaintrailmap.pdf) and in the interactive map's drawing, but the resort's lift list (vicoMap 1446) names Camper, Boomer and Shaka, and no Jackson, so its current name is unconfirmed; 'Wylee' is on neither. Shown unnamed until checked.",
+      "expect": { "aerialway": "magic_carpet", "name": "Wylee" },
+      "set": { "name": null }
+    },
+    {
+      "id": "way/258145803",
+      "reason": "The carpet at SnoVentures west of First Venture, by the Far East Express's bottom, is Ahsoka on the 2024 Palisades trail map (palisadesmaintrailmap.pdf) and in the resort's lift list (vicoMap 1446); the other carpet there is the SnoVentures tubing carpet (way/551292289, capacity 2,400 an hour, as the list gives it). 'Tucker' is on neither.",
+      "expect": { "aerialway": "magic_carpet", "name": "Tucker" },
+      "set": { "name": "Ahsoka" }
+    },
+    {
+      "id": "way/569474843",
+      "reason": "Unnamed 192 m chair at Tahoe City (Granlibakken's small hill), 5.8 km from the resort and in no ski-area polygon: not a lift of this resort, drawn at the pack's edge at z10-13.",
+      "expect": { "aerialway": "chair_lift", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/879956950",
+      "reason": "Unnamed run beside the Granlibakken chair at Tahoe City, 5.8 km from the resort and in no ski-area polygon: not a run of this resort, drawn at the pack's edge at z11-13.",
+      "expect": { "piste:type": "downhill", "name": null, "piste:name": null },
+      "hide": true
+    },
+    {
+      "id": "way/452731605",
+      "reason": "Tiegel Terrain Park is on neither the resort's 2024 Alpine trail map nor its interactive maps' run lists, so it would draw as the resort's only park; the parks the resort does show (Gold Coast, Big Blue, Belmont, High Camp Start, SnoVentures) are not in OSM. Hidden until OSM matches the resort (lead, review of 2026-10-22).",
+      "expect": { "name": "Tiegel Terrain Park", "piste:type": "snow_park" },
+      "hide": true
+    }
+  ]
+}

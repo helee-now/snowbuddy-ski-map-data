@@ -1,0 +1,108 @@
+{
+  "slug": "snow-valley",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Ratings and lifts checked on 2026-10-21 against the resort's 2026 Snow Valley trail map (bigbearmountainresort.com, read at full resolution), which shows chairs 1, 2, 3, 6, 8, 9, 11, 12 and 13; ratings follow the map, also where OpenStreetMap rates a run harder (The Face, and the freeride tags of the beginner slope and The Edge). Chair 2 is drawn there as a short lift beside Chair 6 at the base; OpenStreetMap's Chair 2 runs 1.1 km to mid-mountain and is hidden, with its two stations, until it is redrawn. The hidden lifts' stations that lie within 100 m of a drawn lift (Chair 2's two, Chair 10's two) are hidden with them, so no station circle is drawn without its lift (review of 2026-10-22).",
+  "overrides": [
+    {
+      "id": "way/258003289",
+      "reason": "Chair 4 is not on the 2026 Snow Valley trail map (chairs 1, 2, 3, 6, 8, 9, 11, 12, 13); OSM's own fixme asks whether it is still there.",
+      "expect": { "aerialway": "chair_lift", "name": "Chair 4" },
+      "hide": true
+    },
+    {
+      "id": "way/258004025",
+      "reason": "Chair 10 is not on the 2026 Snow Valley trail map; OSM's fixme says it looks merged with Chair 9.",
+      "expect": { "aerialway": "chair_lift", "name": "Chair 10" },
+      "hide": true
+    },
+    {
+      "id": "way/777214258",
+      "reason": "Unnamed chair west of the ski-area polygon (694 m) that the 2026 Snow Valley trail map does not show: a removed lift.",
+      "expect": { "aerialway": "chair_lift", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/7077209",
+      "reason": "Chair 2 on the 2026 Snow Valley trail map is a short lift beside Chair 6 at the base: its top is a little above Chair 6's, level with the Deer Meadow Grill at the foot of Lake Run, and it is drawn about a quarter as long as the Snow Valley Express. This old TIGER-import way runs 1,101 m (78% of the Express) to a mid-mountain top that the map does not have, where Race Peak, Quickie and Surprise Run start, and shares Chair 6's line for its first 370 m. An override cannot shorten a way, so it is hidden until OpenStreetMap is fixed. The expect check reads tags only: tiger:cfcc is in expect so that a redraw that drops the TIGER tags stops the build, but a geometry-only fix will not, so remove this entry and those of its two stations (node/54285179, node/54285177) by hand once the way is redrawn.",
+      "expect": { "aerialway": "chair_lift", "name": "Chair 2", "tiger:cfcc": "C31" },
+      "hide": true
+    },
+    {
+      "id": "node/54285179",
+      "reason": "Top station of the hidden Chair 2 (way/7077209), at mid-mountain where the 2026 Snow Valley trail map has no lift top. It lies within 100 m of the Snow Valley Express, so without this entry it would still be drawn as a lift station.",
+      "expect": { "aerialway": "station", "aerialway:access": "exit" },
+      "hide": true
+    },
+    {
+      "id": "node/54285177",
+      "reason": "Bottom station of the hidden Chair 2 (way/7077209), 7 m from Chair 6's own bottom station: without this entry it would draw a second circle there, for a lift that is not drawn (review of 2026-10-22). Remove it with the Chair 2 entries once the way is redrawn.",
+      "expect": { "aerialway": "station", "aerialway:access": "entry" },
+      "hide": true
+    },
+    {
+      "id": "node/2634394224",
+      "reason": "Bottom station of the hidden Chair 10 (way/258004025), 60 m from Chair 9: without this entry the 100 m rule would draw it as a lift station with no lift (review of 2026-10-22).",
+      "expect": { "aerialway": "station", "aerialway:access": "entry" },
+      "hide": true
+    },
+    {
+      "id": "node/2634394226",
+      "reason": "Top station of the hidden Chair 10 (way/258004025), 37 m from Chair 11's top station: without this entry it would draw a second circle there, with no lift (review of 2026-10-22).",
+      "expect": { "aerialway": "station", "aerialway:access": "exit", "public_transport": "station" },
+      "hide": true
+    },
+    {
+      "id": "way/7153966",
+      "reason": "Chair 1 is the Snow Valley Express on the 2026 Snow Valley trail map (the six-seat chair; OSM already has six seats).",
+      "expect": { "aerialway": "chair_lift", "name": "Chair 1" },
+      "set": { "name": "Snow Valley Express" }
+    },
+    {
+      "id": "way/104596011",
+      "reason": "Chair 12 is the Coyote Creek Chair on the 2026 Snow Valley trail map.",
+      "expect": { "aerialway": "chair_lift", "name": "Chair 12" },
+      "set": { "name": "Coyote Creek Chair" }
+    },
+    {
+      "id": "way/104595981",
+      "reason": "The Face is a single black diamond on the 2026 Snow Valley trail map; OSM rates it expert.",
+      "expect": { "name": "The Face", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/661883700",
+      "reason": "The Ladder is a double black diamond on the 2026 Snow Valley trail map; OSM rates it advanced.",
+      "expect": { "piste:name": "The Ladder", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/661883698",
+      "reason": "Little Bowl is a single black diamond on the 2026 Snow Valley trail map; OSM rates it intermediate.",
+      "expect": { "piste:name": "Little Bowl", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/525502747",
+      "reason": "Pipeline is a single black diamond on the 2026 Snow Valley trail map; OSM rates it intermediate.",
+      "expect": { "name": "Pipeline", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/661883710",
+      "reason": "Mambo Alley is blue (a blue square) on the 2026 Snow Valley trail map; OSM rates this part easy, the rest intermediate.",
+      "expect": { "piste:name": "Mambo Alley", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/104595990",
+      "reason": "The beginner slope at the base beside Chair 6, tagged freeride (it would draw as double black, ungroomed). the 2026 Snow Valley trail map shows only green terrain there (Thunder Mountain) and has no run called 'bunny slope', a description rather than a name, so the name is hidden.",
+      "expect": { "piste:name": "bunny slope", "piste:difficulty": "freeride" },
+      "set": { "name": null, "difficulty": "novice" }
+    },
+    {
+      "id": "way/104596004",
+      "reason": "The Edge, a terrain park tagged freeride, would draw dashed as ungroomed; the 2026 Snow Valley trail map shows it as a blue run (blue square) with the freestyle-terrain symbol. It stays a park.",
+      "expect": { "piste:name": "The Edge", "piste:type": "snow_park", "piste:difficulty": "freeride" },
+      "set": { "difficulty": "intermediate" }
+    }
+  ]
+}

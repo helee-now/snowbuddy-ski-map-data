@@ -1,0 +1,73 @@
+{
+  "key": "snow-valley-v1",
+  "ski_sha256": "ba03bd7803225c79a07817980fa5622a2b3cfd721347007f6685b5de1b03c4ea",
+  "osm_timestamp": "2026-10-22T06:42:51Z",
+  "box": [
+    -117.07,
+    34.18,
+    -117,
+    34.25
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -117.042238,
+    34.201243,
+    -117.031437,
+    34.225458
+  ],
+  "margins_km": {
+    "west": 2.55,
+    "south": 2.36,
+    "east": 2.89,
+    "north": 2.73
+  },
+  "counts": {
+    "lifts": 9,
+    "runs_in_bounds": 42,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 18,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 4.5,
+    "runs_in_bounds": 13.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -117.070312,
+      34.161818,
+      -116.894531,
+      34.307144
+    ],
+    "12": [
+      -117.070312,
+      34.161818,
+      -116.982422,
+      34.307144
+    ],
+    "13": [
+      -117.070312,
+      34.161818,
+      -116.982422,
+      34.270836
+    ],
+    "14": [
+      -117.070312,
+      34.179998,
+      -116.982422,
+      34.252676
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

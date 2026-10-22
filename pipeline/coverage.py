@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """Coverage report of one resort pack (ADR-036): does the box hold the resort, with room to spare?
 
-Reads the GeoJSON written by normalize_osm.py. The resort's terrain is the ski-area polygon plus every lift and
-in-bounds run (lines and run areas) within --resort-radius-km of the polygon's bounding box. All of it must lie inside
-the box, and the margin between the box and that terrain must be at least --min-margin-km on every side (2 km by the
-box rule). Out-of-bounds runs are listed but not required, because they may run far from the resort; for each, the
-report gives the zooms at which the tiles hold all of it (drawn_whole_at) or only part of it (drawn_part_at). The
-tiles of a zoom are the ones touching the box, as Planetiler and `pmtiles extract` cut them, so a run just beyond the
-box can sit in the larger low-zoom tiles and still be cut from the max-zoom ones. Lifts and runs farther away (another
-venue inside the Overpass margin, such as Whistler Olympic Park) are listed as other features.
+Reads the GeoJSON written by normalize_osm.py, which holds exactly one ski-area feature: the resort's polygon (a
+Polygon), or for a resort of several mountains a MultiPolygon with one member per listed polygon. The resort's terrain
+is that feature plus every lift and in-bounds run (lines and run areas) within --resort-radius-km of the polygon's
+bounding box (of any member's, for several mountains). All of it must lie inside the box, and the margin between the
+box and that terrain must be at least --min-margin-km on every side (2 km by the box rule). Out-of-bounds runs are
+listed but not required, because they may run far from the resort; for each, the report gives the zooms at which the
+tiles hold all of it (drawn_whole_at) or only part of it (drawn_part_at). The tiles of a zoom are the ones touching
+the box, as Planetiler and `pmtiles extract` cut them, so a run just beyond the box can sit in the larger low-zoom
+tiles and still be cut from the max-zoom ones. Lifts and runs farther away are listed as other features: another venue
+inside the Overpass margin that resorts.json does not list as a neighbour, such as Whistler Olympic Park. A listed
+neighbour's lifts and runs never reach this report: normalize_osm.py leaves them out of the file.
 
 Out-of-bounds runs named in the resort's `out_of_bounds_named` (resorts.json, with --resorts and --slug) are
 required: each name must match at least one out-of-bounds run, drawn whole at every zoom (owner decision 2026-10-15:
@@ -159,9 +162,15 @@ def coverage(fc, box, min_margin_km, resort_radius_km=2.0, zooms=range(11, 15), 
 
     areas = [f for f in fc['features'] if f['properties']['layer'] == 'ski_area']
     if len(areas) == 1:
-        aw, as_, ae, an = bbox_of(areas[0]['geometry'])
+        # The polygon's bounding box, all its rings; for a MultiPolygon (several mountains) each member's, so the
+        # radius is measured from every mountain and not from one box around all of them.
+        g = areas[0]['geometry']
+        members = [{'type': 'Polygon', 'coordinates': c} for c in g['coordinates']] if g['type'] == 'MultiPolygon' else [g]
         rx, ry = resort_radius_km * 1000.0 / kx, resort_radius_km * 1000.0 / k
-        near = (aw - rx, as_ - ry, ae + rx, an + ry)
+        near = []
+        for m in members:
+            aw, as_, ae, an = bbox_of(m)
+            near.append((aw - rx, as_ - ry, ae + rx, an + ry))
     else:
         near = None
 
@@ -169,7 +178,7 @@ def coverage(fc, box, min_margin_km, resort_radius_km=2.0, zooms=range(11, 15), 
         if near is None:
             return True
         fw, fs, fe, fn = bbox_of(geom)
-        return not (fe < near[0] or fw > near[2] or fn < near[1] or fs > near[3])
+        return any(not (fe < b[0] or fw > b[2] or fn < b[1] or fs > b[3]) for b in near)
 
     counts = {'lifts': 0, 'runs_in_bounds': 0, 'run_areas_in_bounds': 0, 'runs_out_of_bounds': 0,
               'run_areas_out_of_bounds': 0, 'lift_stations': 0, 'ski_area': 0, 'other_lifts_and_runs': 0}
@@ -234,7 +243,7 @@ def coverage(fc, box, min_margin_km, resort_radius_km=2.0, zooms=range(11, 15), 
                 problems.append(f'the named out-of-bounds run {name!r} ({r["osm"]}) is not drawn whole at every zoom '
                                 f'(whole at {r["drawn_whole_at"]}): grow the box')
     if counts['ski_area'] != 1:
-        problems.append(f'expected exactly one ski-area polygon, found {counts["ski_area"]}')
+        problems.append(f'expected exactly one ski-area feature (a Polygon, or a MultiPolygon for several mountains), found {counts["ski_area"]}')
     if counts['lifts'] == 0:
         problems.append('no lifts')
     if counts['runs_in_bounds'] == 0:

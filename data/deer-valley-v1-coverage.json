@@ -1,0 +1,73 @@
+{
+  "key": "deer-valley-v1",
+  "ski_sha256": "9abd659e028939783defd5de7c610fc235ddcd2787b0ceb8e1e27038ecd19b7a",
+  "osm_timestamp": "2026-10-22T06:50:06Z",
+  "box": [
+    -111.56,
+    40.56,
+    -111.41,
+    40.67
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -111.528647,
+    40.58008,
+    -111.435888,
+    40.642715
+  ],
+  "margins_km": {
+    "west": 2.65,
+    "south": 2.23,
+    "east": 2.19,
+    "north": 3.03
+  },
+  "counts": {
+    "lifts": 34,
+    "runs_in_bounds": 354,
+    "run_areas_in_bounds": 2,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 68,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 36.3,
+    "runs_in_bounds": 182.9,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -111.621094,
+      40.446947,
+      -111.269531,
+      40.713956
+    ],
+    "12": [
+      -111.621094,
+      40.513799,
+      -111.357422,
+      40.713956
+    ],
+    "13": [
+      -111.577148,
+      40.5472,
+      -111.401367,
+      40.680638
+    ],
+    "14": [
+      -111.577148,
+      40.5472,
+      -111.401367,
+      40.680638
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

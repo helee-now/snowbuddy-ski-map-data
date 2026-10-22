@@ -1,0 +1,105 @@
+{
+  "key": "palisades-tahoe-v1",
+  "ski_sha256": "aa35add590a951c23fcf8146d5e3732657c0194e378c9badcf74f286c6440f49",
+  "osm_timestamp": "2026-10-22T06:44:51Z",
+  "box": [
+    -120.32,
+    39.11,
+    -120.19,
+    39.23
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -120.287102,
+    39.133902,
+    -120.216967,
+    39.206544
+  ],
+  "margins_km": {
+    "west": 2.84,
+    "south": 2.66,
+    "east": 2.32,
+    "north": 2.61
+  },
+  "counts": {
+    "lifts": 44,
+    "runs_in_bounds": 278,
+    "run_areas_in_bounds": 20,
+    "runs_out_of_bounds": 2,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 81,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 37,
+    "runs_in_bounds": 114.4,
+    "runs_out_of_bounds": 1.4
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [
+    "Outer Outer",
+    "Outer Outer Outer"
+  ],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/455183676",
+      "name": "Outer Outer Outer",
+      "difficulty": "advanced",
+      "length_m": 632,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/455183677",
+      "name": "Outer Outer",
+      "difficulty": "advanced",
+      "length_m": 746,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -120.410156,
+      39.095963,
+      -120.058594,
+      39.232253
+    ],
+    "12": [
+      -120.322266,
+      39.095963,
+      -120.146484,
+      39.232253
+    ],
+    "13": [
+      -120.322266,
+      39.095963,
+      -120.146484,
+      39.232253
+    ],
+    "14": [
+      -120.322266,
+      39.095963,
+      -120.168457,
+      39.232253
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

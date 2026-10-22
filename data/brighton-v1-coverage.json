@@ -1,0 +1,95 @@
+{
+  "key": "brighton-v1",
+  "ski_sha256": "a3c2201ad03cdc0289bdfed276bd7e01af833d0b4462415aa9067cfbe4c6f48b",
+  "osm_timestamp": "2026-10-22T06:47:58Z",
+  "box": [
+    -111.63,
+    40.56,
+    -111.53,
+    40.62
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -111.599768,
+    40.582915,
+    -111.561018,
+    40.601216
+  ],
+  "margins_km": {
+    "west": 2.55,
+    "south": 2.55,
+    "east": 2.62,
+    "north": 2.09
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 89,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 1,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 16,
+    "ski_area": 1,
+    "other_lifts_and_runs": 1
+  },
+  "length_km": {
+    "lifts": 7.3,
+    "runs_in_bounds": 44.9,
+    "runs_out_of_bounds": 0.3
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1382646253",
+      "name": "Suicide Chute",
+      "difficulty": "extreme",
+      "length_m": 303,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12,
+        13
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -111.796875,
+      40.446947,
+      -111.445312,
+      40.713956
+    ],
+    "12": [
+      -111.708984,
+      40.513799,
+      -111.445312,
+      40.647304
+    ],
+    "13": [
+      -111.665039,
+      40.5472,
+      -111.489258,
+      40.647304
+    ],
+    "14": [
+      -111.643066,
+      40.5472,
+      -111.51123,
+      40.63063
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [
+    {
+      "osm": "way/993540210",
+      "layer": "piste",
+      "name": "Engen Hill - Historic 1936 Ski Jump Run",
+      "kind": "downhill",
+      "inside_box": false
+    }
+  ],
+  "problems": [],
+  "ok": true
+}

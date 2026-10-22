@@ -1,0 +1,73 @@
+{
+  "key": "winter-park-v1",
+  "ski_sha256": "5d52e6713962012370bc41e3fc6c98ebbc5152a2f5a3e8d92547fb71d2ba4216",
+  "osm_timestamp": "2026-10-22T06:47:58Z",
+  "box": [
+    -105.84,
+    39.81,
+    -105.72,
+    39.93
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -105.813934,
+    39.833883,
+    -105.751262,
+    39.908633
+  ],
+  "margins_km": {
+    "west": 2.22,
+    "south": 2.66,
+    "east": 2.67,
+    "north": 2.38
+  },
+  "counts": {
+    "lifts": 24,
+    "runs_in_bounds": 191,
+    "run_areas_in_bounds": 6,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 48,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 24.5,
+    "runs_in_bounds": 123.9,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -105.996094,
+      39.774769,
+      -105.644531,
+      40.044438
+    ],
+    "12": [
+      -105.908203,
+      39.774769,
+      -105.644531,
+      39.97712
+    ],
+    "13": [
+      -105.864258,
+      39.808536,
+      -105.688477,
+      39.943436
+    ],
+    "14": [
+      -105.842285,
+      39.808536,
+      -105.710449,
+      39.943436
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

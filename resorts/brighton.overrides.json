@@ -1,0 +1,120 @@
+{
+  "slug": "brighton",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Checked 2026-10-21 against Brighton's own trail list (the data of brightonresort.com/conditions, from its /api/reportpal) and its 2025-26 winter trail map (the PDF linked from brightonresort.com/trail-maps). Brighton's five terrain parks (My-O-My, Candyland, Pee-Wee, Upper and Lower Majestic) carry no park tag in OSM; the park flag draws them in the park colour. Where the resort's own sources disagree on a rating, the harder of their ratings and OpenStreetMap's is kept, so such a run is never drawn easier than any of them (lead's decision 2026-10-22); no run here is drawn easier than OpenStreetMap rates it. Where one OSM way covers two runs of different ratings (Lone Pine with Randy's Chute, Scree Slope with Scree Chute, Backdoor with its green lower part) it keeps the harder one.",
+  "overrides": [
+    {
+      "id": "way/137706713",
+      "reason": "The lift is the Crest 6 six-pack (since 2023-24) on Brighton's lift list and 2025-26 trail map; OSM keeps the old name (and a stale construction:aerialway tag).",
+      "expect": { "name": "Crest Express", "aerialway": "chair_lift" },
+      "set": { "name": "Crest 6" }
+    },
+    {
+      "id": "way/1305308275",
+      "reason": "Backdoor is blue (intermediate) on Brighton's trail list, and its trail-map label sits on a blue line from the Milly top; OSM rates it easy. The map draws this way's lower part green below the label: a split is listed as an upstream fix.",
+      "expect": { "name": "Backdoor", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1305308276",
+      "reason": "Backdoor is blue (intermediate) on Brighton's trail list and trail map; OSM rates it easy.",
+      "expect": { "name": "Backdoor", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1305318995",
+      "reason": "Backdoor is blue (intermediate) on Brighton's trail list and trail map; OSM rates it easy.",
+      "expect": { "name": "Backdoor", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1134321864",
+      "reason": "Hard Coin is double black (expert) on Brighton's trail list and trail map; OSM rates it advanced.",
+      "expect": { "name": "Hard Coin", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/422675144",
+      "reason": "Lower Mary is blue (intermediate) on Brighton's trail list and trail map (the Mary Main and Lower Mary line); OSM rates it easy.",
+      "expect": { "name": "Lower Mary", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/422522340",
+      "reason": "Brighton lists this run as \"Racecourse (Snake Creek Access)\", blue (intermediate), and its trail map draws Race Course blue from the Majestic top down to Lower Thunder Road; OSM rates it easy. The OSM name is the resort's own alias and stays.",
+      "expect": { "name": "Snake Creek Access", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/422522339",
+      "reason": "The green lower section of Thunder Road, from the junction down to the bottom of Snake Creek Express, is Lower Thunder Road (green) on Brighton's trail list and trail map; the blue upper way (way/212457557) stays Thunder Road.",
+      "expect": { "name": "Thunder Road", "piste:name": "Thunder Road", "piste:difficulty": "easy" },
+      "set": { "name": "Lower Thunder Road" }
+    },
+    {
+      "id": "way/422678584",
+      "reason": "Devil's Dip on Brighton's trail list and trail map (black, from Little Milly down to Canyon); neither has a Devil's Drop.",
+      "expect": { "name": "Devil's Drop", "piste:difficulty": "advanced" },
+      "set": { "name": "Devil's Dip" }
+    },
+    {
+      "id": "way/422522342",
+      "reason": "The green run that leaves Pioneer just below its lightbulb, crosses the Snake Creek Express and ends at Thunder Road where Candyland starts is Pick 'Em Up on Brighton's 2025-26 trail map (Pick Em Up, green, on its trail list); neither has a Deer Park.",
+      "expect": { "name": "Deer Park", "piste:difficulty": "easy" },
+      "set": { "name": "Pick 'Em Up" }
+    },
+    {
+      "id": "way/422672267",
+      "reason": "This short blue link from Lower Pioneer to Sunshine is Chicken Out on Brighton's trail map and trail list (blue, under the Snake Creek Express). Brighton's Easy Out is a Milly Express run (ways 422679160 and 1305308310), 1.6 km away.",
+      "expect": { "name": "Easy Out", "piste:difficulty": "intermediate" },
+      "set": { "name": "Chicken Out" }
+    },
+    {
+      "id": "way/422672271",
+      "reason": "The blue line that Chicken Out leaves and Ziggy joins, down to the bottom of the Snake Creek Express, is Lower Pioneer on Brighton's trail map and trail list (blue). Its top 308 m, from the fork below the Pioneer lightbulb to the Chicken Out junction, is unlabelled on the map; the upper way (way/422522341) keeps the name Pioneer.",
+      "expect": { "name": "Pioneer", "piste:difficulty": "intermediate" },
+      "set": { "name": "Lower Pioneer" }
+    },
+    {
+      "id": "way/911054096",
+      "reason": "Terrain park My-O-My (large) on Brighton's park list and trail map (orange, from Thunder Road down to Candyland), spelled My-O-My; OSM has no park tag.",
+      "expect": { "name": "My oh My", "piste:type": "downhill" },
+      "set": { "name": "My-O-My", "park": true }
+    },
+    {
+      "id": "way/1047704531",
+      "reason": "Terrain park Candyland (medium) on Brighton's park list and trail map; OSM has no park tag.",
+      "expect": { "name": "Candyland", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/911054095",
+      "reason": "Terrain park Pee-Wee (small) on Brighton's park list and trail map; OSM has no park tag.",
+      "expect": { "name": "Pee Wee", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/911054094",
+      "reason": "The Upper and Lower Majestic terrain parks (medium) down the Majestic lift line, orange on Brighton's trail map; OSM names the line Terrain Park without a park tag. (Its piste:grooming=mogul still marks it ungroomed: an upstream fix.)",
+      "expect": { "name": "Terrain Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/1047704530",
+      "reason": "The park link from Pee-Wee and Candyland into the Majestic park, orange on Brighton's trail map. Its piste:name Majestic Access, which the map would print, names the blue run on the Milly side (way/422678582); the way's own name tag, Terrain Park, is used instead.",
+      "expect": { "name": "Terrain Park", "piste:name": "Majestic Access", "piste:type": "downhill" },
+      "set": { "name": "Terrain Park", "park": true }
+    },
+    {
+      "id": "way/1305318972",
+      "reason": "Brighton's trail list rates Evergreen blue and its trail map prints Evergreen on a blue line further inside; this way hugs the north boundary to the Milly base (26 m from the ski-area outline at the median) like the map's unlabelled black line there. The black rating stays; the name is hidden until OSM is checked.",
+      "expect": { "name": "Evergreen", "piste:difficulty": "advanced" },
+      "set": { "name": null }
+    },
+    {
+      "id": "way/1305318973",
+      "reason": "As way/1305318972: the unlabelled black line along the north boundary on Brighton's trail map, 47 m from the ski-area outline at the median; Evergreen is a blue run further inside.",
+      "expect": { "name": "Evergreen", "piste:difficulty": "advanced" },
+      "set": { "name": null }
+    }
+  ]
+}

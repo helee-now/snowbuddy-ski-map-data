@@ -1,0 +1,366 @@
+{
+  "slug": "deer-valley",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Checked 2026-10-21 against Deer Valley's terrain-status list (the Lifts & Trails of deervalley.com/explore-the-mountain/mountain-report, from its feed) and the run layer of its interactive trail map (vicomap map 1815, embedded at deervalley.com/explore-the-mountain/interactive-grooming-map). The seven Hail Peak runs opening in 2026-27 (Hill Yeah and others) are on neither yet and stay as mapped. Deer Valley has no terrain park. Where the two agree, their rating is drawn, also where OpenStreetMap rates a run one step harder (Boulder Bumps, Mayflower Bowl). Where they disagree, the harder of their ratings and OpenStreetMap's is kept, so such a run is never drawn easier than any of them (lead's decision 2026-10-22): Silver Buck (Lower) and Blue Bell are blue and Zebra Trees double black. The Deer Crest homeowners' trails by the Jordanelle gondola (Connector, Crest Ridge, Home Run, Lost Fawn, Pioche, Pioche Loop, Ridge Cross, Summit, Town Hall Loop, three short Deer Hollow ways and the private Nelles Loop), on neither the resort's list nor its map, are hidden (lead's decision 2026-10-22).",
+  "overrides": [
+    {
+      "id": "way/1429373938",
+      "reason": "Boulder Bumps is blue (intermediate, moguls) on Deer Valley's terrain list and trail map; OSM rates it advanced.",
+      "expect": { "name": "Boulder Bumps", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/261875952",
+      "reason": "Mayflower Bowl is black (advanced) on Deer Valley's terrain list and trail map (Mayflower Chutes beside it is the double black); OSM rates it expert.",
+      "expect": { "name": "Mayflower Bowl", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/261874740",
+      "reason": "Stein's Way is black (advanced) on Deer Valley's terrain list, and the trail map draws most of it black with a blue lower end; OSM rates the whole way intermediate.",
+      "expect": { "name": "Stein's Way", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/261872558",
+      "reason": "Silver Buck (Lower) is blue (intermediate) on Deer Valley's terrain list, as is Silver Buck (Upper); OSM rates this lower way easy, as the run layer of the interactive trail map draws the section (green). The terrain list is the reference, and where the resort's own sources disagree the harder rating is kept.",
+      "expect": { "name": "Silver Buck", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1079561218",
+      "reason": "The 15 m bridge of Silver Buck (Lower), blue (intermediate) on Deer Valley's terrain list; OSM rates it easy (as way/261872558).",
+      "expect": { "name": "Silver Buck", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1079561217",
+      "reason": "The foot of Silver Buck (Lower), blue (intermediate) on Deer Valley's terrain list; OSM rates it easy (as way/261872558).",
+      "expect": { "name": "Silver Buck", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1225236382",
+      "reason": "Tripled letter: Anchor Trees on Deer Valley's terrain list and trail map.",
+      "expect": { "name": "Anchor Treess" },
+      "set": { "name": "Anchor Trees" }
+    },
+    {
+      "id": "way/261450431",
+      "reason": "Misspelt: Crescent on Deer Valley's terrain list and trail map.",
+      "expect": { "name": "Cresent" },
+      "set": { "name": "Crescent" }
+    },
+    {
+      "id": "way/1225236379",
+      "reason": "Guardsman Glade on Deer Valley's terrain list and trail map.",
+      "expect": { "name": "Guardsman Glades" },
+      "set": { "name": "Guardsman Glade" }
+    },
+    {
+      "id": "way/1383474512",
+      "reason": "Humbug on Deer Valley's terrain list and trail map (Park Peak, between June Bug, Straddle Bug and Clipper).",
+      "expect": { "name": "Ham Bug" },
+      "set": { "name": "Humbug" }
+    },
+    {
+      "id": "way/1225236377",
+      "reason": "Kebob on Deer Valley's terrain list and trail map.",
+      "expect": { "name": "Kabob" },
+      "set": { "name": "Kebob" }
+    },
+    {
+      "id": "way/261450430",
+      "reason": "Misspelt: Keetley in the trail list of Deer Valley's interactive trail map (name only; the run is not on the terrain-status list).",
+      "expect": { "name": "Keetly" },
+      "set": { "name": "Keetley" }
+    },
+    {
+      "id": "way/880826844",
+      "reason": "Misspelt: Little Bell on Deer Valley's terrain list and trail map.",
+      "expect": { "name": "Little Bdll" },
+      "set": { "name": "Little Bell" }
+    },
+    {
+      "id": "way/1383474483",
+      "reason": "Misspelt: Niagara on Deer Valley's terrain list and trail map.",
+      "expect": { "name": "Niagra" },
+      "set": { "name": "Niagara" }
+    },
+    {
+      "id": "way/1383474509",
+      "reason": "Deer Valley spells this run Persistance on its terrain list and trail map.",
+      "expect": { "name": "Persistence" },
+      "set": { "name": "Persistance" }
+    },
+    {
+      "id": "way/1442925576",
+      "reason": "Misspelt: Trilby on Deer Valley's terrain list and trail map.",
+      "expect": { "name": "Trillby" },
+      "set": { "name": "Trilby" }
+    },
+    {
+      "id": "way/1383474798",
+      "reason": "Odd capital: Nondescript on Deer Valley's terrain list and trail map.",
+      "expect": { "name": "Non-Descript" },
+      "set": { "name": "Nondescript" }
+    },
+    {
+      "id": "way/261873486",
+      "reason": "Deer Valley lists Lily as one run in Upper and Lower sections (terrain list and trail map); OSM names this lower way Lower Lily, which splits the run's rank.",
+      "expect": { "name": "Lower Lily" },
+      "set": { "name": "Lily" }
+    },
+    {
+      "id": "way/875650362",
+      "reason": "Private (access=private): a homeowners' trail, not on Deer Valley's terrain list or trail map.",
+      "expect": { "name": "Nelles Loop", "access": "private" },
+      "hide": true
+    },
+    {
+      "id": "way/1410402586",
+      "reason": "Private (access=private): part of Nelles Loop, a homeowners' trail not on Deer Valley's terrain list or trail map.",
+      "expect": { "name": "Nelles Loop", "access": "private" },
+      "hide": true
+    },
+    {
+      "id": "way/1410402591",
+      "reason": "Private (access=private): the bridge of Nelles Loop, a homeowners' trail not on Deer Valley's terrain list or trail map.",
+      "expect": { "name": "Nelles Loop", "access": "private" },
+      "hide": true
+    },
+    {
+      "id": "way/1333611163",
+      "reason": "Private unnamed track (access=private, motor_vehicle=private) near 40.613, -111.464; not a run on Deer Valley's terrain list or trail map.",
+      "expect": { "name": null, "access": "private", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/875650358",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Connector", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404874",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Connector", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404875",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Connector", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410405378",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Connector", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410405379",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Connector", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/875650360",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Crest Ridge", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404892",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Crest Ridge", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404893",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Crest Ridge", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/875650366",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map (the resort's green Deer Hollow, way/261450433, 700-900 m away, is another run and stays).",
+      "expect": { "name": "Deer Hollow", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1139600302",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map (the resort's green Deer Hollow, way/261450433, 700-900 m away, is another run and stays).",
+      "expect": { "name": "Deer Hollow", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1139600303",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map (the resort's green Deer Hollow, way/261450433, 700-900 m away, is another run and stays).",
+      "expect": { "name": "Deer Hollow", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/875650357",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Home Run", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1437049896",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Home Run", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1437049897",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Home Run", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1437049898",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Home Run", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1437049899",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Home Run", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/875650367",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Lost Fawn", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1396290639",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Lost Fawn", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1396290640",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Lost Fawn", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404856",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Lost Fawn", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404858",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Lost Fawn", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404859",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Lost Fawn", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404860",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Lost Fawn", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/875650363",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Pioche", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1396293487",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Pioche", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1396293488",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Pioche", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404878",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Pioche", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404879",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Pioche", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/875650364",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Pioche Loop", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/875650361",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Ridge Cross", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404887",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Ridge Cross", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404888",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Ridge Cross", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/875650359",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Summit", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404903",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Summit", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1410404904",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Summit", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/875650365",
+      "reason": "Deer Crest homeowners' trail, on neither the resort's trail list nor its map.",
+      "expect": { "name": "Town Hall Loop", "piste:type": "downhill" },
+      "hide": true
+    },
+    {
+      "id": "way/1225236383",
+      "reason": "Zebra Trees is black (advanced) on Deer Valley's terrain list, as OSM rates it, and double black on the run layer of its interactive trail map: where the resort's own sources disagree the harder rating is kept (lead's decision 2026-10-22).",
+      "expect": { "name": "Zebra Trees", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/261872562",
+      "reason": "Blue Bell (Bluebell) is blue (intermediate) on Deer Valley's terrain list; the run layer of its interactive trail map draws most of the run green, this 726 m way among it, as OSM rates it. Where the resort's own sources disagree the harder rating is kept (lead's decision 2026-10-22), as for Silver Buck (Lower).",
+      "expect": { "name": "Blue Bell", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    }
+  ]
+}

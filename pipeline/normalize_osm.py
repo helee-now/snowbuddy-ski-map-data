@@ -23,18 +23,32 @@ In order, it:
                           proposed:aerialway are ignored, so only `aerialway` decides;
        lift_station       aerialway=station within 100 m of a kept lift, and the two ends of every kept lift (its
                           bottom and top terminals) unless a station is already within 40 m of the end;
-       ski_area           the resort's own polygon, picked by its OSM id;
+       ski_area           the resort's own polygon, picked by its OSM id. A resort of several mountains on one map
+                          lists one landuse=winter_sports polygon per mountain (`ski_area` as a list); they must not
+                          overlap (touching is fine), their union is the ski area of every inside test, and they make
+                          one feature named after the resort: a multipolygon of the union's rings, each written as one
+                          closed way (a border two of them share left out, rings that meet at a node kept apart);
+     A lift, run or run area of another resort that resorts.json lists in `neighbours` (owner decision 2026-10-21:
+     each map draws only its own resort) is left out, before the stations and the ranks, and the stations of its lifts
+     go with it. A feature is the resort's when the resort's polygon (the union) holds at least half of its length (a
+     run area: of its outline; a stretch along a polygon's edge lies in it), else the listed neighbour's that holds the
+     most of it, at least half; else it belongs to the nearest polygon within 250 m (ties to the larger share, then to
+     the resort), else to none (kept). Each neighbour must be in the answer as a landuse=winter_sports area with the
+     OSM name resorts.json gives, or the build stops, as for a stale override;
   4. ranks every run line by importance (sb:rank, for the style's overview zooms): 1 for the trunk runs, in each
      rating the style draws in its own colour (easy, intermediate, advanced, expert, park, unrated) the longest named
      runs that together make up half of that rating's named in-bounds run length; 3 for runs under 300 m (a named
-     run's length summed over all its ways, an unnamed way's own length); 2 for the others;
+     run's length summed over all its ways, an unnamed way's own length); 2 for the others. With several mountains a
+     named run is the ways of that name on one mountain (the listed polygon owning each way by the rule above, else
+     the nearest one);
   5. reduces every string to the glyph ranges the app bundles (ADR-015).
 
 orient.py then turns runs downhill and lifts uphill from the elevation model (ski.sh runs it after the contours).
 
 Outputs: an OSM XML file whose elements carry only `sb:*` tags (osmium turns it into the PBF that
 ski-overlay.yml reads through Planetiler), a GeoJSON file of the kept features (read by coverage.py) and a JSON
-report. No OSM user names, user ids or changesets are written.
+report (with, per listed neighbour, the ids of what was left out). No OSM user names, user ids or changesets are
+written.
 
 Usage:
   python3 -I normalize_osm.py --resorts resorts.json --schema pack-schema.json --slug big-white \
@@ -44,7 +58,9 @@ Usage:
 --osm-base gives the data timestamp when the answer's own <meta osm_base> is not it: a date-pinned Overpass query
 ([date:"..."]) still reports the server's current time there (packlib.py osm-info decides, build-pack.sh passes it).
 
-Exit codes: 0 done, 2 bad input or configuration, 3 stale overrides.
+Exit codes: 0 done, 2 bad input or configuration (among them a listed ski area or neighbour missing from the answer,
+not a landuse=winter_sports area, overlapping another listed ski area, or a neighbour whose OSM name changed),
+3 stale overrides.
 """
 import argparse
 import json
@@ -81,6 +97,26 @@ RATING_OF_DIFFICULTY = {'novice': 'easy', 'easy': 'easy', 'intermediate': 'inter
 # A lift's end is a station of its own unless a kept station is this close (an OSM station node at the end, or a
 # station building's centre beside it).
 LIFT_END_STATION_M = 40.0
+# A resort of several mountains on one map lists each mountain's polygon in `ski_area`; their union is the ski area of
+# every inside test. They are written as ONE ski_area feature, as one id is: in the OSM file a multipolygon relation of
+# the union's rings, which needs an id of its own. Planetiler refuses negative ids and writes the id into the tiles
+# (id * 10 + 3), so it is this one, far above any OSM relation id (about 2 * 10^7 in 2026) and small enough that the
+# tile's feature id stays below 2^53 for JavaScript readers. Each ring is one closed, untagged way of its own, with the
+# ids from this one up (OSM way ids are about 1.5 * 10^9). Not the listed polygons' own ways: Planetiler keeps one copy
+# of a way listed twice (a border two mountains share, or a mountain filling another's hole) and joins open ways into
+# rings at their end nodes, one way per node, so where four ends meet (two mountains touching at a corner) a ring is
+# lost. Made-up answers drawn with the real profile (2026-10-22) gave no ski area, a mountain drawn as a hole, and one
+# mountain of two.
+SKI_AREA_RELATION_ID = 100_000_000_000_000
+# Neighbours (resorts.json `neighbours`, owner decision 2026-10-21: each map draws only its own resort). A lift, run line
+# or run area is the resort's when the resort's polygon (the union) holds at least this share of its length (a run area:
+# of its outline), else the listed neighbour's holding the most of it, at least this share; a stretch lying on a
+# polygon's edge counts as inside it, so a run along a border the resort shares with a neighbour stays, whichever side
+# the neighbour is on. Otherwise it belongs to the nearest of them within NEIGHBOUR_NEAR_M (0 when touching); else to
+# none, and it is kept as before. A listed neighbour's are left out, with the stations of its lifts. The same rule,
+# without the distance limit, gives each run line its mountain for the ranks when several polygons are listed.
+OWNER_MIN_SHARE = 0.5
+NEIGHBOUR_NEAR_M = 250.0
 
 
 class InputError(Exception):
@@ -147,9 +183,11 @@ class Projection:
 
 
 class Polygon:
-    """Even-odd point-in-polygon over all rings (outer and inner), with edges bucketed into latitude bands."""
+    """Even-odd point-in-polygon over all rings (outer and inner), with edges bucketed into latitude bands. The rings
+    of several polygons that do not overlap make their union (a resort of several mountains)."""
 
     def __init__(self, rings_xy):
+        self.rings = rings_xy
         self.edges = []
         for ring in rings_xy:
             for (x1, y1), (x2, y2) in zip(ring, ring[1:]):
@@ -167,6 +205,7 @@ class Polygon:
             b0, b1 = self._band(min(e[1], e[3])), self._band(max(e[1], e[3]))
             for b in range(b0, b1 + 1):
                 self.bands[b].append(e)
+        self._grid = None
 
     def _band(self, y):
         return min(self.nbands - 1, max(0, int((y - self.bbox[1]) / self.band_h)))
@@ -181,13 +220,154 @@ class Polygon:
                 inside = not inside
         return inside
 
+    def covers(self, x, y, eps=1e-3):
+        """Inside, or on the boundary (within eps metres of it). `contains` counts a point on an edge as inside only the
+        polygon east of it (north of it, for a horizontal edge), so two polygons that share an edge never both hold a
+        line drawn along it; this does."""
+        x0, y0, x1, y1 = self.bbox
+        if x < x0 - eps or x > x1 + eps or y < y0 - eps or y > y1 + eps:
+            return False
+        return self.contains(x, y) or any(point_segment_distance((x, y), a, b) <= eps
+                                          for a, b in self.grid().near((x - eps, y - eps, x + eps, y + eps)))
+
+    # The boundary's segments (horizontal ones included, which the ray test above skips), in a grid, for distances
+    # (the neighbour rule) and the overlap test of a resort's listed polygons.
+    def grid(self):
+        if self._grid is None:
+            self._grid = SegmentGrid([(a, b) for ring in self.rings for a, b in zip(ring, ring[1:]) if a != b])
+        return self._grid
+
+    def distance_to(self, lines, limit):
+        """Shortest distance in metres from the polylines to the polygon's boundary, 0 when they touch or cross it;
+        math.inf when it is over `limit` (math.inf: no limit). (A line wholly inside is 0 by the caller's share test,
+        not here.)"""
+        if math.isinf(limit):
+            for step in (250.0, 1000.0, 4000.0, 16000.0, 64000.0):
+                d = self.distance_to(lines, step)
+                if d <= step:
+                    return d
+            return min((segment_distance(p1, p2, q1, q2) for xy in lines for p1, p2 in zip(xy, xy[1:])
+                        for q1, q2 in self.grid().segments), default=math.inf)
+        best = math.inf
+        grid = self.grid()
+        for xy in lines:
+            for p1, p2 in zip(xy, xy[1:]):
+                box = (min(p1[0], p2[0]) - limit, min(p1[1], p2[1]) - limit, max(p1[0], p2[0]) + limit, max(p1[1], p2[1]) + limit)
+                for q1, q2 in grid.near(box):
+                    d = segment_distance(p1, p2, q1, q2)
+                    if d < best:
+                        best = d
+                        if best == 0.0:
+                            return 0.0
+        return best if best <= limit else math.inf
+
+    def strictly_contains(self, x, y, eps=1e-3):
+        """Inside and more than eps metres from the boundary."""
+        if not self.contains(x, y):
+            return False
+        return all(point_segment_distance((x, y), a, b) > eps for a, b in self.grid().near((x - eps, y - eps, x + eps, y + eps)))
+
+    def inner_point(self):
+        """A point strictly inside the polygon: the middle of the widest stretch inside it along one of a few
+        horizontal lines through its bounding box (at odd fractions of its height, so they seldom meet a vertex); None
+        when no such middle is strictly inside."""
+        x0, y0, x1, y1 = self.bbox
+        stretches = []
+        for f in (0.5003, 0.3137, 0.6871, 0.1709, 0.8297):
+            y = y0 + (y1 - y0) * f
+            xs = sorted(ex1 + (y - ey1) * (ex2 - ex1) / (ey2 - ey1)
+                        for ex1, ey1, ex2, ey2 in self.edges if (ey1 > y) != (ey2 > y))
+            stretches += [(b - a, ((a + b) / 2.0, y)) for a, b in zip(xs[0::2], xs[1::2]) if b > a]
+        for _, p in sorted(stretches, key=lambda s: -s[0]):
+            if self.strictly_contains(*p):
+                return p
+        return None
+
+
+class SegmentGrid:
+    """Segments bucketed into square cells, to find the ones near a box."""
+
+    def __init__(self, segments, cell=250.0):
+        self.segments = segments
+        self.cell = cell
+        self.cells = {}
+        for i, (a, b) in enumerate(segments):
+            for key in self._keys((min(a[0], b[0]), min(a[1], b[1]), max(a[0], b[0]), max(a[1], b[1]))):
+                self.cells.setdefault(key, []).append(i)
+
+    def _range(self, box):
+        c = self.cell
+        return (int(math.floor(box[0] / c)), int(math.floor(box[2] / c)), int(math.floor(box[1] / c)), int(math.floor(box[3] / c)))
+
+    def _keys(self, box):
+        ix0, ix1, iy0, iy1 = self._range(box)
+        for ix in range(ix0, ix1 + 1):
+            for iy in range(iy0, iy1 + 1):
+                yield ix, iy
+
+    def near(self, box):
+        """The segments in the cells the box touches (a superset of those within it)."""
+        ix0, ix1, iy0, iy1 = self._range(box)
+        if (ix1 - ix0 + 1) * (iy1 - iy0 + 1) > len(self.cells):
+            # A box wider than the segments' cells: walk the filled cells instead of the empty ones.
+            keys = [k for k in self.cells if ix0 <= k[0] <= ix1 and iy0 <= k[1] <= iy1]
+        else:
+            keys = self._keys(box)
+        seen = set()
+        for key in keys:
+            for i in self.cells.get(key, ()):
+                if i not in seen:
+                    seen.add(i)
+                    yield self.segments[i]
+
+
+def orient2d(a, b, c):
+    return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])
+
+
+def segments_cross(p1, p2, q1, q2):
+    """The two segments cross at one point inside both: not at an end of either, not along a shared stretch."""
+    d1, d2 = orient2d(q1, q2, p1), orient2d(q1, q2, p2)
+    d3, d4 = orient2d(p1, p2, q1), orient2d(p1, p2, q2)
+    return ((d1 > 0 > d2) or (d1 < 0 < d2)) and ((d3 > 0 > d4) or (d3 < 0 < d4))
+
+
+def segment_distance(p1, p2, q1, q2):
+    """Distance between two segments: 0 when they cross or touch."""
+    if segments_cross(p1, p2, q1, q2):
+        return 0.0
+    return min(point_segment_distance(p1, q1, q2), point_segment_distance(p2, q1, q2),
+               point_segment_distance(q1, p1, p2), point_segment_distance(q2, p1, p2))
+
+
+def polygons_overlap(a, b):
+    """Whether two polygons (Polygon objects) share any area. Touching along an edge or at a point is not an overlap.
+    Their boundaries cross, or a vertex, an edge's middle or an inner point of one lies strictly inside the other."""
+    if a.bbox[2] <= b.bbox[0] or b.bbox[2] <= a.bbox[0] or a.bbox[3] <= b.bbox[1] or b.bbox[3] <= a.bbox[1]:
+        return False
+    grid = b.grid()
+    for p1, p2 in a.grid().segments:
+        box = (min(p1[0], p2[0]), min(p1[1], p2[1]), max(p1[0], p2[0]), max(p1[1], p2[1]))
+        if any(segments_cross(p1, p2, q1, q2) for q1, q2 in grid.near(box)):
+            return True
+    for one, other in ((a, b), (b, a)):
+        probes = [p for p1, p2 in one.grid().segments for p in (p1, ((p1[0] + p2[0]) / 2.0, (p1[1] + p2[1]) / 2.0))]
+        inner = one.inner_point()
+        if inner:
+            probes.append(inner)
+        if any(other.strictly_contains(*p) for p in probes):
+            return True
+    return False
+
 
 def line_length(xy):
     return sum(math.hypot(x2 - x1, y2 - y1) for (x1, y1), (x2, y2) in zip(xy, xy[1:]))
 
 
-def inside_fraction(xy, poly):
-    """Share of a polyline's length inside the polygon, sampled every DENSIFY_STEP_M metres."""
+def inside_fraction(xy, poly, closed=False):
+    """Share of a polyline's length inside the polygon, sampled every DENSIFY_STEP_M metres; closed: a sample on its
+    boundary counts as inside (Polygon.covers)."""
+    test = poly.covers if closed else poly.contains
     total = inside = 0.0
     for (x1, y1), (x2, y2) in zip(xy, xy[1:]):
         seg = math.hypot(x2 - x1, y2 - y1)
@@ -196,11 +376,11 @@ def inside_fraction(xy, poly):
         n = max(1, int(math.ceil(seg / DENSIFY_STEP_M)))
         for i in range(n):
             t = (i + 0.5) / n
-            if poly.contains(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t):
+            if test(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t):
                 inside += seg / n
         total += seg
     if total == 0.0:
-        return (1.0 if xy and poly.contains(*xy[0]) else 0.0), 0.0
+        return (1.0 if xy and test(*xy[0]) else 0.0), 0.0
     return inside / total, total
 
 
@@ -241,6 +421,186 @@ def assemble_rings(node_lists):
                 raise InputError('a multipolygon ring cannot be closed from its member ways')
         rings.append(cur)
     return rings
+
+
+def union_rings(rings):
+    """The outline of the union of polygons that share no area, from all their node-id rings (outer and inner, each
+    closed: its first node repeated at the end). A stretch between two nodes that an even number of the rings use is
+    inside the union, or not on it at all, and is left out: a border two of the polygons share, or a ring that fills
+    another one's hole. What is left is walked into simple rings, each node at most once in each, so rings that meet at
+    a node (two mountains touching at a corner) come out apart. The even-odd area is that of the rings given.
+
+    Returns (the rings, closed, in the order of their first stretch in `rings`; the stretches left out, as node-id
+    pairs)."""
+    count, order = {}, []
+    for ring in rings:
+        for u, v in zip(ring, ring[1:]):
+            if u == v:
+                continue
+            key = (u, v) if u < v else (v, u)
+            if key not in count:
+                count[key] = 0
+                order.append(key)
+            count[key] += 1
+    edges = [key for key in order if count[key] % 2]
+    ends = {}
+    for i, (u, v) in enumerate(edges):
+        ends.setdefault(u, []).append(i)
+        ends.setdefault(v, []).append(i)
+    used = [False] * len(edges)
+    out = []
+    for first, (u0, v0) in enumerate(edges):
+        if used[first]:
+            continue
+        used[first] = True
+        path, at = [u0, v0], {u0: 0, v0: 1}
+        while len(path) > 1:
+            here = path[-1]
+            # Every node has an even number of stretches left (each ring passes a node in and out), so the walk goes
+            # on until it is back at a node it passed: that loop is one ring.
+            j = next((j for j in ends[here] if not used[j]), None)
+            if j is None:
+                raise InputError('the outline of the listed ski areas does not close')
+            used[j] = True
+            there = edges[j][1] if edges[j][0] == here else edges[j][0]
+            if there in at:
+                k = at[there]
+                out.append(path[k:] + [there])
+                for nid in path[k + 1:]:
+                    del at[nid]
+                del path[k + 1:]
+            else:
+                at[there] = len(path)
+                path.append(there)
+    return out, [key for key in order if not count[key] % 2]
+
+
+def ring_contains(xy, x, y):
+    """Even-odd point-in-ring for one closed ring of projected points (the ray test of Polygon.contains)."""
+    inside = False
+    for (x1, y1), (x2, y2) in zip(xy, xy[1:]):
+        if (y1 > y) != (y2 > y) and x < x1 + (y - y1) * (x2 - x1) / (y2 - y1):
+            inside = not inside
+    return inside
+
+
+def ring_roles(rings_xy, eps=1e-3):
+    """'outer' or 'inner' for each of the union's rings (projected, closed): inner when an odd number of the others
+    hold it. The rings never cross, so one point of a ring that is not on the other one (a node, else the middle of a
+    stretch; more than eps metres from it) tells. (Planetiler reads no roles, it nests the rings itself; they are
+    written for any other reader.)"""
+    roles = []
+    for i, xy in enumerate(rings_xy):
+        probes = [p for a, b in zip(xy, xy[1:]) for p in (a, ((a[0] + b[0]) / 2.0, (a[1] + b[1]) / 2.0))]
+        depth = 0
+        for j, other in enumerate(rings_xy):
+            if j == i:
+                continue
+            stretches = list(zip(other, other[1:]))
+            p = next((p for p in probes if all(point_segment_distance(p, a, b) > eps for a, b in stretches)), None)
+            depth += p is not None and ring_contains(other, *p)
+        roles.append('inner' if depth % 2 else 'outer')
+    return roles
+
+
+# --- the resort's ski area and its neighbours ------------------------------------------------------------------
+
+AREA_ID_RE = re.compile(r'^(way|relation)/[1-9][0-9]*$')
+
+
+def resort_areas(resort):
+    """The ski-area ids and the neighbours of a resorts.json entry, checked as packlib.py resort_entry checks them:
+    `ski_area` is one id or a list of at least two distinct ids; `neighbours` (optional) lists {id, name, reason} with
+    distinct ids, none of them the resort's own."""
+    slug, sa = resort.get('slug'), resort.get('ski_area')
+    if isinstance(sa, str) and AREA_ID_RE.match(sa):
+        ids = [sa]
+    elif (isinstance(sa, list) and len(sa) >= 2 and all(isinstance(x, str) and AREA_ID_RE.match(x) for x in sa)
+            and len(set(sa)) == len(sa)):
+        ids = list(sa)
+    else:
+        raise InputError(f'{slug}: ski_area must look like way/123 or relation/123, or be a list of at least two distinct such ids')
+    nb = resort.get('neighbours')
+    if nb is None:
+        return ids, []
+    if not isinstance(nb, list) or not nb:
+        raise InputError(f'{slug}: neighbours must be a list of {{"id", "name", "reason"}} objects (leave it out for none)')
+    seen = set()
+    for i, n in enumerate(nb):
+        where = f'{slug}: neighbours[{i}]'
+        if not isinstance(n, dict) or set(n) != {'id', 'name', 'reason'}:
+            raise InputError(f'{where} must hold exactly id, name and reason')
+        if not isinstance(n['id'], str) or not AREA_ID_RE.match(n['id']):
+            raise InputError(f'{where}: id must look like way/123 or relation/123')
+        if not isinstance(n['name'], str) or not n['name'].strip():
+            raise InputError(f'{where} ({n["id"]}): name must be the OSM name tag of that ski area')
+        if not isinstance(n['reason'], str) or not n['reason'].strip():
+            raise InputError(f'{where} ({n["id"]}): every neighbour needs a reason')
+        if n['id'] in seen or n['id'] in ids:
+            raise InputError(f'{where}: {n["id"]} appears twice, or is the resort\'s own ski area')
+        seen.add(n['id'])
+    return ids, nb
+
+
+def area_rings(oid, ways, rels, nodes, what):
+    """The node-id rings of a landuse=winter_sports area in the answer: (outer rings, inner rings, its element).
+    `what` names it in the errors (a missing id, another kind of element, rings that do not close)."""
+    kind, num = oid.split('/')
+    el = (ways if kind == 'way' else rels).get(int(num))
+    if el is None:
+        raise InputError(f'{what} {oid} is not in the Overpass answer')
+    if el['tags'].get('landuse') != 'winter_sports':
+        raise InputError(f'{what} {oid} is not a landuse=winter_sports area (its landuse is {el["tags"].get("landuse")!r})')
+    if kind == 'way':
+        if len(el['nds']) < 4 or el['nds'][0] != el['nds'][-1]:
+            raise InputError(f'{what} {oid} is not a closed way')
+        outer_ids, inner_ids = [el['nds']], []
+    else:
+        members = [(ways[ref]['nds'], role) for t, ref, role in el['members'] if t == 'way' and ref in ways]
+        try:
+            outer_ids = assemble_rings([nds for nds, role in members if role in ('outer', '')])
+            inner_ids = assemble_rings([nds for nds, role in members if role == 'inner'])
+        except InputError as err:
+            raise InputError(f'{what} {oid}: {err}') from None
+        if not outer_ids:
+            raise InputError(f'{what} {oid} has no outer ring in the Overpass answer')
+    missing = [nid for ring in outer_ids + inner_ids for nid in ring if nid not in nodes]
+    if missing:
+        raise InputError(f'{what} {oid} lacks {len(missing)} node(s) in the Overpass answer')
+    return outer_ids, inner_ids, el
+
+
+def share_inside(lines, poly, closed=False):
+    """Share of the lines' total length inside the polygon (one line: its length; a run area: its outer rings, the
+    outline the out-of-bounds rule reads), and that length. closed: a stretch on the boundary counts as inside."""
+    fracs = [inside_fraction(xy, poly, closed) for xy in lines]
+    total = sum(L for _, L in fracs)
+    if len(fracs) == 1:
+        return fracs[0]
+    return (sum(f * L for f, L in fracs) / total if total else 0.0), total
+
+
+def owner_of(lines, polys, near_m=None):
+    """Which of `polys` a feature belongs to (resorts.json neighbours, owner decision 2026-10-21). Its share in each is
+    the part of its length (a run area: of its outline) inside or on the boundary of that polygon, so a line along an
+    edge two polygons share lies in both, whichever side each is on. The first polygon (the resort's own) owns it when
+    it holds at least OWNER_MIN_SHARE of it, even where another polygon overlaps it and holds more; else the one
+    holding the most of it, at least OWNER_MIN_SHARE (ties: the lower index); else the nearest one within near_m
+    metres (0 when they touch; no limit when near_m is math.inf), ties going to the larger share, then to the lower
+    index. Returns (that index, or None when none is that near; the distance in metres when the distance decided,
+    else None)."""
+    near_m = NEIGHBOUR_NEAR_M if near_m is None else near_m
+    shares = [share_inside(lines, poly, closed=True)[0] for poly in polys]
+    held = [i for i, s in enumerate(shares) if s >= OWNER_MIN_SHARE]
+    if held:
+        return (0 if 0 in held else min(held, key=lambda i: (-shares[i], i))), None
+    dist = [0.0 if s > 0.0 or (lines and lines[0] and poly.covers(*lines[0][0])) else poly.distance_to(lines, near_m)
+            for s, poly in zip(shares, polys)]
+    near = [i for i, d in enumerate(dist) if d <= near_m]
+    if not near:
+        return None, None
+    who = min(near, key=lambda i: (dist[i], -shares[i], i))
+    return who, dist[who]
 
 
 # --- text ------------------------------------------------------------------------------------------------------
@@ -487,33 +847,85 @@ def run(a):
         print('normalize_osm: fix or remove those entries in the overrides file (or pass --allow-stale-overrides to skip them)', file=sys.stderr)
         return 3
 
-    # 3. The ski-area polygon.
-    sa_kind, sa_num = resort['ski_area'].split('/')
+    # 3. The ski-area polygon: one OSM id, or one per mountain (their union), and the neighbours' polygons.
+    ski_ids, neighbours = resort_areas(resort)
+    parts = []   # per listed id: (id, its element, its rings in lon/lat (outer first), its Polygon, its area in km2)
+    part_rings = []   # all their rings as node ids, closed
+    for oid in ski_ids:
+        outer_ids, inner_ids, sa = area_rings(oid, ways, rels, nodes, 'ski area')
+        rings_ll = [[nodes[nid] for nid in ring] for ring in outer_ids + inner_ids]
+        area_km2 = (sum(ring_area([proj(*p) for p in [nodes[i] for i in r]]) for r in outer_ids)
+                    - sum(ring_area([proj(*p) for p in [nodes[i] for i in r]]) for r in inner_ids)) / 1e6
+        parts.append((oid, sa, rings_ll, Polygon([[proj(*p) for p in ring] for ring in rings_ll]), area_km2))
+        part_rings += outer_ids + inner_ids
+    for i, (a_id, _, _, a_poly, _) in enumerate(parts):
+        for b_id, _, _, b_poly, _ in parts[i + 1:]:
+            if polygons_overlap(a_poly, b_poly):
+                raise InputError(f'the ski areas {a_id} and {b_id} overlap: a resort lists polygons that share no area '
+                                 '(where they did, the even-odd test of their union would punch a hole)')
+    sa_kind, sa_num = ski_ids[0].split('/')
     sa_num = int(sa_num)
-    if sa_kind == 'way':
-        sa = ways.get(sa_num)
-        if sa is None:
-            raise InputError(f'ski area {resort["ski_area"]} is not in the Overpass answer')
-        if len(sa['nds']) < 4 or sa['nds'][0] != sa['nds'][-1]:
-            raise InputError(f'ski area {resort["ski_area"]} is not a closed way')
-        outer_ids, inner_ids = [sa['nds']], []
-    elif sa_kind == 'relation':
-        sa = rels.get(sa_num)
-        if sa is None:
-            raise InputError(f'ski area {resort["ski_area"]} is not in the Overpass answer')
-        members = [(ways[ref]['nds'], role) for t, ref, role in sa['members'] if t == 'way' and ref in ways]
-        outer_ids = assemble_rings([nds for nds, role in members if role in ('outer', '')])
-        inner_ids = assemble_rings([nds for nds, role in members if role == 'inner'])
+    sa_rings_ll = [ring for part in parts for ring in part[2]]
+    sa_poly = Polygon([[proj(*p) for p in ring] for ring in sa_rings_ll]) if len(parts) > 1 else parts[0][3]
+    sa_area_km2 = sum(part[4] for part in parts)
+    if len(parts) == 1:
+        report['ski_area'] = {'id': ski_ids[0], 'name': glyph_safe(parts[0][1]['tags'].get('name'), ranges), 'area_km2': round(sa_area_km2, 2)}
     else:
-        raise InputError(f'ski area id must be a way or a relation: {resort["ski_area"]}')
-    missing = [nid for ring in outer_ids + inner_ids for nid in ring if nid not in nodes]
-    if missing:
-        raise InputError(f'ski area {resort["ski_area"]} lacks {len(missing)} node(s) in the Overpass answer')
-    sa_rings_ll = [[nodes[nid] for nid in ring] for ring in outer_ids + inner_ids]
-    sa_poly = Polygon([[proj(*p) for p in ring] for ring in sa_rings_ll])
-    sa_area_km2 = (sum(ring_area([proj(*p) for p in [nodes[i] for i in r]]) for r in outer_ids)
-                   - sum(ring_area([proj(*p) for p in [nodes[i] for i in r]]) for r in inner_ids)) / 1e6
-    report['ski_area'] = {'id': resort['ski_area'], 'name': glyph_safe(sa['tags'].get('name'), ranges), 'area_km2': round(sa_area_km2, 2)}
+        if SKI_AREA_RELATION_ID in rels:
+            raise InputError(f'the Overpass answer already holds relation {SKI_AREA_RELATION_ID}, the id the ski areas are written under')
+        # The union's outline, the rings the ski_area relation is written with (step 7): one closed way each.
+        sa_outline, shared = union_rings(part_rings)
+        if not sa_outline:
+            raise InputError(f'the listed ski areas {", ".join(ski_ids)} leave no outline')
+        taken = [wid for wid in range(SKI_AREA_RELATION_ID, SKI_AREA_RELATION_ID + len(sa_outline)) if wid in ways]
+        if taken:
+            raise InputError(f'the Overpass answer already holds way {taken[0]}, an id the ski areas\' rings are written under')
+        sa_roles = ring_roles([[proj(*nodes[nid]) for nid in ring] for ring in sa_outline])
+        # Several mountains: one feature named after the resort (each polygon keeps its own OSM name in the report).
+        report['ski_area'] = {'ids': ski_ids, 'name': glyph_safe(resort.get('name'), ranges), 'area_km2': round(sa_area_km2, 2),
+                              'written_as': f'relation/{SKI_AREA_RELATION_ID}',
+                              'rings': {'outer': sa_roles.count('outer'), 'inner': sa_roles.count('inner')},
+                              # The border two listed polygons share (the same nodes), left out of the outline.
+                              'shared_border_m': round(sum(line_length([proj(*nodes[u]), proj(*nodes[v])]) for u, v in shared)),
+                              'parts': [{'id': oid, 'name': glyph_safe(el['tags'].get('name'), ranges), 'area_km2': round(km2, 2)}
+                                        for oid, el, _, _, km2 in parts]}
+    listed = set(ski_ids)
+
+    # Neighbours: each one in the answer as a landuse=winter_sports area whose OSM name is the one resorts.json gives
+    # (checked like an override's expect, so a renamed or redrawn neighbour stops the build).
+    nb_polys = []
+    for n in neighbours:
+        outer_ids, inner_ids, el = area_rings(n['id'], ways, rels, nodes, 'neighbour')
+        if el['tags'].get('name') != n['name']:
+            raise InputError(f'neighbour {n["id"]}: its OSM name is {el["tags"].get("name")!r}, not {n["name"]!r} '
+                             '(renamed or redrawn in OSM? check it, then update resorts.json)')
+        nb_polys.append(Polygon([[proj(*nodes[nid]) for nid in ring] for ring in outer_ids + inner_ids]))
+    if neighbours:
+        # Per neighbour: whether its polygon overlaps the ski area (what the ski area holds at least half of stays
+        # then, though the neighbour holds more); the ids left out; by_distance: those lying less than half in any
+        # polygon, given to the neighbour by the 250 m rule.
+        report['neighbours'] = [{'id': n['id'], 'name': n['name'], 'overlaps_ski_area': polygons_overlap(sa_poly, poly),
+                                 'lifts': [], 'runs': [], 'run_areas': [], 'stations': [], 'by_distance': []}
+                                for n, poly in zip(neighbours, nb_polys)]
+        for nb in report['neighbours']:
+            if nb['overlaps_ski_area']:
+                print(f'normalize_osm: note: the neighbour {nb["id"]} overlaps the ski area; a feature the ski area holds '
+                      'at least half of stays on the map', file=sys.stderr)
+    owners = [sa_poly] + nb_polys
+
+    def neighbour_owner(lines):
+        """(the index in report['neighbours'] of the listed neighbour this feature belongs to, or None: the resort's,
+        or nobody's, kept; whether the 250 m rule decided it)."""
+        if not nb_polys:
+            return None, False
+        who, dist = owner_of(lines, owners)
+        return (None, False) if who in (None, 0) else (who - 1, dist is not None)
+
+    def left_out(n, group, oid, by_distance=False):
+        report['neighbours'][n][group].append(oid)
+        if by_distance:
+            report['neighbours'][n]['by_distance'].append(oid)
+        drop('neighbour')
 
     def safe(value, oid, field):
         out = glyph_safe(value, ranges)
@@ -546,10 +958,11 @@ def run(a):
         return None, None
 
     run_lines = []   # indexes in kept of the run lines, for their ranks
+    run_xy = []      # and their projected lines
     candidates = [('way', wid, ways[wid]['tags']) for wid in sorted(ways)]
     candidates += [('relation', rid, rels[rid]['tags']) for rid in sorted(rels) if rels[rid]['tags'].get('type') == 'multipolygon']
     for otype, oid, t in candidates:
-        if t.get('aerialway') in lift_kinds or (otype == sa_kind and oid == sa_num):
+        if t.get('aerialway') in lift_kinds or f'{otype}/{oid}' in listed:
             continue
         ptype, other = piste_type(t)
         if ptype is None:
@@ -609,9 +1022,17 @@ def run(a):
             total = sum(L for _, L in fracs)
             in_frac = sum(f * L for f, L in fracs) / total if total else 0.0
             size = {'area_m2': round(sum(ring_area(r) for r in outline[:n_outer]) - sum(ring_area(r) for r in outline[n_outer:]))}
+            lines = outline[:n_outer]
         else:
-            in_frac, length = inside_fraction([proj(*p) for p in coords], sa_poly)
+            xy = [proj(*p) for p in coords]
+            in_frac, length = inside_fraction(xy, sa_poly)
             size = {'length_m': round(length)}
+            lines = [xy]
+        # A listed neighbour's run or run area is left out (before the ranks, so it takes no share of them).
+        n, near = neighbour_owner(lines)
+        if n is not None:
+            left_out(n, 'run_areas' if area else 'runs', key, near)
+            continue
         backcountry = 'backcountry' in grooming or t.get('patrolled') == 'no'
         oob = backcountry and in_frac < OOB_MAX_INSIDE_FRACTION
         if 'out_of_bounds' in changes:
@@ -634,19 +1055,31 @@ def run(a):
         kept.append((otype, oid, sb, geom, {'out_of_bounds': oob, 'in_frac': round(in_frac, 3), **size}))
         if not area:
             run_lines.append(len(kept) - 1)
+            run_xy.append(xy)
 
-    # Ranks: the trunk runs, minor runs and the others (the style draws the overview zooms by rank).
-    ranks, by_rating = run_ranks([(kept[i][2].get('sb:name'), kept[i][4]['length_m'], kept[i][4]['out_of_bounds'],
+    # Ranks: the trunk runs, minor runs and the others (the style draws the overview zooms by rank). A named run is all
+    # the ways of that name; with several mountains, all the ways of that name on one mountain (the listed polygon
+    # that owns the way by the neighbour rule, else the nearest one), so same-named runs on two mountains rank apart.
+    if len(parts) > 1:
+        mountains = [p[3] for p in parts]
+        keys = [(kept[i][2]['sb:name'], owner_of([xy], mountains, near_m=math.inf)[0]) if kept[i][2].get('sb:name') else None
+                for i, xy in zip(run_lines, run_xy)]
+    else:
+        keys = [kept[i][2].get('sb:name') for i in run_lines]
+    ranks, by_rating = run_ranks([(key, kept[i][4]['length_m'], kept[i][4]['out_of_bounds'],
                                    rating_of(kept[i][2]['sb:difficulty'], kept[i][2].get('sb:park') == 'yes'))
-                                  for i in run_lines])
+                                  for key, i in zip(keys, run_lines)])
     for i, rank in zip(run_lines, ranks):
         kept[i][2]['sb:rank'] = str(rank)
     report['ranks'] = {'trunk_share': TRUNK_SHARE, 'trunk_per': 'rating', 'minor_run_m': MINOR_RUN_M,
                        'ratings': by_rating, 'runs': {str(r): ranks.count(r) for r in (1, 2, 3)}}
+    if len(parts) > 1:
+        report['ranks']['named_run'] = 'the ways of one name on one mountain'
 
     # 5. Lifts.
     lift_segments = []
     lift_ends = set()   # node ids of the kept lifts' ends
+    neighbour_lifts = []   # (segment, neighbour index) of the lifts left out as a listed neighbour's
     for wid in sorted(ways):
         t = ways[wid]['tags']
         kind = t.get('aerialway')
@@ -663,6 +1096,13 @@ def run(a):
         coords = way_coords(wid)
         if coords is None or len(coords) < 2:
             drop('lift_without_geometry')
+            continue
+        n, near = neighbour_owner([[proj(*p) for p in coords]])
+        if n is not None:
+            # A listed neighbour's lift is left out, and its stations go with it (step 6).
+            left_out(n, 'lifts', key, near)
+            xy = [proj(*p) for p in coords]
+            neighbour_lifts += [(seg, n) for seg in zip(xy, xy[1:])]
             continue
         sb = {'sb:layer': 'lift', 'sb:kind': kind}
         name = safe(t.get('name'), key, 'name')
@@ -695,11 +1135,28 @@ def run(a):
                 continue
             ring = coords[:-1]
             stations.append(('way', wid, ways[wid]['tags'], (sum(p[0] for p in ring) / len(ring), sum(p[1] for p in ring) / len(ring))))
+
+    def neighbour_station(lonlat):
+        """The neighbour whose left-out lift is the station's nearest lift within STATION_MAX_DISTANCE_M (a kept lift
+        as near wins), or None."""
+        if not neighbour_lifts:
+            return None
+        p = proj(*lonlat)
+        theirs = min(((point_segment_distance(p, a2, b2), n) for (a2, b2), n in neighbour_lifts), key=lambda x: x[0])
+        if theirs[0] > STATION_MAX_DISTANCE_M:
+            return None
+        ours = min((point_segment_distance(p, a2, b2) for a2, b2 in lift_segments), default=math.inf)
+        return None if ours <= theirs[0] else theirs[1]
+
     for otype, oid, t, centre in stations:
         key = f'{otype}/{oid}'
         o = applied.get(key)
         if o and o.get('hide'):
             drop('hidden_by_override')
+            continue
+        n = neighbour_station(centre)
+        if n is not None:
+            left_out(n, 'stations', key)
             continue
         if not near_lift(centre):
             drop('station_far_from_lifts')
@@ -726,25 +1183,41 @@ def run(a):
         station_xy.append(p)
         report['lift_end_stations'] += 1
 
-    # 7. The ski area itself.
+    # 7. The ski area itself: one feature, the OSM polygon of one id, or for several a multipolygon relation
+    # (SKI_AREA_RELATION_ID) of the union's rings, each one closed untagged way of its own (ids from
+    # SKI_AREA_RELATION_ID up). The GeoJSON keeps one member per listed polygon, for coverage.py's radius per mountain.
     sb = {'sb:layer': 'ski_area'}
     if report['ski_area']['name']:
         sb['sb:name'] = report['ski_area']['name']
-    kept.append((sa_kind, sa_num, sb, {'type': 'Polygon', 'coordinates': sa_rings_ll}, {'area_m2': round(sa_area_km2 * 1e6)}))
+    extra_rels = {}
+    if len(parts) == 1:
+        kept.append((sa_kind, sa_num, sb, {'type': 'Polygon', 'coordinates': sa_rings_ll}, {'area_m2': round(sa_area_km2 * 1e6)}))
+    else:
+        members = []
+        for i, (ring, role) in enumerate(zip(sa_outline, sa_roles)):
+            ways[SKI_AREA_RELATION_ID + i] = {'nds': ring, 'tags': {}}
+            members.append(('way', SKI_AREA_RELATION_ID + i, role))
+        extra_rels[SKI_AREA_RELATION_ID] = members
+        kept.append(('relation', SKI_AREA_RELATION_ID, sb, {'type': 'MultiPolygon', 'coordinates': [part[2] for part in parts]},
+                     {'osm': ','.join(ski_ids), 'area_m2': round(sa_area_km2 * 1e6)}))
 
     for _, _, sbt, _, _ in kept:
         report['kept'][sbt['sb:layer']] = report['kept'].get(sbt['sb:layer'], 0) + 1
     report['dropped'] = dict(sorted(report['dropped'].items()))
     report['out_of_bounds'].sort(key=lambda r: r['id'])
     report['outside_ski_area_in_bounds'].sort(key=lambda r: r['id'])
+    for nb in report.get('neighbours', []):
+        for group in ('lifts', 'runs', 'run_areas', 'stations', 'by_distance'):
+            nb[group].sort(key=lambda oid: (oid.split('/')[0], int(oid.split('/')[1])))
 
-    write_osm(a.out_osm, kept, nodes, ways, rels, bounds, sa_kind, sa_num)
+    write_osm(a.out_osm, kept, nodes, ways, rels, bounds, extra_rels)
     write_json(a.out_features, features(kept))
     write_json(a.out_report, report)
     k = report['kept']
     print(f'{a.slug}: osm_base {osm_base}; kept {k.get("piste", 0)} runs, {k.get("piste_area", 0)} run areas, '
           f'{k.get("lift", 0)} lifts, {k.get("lift_station", 0)} stations; {len(report["out_of_bounds"])} out of bounds; '
-          f'{len(report["overrides"]["applied"])} overrides applied; dropped {sum(report["dropped"].values())}')
+          f'{len(report["overrides"]["applied"])} overrides applied; dropped {sum(report["dropped"].values())}'
+          + (f' ({report["dropped"].get("neighbour", 0)} as {len(neighbours)} listed neighbours\')' if neighbours else ''))
     return 0
 
 
@@ -771,8 +1244,14 @@ def features(kept):
     return {'type': 'FeatureCollection', 'features': out}
 
 
-def write_osm(path, kept, nodes, ways, rels, bounds, sa_kind, sa_num):
-    """Writes only the kept elements, with their sb:* tags, plus the untagged member ways and nodes they need."""
+def write_osm(path, kept, nodes, ways, rels, bounds, extra_rels=None):
+    """Writes only the kept elements, with their sb:* tags, plus the untagged member ways and nodes they need.
+    `extra_rels` gives the members of relations that are not in the answer (the ski area of several mountains)."""
+    extra_rels = extra_rels or {}
+
+    def members_of(rid):
+        return extra_rels[rid] if rid in extra_rels else rels[rid]['members']
+
     out_nodes, out_ways, out_rels = {}, {}, {}
     for otype, oid, sb, _, _ in kept:
         if otype == 'node':
@@ -784,7 +1263,7 @@ def write_osm(path, kept, nodes, ways, rels, bounds, sa_kind, sa_num):
             tags['type'] = 'multipolygon'
             out_rels[oid] = tags
     for rid in out_rels:
-        for mt, ref, _ in rels[rid]['members']:
+        for mt, ref, _ in members_of(rid):
             if mt == 'way' and ref in ways:
                 out_ways.setdefault(ref, {})
     for wid in out_ways:
@@ -809,7 +1288,7 @@ def write_osm(path, kept, nodes, ways, rels, bounds, sa_kind, sa_num):
         parts.append(f'  <way id="{wid}">\n{nds}{tags_xml(out_ways[wid], "    ")}  </way>\n')
     for rid in sorted(out_rels):
         mem = ''.join(f'    <member type="way" ref="{ref}" role={quoteattr(role)}/>\n'
-                      for mt, ref, role in rels[rid]['members'] if mt == 'way' and ref in ways)
+                      for mt, ref, role in members_of(rid) if mt == 'way' and ref in ways)
         parts.append(f'  <relation id="{rid}">\n{mem}{tags_xml(out_rels[rid], "    ")}  </relation>\n')
     parts.append('</osm>\n')
     with open(path, 'w', encoding='utf-8') as f:

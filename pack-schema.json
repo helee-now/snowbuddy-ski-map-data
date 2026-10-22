@@ -1,5 +1,6 @@
 {
-  "comment": "What a resort map pack contains (ADR-036). One source of truth for the pipeline (normalize_osm.py, build-pack.sh), the style generator, write-packs.mjs and the tests. Changing a layer, a field or a zoom here is a schema change: rebuild the packs and the styles.",
+  "comment": "What a resort map pack contains (ADR-036). One source of truth for the pipeline (normalize_osm.py, build-pack.sh), the style generator, write-packs.mjs and the tests. Changing a layer, a field or a zoom here is a schema change: rebuild the packs and the styles. pack_format is the format new builds get (MAPS_PLAN D9); a format, once defined in formats, never changes.",
+  "pack_format": 1,
   "glyph_ranges": [[0, 1023], [8192, 8447]],
   "fontstacks": ["Noto Sans Regular", "Noto Sans Medium", "Noto Sans Italic"],
   "roles": {
@@ -116,12 +117,37 @@
     "piste.rank": "importance, from normalize_osm.py: 1 the trunk runs (within each rating as the style colours it, the longest named runs making up half of that rating's named in-bounds run length), 3 runs under 300 m, 2 the others",
     "piste.oriented": "the line runs downhill as drawn, checked against the elevation model (orient.py); absent when too flat or ambiguous: no arrows",
     "lift.oriented": "the line runs uphill as drawn, checked against the elevation model (orient.py)",
-    "lift_station": "OpenStreetMap stations within 100 m of a kept lift, and the two ends of every kept lift unless a station is within 40 m"
+    "lift_station": "OpenStreetMap stations within 100 m of a kept lift, and the two ends of every kept lift unless a station is within 40 m",
+    "ski_area": "one feature: the resort's ski-area polygon, or for a resort of several mountains on one map (resorts.json ski_area as a list) one multipolygon, the union of their polygons (a border two of them share is not drawn), named after the resort. A listed neighbour's polygon, lifts, runs and stations are never in the file"
   },
   "contours": {
     "interval_m": 20,
     "index_every_m": 100,
     "index_minzoom": 11,
     "minor_minzoom": 14
+  },
+  "formats": {
+    "1": {
+      "comment": "Frozen (MAPS_PLAN D9, ADR-036 M1): what a format-1 pack holds for the app's style. A style may read less, never more; a style that needs anything else needs format 2. test/format.test.mjs pins this object's hash.",
+      "roles": {
+        "base": { "tile_type": "mvt", "protomaps_major": 4,
+                  "source_layers": ["boundaries", "buildings", "earth", "landcover", "landuse", "places", "pois", "roads", "water"] },
+        "ski": { "tile_type": "mvt",
+                 "fields": { "piste": ["difficulty", "name", "oriented", "out_of_bounds", "park", "rank", "type", "ungroomed"],
+                             "piste_area": ["difficulty", "name", "out_of_bounds", "park", "type"],
+                             "lift": ["kind", "name", "oriented"],
+                             "lift_station": [], "ski_area": [], "contour": ["ele", "idx"] } },
+        "hillshade": { "tile_type": "webp", "tile_size": 512 }
+      },
+      "ski_values": {
+        "piste.type": ["connection", "downhill", "playground", "snow_park"],
+        "piste.difficulty": ["advanced", "easy", "expert", "extreme", "freeride", "intermediate", "novice"],
+        "piste.rank": [1, 3],
+        "piste_area.type": ["connection", "downhill", "playground", "snow_park"],
+        "piste_area.difficulty": ["advanced", "easy", "expert", "extreme", "freeride", "intermediate", "novice"],
+        "lift.kind": ["cable_car", "chair_lift", "drag_lift", "gondola", "j-bar", "magic_carpet", "mixed_lift", "platter", "rope_tow", "t-bar"]
+      },
+      "glyph_ranges": [[0, 1023], [8192, 8447]]
+    }
   }
 }

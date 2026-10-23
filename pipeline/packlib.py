@@ -35,6 +35,18 @@
                                                 of everything on the maps bucket, written by mark-published.mjs);
                                                 exit 1 when KEY is not published, 2 when the list cannot be read
   packlib.py record OUT.json KEY=VALUE...       writes a JSON object (values that parse as JSON are kept typed)
+  packlib.py key-format SCHEMA.json PACK.json   prints the pack format a build of the key gets: its committed record's
+                                                pack_format (a rebuild reproduces a committed key's format), else the
+                                                one new builds get (pack-schema.json pack_format)
+  packlib.py format-roles SCHEMA.json FORMAT    prints the file roles of a format, in pack-schema.json's role order
+  packlib.py previous-record PACKS_DIR KEY      prints the path of the newest earlier version's record
+                                                (PACKS_DIR/<slug>-v<N>/pack.json, N below KEY's version); exit 1 if none
+  packlib.py newest-published PUBLISHED.json SLUG
+                                                prints the newest published key of a resort (its highest version on
+                                                the maps bucket); exit 1 if none is published
+  packlib.py same-inputs RECORD.json W,S,E,N OSM_TIMESTAMP PROTOMAPS_BUILD ELEVATION
+                                                exit 0 when a build of these inputs is the record's own (box, OSM data,
+                                                Protomaps build and elevation source), else 1 printing what differs
 
 The box guard exists because `pmtiles extract` with an empty --bbox copies the whole planet (about 129 GB):
 that happened during the research. Every extract goes through check-box first, then a dry run.
@@ -338,6 +350,66 @@ def planetiler_data_errors(text):
     return errors
 
 
+def key_format(schema, record_path):
+    """The format a build of the key gets: its committed record's (a rebuild of a committed key reproduces it), else
+    pack-schema.json's pack_format. Refuses a format pack-schema.json does not define."""
+    fmt = schema['pack_format']
+    if record_path and os.path.exists(record_path):
+        with open(record_path, encoding='utf-8') as f:
+            fmt = json.load(f).get('pack_format', 1)
+    if isinstance(fmt, bool) or not isinstance(fmt, int) or str(fmt) not in schema['formats']:
+        raise ValueError(f'pack format {fmt!r} is not one pack-schema.json defines')
+    return fmt
+
+
+def format_roles(schema, fmt):
+    roles = schema['formats'].get(str(fmt), {}).get('roles')
+    if roles is None:
+        raise ValueError(f'format {fmt!r} is not defined in pack-schema.json')
+    return [r for r in schema['roles'] if r in roles]
+
+
+def previous_record(packs_dir, key):
+    """The newest earlier version's record of KEY's resort in packs_dir, or None."""
+    m = re.match(r'^(.+)-v([1-9][0-9]*)$', key or '')
+    if not m or not KEY_RE.match(key):
+        raise ValueError(f'bad key {key!r}')
+    slug, version = m.group(1), int(m.group(2))
+    found = []
+    for name in os.listdir(packs_dir) if os.path.isdir(packs_dir) else []:
+        mm = re.match(rf'^{re.escape(slug)}-v([1-9][0-9]*)$', name)
+        if mm and int(mm.group(1)) < version and os.path.exists(os.path.join(packs_dir, name, 'pack.json')):
+            found.append((int(mm.group(1)), name))
+    return os.path.join(packs_dir, max(found)[1], 'pack.json') if found else None
+
+
+def newest_published(doc, slug):
+    if not SLUG_RE.match(slug or ''):
+        raise ValueError(f'bad slug {slug!r}')
+    if not isinstance(doc, dict) or doc.get('format') != 1 or not isinstance(doc.get('packs'), dict):
+        raise ValueError('not a published list of format 1')
+    found = []
+    for key in doc['packs']:
+        m = re.match(rf'^{re.escape(slug)}-v([1-9][0-9]*)$', key)
+        if m:
+            found.append((int(m.group(1)), key))
+    return max(found)[1] if found else None
+
+
+def input_differences(record, box, osm_timestamp, protomaps_build, elevation):
+    """What differs between a record's inputs and a build's: box, OSM data, Protomaps build, elevation source."""
+    out = []
+    if [float(v) for v in record.get('box', [])] != [float(v) for v in box.split(',')]:
+        out.append('box')
+    if record.get('osm_timestamp') != osm_timestamp:
+        out.append('OSM data')
+    if record.get('protomaps_build') != protomaps_build:
+        out.append('Protomaps build')
+    if (record.get('elevation') or {}).get('source') != elevation:
+        out.append('elevation source')
+    return out
+
+
 def main(argv):
     if not argv:
         print(__doc__, file=sys.stderr)
@@ -449,6 +521,37 @@ def main(argv):
             for k, v in refused.items():
                 print(f'packlib planetiler-errors: {k} {v}', file=sys.stderr)
             return 1 if refused else 0
+        if cmd == 'key-format':
+            with open(args[0], encoding='utf-8') as f:
+                schema = json.load(f)
+            print(key_format(schema, args[1] if len(args) > 1 else ''))
+            return 0
+        if cmd == 'format-roles':
+            with open(args[0], encoding='utf-8') as f:
+                schema = json.load(f)
+            print(' '.join(format_roles(schema, args[1])))
+            return 0
+        if cmd == 'previous-record':
+            path = previous_record(args[0], args[1])
+            if path is None:
+                return 1
+            print(path)
+            return 0
+        if cmd == 'newest-published':
+            with open(args[0], encoding='utf-8') as f:
+                key = newest_published(json.load(f), args[1])
+            if key is None:
+                return 1
+            print(key)
+            return 0
+        if cmd == 'same-inputs':
+            with open(args[0], encoding='utf-8') as f:
+                record = json.load(f)
+            diff = input_differences(record, args[1], args[2], args[3], args[4])
+            if diff:
+                print(', '.join(diff))
+                return 1
+            return 0
         if cmd == 'record':
             doc = {}
             for kv in args[1:]:

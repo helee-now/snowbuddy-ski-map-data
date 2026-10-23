@@ -36,8 +36,8 @@
     {
       "slug": "aspen-snowmass",
       "name": "Aspen Snowmass",
-      "version": 1,
-      "key": "aspen-snowmass-v1",
+      "version": 2,
+      "key": "aspen-snowmass-v2",
       "box": [
         -107.01,
         39.09,
@@ -63,19 +63,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w107/USGS_13_n40w107.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w108/USGS_13_n40w108.tif"
       ],
-      "built_at": "2026-10-22T17:04:34Z",
+      "built_at": "2026-10-23T06:28:50Z",
       "ski_file": {
-        "path": "data/aspen-snowmass-v1-ski.pmtiles",
+        "path": "data/aspen-snowmass-v2-ski.pmtiles",
         "bytes": 865404,
         "sha256": "56080678da141fe7db3344c6c2807878a1f034da8fbba529e99cb5d28aa379a5"
       },
-      "coverage": "data/aspen-snowmass-v1-coverage.json"
+      "coverage": "data/aspen-snowmass-v2-coverage.json"
     },
     {
       "slug": "big-bear-mountain-resort",
       "name": "Big Bear Mountain Resort",
-      "version": 1,
-      "key": "big-bear-mountain-resort-v1",
+      "version": 2,
+      "key": "big-bear-mountain-resort-v2",
       "box": [
         -116.93,
         34.19,
@@ -131,19 +131,19 @@
         "fill_source": "3dep13",
         "filled_window_pct": 1.89
       },
-      "built_at": "2026-10-22T17:05:30Z",
+      "built_at": "2026-10-23T06:23:40Z",
       "ski_file": {
-        "path": "data/big-bear-mountain-resort-v1-ski.pmtiles",
+        "path": "data/big-bear-mountain-resort-v2-ski.pmtiles",
         "bytes": 149841,
         "sha256": "efe20319e7bac54fc8fb6910832016c3057f99fe76764df9caff80d60efba650"
       },
-      "coverage": "data/big-bear-mountain-resort-v1-coverage.json"
+      "coverage": "data/big-bear-mountain-resort-v2-coverage.json"
     },
     {
       "slug": "big-white",
       "name": "Big White",
-      "version": 2,
-      "key": "big-white-v2",
+      "version": 3,
+      "key": "big-white-v3",
       "box": [
         -119.01,
         49.68,
@@ -152,7 +152,7 @@
       ],
       "ski_area": "way/476836855",
       "elevation": "mrdem30",
-      "baseline_checked": "2026-10-17",
+      "baseline_checked": "2026-10-22",
       "osm_timestamp": "2026-10-15T06:15:47Z",
       "overpass_box": [
         -119.05,
@@ -163,19 +163,19 @@
       "elevation_inputs": [
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
-      "built_at": "2026-10-18T01:48:54Z",
+      "built_at": "2026-10-23T06:22:25Z",
       "ski_file": {
-        "path": "data/big-white-v2-ski.pmtiles",
+        "path": "data/big-white-v3-ski.pmtiles",
         "bytes": 159044,
         "sha256": "2441855b7379ad42f1de4f2e7fa815755a8926626e387ab01b00d11bbef3921a"
       },
-      "coverage": "data/big-white-v2-coverage.json"
+      "coverage": "data/big-white-v3-coverage.json"
     },
     {
       "slug": "brighton",
       "name": "Brighton",
-      "version": 1,
-      "key": "brighton-v1",
+      "version": 2,
+      "key": "brighton-v2",
       "box": [
         -111.63,
         40.56,
@@ -245,19 +245,19 @@
         "fill_source": "3dep13",
         "filled_window_pct": 16.758
       },
-      "built_at": "2026-10-22T14:13:01Z",
+      "built_at": "2026-10-23T06:25:21Z",
       "ski_file": {
-        "path": "data/brighton-v1-ski.pmtiles",
+        "path": "data/brighton-v2-ski.pmtiles",
         "bytes": 168044,
         "sha256": "a3c2201ad03cdc0289bdfed276bd7e01af833d0b4462415aa9067cfbe4c6f48b"
       },
-      "coverage": "data/brighton-v1-coverage.json"
+      "coverage": "data/brighton-v2-coverage.json"
     },
     {
       "slug": "deer-valley",
       "name": "Deer Valley",
-      "version": 1,
-      "key": "deer-valley-v1",
+      "version": 2,
+      "key": "deer-valley-v2",
       "box": [
         -111.56,
         40.56,
@@ -294,19 +294,19 @@
       "elevation_inputs": [
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n41w112/USGS_13_n41w112.tif"
       ],
-      "built_at": "2026-10-22T14:20:02Z",
+      "built_at": "2026-10-23T06:26:37Z",
       "ski_file": {
-        "path": "data/deer-valley-v1-ski.pmtiles",
+        "path": "data/deer-valley-v2-ski.pmtiles",
         "bytes": 349533,
         "sha256": "9abd659e028939783defd5de7c610fc235ddcd2787b0ceb8e1e27038ecd19b7a"
       },
-      "coverage": "data/deer-valley-v1-coverage.json"
+      "coverage": "data/deer-valley-v2-coverage.json"
     },
     {
       "slug": "mammoth-mountain",
       "name": "Mammoth Mountain",
-      "version": 2,
-      "key": "mammoth-mountain-v2",
+      "version": 3,
+      "key": "mammoth-mountain-v3",
       "box": [
         -119.1,
         37.59,
@@ -320,7 +320,7 @@
         "Hollywood Chute",
         "Red Cone Bowl"
       ],
-      "baseline_checked": "2026-10-17",
+      "baseline_checked": "2026-10-22",
       "osm_timestamp": "2026-10-15T06:16:51Z",
       "overpass_box": [
         -119.14,
@@ -355,24 +355,24 @@
         "fill_source": null,
         "filled_window_pct": 0
       },
-      "built_at": "2026-10-18T01:49:02Z",
+      "built_at": "2026-10-23T06:23:06Z",
       "ski_file": {
-        "path": "data/mammoth-mountain-v2-ski.pmtiles",
+        "path": "data/mammoth-mountain-v3-ski.pmtiles",
         "bytes": 220545,
         "sha256": "c2ef3f52f95a4917baa935d461b28af9526c0af1bcee0c74ee314a90085006c8"
       },
-      "coverage": "data/mammoth-mountain-v2-coverage.json"
+      "coverage": "data/mammoth-mountain-v3-coverage.json"
     },
     {
       "slug": "palisades-tahoe",
       "name": "Palisades Tahoe",
-      "version": 1,
-      "key": "palisades-tahoe-v1",
+      "version": 2,
+      "key": "palisades-tahoe-v2",
       "box": [
         -120.32,
-        39.11,
+        39.09,
         -120.19,
-        39.23
+        39.24
       ],
       "ski_area": [
         "relation/13336421",
@@ -383,6 +383,16 @@
           "id": "relation/7095958",
           "name": "Northstar at Tahoe Resort",
           "reason": "Northstar California, a separate resort 7 km north-east of Palisades' polygons: its south-side lifts and runs (Backside Express, Monument glade and others) reach the Overpass window, and Backside Express would draw as a lift line at z10."
+        },
+        {
+          "id": "relation/8391726",
+          "name": "Homewood Ski Area",
+          "reason": "Homewood, a separate resort on Lake Tahoe's west shore south of Alpine Meadows: the box widened for the trail-map view (2026-10-23) brings its lifts and runs into the Overpass window."
+        },
+        {
+          "id": "way/599019465",
+          "name": "Homewood Snowcat Adventures",
+          "reason": "Homewood's snowcat skiing area, not Palisades' terrain, in the widened window (2026-10-23)."
         }
       ],
       "elevation": "3dep1",
@@ -391,13 +401,13 @@
         "Outer Outer",
         "Outer Outer Outer"
       ],
-      "baseline_checked": "2026-10-22",
+      "baseline_checked": "2026-10-23",
       "osm_timestamp": "2026-10-22T06:44:51Z",
       "overpass_box": [
         -120.36,
-        39.09,
+        39.07,
         -120.15,
-        39.25
+        39.26
       ],
       "elevation_inputs": [
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SierraNevada_B22/TIFF/USGS_1M_10_x72y433_CA_SierraNevada_B22.tif",
@@ -419,9 +429,9 @@
         "grid": "EPSG:3857, 4.777314 m",
         "box": [
           -120.32,
-          39.11,
+          39.09,
           -120.19,
-          39.23
+          39.24
         ],
         "lidar_box_pct": 100,
         "lidar_window_pct": 100,
@@ -429,19 +439,19 @@
         "fill_source": null,
         "filled_window_pct": 0
       },
-      "built_at": "2026-10-22T17:37:38Z",
+      "built_at": "2026-10-23T07:41:09Z",
       "ski_file": {
-        "path": "data/palisades-tahoe-v1-ski.pmtiles",
-        "bytes": 327807,
-        "sha256": "aa35add590a951c23fcf8146d5e3732657c0194e378c9badcf74f286c6440f49"
+        "path": "data/palisades-tahoe-v2-ski.pmtiles",
+        "bytes": 387907,
+        "sha256": "1314525c3bc992dae110188e6a89a83cf2e6e5ee0a620df933b9d74f2b14d2ad"
       },
-      "coverage": "data/palisades-tahoe-v1-coverage.json"
+      "coverage": "data/palisades-tahoe-v2-coverage.json"
     },
     {
       "slug": "park-city-mountain",
       "name": "Park City Mountain",
-      "version": 1,
-      "key": "park-city-mountain-v1",
+      "version": 2,
+      "key": "park-city-mountain-v2",
       "box": [
         -111.63,
         40.59,
@@ -493,19 +503,19 @@
       "elevation_inputs": [
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n41w112/USGS_13_n41w112.tif"
       ],
-      "built_at": "2026-10-22T17:05:40Z",
+      "built_at": "2026-10-23T06:26:00Z",
       "ski_file": {
-        "path": "data/park-city-mountain-v1-ski.pmtiles",
+        "path": "data/park-city-mountain-v2-ski.pmtiles",
         "bytes": 442987,
         "sha256": "3b945de31b84783c3abceda7bc6fbaca725c9806b9153f6e8365148e47d358cb"
       },
-      "coverage": "data/park-city-mountain-v1-coverage.json"
+      "coverage": "data/park-city-mountain-v2-coverage.json"
     },
     {
       "slug": "snow-valley",
       "name": "Snow Valley",
-      "version": 1,
-      "key": "snow-valley-v1",
+      "version": 2,
+      "key": "snow-valley-v2",
       "box": [
         -117.07,
         34.18,
@@ -526,19 +536,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n35w117/USGS_13_n35w117.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n35w118/USGS_13_n35w118.tif"
       ],
-      "built_at": "2026-10-22T17:02:26Z",
+      "built_at": "2026-10-23T06:24:09Z",
       "ski_file": {
-        "path": "data/snow-valley-v1-ski.pmtiles",
+        "path": "data/snow-valley-v2-ski.pmtiles",
         "bytes": 164349,
         "sha256": "ba03bd7803225c79a07817980fa5622a2b3cfd721347007f6685b5de1b03c4ea"
       },
-      "coverage": "data/snow-valley-v1-coverage.json"
+      "coverage": "data/snow-valley-v2-coverage.json"
     },
     {
       "slug": "steamboat",
       "name": "Steamboat",
-      "version": 1,
-      "key": "steamboat-v1",
+      "version": 2,
+      "key": "steamboat-v2",
       "box": [
         -106.85,
         40.41,
@@ -565,19 +575,19 @@
       "elevation_inputs": [
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n41w107/USGS_13_n41w107.tif"
       ],
-      "built_at": "2026-10-22T14:22:23Z",
+      "built_at": "2026-10-23T06:27:12Z",
       "ski_file": {
-        "path": "data/steamboat-v1-ski.pmtiles",
+        "path": "data/steamboat-v2-ski.pmtiles",
         "bytes": 250322,
         "sha256": "1a40436ff7ae6734ab7b8b040f82c7fec6f76dbf40e6351554879a08afc13b8a"
       },
-      "coverage": "data/steamboat-v1-coverage.json"
+      "coverage": "data/steamboat-v2-coverage.json"
     },
     {
       "slug": "whistler-blackcomb",
       "name": "Whistler Blackcomb",
-      "version": 3,
-      "key": "whistler-blackcomb-v3",
+      "version": 4,
+      "key": "whistler-blackcomb-v4",
       "box": [
         -123.08,
         49.98,
@@ -593,7 +603,7 @@
         "Helm's Deep",
         "Helm's Gate"
       ],
-      "baseline_checked": "2026-10-17",
+      "baseline_checked": "2026-10-22",
       "osm_timestamp": "2026-10-15T06:13:50Z",
       "overpass_box": [
         -123.12,
@@ -604,19 +614,19 @@
       "elevation_inputs": [
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
-      "built_at": "2026-10-18T01:48:48Z",
+      "built_at": "2026-10-23T06:21:58Z",
       "ski_file": {
-        "path": "data/whistler-blackcomb-v3-ski.pmtiles",
+        "path": "data/whistler-blackcomb-v4-ski.pmtiles",
         "bytes": 838922,
         "sha256": "ff73c9a03c7c9484f2a4a3137401acd1df8b16e62c22bd1948ae9b37e261a366"
       },
-      "coverage": "data/whistler-blackcomb-v3-coverage.json"
+      "coverage": "data/whistler-blackcomb-v4-coverage.json"
     },
     {
       "slug": "winter-park",
       "name": "Winter Park",
-      "version": 1,
-      "key": "winter-park-v1",
+      "version": 2,
+      "key": "winter-park-v2",
       "box": [
         -105.84,
         39.81,
@@ -661,13 +671,13 @@
         "fill_source": null,
         "filled_window_pct": 0
       },
-      "built_at": "2026-10-22T17:05:48Z",
+      "built_at": "2026-10-23T06:27:51Z",
       "ski_file": {
-        "path": "data/winter-park-v1-ski.pmtiles",
+        "path": "data/winter-park-v2-ski.pmtiles",
         "bytes": 249857,
         "sha256": "5d52e6713962012370bc41e3fc6c98ebbc5152a2f5a3e8d92547fb71d2ba4216"
       },
-      "coverage": "data/winter-park-v1-coverage.json"
+      "coverage": "data/winter-park-v2-coverage.json"
     }
   ]
 }

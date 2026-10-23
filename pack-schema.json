@@ -1,6 +1,6 @@
 {
-  "comment": "What a resort map pack contains (ADR-036). One source of truth for the pipeline (normalize_osm.py, build-pack.sh), the style generator, write-packs.mjs and the tests. Changing a layer, a field or a zoom here is a schema change: rebuild the packs and the styles. pack_format is the format new builds get (MAPS_PLAN D9); a format, once defined in formats, never changes.",
-  "pack_format": 1,
+  "comment": "What a resort map pack contains (ADR-036). One source of truth for the pipeline (normalize_osm.py, build-pack.sh), the style generator, write-packs.mjs and the tests. Changing a layer, a field or a zoom here is a schema change: rebuild the packs and the styles. pack_format is the format new builds get (MAPS_PLAN D9); a format, once defined in formats, never changes. roles describes every file role a defined format uses (its file suffix, the pipeline's tile spec, the style's source and placeholder); a pack of format n holds exactly the roles of formats[n].roles. trail_view and style are the trail-map view's contract (docs/MAPS_TRAILVIEW_DESIGN.md), outside formats.",
+  "pack_format": 2,
   "glyph_ranges": [[0, 1023], [8192, 8447]],
   "fontstacks": ["Noto Sans Regular", "Noto Sans Medium", "Noto Sans Italic"],
   "roles": {
@@ -31,6 +31,17 @@
       "tile_size": 512,
       "placeholder": "__PMTILES_HILLSHADE_URL__",
       "source": "hillshade"
+    },
+    "dem": {
+      "suffix": "-dem",
+      "tile_type": "webp",
+      "tile_compression": ["none"],
+      "minzoom": 9,
+      "maxzoom": 13,
+      "tile_size": 512,
+      "placeholder": "__PMTILES_DEM_URL__",
+      "source": "dem",
+      "metadata": { "encoding": "mapbox" }
     }
   },
   "ski_layers": {
@@ -148,6 +159,46 @@
         "lift.kind": ["cable_car", "chair_lift", "drag_lift", "gondola", "j-bar", "magic_carpet", "mixed_lift", "platter", "rope_tow", "t-bar"]
       },
       "glyph_ranges": [[0, 1023], [8192, 8447]]
+    },
+    "2": {
+      "comment": "Frozen (owner decision 2026-10-22, option 2a; docs/MAPS_TRAILVIEW_DESIGN.md section 2): format 1 with the baked hillshade file replaced by an elevation file that the app shades live, so the relief reads right at any bearing. base and ski hold exactly what format 1's hold. dem: 512 px lossless WebP tiles, z9-13, every pixel opaque; encoding mapbox (elevation in metres = -10000 + (R * 65536 + G * 256 + B) * 0.1), each elevation a multiple of step_m. A style may read less, never more. test/format.test.mjs pins this object's hash.",
+      "roles": {
+        "base": { "tile_type": "mvt", "protomaps_major": 4,
+                  "source_layers": ["boundaries", "buildings", "earth", "landcover", "landuse", "places", "pois", "roads", "water"] },
+        "ski": { "tile_type": "mvt",
+                 "fields": { "piste": ["difficulty", "name", "oriented", "out_of_bounds", "park", "rank", "type", "ungroomed"],
+                             "piste_area": ["difficulty", "name", "out_of_bounds", "park", "type"],
+                             "lift": ["kind", "name", "oriented"],
+                             "lift_station": [], "ski_area": [], "contour": ["ele", "idx"] } },
+        "dem": { "tile_type": "webp", "tile_size": 512, "minzoom": 9, "maxzoom": 13, "webp": "lossless", "opaque": true,
+                 "encoding": "mapbox", "step_m": 0.2 }
+      },
+      "ski_values": {
+        "piste.type": ["connection", "downhill", "playground", "snow_park"],
+        "piste.difficulty": ["advanced", "easy", "expert", "extreme", "freeride", "intermediate", "novice"],
+        "piste.rank": [1, 3],
+        "piste_area.type": ["connection", "downhill", "playground", "snow_park"],
+        "piste_area.difficulty": ["advanced", "easy", "expert", "extreme", "freeride", "intermediate", "novice"],
+        "lift.kind": ["cable_car", "chair_lift", "drag_lift", "gondola", "j-bar", "magic_carpet", "mixed_lift", "platter", "rope_tow", "t-bar"]
+      },
+      "glyph_ranges": [[0, 1023], [8192, 8447]]
+    }
+  },
+  "trail_view": {
+    "comment": "The optional pack.json field trail_view (docs/MAPS_TRAILVIEW_DESIGN.md section 3): the bearing a resort's map opens at, so that most runs point from the top of the screen to the bottom, and the terrain's middle and size in that turned frame, for the opening camera. Outside formats: the app's camera reads it, the style does not. write-packs.mjs writes it right after terrain_extent, with exactly these keys in this order, and only on a record whose format has requires_role (a baked hillshade is lit for north up: a pack that carries one never opens turned). Bearing 0 means north up: no trail view. The app reads a trail view that breaks any rule below as none. scripts/lib/trail-view.mjs holds the reader's rule (trailViewOf), the writer's (trailViewProblem), the camera (trailViewCamera), the turned extent (turnedExtent) and the bearing rule (trailBearing); contract-cases.json pins them for the app's port and the pipeline's.",
+    "keys": ["bearing", "center", "size_m"],
+    "requires_role": "dem",
+    "bearing": { "min": 0, "max": 355, "step": 5, "north_up": 0 },
+    "center": { "order": ["lng", "lat"], "inside": "box", "decimals": 6 },
+    "size_m": { "order": ["width", "height"], "min": 50, "max": 60000, "round_up_to": 10 },
+    "rule": { "id": 1, "min_lines": 10, "min_km": 3, "min_r": 0.4, "round_deg": 5, "north_up_within_deg": 30, "keep_within_deg": 10, "override_within_deg": 10 }
+  },
+  "style": {
+    "comment": "How the app's styles carry the shading of every format the app draws, and how staging picks a pack's (scripts/lib/style-contract.mjs, ported by MapAssets.buildStyle; docs/MAPS_TRAILVIEW_DESIGN.md section 4). Metadata source_roles names each source's role; format_layers lists, under each format the style draws, the layers drawn only for that format's packs: a layer listed under no format is drawn for every format, and a style without the key draws format 1 only. shading names each format's shading layer and its source.",
+    "metadata": { "source_roles": "snowbuddy:sourceRoles", "format_layers": "snowbuddy:formatLayers", "unit_layers": "snowbuddy:unitLayers" },
+    "shading": {
+      "1": { "layer": "sb_hillshade", "type": "raster", "source": "hillshade" },
+      "2": { "layer": "sb_hillshade_live", "type": "hillshade", "source": "dem" }
     }
   }
 }

@@ -1,39 +1,39 @@
 {
-  "key": "big-bear-mountain-resort-v1",
-  "ski_sha256": "efe20319e7bac54fc8fb6910832016c3057f99fe76764df9caff80d60efba650",
-  "osm_timestamp": "2026-10-22T06:41:51Z",
+  "key": "snow-valley-v2",
+  "ski_sha256": "ba03bd7803225c79a07817980fa5622a2b3cfd721347007f6685b5de1b03c4ea",
+  "osm_timestamp": "2026-10-22T06:42:51Z",
   "box": [
-    -116.93,
-    34.19,
-    -116.82,
-    34.26
+    -117.07,
+    34.18,
+    -117,
+    34.25
   ],
   "min_margin_km": 2,
   "terrain_extent": [
-    -116.900088,
-    34.209591,
-    -116.850432,
-    34.237043
+    -117.042238,
+    34.201243,
+    -117.031437,
+    34.225458
   ],
   "margins_km": {
-    "west": 2.75,
-    "south": 2.18,
-    "east": 2.8,
-    "north": 2.55
+    "west": 2.55,
+    "south": 2.36,
+    "east": 2.89,
+    "north": 2.73
   },
   "counts": {
-    "lifts": 26,
-    "runs_in_bounds": 66,
+    "lifts": 9,
+    "runs_in_bounds": 42,
     "run_areas_in_bounds": 0,
     "runs_out_of_bounds": 0,
     "run_areas_out_of_bounds": 0,
-    "lift_stations": 49,
+    "lift_stations": 18,
     "ski_area": 1,
     "other_lifts_and_runs": 0
   },
   "length_km": {
-    "lifts": 15.2,
-    "runs_in_bounds": 33.7,
+    "lifts": 4.5,
+    "runs_in_bounds": 13.4,
     "runs_out_of_bounds": 0
   },
   "lifts_outside_box": [],
@@ -44,26 +44,26 @@
     "11": [
       -117.070312,
       34.161818,
-      -116.71875,
+      -116.894531,
       34.307144
     ],
     "12": [
-      -116.982422,
+      -117.070312,
       34.161818,
-      -116.806641,
+      -116.982422,
       34.307144
     ],
     "13": [
-      -116.938477,
+      -117.070312,
       34.161818,
-      -116.806641,
+      -116.982422,
       34.270836
     ],
     "14": [
-      -116.938477,
+      -117.070312,
       34.179998,
-      -116.806641,
-      34.270836
+      -116.982422,
+      34.252676
     ]
   },
   "resort_radius_km": 2,

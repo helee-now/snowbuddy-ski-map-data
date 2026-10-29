@@ -1,0 +1,78 @@
+{
+  "slug": "snow-summit",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Snow Summit (way/1554647623) on its own map (owner decision 2026-10-29); the mountain also draws on the combined big-bear-mountain-resort map with Bear Mountain. The entries are the Snow Summit ones of big-bear-mountain-resort.overrides.json, checked on 2026-10-21 against the resort's 2026 Snow Summit trail map (bigbearmountainresort.com, read at full resolution); ratings follow the map. Named parks get the park flag, as at Mammoth: the map marks them as freestyle terrain. Lift names stay plain (Chair 3, Chair 4, Chair 7, Chair 8, MC1 to MC4): the combined map prefixes the names both mountains share with the mountain's name, which a map of one mountain does not need (owner decision 2026-10-29). Bear Mountain and Big Bear Snow Play are left off through resorts.json's neighbours, their lifts and runs with them; Magic Mountain's chair and carpet, 2 km west of the ski area, are hidden here, as its sled polygon has no name to list (lead's decision 2026-10-22).",
+  "overrides": [
+    {
+      "id": "way/665219460",
+      "reason": "Alpine Slide at Magic Mountain's chair, a separate business about 2 km west of Snow Summit (summer alpine slide and snow tubing), not a lift of this resort; its only polygon is an unnamed sledding area.",
+      "expect": { "aerialway": "chair_lift", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/239857581",
+      "reason": "Alpine Slide at Magic Mountain's snow-tubing carpet, a separate business, not a lift of this resort.",
+      "expect": { "aerialway": "magic_carpet", "name": null },
+      "hide": true
+    },
+    {
+      "id": "node/2634356293",
+      "reason": "A lone lift station mid-mountain at Snow Summit: a node of the Miracle Mile run, on no lift, 33 m from Chair 1's line and 568 m from its nearest end (150 m from an end of Chair 6, the nearest of any lift), so the 100 m rule would draw a lift station with no lift beside Miracle Mile. Possibly a station of Chair 11, which the 2026 Snow Summit map draws between Chairs 1 and 2 and OpenStreetMap does not map yet: remove this entry when Chair 11 is mapped (review of 2026-10-22).",
+      "expect": { "aerialway": "station", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/1552350975",
+      "reason": "Comeback Trail is a blue line with a blue square on the 2026 Snow Summit trail map; OSM rates it easy.",
+      "expect": { "name": "Comeback Trail", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1552350912",
+      "reason": "Log Road on the 2026 Snow Summit trail map: a blue line with blue squares, named Log Road; OSM rates it easy and adds 'Trail'.",
+      "expect": { "name": "Log Road Trail", "piste:difficulty": "easy" },
+      "set": { "name": "Log Road", "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1552342933",
+      "reason": "Six Road on the 2026 Snow Summit trail map: a blue line labelled SIX ROAD; OSM rates it easy and names it '6 Road Trail'.",
+      "expect": { "name": "6 Road Trail", "piste:difficulty": "easy" },
+      "set": { "name": "Six Road", "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/330954801",
+      "reason": "Misspelt name ('Begginner's Bottom'); the 2026 Snow Summit trail map names the area by Chair 4 and MC1-MC5 Bear Bottom Beginner Area, shortened here to Bear Bottom for a run label (lead's decision 2026-10-22).",
+      "expect": { "name": "Begginner's Bottom" },
+      "set": { "name": "Bear Bottom" }
+    },
+    {
+      "id": "way/330954802",
+      "reason": "Misspelt name ('Begginner's Bottom'); the 2026 Snow Summit trail map names the area by Chair 4 and MC1-MC5 Bear Bottom Beginner Area, shortened here to Bear Bottom for a run label (lead's decision 2026-10-22).",
+      "expect": { "name": "Begginner's Bottom" },
+      "set": { "name": "Bear Bottom" }
+    },
+    {
+      "id": "way/330954803",
+      "reason": "Misspelt name ('Begginner's Bottom'); the 2026 Snow Summit trail map names the area by Chair 4 and MC1-MC5 Bear Bottom Beginner Area, shortened here to Bear Bottom for a run label (lead's decision 2026-10-22).",
+      "expect": { "name": "Begginner's Bottom" },
+      "set": { "name": "Bear Bottom" }
+    },
+    {
+      "id": "way/330954804",
+      "reason": "the 2026 Snow Summit trail map spells it 7 Down (both labels), without the hyphen.",
+      "expect": { "name": "7-Down" },
+      "set": { "name": "7 Down" }
+    },
+    {
+      "id": "way/330977771",
+      "reason": "Terrain park without a park tag in OSM: ZZYZX Park carries the freestyle-terrain symbol on the 2026 Snow Summit trail map.",
+      "expect": { "name": "ZZYZX Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/330977786",
+      "reason": "Westridge Park on the 2026 Snow Summit trail map: labelled WESTRIDGE PARK three times along its whole length, with freestyle-terrain symbols; OSM names it Westridge and has no park tag. The map rates it blue, and the resort's mountain statistics list it as Westridge, Snow Summit's longest run (1.25 mi, 2 km): drawn as a park, like Bear Mountain's 1.8 km Park Run, because the map names it one.",
+      "expect": { "name": "Westridge", "piste:type": "downhill" },
+      "set": { "name": "Westridge Park", "park": true }
+    }
+  ]
+}

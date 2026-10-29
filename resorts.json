@@ -72,6 +72,76 @@
       "coverage": "data/aspen-snowmass-v2-coverage.json"
     },
     {
+      "slug": "bear-mountain",
+      "name": "Bear Mountain",
+      "version": 1,
+      "key": "bear-mountain-v1",
+      "box": [
+        -116.9,
+        34.19,
+        -116.82,
+        34.25
+      ],
+      "ski_area": "way/682224991",
+      "neighbours": [
+        {
+          "id": "way/1554647623",
+          "name": "Snow Summit",
+          "reason": "Snow Summit, the resort's other mountain, on its own map (snow-summit; the two stay together on big-bear-mountain-resort): its polygon lies inside the box's west half, 2 km west of Bear Mountain, with its 15 lifts and 40 runs."
+        },
+        {
+          "id": "way/329813045",
+          "name": "Big Bear Snow Play",
+          "reason": "a separate snow play area (sledding and tubing) with its two carpets, not part of the ski resort; in the Overpass margin north of the box, where the two carpets would otherwise draw in the z10-12 edge tiles"
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "CA_SoCal_Wildfires_B1_2018",
+      "baseline_checked": "2026-10-29",
+      "osm_timestamp": "2026-10-29T08:00:11Z",
+      "overpass_box": [
+        -116.94,
+        34.17,
+        -116.78,
+        34.27
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x50y378_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x50y379_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x50y380_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x51y378_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x51y379_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x51y380_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x52y378_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x52y379_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x52y380_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n35w117/USGS_13_n35w117.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CA_SoCal_Wildfires_B1_2018",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -116.9,
+          34.19,
+          -116.82,
+          34.25
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 99.657,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 0.343
+      },
+      "built_at": "2026-10-29T08:02:24Z",
+      "ski_file": {
+        "path": "data/bear-mountain-v1-ski.pmtiles",
+        "bytes": 107809,
+        "sha256": "8ef8a1b2cb17e8798068b39d9b2963d9ca2d8b9bce86a278d12a86f8d92c3786"
+      },
+      "coverage": "data/bear-mountain-v1-coverage.json"
+    },
+    {
       "slug": "big-bear-mountain-resort",
       "name": "Big Bear Mountain Resort",
       "version": 2,
@@ -510,6 +580,73 @@
         "sha256": "3b945de31b84783c3abceda7bc6fbaca725c9806b9153f6e8365148e47d358cb"
       },
       "coverage": "data/park-city-mountain-v2-coverage.json"
+    },
+    {
+      "slug": "snow-summit",
+      "name": "Snow Summit",
+      "version": 1,
+      "key": "snow-summit-v1",
+      "box": [
+        -116.93,
+        34.2,
+        -116.86,
+        34.26
+      ],
+      "ski_area": "way/1554647623",
+      "neighbours": [
+        {
+          "id": "way/682224991",
+          "name": "Big Bear Mountain Resort",
+          "reason": "Bear Mountain, the resort's other mountain, on its own map (bear-mountain; the two stay together on big-bear-mountain-resort): its polygon (named Big Bear Mountain Resort in OpenStreetMap) crosses the box's east edge 2 km east of Snow Summit, with its 11 lifts and 26 runs in the Overpass window."
+        },
+        {
+          "id": "way/329813045",
+          "name": "Big Bear Snow Play",
+          "reason": "a separate snow play area (sledding and tubing) with its two carpets, not part of the ski resort"
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "CA_SoCal_Wildfires_B1_2018",
+      "baseline_checked": "2026-10-29",
+      "osm_timestamp": "2026-10-29T07:58:06Z",
+      "overpass_box": [
+        -116.97,
+        34.18,
+        -116.82,
+        34.28
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x50y378_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x50y379_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x50y380_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x51y378_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x51y379_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x51y380_CA_SoCal_Wildfires_B1_2018.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n35w117/USGS_13_n35w117.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CA_SoCal_Wildfires_B1_2018",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -116.93,
+          34.2,
+          -116.86,
+          34.26
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 98.245,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 1.755
+      },
+      "built_at": "2026-10-29T08:00:07Z",
+      "ski_file": {
+        "path": "data/snow-summit-v1-ski.pmtiles",
+        "bytes": 88758,
+        "sha256": "e467ca780b28d23bb9e1eed30789b6bc54d9975166f8cef335548c4535f7faf4"
+      },
+      "coverage": "data/snow-summit-v1-coverage.json"
     },
     {
       "slug": "snow-valley",

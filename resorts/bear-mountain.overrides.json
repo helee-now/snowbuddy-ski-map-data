@@ -1,0 +1,54 @@
+{
+  "slug": "bear-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Bear Mountain (way/682224991, named Big Bear Mountain Resort in OpenStreetMap) on its own map (owner decision 2026-10-29); the mountain also draws on the combined big-bear-mountain-resort map with Snow Summit. The entries are the Bear Mountain ones of big-bear-mountain-resort.overrides.json, checked on 2026-10-21 against the resort's Bear Mountain trail map (bigbearmountainresort.com, 2500 x 1770 v2, read at full resolution); ratings follow the map, also where OpenStreetMap rates a run one step harder (Showtime). Named parks get the park flag, as at Mammoth: the map marks them as freestyle terrain. Lift names stay plain (Chair 3, Chair 4, Chair 7, Chair 8, MC1 to MC4): the combined map prefixes the names both mountains share with the mountain's name, which a map of one mountain does not need (owner decision 2026-10-29). Snow Summit and Big Bear Snow Play are left off through resorts.json's neighbours, their lifts and runs with them; Magic Mountain's chair and carpet, in the Overpass margin west of the box, are hidden here, as its sled polygon has no name to list (lead's decision 2026-10-22).",
+  "overrides": [
+    {
+      "id": "way/665219460",
+      "reason": "Alpine Slide at Magic Mountain's chair, a separate business 5 km west of Bear Mountain (summer alpine slide and snow tubing), not a lift of this resort; its only polygon is an unnamed sledding area. It lies in the Overpass margin west of the box, where it would otherwise draw as a lift in the z10-11 edge tiles.",
+      "expect": { "aerialway": "chair_lift", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/239857581",
+      "reason": "Alpine Slide at Magic Mountain's snow-tubing carpet, a separate business, not a lift of this resort; in the Overpass margin west of the box, as its chair.",
+      "expect": { "aerialway": "magic_carpet", "name": null },
+      "hide": true
+    },
+    {
+      "id": "way/330987504",
+      "reason": "Gambler is a single black diamond on the Bear Mountain trail map (2500 x 1770 v2) (two labels); OSM rates it intermediate.",
+      "expect": { "name": "Gambler", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/330987509",
+      "reason": "Showtime is a single black diamond on the Bear Mountain trail map (2500 x 1770 v2); OSM rates it expert.",
+      "expect": { "name": "Showtime", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/7141201",
+      "reason": "Terrain park without a park tag in OSM: Amusement Park carries the freestyle-terrain symbol on the Bear Mountain trail map (2500 x 1770 v2).",
+      "expect": { "name": "Amusement Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/330982365",
+      "reason": "Terrain park without a park tag in OSM: Central Park carries freestyle-terrain symbols on the Bear Mountain trail map (2500 x 1770 v2).",
+      "expect": { "name": "Central Park", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/330987512",
+      "reason": "Terrain park without a park tag in OSM: Park Run (Upper) and (Face) carry freestyle-terrain symbols on the Bear Mountain trail map (2500 x 1770 v2).",
+      "expect": { "name": "Park Run", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/330987513",
+      "reason": "The lower part of Park Run: the Bear Mountain trail map (2500 x 1770 v2) labels it PARK RUN (LOWER), with a freestyle-terrain symbol. OSM's 'The Park Run' splits the run's name in two and has no park tag.",
+      "expect": { "name": "The Park Run", "piste:type": "downhill" },
+      "set": { "name": "Park Run", "park": true }
+    }
+  ]
+}

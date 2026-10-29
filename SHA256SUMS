@@ -1,5 +1,7 @@
 86741b6a474b512213c9aa5965dca4aad1ee2608d463c2f19fb84e4c536ad802  data/aspen-snowmass-v2-coverage.json
 56080678da141fe7db3344c6c2807878a1f034da8fbba529e99cb5d28aa379a5  data/aspen-snowmass-v2-ski.pmtiles
+6876a20490b4250efe16049a3e0f12fae6fae15a835ca093c950571d8a72929c  data/bear-mountain-v1-coverage.json
+8ef8a1b2cb17e8798068b39d9b2963d9ca2d8b9bce86a278d12a86f8d92c3786  data/bear-mountain-v1-ski.pmtiles
 f1be4941f3586f419d907cc4367eab7dc9e2fd3e6ec2dbc070bb600e0a37e69b  data/big-bear-mountain-resort-v2-coverage.json
 efe20319e7bac54fc8fb6910832016c3057f99fe76764df9caff80d60efba650  data/big-bear-mountain-resort-v2-ski.pmtiles
 2b4370dec3855f29188ad9d8eaef492e230b9dceb720d20f770f91a08ae8358b  data/big-white-v3-coverage.json
@@ -14,6 +16,8 @@ b6931f892efe82a3c74ad046693bc34a36014c7f58cbef10950204b8ce9165a0  data/palisades
 1314525c3bc992dae110188e6a89a83cf2e6e5ee0a620df933b9d74f2b14d2ad  data/palisades-tahoe-v2-ski.pmtiles
 f5f62832d63221f84ead73b1b8615105e9ab32f54fd0280bbcbb4997d85ef9ad  data/park-city-mountain-v2-coverage.json
 3b945de31b84783c3abceda7bc6fbaca725c9806b9153f6e8365148e47d358cb  data/park-city-mountain-v2-ski.pmtiles
+f1306d8dd0fb71d21c68992a2f8f9e3d63ca7bd1e25126f64fb3e6eef03806d9  data/snow-summit-v1-coverage.json
+e467ca780b28d23bb9e1eed30789b6bc54d9975166f8cef335548c4535f7faf4  data/snow-summit-v1-ski.pmtiles
 514ef2869f108361b6ca210b87831a23a848d9d99e6f372b34b63fb46979ef99  data/snow-valley-v2-coverage.json
 ba03bd7803225c79a07817980fa5622a2b3cfd721347007f6685b5de1b03c4ea  data/snow-valley-v2-ski.pmtiles
 a63a8f38bb69d1c5f19599d4d5a18284f5b5cddc750cb7be2a437b5bbdf8339f  data/steamboat-v2-coverage.json

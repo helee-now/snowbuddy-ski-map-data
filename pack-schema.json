@@ -129,7 +129,7 @@
     "piste.oriented": "the line runs downhill as drawn, checked against the elevation model (orient.py); absent when too flat or ambiguous: no arrows",
     "lift.oriented": "the line runs uphill as drawn, checked against the elevation model (orient.py)",
     "lift_station": "OpenStreetMap stations within 100 m of a kept lift, and the two ends of every kept lift unless a station is within 40 m",
-    "ski_area": "one feature: the resort's ski-area polygon, or for a resort of several mountains on one map (resorts.json ski_area as a list) one multipolygon, the union of their polygons (a border two of them share is not drawn), named after the resort. A listed neighbour's polygon, lifts, runs and stations are never in the file"
+    "ski_area": "one feature: the resort's ski-area polygon, or for a resort of several mountains on one map (resorts.json ski_area as a list) one multipolygon, the union of their polygons (a border two of them share is not drawn), named after the resort; or, for a resort with no landuse=winter_sports polygon in OpenStreetMap (resorts.json ski_area \"derived\"), one multipolygon derived from its own lifts and runs, each buffered by ski_area_buffer_m (100 m by default) and unioned, every hole filled, one polygon per group of lifts and runs whose buffers touch. A listed neighbour's polygon, lifts, runs and stations are never in the file"
   },
   "contours": {
     "interval_m": 20,

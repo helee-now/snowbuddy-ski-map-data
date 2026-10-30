@@ -135,16 +135,29 @@ def osm_info(path, date=None):
     return date or base.group(1), bounds
 
 
+DERIVED_BUFFER_RANGE_M = (10.0, 1000.0)   # normalize_osm.py DERIVED_BUFFER_RANGE_M
+
+
 def ski_area_ids(entry, slug):
-    """The OSM ids of a resort's ski area: `ski_area` is one id (way/123 or relation/123), or a list of at least two
-    distinct ids for a resort of several mountains on one map (each its own landuse=winter_sports polygon)."""
+    """The OSM ids of a resort's ski area: `ski_area` is one id (way/123 or relation/123), a list of at least two
+    distinct ids for a resort of several mountains on one map (each its own landuse=winter_sports polygon), or
+    "derived" (no ids: the area is derived from the resort's lifts and runs, buffered by `ski_area_buffer_m`, a number
+    of metres from 10 to 1000, 100 when absent; normalize_osm.py)."""
     sa = entry.get('ski_area')
+    if sa == 'derived':
+        buffer_m = entry.get('ski_area_buffer_m', 100)
+        lo, hi = DERIVED_BUFFER_RANGE_M
+        if isinstance(buffer_m, bool) or not isinstance(buffer_m, (int, float)) or not lo <= buffer_m <= hi:
+            raise ValueError(f'{slug}: ski_area_buffer_m must be a number of metres from {lo:g} to {hi:g}')
+        return []
+    if 'ski_area_buffer_m' in entry:
+        raise ValueError(f'{slug}: ski_area_buffer_m goes only with "ski_area": "derived"')
     if isinstance(sa, str) and OSM_ID_RE.match(sa):
         return [sa]
     if (isinstance(sa, list) and len(sa) >= 2 and all(isinstance(x, str) and OSM_ID_RE.match(x) for x in sa)
             and len(set(sa)) == len(sa)):
         return list(sa)
-    raise ValueError(f'{slug}: ski_area must look like way/123 or relation/123, or be a list of at least two distinct such ids')
+    raise ValueError(f'{slug}: ski_area must look like way/123 or relation/123, be a list of at least two distinct such ids, or be "derived"')
 
 
 NEIGHBOUR_KEYS = {'id', 'name', 'reason'}
@@ -210,7 +223,7 @@ def resort_entry(resorts, slug):
         raise ValueError(f'{slug}: contour_smoothing_m must be a number of metres from 0 to 100')
     return {
         'SLUG': slug, 'KEY': key, 'VERSION': str(entry['version']), 'BOX': box,
-        'SKI_AREA': ','.join(ski_ids), 'ELEV': entry['elevation'], 'ELEV_RES': str(elev['resolution_m']),
+        'SKI_AREA': ','.join(ski_ids) or 'derived', 'ELEV': entry['elevation'], 'ELEV_RES': str(elev['resolution_m']),
         'ELEV_PROJECT': project, 'CONTOUR_SMOOTH_M': fmt(float(smooth)),
         'OSM_CREDIT_HTML': resorts['credits']['osm_html'], 'TERRAIN_CREDIT_HTML': elev['credit_html'],
     }

@@ -1,0 +1,73 @@
+{
+  "key": "mountain-high-v1",
+  "ski_sha256": "c3bc80468f3cbba6f083566ee2b5949a41b46a961118edbfef21827af7caf313",
+  "osm_timestamp": "2026-10-30T08:41:01Z",
+  "box": [
+    -117.73,
+    34.33,
+    -117.65,
+    34.41
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -117.699567,
+    34.356206,
+    -117.673085,
+    34.377609
+  ],
+  "margins_km": {
+    "west": 2.79,
+    "south": 2.91,
+    "east": 2.12,
+    "north": 3.6
+  },
+  "counts": {
+    "lifts": 12,
+    "runs_in_bounds": 39,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 23,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 7.4,
+    "runs_in_bounds": 17.2,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -117.773438,
+      34.307144,
+      -117.597656,
+      34.452218
+    ],
+    "12": [
+      -117.773438,
+      34.307144,
+      -117.597656,
+      34.452218
+    ],
+    "13": [
+      -117.773438,
+      34.307144,
+      -117.641602,
+      34.415973
+    ],
+    "14": [
+      -117.751465,
+      34.325292,
+      -117.641602,
+      34.415973
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

@@ -1,0 +1,60 @@
+{
+  "slug": "mountain-high",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Mountain High has no landuse=winter_sports polygon in OpenStreetMap (checked 2026-10-30: three leisure=sports_centre nodes and a type=site relation only), so its ski area is derived from its lifts and runs (resorts.json ski_area \"derived\", owner decision 2026-10-30). Ratings and names checked on 2026-10-30 against the resort's own interactive trail map (mthigh.com, the East and West map: 49 runs and 13 lifts read from its SVG) and its mountain statistics and Lift & Trail Report (the 2026 season's): every run OpenStreetMap maps carries the map's rating already, so no rating changes. The Lift & Trail Report's table rates three runs otherwise (The Wedge advanced, Upper Chisolm expert, Trestles intermediate) against both the map and OpenStreetMap: not applied, the map wins. No run carries the map's freestyle mark, so no park flags. Competition and Easy Rider are tagged abandoned=yes in OpenStreetMap but the resort's 2026 map and lift report list them, so they stay. North Resort (the former Ski Sunrise) is not operated: the resort's lift report lists no lift and no trail there and its map does not cover it, so its abandoned Sunrise Quad, its two carpets and its four runs are hidden, and the derived ski area does not reach it (its two stations lie 1 km from any kept lift and are left out by the 100 m rule without an entry).",
+  "overrides": [
+    {
+      "id": "way/26663212",
+      "reason": "The resort's trail map and lift report name the East Resort's high-speed quad Mountain High Express; OSM abbreviates it.",
+      "expect": { "aerialway": "chair_lift", "name": "Mtn High Express" },
+      "set": { "name": "Mountain High Express" }
+    },
+    {
+      "id": "way/330801186",
+      "reason": "The resort's trail map and lift report spell it Wild Fire (two words); OSM has Wildfire.",
+      "expect": { "name": "Wildfire", "piste:difficulty": "advanced" },
+      "set": { "name": "Wild Fire" }
+    },
+    {
+      "id": "way/258016666",
+      "reason": "Sunrise Quad, North Resort's chair, tagged abandoned=yes in OSM and absent from the resort's 2026 lift report and trail map: North is not operated, and a hidden lift does not shape the derived ski area.",
+      "expect": { "aerialway": "chair_lift", "name": "Sunrise Quad", "abandoned": "yes" },
+      "hide": true
+    },
+    {
+      "id": "way/258016664",
+      "reason": "North Resort's longer unnamed carpet, absent from the resort's 2026 lift report (its carpets are Moving Carpet East, West Long and West Short): North is not operated, and a hidden lift does not shape the derived ski area.",
+      "expect": { "aerialway": "magic_carpet", "name": null, "oneway": "yes" },
+      "hide": true
+    },
+    {
+      "id": "way/258016665",
+      "reason": "North Resort's shorter unnamed carpet, absent from the resort's 2026 lift report: North is not operated, and a hidden lift does not shape the derived ski area.",
+      "expect": { "aerialway": "magic_carpet", "name": null, "oneway": "yes" },
+      "hide": true
+    },
+    {
+      "id": "way/330801155",
+      "reason": "Cascade, a North Resort run: North is not operated (the resort's 2026 lift report lists no lift or trail there), so the run is hidden and the derived ski area does not reach a closed area.",
+      "expect": { "name": "Cascade", "piste:difficulty": "intermediate" },
+      "hide": true
+    },
+    {
+      "id": "way/330801175",
+      "reason": "Round-A-Bout, a North Resort run: North is not operated (the resort's 2026 lift report lists no lift or trail there), so the run is hidden and the derived ski area does not reach a closed area.",
+      "expect": { "name": "Round-A-Bout", "piste:difficulty": "easy" },
+      "hide": true
+    },
+    {
+      "id": "way/330801137",
+      "reason": "An unnamed novice slope beside North Resort's carpets: North is not operated (the resort's 2026 lift report lists no lift or trail there), so it is hidden with them.",
+      "expect": { "name": null, "piste:type": "downhill", "piste:difficulty": "novice" },
+      "hide": true
+    },
+    {
+      "id": "way/330801139",
+      "reason": "An unnamed novice slope beside North Resort's carpets: North is not operated (the resort's 2026 lift report lists no lift or trail there), so it is hidden with them.",
+      "expect": { "name": null, "piste:type": "downhill", "piste:difficulty": "novice" },
+      "hide": true
+    }
+  ]
+}

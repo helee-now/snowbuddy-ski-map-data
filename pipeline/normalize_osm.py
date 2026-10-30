@@ -27,7 +27,10 @@ In order, it:
                           lists one landuse=winter_sports polygon per mountain (`ski_area` as a list); they must not
                           overlap (touching is fine), their union is the ski area of every inside test, and they make
                           one feature named after the resort: a multipolygon of the union's rings, each written as one
-                          closed way (a border two of them share left out, rings that meet at a node kept apart);
+                          closed way (a border two of them share left out, rings that meet at a node kept apart).
+                          Or, for a resort with no such polygon in OpenStreetMap (`ski_area` "derived", owner decision
+                          2026-10-30), the kept lifts and runs buffered by `ski_area_buffer_m` (100 m by default),
+                          unioned, every hole filled, written the same way (derive_ski_area; step 5a);
      A lift, run or run area of another resort that resorts.json lists in `neighbours` (owner decision 2026-10-21:
      each map draws only its own resort) is left out, before the stations and the ranks, and the stations of its lifts
      go with it. A feature is the resort's when the resort's polygon (the union) holds at least half of its length (a
@@ -117,6 +120,21 @@ SKI_AREA_RELATION_ID = 100_000_000_000_000
 # without the distance limit, gives each run line its mountain for the ranks when several polygons are listed.
 OWNER_MIN_SHARE = 0.5
 NEIGHBOUR_NEAR_M = 250.0
+# A ski area derived from the resort's own lifts and runs (resorts.json `ski_area: "derived"`, owner decision
+# 2026-10-30, for a resort with no landuse=winter_sports polygon in OpenStreetMap): the kept lifts and downhill runs
+# (lines, and run areas' outlines), after the overrides and the neighbour rule, each buffered by `ski_area_buffer_m`
+# (DERIVED_BUFFER_M when absent), unioned, every hole filled, groups whose buffers do not touch (farther apart than
+# twice the buffer) as parts of their own, the outline simplified at DERIVED_SIMPLIFY_M. The buffer's edge is traced
+# on a DERIVED_GRID_M grid (derive_ski_area). Written as the union of several mountains is: one ski_area relation
+# (SKI_AREA_RELATION_ID) of closed untagged ways, their nodes with the ids right after the answer's highest node id:
+# Planetiler's node-location index is a sparse array whose cost grows with the id range, so ids near
+# SKI_AREA_RELATION_ID overflow it ("Index -1656 out of bounds") and ids at 5 * 10^10, four times OpenStreetMap's, ran
+# its 2 GB heap out (both seen 2026-10-30), while ids just past the answer's own cost nothing. The tiles never carry a
+# node id (the rings' ways are untagged; the relation is the feature), so the ski file's bytes do not depend on them.
+DERIVED_BUFFER_M = 100.0
+DERIVED_BUFFER_RANGE_M = (10.0, 1000.0)
+DERIVED_GRID_M = 10.0
+DERIVED_SIMPLIFY_M = 5.0
 
 
 class InputError(Exception):
@@ -503,26 +521,194 @@ def ring_roles(rings_xy, eps=1e-3):
     return roles
 
 
+# --- a ski area derived from the lifts and runs (resorts.json ski_area "derived") -------------------------------
+
+def simplify_ring(xy, tolerance):
+    """Douglas-Peucker on a closed ring (first point repeated at the end): the ring is cut at its first point and at
+    the point farthest from it, each half simplified, so the two anchors always stay. Returns a closed ring."""
+    def dp(pts):
+        if len(pts) <= 2:
+            return list(pts)
+        a, b = pts[0], pts[-1]
+        far, at = -1.0, 0
+        for i in range(1, len(pts) - 1):
+            d = point_segment_distance(pts[i], a, b)
+            if d > far:
+                far, at = d, i
+        if far <= tolerance:
+            return [a, b]
+        return dp(pts[:at + 1])[:-1] + dp(pts[at:])
+    pts = xy[:-1]
+    if len(pts) < 3:
+        return list(xy)
+    far = max(range(1, len(pts)), key=lambda i: (math.hypot(pts[i][0] - pts[0][0], pts[i][1] - pts[0][1]), -i))
+    out = dp(pts[:far + 1])[:-1] + dp(pts[far:] + [pts[0]])
+    return out
+
+
+def derive_ski_area(lines, buffer_m, grid_m=DERIVED_GRID_M, simplify_m=DERIVED_SIMPLIFY_M):
+    """The outline of the lifts and runs buffered by `buffer_m` metres (projected polylines), with every hole filled:
+    the ski area of a resort that has no landuse=winter_sports polygon in OpenStreetMap (owner decision 2026-10-30).
+
+    The distance to the nearest line is exact at the nodes of a `grid_m` grid (each segment visits only the nodes
+    within reach of it), so the buffer's edge is the `buffer_m` isoline of that field; marching squares with the
+    crossings interpolated along the grid's edges traces it to about grid_m^2 / (8 buffer_m) (0.1 m for 10 m and
+    100 m), with a crease where two buffers meet. Nodes outside the buffer that the grid's border cannot reach are
+    holes (a loop of runs around a wood) and are filled before the tracing, so every ring is an outer ring; groups of
+    lines whose buffers do not touch give rings of their own. Each ring is then simplified (Douglas-Peucker,
+    `simplify_m`). Plain Python on plain floats in a fixed order, so the same lines give the same rings, byte for byte.
+
+    Returns the rings, closed, counter-clockwise, in the order of their first crossing on the grid."""
+    pts = [p for xy in lines for p in xy]
+    if not pts:
+        return []
+    h, r = float(grid_m), float(buffer_m)
+    reach = r + 2.0 * h
+    x0 = math.floor((min(p[0] for p in pts) - reach) / h) * h
+    y0 = math.floor((min(p[1] for p in pts) - reach) / h) * h
+    nx = int(math.ceil((max(p[0] for p in pts) + reach - x0) / h)) + 1
+    ny = int(math.ceil((max(p[1] for p in pts) + reach - y0) / h)) + 1
+    inf = math.inf
+    dist = [inf] * (nx * ny)
+    span = r + h
+    for xy in lines:
+        for (ax, ay), (bx, by) in zip(xy, xy[1:]):
+            dx, dy = bx - ax, by - ay
+            dd = dx * dx + dy * dy
+            i0 = max(0, int((min(ax, bx) - span - x0) / h))
+            i1 = min(nx - 1, int((max(ax, bx) + span - x0) / h) + 1)
+            j0 = max(0, int((min(ay, by) - span - y0) / h))
+            j1 = min(ny - 1, int((max(ay, by) + span - y0) / h) + 1)
+            for j in range(j0, j1 + 1):
+                py = y0 + j * h
+                row = j * nx
+                for i in range(i0, i1 + 1):
+                    px = x0 + i * h
+                    if dd == 0.0:
+                        d = math.hypot(px - ax, py - ay)
+                    else:
+                        t = ((px - ax) * dx + (py - ay) * dy) / dd
+                        t = 0.0 if t < 0.0 else 1.0 if t > 1.0 else t
+                        d = math.hypot(px - (ax + t * dx), py - (ay + t * dy))
+                    if d < dist[row + i]:
+                        dist[row + i] = d
+    # Holes: the outside is what the border reaches through nodes beyond the buffer; the rest of the outside is filled.
+    seen = bytearray(nx * ny)
+    stack = []
+    for i in range(nx):
+        stack += [i, (ny - 1) * nx + i]
+    for j in range(1, ny - 1):
+        stack += [j * nx, j * nx + nx - 1]
+    while stack:
+        k = stack.pop()
+        if seen[k] or dist[k] <= r:
+            continue
+        seen[k] = 1
+        i, j = k % nx, k // nx
+        if i > 0:
+            stack.append(k - 1)
+        if i < nx - 1:
+            stack.append(k + 1)
+        if j > 0:
+            stack.append(k - nx)
+        if j < ny - 1:
+            stack.append(k + nx)
+    field = [d - r for d in dist]
+    for k in range(nx * ny):
+        if field[k] > 0.0 and not seen[k]:
+            field[k] = -h
+    # Marching squares, the inside (field <= 0) on the left of every segment: walking a cell's corners
+    # counter-clockwise (bottom left, bottom right, top right, top left), a segment runs from the edge where the walk
+    # leaves the inside to the edge where it enters it; a saddle pairs each leaving edge with the next entering one when
+    # the cell's middle is inside, else with the one before it.
+    vertex, nxt = {}, {}
+    inside = [f <= 0.0 for f in field]
+
+    def crossing(key, ka, kb):
+        if key not in vertex:
+            fa, fb = field[ka], field[kb]
+            t = fa / (fa - fb)
+            ax, ay = x0 + (ka % nx) * h, y0 + (ka // nx) * h
+            bx, by = x0 + (kb % nx) * h, y0 + (kb // nx) * h
+            vertex[key] = (ax + (bx - ax) * t, ay + (by - ay) * t)
+        return key
+
+    for j in range(ny - 1):
+        for i in range(nx - 1):
+            bl, br = j * nx + i, j * nx + i + 1
+            tl, tr = bl + nx, br + nx
+            bits = (inside[bl], inside[br], inside[tr], inside[tl])
+            if all(bits) or not any(bits):
+                continue
+            corners = (bl, br, tr, tl)
+            edges = (('h', i, j), ('v', i + 1, j), ('h', i, j + 1), ('v', i, j))
+            leave, enter = [], []
+            for k in range(4):
+                a, b = bits[k], bits[(k + 1) % 4]
+                if a and not b:
+                    leave.append(k)
+                elif b and not a:
+                    enter.append(k)
+            if len(leave) == 1:
+                pairs = [(leave[0], enter[0])]
+            else:
+                middle = (field[bl] + field[br] + field[tr] + field[tl]) <= 0.0
+                pairs = []
+                for k in leave:
+                    after = [e for e in enter if e > k] + [e for e in enter if e < k]
+                    pairs.append((k, after[0] if middle else after[-1]))
+            for a, b in pairs:
+                ka = crossing(edges[a], corners[a], corners[(a + 1) % 4])
+                kb = crossing(edges[b], corners[b], corners[(b + 1) % 4])
+                nxt[ka] = kb
+    rings = []
+    done = set()
+    for start in list(nxt):
+        if start in done:
+            continue
+        ring, key = [], start
+        while key not in done:
+            done.add(key)
+            ring.append(vertex[key])
+            key = nxt[key]
+        ring.append(ring[0])
+        ring = simplify_ring(ring, simplify_m)
+        if len(ring) >= 4 and ring_area(ring) > 0.0:
+            rings.append(ring)
+    return rings
+
+
 # --- the resort's ski area and its neighbours ------------------------------------------------------------------
 
 AREA_ID_RE = re.compile(r'^(way|relation)/[1-9][0-9]*$')
 
 
 def resort_areas(resort):
-    """The ski-area ids and the neighbours of a resorts.json entry, checked as packlib.py resort_entry checks them:
-    `ski_area` is one id or a list of at least two distinct ids; `neighbours` (optional) lists {id, name, reason} with
-    distinct ids, none of them the resort's own."""
+    """The ski-area ids, the neighbours and the derived buffer of a resorts.json entry, checked as packlib.py
+    resort_entry checks them: `ski_area` is one id, a list of at least two distinct ids, or "derived" (the ids are then
+    [] and the buffer in metres is `ski_area_buffer_m`, DERIVED_BUFFER_M by default; otherwise None); `neighbours`
+    (optional) lists {id, name, reason} with distinct ids, none of them the resort's own."""
     slug, sa = resort.get('slug'), resort.get('ski_area')
-    if isinstance(sa, str) and AREA_ID_RE.match(sa):
+    buffer_m = None
+    if sa == 'derived':
+        ids = []
+        buffer_m = resort.get('ski_area_buffer_m', DERIVED_BUFFER_M)
+        lo, hi = DERIVED_BUFFER_RANGE_M
+        if isinstance(buffer_m, bool) or not isinstance(buffer_m, (int, float)) or not lo <= buffer_m <= hi:
+            raise InputError(f'{slug}: ski_area_buffer_m must be a number of metres from {lo:g} to {hi:g}')
+        buffer_m = float(buffer_m)
+    elif 'ski_area_buffer_m' in resort:
+        raise InputError(f'{slug}: ski_area_buffer_m goes only with "ski_area": "derived"')
+    elif isinstance(sa, str) and AREA_ID_RE.match(sa):
         ids = [sa]
     elif (isinstance(sa, list) and len(sa) >= 2 and all(isinstance(x, str) and AREA_ID_RE.match(x) for x in sa)
             and len(set(sa)) == len(sa)):
         ids = list(sa)
     else:
-        raise InputError(f'{slug}: ski_area must look like way/123 or relation/123, or be a list of at least two distinct such ids')
+        raise InputError(f'{slug}: ski_area must look like way/123 or relation/123, be a list of at least two distinct such ids, or be "derived"')
     nb = resort.get('neighbours')
     if nb is None:
-        return ids, []
+        return ids, [], buffer_m
     if not isinstance(nb, list) or not nb:
         raise InputError(f'{slug}: neighbours must be a list of {{"id", "name", "reason"}} objects (leave it out for none)')
     seen = set()
@@ -539,7 +725,7 @@ def resort_areas(resort):
         if n['id'] in seen or n['id'] in ids:
             raise InputError(f'{where}: {n["id"]} appears twice, or is the resort\'s own ski area')
         seen.add(n['id'])
-    return ids, nb
+    return ids, nb, buffer_m
 
 
 def area_rings(oid, ways, rels, nodes, what):
@@ -847,10 +1033,14 @@ def run(a):
         print('normalize_osm: fix or remove those entries in the overrides file (or pass --allow-stale-overrides to skip them)', file=sys.stderr)
         return 3
 
-    # 3. The ski-area polygon: one OSM id, or one per mountain (their union), and the neighbours' polygons.
-    ski_ids, neighbours = resort_areas(resort)
+    # 3. The ski-area polygon: one OSM id, or one per mountain (their union), and the neighbours' polygons. Or derived
+    # from the kept lifts and runs (ski_area "derived"): then there is no polygon yet, and everything that reads one
+    # (the in-bounds share of each run, the overlap note of a neighbour) waits for step 5a.
+    ski_ids, neighbours, derived_buffer_m = resort_areas(resort)
+    derived = derived_buffer_m is not None
     parts = []   # per listed id: (id, its element, its rings in lon/lat (outer first), its Polygon, its area in km2)
     part_rings = []   # all their rings as node ids, closed
+    sa_poly = None
     for oid in ski_ids:
         outer_ids, inner_ids, sa = area_rings(oid, ways, rels, nodes, 'ski area')
         rings_ll = [[nodes[nid] for nid in ring] for ring in outer_ids + inner_ids]
@@ -863,14 +1053,21 @@ def run(a):
             if polygons_overlap(a_poly, b_poly):
                 raise InputError(f'the ski areas {a_id} and {b_id} overlap: a resort lists polygons that share no area '
                                  '(where they did, the even-odd test of their union would punch a hole)')
-    sa_kind, sa_num = ski_ids[0].split('/')
-    sa_num = int(sa_num)
     sa_rings_ll = [ring for part in parts for ring in part[2]]
-    sa_poly = Polygon([[proj(*p) for p in ring] for ring in sa_rings_ll]) if len(parts) > 1 else parts[0][3]
-    sa_area_km2 = sum(part[4] for part in parts)
-    if len(parts) == 1:
+    if derived:
+        if SKI_AREA_RELATION_ID in rels:
+            raise InputError(f'the Overpass answer already holds relation {SKI_AREA_RELATION_ID}, the id the ski area is written under')
+        sa_area_km2 = 0.0
+        report['ski_area'] = {'source': 'derived', 'buffer_m': derived_buffer_m, 'name': glyph_safe(resort.get('name'), ranges)}
+    elif len(parts) == 1:
+        sa_kind, sa_num = ski_ids[0].split('/')
+        sa_num = int(sa_num)
+        sa_poly = parts[0][3]
+        sa_area_km2 = sum(part[4] for part in parts)
         report['ski_area'] = {'id': ski_ids[0], 'name': glyph_safe(parts[0][1]['tags'].get('name'), ranges), 'area_km2': round(sa_area_km2, 2)}
     else:
+        sa_poly = Polygon([[proj(*p) for p in ring] for ring in sa_rings_ll])
+        sa_area_km2 = sum(part[4] for part in parts)
         if SKI_AREA_RELATION_ID in rels:
             raise InputError(f'the Overpass answer already holds relation {SKI_AREA_RELATION_ID}, the id the ski areas are written under')
         # The union's outline, the rings the ski_area relation is written with (step 7): one closed way each.
@@ -902,9 +1099,11 @@ def run(a):
         nb_polys.append(Polygon([[proj(*nodes[nid]) for nid in ring] for ring in outer_ids + inner_ids]))
     if neighbours:
         # Per neighbour: whether its polygon overlaps the ski area (what the ski area holds at least half of stays
-        # then, though the neighbour holds more); the ids left out; by_distance: those lying less than half in any
-        # polygon, given to the neighbour by the 250 m rule.
-        report['neighbours'] = [{'id': n['id'], 'name': n['name'], 'overlaps_ski_area': polygons_overlap(sa_poly, poly),
+        # then, though the neighbour holds more; with a derived ski area, known only once it is derived, step 5a); the
+        # ids left out; by_distance: those lying less than half in any polygon, given to the neighbour by the 250 m
+        # rule (never with a derived ski area: there is no resort polygon to measure the distance against, so a
+        # feature is a neighbour's only when that neighbour holds at least half of it).
+        report['neighbours'] = [{'id': n['id'], 'name': n['name'], 'overlaps_ski_area': None if derived else polygons_overlap(sa_poly, poly),
                                  'lifts': [], 'runs': [], 'run_areas': [], 'stations': [], 'by_distance': []}
                                 for n, poly in zip(neighbours, nb_polys)]
         for nb in report['neighbours']:
@@ -918,6 +1117,10 @@ def run(a):
         or nobody's, kept; whether the 250 m rule decided it)."""
         if not nb_polys:
             return None, False
+        if derived:
+            shares = [share_inside(lines, poly, closed=True)[0] for poly in nb_polys]
+            held = [i for i, s in enumerate(shares) if s >= OWNER_MIN_SHARE]
+            return (min(held, key=lambda i: (-shares[i], i)), False) if held else (None, False)
         who, dist = owner_of(lines, owners)
         return (None, False) if who in (None, 0) else (who - 1, dist is not None)
 
@@ -959,6 +1162,35 @@ def run(a):
 
     run_lines = []   # indexes in kept of the run lines, for their ranks
     run_xy = []      # and their projected lines
+    pending = []     # runs waiting for the ski-area polygon (derived: all of them, settled in step 5a)
+
+    def settle_run(sb, extra, key, ptype, difficulty, flags, name, ref, lines, area, size, info, backcountry, changes):
+        """The in-bounds decision of one run against the ski-area polygon, and its tags and report entry, in one
+        order whichever path calls it: at once with a listed polygon, after step 5a with a derived one."""
+        if area:
+            fracs = [inside_fraction(r, sa_poly) for r in lines]
+            total = sum(L for _, L in fracs)
+            in_frac = sum(f * L for f, L in fracs) / total if total else 0.0
+        else:
+            in_frac, _ = inside_fraction(lines[0], sa_poly)
+        oob = backcountry and in_frac < OOB_MAX_INSIDE_FRACTION
+        if 'out_of_bounds' in changes:
+            oob = changes['out_of_bounds']
+        sb.update({'sb:layer': 'piste_area' if area else 'piste', 'sb:type': ptype, 'sb:difficulty': difficulty})
+        for flag, on in (*flags, ('sb:out_of_bounds', oob)):
+            if on:
+                sb[flag] = 'yes'
+        if name:
+            sb['sb:name'] = name
+        if ref:
+            sb['sb:ref'] = ref
+        info = {**info, 'in_frac': round(in_frac, 3), **size}
+        if oob:
+            report['out_of_bounds'].append(info)
+        elif in_frac < OOB_MAX_INSIDE_FRACTION:
+            report['outside_ski_area_in_bounds'].append(info)
+        extra.update({'out_of_bounds': oob, 'in_frac': round(in_frac, 3), **size})
+
     candidates = [('way', wid, ways[wid]['tags']) for wid in sorted(ways)]
     candidates += [('relation', rid, rels[rid]['tags']) for rid in sorted(rels) if rels[rid]['tags'].get('type') == 'multipolygon']
     for otype, oid, t in candidates:
@@ -1018,15 +1250,11 @@ def run(a):
         ref = safe(t.get('piste:ref') or t.get('ref'), key, 'ref')
         if area:
             outline = [[proj(*p) for p in ring] for ring in rings_ll]
-            fracs = [inside_fraction(r, sa_poly) for r in outline[:n_outer]]
-            total = sum(L for _, L in fracs)
-            in_frac = sum(f * L for f, L in fracs) / total if total else 0.0
             size = {'area_m2': round(sum(ring_area(r) for r in outline[:n_outer]) - sum(ring_area(r) for r in outline[n_outer:]))}
             lines = outline[:n_outer]
         else:
             xy = [proj(*p) for p in coords]
-            in_frac, length = inside_fraction(xy, sa_poly)
-            size = {'length_m': round(length)}
+            size = {'length_m': round(line_length(xy))}
             lines = [xy]
         # A listed neighbour's run or run area is left out (before the ranks, so it takes no share of them).
         n, near = neighbour_owner(lines)
@@ -1034,50 +1262,24 @@ def run(a):
             left_out(n, 'run_areas' if area else 'runs', key, near)
             continue
         backcountry = 'backcountry' in grooming or t.get('patrolled') == 'no'
-        oob = backcountry and in_frac < OOB_MAX_INSIDE_FRACTION
-        if 'out_of_bounds' in changes:
-            oob = changes['out_of_bounds']
-        sb = {'sb:layer': 'piste_area' if area else 'piste', 'sb:type': ptype, 'sb:difficulty': difficulty}
-        for flag, on in (('sb:ungroomed', ungroomed), ('sb:gladed', gladed), ('sb:park', park), ('sb:out_of_bounds', oob)):
-            if on:
-                sb[flag] = 'yes'
-        if name:
-            sb['sb:name'] = name
-        if ref:
-            sb['sb:ref'] = ref
         info = {'id': key, 'name': name, 'difficulty': difficulty, 'grooming': ';'.join(sorted(grooming)) or None,
-                'patrolled': t.get('patrolled'), 'in_frac': round(in_frac, 3), **size}
-        if oob:
-            report['out_of_bounds'].append(info)
-        elif in_frac < OOB_MAX_INSIDE_FRACTION:
-            report['outside_ski_area_in_bounds'].append(info)
+                'patrolled': t.get('patrolled')}
         geom = ({'type': 'Polygon', 'coordinates': rings_ll} if area else {'type': 'LineString', 'coordinates': coords})
-        kept.append((otype, oid, sb, geom, {'out_of_bounds': oob, 'in_frac': round(in_frac, 3), **size}))
+        sb, extra = {}, {}
+        settle = (sb, extra, key, ptype, difficulty, (('sb:ungroomed', ungroomed), ('sb:gladed', gladed), ('sb:park', park)),
+                  name, ref, lines, area, size, info, backcountry, changes)
+        if derived:
+            pending.append(settle)
+        else:
+            settle_run(*settle)
+        kept.append((otype, oid, sb, geom, extra))
         if not area:
             run_lines.append(len(kept) - 1)
             run_xy.append(xy)
 
-    # Ranks: the trunk runs, minor runs and the others (the style draws the overview zooms by rank). A named run is all
-    # the ways of that name; with several mountains, all the ways of that name on one mountain (the listed polygon
-    # that owns the way by the neighbour rule, else the nearest one), so same-named runs on two mountains rank apart.
-    if len(parts) > 1:
-        mountains = [p[3] for p in parts]
-        keys = [(kept[i][2]['sb:name'], owner_of([xy], mountains, near_m=math.inf)[0]) if kept[i][2].get('sb:name') else None
-                for i, xy in zip(run_lines, run_xy)]
-    else:
-        keys = [kept[i][2].get('sb:name') for i in run_lines]
-    ranks, by_rating = run_ranks([(key, kept[i][4]['length_m'], kept[i][4]['out_of_bounds'],
-                                   rating_of(kept[i][2]['sb:difficulty'], kept[i][2].get('sb:park') == 'yes'))
-                                  for key, i in zip(keys, run_lines)])
-    for i, rank in zip(run_lines, ranks):
-        kept[i][2]['sb:rank'] = str(rank)
-    report['ranks'] = {'trunk_share': TRUNK_SHARE, 'trunk_per': 'rating', 'minor_run_m': MINOR_RUN_M,
-                       'ratings': by_rating, 'runs': {str(r): ranks.count(r) for r in (1, 2, 3)}}
-    if len(parts) > 1:
-        report['ranks']['named_run'] = 'the ways of one name on one mountain'
-
     # 5. Lifts.
     lift_segments = []
+    lift_xy = []   # the kept lifts' projected lines (the derived ski area, step 5a)
     lift_ends = set()   # node ids of the kept lifts' ends
     neighbour_lifts = []   # (segment, neighbour index) of the lifts left out as a listed neighbour's
     for wid in sorted(ways):
@@ -1118,8 +1320,85 @@ def run(a):
             sb['sb:occupancy'] = str(int(occ))
         xy = [proj(*p) for p in coords]
         lift_segments += list(zip(xy, xy[1:]))
+        lift_xy.append(xy)
         lift_ends.update((ways[wid]['nds'][0], ways[wid]['nds'][-1]))
         kept.append(('way', wid, sb, {'type': 'LineString', 'coordinates': coords}, {'length_m': round(line_length(xy))}))
+
+    # 5a. The derived ski area (ski_area "derived"): the kept lifts and runs, as they stand after the overrides and the
+    # neighbour rule, buffered and unioned (derive_ski_area), as one relation of closed rings with nodes of its own.
+    # Then the runs' in-bounds decisions, which waited for it: by construction every kept run lies inside, so none is
+    # out of bounds unless an override says so.
+    sa_rings_xy = []
+    if derived:
+        run_outlines = [settle[8] for settle in pending]   # each run's projected line, or a run area's outer rings
+        source_lines = lift_xy + [xy for lines in run_outlines for xy in lines]
+        if not source_lines:
+            raise InputError(f'{a.slug}: ski_area is "derived" but no lift or run is left to derive it from '
+                             '(check the overrides and the neighbours, or map the resort\'s lifts and runs in OpenStreetMap)')
+        rings_xy = derive_ski_area(source_lines, derived_buffer_m)
+        if not rings_xy:
+            raise InputError(f'{a.slug}: the derived ski area has no outline')
+        # The rings' nodes, written at 7 decimals like every node: the polygon of every inside test is the one written,
+        # so the GeoJSON, the OSM file and the tests agree to the last digit. Their ids follow the answer's highest
+        # node id (free by construction; see SKI_AREA_RELATION_ID's note on Planetiler's node index).
+        next_nid = max(nodes) + 1 if nodes else 1
+        sa_outline, sa_roles = [], []
+        for ring in rings_xy:
+            ring_ids = []
+            for x, y in ring[:-1]:
+                nodes[next_nid] = (round(x / proj.kx + proj.lon0, 7), round(y / proj.k + proj.lat0, 7))
+                ring_ids.append(next_nid)
+                next_nid += 1
+            ring_ids.append(ring_ids[0])
+            sa_outline.append(ring_ids)
+            sa_roles.append('outer')
+        sa_rings_ll = [[nodes[nid] for nid in ring] for ring in sa_outline]
+        sa_rings_xy = [[proj(*p) for p in ring] for ring in sa_rings_ll]
+        sa_poly = Polygon(sa_rings_xy)
+        parts = [(f'part/{i + 1}', None, [ring_ll], Polygon([ring_xy]), ring_area(ring_xy) / 1e6)
+                 for i, (ring_ll, ring_xy) in enumerate(zip(sa_rings_ll, sa_rings_xy))]
+        sa_area_km2 = sum(part[4] for part in parts)
+        for settle in pending:
+            settle_run(*settle)
+        # Every source line lies inside (the buffer is never under the simplification's tolerance): checked, not assumed.
+        # inside_fraction adds the samples' shares in floating point, so a line wholly inside reads 1 - 1e-16 at times.
+        def held(xy):
+            return inside_fraction(xy, sa_poly, closed=True)[0] >= 1.0 - 1e-9
+        outside = [k[0] + '/' + str(k[1]) for k in kept if k[2].get('sb:layer') in ('piste', 'lift')
+                   and not held([proj(*p) for p in k[3]['coordinates']])]
+        outside += [k[0] + '/' + str(k[1]) for k in kept if k[2].get('sb:layer') == 'piste_area'
+                    and not all(held([proj(*p) for p in ring]) for ring in k[3]['coordinates'])]
+        if outside:
+            raise InputError(f'the derived ski area does not hold {", ".join(outside[:5])}: a bug in derive_ski_area')
+        report['ski_area'].update({
+            'lifts': len(lift_xy), 'runs': len(pending), 'parts': len(parts), 'area_km2': round(sa_area_km2, 2),
+            'grid_m': DERIVED_GRID_M, 'simplify_m': DERIVED_SIMPLIFY_M, 'written_as': f'relation/{SKI_AREA_RELATION_ID}',
+            'rings': {'outer': len(parts), 'inner': 0},
+            'parts_km2': [round(part[4], 3) for part in parts]})
+        for nb, poly in zip(report.get('neighbours', []), nb_polys):
+            nb['overlaps_ski_area'] = polygons_overlap(sa_poly, poly)
+            if nb['overlaps_ski_area']:
+                print(f'normalize_osm: note: the neighbour {nb["id"]} overlaps the derived ski area', file=sys.stderr)
+
+    # Ranks: the trunk runs, minor runs and the others (the style draws the overview zooms by rank). A named run is all
+    # the ways of that name; with several mountains, all the ways of that name on one mountain (the listed polygon
+    # that owns the way by the neighbour rule, else the nearest one), so same-named runs on two mountains rank apart.
+    # (A derived ski area's parts are not mountains: a named run is all the ways of that name.)
+    if len(ski_ids) > 1:
+        mountains = [p[3] for p in parts]
+        keys = [(kept[i][2]['sb:name'], owner_of([xy], mountains, near_m=math.inf)[0]) if kept[i][2].get('sb:name') else None
+                for i, xy in zip(run_lines, run_xy)]
+    else:
+        keys = [kept[i][2].get('sb:name') for i in run_lines]
+    ranks, by_rating = run_ranks([(key, kept[i][4]['length_m'], kept[i][4]['out_of_bounds'],
+                                   rating_of(kept[i][2]['sb:difficulty'], kept[i][2].get('sb:park') == 'yes'))
+                                  for key, i in zip(keys, run_lines)])
+    for i, rank in zip(run_lines, ranks):
+        kept[i][2]['sb:rank'] = str(rank)
+    report['ranks'] = {'trunk_share': TRUNK_SHARE, 'trunk_per': 'rating', 'minor_run_m': MINOR_RUN_M,
+                       'ratings': by_rating, 'runs': {str(r): ranks.count(r) for r in (1, 2, 3)}}
+    if len(ski_ids) > 1:
+        report['ranks']['named_run'] = 'the ways of one name on one mountain'
 
     # 6. Lift stations near a kept lift.
     def near_lift(lonlat):
@@ -1186,11 +1465,12 @@ def run(a):
     # 7. The ski area itself: one feature, the OSM polygon of one id, or for several a multipolygon relation
     # (SKI_AREA_RELATION_ID) of the union's rings, each one closed untagged way of its own (ids from
     # SKI_AREA_RELATION_ID up). The GeoJSON keeps one member per listed polygon, for coverage.py's radius per mountain.
+    # A derived ski area is written the same way, one part per ring, whatever their number.
     sb = {'sb:layer': 'ski_area'}
     if report['ski_area']['name']:
         sb['sb:name'] = report['ski_area']['name']
     extra_rels = {}
-    if len(parts) == 1:
+    if len(parts) == 1 and not derived:
         kept.append((sa_kind, sa_num, sb, {'type': 'Polygon', 'coordinates': sa_rings_ll}, {'area_m2': round(sa_area_km2 * 1e6)}))
     else:
         members = []
@@ -1199,7 +1479,7 @@ def run(a):
             members.append(('way', SKI_AREA_RELATION_ID + i, role))
         extra_rels[SKI_AREA_RELATION_ID] = members
         kept.append(('relation', SKI_AREA_RELATION_ID, sb, {'type': 'MultiPolygon', 'coordinates': [part[2] for part in parts]},
-                     {'osm': ','.join(ski_ids), 'area_m2': round(sa_area_km2 * 1e6)}))
+                     {'osm': 'derived' if derived else ','.join(ski_ids), 'area_m2': round(sa_area_km2 * 1e6)}))
 
     for _, _, sbt, _, _ in kept:
         report['kept'][sbt['sb:layer']] = report['kept'].get(sbt['sb:layer'], 0) + 1

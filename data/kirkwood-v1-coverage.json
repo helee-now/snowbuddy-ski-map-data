@@ -1,0 +1,73 @@
+{
+  "key": "kirkwood-v1",
+  "ski_sha256": "2aced16f47fb987f4ebc05958a82db53f98041c89443e68c9ee72576e29c09ef",
+  "osm_timestamp": "2026-10-31T22:17:06Z",
+  "box": [
+    -120.12,
+    38.63,
+    -120.01,
+    38.72
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -120.089032,
+    38.65699,
+    -120.042855,
+    38.694466
+  ],
+  "margins_km": {
+    "west": 2.69,
+    "south": 3,
+    "east": 2.85,
+    "north": 2.84
+  },
+  "counts": {
+    "lifts": 13,
+    "runs_in_bounds": 74,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 24,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 10.5,
+    "runs_in_bounds": 48.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -120.234375,
+      38.548165,
+      -119.882812,
+      38.822591
+    ],
+    "12": [
+      -120.146484,
+      38.61687,
+      -119.970703,
+      38.754083
+    ],
+    "13": [
+      -120.146484,
+      38.61687,
+      -119.970703,
+      38.754083
+    ],
+    "14": [
+      -120.124512,
+      38.61687,
+      -119.992676,
+      38.736946
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

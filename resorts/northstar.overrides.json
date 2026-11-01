@@ -1,0 +1,72 @@
+{
+  "slug": "northstar",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One map for Northstar California's one polygon (relation/7095958, named 'Northstar at Tahoe Resort' in OpenStreetMap: Mt. Pluto, the Backside, Lookout Mountain, Northwest Territory and the Village on one ticket). Every named run and lift checked on 2026-10-31 against the resort's 2025-26 winter trail map (northstarcalifornia.com, 20251022_NS_winter-trail_map_001.pdf, rendered at four times its size and read); the resort's lift and terrain status page loads its list in the browser only, so there is no run list to compare, and its mountain info page gives the elevations. All 93 named OpenStreetMap runs that the map shows carry the map's rating already (easier, more difficult, most difficult; the map has no double black), so there are no rating changes. Five names follow the map's spelling. The six runs under the Vista Express that the map stripes as freestyle terrain (the resort's terrain parks) get the park flag; The Straits, a seventh, is not in OpenStreetMap. Palisades Tahoe's Olympic Valley polygon reaches the Overpass window (resorts.json neighbours), so its lifts and runs are left off without overrides. Not on the map and left as OpenStreetMap has them: White Rabbit, Woodchuck, Drifter connector and an unrated 200 m service road named Lookout; about 30 unnamed, unrated ski-through lanes of 9 to 312 m at the lift terminals stay too. On the map but not in OpenStreetMap: Why Not, Lookout Glade, Coyote Fork, Bearly, Easy Street, The Straits and the half pipe.",
+  "overrides": [
+    {
+      "id": "way/215950950",
+      "reason": "The resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) spells the Mt. Pluto blue run Axe Handle; OpenStreetMap has 'Ax Handle'. The rating (more difficult) agrees.",
+      "expect": { "name": "Ax Handle", "piste:difficulty": "intermediate" },
+      "set": { "name": "Axe Handle" }
+    },
+    {
+      "id": "way/216078143",
+      "reason": "The resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) names the green run beside the Lodge at Big Springs Wood Cutter, two words; OpenStreetMap has 'Woodcutter'. The rating (easier) agrees.",
+      "expect": { "name": "Woodcutter", "piste:difficulty": "easy" },
+      "set": { "name": "Wood Cutter" }
+    },
+    {
+      "id": "way/248172853",
+      "reason": "The resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) names the Backside's designated glade Monument Glade; OpenStreetMap writes 'Monument glade' with a lower-case g, which would print so. The rating (most difficult) agrees.",
+      "expect": { "name": "Monument glade", "piste:difficulty": "advanced" },
+      "set": { "name": "Monument Glade" }
+    },
+    {
+      "id": "way/248173500",
+      "reason": "The resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) names the Lookout Mountain glade Sugar Pine Glade; OpenStreetMap writes 'Sugar Pine glade' with a lower-case g. The rating (most difficult) agrees.",
+      "expect": { "name": "Sugar Pine glade", "piste:difficulty": "advanced" },
+      "set": { "name": "Sugar Pine Glade" }
+    },
+    {
+      "id": "way/249412787",
+      "reason": "The resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) names the Northwest Territory glade The Camp Glade; OpenStreetMap has 'Camp Glade'. The rating (most difficult) agrees.",
+      "expect": { "name": "Camp Glade", "piste:difficulty": "advanced" },
+      "set": { "name": "The Camp Glade" }
+    },
+    {
+      "id": "way/216074661",
+      "reason": "Playground is one of the terrain parks under the Vista Express: the resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) stripes the whole run as freestyle terrain and names it in the park's orange pill; OpenStreetMap maps it as a plain blue run.",
+      "expect": { "name": "Playground", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/216074692",
+      "reason": "Sidewinder is one of the terrain parks under the Vista Express: the resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) stripes the whole run as freestyle terrain and names it in the park's orange pill (twice along its length); OpenStreetMap maps it as a plain blue run.",
+      "expect": { "name": "Sidewinder", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/216074671",
+      "reason": "Forerunner is one of the terrain parks under the Vista Express: the resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) stripes the whole run as freestyle terrain and names it in the park's orange pill; OpenStreetMap maps it as a plain blue run.",
+      "expect": { "name": "Forerunner", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/216074668",
+      "reason": "Pinball is one of the terrain parks under the Vista Express: the resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) stripes the whole run as freestyle terrain and names it in the park's orange pill (twice along its length); OpenStreetMap maps it as a plain blue run.",
+      "expect": { "name": "Pinball", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/216074681",
+      "reason": "Moonshine is one of the terrain parks under the Vista Express: the resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) stripes the whole run as freestyle terrain and names it in the park's orange pill; OpenStreetMap maps it as a plain blue run.",
+      "expect": { "name": "Moonshine", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/216074683",
+      "reason": "Pipeline is one of the terrain parks under the Vista Express, the lowest, ending at the half pipe above Lower Main Street: the resort's 2025-26 trail map (20251022_NS_winter-trail_map_001.pdf) stripes the whole run as freestyle terrain and names it in the park's orange pill; OpenStreetMap maps it as a plain blue run.",
+      "expect": { "name": "Pipeline", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "slug": "heavenly",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One map for the California and Nevada sides (relation/12152028, the resort's one landuse=winter_sports polygon; MAPS_PLAN section 5). Every named run checked on 2026-10-31 against the resort's current printed winter trail map (skiheavenly.com's trail-map page, the James Niehues map served by the resort's image server at 2,927 by 4,000 px, read at full resolution): its ratings are a green circle, a blue square, a single black diamond and a double diamond (experts only), and Mott and Killebrew Canyons are marked experts only as a whole. Every named run OpenStreetMap maps that the map names carries the map's rating already (the canyon chutes expert, as the map's experts-only zones), so there are no rating changes; the resort's lift and terrain status page, which would give a run list, is behind the resort's bot wall and was not read. Milky Way is printed with a black square, a symbol the map's legend does not have (its blue squares print blue): read as unclear, so OpenStreetMap's single black stays, the harder of the two readings (lead's rule of 2026-10-22). Names follow the printed map where it differs beyond a space or an apostrophe (Boundary Chutes, Promise Land, Ramarrah's, Stateline Chute); Bob's Boulevard, Powder Bowl Woods, Upper Powderbowl and Round-A-Bout differ only so and stay as OpenStreetMap has them. Two carpets take the map's names. Upper Powder Bowl, tagged a snow park in OpenStreetMap, is left so: the map draws Lakeview Park on that slope beside the blue run Upper Powderbowl, and the one line stands for both. No lift is hidden: all 23 lifts in OpenStreetMap are on the map (the map's 28 include Black Bear Carpet, Red Fir and the learning-area carpets, which OpenStreetMap lacks).",
+  "overrides": [
+    {
+      "id": "way/313466516",
+      "reason": "Misspelt name ('Boundry Chutes'); the resort's printed trail map names the Killebrew Canyon chute Boundary Chutes.",
+      "expect": { "name": "Boundry Chutes", "piste:difficulty": "expert" },
+      "set": { "name": "Boundary Chutes" }
+    },
+    {
+      "id": "way/313466683",
+      "reason": "The resort's printed trail map names the Mott Canyon chute Promise Land; OpenStreetMap has 'Promised Land'. The printed map is followed (owner's rule), with only the map as the source: no run list of the resort's could be read.",
+      "expect": { "name": "Promised Land", "piste:difficulty": "expert" },
+      "set": { "name": "Promise Land" }
+    },
+    {
+      "id": "way/1389656304",
+      "reason": "The resort's printed trail map spells the Killebrew Canyon chute Ramarrah's; OpenStreetMap has 'Ramarah's'. The printed map is followed (owner's rule), with only the map as the source.",
+      "expect": { "name": "Ramarah's", "piste:difficulty": "expert" },
+      "set": { "name": "Ramarrah's" }
+    },
+    {
+      "id": "way/1389656306",
+      "reason": "The Killebrew Canyon chute between The Fingers and Bob's Boulevard is Stateline Chute on the resort's printed trail map; OpenStreetMap has 'Stateline'.",
+      "expect": { "name": "Stateline", "piste:difficulty": "expert" },
+      "set": { "name": "Stateline Chute" }
+    },
+    {
+      "id": "way/313466728",
+      "reason": "The carpet beside the tubing hill at the top of the gondola is Tubing Lift on the resort's printed trail map (its inset names the hill Tubing Hill and the lift Tubing Lift); OpenStreetMap names the carpet after the hill.",
+      "expect": { "aerialway": "magic_carpet", "name": "Tubing Hill" },
+      "set": { "name": "Tubing Lift" }
+    },
+    {
+      "id": "way/258139827",
+      "reason": "The unnamed carpet beside the Boulder chair's bottom, in the Boulder Lodge learning area, is Boulder Carpet on the resort's printed trail map.",
+      "expect": { "aerialway": "magic_carpet", "name": null },
+      "set": { "name": "Boulder Carpet" }
+    }
+  ]
+}

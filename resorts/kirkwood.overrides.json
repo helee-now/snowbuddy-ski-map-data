@@ -1,0 +1,30 @@
+{
+  "slug": "kirkwood",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/319472357 (Kirkwood Mountain Resort); no other ski area lies in the Overpass window (the Kirkwood cross-country trails are piste:type=nordic, which the pipeline leaves out). Every named run and lift checked on 2026-10-31 against the resort's winter 2025-2026 trail map (kirkwood.com, 20251202_KW_winter-trail_map_001.pdf, rendered at 8,000 px and read tile by tile): all 74 named OpenStreetMap runs carry the map's rating (green, blue, black or double black), so no rating changes; four names are fixed from the map (a lift's bracketed number, two lowercase run names, the 'N' of Up 'N' Over as the map and OSM's own Hole 'N' Wall and Free 'N' Easy spell it). Names that differ from the map only by an article (Sisters' Chute, The Sisters' Chute on the map), by the lift type (Vista, Vista T-Bar) or by case the all-capitals map cannot settle (Happiness is) stay as OSM has them. No run on the map is drawn as a terrain park in OSM (Bandit Park, a Smart Style park at Timber Creek, is not in OSM), so no park flags. The map's 13 lifts and carpets are all in OSM (1 Snowkirk, 2 Caples Crest, 3 Iron Horse, 4 Sunrise, 5 Solitude, 6 Cornice Express, 7 TC Express, 9 Bunny, 10 The Wall, 11 The Reut, 12 and 13 Wonder Carpet, 14 Vista); the lift numbered 8 at Red Cliffs is not, and neither are Scott's Run, Juniper, Low Whiskey, High Whiskey, Upper Devil's Draw, Lower Olympic, Trench of Terror, Ditch of Doom, Jane's Jaunt, Jambi's Jaunt or Bandit Park (OSM gaps, shipped as at Palisades Tahoe). Nothing is hidden: no lift or run of another venue lies in the window.",
+  "overrides": [
+    {
+      "id": "way/10282120",
+      "reason": "The back side's quad is Sunrise on the resort's 2025-2026 trail map (Chair 4 in its lift numbering); OSM's name carries the number in brackets, which would print as 'Sunrise (4)'.",
+      "expect": { "aerialway": "chair_lift", "name": "Sunrise (4)" },
+      "set": { "name": "Sunrise" }
+    },
+    {
+      "id": "way/249136278",
+      "reason": "All the Way, the double black beside The Wall, is lowercase in OSM ('all the way') and would print so; the 2025-2026 trail map names it ALL THE WAY (double black diamond, as OSM rates it).",
+      "expect": { "name": "all the way", "piste:difficulty": "expert" },
+      "set": { "name": "All the Way" }
+    },
+    {
+      "id": "way/249136280",
+      "reason": "Notch Chute in Wagon Wheel Bowl is 'Notch chute' in OSM; the 2025-2026 trail map names it NOTCH CHUTE (double black diamond, as OSM rates it).",
+      "expect": { "name": "Notch chute", "piste:difficulty": "expert" },
+      "set": { "name": "Notch Chute" }
+    },
+    {
+      "id": "way/249135976",
+      "reason": "Up 'N' Over, the blue above Timber Creek, is \"Up'n'over\" in OSM; the 2025-2026 trail map names it UP 'N' OVER, spelt like its neighbours Hole 'N' Wall and Free 'N' Easy, which OSM has with the spaced 'N'.",
+      "expect": { "name": "Up'n'over", "piste:difficulty": "intermediate" },
+      "set": { "name": "Up 'N' Over" }
+    }
+  ]
+}

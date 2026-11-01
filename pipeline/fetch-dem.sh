@@ -96,7 +96,10 @@ lidar_inputs() {
       fetch_json "$answer" -G "$TNM_API" --data-urlencode "datasets=Digital Elevation Model (DEM) 1 meter" \
         --data-urlencode "bbox=$W,$S,$E,$N" --data-urlencode "max=1000" --data-urlencode "outputFormat=JSON" \
         || die "The National Map's product API did not answer"
-      python3 -I "$PIPE/packlib.py" tnm-tiles "$answer" "$PROJECT" ;;
+      # A project near a UTM zone boundary lists tiles in both zones; the window centre's zone is kept (gdalbuildvrt
+      # mosaics one projection and would skip the rest).
+      python3 -I "$PIPE/packlib.py" tnm-tiles "$answer" "$PROJECT" \
+        "$(python3 -I -c 'import sys; print((float(sys.argv[1]) + float(sys.argv[2])) / 2)' "$W" "$E")" ;;
     hrdem1)
       fetch_json "$answer" -G "$STAC_API/collections/hrdem-mosaic-1m/items" --data-urlencode "bbox=$W,$S,$E,$N" \
         --data-urlencode "limit=100" || die "NRCan's STAC API did not answer"

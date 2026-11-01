@@ -1,0 +1,1145 @@
+{
+  "slug": "sugar-bowl",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/10326057 (Sugar Bowl Resort, a multipolygon of one outer and two inner rings). Every named run and lift checked on 2026-10-31 against the resort's 2025-2026 trail map (sugarbowl.com, SugarBowl_Map_sm_2526.pdf, rendered at 8,000 px and read tile by tile) and its lift and trail status list (sugarbowl.com/conditions, 105 runs under 12 lifts with their ratings): every named OpenStreetMap run that the printed map shows carries the map's rating, so no rating changes. Caboose is on the status list (green) but not on the printed map, and OpenStreetMap rates it blue: the harder rating stays (the rule of 2026-10-22 where only a list rates a run). Chipmunk is novice in OSM and green on the map (both draw green). Names that differ from the resort only by an apostrophe, a hyphen, a space or an abbreviation (Steamers, The 58, Shortcut, Hourglass, Silver Belt Runout, Mount Lincoln Express, Crow's Peak Lift) stay as OSM has them; one capitalisation slip is fixed (Lower MacTavish). The map's four terrain parks (Peregrine Ridge S-M, Golden Eagle L, The Condor XL, The Falconry XS-S) get the park flag; The Falconry is already a snow park in OSM, the other three are plain runs there (the status list rates The Condor blue; the printed map wins). Crow's Nest Glades is drawn inside the map's boundary and listed under Crow's Peak, but OSM's polygon holds only 42% of its outline and the area is tagged backcountry, so it is forced in bounds; Lincoln East Face is rated on the map but drawn beyond the boundary at gate C (Crest), one of the four backcountry access gates, and OSM's polygon holds 43% of it, so it stays out of bounds and resorts.json names it in out_of_bounds_named. OSM gaps (shipped as at Palisades Tahoe): Hannes Schroll (black, Mt. Disney), Mac Runout (blue, status list only), Parking Return and Pine Marten are in OSM but not on the printed map. NEIGHBOURS: Donner Ski Ranch, Boreal Mountain and Soda Springs lie on Donner Summit inside the box (the 2 km margin north of the Village Gondola's top reaches past Interstate 80), and OpenStreetMap has no landuse=winter_sports polygon for any of them (checked 2026-10-31: the Overpass window holds two polygons, Sugar Bowl's and Tahoe Donner's, the latter listed as a neighbour in resorts.json), so they cannot be listed in resorts.json neighbours (the neighbour rule needs a named polygon) and each of their lifts and runs is hidden here one by one, as Magic Mountain's lifts are at Big Bear: Donner Ski Ranch (both sides of Donner Pass Road, 8 lifts and carpets), Boreal (north of Interstate 80, 8 lifts and carpets, 3 named parks), Soda Springs (west, 5 lifts and carpets), and two unnamed rope tows by Soda Springs Road in no polygon. Each hide expects the element's kind and name only, so a rating edit at a neighbour never stops Sugar Bowl's build; a polygon mapped for a neighbour later replaces its hides with a neighbours entry. Royal Gorge's cross-country trails (piste:type=nordic, 292 ways in the window) and the resort's tubing lanes (piste:type=sled) are left out by the pipeline's type rule and need no entry; the Sugar Rush tubing hill's carpet is hidden below. Sugar Bowl's own 12 lifts are all in OSM; nothing of the resort's is lost by these hides.",
+  "overrides": [
+    {
+      "id": "way/776665594",
+      "reason": "Peregrine Ridge is one of the four terrain parks on the resort's 2025-2026 trail map (the S-M park off the Christmas Tree Express) and its status list (Terrain Park); OSM maps it as a plain blue run.",
+      "expect": {
+        "name": "Peregrine Ridge",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/879082588",
+      "reason": "Golden Eagle is one of the four terrain parks on the resort's 2025-2026 trail map (the L park off the Christmas Tree Express) and its status list (Terrain Park); OSM maps it as a plain blue run.",
+      "expect": {
+        "name": "Golden Eagle",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1473720890",
+      "reason": "The Condor is drawn as a terrain park (the XL park band off the Christmas Tree Express) on the resort's 2025-2026 trail map, which wins over its status list's blue rating and OSM's plain blue run.",
+      "expect": {
+        "name": "The Condor",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/879926767",
+      "reason": "Capitalisation slip ('Lower Mactavish'); the resort's 2025-2026 trail map and status list spell the run MacTavish Lower, and OSM's own Upper MacTavish has the capital T.",
+      "expect": {
+        "name": "Lower Mactavish",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower MacTavish"
+      }
+    },
+    {
+      "id": "way/1473709330",
+      "reason": "Crow's Nest Glades is a double black diamond drawn inside the boundary on the resort's 2025-2026 trail map and listed under Crow's Peak on its status list, but OSM's ski-area polygon holds only 42% of the area's outline and it is tagged backcountry, so the pipeline's rule would draw it out of bounds: forced in bounds.",
+      "expect": {
+        "name": "Crow's Nest Glades",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1570571115",
+      "reason": "The Sugar Rush tubing hill's carpet by Sugar Bowl Road, between the resort parking and the Village Gondola's base: not a ski lift (the resort's lift list has 12 lifts and one carpet, Flume), outside the ski-area polygon, and it would draw as a lift with no run; hidden as Winter Park's tubing carpet is.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/82867160",
+      "reason": "Donner Ski Ranch's chairlift Chairlift 1: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 1"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/107704732",
+      "reason": "Donner Ski Ranch's chairlift Chairlift 3: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 3"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/144931286",
+      "reason": "Soda Springs' chairlift Lion's Head: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Lion's Head"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/144931287",
+      "reason": "Soda Springs' chairlift Crystal Bowl: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Crystal Bowl"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187356829",
+      "reason": "Donner Ski Ranch's chairlift Chairlift 5: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 5"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187356831",
+      "reason": "Donner Ski Ranch's chairlift Chairlift 2: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 2"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436928",
+      "reason": "Boreal Mountain's chairlift Cedar Ridge: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Cedar Ridge"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436931",
+      "reason": "Boreal Mountain's chairlift Quicksilver: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one (tagged disused in OSM, with no chairs since 2014).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Quicksilver"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436932",
+      "reason": "Boreal Mountain's chairlift 49er: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "49er"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436933",
+      "reason": "Boreal Mountain's chairlift Castle Peak Quad: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Castle Peak Quad"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436934",
+      "reason": "Donner Ski Ranch's chairlift Chairlift 4: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 4"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436935",
+      "reason": "Boreal Mountain's chairlift Accelerator: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Accelerator"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436936",
+      "reason": "Boreal Mountain's chairlift Flying Dutchman: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Flying Dutchman"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/236641651",
+      "reason": "Donner Ski Ranch's chairlift Chairlift 6: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 6"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/236772145",
+      "reason": "Soda Springs' carpet Tube Express: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": "Tube Express"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/258160913",
+      "reason": "Donner Ski Ranch's carpet (unnamed): a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/258160914",
+      "reason": "Donner Ski Ranch's carpet Tube Hill: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": "Tube Hill"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/258164606",
+      "reason": "Soda Springs' carpet (unnamed): a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/258164607",
+      "reason": "Soda Springs' carpet (unnamed): a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/302983979",
+      "reason": "An unnamed rope tow by Soda Springs Road, south-west of Soda Springs' lifts (OpenStreetMap gives it no name or operator), in no ski-area polygon and 3 km from Sugar Bowl's: not a lift of this resort.",
+      "expect": {
+        "aerialway": "rope_tow",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/472036588",
+      "reason": "An unnamed rope tow by Soda Springs Road, south-west of Soda Springs' lifts (OpenStreetMap gives it no name or operator), in no ski-area polygon and 3 km from Sugar Bowl's: not a lift of this resort.",
+      "expect": {
+        "aerialway": "rope_tow",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1039221744",
+      "reason": "Boreal Mountain's carpet Magic Carpet: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": "Magic Carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1370990331",
+      "reason": "Boreal Mountain's chairlift California Cruiser: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "California Cruiser"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/10465506",
+      "reason": "Boreal Mountain's run Undertow: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Undertow"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187475863",
+      "reason": "Boreal Mountain's run Sunrise Blvd.: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sunrise Blvd."
+      },
+      "hide": true
+    },
+    {
+      "id": "way/236772146",
+      "reason": "Soda Springs' run Sunshine: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sunshine"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/236772147",
+      "reason": "Soda Springs' run Cream Puff: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Cream Puff"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415930",
+      "reason": "Boreal Mountain's run Juniper: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Juniper"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415931",
+      "reason": "Boreal Mountain's run Kiss A Bear: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Kiss A Bear"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415932",
+      "reason": "Boreal Mountain's run Mariposa: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Mariposa"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415933",
+      "reason": "Boreal Mountain's run Ponderosa: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Ponderosa"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415934",
+      "reason": "Boreal Mountain's run Rick's Return: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Rick's Return"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415935",
+      "reason": "Boreal Mountain's run South 40: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "South 40"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415936",
+      "reason": "Boreal Mountain's run Sunrise Blvd.: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sunrise Blvd."
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415937",
+      "reason": "Boreal Mountain's run Sunset Blvd.: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sunset Blvd."
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415938",
+      "reason": "Boreal Mountain's run Walt's Run: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Walt's Run"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332416742",
+      "reason": "Boreal Mountain's run D. & R. G.: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "D. & R. G."
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332416743",
+      "reason": "Boreal Mountain's run Central Pacific: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Central Pacific"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332416744",
+      "reason": "Boreal Mountain's run Dutchman Gully: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Dutchman Gully"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/678272741",
+      "reason": "Donner Ski Ranch's run Levi Run: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Levi Run"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/678272742",
+      "reason": "Donner Ski Ranch's run Side Saddle: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Side Saddle"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/678272743",
+      "reason": "Donner Ski Ranch's run Cowboy: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Cowboy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/678273163",
+      "reason": "Donner Ski Ranch's run Easy Rider: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Easy Rider"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/678273164",
+      "reason": "Donner Ski Ranch's run The Face: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "The Face"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899955",
+      "reason": "Soda Springs' run Alley Cat: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Alley Cat"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899956",
+      "reason": "Soda Springs' run Meadow Trail: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Meadow Trail"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899957",
+      "reason": "Soda Springs' run Lodge Return: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lodge Return"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899958",
+      "reason": "Soda Springs' run Fun Slope: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Fun Slope"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899959",
+      "reason": "Soda Springs' run Home Run: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Home Run"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899960",
+      "reason": "Soda Springs' run Lower Mad Dog: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lower Mad Dog"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899961",
+      "reason": "Soda Springs' run Cat Track: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Cat Track"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899962",
+      "reason": "Soda Springs' run Tree Trail: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Tree Trail"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899963",
+      "reason": "Soda Springs' run Upper Crystal: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Upper Crystal"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899964",
+      "reason": "Soda Springs' run Lower Crystal: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lower Crystal"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899965",
+      "reason": "Soda Springs' run Upper Mad Dog: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Upper Mad Dog"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899966",
+      "reason": "Soda Springs' run Race Course: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Race Course"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899967",
+      "reason": "Soda Springs' run Nose Dive: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Nose Dive"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899968",
+      "reason": "Soda Springs' run Scooter: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Scooter"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899969",
+      "reason": "Soda Springs' run Roaring 20's: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Roaring 20's"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899970",
+      "reason": "Soda Springs' run Crespillo: a separate resort west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Crespillo"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912926",
+      "reason": "Donner Ski Ranch's run German Ridge: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "German Ridge"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912927",
+      "reason": "Donner Ski Ranch's run Lake View: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lake View"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912928",
+      "reason": "Donner Ski Ranch's run Cross Under: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Cross Under"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912929",
+      "reason": "Donner Ski Ranch's run The Gully: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "The Gully"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912930",
+      "reason": "Donner Ski Ranch's run Starliner: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Starliner"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912931",
+      "reason": "Donner Ski Ranch's run Starr's Route: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Starr's Route"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912932",
+      "reason": "Donner Ski Ranch's run Lyla's Run: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lyla's Run"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912933",
+      "reason": "Donner Ski Ranch's run Trail Blazer: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Trail Blazer"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912934",
+      "reason": "Donner Ski Ranch's run Powder & Bumps: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Powder & Bumps"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912935",
+      "reason": "Donner Ski Ranch's run Race Course: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Race Course"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912936",
+      "reason": "Donner Ski Ranch's run Hut Run: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Hut Run"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912937",
+      "reason": "Donner Ski Ranch's run Mertyl's Cut-off: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Mertyl's Cut-off"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912938",
+      "reason": "Donner Ski Ranch's run Primrose Lane: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Primrose Lane"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912939",
+      "reason": "Donner Ski Ranch's run Springboard: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Springboard"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912940",
+      "reason": "Donner Ski Ranch's run Vanishing Point: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Vanishing Point"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912941",
+      "reason": "Donner Ski Ranch's run Castle Peak: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Castle Peak"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912942",
+      "reason": "Donner Ski Ranch's run Castle Peak: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Castle Peak"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912943",
+      "reason": "Donner Ski Ranch's run Sidewinder: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sidewinder"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912944",
+      "reason": "Donner Ski Ranch's run Half Pipe: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Half Pipe"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912945",
+      "reason": "Donner Ski Ranch's run Lytton: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lytton"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912946",
+      "reason": "Donner Ski Ranch's run Sun Slide: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sun Slide"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912947",
+      "reason": "Donner Ski Ranch's run Skyline: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Skyline"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912948",
+      "reason": "Donner Ski Ranch's run Sanctuary: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sanctuary"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912949",
+      "reason": "Donner Ski Ranch's run Lower Sand Pit Road: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lower Sand Pit Road"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912950",
+      "reason": "Donner Ski Ranch's run Powder Puff: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Powder Puff"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912951",
+      "reason": "Donner Ski Ranch's run Carter's Corner: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Carter's Corner"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912952",
+      "reason": "Donner Ski Ranch's run Baron's Run: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Baron's Run"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912953",
+      "reason": "Donner Ski Ranch's run Phil's Run: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Phil's Run"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912954",
+      "reason": "Donner Ski Ranch's run Buck's Cutoff: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Buck's Cutoff"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912955",
+      "reason": "Donner Ski Ranch's run Molly Hogan: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Molly Hogan"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912956",
+      "reason": "Donner Ski Ranch's run Corral: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Corral"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912957",
+      "reason": "Donner Ski Ranch's run Easy Street: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Easy Street"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912958",
+      "reason": "Donner Ski Ranch's run Crossover: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Crossover"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912959",
+      "reason": "Donner Ski Ranch's run South Bowl Road: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "South Bowl Road"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912960",
+      "reason": "Donner Ski Ranch's run South Bowl: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "South Bowl"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912961",
+      "reason": "Donner Ski Ranch's run Turn Roger: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Turn Roger"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912962",
+      "reason": "Donner Ski Ranch's run Duck's Quack: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Duck's Quack"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912963",
+      "reason": "Donner Ski Ranch's run St. Pauli: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "St. Pauli"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912964",
+      "reason": "Donner Ski Ranch's run Split Rock: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Split Rock"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912965",
+      "reason": "Donner Ski Ranch's run Lance's Leap: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lance's Leap"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912966",
+      "reason": "Donner Ski Ranch's run North Trail: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "North Trail"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879912967",
+      "reason": "Donner Ski Ranch's run Wooly Noses: a separate resort on Donner Pass Road with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Wooly Noses"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1039221741",
+      "reason": "Boreal Mountain's run Prospector: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Prospector"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1039221742",
+      "reason": "Boreal Mountain's run Lower Cut: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lower Cut"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1039221743",
+      "reason": "Boreal Mountain's run Cedar Return: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Cedar Return"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1039221745",
+      "reason": "Boreal Mountain's terrain park Progression Park: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "snow_park",
+        "name": "Progression Park"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765278",
+      "reason": "Boreal Mountain's run Waterfall: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Waterfall"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765279",
+      "reason": "Boreal Mountain's run Ptarmigan: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Ptarmigan"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765280",
+      "reason": "Boreal Mountain's run Halfpipe: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Halfpipe"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765281",
+      "reason": "Boreal Mountain's terrain park Pacific Highline Park: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "snow_park",
+        "name": "Pacific Highline Park"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765282",
+      "reason": "Boreal Mountain's terrain park Jibassic Park: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "snow_park",
+        "name": "Jibassic Park"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765283",
+      "reason": "Boreal Mountain's run Bonanza: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Bonanza"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765284",
+      "reason": "Boreal Mountain's run Race Course: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Race Course"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765285",
+      "reason": "Boreal Mountain's run Yours: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Yours"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765286",
+      "reason": "Boreal Mountain's run Hers: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Hers"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765287",
+      "reason": "Boreal Mountain's run His: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "His"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1119475874",
+      "reason": "Boreal Mountain's run Road Island: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Road Island"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1119475875",
+      "reason": "Boreal Mountain's run Chukker: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Chukker"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1119475876",
+      "reason": "Boreal Mountain's run Kangroo Cornice: a separate resort north of Interstate 80 with no landuse=winter_sports polygon in OpenStreetMap, so it cannot be listed as a neighbour (file comment); hidden one by one.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Kangroo Cornice"
+      },
+      "hide": true
+    }
+  ]
+}

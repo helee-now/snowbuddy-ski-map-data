@@ -19,8 +19,9 @@
                                                 A new version without a record yet takes the osm_timestamp of the
                                                 newest earlier version's record (packs/<slug>-v<N>/pack.json), so a
                                                 pack rebuilt for new elevation keeps its runs and lifts
-  packlib.py tnm-tiles ANSWER.json PROJECT      prints the GeoTIFF URLs of one 3DEP project in an answer of The
-                                                National Map's product API, sorted (fetch-dem.sh 3dep1)
+  packlib.py tnm-tiles ANSWER.json PROJECT [LON] prints the GeoTIFF URLs of one 3DEP project in an answer of The
+                                                National Map's product API, sorted (fetch-dem.sh 3dep1); tiles in
+                                                several UTM zones keep the zone of LON, the window's centre
   packlib.py stac-assets ANSWER.json ASSET      prints the ASSET hrefs of the items in a STAC item search answer,
                                                 sorted (fetch-dem.sh hrdem1)
   packlib.py lidar-plan COVERAGE_JSON MIN_PCT   what fetch-dem.sh does with a 1 m window whose coverage (dem.py
@@ -252,11 +253,23 @@ def earlier_record(pack_json, slug, field):
 
 
 HTTPS_TIF_RE = re.compile(r'^https://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+-]+\.tif$')
+# The UTM zone in a 3DEP 1 m tile's name (USGS_1M_11_x24y432_<project>.tif); the older names (USGS_one_meter_x…)
+# carry none.
+TNM_ZONE_RE = re.compile(r'/USGS_1M_(\d{1,2})_x\d+y\d+_')
 
 
-def tnm_tiles(doc, project):
+def utm_zone(lon):
+    """The UTM zone of a longitude (1 to 60)."""
+    return min(60, int((float(lon) + 180) // 6) + 1)
+
+
+def tnm_tiles(doc, project, lon=None):
     """The GeoTIFF URLs of one 3DEP project in a TNM product API answer, sorted. Refuses an answer that says it
-    holds more products than it lists (another page would be needed)."""
+    holds more products than it lists (another page would be needed). A project near a UTM zone boundary delivers
+    tiles in both zones (CA_SierraNevada_B22 and NV_USFSR4_D23 at Lake Tahoe, 120° W: zone 10 and zone 11 tiles over
+    the same ground, each zone's set whole only on its own side), and gdalbuildvrt mosaics one projection, skipping
+    the rest with a warning: the lidar then seemed to hold 63% of Heavenly's box (2026-10-31). When the tiles span
+    zones, only the zone of `lon` (the window's centre) is kept; without it such an answer is refused."""
     if not PROJECT_RE.match(project or ''):
         raise ValueError(f'bad 3DEP project {project!r}')
     items = doc.get('items')
@@ -272,6 +285,18 @@ def tnm_tiles(doc, project):
             if not HTTPS_TIF_RE.match(url):
                 raise ValueError(f'unexpected tile URL {url!r}')
             urls.add(url)
+    by_zone = {}
+    for url in urls:
+        m = TNM_ZONE_RE.search(url)
+        by_zone.setdefault(int(m.group(1)) if m else None, set()).add(url)
+    if len(by_zone) > 1:
+        zones = ', '.join(str(z) for z in sorted(by_zone, key=lambda z: (z is None, z or 0)))
+        if lon is None:
+            raise ValueError(f'{project} has tiles in UTM zones {zones}: pass the window centre longitude to keep one')
+        zone = utm_zone(lon)
+        if zone not in by_zone:
+            raise ValueError(f'{project} has tiles in UTM zones {zones}, none in zone {zone}, the window centre\'s')
+        urls = by_zone[zone]
     return sorted(urls)
 
 
@@ -510,7 +535,7 @@ def main(argv):
         if cmd in ('tnm-tiles', 'stac-assets'):
             with open(args[0], encoding='utf-8') as f:
                 doc = json.load(f)
-            urls = tnm_tiles(doc, args[1]) if cmd == 'tnm-tiles' else stac_assets(doc, args[1])
+            urls = tnm_tiles(doc, args[1], args[2] if len(args) > 2 else None) if cmd == 'tnm-tiles' else stac_assets(doc, args[1])
             for url in urls:
                 print(url)
             return 0

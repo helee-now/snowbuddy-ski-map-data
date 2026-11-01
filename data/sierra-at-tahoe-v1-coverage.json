@@ -1,0 +1,73 @@
+{
+  "key": "sierra-at-tahoe-v1",
+  "ski_sha256": "e78fc28eae1d83c85a98fdd9fe60cc5ab042299115d2fba0d53db1a734bf74b5",
+  "osm_timestamp": "2026-10-31T22:06:49Z",
+  "box": [
+    -120.13,
+    38.76,
+    -120.02,
+    38.83
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -120.101193,
+    38.78643,
+    -120.050483,
+    38.805838
+  ],
+  "margins_km": {
+    "west": 2.5,
+    "south": 2.94,
+    "east": 2.64,
+    "north": 2.69
+  },
+  "counts": {
+    "lifts": 13,
+    "runs_in_bounds": 50,
+    "run_areas_in_bounds": 3,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 24,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 9.6,
+    "runs_in_bounds": 31,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -120.234375,
+      38.68551,
+      -119.882812,
+      38.959409
+    ],
+    "12": [
+      -120.146484,
+      38.754083,
+      -119.970703,
+      38.891033
+    ],
+    "13": [
+      -120.146484,
+      38.754083,
+      -120.014648,
+      38.85682
+    ],
+    "14": [
+      -120.146484,
+      38.754083,
+      -120.014648,
+      38.839708
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

@@ -1,0 +1,73 @@
+{
+  "key": "diamond-peak-v1",
+  "ski_sha256": "4b38917f0833a8b8a89292363d9fcede2f4ade6aa6642cf5a8d11fe0eb267565",
+  "osm_timestamp": "2026-10-31T22:06:49Z",
+  "box": [
+    -119.96,
+    39.22,
+    -119.87,
+    39.29
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -119.927426,
+    39.247183,
+    -119.900573,
+    39.262222
+  ],
+  "margins_km": {
+    "west": 2.8,
+    "south": 3.02,
+    "east": 2.63,
+    "north": 3.09
+  },
+  "counts": {
+    "lifts": 6,
+    "runs_in_bounds": 29,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 12,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.8,
+    "runs_in_bounds": 15.2,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -120.058594,
+      39.095963,
+      -119.707031,
+      39.368279
+    ],
+    "12": [
+      -119.970703,
+      39.164141,
+      -119.794922,
+      39.300299
+    ],
+    "13": [
+      -119.970703,
+      39.198205,
+      -119.838867,
+      39.300299
+    ],
+    "14": [
+      -119.970703,
+      39.215231,
+      -119.86084,
+      39.300299
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

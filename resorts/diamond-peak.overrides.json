@@ -1,0 +1,36 @@
+{
+  "slug": "diamond-peak",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Every named run checked on 2026-10-31 against the resort's printed trail map (diamondpeak.com, DP_TrailMap_202324_maponly.pdf, the map its trail-map page links, rendered at 6,000 px and read at full resolution) and its mountain report's lift and trail table (the-mountain/mountain-report, which rates every trail: Easier, More Difficult, Most Difficult, or off-piste tree skiing). The resort rates nothing above a single black diamond, so OpenStreetMap's two double blacks (Golden Eagle Bowl, Solitude Canyon) take the map's single black; Ridge Run is a blue square on the map and More Difficult in the table where OpenStreetMap has easy. Two names are fixed from the map and the table (Battle Born, Corkscrew); 'O. God' (the map prints the period), 'G. S.' (a space from the table's G.S.), 'School House' (the map's SCHOOL HOUSE) and 'The Great Flume' (the map's name) stay as OpenStreetMap has them. The Village Terrain Park's three zones lie on the runs Spillway, Wiggle and the bottom of Popular (the map's orange hatching): the runs keep their ratings and no park is flagged, OpenStreetMap having no park feature there. Golden Eagle Bowl and Solitude Canyon carry piste:grooming=backcountry in OpenStreetMap but lie inside the resort's polygon (the map draws both inside its boundary, Golden Eagle Bowl beside the summit and Solitude Canyon with glade zones G7 to G11), so the pipeline keeps them in bounds. All six lifts in OpenStreetMap are on the map and in the table; Pete's Powerline, the Child Ski & Ride Center's surface lift, is not in OpenStreetMap.",
+  "overrides": [
+    {
+      "id": "way/331501230",
+      "reason": "The resort's printed trail map and its mountain report's trail table name the run Battle Born (two words); OpenStreetMap has 'Battleborn'.",
+      "expect": { "name": "Battleborn", "piste:difficulty": "advanced" },
+      "set": { "name": "Battle Born" }
+    },
+    {
+      "id": "way/1350835463",
+      "reason": "Misspelt name ('Corkshrew'); the resort's printed trail map and its mountain report's trail table spell it Corkscrew.",
+      "expect": { "name": "Corkshrew", "piste:difficulty": "advanced" },
+      "set": { "name": "Corkscrew" }
+    },
+    {
+      "id": "way/1351752400",
+      "reason": "Golden Eagle Bowl, below the summit beside the top of the Crystal Express, is a single black diamond on the resort's printed trail map and Most Difficult in its mountain report's trail table, the hardest rating the resort uses (it has no double black); OpenStreetMap rates it expert.",
+      "expect": { "name": "Golden Eagle Bowl", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/331501246",
+      "reason": "Solitude Canyon is a single black diamond on the resort's printed trail map and is listed with the off-piste tree-skiing areas (a black diamond with a tree) in its mountain report's trail table, the hardest rating the resort uses (it has no double black); OpenStreetMap rates it expert.",
+      "expect": { "name": "Solitude Canyon", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/331501244",
+      "reason": "Ridge Run, from the top of the Lakeview Quad, is a blue square on the resort's printed trail map and More Difficult in its mountain report's trail table (its trail progression lists 'Ridge Run to Freeway' under More Difficult); OpenStreetMap rates it easy.",
+      "expect": { "name": "Ridge Run", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    }
+  ]
+}

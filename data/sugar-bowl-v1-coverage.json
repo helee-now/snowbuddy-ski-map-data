@@ -1,0 +1,90 @@
+{
+  "key": "sugar-bowl-v1",
+  "ski_sha256": "e603b8454f0ecb0678f724239802bf1acf3683002643d6ddb8e6927fd97314da",
+  "osm_timestamp": "2026-10-31T22:19:59Z",
+  "box": [
+    -120.39,
+    39.26,
+    -120.29,
+    39.34
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -120.355558,
+    39.287135,
+    -120.315602,
+    39.31407
+  ],
+  "margins_km": {
+    "west": 2.96,
+    "south": 3.02,
+    "east": 2.2,
+    "north": 2.88
+  },
+  "counts": {
+    "lifts": 12,
+    "runs_in_bounds": 113,
+    "run_areas_in_bounds": 9,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 1,
+    "lift_stations": 24,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 8.2,
+    "runs_in_bounds": 44.9,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [
+    "Lincoln East Face"
+  ],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1473727299",
+      "name": "Lincoln East Face",
+      "difficulty": "advanced",
+      "area_m2": 56745,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -120.410156,
+      39.232253,
+      -120.234375,
+      39.368279
+    ],
+    "12": [
+      -120.410156,
+      39.232253,
+      -120.234375,
+      39.368279
+    ],
+    "13": [
+      -120.410156,
+      39.232253,
+      -120.27832,
+      39.368279
+    ],
+    "14": [
+      -120.410156,
+      39.249271,
+      -120.27832,
+      39.35129
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

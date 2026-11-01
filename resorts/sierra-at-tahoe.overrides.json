@@ -1,0 +1,60 @@
+{
+  "slug": "sierra-at-tahoe",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon (relation/9963336, 'Sierra-at-Tahoe Ski Resort'): the front side, the Backside and West Bowl on one ticket. Every named run and lift checked on 2026-10-31 against the resort's 2025 trail map (sierraattahoe.com/trail-map, trailmap_2025_updated.jpg at its full 5418 px, read in six parts) and its Lifts + Trails page (sierraattahoe.com/lifts-trails-grooming: 50 trails, each with the resort's difficulty icon, 14 lifts and the seven parks) and its Maps + Stats page (the elevations, the park list). All 50 named OpenStreetMap runs carry the map's and the list's rating already, the three double-black bowls included, so there are no rating changes. Two names follow the resort (Middle Castle, Fuego Magic Carpet), one unofficial line is hidden, and the six runs the map marks with its freestyle pill and the resort names as its parks get the park flag; Progression Park, the seventh, cannot be placed on the map (one pill in the Broadway area) and gets none. Huckleberry Gates (the OpenStreetMap area named after the five gates) stays in bounds as the pipeline finds it (77% inside the polygon): the map draws Huckleberry Bowl inside the resort boundary as double-black off-piste terrain, not patrolled, open through the gates. On the map or the list but not in OpenStreetMap: Middle Sleighride, Ego and Escape.",
+  "overrides": [
+    {
+      "id": "way/256671378",
+      "reason": "The mogul run between Upper Castle and Lower Castle is Middle Castle on the resort's 2025 trail map (trailmap_2025_updated.jpg) and in its Lifts + Trails list (Upper, Middle and Lower Castle); OpenStreetMap names it 'Castle'. The rating (most difficult) agrees.",
+      "expect": { "piste:name": "Castle", "piste:difficulty": "advanced" },
+      "set": { "name": "Middle Castle" }
+    },
+    {
+      "id": "way/258134646",
+      "reason": "The resort's four carpets are Slider, Fuego, Wild Mountain and Thunder Gulch on the 2025 trail map's surface lift key (trailmap_2025_updated.jpg, A to D) and in its Lifts + Trails list; this carpet, the one that continues beyond the Slider Magic Carpet's top away from the lodge, is the map's B, Fuego. 'Chili Magic Carpet' is on neither (the carpet was renamed, both after a chile).",
+      "expect": { "aerialway": "magic_carpet", "name": "Chili Magic Carpet" },
+      "set": { "name": "Fuego Magic Carpet" }
+    },
+    {
+      "id": "way/1479813116",
+      "reason": "An expert line under a chair that its mapper named 'Chair Line (unofficial)': on neither the resort's 2025 trail map nor its Lifts + Trails list, and not a run the resort maintains, so it is hidden rather than drawn as the resort's run (as Palisades' Tiegel Terrain Park was).",
+      "expect": { "name": "Chair Line (unofficial)", "piste:difficulty": "expert" },
+      "hide": true
+    },
+    {
+      "id": "way/256671383",
+      "reason": "Upper Snowshoe Park: the resort lists it among its seven parks (Maps + Stats, Lifts + Trails) and the 2025 trail map (trailmap_2025_updated.jpg) marks Upper Snowshoe with its freestyle pill at the top and at the Marten junction; OpenStreetMap maps it as a plain green run.",
+      "expect": { "name": "Upper Snowshoe", "piste:difficulty": "easy" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/256671390",
+      "reason": "Upper Main Park: the resort lists it among its seven parks (Maps + Stats, Lifts + Trails) and the 2025 trail map (trailmap_2025_updated.jpg) marks Upper Main with its freestyle pill at the Spur junction; OpenStreetMap maps it as a plain green run.",
+      "expect": { "name": "Upper Main", "piste:difficulty": "easy" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/256671394",
+      "reason": "Aspen Park: the resort lists it among its seven parks (Maps + Stats, Lifts + Trails, Terrain Parks: off the Rock Garden chair) and the 2025 trail map (trailmap_2025_updated.jpg) marks Aspen with two freestyle pills beside the Sierra Playgrounds sign; OpenStreetMap maps it as a plain green run.",
+      "expect": { "name": "Aspen", "piste:difficulty": "easy" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/256671415",
+      "reason": "Smokey Boardercross: the resort lists it among its seven parks (Maps + Stats, Lifts + Trails; Terrain Parks: 'Boardercross on Smokey', off Grandview) and the 2025 trail map (trailmap_2025_updated.jpg) marks the top of Smokey with its freestyle pill; OpenStreetMap maps it as a plain blue run.",
+      "expect": { "name": "Smokey", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/256671412",
+      "reason": "Broadway Park: the resort lists it among its seven parks (Maps + Stats, Lifts + Trails, Terrain Parks: off Easy Rider) and the 2025 trail map (trailmap_2025_updated.jpg) marks Broadway with its freestyle pill under the Easy Rider Express; OpenStreetMap maps it as a plain green run.",
+      "expect": { "name": "Broadway", "piste:difficulty": "easy" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/256671418",
+      "reason": "The Alley Park: the resort lists it among its seven parks (Maps + Stats, Lifts + Trails, Terrain Parks: off Short Stuff, the resort's biggest jumps) and the 2025 trail map (trailmap_2025_updated.jpg) marks The Alley with its freestyle pill at the Short Stuff chair; OpenStreetMap maps it as a plain green run.",
+      "expect": { "name": "The Alley", "piste:difficulty": "easy" },
+      "set": { "park": true }
+    }
+  ]
+}

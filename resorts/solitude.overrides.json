@@ -1,0 +1,78 @@
+{
+  "slug": "solitude",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/682230006 (Solitude Mountain Resort). Every named run and lift checked on 2026-11-04 against the resort's 2026-27 winter trail map (solitudemountain.com, solitude_winter_trail_map_2627.pdf, rendered at 8,000 px and read tile by tile) and its mountain statistics page (82 named runs, 9 lifts: 1 six-pack, 3 high-speed quads, 2 quads, 1 triple, 1 double, 1 magic carpet, and a paddle tow). Every named OpenStreetMap run that the printed map shows carries the map's rating (the Honeycomb Canyon and Evergreen Peak chutes tagged backcountry in OSM lie inside the polygon and stay in bounds, as the map draws them), so no rating changes; the overrides are spellings from the map (Boundary Chutes, Challenger, Headwall Forest, Memorial Chutes, Scree Slope, Woodlawn), the map's names where OSM's differ (Serenity, Honeycomb Return Trail, Powderhorn II). Names that differ from the map only by a space or an apostrophe (Altabird, Timberline, Prince Of Wales) stay as OSM has them. OSM gaps, shipped as at Palisades Tahoe: Evergreen Chutes is tagged piste:type=yes (no run type), so the pipeline leaves it out; Highway to Heaven (the inset's run off Evergreen Peak) and the second terrain park beside the Moonbeam Express (the map names only Tude-Dudes) are not in OSM; the resort's paddle tow at the Moonbeam base is not mapped. Suicide Chute (Little Cottonwood backcountry, in no polygon, beyond the box's west edge) stays out of bounds as on Brighton's map. The Engen Hill historic ski-jump run (92 m, in no polygon, 1.8 km north-west of Solitude's polygon by the canyon road) is hidden: it is no run of the resort, it is on no resort source, and as a kept in-bounds run within 2 km of the polygon it would force the box 2 km further west and north for a 1936 ski jump. NEIGHBOURS: Brighton, Alta, Snowbird, Park City Mountain and Deer Valley are listed in resorts.json; Solbright, 87% inside Solitude's polygon, stays with Solitude (the owner's rule, as Brighton's entry accepted).",
+  "overrides": [
+    {
+      "id": "way/1125771404",
+      "reason": "Misspelling: the resort's 2026-27 trail map prints Boundary Chutes (the single black diamond on Honeycomb Canyon's east wall); OSM has Boundry.",
+      "expect": { "name": "Boundry Chutes", "piste:difficulty": "advanced" },
+      "set": { "name": "Boundary Chutes" }
+    },
+    {
+      "id": "way/618576405",
+      "reason": "Misspelling: the resort's 2026-27 trail map prints Challenger (the black run east of the Eagle Express); OSM has Challanger.",
+      "expect": { "name": "Challanger", "piste:difficulty": "advanced" },
+      "set": { "name": "Challenger" }
+    },
+    {
+      "id": "way/618365032",
+      "reason": "Misspelling: the resort's 2026-27 trail map prints Headwall Forest (double black, below Evergreen Peak); OSM has Forrest.",
+      "expect": { "name": "Headwall Forrest", "piste:difficulty": "expert" },
+      "set": { "name": "Headwall Forest" }
+    },
+    {
+      "id": "way/1024649984",
+      "reason": "Capitalisation slip ('Memorial chutes'); the resort's 2026-27 trail map prints Memorial Chutes (single black, Honeycomb Canyon).",
+      "expect": { "name": "Memorial chutes", "piste:difficulty": "advanced" },
+      "set": { "name": "Memorial Chutes" }
+    },
+    {
+      "id": "way/1024651016",
+      "reason": "Capitalisation slip ('Scree slope'); the resort's 2026-27 trail map prints Scree Slope (single black, below Evergreen Peak).",
+      "expect": { "name": "Scree slope", "piste:difficulty": "advanced" },
+      "set": { "name": "Scree Slope" }
+    },
+    {
+      "id": "way/618576407",
+      "reason": "The resort's 2026-27 trail map prints Serenity (black upper part, east of the Eagle Express); OSM names the run Serenity/F.I.S., the race-course alias the map does not print.",
+      "expect": { "name": "Serenity/F.I.S.", "piste:difficulty": "advanced" },
+      "set": { "name": "Serenity" }
+    },
+    {
+      "id": "way/618576409",
+      "reason": "The resort's 2026-27 trail map prints Serenity (blue lower part); OSM names the run Serenity/F.I.S., the race-course alias the map does not print.",
+      "expect": { "name": "Serenity/F.I.S.", "piste:difficulty": "intermediate" },
+      "set": { "name": "Serenity" }
+    },
+    {
+      "id": "way/618584850",
+      "reason": "The resort's 2026-27 trail map prints Woodlawn, one word (the black run down Honeycomb Canyon's floor; its patrol note says 'Woodlawn is marked with letters'); OSM has Wood Lawn.",
+      "expect": { "name": "Wood Lawn", "piste:difficulty": "advanced" },
+      "set": { "name": "Woodlawn" }
+    },
+    {
+      "id": "way/863627863",
+      "reason": "The resort's 2026-27 trail map prints Honeycomb Return Trail for the blue run along the canyon floor from the Honeycomb Return lift's base to the Eagle Express base; OSM's piste:name is Honeycomb Return, the lift's name, which the map would print on both.",
+      "expect": { "name": "Honeycomb Canyon Trail", "piste:name": "Honeycomb Return", "piste:difficulty": "intermediate" },
+      "set": { "name": "Honeycomb Return Trail" }
+    },
+    {
+      "id": "way/992936358",
+      "reason": "As way/863627863: the resort's 2026-27 trail map prints Honeycomb Return Trail for the run; OSM's piste:name is Honeycomb Return, the lift's name.",
+      "expect": { "name": "Honeycomb Return Trail", "piste:name": "Honeycomb Return", "piste:difficulty": "intermediate" },
+      "set": { "name": "Honeycomb Return Trail" }
+    },
+    {
+      "id": "way/137770109",
+      "reason": "The lift is Powderhorn II on the resort's 2026-27 trail map (top elevation 9,800 ft) and its lift list; OSM writes the numeral as 2.",
+      "expect": { "name": "Powderhorn 2", "aerialway": "chair_lift" },
+      "set": { "name": "Powderhorn II" }
+    },
+    {
+      "id": "way/993540210",
+      "reason": "The Engen Hill historic 1936 ski-jump run, 92 m by the Big Cottonwood Canyon road 1.8 km north-west of Solitude's polygon, in no ski-area polygon: not a run of the resort and on no resort source (Brighton's and Park City Mountain's files keep it, beyond their 2 km reach), and as a kept in-bounds run within 2 km of Solitude's polygon it would force the box 2 km further west and north; hidden.",
+      "expect": { "name": "Engen Hill - Historic 1936 Ski Jump Run", "piste:type": "downhill" },
+      "hide": true
+    }
+  ]
+}

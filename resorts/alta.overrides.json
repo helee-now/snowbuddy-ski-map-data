@@ -1,0 +1,127 @@
+{
+  "slug": "alta",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1023308077 (Alta Ski Area). Every named run and lift checked on 2026-11-04 against the resort's 2026-27 trail map (alta.com/plan-your-trip, 26_27_Alta_Trailmap_WEB.pdf, rendered at 9,000 px and read tile by tile) and its lift and terrain status list (alta.com/lift-terrain-status: 5 lifts, 128 run entries rated green, blue or black). Alta's map has three ratings (beginner, intermediate, expert as a single black diamond) and no terrain park: its scale tops at a single black, so a run OSM rates expert (double black) that the printed map draws as a single diamond becomes advanced, as at Diamond Peak (Gunsight); High Main Street is black on the map and the list where OSM had blue; the unrated second way of Vicky's gets the map's black. Where the resort's sources disagree the harder of theirs and OSM's stays (lead's decision 2026-10-22): Lower Rustler is blue on the status list but a black diamond on the printed map, as OSM has it; Sugar Way is green on the list but a blue square on the map, as OSM has it. Main Chute and Little Chute (expert, backcountry, patrolled) are not named by the resort, which draws Baldy Chutes as one black diamond, so OSM's ratings stay. Spellings from the map: Patsey Marley, Piney Glade; the two Albion base carpets get the map's names (Big Griz, Little Griz; OSM has MG GMZ and Little GMZ). Names that differ from the resort only by a space, an apostrophe, an abbreviation or an alias stay as OSM has them (Hammerhead, Three Bears, Nina's Curve, Catherine's Out Run, Spiney Chutes Area, East Baldy Traverse, Black Jack Snowbird Return, Albion Basin Road for the map's Summer Road, Santa Clause as the map prints it). The name White Squaw Areae is hidden: the resort's map and list have no such run (the word was withdrawn from U.S. federal place names in 2022) and OSM's spelling is a typo; the black line stays unnamed. All 11 lifts of the resort's map are in OSM (Collins, Wildcat, Sugarloaf, Supreme, Sunnyside, Transfer Tow, Snowpine Lift, Rustler Lift, Alta Lodge Tow, which the map prints as Lodge Tow, and the two Griz carpets); the Albion and Cecret chairs of earlier maps are gone from OSM and the 2026-27 map alike. The pipeline prints a way's piste:name before its name: the Albion Basin summer road's piste:name, Summer Road (Uphill Acces), is the map's Summer Road (Uphill Access) with a typo, fixed on both ways. The upper 228 m of Snowbird's Condo & Bypass Rd. Parking Access (the summer track Blackjack Road, way/977024755, a run only through Snowbird's route relation/13134211) lies inside Alta's polygon by the Blackjack condominiums, where Alta's map draws no run, and is hidden; Snowbird's file loses that top part to the neighbour rule. OSM gaps (shipped as at Palisades Tahoe): Aviary, Baldy Shoulder, Christmas Tree, Fred's Slot, High Race Course, High Sunspot, Supreme Access and West Rustler are on the map and the status list but not in OSM; Cecret Cutoff, Erosion Gullies, High Traverse (Upper Level), Keyhole Gulch and Waldron's Way are in OSM but not on the map. NEIGHBOURS: Snowbird, Brighton and Solitude are listed in resorts.json; Suicide Chute, a backcountry line on Mount Superior north of the road in no polygon, stays as out of bounds, as in Brighton's and Park City Mountain's files.",
+  "overrides": [
+    {
+      "id": "way/564198996",
+      "reason": "Gunsight is a single black diamond on Alta's 2026-27 trail map and black on its lift and terrain status list; Alta's scale tops at a single black (expert on its key), and OSM rates it expert (double black). The printed map wins, as at Diamond Peak.",
+      "expect": {
+        "name": "Gunsight",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/564199021",
+      "reason": "High Main Street is a black diamond on Alta's 2026-27 trail map and black on its lift and terrain status list (under Collins); OSM rates it intermediate.",
+      "expect": {
+        "name": "High Main Street",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/776839645",
+      "reason": "The second way of Vicky's (280 m, under Supreme) carries no rating in OSM; Vicky's is a black diamond on Alta's 2026-27 trail map and black on its status list, as OSM rates the run's other way (way/564199043).",
+      "expect": {
+        "name": "Vicky's",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/564199054",
+      "reason": "Misspelling: the resort's 2026-27 trail map and status list spell the green run Patsey Marley (after the prospector and the peak above it, which the map also prints Patsey Marley); OSM has Patsy Marley.",
+      "expect": {
+        "name": "Patsy Marley",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Patsey Marley"
+      }
+    },
+    {
+      "id": "way/776839641",
+      "reason": "Misspelling: the resort's 2026-27 trail map and status list spell the Supreme run Piney Glade; OSM has Pine Glade.",
+      "expect": {
+        "name": "Pine Glade",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Piney Glade"
+      }
+    },
+    {
+      "id": "way/1464462043",
+      "reason": "The longer of the two carpets at the Albion base (119 m) is Big Griz on the resort's 2026-27 trail map; OSM names it MG GMZ, which the resort prints nowhere. The printed map wins.",
+      "expect": {
+        "name": "MG GMZ",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Big Griz"
+      }
+    },
+    {
+      "id": "way/973195478",
+      "reason": "The shorter of the two carpets at the Albion base (47 m) is Little Griz on the resort's 2026-27 trail map; OSM names it Little GMZ, which the resort prints nowhere. The printed map wins.",
+      "expect": {
+        "name": "Little GMZ",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Little Griz"
+      }
+    },
+    {
+      "id": "way/776839644",
+      "reason": "Neither Alta's 2026-27 trail map nor its status list has a run of this name (the word was withdrawn from U.S. federal place names in 2022; the map labels the Wildcat side's lines Wildcat Face, Wildcat Bowl, Rock Gully and Westward Ho), and OSM's spelling is a typo. The black line below Westward Ho stays, unnamed, until OSM is checked.",
+      "expect": {
+        "name": "White Squaw Areae",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/10133310",
+      "reason": "The Albion Basin summer road's piste:name, which the map prints before the way's name, has a typo (Acces); Alta's 2026-27 trail map prints the green uphill route Summer Road (Uphill Access), and its status list Summer Road.",
+      "expect": {
+        "name": "Albion Basin Road",
+        "piste:name": "Summer Road (Uphill Acces)",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Summer Road (Uphill Access)"
+      }
+    },
+    {
+      "id": "way/1188741854",
+      "reason": "As way/10133310: the 55 m lower piece of the Albion Basin summer road carries the same misspelt piste:name; Alta's 2026-27 trail map prints Summer Road (Uphill Access).",
+      "expect": {
+        "name": "Albion Basin Road",
+        "piste:name": "Summer Road (Uphill Acces)",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Summer Road (Uphill Access)"
+      }
+    },
+    {
+      "id": "way/977024755",
+      "reason": "The summer track Blackjack Road (highway=track, no piste tags of its own), a run only as the upper 228 m of Snowbird's Condo & Bypass Rd. Parking Access route (relation/13134211, intermediate), lies wholly inside Alta's polygon by the Blackjack condominiums, so the neighbour rule gives it to Alta; Alta's 2026-27 trail map draws no run there (its Blackjack/Snowbird Return leaves from the White Cliffs gate), so it is hidden rather than drawn as a blue Alta run named after a road.",
+      "expect": {
+        "name": "Blackjack Road",
+        "highway": "track"
+      },
+      "hide": true
+    }
+  ]
+}

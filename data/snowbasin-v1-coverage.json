@@ -1,0 +1,172 @@
+{
+  "key": "snowbasin-v1",
+  "ski_sha256": "29fd0239b333b9f8f5de6a404036fce5c6e006a9e5c4427b3b1ead5cc42d0950",
+  "osm_timestamp": "2026-11-04T09:20:45Z",
+  "box": [
+    -111.92,
+    41.16,
+    -111.81,
+    41.24
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -111.884828,
+    41.181529,
+    -111.84059,
+    41.220587
+  ],
+  "margins_km": {
+    "west": 2.94,
+    "south": 2.39,
+    "east": 2.56,
+    "north": 2.16
+  },
+  "counts": {
+    "lifts": 13,
+    "runs_in_bounds": 175,
+    "run_areas_in_bounds": 4,
+    "runs_out_of_bounds": 7,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 25,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 17.4,
+    "runs_in_bounds": 93.6,
+    "runs_out_of_bounds": 1.7
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1468799455",
+      "name": "Blackbird",
+      "difficulty": "expert",
+      "length_m": 138,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1468804997",
+      "name": "Mt. Ogden Chute",
+      "difficulty": "freeride",
+      "length_m": 258,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1468804998",
+      "name": "Race Start Chute 1",
+      "difficulty": "freeride",
+      "length_m": 250,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1468804999",
+      "name": "Porky Nose",
+      "difficulty": "freeride",
+      "length_m": 227,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1468805001",
+      "name": "Kiko",
+      "difficulty": "freeride",
+      "length_m": 335,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1550172148",
+      "name": "Race Start Chute 2",
+      "difficulty": "freeride",
+      "length_m": 243,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1550172149",
+      "name": "Race Start Chute 3",
+      "difficulty": "freeride",
+      "length_m": 232,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -111.972656,
+      41.112469,
+      -111.796875,
+      41.244772
+    ],
+    "12": [
+      -111.972656,
+      41.112469,
+      -111.796875,
+      41.244772
+    ],
+    "13": [
+      -111.928711,
+      41.14557,
+      -111.796875,
+      41.244772
+    ],
+    "14": [
+      -111.928711,
+      41.14557,
+      -111.796875,
+      41.244772
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

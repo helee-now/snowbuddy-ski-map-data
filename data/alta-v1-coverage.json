@@ -1,0 +1,96 @@
+{
+  "key": "alta-v1",
+  "ski_sha256": "67128d0ad3671218301364571497aab7f09a10023b1c0d7c0cdf6e0b24c14cba",
+  "osm_timestamp": "2026-11-04T09:06:36Z",
+  "box": [
+    -111.68,
+    40.54,
+    -111.57,
+    40.63
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -111.652907,
+    40.563978,
+    -111.596079,
+    40.602435
+  ],
+  "margins_km": {
+    "west": 2.29,
+    "south": 2.67,
+    "east": 2.2,
+    "north": 3.07
+  },
+  "counts": {
+    "lifts": 11,
+    "runs_in_bounds": 131,
+    "run_areas_in_bounds": 12,
+    "runs_out_of_bounds": 1,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 24,
+    "ski_area": 1,
+    "other_lifts_and_runs": 1
+  },
+  "length_km": {
+    "lifts": 8.8,
+    "runs_in_bounds": 72.8,
+    "runs_out_of_bounds": 0.3
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1382646253",
+      "name": "Suicide Chute",
+      "difficulty": "extreme",
+      "length_m": 303,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -111.796875,
+      40.446947,
+      -111.445312,
+      40.713956
+    ],
+    "12": [
+      -111.708984,
+      40.513799,
+      -111.533203,
+      40.647304
+    ],
+    "13": [
+      -111.708984,
+      40.513799,
+      -111.533203,
+      40.647304
+    ],
+    "14": [
+      -111.687012,
+      40.530502,
+      -111.555176,
+      40.63063
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [
+    {
+      "osm": "way/993540210",
+      "layer": "piste",
+      "name": "Engen Hill - Historic 1936 Ski Jump Run",
+      "kind": "downhill",
+      "inside_box": false
+    }
+  ],
+  "problems": [],
+  "ok": true
+}

@@ -1,0 +1,88 @@
+{
+  "key": "solitude-v1",
+  "ski_sha256": "bd92310ea22f58fc0eb206b505a57a718549542228467e93495445682c5690a1",
+  "osm_timestamp": "2026-11-04T09:02:34Z",
+  "box": [
+    -111.65,
+    40.57,
+    -111.56,
+    40.65
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -111.617895,
+    40.596593,
+    -111.590254,
+    40.630105
+  ],
+  "margins_km": {
+    "west": 2.71,
+    "south": 2.96,
+    "east": 2.55,
+    "north": 2.21
+  },
+  "counts": {
+    "lifts": 9,
+    "runs_in_bounds": 89,
+    "run_areas_in_bounds": 6,
+    "runs_out_of_bounds": 1,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 18,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 7.4,
+    "runs_in_bounds": 49.6,
+    "runs_out_of_bounds": 0.3
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1382646253",
+      "name": "Suicide Chute",
+      "difficulty": "extreme",
+      "length_m": 302,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -111.796875,
+      40.446947,
+      -111.445312,
+      40.713956
+    ],
+    "12": [
+      -111.708984,
+      40.513799,
+      -111.533203,
+      40.713956
+    ],
+    "13": [
+      -111.665039,
+      40.5472,
+      -111.533203,
+      40.680638
+    ],
+    "14": [
+      -111.665039,
+      40.563895,
+      -111.555176,
+      40.663973
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

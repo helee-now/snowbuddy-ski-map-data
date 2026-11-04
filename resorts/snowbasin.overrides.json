@@ -1,0 +1,180 @@
+{
+  "slug": "snowbasin",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1201185853 (Snowbasin Resort); no other landuse=winter_sports polygon lies in the Overpass window (Nordic Valley and Powder Mountain are north of it), so there are no neighbours. Every named run and lift checked on 2026-11-04 against the resort's 2025-26 winter trail map (snowbasin.com, winter-trail-map-2025-26, the 4,000 px image read tile by tile) and its mountain report's lift-by-lift trail list (snowbasin.com/the-mountain/mountain-report: 115 trails under 13 lifts, rated easiest, moderate, difficult, most difficult or terrain park). The printed map wins over OSM; where the map and the list disagree (Fro Zone: blue on the map, difficult on the list) the harder of theirs and OSM's is kept, so no run reads easier than the resort's evidence says. Rating changes: Gordon's and Powderhound Bowl (black on the map and list, blue in OSM), Fro Zone (as above), Sunshine (unrated in OSM, blue on both). Parks: Blue Grouse and Orson's (orange bands on the map, the list's terrain parks); Littlecat Terrain Park is not in OSM. Names from the map: Bear Hollow, Carnahan's, 3 Skis, Janis', City Hill, Mt. Ogden Bowl Road, Willow, The Wallow, Upper and Mid Main Street (OSM names three pieces Main Street; the map rates Upper black and Mid blue), the black piece beside Upper 119 (OSM calls it 119, the map's 119 is the blue run below), Wildcat Express (the six-pack, Wildcat in OSM) and Littlecat Express (Little Cat Express Quad in OSM); the two unnamed carpets at the Grizzly Center get the map's names (Grizzly Carpet, the longer one, and Wildflower Carpet). DeMoisey Face is on neither the map nor the list; its spelling follows the lift and peak (DeMoisy). Names that differ from the resort only by a space, a hyphen, an apostrophe or an abbreviation (Eas A Long, Snowshoe, Sowback, Twist and Shout, Needles' Way, Beck's, Dogleg, 25th Street, Lower Pyramids, Rainer's, John Paul Express Quad, Needles Express Gondola, Strawberry Express Gondola) stay as OSM has them. OSM gaps, shipped as at Palisades Tahoe: Powder Puff, Lower Moose Mound, Needles Cirque, Trapper's Bypass and the Littlecat Terrain Park are not in OSM; Elk Ridge and Bear Springs are one way each where the map names Upper, Mid and Lower pieces. OSM's locals' names inside the restricted-access zones (Arrowhead, Flamingo, Taxman, Kiko, Let It Be, Monkey Tree, Mt. Ogden Chute, Catastrophe Rocks!) are on no resort source and stay as mapped.",
+  "overrides": [
+    {
+      "id": "way/773903385",
+      "reason": "Gordon's is a single black diamond on the resort's 2025-26 trail map and difficult on its mountain report (Strawberry); OSM rates it intermediate.",
+      "expect": { "name": "Gordon's", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/773903367",
+      "reason": "Powderhound Bowl is a single black diamond on the resort's 2025-26 trail map and difficult on its mountain report (Porcupine); OSM rates it intermediate.",
+      "expect": { "name": "Powderhound Bowl", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1375153723",
+      "reason": "Fro Zone is blue on the resort's 2025-26 trail map but difficult on its mountain report (Needles): the resort's sources disagree, so the harder of theirs and OSM's (intermediate) is kept (lead's rule of 2026-10-22).",
+      "expect": { "name": "Fro Zone", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1375153722",
+      "reason": "Sunshine, the short blue run by the Needles Lodge, is blue on the resort's 2025-26 trail map and moderate on its mountain report; OSM gives it no rating.",
+      "expect": { "name": "Sunshine", "piste:difficulty": null },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/770947077",
+      "reason": "Blue Grouse is a terrain park (an orange band below the Needles Gondola) on the resort's 2025-26 trail map and on its mountain report's terrain-park list; OSM maps it as a plain blue run.",
+      "expect": { "name": "Blue Grouse", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/770947068",
+      "reason": "Orson's is a terrain park (an orange band above the Littlecat Express) on the resort's 2025-26 trail map and on its mountain report's terrain-park list; OSM maps it as a plain blue run.",
+      "expect": { "name": "Orson's", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/1375153726",
+      "reason": "As way/770947068: Orson's, the terrain park on the resort's 2025-26 trail map and mountain report; OSM maps this piece as a plain blue run.",
+      "expect": { "name": "Orson's", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/770947050",
+      "reason": "Misspelling: the resort's 2025-26 trail map and mountain report print Bear Hollow (the green run beside the Wildcat Express); OSM has Bear Hallow.",
+      "expect": { "name": "Bear Hallow", "piste:difficulty": "easy" },
+      "set": { "name": "Bear Hollow" }
+    },
+    {
+      "id": "way/322781544",
+      "reason": "Misspelling: the resort's 2025-26 trail map and mountain report print Carnahan's (black, Strawberry side); OSM has Carnhan's.",
+      "expect": { "name": "Carnhan's", "piste:difficulty": "advanced" },
+      "set": { "name": "Carnahan's" }
+    },
+    {
+      "id": "way/770947079",
+      "reason": "Capitalisation slip ('3 skis'); the resort's 2025-26 trail map and mountain report print 3 Skis.",
+      "expect": { "name": "3 skis", "piste:difficulty": "advanced" },
+      "set": { "name": "3 Skis" }
+    },
+    {
+      "id": "way/1468799452",
+      "reason": "Misspelling: the resort's 2025-26 trail map and mountain report print Janis' (the run is named for a Janis); OSM has Jani's.",
+      "expect": { "name": "Jani's", "piste:difficulty": "advanced" },
+      "set": { "name": "Janis'" }
+    },
+    {
+      "id": "way/770947065",
+      "reason": "The resort's 2025-26 trail map and mountain report print City Hill (the blue run above Earl's Lodge); OSM has City Hall.",
+      "expect": { "name": "City Hall", "piste:difficulty": "intermediate" },
+      "set": { "name": "City Hill" }
+    },
+    {
+      "id": "way/770947062",
+      "reason": "The resort's 2025-26 trail map and mountain report print Mt. Ogden Bowl Road (the blue road from the John Paul Lodge across Mt. Ogden Bowl); OSM has Mt. Ogden Road.",
+      "expect": { "name": "Mt. Ogden Road", "piste:difficulty": "intermediate" },
+      "set": { "name": "Mt. Ogden Bowl Road" }
+    },
+    {
+      "id": "way/1375634421",
+      "reason": "As way/770947062: Mt. Ogden Bowl Road on the resort's 2025-26 trail map and mountain report; OSM has Mt. Ogden Road.",
+      "expect": { "name": "Mt. Ogden Road", "piste:difficulty": "intermediate" },
+      "set": { "name": "Mt. Ogden Bowl Road" }
+    },
+    {
+      "id": "way/322779852",
+      "reason": "The resort's 2025-26 trail map and mountain report print Willow (the blue run west of Dwayne's, under the Needles Gondola side); OSM has Willow Springs.",
+      "expect": { "name": "Willow Springs", "piste:difficulty": "intermediate" },
+      "set": { "name": "Willow" }
+    },
+    {
+      "id": "way/1375721006",
+      "reason": "As way/322779852: Willow on the resort's 2025-26 trail map and mountain report; OSM has Willow Springs.",
+      "expect": { "name": "Willow Springs", "piste:difficulty": "intermediate" },
+      "set": { "name": "Willow" }
+    },
+    {
+      "id": "way/322779850",
+      "reason": "The resort's 2025-26 trail map and mountain report print The Wallow (the black run through the restricted zone below the Wildcat Express, with its access gate of the same name); OSM has Bear Wallow.",
+      "expect": { "name": "Bear Wallow", "piste:difficulty": "advanced" },
+      "set": { "name": "The Wallow" }
+    },
+    {
+      "id": "way/1304947937",
+      "reason": "The resort's 2025-26 trail map and mountain report split Main Street into Upper (black), Mid (blue) and Lower (blue, in OSM already): this black piece, the highest, between White Room and Sow Back, is Upper Main Street.",
+      "expect": { "name": "Main Street", "piste:difficulty": "advanced" },
+      "set": { "name": "Upper Main Street" }
+    },
+    {
+      "id": "way/1229835013",
+      "reason": "The resort's 2025-26 trail map and mountain report split Main Street into Upper (black), Mid (blue) and Lower (blue, in OSM already): this blue piece from the DeMoisy Express top is Mid Main Street.",
+      "expect": { "name": "Main Street", "piste:difficulty": "intermediate" },
+      "set": { "name": "Mid Main Street" }
+    },
+    {
+      "id": "way/1316056822",
+      "reason": "The resort's 2025-26 trail map and mountain report split Main Street into Upper (black), Mid (blue) and Lower (blue, in OSM already): this blue piece along the DeMoisy Express down to Lower Main Street is Mid Main Street.",
+      "expect": { "name": "Main Street", "piste:difficulty": "intermediate" },
+      "set": { "name": "Mid Main Street" }
+    },
+    {
+      "id": "way/1316054940",
+      "reason": "This black way runs beside Upper 119 (way/770947081) and ends where the blue 119 starts; on the resort's 2025-26 trail map and mountain report 119 is blue and only Upper 119 is black, so the black piece carries the upper run's name.",
+      "expect": { "name": "119", "piste:difficulty": "advanced" },
+      "set": { "name": "Upper 119" }
+    },
+    {
+      "id": "way/1375153720",
+      "reason": "Spelling: the run under the DeMoisy Express is on neither the resort's 2025-26 trail map nor its mountain report; its name follows the lift and the peak, which OSM and the map spell DeMoisy.",
+      "expect": { "name": "DeMoisey Face", "piste:difficulty": "intermediate" },
+      "set": { "name": "DeMoisy Face" }
+    },
+    {
+      "id": "way/10203748",
+      "reason": "The lift is the Wildcat Express (a six-pack, aerialway:occupancy 6 in OSM) on the resort's 2025-26 trail map and lift list; OSM keeps the old name Wildcat.",
+      "expect": { "name": "Wildcat", "aerialway": "chair_lift" },
+      "set": { "name": "Wildcat Express" }
+    },
+    {
+      "id": "way/195798979",
+      "reason": "The lift is the Littlecat Express on the resort's 2025-26 trail map and lift list (the resort writes Littlecat as one word, as for the run); OSM has Little Cat Express Quad.",
+      "expect": { "name": "Little Cat Express Quad", "aerialway": "chair_lift" },
+      "set": { "name": "Littlecat Express" }
+    },
+    {
+      "id": "way/1125736936",
+      "reason": "The longer of the two unnamed carpets at the Grizzly Center (60 m, the upper one) is the Grizzly Carpet on the resort's 2025-26 trail map and lift list.",
+      "expect": { "name": null, "aerialway": "magic_carpet" },
+      "set": { "name": "Grizzly Carpet" }
+    },
+    {
+      "id": "way/1125736937",
+      "reason": "The shorter of the two unnamed carpets at the Grizzly Center (25 m, the lower one by the ski patrol) is the Wildflower Carpet on the resort's 2025-26 trail map and lift list.",
+      "expect": { "name": null, "aerialway": "magic_carpet" },
+      "set": { "name": "Wildflower Carpet" }
+    },
+    {
+      "id": "way/1468799455",
+      "reason": "Blackbird lies wholly outside the ski-area polygon, 70 m beyond the Needles ridge on its west side, beside Porky Nose and Race Start Chute 1, which OSM tags backcountry; it is on no resort source and the resort's 2025-26 trail map ends at the ridge, so it is drawn out of bounds like its neighbours (OSM gives it no backcountry tag).",
+      "expect": { "name": "Blackbird", "piste:difficulty": "expert" },
+      "set": { "out_of_bounds": true }
+    },
+    {
+      "id": "way/1550172148",
+      "reason": "Race Start Chute 2 lies wholly outside the ski-area polygon, 70 m beyond the ridge on its west side, between Race Start Chute 1 (tagged backcountry in OSM) and Race Start Chute 3; on no resort source and beyond the 2025-26 trail map's boundary, so drawn out of bounds like Chute 1 (OSM gives it no backcountry tag).",
+      "expect": { "name": "Race Start Chute 2", "piste:difficulty": "freeride" },
+      "set": { "out_of_bounds": true }
+    },
+    {
+      "id": "way/1550172149",
+      "reason": "Race Start Chute 3 lies wholly outside the ski-area polygon, 90 m beyond the ridge on its west side, next to Race Start Chute 1 (tagged backcountry in OSM); on no resort source and beyond the 2025-26 trail map's boundary, so drawn out of bounds like Chute 1 (OSM gives it no backcountry tag).",
+      "expect": { "name": "Race Start Chute 3", "piste:difficulty": "freeride" },
+      "set": { "out_of_bounds": true }
+    }
+  ]
+}

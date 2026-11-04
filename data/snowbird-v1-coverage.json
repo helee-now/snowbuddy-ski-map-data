@@ -1,0 +1,88 @@
+{
+  "key": "snowbird-v1",
+  "ski_sha256": "3aed69e80aba992de40835133cc40fbef284653929beef2142dd247290d7ae25",
+  "osm_timestamp": "2026-11-04T09:12:38Z",
+  "box": [
+    -111.71,
+    40.52,
+    -111.59,
+    40.61
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -111.680447,
+    40.54797,
+    -111.619261,
+    40.587904
+  ],
+  "margins_km": {
+    "west": 2.5,
+    "south": 3.11,
+    "east": 2.47,
+    "north": 2.46
+  },
+  "counts": {
+    "lifts": 14,
+    "runs_in_bounds": 230,
+    "run_areas_in_bounds": 8,
+    "runs_out_of_bounds": 1,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 27,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 14,
+    "runs_in_bounds": 104.8,
+    "runs_out_of_bounds": 0.3
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1382646253",
+      "name": "Suicide Chute",
+      "difficulty": "extreme",
+      "length_m": 303,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -111.796875,
+      40.446947,
+      -111.445312,
+      40.713956
+    ],
+    "12": [
+      -111.796875,
+      40.513799,
+      -111.533203,
+      40.647304
+    ],
+    "13": [
+      -111.75293,
+      40.513799,
+      -111.577148,
+      40.613952
+    ],
+    "14": [
+      -111.730957,
+      40.513799,
+      -111.577148,
+      40.613952
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

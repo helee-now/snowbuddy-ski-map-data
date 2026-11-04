@@ -1,0 +1,73 @@
+{
+  "key": "june-mountain-v1",
+  "ski_sha256": "b2e4e99274fff78d40896729baf54fd9542396c069a401aa25f337354f6035b5",
+  "osm_timestamp": "2026-11-04T08:54:21Z",
+  "box": [
+    -119.12,
+    37.72,
+    -119.03,
+    37.79
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -119.092347,
+    37.739618,
+    -119.058087,
+    37.770291
+  ],
+  "margins_km": {
+    "west": 2.43,
+    "south": 2.18,
+    "east": 2.47,
+    "north": 2.19
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 38,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 13,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 7,
+    "runs_in_bounds": 27.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -119.179688,
+      37.71859,
+      -119.003906,
+      37.857507
+    ],
+    "12": [
+      -119.179688,
+      37.71859,
+      -119.003906,
+      37.857507
+    ],
+    "13": [
+      -119.135742,
+      37.71859,
+      -119.003906,
+      37.822802
+    ],
+    "14": [
+      -119.135742,
+      37.71859,
+      -119.025879,
+      37.805444
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

@@ -1,0 +1,198 @@
+{
+  "slug": "snowbird",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1023308078 (Snowbird). Every named run and lift checked on 2026-11-04 against the resort's 2026-27 winter trail map (snowbird.com/the-mountain/maps/winter-trail-map, TrailMap_1920x2318_2627.jpg, read at twice its size tile by tile: easiest, intermediate, advanced as a single diamond, expert as two) and its lift and trail report (the data behind snowbird.com/the-mountain/mountain-report/lift-trail-report: 14 lifts and 175 winter alpine trails rated easiest, more difficult, most difficult or extreme). 157 named OSM runs already carry the resort's rating. Where the map and the report agree against OSM the printed map wins: Lazy Susan and Tiny Tiger (blue on both, black in OSM), Rothman Way (blue on both, green in OSM, and its OSM route relation says blue too), Upper Mach Schnell (two diamonds on both, a single black in OSM), the short lower way of W. 2nd S. On-Ramp (blue on both). Where the resort's own sources disagree the harder of theirs and OSM's stays (lead's decision 2026-10-22): The Fin is extreme on the report and a single diamond on the map, so it becomes expert; Hot Lips Gully is black on the report and blue on the map, so it becomes advanced. One spelling from the map and the report (Alimony Chutes; OSM has Almony). Names that differ from the resort only by a space, a hyphen, an abbreviation or an alias stay as OSM has them (Who Dunnit as the map prints it, Fields Cut-Off, Condo & Bypass Rd. Parking Access, Chip's Run for the map's Chip's Run / Phone 3 Road, West 2nd Short and West 2nd South Long for the report's W. 2nd Short and W. 2nd Long, Mid-Gad Lift and Chickadee Lift as the map prints them, the two White Diamonds ways rated as the report's Upper and Lower). Chickadee is novice in OSM and easiest on the map (both draw green). The resort has no terrain park on its map or report. Lifts: all 14 of the report's are in OSM (the Aerial Tram, 11 chairs, the Peruvian Tunnel and the Baby Thunder family area's covered conveyor Thunder Tube, drawn as a conveyor on the map; Conveyor #3, a 32 m carpet beside it, stays); the Snowbird Coaster and four unnamed zip lines are dropped by the pipeline's kind rule. Pipeline Couloir (OSM extreme, backcountry, 86% inside the polygon below the American Fork Twin Peaks, where the map names Pipeline Bowl inside the boundary) and the patrolled backcountry chutes of the Cirque and Mineral Basin stay in bounds by the half rule. The pipeline prints a way's piste:name before its name, and the piste route relations fill their member ways (Creek Road and Who Dunnit from their relations), so the map prints the resort's run names where OSM mapped a summer road under a winter run: Chip's Access, Chip's Bypass, Upper Chip's Run, Phone 3 Road, Fluffy Bunny, Upper Big Emma, West 2nd South, Path to Paradise, Bookends Traverse, High Baldy Traverse and Regulator Johnson come from piste:name tags on ways named Peruvian Gulch Road, Gad Valley Road, Sunday Saddle Road, Mount Baldy Trail and Big Mountain Trail. Four name fixes follow the printed map and the OSM route relations: Tower 3 (the way's piste:name Tower is cut short), Bass Highway on the three ways whose piste:name says Dick Bass Highway (the map's BASS HIGHWAY, the report's Bass Highway, the relation's piste:name), Road to Provo on the three member ways of relation/13153166, which carry only the summer road names (the 72 m Peruvian Gulch Road piece also takes the run's black diamond, as the map and the relation rate it), and Who Dunnit on the two Blackjack Road track pieces that relation/13134210 makes part of that run. OSM gaps (shipped as at Palisades Tahoe): Chickadee Chutes, Lower Tiger Tail, Mozzarella Bowl, Old Hollywood, Old Same Place and Roger's Run are on the map and the report but not in OSM; Gad Gully is in OSM as way/261414383 with piste:type=yes (and spelled Gulley), which the pipeline leaves out, so it is missing until OSM tags it downhill; the top 228 m of Condo & Bypass Rd. Parking Access (the Blackjack Road track, way/977024755) lies inside Alta's polygon and goes to Alta, where it is hidden; Lautrenoe (two OSM ways) is on neither the map nor the report. NEIGHBOURS: Alta, Brighton and Solitude are listed in resorts.json; Westward Ho, which the map labels Westward Ho (from Alta), lies in Alta's polygon and goes with Alta; Suicide Chute, a backcountry line on Mount Superior north of the road in no polygon, stays as out of bounds, as in Brighton's and Park City Mountain's files.",
+  "overrides": [
+    {
+      "id": "way/557341961",
+      "reason": "The Fin is extreme (two diamonds) on Snowbird's lift and trail report and a single black diamond on its 2026-27 trail map; the resort's sources disagree, so the harder of theirs and OSM's stays (lead's decision 2026-10-22). OSM rates it advanced.",
+      "expect": {
+        "name": "The Fin",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/266494883",
+      "reason": "Upper Mach Schnell is two diamonds (expert) on Snowbird's 2026-27 trail map and extreme on its lift and trail report; OSM rates it advanced.",
+      "expect": {
+        "name": "Upper Mach Schnell",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/261414388",
+      "reason": "Lazy Susan is blue (intermediate) on Snowbird's 2026-27 trail map (the Baby Thunder family area) and more difficult on its lift and trail report; OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Lazy Susan",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/261414395",
+      "reason": "Tiny Tiger is blue (intermediate) on Snowbird's 2026-27 trail map (the Baby Thunder family area) and more difficult on its lift and trail report; OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Tiny Tiger",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/445128732",
+      "reason": "Rothman Way is blue (intermediate, one of the easier ways down from Hidden Peak) on Snowbird's 2026-27 trail map and more difficult on its lift and trail report, and its own OSM route relation (relation/13134213) rates it intermediate; the way is tagged easy. The printed map wins.",
+      "expect": {
+        "name": "Rothman Way",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/557342004",
+      "reason": "Hot Lips Gully is most difficult (black) on Snowbird's lift and trail report and printed in blue on its 2026-27 trail map beside Chip's Bypass; the resort's sources disagree, so the harder of theirs and OSM's stays (lead's decision 2026-10-22). OSM rates it intermediate.",
+      "expect": {
+        "name": "Hot Lips Gully",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/557342081",
+      "reason": "The 52 m lower way of West 2nd South On-Ramp is tagged easy; the run (W. 2nd S. On-Ramp) is blue on Snowbird's 2026-27 trail map and more difficult on its lift and trail report, as OSM rates its longer way (way/261414397).",
+      "expect": {
+        "name": "West 2nd South On-Ramp",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/776844959",
+      "reason": "Misspelling: the resort's 2026-27 trail map and lift and trail report spell the Mineral Basin chutes Alimony Chutes; OSM has Almony Chutes.",
+      "expect": {
+        "name": "Almony Chutes",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Alimony Chutes"
+      }
+    },
+    {
+      "id": "way/1037396998",
+      "reason": "The way's piste:name, which the map prints before its name, is cut short (Tower); its name tag, Snowbird's 2026-27 trail map and its lift and trail report all say Tower 3.",
+      "expect": {
+        "name": "Tower 3",
+        "piste:name": "Tower",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Tower 3"
+      }
+    },
+    {
+      "id": "way/261414381",
+      "reason": "The way's piste:name, Dick Bass Highway, is printed before its name, Bass Highway; Snowbird's 2026-27 trail map prints Bass Highway (green), its lift and trail report lists Bass Highway (easiest) and the OSM route relation/13134212 names the run Bass Highway. The printed map wins.",
+      "expect": {
+        "name": "Bass Highway",
+        "piste:name": "Dick Bass Highway",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Bass Highway"
+      }
+    },
+    {
+      "id": "way/1091698459",
+      "reason": "As way/261414381: this 239 m piece of the Gad Valley summer road carries the piste:name Dick Bass Highway; Snowbird's 2026-27 trail map and report call the run Bass Highway.",
+      "expect": {
+        "name": "Gad Valley Road",
+        "piste:name": "Dick Bass Highway",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Bass Highway"
+      }
+    },
+    {
+      "id": "way/1546418560",
+      "reason": "As way/261414381: the 109 m lower piece named Dick Bass Highway in OSM; Snowbird's 2026-27 trail map and report call the run Bass Highway.",
+      "expect": {
+        "name": "Dick Bass Highway",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Bass Highway"
+      }
+    },
+    {
+      "id": "way/976137514",
+      "reason": "Road to Provo, a black diamond on Snowbird's 2026-27 trail map (under Little Cloud, above Rasta Chutes) and most difficult on its report, exists in OSM as the route relation/13153166 (advanced) whose member ways keep their summer names: this 679 m track is Mark Malu Trail. The relation gives it the run's type and rating; the map's name is set.",
+      "expect": {
+        "name": "Mark Malu Trail",
+        "highway": "track"
+      },
+      "set": {
+        "name": "Road to Provo"
+      }
+    },
+    {
+      "id": "way/978281034",
+      "reason": "As way/976137514: the 173 m member of the Road to Provo route relation named Sunday Saddle Road in OSM (the way carries no rating of its own; the relation gives it advanced before the overrides are checked).",
+      "expect": {
+        "name": "Sunday Saddle Road",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "name": "Road to Provo"
+      }
+    },
+    {
+      "id": "way/978281033",
+      "reason": "As way/976137514: the 72 m top member of the Road to Provo route relation, named Peruvian Gulch Road and rated intermediate in OSM as the summer road; the run is a black diamond on Snowbird's 2026-27 trail map and most difficult on its report, as the relation rates it, so the printed map's name and rating are set.",
+      "expect": {
+        "name": "Peruvian Gulch Road",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Road to Provo",
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/977024756",
+      "reason": "A 310 m piece of the summer track Blackjack Road that the OSM route relation/13134210 makes part of Who Dunnit (intermediate), the long blue traverse from the Alta side down to the Cliff Lodge on Snowbird's 2026-27 trail map (Whodunnit on its report); the relation gives it the run's type and rating, the map's name is set.",
+      "expect": {
+        "name": "Blackjack Road",
+        "highway": "track"
+      },
+      "set": {
+        "name": "Who Dunnit"
+      }
+    },
+    {
+      "id": "way/295816653",
+      "reason": "As way/977024756: the 512 m piece of the Blackjack Road track that relation/13134210 makes part of Who Dunnit; the map's name is set.",
+      "expect": {
+        "name": "Blackjack Road",
+        "highway": "track"
+      },
+      "set": {
+        "name": "Who Dunnit"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "june-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/14100275 (June Mountain, a multipolygon whose ten outer ways close one ring); no other landuse=winter_sports polygon lies in the Overpass window (Mammoth Mountain is 12 km south, outside it), so there are no neighbours and nothing of another venue to hide. Every named run and lift checked on 2026-11-04 against the resort's 2025-26 trail map (junemountain.com, 25-26_jmsa_trailmap_17x12_web.pdf, the map page rendered at 8,000 px and read tile by tile) and its mountain stats (the trail-map page: 6 lifts, 2 quads, 4 doubles and 1 carpet; 43 named trails; Silverado the longest run). The map's seven lifts (J1, J2, J3, J4, J6, J7 and the Public Carpet by the chalet) are all in OpenStreetMap and all stay: the map, its hours table (Chair J1 8AM-4:30PM, open daily through April 12, 2026) and its text ('the must-ride chair from the parking lot to June Meadows Chalet') carry J1 for 2025-26, so the note that J1 was retired is not borne out by the resort's own material and nothing is hidden. Three ratings follow the printed map (Silverado and Rainbow Ridge blue squares, Sunset a single black diamond); the other 29 named runs already carry the map's rating. One spelling is fixed (Matterhorn Cutoff, which the map leaves unrated, so OSM's black stays), and two park names follow the map (Surprise Fun Zone for OSM's Surprise Fun Park, and Bucky's Playground for OSM's Mambo Playground, the park drawn east of J2 in its middle section where the map puts Bucky's Playground; the resort's mascot is Bucky). Both parks are snow_park in OSM, so they need no park flag. OSM gaps, shipped as at Palisades Tahoe: Spike Camp Trail, Comstock and Bunker Hill (blue), Danny's and Bowling Alley (green), Wall, Gull Ridge and Slalom (black), IQ (double black) and Surprise Cutoff (unrated on the map), and the Haunted Forest Adventure Zone (J6 and J4) and Enchanted Forest Adventure Zone (J2) parks are not in OpenStreetMap; an unnamed black connector near the summit (way/1056786437, 240 m, Sunrise to Schatzi) is in OSM and not on the map, and stays unnamed.",
+  "overrides": [
+    {
+      "id": "way/330816198",
+      "reason": "Silverado, the long run from Rainbow Summit, is a blue square on the resort's 2025-26 trail map; OSM rates it easy.",
+      "expect": { "name": "Silverado", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/330816193",
+      "reason": "Rainbow Ridge is a blue square on the resort's 2025-26 trail map; OSM rates it easy.",
+      "expect": { "name": "Rainbow Ridge", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/330816200",
+      "reason": "Sunset, from June Mountain Summit, is a single black diamond on the resort's 2025-26 trail map (its lower way, way/1056786462, is already advanced in OSM); OSM rates this upper way expert.",
+      "expect": { "name": "Sunset", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/330816181",
+      "reason": "Matterhorn Cutoff is misspelt 'Matternhorn Cutoff' in OSM; the resort's 2025-26 trail map names it MATTERHORN CUTOFF (unrated there, so OSM's black stays).",
+      "expect": { "name": "Matternhorn Cutoff", "piste:difficulty": "advanced" },
+      "set": { "name": "Matterhorn Cutoff" }
+    },
+    {
+      "id": "way/330857237",
+      "reason": "The terrain park beside J2 is the Surprise Fun Zone on the resort's 2025-26 trail map (on the map and in its park list, 'Surprise Fun Zone [J2]'); OSM names it Surprise Fun Park. Already a snow_park in OSM, so it draws as a park without a flag.",
+      "expect": { "name": "Surprise Fun Park", "piste:type": "snow_park" },
+      "set": { "name": "Surprise Fun Zone" }
+    },
+    {
+      "id": "way/563704698",
+      "reason": "The upper way of the same park: Surprise Fun Zone on the resort's 2025-26 trail map, Surprise Fun Park in OSM.",
+      "expect": { "name": "Surprise Fun Park", "piste:type": "snow_park" },
+      "set": { "name": "Surprise Fun Zone" }
+    },
+    {
+      "id": "way/330857234",
+      "reason": "The park east of J2 in its middle section, between Desperado and Chalet, is Bucky's Playground on the resort's 2025-26 trail map (orange oval; 'Bucky's Playground [J2]' in its park list; Bucky is the resort's mascot); OSM's Mambo Playground, the only park drawn there, is a stale name. Already a snow_park in OSM.",
+      "expect": { "name": "Mambo Playground", "piste:type": "snow_park" },
+      "set": { "name": "Bucky's Playground" }
+    }
+  ]
+}

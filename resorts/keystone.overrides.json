@@ -1,0 +1,102 @@
+{
+  "slug": "keystone",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/531000583 (Keystone): Dercum Mountain, North Peak, The Outback and Bergman Bowl on one ticket. Every named run and lift checked on 2026-11-04 against the resort's 2026-27 winter trail map (keystoneresort.com, 20261020_KY_winter-trail_map_001.pdf, rendered at four times its size and read tile by tile; its labels are vector outlines with no text layer). Keystone's legend has four grades, Easiest, More Difficult, Most Difficult (one diamond) and Extreme Terrain (two diamonds with an E), and OSM's easy, intermediate, advanced and extreme match them run for run except three: River Run and Dercum's Dash (green from the River Run gondola base on the map, blue in OSM) and Modest Girl (blue on the map, green in OSM). The resort's lift and terrain status page loads its list by script and gives no second source, so the printed map wins. Parks: the map draws the A51 terrain park's five lanes as freestyle terrain, Easy Street, The Alley, Park Lane, Main Street and I-70 Cross Course (OSM: I-70), which get the park flag; Deacon Seat (the night park) is not in OSM. Names from the map: Lower Go Devil (OSM Go Devil Lower), Silverheels (one word), South Bowl, Bullet Glades and Wombat Chutes (OSM lower case), Packsaddle (OSM packsadle); the mapper's descriptor to lower go devil on the connector into Lower Go Devil is unnamed on the map and loses its name. Names that differ only by a hyphen, an apostrophe or an article stay as OSM has them (Crosscut, Torrey's, The Glades), as do sampler and peru glades, two lower-case lines the map does not print. Hidden: the Tubing Hill carpet at the Dercum Mountain summit, a tubing lift and not a ski lift (as Winter Park's tubing carpet, 2026-10-22). Hidden Chute (way/1322894583), an extreme backcountry line inside the polygon below The Windows, stays in bounds by the half rule though the map does not print it. NEIGHBOURS: Arapahoe Basin is listed in resorts.json; its polygon reaches into the box's east edge and its East Wall and Steep Gullies lines, tagged backcountry, lie in its polygon and go with it. OSM gaps (shipped as at Palisades Tahoe): The Windows, Independence Bowl, Bergman Bowl, Erickson Bowl, North Bowl and The Black Forest as named runs (the bowls are mapped by their lines, Liberty to Two If By Sea, Eagle's Nest to Tenderfoot Glades), Deacon Seat, and the kids' zones Ripperoo's Forest, Ripperoo's Glade, Lost Mine, Murphy's Mine and Tornado Alley.",
+  "overrides": [
+    {
+      "id": "way/185322957",
+      "reason": "River Run is green (Easiest) on Keystone's 2026-27 trail map, the beginner run beside the River Run Gondola base; OSM rates it intermediate.",
+      "expect": { "name": "River Run", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "easy" }
+    },
+    {
+      "id": "way/185326819",
+      "reason": "Dercum's Dash is green (Easiest) on Keystone's 2026-27 trail map, between River Run and Ina's Way at the gondola base; OSM rates it intermediate.",
+      "expect": { "name": "Dercum's Dash", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "easy" }
+    },
+    {
+      "id": "way/185322955",
+      "reason": "Modest Girl is blue (More Difficult) on Keystone's 2026-27 trail map, beside Orfint Boy under the Montezuma Express; OSM rates it easy.",
+      "expect": { "name": "Modest Girl", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/185333457",
+      "reason": "Easy Street is a lane of the A51 terrain park, drawn as freestyle terrain (orange) on the map; OSM has no park tag.",
+      "expect": { "name": "Easy Street", "piste:difficulty": "easy" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/185333459",
+      "reason": "The Alley is a lane of the A51 terrain park, drawn as freestyle terrain on the map; OSM has no park tag.",
+      "expect": { "name": "The Alley", "piste:difficulty": "easy" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/889064120",
+      "reason": "Park Lane is a lane of the A51 terrain park, drawn as freestyle terrain on the map; OSM has no park tag.",
+      "expect": { "name": "Park Lane", "piste:difficulty": "advanced" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/889064119",
+      "reason": "Main Street is a lane of the A51 terrain park, drawn as freestyle terrain on the map; OSM has no park tag.",
+      "expect": { "name": "Main Street", "piste:difficulty": "advanced" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/889064121",
+      "reason": "I-70 Cross Course is the A51 terrain park's cross course, drawn as freestyle terrain on the map and labelled with its full name; OSM has I-70 and no park tag.",
+      "expect": { "name": "I-70", "piste:difficulty": "easy" },
+      "set": { "name": "I-70 Cross Course", "park": true }
+    },
+    {
+      "id": "way/185132629",
+      "reason": "The map labels the run below Go Devil Lower Go Devil; OSM has the words the other way round.",
+      "expect": { "name": "Go Devil Lower", "piste:difficulty": "advanced" },
+      "set": { "name": "Lower Go Devil" }
+    },
+    {
+      "id": "way/1213732410",
+      "reason": "The map labels the Outback run Silverheels, one word; OSM has Silver Heels.",
+      "expect": { "name": "Silver Heels", "piste:difficulty": "advanced" },
+      "set": { "name": "Silverheels" }
+    },
+    {
+      "id": "way/1368169324",
+      "reason": "Capitals from the map (South Bowl, The Outback); OSM has bowl in lower case.",
+      "expect": { "name": "South bowl", "piste:difficulty": "advanced" },
+      "set": { "name": "South Bowl" }
+    },
+    {
+      "id": "way/1383601247",
+      "reason": "Capitals from the map (Bullet Glades, North Peak); OSM has the name in lower case.",
+      "expect": { "name": "bullet glades", "piste:difficulty": "advanced" },
+      "set": { "name": "Bullet Glades" }
+    },
+    {
+      "id": "way/1515400105",
+      "reason": "Capitals from the map (Wombat Chutes, South Bowl), as OSM's other Wombat Chutes way (way/1125539513) has them; this one is in lower case.",
+      "expect": { "name": "wombat chutes", "piste:difficulty": "advanced" },
+      "set": { "name": "Wombat Chutes" }
+    },
+    {
+      "id": "way/1538446016",
+      "reason": "Misspelling: the map spells the bowl Packsaddle (Packsaddle Bowl, under the Peru Express); OSM has packsadle line in lower case for this mogul line beside it, which the map does not name on its own.",
+      "expect": { "name": "packsadle line", "piste:difficulty": "advanced" },
+      "set": { "name": "Packsaddle Line" }
+    },
+    {
+      "id": "way/1538446015",
+      "reason": "A mapper's descriptor, not a run name: the 545 m black connector from Go Devil into Lower Go Devil, which the map draws without a label.",
+      "expect": { "name": "to lower go devil", "piste:difficulty": "advanced" },
+      "set": { "name": null }
+    },
+    {
+      "id": "way/258685915",
+      "reason": "Tubing Hill: the conveyor of the snow-tubing hill at the Dercum Mountain summit, a tubing lift and not a ski lift (the map marks it only as the tubing hill); hidden as Winter Park's tubing carpet was (2026-10-22).",
+      "expect": { "name": "Tubing Hill", "aerialway": "magic_carpet" },
+      "hide": true
+    }
+  ]
+}

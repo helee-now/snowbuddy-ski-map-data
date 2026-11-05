@@ -1,0 +1,73 @@
+{
+  "key": "breckenridge-v1",
+  "ski_sha256": "31d09c98c5c2004e0af42963e4556fca16c0e84b2fd860e41aff317c508cbd3d",
+  "osm_timestamp": "2026-11-04T17:06:45Z",
+  "box": [
+    -106.14,
+    39.43,
+    -106.02,
+    39.52
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -106.114776,
+    39.449255,
+    -106.047133,
+    39.500485
+  ],
+  "margins_km": {
+    "west": 2.17,
+    "south": 2.14,
+    "east": 2.33,
+    "north": 2.17
+  },
+  "counts": {
+    "lifts": 35,
+    "runs_in_bounds": 249,
+    "run_areas_in_bounds": 19,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 72,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 33.9,
+    "runs_in_bounds": 139.8,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -106.171875,
+      39.368279,
+      -105.996094,
+      39.639538
+    ],
+    "12": [
+      -106.171875,
+      39.368279,
+      -105.996094,
+      39.571822
+    ],
+    "13": [
+      -106.171875,
+      39.402244,
+      -105.996094,
+      39.53794
+    ],
+    "14": [
+      -106.149902,
+      39.419221,
+      -106.018066,
+      39.520992
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

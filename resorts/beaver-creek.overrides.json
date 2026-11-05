@@ -1,0 +1,183 @@
+{
+  "slug": "beaver-creek",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/531009608 (Beaver Creek): Beaver Creek Mountain, Grouse Mountain, Larkspur and McCoy Park, Bachelor Gulch and Arrowhead on one map, as the resort prints them; no other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-04 against the resort's 2025-26 winter trail map (beavercreek.com, VistaMap, read at one and three quarters to four times its size tile by tile: easiest, more difficult, most difficult as one or two black diamonds, EX extreme terrain, dotted homeowner skiways). The resort's terrain status page loads by script and gave nothing to read, so the printed map is the only source. Of the 162 named OSM runs, every one the map labels already carries its rating but two, each in one piece rated one step easier in OSM than the map's double diamond, which becomes expert: the top 272 m of Goshawk-Upper (UPPER GOSHAWK) and the bottom 301 m of Peregrine. Ratings that change along a run follow the map's symbols, as OSM has them: Centennial green above and a single black below; Latigo green above and blue below; Gold Dust blue with a green bottom; Harrier blue above and black below; Wapiti blue above and black below the Piece O'Cake crossing (the map draws its last stretch blue again; OSM's Wapiti-Lower is advanced throughout, and the harder stays); President Ford's black down to the Intertwine catwalk and blue below it; West Fall Road blue from Spruce Saddle and black below; Primrose blue from the top of the Larkspur chair and green below. The Upper and Lower Stone Creek Chutes are EX on the map; OSM's expert stays, as at Winter Park (the style draws expert and extreme alike), and the gladed area around them (way/1559823260) and the lime-green Stone Creek Return egress, which the map draws without a rating, stay expert. Names from the map: Upper Stone Creek Chutes and Lower Stone Creek Chutes (OSM cut short to Upper and Lower Stone Creek), Kestrel (OSM Kestral), Barrel Stave (OSM Barrell Stave), 4 Get About It (OSM Forget About It), Ridge Rider (OSM Ridge Runner, three ways), Anderson Alley (OSM Anderson Skiway), Rhubarb Skiway (OSM Rihubarb Skiway), Leav the Beav (OSM Leave the Beav, three ways) and the McCoy Park Express Lift (OSM Mccoy). Names that differ from the map only by a space, an apostrophe, a hyphen or a suffix stay as OSM has them (Golden Eagle-Upper for UPPER GOLDEN EAGLE and the other Upper, Middle and Lower pieces, Gunders, Settlers Way for SETTLER'S WAY, McCoy's Skiway for the second McCOY SKIWAY, Centennial (Willy's Face), the lifts' Express Lift suffixes). The map's terrain parks (Zoom Room, Park 101 and Lumber Yard) are not in OSM, so nothing gets the park flag; Red Buffalo Park, Haymeadow Park and McCoy Park are learning areas and McCoy Park's nordic trails, which the pipeline leaves out. Lifts: all 19 of the map's (1, 2, 4 to 12, 14 to 20) are in OSM, with six unnamed carpets at the Beaver Creek village, Haymeadow and Bachelor Gulch learning areas. Saddleridge Way and Charter Skiway, homeowner skiways the map draws as dotted green lines, lie mostly outside the polygon and stay in bounds, as they carry no backcountry tag. OSM gaps (shipped as at Palisades Tahoe): Gallagher Glade (Arrowhead, blue glade), the three terrain parks and the kids' adventure zones (Tombstone Territory, Ripperoo's Retreat, Bear Cave, Gold Mine, Big Bark, Little Bark) are on the map but not in OSM. NEIGHBOURS: none (Vail, whose polygon begins 8 km east of Beaver Creek's, lies outside the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/328764738",
+      "reason": "The top of Goshawk-Upper: UPPER GOSHAWK is a double black diamond on Beaver Creek's 2025-26 trail map, as OSM rates the two ways below it; OSM rates this 272 m piece above the Goshawk Connector advanced. The printed map wins.",
+      "expect": {
+        "name": "Goshawk-Upper",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1560057119",
+      "reason": "The bottom 301 m of Peregrine, below its meeting with Lower Goshawk and Kestrel: PEREGRINE is a double black diamond on Beaver Creek's 2025-26 trail map, as OSM rates the 1,083 m above; OSM rates this piece advanced. The printed map wins.",
+      "expect": {
+        "name": "Peregrine",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1125557056",
+      "reason": "Beaver Creek's 2025-26 trail map names this gladed chute UPPER STONE CREEK CHUTES (EX, extreme terrain); OSM cuts the name short to Upper Stone Creek. OSM's expert stays (the style draws expert and extreme alike).",
+      "expect": {
+        "name": "Upper Stone Creek",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Upper Stone Creek Chutes"
+      }
+    },
+    {
+      "id": "way/1125557057",
+      "reason": "Beaver Creek's 2025-26 trail map names this gladed chute LOWER STONE CREEK CHUTES (EX, extreme terrain); OSM cuts the name short to Lower Stone Creek. OSM's expert stays (the style draws expert and extreme alike).",
+      "expect": {
+        "name": "Lower Stone Creek",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Lower Stone Creek Chutes"
+      }
+    },
+    {
+      "id": "way/779439404",
+      "reason": "Misspelling: Beaver Creek's 2025-26 trail map labels this Birds of Prey run KESTREL (single black diamond, as OSM rates it); OSM spells it Kestral.",
+      "expect": {
+        "name": "Kestral",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Kestrel"
+      }
+    },
+    {
+      "id": "way/779439398",
+      "reason": "Misspelling: Beaver Creek's 2025-26 trail map labels this run BARREL STAVE (blue, as OSM rates it); OSM spells it Barrell Stave.",
+      "expect": {
+        "name": "Barrell Stave",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Barrel Stave"
+      }
+    },
+    {
+      "id": "way/328701284",
+      "reason": "Beaver Creek's 2025-26 trail map names this double-black glade 4 GET ABOUT IT; OSM spells the name out as Forget About It. Expert, as OSM rates it.",
+      "expect": {
+        "name": "Forget About It",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "4 Get About It"
+      }
+    },
+    {
+      "id": "way/779439392",
+      "reason": "Beaver Creek's 2025-26 trail map labels this blue skiway at Bachelor Gulch RIDGE RIDER; OSM names its three ways Ridge Runner.",
+      "expect": {
+        "name": "Ridge Runner",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Ridge Rider"
+      }
+    },
+    {
+      "id": "way/1324577892",
+      "reason": "As way/779439392: RIDGE RIDER on Beaver Creek's 2025-26 trail map (OSM Ridge Runner).",
+      "expect": {
+        "name": "Ridge Runner",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Ridge Rider"
+      }
+    },
+    {
+      "id": "way/1324577899",
+      "reason": "As way/779439392: RIDGE RIDER on Beaver Creek's 2025-26 trail map (OSM Ridge Runner).",
+      "expect": {
+        "name": "Ridge Runner",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Ridge Rider"
+      }
+    },
+    {
+      "id": "way/779439395",
+      "reason": "Beaver Creek's 2025-26 trail map labels this green homeowner skiway below the Bachelor Gulch base ANDERSON ALLEY; OSM names it Anderson Skiway.",
+      "expect": {
+        "name": "Anderson Skiway",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Anderson Alley"
+      }
+    },
+    {
+      "id": "way/445633894",
+      "reason": "Misspelling: Beaver Creek's 2025-26 trail map labels this green skiway at Bachelor Gulch RHUBARB SKIWAY; OSM spells it Rihubarb Skiway.",
+      "expect": {
+        "name": "Rihubarb Skiway",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Rhubarb Skiway"
+      }
+    },
+    {
+      "id": "way/445633892",
+      "reason": "Beaver Creek's 2025-26 trail map labels the green skiway from Bachelor Gulch to the parking lots LEAV THE BEAV, twice; OSM spells its three ways Leave the Beav.",
+      "expect": {
+        "name": "Leave the Beav",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Leav the Beav"
+      }
+    },
+    {
+      "id": "way/1307789374",
+      "reason": "As way/445633892: LEAV THE BEAV on Beaver Creek's 2025-26 trail map (OSM Leave the Beav).",
+      "expect": {
+        "name": "Leave the Beav",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Leav the Beav"
+      }
+    },
+    {
+      "id": "way/1307789375",
+      "reason": "As way/445633892: LEAV THE BEAV on Beaver Creek's 2025-26 trail map (OSM Leave the Beav).",
+      "expect": {
+        "name": "Leave the Beav",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Leav the Beav"
+      }
+    },
+    {
+      "id": "way/842879768",
+      "reason": "Lift 19: the McCoy Park Express Lift on Beaver Creek's 2025-26 trail map; OSM writes Mccoy.",
+      "expect": {
+        "name": "Mccoy Park Express Lift",
+        "aerialway": "chair_lift",
+        "ref": "19"
+      },
+      "set": {
+        "name": "McCoy Park Express Lift"
+      }
+    }
+  ]
+}

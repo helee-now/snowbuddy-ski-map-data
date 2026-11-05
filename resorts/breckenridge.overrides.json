@@ -1,0 +1,324 @@
+{
+  "slug": "breckenridge",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/531005985 (Breckenridge), Peaks 6 to 10 on one ticket. Every named run and lift checked on 2026-11-04 against the resort's 2026-27 winter trail map (breckenridge.com, 20261103_BR_winter-trail_map_001.pdf, rendered at four times its size and read tile by tile: Easiest, More Difficult, Difficult as a single diamond, Most Difficult as two, Extreme Terrain as two with an E; its lift-stats table lists 20 named lifts plus the learning areas' surface lifts, its TERRAIN PARKS box Eldorado, American and Freeway) and its text layer for the spellings; the resort's lift and terrain status page loads its list by script and gives no second source, so the printed map is the only one and wins. OSM's advanced, expert and extreme are the map's single diamond, double diamond and E; 230 of the 234 named runs already carry the map's rating. Four ratings follow the map: Southern Cross (one diamond on the map, expert in OSM), the top 143 m of Duke's Run (a single blue run on the map, black in OSM), the top 389 m of Springmeier (green from its start below Vista Haus; blue in OSM) and the bottom 143 m of Columbia (blue to the base; green in OSM). Parks: the map's three are Eldorado (a snow park in OSM already), Freeway (Peak 8) and American (the middle section of American beside the Beaver Run SuperChair, which the map draws orange and labels American Terrain Park), which get the park flag and the map's names; Park Lane and Gold Run, which the website calls terrain parks, are not in the map's list and stay plain. Lift names from the lift-stats table: Quicksilver SuperChair, Freedom SuperChair, Peak 8 SuperConnect (one lift with a mid-load station, mapped as two ways named Lower and Upper), Eldorado Platter & Carpet. Run names from the map: Pat's Wonderland (OSM wonderland), Sublime (OSM subline), South Col, Lake Chutes, Y-Chute, C.J.'s, C.J.'s Cabin, Quandary (the way's piste:name Quandry is printed first), Powerline, A Chair Line, Barton Breezeway, Forget-Me-Not, Brill's Thrill, Eagle's Nest, Duke's Run on its lower way, and the capitals of the Peak 6, Peak 7 and Horseshoe Bowl chutes OSM has in lower case (Sanctuary to Chi, Vertigo, Magic Carpet, Breathless, King to Lulu). Names that differ from the map only by an apostrophe or a space stay as OSM has them (Toms Baby, Devils Crotch, Needles Eye, Angels Rest, Rounder's), as do the accents of Déjà Vu and lower-case names the map does not print at all (awakening, foresight, liberation and unbound in Beyond Bowl; crazy Ivan 1 and 2, zero chute, dwarves and vertical cornice in the Lake Chutes; cucumber #1 and #2 in Cucumber Bowl). Hidden: nothing; Copper Mountain's lifts and runs in the Overpass window go by the neighbour rule (resorts.json). The runs tagged backcountry in OSM (the Peak 6 and 7 bowls, the Lake Chutes, Horseshoe Bowl, Whiskey River, Windows, The Back 9) lie inside the polygon and stay in bounds, as the map draws them inside the boundary. OSM gaps (shipped as at Palisades Tahoe): North Bowl and Contest Bowl (Peak 7 and 8), Humbug (Horseshoe Bowl), the kids' zones Dragon Trail, Porcupine Alley, Ripperoo's Forest and Lost Cabin; Cucumber Bowl is mapped as its two chutes.",
+  "overrides": [
+    {
+      "id": "way/128932120",
+      "reason": "Southern Cross is a single black diamond (Difficult) on Breckenridge's 2026-27 trail map, below the E-Chair top; OSM rates it expert.",
+      "expect": { "name": "Southern Cross", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/127129650",
+      "reason": "The top 143 m of Duke's Run from beside the Rocky Mountain SuperChair top, rated advanced in OSM; the map draws Duke's Run as one blue (More Difficult) run from the lift top, as OSM rates the rest of it (way/127129647).",
+      "expect": { "name": "Duke's Run", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/127129647",
+      "reason": "A mapper's descriptor: the map prints one run, Duke's Run, from the Rocky Mountain SuperChair top down to Northstar, and this 753 m way continues OSM's Duke's Run (way/127129650); with one name the two draw as one line.",
+      "expect": { "name": "Lower Duke's Run", "piste:difficulty": "intermediate" },
+      "set": { "name": "Duke's Run" }
+    },
+    {
+      "id": "way/127129011",
+      "reason": "The top 389 m of Springmeier from the 4 O'Clock junction below Vista Haus, rated intermediate in OSM; the map draws Springmeier green (Easiest) from its start, as OSM rates its lower way (way/127129010).",
+      "expect": { "name": "Springmeier", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "easy" }
+    },
+    {
+      "id": "way/129586762",
+      "reason": "The bottom 143 m of Columbia at the Beaver Run base, rated easy in OSM; the map draws Columbia blue (More Difficult) to the base, as OSM rates its main way (way/128941954).",
+      "expect": { "name": "Columbia", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/127129007",
+      "reason": "Freeway Terrain Park, the large park of the map's TERRAIN PARKS box, drawn orange and labelled Freeway Terrain Park on Peak 8; OSM has no park tag and the name adds & Pipe.",
+      "expect": { "name": "Freeway Terrain Park & Pipe", "piste:difficulty": "intermediate" },
+      "set": { "name": "Freeway Terrain Park", "park": true }
+    },
+    {
+      "id": "way/128941978",
+      "reason": "The middle 513 m of American beside the Beaver Run SuperChair, between the black upper American and the green Lower American: the map draws it orange and labels it American Terrain Park, the medium park of its TERRAIN PARKS box; OSM has it as a plain blue run named American.",
+      "expect": { "name": "American", "piste:difficulty": "intermediate" },
+      "set": { "name": "American Terrain Park", "park": true }
+    },
+    {
+      "id": "way/23260007",
+      "reason": "Spelling from the map's lift-stats table and label: Quicksilver SuperChair; OSM capitalises QuickSilver.",
+      "expect": { "name": "QuickSilver SuperChair", "aerialway": "chair_lift" },
+      "set": { "name": "Quicksilver SuperChair" }
+    },
+    {
+      "id": "way/842876947",
+      "reason": "Spelling from the map's lift-stats table and label: Freedom SuperChair, as every other SuperChair; OSM has Superchair.",
+      "expect": { "name": "Freedom Superchair", "aerialway": "chair_lift" },
+      "set": { "name": "Freedom SuperChair" }
+    },
+    {
+      "id": "way/23259946",
+      "reason": "Peak 8 SuperConnect is one lift with a mid-load station (no unload) on the map and in its lift-stats table; OSM maps it as two ways and adds Lower to this one.",
+      "expect": { "name": "Peak 8 SuperConnect Lower", "aerialway": "chair_lift" },
+      "set": { "name": "Peak 8 SuperConnect" }
+    },
+    {
+      "id": "way/1547803505",
+      "reason": "As way/23259946: the upper way of the Peak 8 SuperConnect above its mid-load station, named Upper in OSM; the map and the lift-stats table name one lift.",
+      "expect": { "name": "Peak 8 SuperConnect Upper", "aerialway": "chair_lift" },
+      "set": { "name": "Peak 8 SuperConnect" }
+    },
+    {
+      "id": "way/1213908177",
+      "reason": "Spelling from the map, which labels the Peak 9 learning area Eldorado Platter & Carpet, as the run and the park are spelled; OSM has El Dorado.",
+      "expect": { "name": "El Dorado Platter", "aerialway": "platter" },
+      "set": { "name": "Eldorado Platter" }
+    },
+    {
+      "id": "way/1213908176",
+      "reason": "As way/1213908177: the carpet of the Eldorado Platter & Carpet learning area; OSM has El Dorado.",
+      "expect": { "name": "El Dorado Carpet", "aerialway": "magic_carpet" },
+      "set": { "name": "Eldorado Carpet" }
+    },
+    {
+      "id": "way/776343587",
+      "reason": "The map labels the Peak 7 extreme area South Col; OSM has South col. with a stop.",
+      "expect": { "name": "South col.", "piste:difficulty": "extreme" },
+      "set": { "name": "South Col" }
+    },
+    {
+      "id": "way/1389436190",
+      "reason": "The map labels the Peak 8 extreme area Lake Chutes; OSM has it in lower case.",
+      "expect": { "name": "lake chutes", "piste:difficulty": "extreme" },
+      "set": { "name": "Lake Chutes" }
+    },
+    {
+      "id": "way/1389341783",
+      "reason": "Misspelling: the map labels this Six Senses chute Sublime; OSM has subline.",
+      "expect": { "name": "subline", "piste:difficulty": "extreme" },
+      "set": { "name": "Sublime" }
+    },
+    {
+      "id": "way/1379122209",
+      "reason": "The map labels the Peak 6 double-black area Pat's Wonderland; OSM has wonderland.",
+      "expect": { "name": "wonderland", "piste:difficulty": "expert" },
+      "set": { "name": "Pat's Wonderland" }
+    },
+    {
+      "id": "way/1383599417",
+      "reason": "As way/1379122209: the line of Pat's Wonderland, named wonderland in OSM.",
+      "expect": { "name": "wonderland", "piste:difficulty": "expert" },
+      "set": { "name": "Pat's Wonderland" }
+    },
+    {
+      "id": "way/1544936874",
+      "reason": "Capitals from the map (Breathless, Peak 6); OSM has the name in lower case.",
+      "expect": { "name": "breathless", "piste:difficulty": "expert" },
+      "set": { "name": "Breathless" }
+    },
+    {
+      "id": "way/1389341787",
+      "reason": "Capitals from the map (Sanctuary, a Six Senses chute on Peak 7); OSM has the name in lower case.",
+      "expect": { "name": "sanctuary", "piste:difficulty": "extreme" },
+      "set": { "name": "Sanctuary" }
+    },
+    {
+      "id": "way/1389341786",
+      "reason": "Capitals from the map (Respite, Six Senses); OSM has the name in lower case.",
+      "expect": { "name": "respite", "piste:difficulty": "extreme" },
+      "set": { "name": "Respite" }
+    },
+    {
+      "id": "way/1389341774",
+      "reason": "Capitals from the map (Epiphany, Six Senses); OSM has the name in lower case.",
+      "expect": { "name": "epiphany", "piste:difficulty": "extreme" },
+      "set": { "name": "Epiphany" }
+    },
+    {
+      "id": "way/1389341773",
+      "reason": "Capitals from the map (E.S.P, Six Senses); OSM has the name in lower case.",
+      "expect": { "name": "e.s.p", "piste:difficulty": "extreme" },
+      "set": { "name": "E.S.P" }
+    },
+    {
+      "id": "way/1389341775",
+      "reason": "Capitals from the map (Contact, Six Senses); OSM has the name in lower case.",
+      "expect": { "name": "contact", "piste:difficulty": "extreme" },
+      "set": { "name": "Contact" }
+    },
+    {
+      "id": "way/1389341776",
+      "reason": "Capitals from the map (Savor, Six Senses); OSM has the name in lower case.",
+      "expect": { "name": "savor", "piste:difficulty": "extreme" },
+      "set": { "name": "Savor" }
+    },
+    {
+      "id": "way/1389341777",
+      "reason": "Capitals from the map (Whiff, Six Senses); OSM has the name in lower case.",
+      "expect": { "name": "whiff", "piste:difficulty": "extreme" },
+      "set": { "name": "Whiff" }
+    },
+    {
+      "id": "way/1389341778",
+      "reason": "Capitals from the map (Behold, Six Senses); OSM has the name in lower case.",
+      "expect": { "name": "behold", "piste:difficulty": "extreme" },
+      "set": { "name": "Behold" }
+    },
+    {
+      "id": "way/1389341779",
+      "reason": "Capitals from the map (Echo, Six Senses); OSM has the name in lower case.",
+      "expect": { "name": "echo", "piste:difficulty": "extreme" },
+      "set": { "name": "Echo" }
+    },
+    {
+      "id": "way/1389341780",
+      "reason": "Capitals from the map (Felicity, Six Senses); OSM has the name in lower case.",
+      "expect": { "name": "felicity", "piste:difficulty": "extreme" },
+      "set": { "name": "Felicity" }
+    },
+    {
+      "id": "way/1389341781",
+      "reason": "Capitals from the map (Rapture, Serenity Bowl); OSM has the name in lower case.",
+      "expect": { "name": "rapture", "piste:difficulty": "extreme" },
+      "set": { "name": "Rapture" }
+    },
+    {
+      "id": "way/1389341782",
+      "reason": "Capitals from the map (Yugen, Serenity Bowl); OSM has the name in lower case.",
+      "expect": { "name": "yugen", "piste:difficulty": "extreme" },
+      "set": { "name": "Yugen" }
+    },
+    {
+      "id": "way/1389341785",
+      "reason": "Capitals from the map (Chi, Serenity Bowl); OSM has the name in lower case.",
+      "expect": { "name": "chi", "piste:difficulty": "extreme" },
+      "set": { "name": "Chi" }
+    },
+    {
+      "id": "way/1389341788",
+      "reason": "Capitals from the map (Vertigo, Peak 7 Bowl); OSM has the name in lower case.",
+      "expect": { "name": "vertigo", "piste:difficulty": "expert" },
+      "set": { "name": "Vertigo" }
+    },
+    {
+      "id": "way/1389341791",
+      "reason": "The map labels the Peak 7 Bowl chute Y-Chute; OSM has y chute in lower case.",
+      "expect": { "name": "y chute", "piste:difficulty": "expert" },
+      "set": { "name": "Y-Chute" }
+    },
+    {
+      "id": "way/1389341792",
+      "reason": "As way/1389341791: the second way of Y-Chute.",
+      "expect": { "name": "y chute", "piste:difficulty": "expert" },
+      "set": { "name": "Y-Chute" }
+    },
+    {
+      "id": "way/1389341790",
+      "reason": "Capitals from the map (C.J.'s, Peak 7 Bowl); OSM has the name in lower case.",
+      "expect": { "name": "c.j.'s", "piste:difficulty": "expert" },
+      "set": { "name": "C.J.'s" }
+    },
+    {
+      "id": "way/1389341789",
+      "reason": "Capitals from the map (Magic Carpet, the Peak 7 Bowl run, not a lift); OSM has the name in lower case.",
+      "expect": { "name": "magic carpet", "piste:difficulty": "expert" },
+      "set": { "name": "Magic Carpet" }
+    },
+    {
+      "id": "way/1391285385",
+      "reason": "Capitals from the map (King, Contest Bowl); OSM has the name in lower case.",
+      "expect": { "name": "king", "piste:difficulty": "expert" },
+      "set": { "name": "King" }
+    },
+    {
+      "id": "way/1391285386",
+      "reason": "Capitals from the map (Queen, Contest Bowl); OSM has the name in lower case.",
+      "expect": { "name": "queen", "piste:difficulty": "expert" },
+      "set": { "name": "Queen" }
+    },
+    {
+      "id": "way/1391285387",
+      "reason": "Capitals from the map (Joker, Contest Bowl); OSM has the name in lower case.",
+      "expect": { "name": "joker", "piste:difficulty": "expert" },
+      "set": { "name": "Joker" }
+    },
+    {
+      "id": "way/1391285383",
+      "reason": "Capitals from the map (Stampede, Contest Bowl); OSM has the name in lower case.",
+      "expect": { "name": "stampede", "piste:difficulty": "expert" },
+      "set": { "name": "Stampede" }
+    },
+    {
+      "id": "way/1391285382",
+      "reason": "Capitals from the map (Mule, Horseshoe Bowl); OSM has the name in lower case.",
+      "expect": { "name": "mule", "piste:difficulty": "expert" },
+      "set": { "name": "Mule" }
+    },
+    {
+      "id": "way/1391285381",
+      "reason": "Capitals from the map (Rustler, Horseshoe Bowl); OSM has the name in lower case.",
+      "expect": { "name": "rustler", "piste:difficulty": "expert" },
+      "set": { "name": "Rustler" }
+    },
+    {
+      "id": "way/1391285380",
+      "reason": "Capitals from the map (Outlaw, Horseshoe Bowl); OSM has the name in lower case.",
+      "expect": { "name": "outlaw", "piste:difficulty": "expert" },
+      "set": { "name": "Outlaw" }
+    },
+    {
+      "id": "way/1391285379",
+      "reason": "Capitals from the map (Lulu, Horseshoe Bowl); OSM has the name in lower case.",
+      "expect": { "name": "lulu", "piste:difficulty": "expert" },
+      "set": { "name": "Lulu" }
+    },
+    {
+      "id": "way/1391285377",
+      "reason": "Capitals from the map (Brill's Thrill, Horseshoe Bowl); OSM has thrill in lower case.",
+      "expect": { "name": "Brill's thrill", "piste:difficulty": "expert" },
+      "set": { "name": "Brill's Thrill" }
+    },
+    {
+      "id": "way/1391285378",
+      "reason": "The map labels the Horseshoe Bowl chute Eagle's Nest; OSM has Eagles nest.",
+      "expect": { "name": "Eagles nest", "piste:difficulty": "expert" },
+      "set": { "name": "Eagle's Nest" }
+    },
+    {
+      "id": "way/469497481",
+      "reason": "The way's piste:name, which the map prints before its name, is misspelled Quandry; its name tag and the resort's map say Quandary (Peak 8).",
+      "expect": { "name": "Quandary", "piste:name": "Quandry", "piste:difficulty": "advanced" },
+      "set": { "name": "Quandary" }
+    },
+    {
+      "id": "way/127129009",
+      "reason": "Spelling from the map: Powerline (Peak 8), one word; OSM has Power line.",
+      "expect": { "name": "Power line", "piste:difficulty": "easy" },
+      "set": { "name": "Powerline" }
+    },
+    {
+      "id": "way/129586761",
+      "reason": "The map labels the green run under the A-Chair A Chair Line; OSM has A Lift Line.",
+      "expect": { "name": "A Lift Line", "piste:difficulty": "easy" },
+      "set": { "name": "A Chair Line" }
+    },
+    {
+      "id": "way/268512449",
+      "reason": "The map labels the Peak 6 run Barton Breezeway; OSM has Barton's Breezeway.",
+      "expect": { "name": "Barton's Breezeway", "piste:difficulty": "intermediate" },
+      "set": { "name": "Barton Breezeway" }
+    },
+    {
+      "id": "way/127131496",
+      "reason": "Hyphens from the map (Forget-Me-Not, Peak 7), as OSM's Lower Forget-Me-Not has them; OSM has Forget Me Not.",
+      "expect": { "name": "Forget Me Not", "piste:difficulty": "advanced" },
+      "set": { "name": "Forget-Me-Not" }
+    },
+    {
+      "id": "way/777194846",
+      "reason": "The map labels the Peak 9 kids' zone C.J.'s Cabin, with stops; OSM has CJ's Cabin. Tagged backcountry in OSM but inside the polygon, so in bounds, as the map draws it.",
+      "expect": { "name": "CJ's Cabin", "piste:difficulty": "intermediate" },
+      "set": { "name": "C.J.'s Cabin" }
+    }
+  ]
+}

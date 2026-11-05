@@ -1,0 +1,73 @@
+{
+  "key": "arapahoe-basin-v1",
+  "ski_sha256": "911468482c42696cdac3e74dec9449ec9dcbb856a5f6106cf40b5a618b289c6a",
+  "osm_timestamp": "2026-11-04T17:25:54Z",
+  "box": [
+    -105.92,
+    39.59,
+    -105.83,
+    39.67
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -105.89135,
+    39.610267,
+    -105.857422,
+    39.64562
+  ],
+  "margins_km": {
+    "west": 2.45,
+    "south": 2.25,
+    "east": 2.35,
+    "north": 2.71
+  },
+  "counts": {
+    "lifts": 9,
+    "runs_in_bounds": 162,
+    "run_areas_in_bounds": 13,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 16,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.7,
+    "runs_in_bounds": 67.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -105.996094,
+      39.504041,
+      -105.820312,
+      39.774769
+    ],
+    "12": [
+      -105.996094,
+      39.571822,
+      -105.820312,
+      39.707187
+    ],
+    "13": [
+      -105.952148,
+      39.571822,
+      -105.820312,
+      39.67337
+    ],
+    "14": [
+      -105.930176,
+      39.588757,
+      -105.820312,
+      39.67337
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

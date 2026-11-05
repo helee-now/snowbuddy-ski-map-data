@@ -1,0 +1,73 @@
+{
+  "key": "beaver-creek-v1",
+  "ski_sha256": "7e3ee1790b5019e0a3bece84b729ed1514eca5484aa33b0738c5bd19f0cdb92d",
+  "osm_timestamp": "2026-11-04T17:50:18Z",
+  "box": [
+    -106.61,
+    39.54,
+    -106.46,
+    39.66
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -106.581127,
+    39.559306,
+    -106.492481,
+    39.638602
+  ],
+  "margins_km": {
+    "west": 2.47,
+    "south": 2.15,
+    "east": 2.78,
+    "north": 2.38
+  },
+  "counts": {
+    "lifts": 24,
+    "runs_in_bounds": 298,
+    "run_areas_in_bounds": 1,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 44,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 28.8,
+    "runs_in_bounds": 176.6,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -106.699219,
+      39.504041,
+      -106.347656,
+      39.774769
+    ],
+    "12": [
+      -106.611328,
+      39.504041,
+      -106.435547,
+      39.707187
+    ],
+    "13": [
+      -106.611328,
+      39.53794,
+      -106.435547,
+      39.67337
+    ],
+    "14": [
+      -106.611328,
+      39.53794,
+      -106.45752,
+      39.67337
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

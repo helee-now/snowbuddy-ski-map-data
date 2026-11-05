@@ -1,0 +1,141 @@
+{
+  "slug": "copper-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/531005986 (Copper Mountain). Every named run and lift checked on 2026-11-04 against the resort's 2025-26 winter trail map (coppercolorado.com/the-mountain/trail-area-maps/winter-trail-map: FY26_Main Trail Map_WEB.pdf, read at 250 to 400 dpi tile by tile, with the FY26 Copper Bowl and Spaulding Bowl insets; green, blue, a single black diamond and a double diamond) and its lift hours page (24 lifts named). 169 of OSM's 175 named run ways already carry the map's rating. The printed map wins where it differs: Black Bear Glade, Free Fall Glade, Lower Enchanted Forest and Spaulding Glades are double diamonds on the map and single black in OSM; Clear Cut is green on the map and blue in OSM. Enchanted Forest, a line the map does not draw through the Enchanted Forest zones it marks double diamond, takes the zones' rating. Spellings and names from the map: Slip Not (OSM Slip Knot), Marvin Garden (the Spaulding Bowl inset; OSM Marvin Gardens), The Taco (OSM The Taco / Curecanti). Names that differ from the map only by a space or a suffix stay as OSM has them (Freefall Glade for the map's FREE FALL GLADE, Drain Pipe for the inset's DRAINPIPE, Lillie G for the main map's LILLIE G TRAVERSE, the Rug Rat carpet for the map's RUGRAT). Parks: Central Park (a Woodward terrain park on the map, an intermediate run in OSM) and the Family Cross adventure zone (drawn with the terrain-park hatching and a Woodward feature badge) get the park flag; the map's other Woodward parks (Pipe Dream, Red's Backyard, Peace Park, the Superpipe, Koko's, Miner's and the Green Acres progression parks) are not in OSM. Lifts: all 23 OSM lifts are on the map and the lift hours page; the map's Glide carpet is not in OSM; the Tubing Hill (piste:type=sled) is left out by the pipeline. Lower Enchanted Forest's 2.9 km outline, a closed way tagged natural=wood without area=yes, is hidden as Winter Park's Wildwood Glade loops are (review of 2026-10-22). OSM gaps, shipped as at Palisades Tahoe: Guthrie's Chute, Spillway, Resolution Bowl, Union Bowl, Kokomo Glade, Upper Skid Road and the Glide carpet are on the map and not in OSM; Indian Ridge, West Ridge Traverse, Upper Enchanted Forest North Gate, Loverly Lane and Lower Carefree are in OSM and not named on the map, and stay as OSM has them. NEIGHBOURS: Breckenridge is listed in resorts.json; the nordic, hike, snowshoe and skitour trails of the Copper and Frisco valleys are left out as every nordic trail is.",
+  "overrides": [
+    {
+      "id": "way/87103624",
+      "reason": "Black Bear Glade is a double diamond on Copper's 2025-26 trail map (beside Free Fall Glade under the Super Bee); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Black Bear Glade",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/87103625",
+      "reason": "Free Fall Glade (OSM: Freefall Glade) is a double diamond on Copper's 2025-26 trail map; OSM rates it advanced. The printed map wins; the spelling stays OSM's, differing only by a space.",
+      "expect": {
+        "name": "Freefall Glade",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1047147175",
+      "reason": "Lower Enchanted Forest is a double diamond on Copper's 2025-26 trail map (the glade zone below Upper Enchanted Forest, between Storm King and the Rendezvous lift); this 143 m way is rated advanced in OSM. The printed map wins.",
+      "expect": {
+        "name": "Lower Enchanted Forest",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/229188259",
+      "reason": "Lower Enchanted Forest's outline: a 2,872 m closed way tagged natural=wood and piste:type=downhill without area=yes, so the pipeline would draw the glade's outline as a run loop and rank it with the trunk runs (bold at z11-12 west of Storm King). Copper's 2025-26 trail map shows LOWER ENCHANTED FOREST as a labelled double-diamond glade zone with no run line. Hidden until OpenStreetMap tags it area=yes, as Winter Park's Wildwood Glade loops are (review of 2026-10-22); this expect then stops the build, and the entry goes.",
+      "expect": {
+        "name": "Lower Enchanted Forest",
+        "piste:type": "downhill",
+        "natural": "wood",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/191640046",
+      "reason": "Enchanted Forest, a 964 m line from the bottom of the Storm King T-bar west into the Enchanted Forest, which Copper's 2025-26 trail map marks as two double-diamond glade zones (Upper and Lower Enchanted Forest) with no run line of this name; OSM rates the line advanced. It takes the zones' rating, so a line through double-diamond trees never reads easier than the map says.",
+      "expect": {
+        "name": "Enchanted Forest",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1455280075",
+      "reason": "Spaulding Glades is a double diamond on Copper's 2025-26 trail map (the main map and the Spaulding Bowl inset); OSM rates the run area advanced. The printed map wins.",
+      "expect": {
+        "name": "Spaulding Glades",
+        "piste:difficulty": "advanced",
+        "area": "yes"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/146976138",
+      "reason": "Clear Cut is green (easiest) on Copper's 2025-26 trail map, the short link from the Timberline Express top to I-Way and Jackstraw Trees; OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Clear Cut",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/146991651",
+      "reason": "Central Park is a Woodward terrain park on Copper's 2025-26 trail map (CENTRAL PARK with the terrain-park hatching and M and L feature badges, under the Woodward Express); OSM maps it as an intermediate run. The park flag is set; the rating stays.",
+      "expect": {
+        "name": "Central Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/908580281",
+      "reason": "Family Cross is the FAMILY CROSS ADVENTURE ZONE on Copper's 2025-26 trail map, a Woodward ski-cross course drawn with the terrain-park hatching and an S feature badge beside High Point; OSM maps it as an intermediate run. The park flag is set; the rating stays.",
+      "expect": {
+        "name": "Family Cross",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/463797966",
+      "reason": "Copper's 2025-26 trail map prints the run SLIP NOT (the pun on the resort's map, between Ute Overlook and Looking Glass); OSM has Slip Knot.",
+      "expect": {
+        "name": "Slip Knot",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Slip Not"
+      }
+    },
+    {
+      "id": "way/1047147167",
+      "reason": "The Copper Bowl inset of the 2025-26 trail map names the run THE TACO (a double diamond under Tucker Mountain); OSM joins an older name to it, The Taco / Curecanti. The map's name is set.",
+      "expect": {
+        "name": "The Taco / Curecanti",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "The Taco"
+      }
+    },
+    {
+      "id": "way/87104959",
+      "reason": "The Spaulding Bowl inset of Copper's 2025-26 trail map prints MARVIN GARDEN (a double diamond between Park Place and Calendar Chute); OSM has Marvin Gardens. The printed map's spelling is set.",
+      "expect": {
+        "name": "Marvin Gardens",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Marvin Garden"
+      }
+    }
+  ]
+}

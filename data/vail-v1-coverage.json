@@ -1,0 +1,73 @@
+{
+  "key": "vail-v1",
+  "ski_sha256": "7599e11a31a63b2784fa7600cd93181c3de37b55d14c3a10831cb0b88f0aa8a2",
+  "osm_timestamp": "2026-11-04T17:25:54Z",
+  "box": [
+    -106.43,
+    39.53,
+    -106.26,
+    39.67
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -106.401691,
+    39.557402,
+    -106.292717,
+    39.643163
+  ],
+  "margins_km": {
+    "west": 2.43,
+    "south": 3.05,
+    "east": 2.8,
+    "north": 2.98
+  },
+  "counts": {
+    "lifts": 32,
+    "runs_in_bounds": 354,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 64,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 40.4,
+    "runs_in_bounds": 221.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -106.523438,
+      39.504041,
+      -106.171875,
+      39.774769
+    ],
+    "12": [
+      -106.435547,
+      39.504041,
+      -106.259766,
+      39.707187
+    ],
+    "13": [
+      -106.435547,
+      39.504041,
+      -106.259766,
+      39.67337
+    ],
+    "14": [
+      -106.435547,
+      39.520992,
+      -106.259766,
+      39.67337
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

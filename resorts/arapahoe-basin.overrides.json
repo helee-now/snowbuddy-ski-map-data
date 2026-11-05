@@ -1,0 +1,72 @@
+{
+  "slug": "arapahoe-basin",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/461239598 (Arapahoe Basin). Every named run and lift checked on 2026-11-04 against the resort's 2025-26 winter trail map (arapahoebasin.com/trail-maps: 'a basin map 2025.pdf', the Frontside and the Beavers with the Montezuma Bowl inset, read at 300 dpi tile by tile: easiest, more difficult, most difficult as a single diamond, extreme terrain as EX) and its East Wall photo key (east-wall.jpg, the chutes by name). The map's EX terrain is tagged expert or extreme in OpenStreetMap and both stay (both draw as double black, as Winter Park's EX runs do); the East Wall chutes, the Steep Gullies and the hike-back zones (Bald Spot, Crags, Land of the Giants, Lower East Wall) are tagged backcountry in OSM and stay in bounds by the half rule, as the map draws them inside the boundary. 166 of OSM's 167 named run ways already carry the map's rating; one differs: Pali Wog is EX on the map and advanced in OSM, so it becomes expert (the printed map wins). Spellings from the map: North Fork (OSM Noth Fork), West Gully (OSM West Gullly), Chisholm Trail on the two ways OSM spells Chisolm Trail, Scudder (OSM Skudder). North Pole Coulair stays: the resort's own East Wall key spells it so. Names that differ from the map only by an abbreviation, an article or a suffix stay as OSM has them (Bailey Brothers for the map's BAILEY BROS., Last Waltz for THE LAST WALTZ, the Beavers chair for BEAVERS LIFT). The map marks no terrain park (Lenawee Parks is printed as a blue run with no freestyle symbol), so no park flag is set. Lifts: all nine OSM lifts are on the map (Black Mountain Express, Lenawee Express, Pallavicini, Zuma, Beavers, Molly Hogan, the Lazy J Tow and the Pika Place and Molly's carpets). OSM gaps, shipped as at Palisades Tahoe: a 482 m piece of Chisholm Trail (way/403553568) is tagged piste:type=yes, which the pipeline leaves out, so the run is short until OSM tags it downhill; Willy's Wide, an EX run on the map, is tagged piste:type=hike in OSM and is left out with the hiking routes; Marjorie Bowl, Big Lenawee Peak, Arizona Rock and Little Lenawee Peak of the East Wall key are not in OSM. The traverses the map draws without a rating (East Wall Traverse, Mountain Goat Traverse, Grand Portage along the Steep Gullies hike-back) keep OSM's ratings. NEIGHBOURS: Loveland Basin, Loveland Valley and Keystone are listed in resorts.json; nothing of the resort's own lies outside its polygon.",
+  "overrides": [
+    {
+      "id": "way/403344885",
+      "reason": "Pali Wog is extreme terrain (EX) on Arapahoe Basin's 2025-26 trail map (the traverse out of the Pallavicini side above Christmas Trees, behind a controlled access gate); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Pali Wog",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1216124772",
+      "reason": "Misspelling: Arapahoe Basin's 2025-26 trail map prints NORTH FORK (a blue run in the Molly Hogan beginner area); OSM has Noth Fork.",
+      "expect": {
+        "name": "Noth Fork",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "North Fork"
+      }
+    },
+    {
+      "id": "way/403552829",
+      "reason": "Misspelling: Arapahoe Basin's 2025-26 trail map prints WEST GULLY (the blue run beside the Lenawee Express); OSM has West Gullly.",
+      "expect": {
+        "name": "West Gullly",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "West Gully"
+      }
+    },
+    {
+      "id": "way/1216124773",
+      "reason": "Misspelling: Arapahoe Basin's 2025-26 trail map prints CHISHOLM (the green trail from the Landing Strip down to Moose Hollow), and OSM's own third piece of it (way/403553568) is named Chisholm Trail; this way has Chisolm Trail.",
+      "expect": {
+        "name": "Chisolm Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Chisholm Trail"
+      }
+    },
+    {
+      "id": "way/1561878166",
+      "reason": "As way/1216124773: the 213 m lower piece named Chisolm Trail in OSM; the map prints CHISHOLM.",
+      "expect": {
+        "name": "Chisolm Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Chisholm Trail"
+      }
+    },
+    {
+      "id": "way/403558285",
+      "reason": "Misspelling: Arapahoe Basin's 2025-26 trail map prints SCUDDER (a black run between Black Mountain Lodge and Challenger); OSM has Skudder.",
+      "expect": {
+        "name": "Skudder",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Scudder"
+      }
+    }
+  ]
+}

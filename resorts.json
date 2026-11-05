@@ -88,6 +88,81 @@
       "coverage": "data/alta-v1-coverage.json"
     },
     {
+      "slug": "arapahoe-basin",
+      "name": "Arapahoe Basin",
+      "version": 1,
+      "key": "arapahoe-basin-v1",
+      "box": [
+        -105.92,
+        39.59,
+        -105.83,
+        39.67
+      ],
+      "ski_area": "way/461239598",
+      "neighbours": [
+        {
+          "id": "way/184326673",
+          "name": "Loveland Basin Ski Area",
+          "reason": "Loveland Ski Area's main side, a separate resort on its own ticket across Loveland Pass, 1.8 km north of Arapahoe Basin's polygon: its polygon reaches into the box's north edge, with its lifts and runs (Chet's Dream, Lifts 2, 4, 6, 8 and 9 and the Ptarmigan Lift) in the box and the Overpass margin. Over the Rainbow, 91% inside it, goes with it; the Porcupine Ridge Bootpack along the shared ridge is a hike-tagged way the pipeline leaves out anyway."
+        },
+        {
+          "id": "way/184326663",
+          "name": "Loveland Valley Ski Area",
+          "reason": "Loveland's beginner side, east of US 6 below the pass: its polygon, Lifts 3 and 7 and two carpets lie in the Overpass margin north of the box and would otherwise draw in the z10-12 edge tiles."
+        },
+        {
+          "id": "way/531000583",
+          "name": "Keystone",
+          "reason": "Separate resort on its own ticket to the west: its polygon's east side (the Outback and the Montezuma Express, with the River Run Gondola, the Summit and Peru Express and the Discovery area in the Overpass margin) reaches into the box's west edge, 1 km west of Arapahoe Basin's polygon, so its lifts and runs would otherwise draw beside A-Basin's."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "CO_Central_Western_2016",
+      "baseline_checked": "2026-11-04",
+      "osm_timestamp": "2026-11-04T17:25:54Z",
+      "overpass_box": [
+        -105.96,
+        39.57,
+        -105.79,
+        39.69
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x41y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x41y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x41y440_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x42y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x42y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x42y440_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x43y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x43y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x43y440_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w106/USGS_13_n40w106.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CO_Central_Western_2016",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -105.92,
+          39.59,
+          -105.83,
+          39.67
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 95.851,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 4.149
+      },
+      "built_at": "2026-11-04T17:34:54Z",
+      "ski_file": {
+        "path": "data/arapahoe-basin-v1-ski.pmtiles",
+        "bytes": 186656,
+        "sha256": "911468482c42696cdac3e74dec9449ec9dcbb856a5f6106cf40b5a618b289c6a"
+      },
+      "coverage": "data/arapahoe-basin-v1-coverage.json"
+    },
+    {
       "slug": "aspen-snowmass",
       "name": "Aspen Snowmass",
       "version": 2,
@@ -196,6 +271,63 @@
       "coverage": "data/bear-mountain-v1-coverage.json"
     },
     {
+      "slug": "beaver-creek",
+      "name": "Beaver Creek",
+      "version": 1,
+      "key": "beaver-creek-v1",
+      "box": [
+        -106.61,
+        39.54,
+        -106.46,
+        39.66
+      ],
+      "ski_area": "way/531009608",
+      "elevation": "3dep1",
+      "elevation_project": "CO_Central_Western_2016",
+      "baseline_checked": "2026-11-04",
+      "osm_timestamp": "2026-11-04T17:50:18Z",
+      "overpass_box": [
+        -106.65,
+        39.52,
+        -106.42,
+        39.68
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x35y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x35y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x35y440_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x36y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x36y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x36y440_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x37y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x37y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x37y440_CO_Central_Western_2016.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CO_Central_Western_2016",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -106.61,
+          39.54,
+          -106.46,
+          39.66
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-05T03:30:48Z",
+      "ski_file": {
+        "path": "data/beaver-creek-v1-ski.pmtiles",
+        "bytes": 328106,
+        "sha256": "7e3ee1790b5019e0a3bece84b729ed1514eca5484aa33b0738c5bd19f0cdb92d"
+      },
+      "coverage": "data/beaver-creek-v1-coverage.json"
+    },
+    {
       "slug": "big-bear-mountain-resort",
       "name": "Big Bear Mountain Resort",
       "version": 2,
@@ -296,6 +428,69 @@
       "coverage": "data/big-white-v3-coverage.json"
     },
     {
+      "slug": "breckenridge",
+      "name": "Breckenridge",
+      "version": 1,
+      "key": "breckenridge-v1",
+      "box": [
+        -106.14,
+        39.43,
+        -106.02,
+        39.52
+      ],
+      "ski_area": "way/531005985",
+      "neighbours": [
+        {
+          "id": "way/531005986",
+          "name": "Copper Mountain",
+          "reason": "Separate resort on its own ticket, west over the Tenmile Range: its polygon's east side (Copper Bowl, Union Peak) reaches the Overpass window west of the box, and the bottom of its Alpine lift lies just inside the box's west edge, where its lifts and runs would otherwise draw beside Breckenridge's Peak 6 and Peak 7."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "CO_Central_Western_2016",
+      "baseline_checked": "2026-11-04",
+      "osm_timestamp": "2026-11-04T17:06:45Z",
+      "overpass_box": [
+        -106.18,
+        39.41,
+        -105.98,
+        39.54
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x39y437_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x39y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x40y437_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x40y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x41y437_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x41y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w106/USGS_13_n40w106.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w107/USGS_13_n40w107.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CO_Central_Western_2016",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -106.14,
+          39.43,
+          -106.02,
+          39.52
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 99.363,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 0.637
+      },
+      "built_at": "2026-11-04T17:20:04Z",
+      "ski_file": {
+        "path": "data/breckenridge-v1-ski.pmtiles",
+        "bytes": 223181,
+        "sha256": "31d09c98c5c2004e0af42963e4556fca16c0e84b2fd860e41aff317c508cbd3d"
+      },
+      "coverage": "data/breckenridge-v1-coverage.json"
+    },
+    {
       "slug": "brighton",
       "name": "Brighton",
       "version": 2,
@@ -376,6 +571,65 @@
         "sha256": "a3c2201ad03cdc0289bdfed276bd7e01af833d0b4462415aa9067cfbe4c6f48b"
       },
       "coverage": "data/brighton-v2-coverage.json"
+    },
+    {
+      "slug": "copper-mountain",
+      "name": "Copper Mountain",
+      "version": 1,
+      "key": "copper-mountain-v1",
+      "box": [
+        -106.22,
+        39.43,
+        -106.11,
+        39.52
+      ],
+      "ski_area": "way/531005986",
+      "neighbours": [
+        {
+          "id": "way/531005985",
+          "name": "Breckenridge",
+          "reason": "Separate resort on its own ticket over the Tenmile Range to the east: its polygon's west edge (the Peak 7 and Peak 8 side) reaches about 400 m into the box's east edge, 2 km from Copper's polygon, and more of it lies in the Overpass margin, where its lifts and runs (the BreckConnect Gondola, 6-Chair, the Peak 7 and Peak 8 lifts) would otherwise draw in the z10-12 edge tiles. The Cimarron Start House, a 9 m landuse=winter_sports way inside Breckenridge's polygon (way/470098262), has no lifts or runs of its own and is not listed."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "CO_Central_Western_2016",
+      "baseline_checked": "2026-11-04",
+      "osm_timestamp": "2026-11-04T17:16:51Z",
+      "overpass_box": [
+        -106.26,
+        39.41,
+        -106.07,
+        39.54
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x39y437_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x39y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x40y437_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x40y438_CO_Central_Western_2016.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CO_Central_Western_2016",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -106.22,
+          39.43,
+          -106.11,
+          39.52
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-04T17:23:41Z",
+      "ski_file": {
+        "path": "data/copper-mountain-v1-ski.pmtiles",
+        "bytes": 207767,
+        "sha256": "258a5362af386f6130c30cdffe24a70c3450d907bad8b930e518bb9e6606ca29"
+      },
+      "coverage": "data/copper-mountain-v1-coverage.json"
     },
     {
       "slug": "deer-valley",
@@ -546,6 +800,71 @@
         "sha256": "b2e4e99274fff78d40896729baf54fd9542396c069a401aa25f337354f6035b5"
       },
       "coverage": "data/june-mountain-v1-coverage.json"
+    },
+    {
+      "slug": "keystone",
+      "name": "Keystone",
+      "version": 1,
+      "key": "keystone-v1",
+      "box": [
+        -105.99,
+        39.51,
+        -105.88,
+        39.63
+      ],
+      "ski_area": "way/531000583",
+      "neighbours": [
+        {
+          "id": "way/461239598",
+          "name": "Arapahoe Basin",
+          "reason": "Separate resort on its own ticket, 3 km east of Keystone's polygon up Highway 6: its polygon's west side (the Beavers and Zuma lifts, Montezuma Bowl) reaches into the box's east edge, the rest lies in the Overpass margin, where its lifts and runs would otherwise draw beside The Outback and Bergman Bowl."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "CO_Central_Western_2016",
+      "baseline_checked": "2026-11-04",
+      "osm_timestamp": "2026-11-04T17:19:51Z",
+      "overpass_box": [
+        -106.03,
+        39.49,
+        -105.84,
+        39.65
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x41y437_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x41y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x41y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x41y440_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x42y437_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x42y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x42y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x42y440_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w106/USGS_13_n40w106.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w107/USGS_13_n40w107.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CO_Central_Western_2016",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -105.99,
+          39.51,
+          -105.88,
+          39.63
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 94.901,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 5.099
+      },
+      "built_at": "2026-11-04T17:25:31Z",
+      "ski_file": {
+        "path": "data/keystone-v1-ski.pmtiles",
+        "bytes": 260604,
+        "sha256": "47b7b72789bf3ab0a48b8f13684474b9c195835c9532b0cb4037226f0fa93950"
+      },
+      "coverage": "data/keystone-v1-coverage.json"
     },
     {
       "slug": "kirkwood",
@@ -1353,6 +1672,63 @@
         "sha256": "e603b8454f0ecb0678f724239802bf1acf3683002643d6ddb8e6927fd97314da"
       },
       "coverage": "data/sugar-bowl-v1-coverage.json"
+    },
+    {
+      "slug": "vail",
+      "name": "Vail",
+      "version": 1,
+      "key": "vail-v1",
+      "box": [
+        -106.43,
+        39.53,
+        -106.26,
+        39.67
+      ],
+      "ski_area": "way/531009607",
+      "elevation": "3dep1",
+      "elevation_project": "CO_Central_Western_2016",
+      "baseline_checked": "2026-11-04",
+      "osm_timestamp": "2026-11-04T17:25:54Z",
+      "overpass_box": [
+        -106.47,
+        39.51,
+        -106.22,
+        39.69
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x37y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x37y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x37y440_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x38y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x38y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x38y440_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x39y438_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x39y439_CO_Central_Western_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_Central_Western_2016/TIFF/USGS_one_meter_x39y440_CO_Central_Western_2016.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CO_Central_Western_2016",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -106.43,
+          39.53,
+          -106.26,
+          39.67
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-05T03:36:13Z",
+      "ski_file": {
+        "path": "data/vail-v1-ski.pmtiles",
+        "bytes": 454648,
+        "sha256": "7599e11a31a63b2784fa7600cd93181c3de37b55d14c3a10831cb0b88f0aa8a2"
+      },
+      "coverage": "data/vail-v1-coverage.json"
     },
     {
       "slug": "whistler-blackcomb",

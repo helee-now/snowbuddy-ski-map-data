@@ -1,0 +1,102 @@
+{
+  "slug": "vail",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/531009607 (Vail): the Front Side, the Back Bowls and Blue Sky Basin on one map; no other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-04 against the resort's three 2025-26 winter trail maps (vail.com: the Front Side, Back Bowls and Blue Sky Basin maps, VistaMap, each read at one and a half to four times its size tile by tile: easiest, more difficult, most difficult as one or two black diamonds; the Front Side key also lists extreme terrain, which no run there carries). The resort's terrain status pages load by script and gave nothing to read, so the printed maps are the only source. Of the 216 named OSM runs, every one the maps label already carries their rating but Steep And Deep: a single black diamond on the Blue Sky Basin map (whose key has no double), expert in OSM, it becomes advanced: the printed map wins. Ratings that change along a run follow the maps' symbols, as OSM has them: Born Free blue down to Post Road and green below it to the Lionshead Catwalk, then blue again to the Lionshead base and green at the bottom; Cady's Cafe single above and double below; Pickeroon, Berries and Safari blue above and a single black below; Ledges blue, green through the slow zone, then a single black; Avanti blue with a short single black beside the chair in the middle; Northstar a single black above and blue at the bottom; Skid Road and the Northface Catwalk blue on their west halves and green on the east; Simba blue with a single black middle. Names from the maps: Genghis Khan (OSM Genghis Kahn), Gillett's Dream (OSM Chopstix: the blue run the Back Bowls map draws between Poppyfields West and Poppyfields East, from the China Bowl road west of the Orient Express top down to Poppyfields, where that way lies; the maps print no Chopstix), GS Alley (OSM Slalom Alley: the map draws GS Alley on the south side of the Golden Peak T-bar, where that way lies, and Fall Line on the north) and the Golden Peak T-Bar (OSM Golden Peak). Names that differ from the maps only by a space, an apostrophe, an ampersand or word order stay as OSM has them (Minnie Haha for MINNIE HA HA, Sundown Catwalk for SUN DOWN CATWALK, Lionsway - Upper and Lionsway - Lower for UPPER and LOWER LION'S WAY, Steep And Deep for STEEP & DEEP, In The Wuides as the map prints it, Front Side Chutes for FRONTSIDE CHUTES); OSM's pieces of one map run keep their part names (Ski School Ledges for the green middle of Ledges in the slow zone, Lodgepole for LODGEPOLE GULCH, Meadows for THE MEADOWS); runs OSM names and the maps do not label stay (Black Forest and Black Forest Racing in the Avanti Skills Zone, Cheetah Gulley, China Bowl to Two Elk, Ranger Racoon's Escape). The terrain park: the Golden Peak Terrain Park, which the map labels in a box over its freestyle lines, gets the park flag; Chaos Canyon, a blue run with a freestyle pill and a kids' adventure zone icon, stays a blue run. Lifts: all of the maps' are in OSM (Gondola One, the Eagle Bahn Gondola, the chairs, the Black Forest, Mongolia and Wapiti surface lifts, the Golden Peak T-Bar and the carpets); Gopher Hill Lift (12), tagged abandoned=yes in OSM, is drawn on the 2025-26 Front Side map at Golden Peak and stays; the Adventure Ridge tubing carpet (28) is hidden as Winter Park's is, with its bottom station, which the 100 m rule would otherwise draw beside the Little Eagle chair; the two Eagle's Nest carpets named Surface Lift in OSM (18 and 35, numbers only on the map) keep that name. Front Side Chutes and Mudslide carry piste:grooming=backcountry in OSM but lie inside the polygon, where the map draws them as double blacks, so they stay in bounds by the half rule. OSM gaps (shipped as at Palisades Tahoe): Headwall Ridge (Sun Up Bowl, single black) is on the Back Bowls map but not in OSM, nor are Jake's Ride and The Coop (freestyle terrain at Golden Peak and above the Avanti chair) or the kids' adventure zones. NEIGHBOURS: none (Beaver Creek, whose polygon ends 8 km west of Vail's, lies outside the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/444862297",
+      "reason": "Steep And Deep is a single black diamond on Vail's 2025-26 Blue Sky Basin trail map (STEEP & DEEP; the map's key has no double diamond); OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Steep And Deep",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/191575522",
+      "reason": "Misspelling: Vail's 2025-26 Back Bowls trail map labels this Tea Cup Bowl run GENGHIS KHAN (OSM Genghis Kahn); a single black diamond, as OSM rates it.",
+      "expect": {
+        "name": "Genghis Kahn",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Genghis Khan"
+      }
+    },
+    {
+      "id": "way/191575325",
+      "reason": "Vail's 2025-26 Back Bowls trail map names the blue run between Poppyfields West and Poppyfields East, from the China Bowl road west of the Orient Express top down to Poppyfields, GILLETT'S DREAM; this way lies there and OSM calls it Chopstix, a name none of the resort's maps prints. Blue on the map, as OSM rates it.",
+      "expect": {
+        "name": "Chopstix",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Gillett's Dream"
+      }
+    },
+    {
+      "id": "way/772494517",
+      "reason": "Vail's 2025-26 Front Side trail map names the run on the south side of the Golden Peak T-Bar GS ALLEY (single black diamond), with Fall Line on its north side; OSM calls this way, which lies south of the T-bar, Slalom Alley.",
+      "expect": {
+        "name": "Slalom Alley",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "GS Alley"
+      }
+    },
+    {
+      "id": "way/772494514",
+      "reason": "Vail's 2025-26 Front Side trail map labels lift 16 at the Golden Peak race arena GOLDEN PEAK T-BAR; OSM names it Golden Peak, which reads as the base area rather than the lift.",
+      "expect": {
+        "name": "Golden Peak",
+        "aerialway": "t-bar",
+        "ref": "16"
+      },
+      "set": {
+        "name": "Golden Peak T-Bar"
+      }
+    },
+    {
+      "id": "way/191547027",
+      "reason": "The Golden Peak Terrain Park: Vail's 2025-26 Front Side trail map labels it GOLDEN PEAK TERRAIN PARK in a box over its freestyle-terrain lines; OSM has it as a blue run with no park tag.",
+      "expect": {
+        "name": "Golden Peak Terrain Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/444879005",
+      "reason": "The Adventure Ridge tubing hill's carpet at Eagle's Nest (number 28 on the 2025-26 Front Side map, drawn beside the tubing lanes): not a ski lift, hidden as Winter Park's tubing carpet is.",
+      "expect": {
+        "name": "Tubing Hill Lift",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "node/4423416127",
+      "reason": "Bottom station of the hidden tubing carpet (way/444879005), 86 m from the Little Eagle chair's line: without this entry the 100 m rule would draw it as a lift station with no lift.",
+      "expect": {
+        "aerialway": "station"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/776382420",
+      "reason": "A lift's number, not a run name: a 368 m green way beside the Little Eagle chair (lift 15) at Eagle's Nest, which Vail's 2025-26 Front Side map draws in the family learning zone without a name. Labelled Chair 15 it would read as a lift; shown unnamed, as Winter Park's To Lower Arrowhead Loop is.",
+      "expect": {
+        "name": "Chair 15",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": null
+      }
+    }
+  ]
+}

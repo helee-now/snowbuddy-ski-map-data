@@ -1,0 +1,73 @@
+{
+  "key": "crested-butte-v1",
+  "ski_sha256": "8193e5b5054075e0cbb3ec4d0a671ca333dbe8a6f8b54880e4fb0781c69a00c5",
+  "osm_timestamp": "2026-11-10T07:59:59Z",
+  "box": [
+    -107,
+    38.86,
+    -106.89,
+    38.94
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -106.967559,
+    38.878295,
+    -106.918886,
+    38.915713
+  ],
+  "margins_km": {
+    "west": 2.81,
+    "south": 2.03,
+    "east": 2.5,
+    "north": 2.7
+  },
+  "counts": {
+    "lifts": 15,
+    "runs_in_bounds": 163,
+    "run_areas_in_bounds": 118,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 28,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 11.9,
+    "runs_in_bounds": 75.7,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -107.050781,
+      38.822591,
+      -106.875,
+      38.959409
+    ],
+    "12": [
+      -107.050781,
+      38.822591,
+      -106.875,
+      38.959409
+    ],
+    "13": [
+      -107.006836,
+      38.85682,
+      -106.875,
+      38.959409
+    ],
+    "14": [
+      -107.006836,
+      38.85682,
+      -106.875,
+      38.942321
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

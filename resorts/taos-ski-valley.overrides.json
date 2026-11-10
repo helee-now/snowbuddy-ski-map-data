@@ -1,0 +1,85 @@
+{
+  "slug": "taos-ski-valley",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/13573224 (Taos Ski Valley, two outer ways), with Kachina Peak's lift-served terrain (the Kachina Peak Lift, Main Street and K1 to K5) inside it. Every named run and lift checked on 2026-11-10 against two of the resort's own sources: its trail map on skitaos.com/mountain (James Niehues; TSV_Trail_Map_Winter24, 1920 x 1607, the current printing, read alongside the same painting's 2022-23 printing at 4838 x 4050 behind the page's Trail Map button, tile by tile, for legibility; the newer printing adds Ponsse Scheme) and its run list in the snow report on skitaos.com/weather (101 trails in four classes the page names Green, Blue, Black and Double Black: 13, 17, 30 and 41). The published map images carry no legend: they draw runs as green, blue and black lines, the black ones solid or dashed; the dashed lines run on the double-black terrain the list names, but also on short black runs the list rates Black (Staub, Showoff, Papa Bear, Street Car), so the map is read for its colours and single versus double black comes from the list: Black is OSM's advanced, Double Black its expert. Of the 115 named runs in OSM (with the names the piste route relations give: High Five, Upper Powderhorn, Jess's, West Basin, White Feather, Honeysuckle, Pioneer), every one the list rates already carries its rating but three, and every one the map draws carries its colour: Longhorn becomes advanced (Black on the list and a solid black line on the map, drawn like Al's Run and Lorelei; expert in OSM); Upper Patton becomes intermediate (Blue on the list, green on the map, easy in OSM: the resort's sources disagree, so the harder stays, lead's decision 2026-10-22); White Feather Bowl stays intermediate (Green on the list, blue in OSM, not labelled on the map: the harder stays). Ruby Gully, unrated in OSM and not on the list, takes the map's black, as the dashed black lines beside it that the list rates Black. Names: Powderhorn for OSM's Powerderhorn (map and list); Maxie's for the way's piste:name Maxie's Terrain Park (the map draws MAXIE'S as a plain blue run beside Lift 7, as the way's name says); the terrain park is LONE STAR SKILLS PARK on the map (OSM Lone Star, the list's name), which gets the park flag and the map's name. Names that differ from the map or the list only by a space, a word or a misspelling of the list's stay as OSM has them (Hidalgo for the list's Hildalgo, Winkelried for Winkelreid, White Feather and Whitefeather Gully, Werner for WERNER CHUTE, Hunziker for Hunziker Main, Zdarsky for Fifth Chute Zdarsky, K1 to K5 for the list's Kachina 1 to 3); runs OSM names and neither source does stay with OSM's rating (Cabin Trees, unrated; Chicken Blitz, Donkey, Elevator, Godie Chutes, The Game Birds, North Face, No Name, Patrol Shack, Pipeline and Waterfowl, expert; Free Tacos; Japanese Flag Glade; Etch's Glade, a label on the map with no line). Lifts: the list's 13 are Lift 1, 2, 4, 7, 7A and 8, the Kachina Peak Lift, the Gondolita, Rueggli, Pioneers (OSM Pioneer), Zipper 1, Zipper 2 and Pika Peak, all in OSM but Pika Peak (a short lift beside the Gondolita at the Rio Hondo Learning Center, on both printings of the map). Zipper 1 and Zipper 2 are each mapped twice in OSM, by the Gondolita's base (way/53215570, way/257380915, the latter with a fixme asking whether it moved there) and at the Pioneer chair's bottom (way/846884911, way/257380916); the map paints one of each between Pioneer and Lift 1's bottom, which settles neither pair, so all four stay. One hike-tagged way is left out by the pipeline's type rule. OSM gaps (shipped as at Palisades Tahoe): runs on the list or the map with no way of that name in OSM: Blitz Trees, Eagle Nest, Edelweiss, Edelweiss Glade, Edelweiss Gully, Inferno, Pollux, Rubezahl Gully, Saddle, She Gone, Showdown, Sir Arnold Lunn, Slap Shot, Snakedance, Top-A-Papa, Upper Castor, Walkyries Bowl, Wayne Abbey, Winston and Z Chute on the list, and Rhoda's, Spencer's and Ernie's Run on the map; several lie on unnamed OSM ways (the black lines beside Al's Run below Lift 1's top, the Castor and Pollux chutes), which keep their ratings but no name; Pika Peak (above). NEIGHBOURS: none (no other ski area lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/53770399",
+      "reason": "Longhorn is Black (a single diamond, most difficult) on the resort's run list on skitaos.com/weather (Green, Blue, Black and Double Black) and a solid black line on Taos Ski Valley's trail map on skitaos.com/mountain (James Niehues; TSV_Trail_Map_Winter24, 1920 x 1607, and the same painting at 4838 x 4050 behind the page's Trail Map button), drawn like Al's Run and Lorelei, which the list also rates Black; OSM rates it expert. The resort's sources agree, so they win.",
+      "expect": {
+        "name": "Longhorn",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/53800752",
+      "reason": "Upper Patton is Blue on the resort's run list on skitaos.com/weather (Green, Blue, Black and Double Black) and green on Taos Ski Valley's trail map on skitaos.com/mountain (James Niehues; TSV_Trail_Map_Winter24, 1920 x 1607, and the same painting at 4838 x 4050 behind the page's Trail Map button); OSM rates its 355 m way easy. The resort's own sources disagree, so the harder of theirs and OSM's stays (lead's decision 2026-10-22): intermediate.",
+      "expect": {
+        "name": "Upper Patton",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1348416812",
+      "reason": "As way/53800752: the 51 m top way of Upper Patton, rated easy in OSM; Blue on the resort's run list, green on its trail map, so the harder, intermediate, stays.",
+      "expect": {
+        "name": "Upper Patton",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/53769969",
+      "reason": "Misspelling: Taos Ski Valley's trail map on skitaos.com/mountain (James Niehues; TSV_Trail_Map_Winter24, 1920 x 1607, and the same painting at 4838 x 4050 behind the page's Trail Map button) labels this blue run below Upper Powderhorn POWDERHORN, and the resort's run list on skitaos.com/weather (Green, Blue, Black and Double Black) lists Powderhorn (Blue, as OSM rates it); OSM has Powerderhorn.",
+      "expect": {
+        "name": "Powerderhorn",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Powderhorn"
+      }
+    },
+    {
+      "id": "way/53800734",
+      "reason": "The terrain park: Taos Ski Valley's trail map on skitaos.com/mountain (James Niehues; TSV_Trail_Map_Winter24, 1920 x 1607, and the same painting at 4838 x 4050 behind the page's Trail Map button) labels this run LONE STAR SKILLS PARK, a blue line with orange park markers at both ends below Lift 7's bottom terminal and the Honeysuckle picnic table; OSM has it as a plain blue run named Lone Star (the run list's name, Blue).",
+      "expect": {
+        "name": "Lone Star",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lone Star Skills Park",
+        "park": true
+      }
+    },
+    {
+      "id": "way/53800726",
+      "reason": "The way's piste:name, which the map prints before its name, says Maxie's Terrain Park; Taos Ski Valley's trail map on skitaos.com/mountain (James Niehues; TSV_Trail_Map_Winter24, 1920 x 1607, and the same painting at 4838 x 4050 behind the page's Trail Map button) draws MAXIE'S as a plain blue run beside Lift 7 with no park marker (the park is Lone Star Skills Park), as the way's name tag says. Blue, as OSM rates it.",
+      "expect": {
+        "name": "Maxie's",
+        "piste:name": "Maxie's Terrain Park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Maxie's"
+      }
+    },
+    {
+      "id": "way/1150814515",
+      "reason": "Ruby Gully has no rating in OSM; Taos Ski Valley's trail map on skitaos.com/mountain draws RUBY GULLY as a dashed black line in Kachina Basin beside Lift 4, between Mama Bear and Street Car (the run list does not name it). Black (advanced), as the dashed black lines beside it in the same style that the list rates Black (Street Car, Papa Bear, Staub).",
+      "expect": {
+        "name": "Ruby Gully",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    }
+  ]
+}

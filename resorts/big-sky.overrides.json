@@ -1,0 +1,454 @@
+{
+  "slug": "big-sky",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1254863688 (Big Sky Resort): Lone Mountain, Andesite Mountain, the former Moonlight Basin terrain (Madison, Iron Horse, Pony Express, Derringer, Lone Tree, Headwaters, the North Summit) and Spirit Mountain on one map. The Yellowstone Club, a private club whose polygon (way/1461424414) shares a border with Big Sky's south side, is a listed neighbour in resorts.json (its 21 lifts, 121 runs, 2 run areas and 10 stations are left off). Every named run and lift checked on 2026-11-10 against the resort's 2026-27 winter trail map (bigskyresort.com/trail-maps: the Main Winter Trail Map, the Bowl Inset and the South Face Inset PDFs, created 2026-11-04, rendered at 200 dpi and read tile by tile: beginner, intermediate, advanced intermediate as two blue squares, advanced, expert terrain as two black diamonds, high exposure as three red-edged diamonds; lift lines red, real estate access lifts purple, real estate access trails pink) and its lift and trail report (the data behind bigskyresort.com/current-conditions: 40 lifts, 318 trails rated the same way and 6 terrain parks). Where both rate a run they give it the same colour (Big Horn is one blue square on the map and advanced intermediate in the report, blue either way), so where OSM differs they win: advanced intermediate is a blue run (intermediate), high exposure stays extreme in OSM (drawn as a double black, as Arapahoe Basin's EX). 17 run ways change: to intermediate the double-blue Big Tree Cutoff, Community Matters, Elkhorn (three ways), Flyrock Gully, Gun Mount, Sticks & Stones and Taylor's Trees (advanced in OSM) and Jay Walk (easy in OSM, a blue square); to advanced the single-black Deepwater Bowl (extreme), Great Falls Gully (two ways, expert) and the Liberty Bowl area (expert; its line is already advanced); to expert the double-black LRT Traverse, Ram's Glade and Yeti Traverse (advanced). The Gullies stay as OSM rates them (1st to 3rd expert, 4th to 6th extreme): the Bowl inset draws two high-exposure and three expert symbols beside six numbered lines without saying which number takes which. Park: Swifty Park (the map's orange L park on Swift Current) gets the park flag; the report's Plain Jane Park, The Cache, Explorer Park, Wolf Pup Park and Cowpoke Park are not mapped in OSM (a gap). Names from the map and the report: Meriwether Cutoff (OSM Meriwether Cuttoff), Marshal (OSM Marshall, two ways), the capitals of Broken Promise and Ski Time (OSM Broken promise, Ski time), Lone Tree Face for OSM's Lone Tree (the double-black lift-line run beside Lone Tree 4, which the map labels LONE TREE FACE), and the Explorer Gondola as one lift (OSM names its two ways Lower and Upper; the map labels one EXPLORER GONDOLA - HIGH SPEED and the report lists one). Names that differ from the map or the report only by a space, an apostrophe, an ampersand or a suffix stay as OSM has them (Bitteroot as the South Face inset prints it, Jackrabbit, Timberwolf, Whitebark, Whitetail and Snakebite as the map prints them, Big Couloir, Steep & Deep, PB&J Way, Erika's, Ram's Glade, Wolf Den, Dirtbag Wall, Elk Park Meadows, Marlboro Country, Rock Pocket, Parachute, Pack Saddle Glades, Dogwood/Lost Frontier; the lifts' - High Speed and seat-count suffixes: Lone Moose Triple, Southern Comfort, Thunder Wolf, Jayhawk, Stagecoach, One and Only); OSM's three ways named Class 4 in the Headwaters' Whitewater chutes, where the map draws Class 4, 5 and 6, keep that name, the ways not saying which chute is which. Lifts: the report's 40 are in OSM but the Portable Park Tow; carpets S1 to S8 are OSM's six unnamed carpets and S7 and S8. Spanish Peaks Mountain Club, a private club the owner's rule leaves off, has no ski-area polygon of its own in OSM (Big Sky's polygon holds it), so its lifts and runs are hidden one by one: the map labels the club's residential area SPANISH PEAKS MOUNTAIN CLUB Members Only and draws its five lifts as real estate access lifts (Homer Poma, Tweener Poma and Pull-Up Tow in the members' area; Cabin 3 and Highlands 3 to the club's residences beside Montage, outside the map's ski area boundary), and the club's runs are hidden with them: Papa Bear and the Pull-Up Tow's line in the members' area, and the real estate access trails of the residences that only Cabin 3 and Highlands 3 serve (Cabin Access, Outlook Way, Woodlands Return, Highlands Access). Spirit Mountain itself (Lewis and Clark 4 and Sacajawea 3, red lift lines inside the boundary, and its runs), the S7 and S8 carpets and the access trails inside the boundary (Gator Way, Sugar N Spice, Clubhouse Loop, Six Shooter SPMC) stay, as the map draws them. The real estate access lifts of Big Sky's own and Moonlight Basin's residences (White Otter 2, the Bear Back Poma, Jayhawk 3, Stagecoach 2 and the One&Only Gondola), which the report lists as Big Sky lifts, stay as the map draws them. Backcountry: Dakota Bowl, Hanging Valley and Wyoming Bowl, which the South Face inset prints beyond the boundary ('BACKCOUNTRY! USE EXTREME CAUTION'), have no run in OSM; the runs tagged backcountry in OSM (Liberty Bowl's area, Dirtbag Wall, Kircher's Cliffs, Stutzman's Rock, Low Bench, Bone Crusher Hiking Area) lie inside the polygon and stay in bounds by the half rule, as the map draws them inside the boundary. OSM gaps (shipped as at Palisades Tahoe): the North Summit's Trident, Orbit, Double Direct, Summit Direct and Tears, Oxbow and Launcher Road; Lone Peak's Kastle Rock (A-Z Chutes), the 0-3 Cache Trees, Little Gullies and Zucchini Patch; Dead Goat, Don't Tell Mama and Final Final at Lone Tree; Lady Yaya and Half Moon (Challenger), PK Ridge and Cutbank (Swift Current), Mr. Ed and Secret Meadow (Explorer), Ore Cart and Badger (Spirit Mountain), Chief Gull, Claim Jumper and Buffalo Hide (White Otter), the lift-line runs of Challenger, Ramcharger and Shedhorn, the learning areas and the five parks above are on the report and most on the map but not mapped as runs in OSM.",
+  "overrides": [
+    {
+      "id": "way/770683055",
+      "reason": "Big Tree Cutoff is two blue squares (advanced intermediate) on Big Sky's 2026-27 winter trail map and the resort's lift and trail report rates it advanced intermediate (a blue run); OSM rates it advanced. Lone Tree side. The resort's sources agree and win.",
+      "expect": {
+        "name": "Big Tree Cutoff",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/871427226",
+      "reason": "Community Matters is two blue squares (advanced intermediate) on Big Sky's 2026-27 winter trail map and the resort's lift and trail report rates it advanced intermediate (a blue run); OSM rates it advanced. Beside Flyrock Gully above the Madison base. The resort's sources agree and win.",
+      "expect": {
+        "name": "Community Matters",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/261271488",
+      "reason": "Elkhorn is two blue squares (advanced intermediate) along its length on Big Sky's 2026-27 winter trail map and the resort's lift and trail report rates it advanced intermediate (a blue run); OSM rates it advanced. Its other two OSM ways are already blue. The resort's sources agree and win.",
+      "expect": {
+        "name": "Elkhorn",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1368480615",
+      "reason": "Elkhorn is two blue squares (advanced intermediate) along its length on Big Sky's 2026-27 winter trail map and the resort's lift and trail report rates it advanced intermediate (a blue run); OSM rates it advanced. A short piece, as way/261271488. The resort's sources agree and win.",
+      "expect": {
+        "name": "Elkhorn",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1461636925",
+      "reason": "Elkhorn is two blue squares (advanced intermediate) along its length on Big Sky's 2026-27 winter trail map and the resort's lift and trail report rates it advanced intermediate (a blue run); OSM rates it advanced. A short piece, as way/261271488. The resort's sources agree and win.",
+      "expect": {
+        "name": "Elkhorn",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/871427225",
+      "reason": "Flyrock Gully is two blue squares (advanced intermediate) on Big Sky's 2026-27 winter trail map and the resort's lift and trail report rates it advanced intermediate (a blue run); OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Flyrock Gully",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/261246282",
+      "reason": "Gun Mount is two blue squares (advanced intermediate) on Big Sky's 2026-27 winter trail map and its Bowl inset and the resort's lift and trail report rates it advanced intermediate (a blue run); OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Gun Mount",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/771933499",
+      "reason": "Sticks & Stones is two blue squares (advanced intermediate) on Big Sky's 2026-27 winter trail map and the resort's lift and trail report rates it advanced intermediate (a blue run); OSM rates it advanced. Below the Headwaters patrol hut beside Lazy Jack. The resort's sources agree and win.",
+      "expect": {
+        "name": "Sticks & Stones",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/775766996",
+      "reason": "Taylor's Trees is two blue squares (advanced intermediate) on Big Sky's 2026-27 winter trail map and its Bowl inset and the resort's lift and trail report rates it advanced intermediate (a blue run); OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Taylor's Trees",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/260321760",
+      "reason": "Jay Walk, from the Lone Peak Tram base to the Swift Current side, is a blue square (intermediate) on Big Sky's 2026-27 winter trail map and its Bowl inset, and the resort's lift and trail report rates it intermediate; OSM rates it easy. The resort's sources agree and win.",
+      "expect": {
+        "name": "Jay Walk",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/614048972",
+      "reason": "Deepwater Bowl (an area below the North Summit) is a single black diamond (advanced) on Big Sky's 2026-27 winter trail map and the resort's lift and trail report rates it advanced; OSM rates it extreme. The resort's sources agree and win.",
+      "expect": {
+        "name": "Deepwater Bowl",
+        "piste:difficulty": "extreme"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/614048970",
+      "reason": "Great Falls Gully is a single black diamond (advanced) on Big Sky's 2026-27 winter trail map and the resort's lift and trail report rates it advanced; OSM rates it expert. The resort's sources agree and win.",
+      "expect": {
+        "name": "Great Falls Gully",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1463230596",
+      "reason": "As way/614048970: a short piece of Great Falls Gully, rated expert in OSM.",
+      "expect": {
+        "name": "Great Falls Gully",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/776654778",
+      "reason": "The Liberty Bowl area: Liberty Bowl is a single black diamond (advanced) on Big Sky's 2026-27 winter trail map, its Bowl inset and its South Face inset, and the resort's lift and trail report rates it advanced, as OSM rates its line (way/593488063); OSM rates the area expert.",
+      "expect": {
+        "name": "Liberty Bowl",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/261246276",
+      "reason": "LRT Traverse, below the Pinnacles, is two black diamonds (expert terrain) on its Bowl inset and the resort's lift and trail report rates it expert; OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "LRT Traverse",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/261271493",
+      "reason": "Ram's Glade (RAMS GLADE on the map) is two black diamonds (expert terrain) on Big Sky's 2026-27 winter trail map and the resort's lift and trail report rates it expert; OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Ram's Glade",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/261246284",
+      "reason": "Yeti Traverse, below the Lone Peak summit, is two black diamonds (expert terrain) on its Bowl inset and its South Face inset, and the resort's lift and trail report rates it expert; OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Yeti Traverse",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1366620826",
+      "reason": "Swifty Park, the large (L) terrain park beside Swift Current 6, drawn in orange on Big Sky's 2026-27 winter trail map and its Bowl inset and listed as a terrain park in the resort's lift and trail report; OSM has it as a blue run with no park tag.",
+      "expect": {
+        "name": "Swifty Park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1463230602",
+      "reason": "Misspelling: Big Sky's 2026-27 winter trail map prints MERIWETHER CUTOFF and the resort's lift and trail report has Meriwether Cutoff; OSM has Meriwether Cuttoff.",
+      "expect": {
+        "name": "Meriwether Cuttoff",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Meriwether Cutoff"
+      }
+    },
+    {
+      "id": "way/770562280",
+      "reason": "Misspelling: Big Sky's 2026-27 winter trail map prints MARSHAL and the resort's lift and trail report has Marshal (advanced, as OSM rates it); OSM has Marshall.",
+      "expect": {
+        "name": "Marshall",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Marshal"
+      }
+    },
+    {
+      "id": "way/1463230607",
+      "reason": "As way/770562280: a short piece of Marshal, spelled Marshall in OSM.",
+      "expect": {
+        "name": "Marshall",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Marshal"
+      }
+    },
+    {
+      "id": "way/261306938",
+      "reason": "Capitals from the map: Big Sky's 2026-27 winter trail map prints BROKEN PROMISE and the resort's lift and trail report has Broken Promise; OSM has Broken promise.",
+      "expect": {
+        "name": "Broken promise",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Broken Promise"
+      }
+    },
+    {
+      "id": "way/770680799",
+      "reason": "Capitals from the map: its Bowl inset prints SKI TIME and the resort's lift and trail report has Ski Time; OSM has Ski time.",
+      "expect": {
+        "name": "Ski time",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Ski Time"
+      }
+    },
+    {
+      "id": "way/261280956",
+      "reason": "The double-black run down the line of Lone Tree 4 (the way follows the lift from its top to its bottom): Big Sky's 2026-27 winter trail map labels it LONE TREE FACE and the resort's lift and trail report has Lone Tree Face (expert, as OSM rates it); OSM's Lone Tree is the lift's name.",
+      "expect": {
+        "name": "Lone Tree",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Lone Tree Face"
+      }
+    },
+    {
+      "id": "way/1031856219",
+      "reason": "The Explorer Gondola is one lift from Mountain Village to the Lone Peak Tram base on Big Sky's 2026-27 winter trail map and its Bowl inset (EXPLORER GONDOLA - HIGH SPEED) and in the resort's lift and trail report; OSM maps it as two ways and adds Lower to this one.",
+      "expect": {
+        "name": "Explorer Gondola Lower",
+        "aerialway": "gondola"
+      },
+      "set": {
+        "name": "Explorer Gondola"
+      }
+    },
+    {
+      "id": "way/1528599466",
+      "reason": "As way/1031856219: the Explorer Gondola's upper way to the Lone Peak Tram base, named Upper in OSM; the map and the report name one lift.",
+      "expect": {
+        "name": "Explorer Gondola Upper",
+        "aerialway": "gondola"
+      },
+      "set": {
+        "name": "Explorer Gondola"
+      }
+    },
+    {
+      "id": "way/773673148",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws this lift as Homer Poma, a real estate access lift (purple) in the area the map labels SPANISH PEAKS MOUNTAIN CLUB Members Only.",
+      "expect": {
+        "name": "Homer",
+        "aerialway": "platter"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/773673147",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws this lift as Tweener Poma, a real estate access lift (purple) in the club's members-only area.",
+      "expect": {
+        "name": "Tweener",
+        "aerialway": "platter"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/773673146",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws this lift as the Pull-Up Tow, a real estate access lift (purple) from the foot of High Tide up into the club's members-only area.",
+      "expect": {
+        "name": "Pull-Up",
+        "aerialway": "platter"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/257005478",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws this lift as Cabin 3, a real estate access lift (purple) among the club's residences beside Montage, outside the map's ski area boundary.",
+      "expect": {
+        "name": "Cabin 3",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/770562267",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws this lift as Highlands 3, a real estate access lift (purple) from the club's residences to the top of Flatiron Mountain, outside the map's ski area boundary.",
+      "expect": {
+        "name": "Highlands",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1461636935",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws Papa Bear, the green run between the Homer and Tweener pomas in the club's members-only area, served only by those hidden lifts.",
+      "expect": {
+        "name": "Papa Bear",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1461636936",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws a 29 m piece of Papa Bear (a tunnel under a road), as way/1461636935.",
+      "expect": {
+        "name": "Papa Bear",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1215814284",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws Cabin Access, a real estate access trail (pink) of the club's residences, outside the map's ski area boundary, served only by the hidden Cabin 3.",
+      "expect": {
+        "name": "Cabin Access",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1461366070",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws Outlook Way, a real estate access trail (pink) of the club's residences, outside the map's ski area boundary, served only by the hidden Cabin 3.",
+      "expect": {
+        "name": "Outlook Way",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1461636937",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws a 90 m piece of Outlook Way, as way/1461366070.",
+      "expect": {
+        "name": "Outlook Way",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1461636938",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws a 13 m piece of Outlook Way (a tunnel), as way/1461366070.",
+      "expect": {
+        "name": "Outlook Way",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1461366065",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws Woodlands Return, a real estate access trail (pink) of the club's residences, outside the map's ski area boundary, served only by the hidden Highlands 3.",
+      "expect": {
+        "name": "Woodlands Return",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1461636939",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws a 34 m piece of Woodlands Return, as way/1461366065.",
+      "expect": {
+        "name": "Woodlands Return",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1461636940",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws a 13 m piece of Woodlands Return (a bridge), as way/1461366065.",
+      "expect": {
+        "name": "Woodlands Return",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1104703534",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. Big Sky's 2026-27 winter trail map draws Highlands Access, a real estate access trail (pink) along the hidden Highlands 3 down to the club's residences, outside the map's ski area boundary.",
+      "expect": {
+        "name": "Highlands Access",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1215814287",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. This is the 127 m unnamed green line beside the hidden Pull-Up Tow (the report's Pull Up Tow Line), in the club's members-only area.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1461961709",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. This is a 10 m unnamed green piece at the top of the hidden Pull-Up Tow.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1461366064",
+      "reason": "Spanish Peaks Mountain Club, a private club not on Big Sky's ticket (owner's rule: leave it off), has no ski-area polygon of its own in OSM, so its features are hidden one by one. This is a 9 m unnamed green piece at the bottom of the hidden Pull-Up Tow.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    }
+  ]
+}

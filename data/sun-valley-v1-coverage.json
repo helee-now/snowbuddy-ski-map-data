@@ -1,0 +1,102 @@
+{
+  "key": "sun-valley-v1",
+  "ski_sha256": "6afb69c2e3c83a41a85a1b1fd188be64cb661499ac203d0b8c260b656907ca38",
+  "osm_timestamp": "2026-11-10T08:18:05Z",
+  "box": [
+    -114.45,
+    43.62,
+    -114.3,
+    43.71
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -114.41554,
+    43.638857,
+    -114.334074,
+    43.690583
+  ],
+  "margins_km": {
+    "west": 2.77,
+    "south": 2.1,
+    "east": 2.74,
+    "north": 2.16
+  },
+  "counts": {
+    "lifts": 17,
+    "runs_in_bounds": 192,
+    "run_areas_in_bounds": 4,
+    "runs_out_of_bounds": 1,
+    "run_areas_out_of_bounds": 1,
+    "lift_stations": 35,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 18.2,
+    "runs_in_bounds": 101.3,
+    "runs_out_of_bounds": 1.6
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1340804770",
+      "name": "Sunrise Bowl",
+      "difficulty": "freeride",
+      "length_m": 1576,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1359433818",
+      "name": "Sunrise Bowl",
+      "difficulty": "expert",
+      "area_m2": 208137,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -114.609375,
+      43.580391,
+      -114.257812,
+      43.834527
+    ],
+    "12": [
+      -114.521484,
+      43.580391,
+      -114.257812,
+      43.771094
+    ],
+    "13": [
+      -114.477539,
+      43.612217,
+      -114.257812,
+      43.739352
+    ],
+    "14": [
+      -114.455566,
+      43.612217,
+      -114.279785,
+      43.723475
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

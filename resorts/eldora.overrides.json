@@ -1,0 +1,95 @@
+{
+  "slug": "eldora",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/427517284 (Eldora): Challenge Mountain, the Corona side below Bryan Mountain and Little Hawk Mountain on one map. Every named run and lift checked on 2026-11-09 against the resort's 2025-26 alpine trail map (eldora.com/the-mountain/maps/alpine-trail-map, Eldora_25.26_Alpine Map_Web.pdf, rendered at four times its size and read tile by tile: Easier, More Difficult, Most Difficult as one diamond (advanced terrain) or two (expert terrain), Extreme Terrain as two diamonds with E X) and its text layer for the spellings; the resort's trail and lift status page loads its list by script and gave nothing to read, so the printed map is the only source and wins. OSM's easy, intermediate, advanced and expert are the map's green, blue, one diamond and two; the map's EX terrain (Liftline, West Ridge, Salto Glades, Moose Glades, Placer Glades) is tagged expert in OpenStreetMap and stays (expert and extreme both draw as double black, as at Arapahoe Basin and Winter Park). Of the 60 run names in OSM (Corrona and the six glade outlines among them), every one the map labels already carries its rating but the top 206 m of Muleshoe (blue in OSM; the map draws Muleshoe black from where it leaves Wayback). One spelling from the map: Corona for OSM's Corrona, the 303 m lower way of the Corona run beside the Corona lift's bottom. Names that differ from the map only by a space, an abbreviation or the word Lift stay as OSM has them (Easyway for EASY WAY, Corona Traverse for CORONA TRV, the lifts Alpenglow, Indian Peaks, Corona, Little Hawk, EZ, Caribou, Sundance, Race and Tenderfoot for the map's ALPENGLOW LIFT, INDIAN PEAKS LIFT and so on); runs OSM names and the map does not label stay (Bunnyfair Bowl, City Lights, EZ Liftline, Escape). Glades: six of OSM's seven glades are closed ways tagged natural=wood and piste:type=downhill without area=yes (Jolly Jug Glades, Brian's Glades, Gully Glades, Salto Glades, Moose Glades and Powderhorn Glades, which the map does not label), which the pipeline would draw as double-black run loops, so they are hidden until OpenStreetMap tags them area=yes, as Copper Mountain's and Winter Park's glade outlines are; Placer Glades (area=yes) draws as a run area. Terrain parks: the map names none; it marks Woodward park features (a W with size badges XS to L) on ordinary runs drawn in their rating colours (Sundance, Ryder's, Gabor's, Trick Ditch, Fun Zone, Tenderfoot and the slope above Timbers Lodge), so they stay plain runs, as Vail's Chaos Canyon does. Lifts: all nine of the map's are in OSM, and the Caribou Meadows learning zone's Sun Kid carpet (28 m, not drawn on the map) stays, as Snowbird's Conveyor #3; Caribou Medow (sic), a 100 m landuse=winter_sports way the resort operates inside Eldora's polygon, is that learning zone, not another resort, and is not listed. The Eldora Nordic Center's cross-country trails (43 ways) and the snowshoe trails (7) are left out by the pipeline's type rule. OSM gaps (shipped as at Palisades Tahoe): Mary's Way (a single black under the Alpenglow lift; an unnamed 155 m black way near its foot, way/1352137404, may be its bottom), Sidewinder (blue, between Upper Diamond Back and Ambush) and Reel It In (beside the lift line down to the Indian Peaks lift's bottom, where OSM's Liftline way runs) are on the map but not in OSM, and five of the map's six glade zones are mapped only as outlines (above). NEIGHBOURS: none (no other ski area lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/1352137391",
+      "reason": "The top 206 m of Muleshoe, from Wayback below the summit to the main Muleshoe way (way/99660750), rated intermediate in OSM (piste:name only); Eldora's 2025-26 alpine trail map draws Muleshoe as one black (Most Difficult, one diamond) run from where it leaves Wayback, as OSM rates the rest of it.",
+      "expect": {
+        "name": null,
+        "piste:name": "Muleshoe",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1352137394",
+      "reason": "Misspelling: the 303 m lower way of the Corona run beside the Corona lift's bottom; Eldora's 2025-26 alpine trail map labels the run CORONA (one diamond, as OSM rates it), OSM has Corrona.",
+      "expect": {
+        "name": "Corrona",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Corona"
+      }
+    },
+    {
+      "id": "way/254037191",
+      "reason": "The outline of Jolly Jug Glades: a 1,181 m closed way tagged natural=wood and piste:type=downhill (expert) without area=yes, so the pipeline would draw the glade's outline as a double-black run loop and rank it with the expert trunk runs. Eldora's 2025-26 alpine trail map shows JOLLY JUG GLADES as a labelled glade zone with no run line (two diamonds, the trees south of Jolly Jug below the Challenge Mountain ridge). Hidden until OpenStreetMap tags it area=yes, as Copper Mountain's Lower Enchanted Forest and Winter Park's Wildwood Glade loops are (review of 2026-10-22); this expect then stops the build, and the entry goes.",
+      "expect": {
+        "name": "Jolly Jug Glades",
+        "piste:type": "downhill",
+        "natural": "wood",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/254037192",
+      "reason": "The outline of Brian's Glades: a 2,010 m closed way tagged natural=wood and piste:type=downhill (expert) without area=yes, so the pipeline would draw the glade's outline as a double-black run loop and rank it with the expert trunk runs. Eldora's 2025-26 alpine trail map shows BRIAN'S GLADES as a labelled glade zone with no run line (two diamonds, between Wolf Tongue and Corona below The Lookout). Hidden until OpenStreetMap tags it area=yes, as Copper Mountain's Lower Enchanted Forest and Winter Park's Wildwood Glade loops are (review of 2026-10-22); this expect then stops the build, and the entry goes.",
+      "expect": {
+        "name": "Brian's Glades",
+        "piste:type": "downhill",
+        "natural": "wood",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/463932034",
+      "reason": "The outline of Gully Glades: a 1,858 m closed way tagged natural=wood and piste:type=downhill (expert) without area=yes, so the pipeline would draw the glade's outline as a double-black run loop and rank it with the expert trunk runs. Eldora's 2025-26 alpine trail map shows GULLY GLADES as a labelled glade zone with no run line (two diamonds, between Red Tail and Alpenhorn below Wayback). Hidden until OpenStreetMap tags it area=yes, as Copper Mountain's Lower Enchanted Forest and Winter Park's Wildwood Glade loops are (review of 2026-10-22); this expect then stops the build, and the entry goes.",
+      "expect": {
+        "name": "Gully Glades",
+        "piste:type": "downhill",
+        "natural": "wood",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/254037193",
+      "reason": "The outline of Salto Glades: a 2,096 m closed way tagged natural=wood and piste:type=downhill (expert) without area=yes, so the pipeline would draw the glade's outline as a double-black run loop and rank it with the expert trunk runs. Eldora's 2025-26 alpine trail map shows SALTO GLADES as a labelled glade zone with no run line (EX, north of the Corona lift below The Lookout). Hidden until OpenStreetMap tags it area=yes, as Copper Mountain's Lower Enchanted Forest and Winter Park's Wildwood Glade loops are (review of 2026-10-22); this expect then stops the build, and the entry goes.",
+      "expect": {
+        "name": "Salto Glades",
+        "piste:type": "downhill",
+        "natural": "wood",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/254038621",
+      "reason": "The outline of Moose Glades: a 2,109 m closed way tagged natural=wood and piste:type=downhill (expert) without area=yes, so the pipeline would draw the glade's outline as a double-black run loop and rank it with the expert trunk runs. Eldora's 2025-26 alpine trail map shows MOOSE GLADES as a labelled glade zone with no run line (EX, the trees north of West Ridge inside the boundary). Hidden until OpenStreetMap tags it area=yes, as Copper Mountain's Lower Enchanted Forest and Winter Park's Wildwood Glade loops are (review of 2026-10-22); this expect then stops the build, and the entry goes.",
+      "expect": {
+        "name": "Moose Glades",
+        "piste:type": "downhill",
+        "natural": "wood",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/254041257",
+      "reason": "The outline of Powderhorn Glades: a 1,282 m closed way tagged natural=wood and piste:type=downhill (expert) without area=yes, so the pipeline would draw the glade's outline as a double-black run loop and rank it with the expert trunk runs. Eldora's 2025-26 alpine trail map shows it as a glade zone with no run line (not labelled; the trees beside Jolly Jug and Powderhorn). Hidden until OpenStreetMap tags it area=yes, as Copper Mountain's Lower Enchanted Forest and Winter Park's Wildwood Glade loops are (review of 2026-10-22); this expect then stops the build, and the entry goes.",
+      "expect": {
+        "name": "Powderhorn Glades",
+        "piste:type": "downhill",
+        "natural": "wood",
+        "area": null
+      },
+      "hide": true
+    }
+  ]
+}

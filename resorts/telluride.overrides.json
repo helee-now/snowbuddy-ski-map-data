@@ -1,0 +1,502 @@
+{
+  "slug": "telluride",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/528965906 (Telluride Ski Area): the town side above Telluride, Mountain Village, Prospect Bowl, Gold Hill, Palmyra Peak, Black Iron Bowl and Revelation Bowl on one ticket and one map; no other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-10 against the resort's current trail map (tellurideskiresort.com/mountain, 2425_TSR_Trail-Map_layered-trailmap.pdf, the James Niehues painting, the 2024-25 edition the page still links; its labels are vector outlines with no text layer, so it was rendered at four and eight times its size and read tile by tile) and the page's two detail maps for the hike-to terrain the main map points to ('See Reverse for Detail': palmyra-23.24.png for Palmyra Peak, the Gold Hill Chutes and Black Iron Bowl, revvy-23.24-1.png for Revelation Bowl). The legend has five grades: easiest (one or two green dots), more difficult (one or two blue squares), most difficult (one black diamond), most difficult expert only (two) and EX, extreme. The resort's snow report loads its trail list by script, so the printed maps are the only source and win. OSM's easy, intermediate, advanced and expert match the first four, and EX is OSM's extreme (as Breckenridge's and Keystone's Extreme Terrain); of the 133 named OSM runs, the ones the maps print carry their rating but 28 ways. Ratings from the maps: the 24 EX runs OSM rates expert become extreme (Electra, Dynamo, Millions and Andy's Gold under the Revelation Lift; Gold Hill 1, 2 and 6 to 10; Roy Boy, Senior's, Tram Shot, Sunrise, Electric Shock, Capitol, Nice Chute, Review, Jello's Bowl and Zipper Rock on Palmyra Peak; Dihedral Chute, Dihedral Face and Westlake in Black Iron Bowl); Spiral Stairs, two ways of West Drain and a 7 m piece of Lower Plunge, two diamonds on the map, advanced in OSM, become expert; the last stretch of Lower Galloping Goose to the Meadows base, green on the map, gets easy (one way unrated in OSM, three named Galloping Goose Ski Run and rated intermediate by the town's nordic network, which shares them). Names from the map: Humboldt Draw (OSM Humbolt), Double Cabin (OSM Double Cabins), Woozley's Way for a 75 m piece OSM spells Wozzley's, and Free Gondola, the map's label on all three gondola segments (OSM Gondola Line 1 and 2 between the town and Mountain Village by San Sophia Station, and Free Intercept Gondola from Mountain Village to Market Plaza). The free gondola is kept as lifts: skiers ride it, it is the town side's way up and down, and San Sophia Station is a top station the map draws runs from. Names that differ from the map only by a space, an article or punctuation stay as OSM has them (Bailout for BAIL OUT, Logpile for LOG PILE, Silvertip for SILVER TIP, Holy Cow for HOLY COW!, The Plunge for PLUNGE); runs OSM names and the maps do not print stay (Lower Happy Thought below the Polar Queen Express top, Headwall at the town base, Magnolia Headwall, and Easy Chute, Way Easy, Snowslide Cabin and Pee-Wee's Big Adventure among the Palmyra and Black Iron Bowl lines). Bail Out is black above its junction beside the Oak Street Lift and blue below on the map, as OSM rates its pieces. Parks: Hoot Brown Terrain Park, which the map draws orange beside the Village Express, gets the park flag. Lifts: all of the map's are in OSM (Chondola 1, Comp Hill 2, Village Express 4, Polar Queen Express 5, Apex Lift 6, Lift 7, Oak Street Lift 8, Plunge Lift 9, Sunshine Express 10, Ute Park 11, Prospect Express 12, Lynx 13, Gold Hill Express 14, Revelation Lift 15, the free gondola and two carpets), none hidden. OSM gaps (shipped as at Palisades Tahoe): Giant Steps, Silver Glade and Chongos beside the Apex Lift, Buzz's Glade (EX) below Tempter House, Stormin' Norman, Dew Drop Drain and Nastar on the Polar Queen and Village Express sides, Lower Lookout, Heritage Trail and Grouse Glade at the Sunshine Express bottom, Golden Cross in Revelation Bowl, the Gold Hill Chutes 3 to 5 (closed on the map), the Beginner Park beside the Ute Park lift and the Goat Path traverse.",
+  "overrides": [
+    {
+      "id": "way/775384453",
+      "reason": "Andy's Gold (under the Revelation Lift) is EX, extreme, on Telluride's 2024-25 trail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Andy's Gold",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/775384454",
+      "reason": "Dynamo (under the Revelation Lift) is EX, extreme, on Telluride's 2024-25 trail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Dynamo",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/775384456",
+      "reason": "Electra (under the Revelation Lift) is EX, extreme, on Telluride's 2024-25 trail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Electra",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/775384451",
+      "reason": "Millions (under the Revelation Lift) is EX, extreme, on Telluride's 2024-25 trail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Millions",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/775384457",
+      "reason": "Gold Hill 1 (the Gold Hill Chutes) is EX, extreme, on Telluride's 2024-25 trail map and the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Gold Hill 1",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/775384458",
+      "reason": "Gold Hill 2 (the Gold Hill Chutes) is EX, extreme, on Telluride's 2024-25 trail map and the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Gold Hill 2",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1137400865",
+      "reason": "Gold Hill 6 (the Gold Hill Chutes) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Gold Hill 6",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255239",
+      "reason": "Gold Hill 7 (the Gold Hill Chutes) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Gold Hill 7",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255240",
+      "reason": "Gold Hill 8 (the Gold Hill Chutes) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Gold Hill 8",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255241",
+      "reason": "Gold Hill 9 (the Gold Hill Chutes) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Gold Hill 9",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255242",
+      "reason": "Gold Hill 10 (the Gold Hill Chutes) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Gold Hill 10",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255234",
+      "reason": "Roy Boy (Palmyra Peak) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Roy Boy",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255233",
+      "reason": "Senior's (Palmyra Peak) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Senior's",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255235",
+      "reason": "Tram Shot (Palmyra Peak) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Tram Shot",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255236",
+      "reason": "Sunrise (Palmyra Peak) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Sunrise",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255237",
+      "reason": "Electric Shock (Palmyra Peak) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Electric Shock",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255238",
+      "reason": "Capitol (Palmyra Peak) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Capitol",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255230",
+      "reason": "Nice Chute (Palmyra Peak) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Nice Chute",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255229",
+      "reason": "Review (Palmyra Peak) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Review",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255228",
+      "reason": "Jello's Bowl (Palmyra Peak) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Jello's Bowl",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255244",
+      "reason": "Zipper Rock (Palmyra Peak) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Zipper Rock",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255225",
+      "reason": "Dihedral Chute (Black Iron Bowl) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Dihedral Chute",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255224",
+      "reason": "Dihedral Face (Black Iron Bowl) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Dihedral Face",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/1123255222",
+      "reason": "Westlake (Black Iron Bowl) is EX, extreme, on the resort's Palmyra Peak and Black Iron Bowl detail map, whose legend ranks EX above the two-diamond expert grade; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Westlake",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "extreme"
+      }
+    },
+    {
+      "id": "way/530467536",
+      "reason": "Spiral Stairs, beside the Plunge Lift, carries two black diamonds (most difficult, expert only) on Telluride's 2024-25 trail map; OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Spiral Stairs",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/530467544",
+      "reason": "The lower 840 m of West Drain, from the Captain Jack's junction down to Lookout and Easy Out: Telluride's 2024-25 trail map prints one West Drain with two black diamonds, as OSM rates its middle way (way/530467543); this way is tagged advanced.",
+      "expect": {
+        "name": "West Drain",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/530467553",
+      "reason": "As way/530467544: a 397 m gladed variant of the top of West Drain beside the expert way/530467545; Telluride's 2024-25 trail map prints the run with two black diamonds.",
+      "expect": {
+        "name": "West Drain",
+        "piste:difficulty": "advanced",
+        "gladed": "yes"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/530890378",
+      "reason": "A 7 m piece joining Bailout to Lower Plunge at the bottom of the Oak Street Lift; Telluride's 2024-25 trail map prints Lower Plunge with two black diamonds, as OSM rates the rest of it (way/530467534).",
+      "expect": {
+        "name": "Lower Plunge",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1240043836",
+      "reason": "The last 104 m of Lower Galloping Goose into the Meadows base, unrated in OSM; Telluride's 2024-25 trail map draws Lower Galloping Goose green (two dots) all the way to Meadows, as OSM rates its upper ways.",
+      "expect": {
+        "name": "Lower Galloping Goose",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1240043835",
+      "reason": "A 412 m stretch of Lower Galloping Goose between the Bridges junction and the Meadows base, which Telluride's 2024-25 trail map draws green (two dots) and names Lower Galloping Goose; OSM shares the way with the Town of Mountain Village's nordic network, whose piste:name (Galloping Goose Ski Run, printed before the name) and intermediate rating it carries.",
+      "expect": {
+        "name": "Lower Galloping Goose",
+        "piste:name": "Galloping Goose Ski Run",
+        "piste:difficulty": "intermediate",
+        "piste:type": "downhill;nordic"
+      },
+      "set": {
+        "name": "Lower Galloping Goose",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1240043837",
+      "reason": "A 183 m stretch of Lower Galloping Goose between the Bridges junction and the Meadows base, which Telluride's 2024-25 trail map draws green (two dots) and names Lower Galloping Goose; OSM shares the way with the Town of Mountain Village's nordic network, whose piste:name (Galloping Goose Ski Run, printed before the name) and intermediate rating it carries.",
+      "expect": {
+        "name": "Lower Galloping Goose",
+        "piste:name": "Galloping Goose Ski Run",
+        "piste:difficulty": "intermediate",
+        "piste:type": "downhill;nordic"
+      },
+      "set": {
+        "name": "Lower Galloping Goose",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1240043834",
+      "reason": "A 153 m stretch of Lower Galloping Goose between the Bridges junction and the Meadows base, which Telluride's 2024-25 trail map draws green (two dots) and names Lower Galloping Goose; OSM shares the way with the Town of Mountain Village's nordic network, whose piste:name (Galloping Goose Ski Run, printed before the name) and intermediate rating it carries.",
+      "expect": {
+        "name": "Lower Galloping Goose",
+        "piste:name": "Galloping Goose Ski Run",
+        "piste:difficulty": "intermediate",
+        "piste:type": "downhill;nordic"
+      },
+      "set": {
+        "name": "Lower Galloping Goose",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/530921454",
+      "reason": "Misspelling: Telluride's 2024-25 trail map labels the blue run beside the Village Express HUMBOLDT DRAW (two squares, intermediate as OSM rates it); OSM has Humbolt.",
+      "expect": {
+        "name": "Humbolt Draw",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Humboldt Draw"
+      }
+    },
+    {
+      "id": "way/530921455",
+      "reason": "As way/530921454: the 107 m lower piece of Humboldt Draw, spelled Humbolt in OSM.",
+      "expect": {
+        "name": "Humbolt Draw",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Humboldt Draw"
+      }
+    },
+    {
+      "id": "way/529858078",
+      "reason": "Telluride's 2024-25 trail map labels the long green run from the Sunshine Express top down to Market Plaza and Meadows DOUBLE CABIN, three times; OSM has Double Cabins.",
+      "expect": {
+        "name": "Double Cabins",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Double Cabin"
+      }
+    },
+    {
+      "id": "way/530976708",
+      "reason": "Misspelling: a 75 m piece of Woozley's Way at the Polar Queen Express top, which Telluride's 2024-25 trail map labels WOOZLEY'S WAY, as OSM names the rest of it; OSM has Wozzley's here.",
+      "expect": {
+        "name": "Wozzley's Way",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Woozley's Way"
+      }
+    },
+    {
+      "id": "way/17145067",
+      "reason": "Telluride's 2024-25 trail map labels the gondola FREE GONDOLA on each of its three segments; this is the town segment, from the town station on Oak Street to San Sophia Station. OSM's Gondola Line 1 is a TIGER-era descriptor. Kept as a lift: skiers ride it up from town and down to it.",
+      "expect": {
+        "name": "Gondola Line 1",
+        "aerialway": "gondola"
+      },
+      "set": {
+        "name": "Free Gondola"
+      }
+    },
+    {
+      "id": "way/1525904143",
+      "reason": "As way/17145067: the segment from San Sophia Station down to Mountain Village, FREE GONDOLA on Telluride's 2024-25 trail map; OSM has Gondola Line 2.",
+      "expect": {
+        "name": "Gondola Line 2",
+        "aerialway": "gondola"
+      },
+      "set": {
+        "name": "Free Gondola"
+      }
+    },
+    {
+      "id": "way/231107982",
+      "reason": "As way/17145067: the third segment, from Mountain Village to Market Plaza and its paid parking, FREE GONDOLA on Telluride's 2024-25 trail map; OSM has Free Intercept Gondola.",
+      "expect": {
+        "name": "Free Intercept Gondola",
+        "aerialway": "gondola"
+      },
+      "set": {
+        "name": "Free Gondola"
+      }
+    },
+    {
+      "id": "way/530921459",
+      "reason": "Hoot Brown Terrain Park (1115 m of it), which Telluride's 2024-25 trail map draws as an orange park beside the Village Express and the free gondola, and the resort's mountain page lists among its terrain parks; OSM has it as a plain blue run.",
+      "expect": {
+        "name": "Hoot Brown Terrain Park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/530921460",
+      "reason": "Hoot Brown Terrain Park (130 m of it), which Telluride's 2024-25 trail map draws as an orange park beside the Village Express and the free gondola, and the resort's mountain page lists among its terrain parks; OSM has it as a plain blue run.",
+      "expect": {
+        "name": "Hoot Brown Terrain Park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/530921461",
+      "reason": "Hoot Brown Terrain Park (233 m of it), which Telluride's 2024-25 trail map draws as an orange park beside the Village Express and the free gondola, and the resort's mountain page lists among its terrain parks; OSM has it as a plain blue run.",
+      "expect": {
+        "name": "Hoot Brown Terrain Park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    }
+  ]
+}

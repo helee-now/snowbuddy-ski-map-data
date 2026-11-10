@@ -1,0 +1,259 @@
+{
+  "key": "jackson-hole-v1",
+  "ski_sha256": "22dbdf11efd1fbeef12650fae024e25281c003b617dc27b9d791813e8cdfb325",
+  "osm_timestamp": "2026-11-10T07:56:57Z",
+  "box": [
+    -110.91,
+    43.56,
+    -110.79,
+    43.64
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -110.877311,
+    43.579528,
+    -110.822088,
+    43.611985
+  ],
+  "margins_km": {
+    "west": 2.63,
+    "south": 2.17,
+    "east": 2.58,
+    "north": 3.12
+  },
+  "counts": {
+    "lifts": 17,
+    "runs_in_bounds": 188,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 13,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 40,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 16.5,
+    "runs_in_bounds": 98.2,
+    "runs_out_of_bounds": 16.3
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [
+    "Cody Bowl",
+    "Rock Springs Bowl"
+  ],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1293309745",
+      "name": "Rock Springs Bowl",
+      "difficulty": "freeride",
+      "length_m": 1174,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1293309746",
+      "name": "Rock Springs Bowl",
+      "difficulty": "freeride",
+      "length_m": 1447,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1297464829",
+      "name": "Rock Springs Bowl",
+      "difficulty": "freeride",
+      "length_m": 1275,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1297464831",
+      "name": "Cody Bowl",
+      "difficulty": "freeride",
+      "length_m": 1344,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1297464832",
+      "name": "Cody Bowl",
+      "difficulty": "freeride",
+      "length_m": 701,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1297466408",
+      "name": "Pucker Face",
+      "difficulty": "freeride",
+      "length_m": 234,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1297466409",
+      "name": "Four Shadows",
+      "difficulty": "freeride",
+      "length_m": 176,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1297466410",
+      "name": "Powder 8",
+      "difficulty": "freeride",
+      "length_m": 253,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1297466411",
+      "name": "No Shadows",
+      "difficulty": "freeride",
+      "length_m": 119,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1305149292",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 5905,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1305407651",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 944,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1363957790",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 220,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/318672230",
+      "name": "Rock Springs Bowl",
+      "difficulty": "freeride",
+      "length_m": 2551,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -110.917969,
+      43.452919,
+      -110.742188,
+      43.707594
+    ],
+    "12": [
+      -110.917969,
+      43.516689,
+      -110.742188,
+      43.644026
+    ],
+    "13": [
+      -110.917969,
+      43.548548,
+      -110.786133,
+      43.644026
+    ],
+    "14": [
+      -110.917969,
+      43.548548,
+      -110.786133,
+      43.644026
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

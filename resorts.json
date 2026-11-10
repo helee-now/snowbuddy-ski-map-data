@@ -396,6 +396,45 @@
       "coverage": "data/big-bear-mountain-resort-v2-coverage.json"
     },
     {
+      "slug": "big-sky",
+      "name": "Big Sky",
+      "version": 1,
+      "key": "big-sky-v1",
+      "box": [
+        -111.49,
+        45.22,
+        -111.33,
+        45.34
+      ],
+      "ski_area": "way/1254863688",
+      "neighbours": [
+        {
+          "id": "way/1461424414",
+          "name": "Yellowstone Club",
+          "reason": "A private club, not on Big Sky's ticket, south of Andesite Mountain and Lone Mountain's south face: its polygon (Pioneer Mountain, the Eglise Gondola and its chairs) fills the box's south half and shares a border with Big Sky's (73 nodes), so its 21 lifts and 121 runs would otherwise draw beside Big Sky's. Left off by the owner's rule (\"leave them off\")."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T08:03:59Z",
+      "overpass_box": [
+        -111.53,
+        45.2,
+        -111.29,
+        45.36
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n46w112/USGS_13_n46w112.tif"
+      ],
+      "built_at": "2026-11-10T08:19:46Z",
+      "ski_file": {
+        "path": "data/big-sky-v1-ski.pmtiles",
+        "bytes": 448182,
+        "sha256": "33b313fa4abbfbba4223cbe7e10b8d712ed1781526c0503844b53281ee32960b"
+      },
+      "coverage": "data/big-sky-v1-coverage.json"
+    },
+    {
       "slug": "big-white",
       "name": "Big White",
       "version": 3,
@@ -632,6 +671,69 @@
       "coverage": "data/copper-mountain-v1-coverage.json"
     },
     {
+      "slug": "crested-butte",
+      "name": "Crested Butte",
+      "version": 1,
+      "key": "crested-butte-v1",
+      "box": [
+        -107,
+        38.86,
+        -106.89,
+        38.94
+      ],
+      "ski_area": "way/530521512",
+      "neighbours": [
+        {
+          "id": "relation/7632286",
+          "name": "Crested Butte Nordic",
+          "reason": "The town's nordic centre, a separate venue with its own passes: its multipolygon (two outer rings, the trails around the town of Crested Butte and below Mount Crested Butte's south-west side) touches no part of the resort's polygon and holds no lift or downhill run, but reaches into the box's west half, so it is listed by the neighbour rule; nothing of the resort is left off by it (normalize.json: no lift, run, run area or station), and its nordic trails are left out by the type rule anyway."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "CO_WestCentral_2019_A19",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T07:59:59Z",
+      "overpass_box": [
+        -107.04,
+        38.84,
+        -106.85,
+        38.96
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_WestCentral_2019_A19/TIFF/USGS_1M_13_x32y430_CO_WestCentral_2019_A19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_WestCentral_2019_A19/TIFF/USGS_1M_13_x32y431_CO_WestCentral_2019_A19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_WestCentral_2019_A19/TIFF/USGS_1M_13_x32y432_CO_WestCentral_2019_A19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_WestCentral_2019_A19/TIFF/USGS_1M_13_x33y430_CO_WestCentral_2019_A19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_WestCentral_2019_A19/TIFF/USGS_1M_13_x33y431_CO_WestCentral_2019_A19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_WestCentral_2019_A19/TIFF/USGS_1M_13_x33y432_CO_WestCentral_2019_A19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w107/USGS_13_n39w107.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w108/USGS_13_n39w108.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CO_WestCentral_2019_A19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -107,
+          38.86,
+          -106.89,
+          38.94
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 97.867,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 2.133
+      },
+      "built_at": "2026-11-10T08:03:35Z",
+      "ski_file": {
+        "path": "data/crested-butte-v1-ski.pmtiles",
+        "bytes": 183843,
+        "sha256": "8193e5b5054075e0cbb3ec4d0a671ca333dbe8a6f8b54880e4fb0781c69a00c5"
+      },
+      "coverage": "data/crested-butte-v1-coverage.json"
+    },
+    {
       "slug": "deer-valley",
       "name": "Deer Valley",
       "version": 2,
@@ -713,6 +815,58 @@
       "coverage": "data/diamond-peak-v1-coverage.json"
     },
     {
+      "slug": "eldora",
+      "name": "Eldora",
+      "version": 1,
+      "key": "eldora-v1",
+      "box": [
+        -105.64,
+        39.91,
+        -105.55,
+        39.97
+      ],
+      "ski_area": "way/427517284",
+      "elevation": "3dep1",
+      "elevation_project": "CO_DRCOG_2020_B20",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T07:51:51Z",
+      "overpass_box": [
+        -105.68,
+        39.89,
+        -105.51,
+        39.99
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_DRCOG_2020_B20/TIFF/USGS_1M_13_x44y442_CO_DRCOG_2020_B20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_DRCOG_2020_B20/TIFF/USGS_1M_13_x44y443_CO_DRCOG_2020_B20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_DRCOG_2020_B20/TIFF/USGS_1M_13_x45y442_CO_DRCOG_2020_B20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_DRCOG_2020_B20/TIFF/USGS_1M_13_x45y443_CO_DRCOG_2020_B20.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CO_DRCOG_2020_B20",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -105.64,
+          39.91,
+          -105.55,
+          39.97
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-10T07:56:35Z",
+      "ski_file": {
+        "path": "data/eldora-v1-ski.pmtiles",
+        "bytes": 105971,
+        "sha256": "4832b43b40a86d040b6d07412888e9b52e59147422aa897af60b1c6ef07b1289"
+      },
+      "coverage": "data/eldora-v1-coverage.json"
+    },
+    {
       "slug": "heavenly",
       "name": "Heavenly",
       "version": 1,
@@ -746,6 +900,42 @@
         "sha256": "17aea3dea47c73712cc8445a6a6daf5b030400500314e3f7e1ed4a02bab79794"
       },
       "coverage": "data/heavenly-v1-coverage.json"
+    },
+    {
+      "slug": "jackson-hole",
+      "name": "Jackson Hole",
+      "version": 1,
+      "key": "jackson-hole-v1",
+      "box": [
+        -110.91,
+        43.56,
+        -110.79,
+        43.64
+      ],
+      "ski_area": "way/1074335726",
+      "elevation": "3dep13",
+      "out_of_bounds_named": [
+        "Cody Bowl",
+        "Rock Springs Bowl"
+      ],
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T07:56:57Z",
+      "overpass_box": [
+        -110.95,
+        43.54,
+        -110.75,
+        43.66
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w111/USGS_13_n44w111.tif"
+      ],
+      "built_at": "2026-11-10T08:08:26Z",
+      "ski_file": {
+        "path": "data/jackson-hole-v1-ski.pmtiles",
+        "bytes": 246586,
+        "sha256": "22dbdf11efd1fbeef12650fae024e25281c003b617dc27b9d791813e8cdfb325"
+      },
+      "coverage": "data/jackson-hole-v1-coverage.json"
     },
     {
       "slug": "june-mountain",
@@ -1672,6 +1862,150 @@
         "sha256": "e603b8454f0ecb0678f724239802bf1acf3683002643d6ddb8e6927fd97314da"
       },
       "coverage": "data/sugar-bowl-v1-coverage.json"
+    },
+    {
+      "slug": "sun-valley",
+      "name": "Sun Valley",
+      "version": 1,
+      "key": "sun-valley-v1",
+      "box": [
+        -114.45,
+        43.62,
+        -114.3,
+        43.71
+      ],
+      "ski_area": [
+        "way/1244099443",
+        "way/1244098768"
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T08:18:05Z",
+      "overpass_box": [
+        -114.49,
+        43.6,
+        -114.26,
+        43.73
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w115/USGS_13_n44w115.tif"
+      ],
+      "built_at": "2026-11-10T08:25:54Z",
+      "ski_file": {
+        "path": "data/sun-valley-v1-ski.pmtiles",
+        "bytes": 340735,
+        "sha256": "6afb69c2e3c83a41a85a1b1fd188be64cb661499ac203d0b8c260b656907ca38"
+      },
+      "coverage": "data/sun-valley-v1-coverage.json"
+    },
+    {
+      "slug": "taos-ski-valley",
+      "name": "Taos Ski Valley",
+      "version": 1,
+      "key": "taos-ski-valley-v1",
+      "box": [
+        -105.49,
+        36.54,
+        -105.41,
+        36.62
+      ],
+      "ski_area": "relation/13573224",
+      "elevation": "3dep1",
+      "elevation_project": "NM_USFSEnchantedCircle_D24",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T08:06:59Z",
+      "overpass_box": [
+        -105.53,
+        36.52,
+        -105.37,
+        36.64
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NM_USFSEnchantedCircle_D24/TIFF/USGS_1M_13_x45y404_NM_USFSEnchantedCircle_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NM_USFSEnchantedCircle_D24/TIFF/USGS_1M_13_x45y405_NM_USFSEnchantedCircle_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NM_USFSEnchantedCircle_D24/TIFF/USGS_1M_13_x45y406_NM_USFSEnchantedCircle_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NM_USFSEnchantedCircle_D24/TIFF/USGS_1M_13_x46y404_NM_USFSEnchantedCircle_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NM_USFSEnchantedCircle_D24/TIFF/USGS_1M_13_x46y405_NM_USFSEnchantedCircle_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NM_USFSEnchantedCircle_D24/TIFF/USGS_1M_13_x46y406_NM_USFSEnchantedCircle_D24.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "NM_USFSEnchantedCircle_D24",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -105.49,
+          36.54,
+          -105.41,
+          36.62
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-10T08:10:39Z",
+      "ski_file": {
+        "path": "data/taos-ski-valley-v1-ski.pmtiles",
+        "bytes": 192207,
+        "sha256": "19d80f99af417125c12771ab8aa915de29810f00b0fbdee8261ea5f81aea2c83"
+      },
+      "coverage": "data/taos-ski-valley-v1-coverage.json"
+    },
+    {
+      "slug": "telluride",
+      "name": "Telluride",
+      "version": 1,
+      "key": "telluride-v1",
+      "box": [
+        -107.89,
+        37.86,
+        -107.79,
+        37.96
+      ],
+      "ski_area": "way/528965906",
+      "elevation": "3dep1",
+      "elevation_project": "CO_SanLuisJuanMiguel_2020_D20",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T08:28:14Z",
+      "overpass_box": [
+        -107.93,
+        37.84,
+        -107.75,
+        37.98
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_SanLuisJuanMiguel_2020_D20/TIFF/USGS_1M_13_x24y419_CO_SanLuisJuanMiguel_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_SanLuisJuanMiguel_2020_D20/TIFF/USGS_1M_13_x24y420_CO_SanLuisJuanMiguel_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_SanLuisJuanMiguel_2020_D20/TIFF/USGS_1M_13_x24y421_CO_SanLuisJuanMiguel_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_SanLuisJuanMiguel_2020_D20/TIFF/USGS_1M_13_x25y419_CO_SanLuisJuanMiguel_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_SanLuisJuanMiguel_2020_D20/TIFF/USGS_1M_13_x25y420_CO_SanLuisJuanMiguel_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_SanLuisJuanMiguel_2020_D20/TIFF/USGS_1M_13_x25y421_CO_SanLuisJuanMiguel_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n38w108/USGS_13_n38w108.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CO_SanLuisJuanMiguel_2020_D20",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -107.89,
+          37.86,
+          -107.79,
+          37.96
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 93.177,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 6.823
+      },
+      "built_at": "2026-11-10T08:31:02Z",
+      "ski_file": {
+        "path": "data/telluride-v1-ski.pmtiles",
+        "bytes": 255880,
+        "sha256": "3ba0b1778e27bbe70a4f0e20f9e2d43e064c7de6290c7f96fda7eb0402c915b6"
+      },
+      "coverage": "data/telluride-v1-coverage.json"
     },
     {
       "slug": "vail",

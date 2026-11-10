@@ -1,0 +1,73 @@
+{
+  "key": "taos-ski-valley-v1",
+  "ski_sha256": "19d80f99af417125c12771ab8aa915de29810f00b0fbdee8261ea5f81aea2c83",
+  "osm_timestamp": "2026-11-10T08:06:59Z",
+  "box": [
+    -105.49,
+    36.54,
+    -105.41,
+    36.62
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -105.463911,
+    36.561513,
+    -105.437966,
+    36.596493
+  ],
+  "margins_km": {
+    "west": 2.33,
+    "south": 2.39,
+    "east": 2.5,
+    "north": 2.61
+  },
+  "counts": {
+    "lifts": 14,
+    "runs_in_bounds": 187,
+    "run_areas_in_bounds": 2,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 24,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 7.6,
+    "runs_in_bounds": 64.5,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -105.644531,
+      36.456636,
+      -105.292969,
+      36.738884
+    ],
+    "12": [
+      -105.556641,
+      36.527295,
+      -105.380859,
+      36.668419
+    ],
+    "13": [
+      -105.512695,
+      36.527295,
+      -105.380859,
+      36.633162
+    ],
+    "14": [
+      -105.490723,
+      36.527295,
+      -105.402832,
+      36.633162
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

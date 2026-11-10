@@ -15,13 +15,17 @@ repository holds the files the app downloads, their build records, and the scrip
 | Bear Mountain | [`data/bear-mountain-v1-ski.pmtiles`](data/bear-mountain-v1-ski.pmtiles) | 2026-10-29 08:00:11 UTC | 107,809 | `8ef8a1b2cb17e879…` |
 | Beaver Creek | [`data/beaver-creek-v1-ski.pmtiles`](data/beaver-creek-v1-ski.pmtiles) | 2026-11-04 17:50:18 UTC | 328,106 | `7e3ee1790b5019e0…` |
 | Big Bear Mountain Resort | [`data/big-bear-mountain-resort-v2-ski.pmtiles`](data/big-bear-mountain-resort-v2-ski.pmtiles) | 2026-10-22 06:41:51 UTC | 149,841 | `efe20319e7bac54f…` |
+| Big Sky | [`data/big-sky-v1-ski.pmtiles`](data/big-sky-v1-ski.pmtiles) | 2026-11-10 08:03:59 UTC | 448,182 | `33b313fa4abbfbba…` |
 | Big White | [`data/big-white-v3-ski.pmtiles`](data/big-white-v3-ski.pmtiles) | 2026-10-15 06:15:47 UTC | 159,044 | `2441855b7379ad42…` |
 | Breckenridge | [`data/breckenridge-v1-ski.pmtiles`](data/breckenridge-v1-ski.pmtiles) | 2026-11-04 17:06:45 UTC | 223,181 | `31d09c98c5c2004e…` |
 | Brighton | [`data/brighton-v2-ski.pmtiles`](data/brighton-v2-ski.pmtiles) | 2026-10-22 06:47:58 UTC | 168,044 | `a3c2201ad03cdc02…` |
 | Copper Mountain | [`data/copper-mountain-v1-ski.pmtiles`](data/copper-mountain-v1-ski.pmtiles) | 2026-11-04 17:16:51 UTC | 207,767 | `258a5362af386f61…` |
+| Crested Butte | [`data/crested-butte-v1-ski.pmtiles`](data/crested-butte-v1-ski.pmtiles) | 2026-11-10 07:59:59 UTC | 183,843 | `8193e5b5054075e0…` |
 | Deer Valley | [`data/deer-valley-v2-ski.pmtiles`](data/deer-valley-v2-ski.pmtiles) | 2026-10-22 06:50:06 UTC | 349,533 | `9abd659e02893978…` |
 | Diamond Peak | [`data/diamond-peak-v1-ski.pmtiles`](data/diamond-peak-v1-ski.pmtiles) | 2026-10-31 22:06:49 UTC | 124,662 | `4b38917f0833a8b8…` |
+| Eldora | [`data/eldora-v1-ski.pmtiles`](data/eldora-v1-ski.pmtiles) | 2026-11-10 07:51:51 UTC | 105,971 | `4832b43b40a86d04…` |
 | Heavenly | [`data/heavenly-v1-ski.pmtiles`](data/heavenly-v1-ski.pmtiles) | 2026-10-31 21:59:50 UTC | 265,008 | `17aea3dea47c7371…` |
+| Jackson Hole | [`data/jackson-hole-v1-ski.pmtiles`](data/jackson-hole-v1-ski.pmtiles) | 2026-11-10 07:56:57 UTC | 246,586 | `22dbdf11efd1fbee…` |
 | June Mountain | [`data/june-mountain-v1-ski.pmtiles`](data/june-mountain-v1-ski.pmtiles) | 2026-11-04 08:54:21 UTC | 122,216 | `b2e4e99274fff78d…` |
 | Keystone | [`data/keystone-v1-ski.pmtiles`](data/keystone-v1-ski.pmtiles) | 2026-11-04 17:19:51 UTC | 260,604 | `47b7b72789bf3ab0…` |
 | Kirkwood | [`data/kirkwood-v1-ski.pmtiles`](data/kirkwood-v1-ski.pmtiles) | 2026-10-31 22:17:06 UTC | 186,881 | `2aced16f47fb987f…` |
@@ -38,6 +42,9 @@ repository holds the files the app downloads, their build records, and the scrip
 | Solitude | [`data/solitude-v1-ski.pmtiles`](data/solitude-v1-ski.pmtiles) | 2026-11-04 09:02:34 UTC | 209,897 | `bd92310ea22f58fc…` |
 | Steamboat | [`data/steamboat-v2-ski.pmtiles`](data/steamboat-v2-ski.pmtiles) | 2026-10-22 06:46:56 UTC | 250,322 | `1a40436ff7ae6734…` |
 | Sugar Bowl | [`data/sugar-bowl-v1-ski.pmtiles`](data/sugar-bowl-v1-ski.pmtiles) | 2026-10-31 22:19:59 UTC | 158,240 | `e603b8454f0ecb06…` |
+| Sun Valley | [`data/sun-valley-v1-ski.pmtiles`](data/sun-valley-v1-ski.pmtiles) | 2026-11-10 08:18:05 UTC | 340,735 | `6afb69c2e3c83a41…` |
+| Taos Ski Valley | [`data/taos-ski-valley-v1-ski.pmtiles`](data/taos-ski-valley-v1-ski.pmtiles) | 2026-11-10 08:06:59 UTC | 192,207 | `19d80f99af417125…` |
+| Telluride | [`data/telluride-v1-ski.pmtiles`](data/telluride-v1-ski.pmtiles) | 2026-11-10 08:28:14 UTC | 255,880 | `3ba0b1778e27bbe7…` |
 | Vail | [`data/vail-v1-ski.pmtiles`](data/vail-v1-ski.pmtiles) | 2026-11-04 17:25:54 UTC | 454,648 | `7599e11a31a63b27…` |
 | Whistler Blackcomb | [`data/whistler-blackcomb-v4-ski.pmtiles`](data/whistler-blackcomb-v4-ski.pmtiles) | 2026-10-15 06:13:50 UTC | 838,922 | `ff73c9a03c7c9484…` |
 | Winter Park | [`data/winter-park-v2-ski.pmtiles`](data/winter-park-v2-ski.pmtiles) | 2026-10-22 06:47:58 UTC | 249,857 | `5d52e67139620123…` |
@@ -50,13 +57,17 @@ repository holds the files the app downloads, their build records, and the scrip
 | Bear Mountain | -116.9, 34.19, -116.82, 34.25 | [way/682224991](https://www.openstreetmap.org/way/682224991) | USGS 3DEP 1 m DEM |
 | Beaver Creek | -106.61, 39.54, -106.46, 39.66 | [way/531009608](https://www.openstreetmap.org/way/531009608) | USGS 3DEP 1 m DEM |
 | Big Bear Mountain Resort | -116.93, 34.19, -116.82, 34.26 | [way/1554647623](https://www.openstreetmap.org/way/1554647623), [way/682224991](https://www.openstreetmap.org/way/682224991) | USGS 3DEP 1 m DEM |
+| Big Sky | -111.49, 45.22, -111.33, 45.34 | [way/1254863688](https://www.openstreetmap.org/way/1254863688) | USGS 3DEP 1/3 arc-second |
 | Big White | -119.01, 49.68, -118.88, 49.78 | [way/476836855](https://www.openstreetmap.org/way/476836855) | NRCan MRDEM-30 DTM |
 | Breckenridge | -106.14, 39.43, -106.02, 39.52 | [way/531005985](https://www.openstreetmap.org/way/531005985) | USGS 3DEP 1 m DEM |
 | Brighton | -111.63, 40.56, -111.53, 40.62 | [way/682230007](https://www.openstreetmap.org/way/682230007) | USGS 3DEP 1 m DEM |
 | Copper Mountain | -106.22, 39.43, -106.11, 39.52 | [way/531005986](https://www.openstreetmap.org/way/531005986) | USGS 3DEP 1 m DEM |
+| Crested Butte | -107, 38.86, -106.89, 38.94 | [way/530521512](https://www.openstreetmap.org/way/530521512) | USGS 3DEP 1 m DEM |
 | Deer Valley | -111.56, 40.56, -111.41, 40.67 | [way/682241434](https://www.openstreetmap.org/way/682241434) | USGS 3DEP 1/3 arc-second |
 | Diamond Peak | -119.96, 39.22, -119.87, 39.29 | [way/467831000](https://www.openstreetmap.org/way/467831000) | USGS 3DEP 1/3 arc-second |
+| Eldora | -105.64, 39.91, -105.55, 39.97 | [way/427517284](https://www.openstreetmap.org/way/427517284) | USGS 3DEP 1 m DEM |
 | Heavenly | -119.97, 38.89, -119.85, 38.99 | [relation/12152028](https://www.openstreetmap.org/relation/12152028) | USGS 3DEP 1/3 arc-second |
+| Jackson Hole | -110.91, 43.56, -110.79, 43.64 | [way/1074335726](https://www.openstreetmap.org/way/1074335726) | USGS 3DEP 1/3 arc-second |
 | June Mountain | -119.12, 37.72, -119.03, 37.79 | [relation/14100275](https://www.openstreetmap.org/relation/14100275) | USGS 3DEP 1 m DEM |
 | Keystone | -105.99, 39.51, -105.88, 39.63 | [way/531000583](https://www.openstreetmap.org/way/531000583) | USGS 3DEP 1 m DEM |
 | Kirkwood | -120.12, 38.63, -120.01, 38.72 | [way/319472357](https://www.openstreetmap.org/way/319472357) | USGS 3DEP 1 m DEM |
@@ -73,11 +84,14 @@ repository holds the files the app downloads, their build records, and the scrip
 | Solitude | -111.65, 40.57, -111.56, 40.65 | [way/682230006](https://www.openstreetmap.org/way/682230006) | USGS 3DEP 1/3 arc-second |
 | Steamboat | -106.85, 40.41, -106.71, 40.51 | [way/530998526](https://www.openstreetmap.org/way/530998526) | USGS 3DEP 1/3 arc-second |
 | Sugar Bowl | -120.39, 39.26, -120.29, 39.34 | [relation/10326057](https://www.openstreetmap.org/relation/10326057) | USGS 3DEP 1 m DEM |
+| Sun Valley | -114.45, 43.62, -114.3, 43.71 | [way/1244099443](https://www.openstreetmap.org/way/1244099443), [way/1244098768](https://www.openstreetmap.org/way/1244098768) | USGS 3DEP 1/3 arc-second |
+| Taos Ski Valley | -105.49, 36.54, -105.41, 36.62 | [relation/13573224](https://www.openstreetmap.org/relation/13573224) | USGS 3DEP 1 m DEM |
+| Telluride | -107.89, 37.86, -107.79, 37.96 | [way/528965906](https://www.openstreetmap.org/way/528965906) | USGS 3DEP 1 m DEM |
 | Vail | -106.43, 39.53, -106.26, 39.67 | [way/531009607](https://www.openstreetmap.org/way/531009607) | USGS 3DEP 1 m DEM |
 | Whistler Blackcomb | -123.08, 49.98, -122.83, 50.17 | [way/474288286](https://www.openstreetmap.org/way/474288286) | NRCan MRDEM-30 DTM |
 | Winter Park | -105.84, 39.81, -105.72, 39.93 | [way/460246666](https://www.openstreetmap.org/way/460246666) | USGS 3DEP 1 m DEM |
 
-OpenStreetMap data of 2026-11-04 09:06:36 UTC for Alta, 2026-11-04 17:25:54 UTC for Arapahoe Basin, 2026-10-22 06:51:06 UTC for Aspen Snowmass, 2026-10-29 08:00:11 UTC for Bear Mountain, 2026-11-04 17:50:18 UTC for Beaver Creek, 2026-10-22 06:41:51 UTC for Big Bear Mountain Resort, 2026-10-15 06:15:47 UTC for Big White, 2026-11-04 17:06:45 UTC for Breckenridge, 2026-10-22 06:47:58 UTC for Brighton, 2026-11-04 17:16:51 UTC for Copper Mountain, 2026-10-22 06:50:06 UTC for Deer Valley, 2026-10-31 22:06:49 UTC for Diamond Peak, 2026-10-31 21:59:50 UTC for Heavenly, 2026-11-04 08:54:21 UTC for June Mountain, 2026-11-04 17:19:51 UTC for Keystone, 2026-10-31 22:17:06 UTC for Kirkwood, 2026-10-15 06:16:51 UTC for Mammoth Mountain, 2026-10-30 08:41:01 UTC for Mountain High, 2026-10-31 22:03:50 UTC for Northstar California, 2026-10-22 06:44:51 UTC for Palisades Tahoe, 2026-10-22 06:50:06 UTC for Park City Mountain, 2026-10-31 22:06:49 UTC for Sierra-at-Tahoe, 2026-10-29 07:58:06 UTC for Snow Summit, 2026-10-22 06:42:51 UTC for Snow Valley, 2026-11-04 09:20:45 UTC for Snowbasin, 2026-11-04 09:12:38 UTC for Snowbird, 2026-11-04 09:02:34 UTC for Solitude, 2026-10-22 06:46:56 UTC for Steamboat, 2026-10-31 22:19:59 UTC for Sugar Bowl, 2026-11-04 17:25:54 UTC for Vail, 2026-10-15 06:13:50 UTC for Whistler Blackcomb and 2026-10-22 06:47:58 UTC for Winter Park. Built on 2026-11-04, 2026-10-23, 2026-10-29, 2026-11-05, 2026-10-31 and 2026-10-30.
+OpenStreetMap data of 2026-11-04 09:06:36 UTC for Alta, 2026-11-04 17:25:54 UTC for Arapahoe Basin, 2026-10-22 06:51:06 UTC for Aspen Snowmass, 2026-10-29 08:00:11 UTC for Bear Mountain, 2026-11-04 17:50:18 UTC for Beaver Creek, 2026-10-22 06:41:51 UTC for Big Bear Mountain Resort, 2026-11-10 08:03:59 UTC for Big Sky, 2026-10-15 06:15:47 UTC for Big White, 2026-11-04 17:06:45 UTC for Breckenridge, 2026-10-22 06:47:58 UTC for Brighton, 2026-11-04 17:16:51 UTC for Copper Mountain, 2026-11-10 07:59:59 UTC for Crested Butte, 2026-10-22 06:50:06 UTC for Deer Valley, 2026-10-31 22:06:49 UTC for Diamond Peak, 2026-11-10 07:51:51 UTC for Eldora, 2026-10-31 21:59:50 UTC for Heavenly, 2026-11-10 07:56:57 UTC for Jackson Hole, 2026-11-04 08:54:21 UTC for June Mountain, 2026-11-04 17:19:51 UTC for Keystone, 2026-10-31 22:17:06 UTC for Kirkwood, 2026-10-15 06:16:51 UTC for Mammoth Mountain, 2026-10-30 08:41:01 UTC for Mountain High, 2026-10-31 22:03:50 UTC for Northstar California, 2026-10-22 06:44:51 UTC for Palisades Tahoe, 2026-10-22 06:50:06 UTC for Park City Mountain, 2026-10-31 22:06:49 UTC for Sierra-at-Tahoe, 2026-10-29 07:58:06 UTC for Snow Summit, 2026-10-22 06:42:51 UTC for Snow Valley, 2026-11-04 09:20:45 UTC for Snowbasin, 2026-11-04 09:12:38 UTC for Snowbird, 2026-11-04 09:02:34 UTC for Solitude, 2026-10-22 06:46:56 UTC for Steamboat, 2026-10-31 22:19:59 UTC for Sugar Bowl, 2026-11-10 08:18:05 UTC for Sun Valley, 2026-11-10 08:06:59 UTC for Taos Ski Valley, 2026-11-10 08:28:14 UTC for Telluride, 2026-11-04 17:25:54 UTC for Vail, 2026-10-15 06:13:50 UTC for Whistler Blackcomb and 2026-10-22 06:47:58 UTC for Winter Park. Built on 2026-11-04, 2026-10-23, 2026-10-29, 2026-11-05, 2026-11-10, 2026-10-31 and 2026-10-30.
 
 > **Not for navigation or safety decisions.** Run ratings come from OpenStreetMap and can differ from the resort's own
 > signs and trail map. Lines marked out of bounds lie outside the resort boundary. Always follow the resort's signs,
@@ -161,7 +175,7 @@ listed in `out_of_bounds_named` whole at every zoom. Other out-of-bounds runs be
 out, like everything else there. The coverage reports (`data/<key>-coverage.json`) list every out-of-bounds run with the
 zooms whose tiles hold all of it (`drawn_whole_at`) or part of it (`drawn_part_at`).
 
-Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Arapahoe Basin, Bear Mountain, Beaver Creek, Big Bear Mountain Resort, Big White, Breckenridge, Copper Mountain, Deer Valley, Diamond Peak, Heavenly, June Mountain, Keystone, Kirkwood, Mountain High, Northstar California, Sierra-at-Tahoe, Snow Summit, Snow Valley, Steamboat, Vail and Winter Park have none:
+Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Arapahoe Basin, Bear Mountain, Beaver Creek, Big Bear Mountain Resort, Big Sky, Big White, Breckenridge, Copper Mountain, Crested Butte, Deer Valley, Diamond Peak, Eldora, Heavenly, June Mountain, Keystone, Kirkwood, Mountain High, Northstar California, Sierra-at-Tahoe, Snow Summit, Snow Valley, Steamboat, Taos Ski Valley, Telluride, Vail and Winter Park have none:
 
 | Resort | Run | OSM | In the box | Whole at | In part at |
 |---|---|---|---|---|---|
@@ -169,6 +183,19 @@ Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Arapaho
 | Aspen Snowmass | North Face of North Maroon Peak | [way/1228768990](https://www.openstreetmap.org/way/1228768990) | no | z11–13 | z14 |
 | Aspen Snowmass | The Landry Line | [way/1228765519](https://www.openstreetmap.org/way/1228765519) | no | z11–13 | – |
 | Brighton | Suicide Chute | [way/1382646253](https://www.openstreetmap.org/way/1382646253) | no | z11–13 | – |
+| Jackson Hole | Cody Bowl (named) | [way/1297464831](https://www.openstreetmap.org/way/1297464831) | yes | z11–14 | – |
+| Jackson Hole | Cody Bowl (named) | [way/1297464832](https://www.openstreetmap.org/way/1297464832) | yes | z11–14 | – |
+| Jackson Hole | Rock Springs Bowl (named) | [way/318672230](https://www.openstreetmap.org/way/318672230) | yes | z11–14 | – |
+| Jackson Hole | Rock Springs Bowl (named) | [way/1293309745](https://www.openstreetmap.org/way/1293309745) | yes | z11–14 | – |
+| Jackson Hole | Rock Springs Bowl (named) | [way/1293309746](https://www.openstreetmap.org/way/1293309746) | yes | z11–14 | – |
+| Jackson Hole | Rock Springs Bowl (named) | [way/1297464829](https://www.openstreetmap.org/way/1297464829) | yes | z11–14 | – |
+| Jackson Hole | Four Shadows | [way/1297466409](https://www.openstreetmap.org/way/1297466409) | yes | z11–14 | – |
+| Jackson Hole | No Shadows | [way/1297466411](https://www.openstreetmap.org/way/1297466411) | yes | z11–14 | – |
+| Jackson Hole | Powder 8 | [way/1297466410](https://www.openstreetmap.org/way/1297466410) | yes | z11–14 | – |
+| Jackson Hole | Pucker Face | [way/1297466408](https://www.openstreetmap.org/way/1297466408) | yes | z11–14 | – |
+| Jackson Hole | (unnamed) | [way/1305149292](https://www.openstreetmap.org/way/1305149292) | yes | z11–14 | – |
+| Jackson Hole | (unnamed) | [way/1305407651](https://www.openstreetmap.org/way/1305407651) | yes | z11–14 | – |
+| Jackson Hole | (unnamed) | [way/1363957790](https://www.openstreetmap.org/way/1363957790) | yes | z11–14 | – |
 | Mammoth Mountain | Hollywood Chute (named) | [way/1143796677](https://www.openstreetmap.org/way/1143796677) | yes | z11–14 | – |
 | Mammoth Mountain | Red Cone Bowl (named) | [way/1143796676](https://www.openstreetmap.org/way/1143796676) | yes | z11–14 | – |
 | Palisades Tahoe | Outer Outer (named) | [way/455183677](https://www.openstreetmap.org/way/455183677) | yes | z11–14 | – |
@@ -184,6 +211,8 @@ Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Arapaho
 | Snowbird | Suicide Chute | [way/1382646253](https://www.openstreetmap.org/way/1382646253) | yes | z11–14 | – |
 | Solitude | Suicide Chute | [way/1382646253](https://www.openstreetmap.org/way/1382646253) | no | z11–14 | – |
 | Sugar Bowl | Lincoln East Face (named) | [way/1473727299](https://www.openstreetmap.org/way/1473727299) | yes | z11–14 | – |
+| Sun Valley | Sunrise Bowl | [way/1340804770](https://www.openstreetmap.org/way/1340804770) | yes | z11–14 | – |
+| Sun Valley | Sunrise Bowl | [way/1359433818](https://www.openstreetmap.org/way/1359433818) | yes | z11–14 | – |
 | Whistler Blackcomb | Body Bag Bowl (named) | [way/472098498](https://www.openstreetmap.org/way/472098498) | yes | z11–14 | – |
 | Whistler Blackcomb | Chamonix Chutes (named) | [way/399343702](https://www.openstreetmap.org/way/399343702) | yes | z11–14 | – |
 | Whistler Blackcomb | Chamonix Chutes (named) | [way/399343703](https://www.openstreetmap.org/way/399343703) | yes | z11–14 | – |
@@ -217,11 +246,11 @@ Out-of-bounds runs in the files (OpenStreetMap data of the dates above); Arapaho
 
 **Contour lines.** Contours every 20 m are computed from one elevation model per resort:
 
-- **USGS 3DEP 1/3 arc-second** (10 m), for Alta, Aspen Snowmass, Deer Valley, Diamond Peak, Heavenly, Park City Mountain, Snow Valley, Snowbasin, Snowbird, Solitude and Steamboat: Public domain (U.S. Geological Survey) (https://www.usgs.gov/3d-elevation-program). Data: https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/
+- **USGS 3DEP 1/3 arc-second** (10 m), for Alta, Aspen Snowmass, Big Sky, Deer Valley, Diamond Peak, Heavenly, Jackson Hole, Park City Mountain, Snow Valley, Snowbasin, Snowbird, Solitude, Steamboat and Sun Valley: Public domain (U.S. Geological Survey) (https://www.usgs.gov/3d-elevation-program). Data: https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/
 
   > 3DEP data courtesy of the U.S. Geological Survey.
 
-- **USGS 3DEP 1 m DEM** (1 m), for Arapahoe Basin, Bear Mountain, Beaver Creek, Big Bear Mountain Resort, Breckenridge, Brighton, Copper Mountain, June Mountain, Keystone, Kirkwood, Mammoth Mountain, Mountain High, Northstar California, Palisades Tahoe, Sierra-at-Tahoe, Snow Summit, Sugar Bowl, Vail and Winter Park: Public domain (U.S. Geological Survey) (https://www.usgs.gov/3d-elevation-program). Data: https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/
+- **USGS 3DEP 1 m DEM** (1 m), for Arapahoe Basin, Bear Mountain, Beaver Creek, Big Bear Mountain Resort, Breckenridge, Brighton, Copper Mountain, Crested Butte, Eldora, June Mountain, Keystone, Kirkwood, Mammoth Mountain, Mountain High, Northstar California, Palisades Tahoe, Sierra-at-Tahoe, Snow Summit, Sugar Bowl, Taos Ski Valley, Telluride, Vail and Winter Park: Public domain (U.S. Geological Survey) (https://www.usgs.gov/3d-elevation-program). Data: https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/
 
   > 3DEP data courtesy of the U.S. Geological Survey.
 
@@ -241,13 +270,17 @@ the Open Database License 1.0: https://opendatacommons.org/licenses/odbl/1-0/"),
 - `bear-mountain-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `beaver-creek-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `big-bear-mountain-resort-v2-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `big-sky-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `big-white-v3-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://open.canada.ca/en/open-government-licence-canada">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)`
 - `breckenridge-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `brighton-v2-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `copper-mountain-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `crested-butte-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `deer-valley-v2-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `diamond-peak-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `eldora-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `heavenly-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `jackson-hole-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `june-mountain-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `keystone-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `kirkwood-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
@@ -264,6 +297,9 @@ the Open Database License 1.0: https://opendatacommons.org/licenses/odbl/1-0/"),
 - `solitude-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `steamboat-v2-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `sugar-bowl-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `sun-valley-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `taos-ski-valley-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
+- `telluride-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `vail-v1-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`
 - `whistler-blackcomb-v4-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://open.canada.ca/en/open-government-licence-canada">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)`
 - `winter-park-v2-ski.pmtiles`: `<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>; contours: <a href="https://www.usgs.gov/3d-elevation-program">3DEP data courtesy of the U.S. Geological Survey</a>`

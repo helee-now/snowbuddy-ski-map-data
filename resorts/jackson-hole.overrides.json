@@ -1,0 +1,283 @@
+{
+  "slug": "jackson-hole",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1074335726 (Jackson Hole Mountain Resort): Rendezvous Mountain and Après Vous Mountain on one map; no other ski area lies in the box or the Overpass window (Snow King, in the town of Jackson, and Grand Targhee, west of the Tetons, lie outside it). Every named run and lift checked on 2026-11-09 against the resort's 2025-26 winter trail map (jacksonhole.com/maps/mountain-winter, 2025-26trailmapresized.png, 3000 x 1900 px, the site's full-size asset, read at one and a half times its size tile by tile: run names printed in green, blue or black, with no symbol that tells a single black diamond from a double or a blue square from a double blue) and the resort's lift and trail list (trail-lift.json, the data behind jacksonhole.com/mountain-report: 13 lifts and 145 trails rated green circle, blue square, double blue square, black diamond or double black diamond, 4 of them terrain parks). The list refines the map's three colours and never contradicts them, so the two agree and their rating wins over OSM; the double blue square is a blue run (intermediate), the double black diamond is expert. OSM already carries that rating on every named run the two sources rate but two: Corbet's Couloir (extreme in OSM; a double black on the list and black on the map, whose scale tops at the double black, so it becomes expert, as Alta's and Diamond Peak's tops did) and the lower way of Teewinot Gully (green in OSM; blue on the map and the list). Parks: the list's four are the Bronco Terrain Park (OSM's two Bronco ways beside the Teewinot chair, which the map labels BRONCO TERRAIN PARK in orange: renamed, with the park flag) and three Stash parks (the map's THE STASH badges): the one at Campground is OSM's The Stash (the park flag); the Ashley Ridge and Antelope Flats Stash parks, and the small Antelope Flats and Eagle's Rest terrain parks the map draws in orange on those green runs, are not mapped apart from their runs in OSM, so the runs keep their rating (an OSM gap). Names from the map and the list: Two In The Bush (OSM adds the alias Table Rock); where OSM's lift names mislead or describe, the list's names, the map's without its word Chair, which fit a short lift at z14 where the map's longer Eagle's Rest Quad Chair did not: Casper Quad (OSM Casper Bowl High Speed Quad: Casper Bowl is the gated double-black bowl beside it, which the lift does not serve), Eagle's Rest Quad (OSM gives the lift the name of the green run beside it), Teewinot Quad and Après Vous Quad with the map's accent (OSM adds High Speed); and the Sweetwater Gondola as one lift with a mid-station at Solitude Station (OSM names its two ways Upper and Lower). Names that differ from the map or the list only by an apostrophe, a stop or capitals stay as OSM has them (Dicks Ditch, St John's, Pair-A-Chutes, Rawlins Bowl as the map prints it); OSM's pieces of one list run keep their part names (Lower Sundance, Upper Sundance, Lower Teewinot, Upper Werner, Lower Werner, Upper Hanna, Kemmerer (Upper) and (Lower)); runs OSM names that the map and the list do not (Cirque Bowl, Grand Traverse, Laramie Bowl, the map's LARAMIE BOWL, Solitude Way, Union Pass Connection beside U.P. Connection, S&S Couloir and its approach, rated extreme in OSM, beside Corbet's) stay as OSM has them. Lifts: all 13 of the list's are in OSM (the Aerial Tram, the Bridger and Sweetwater gondolas and ten chairs; the Sublette Quad Chair is marked NEW on the 2025-26 map and OSM's line runs where the map draws it; Teton Lift, Marmot Double, Union Pass Quad and Moose Creek Quad keep OSM's names, which the list uses), with the Solitude Station and Kids Ranch carpets and an unnamed rope tow at the base. Out of bounds: the map draws the resort's boundary along the Rendezvous ridge and prints CODY BOWL and ROCK SPRINGS BOWL beyond it, '(EXIT THROUGH GATES ONLY)'; OSM rates their lines freeride without a backcountry tag, so the overrides below draw them out of bounds (Cody Bowl and Rock Springs Bowl, both named in out_of_bounds_named, Four Shadows, No Shadows, Powder 8 and Pucker Face on Cody Peak, and three unnamed freeride lines outside the polygon: the Rock Springs exit's end and two lines off the Teton Lift summit and the Après Vous ridge). The runs tagged backcountry inside the polygon (the Alta Chutes, Expert Chutes, Tower Three Chute, the Casper and Moran faces' chutes, Headwall Traverse, 78% inside) stay in bounds by the half rule, as the map draws them inside the boundary; Casper Bowl, '(ACCESS THROUGH GATES ONLY)' inside it, is on the list but not in OSM. OSM gaps (shipped as at Palisades Tahoe): Casper Bowl, Moran Face, Teewinot Face, The Crags, Saratoga Bowl (mapped as its runs Big Horn, Crowheart and Pathfinder), Easiest Way, Timbered Island and St. John's Extension are on the list (Casper Bowl, Moran Face, Teewinot Face, Saratoga Bowl and Easiest Way printed on the map too) but not in OSM; the Headwall is mapped only as Headwall Traverse.",
+  "overrides": [
+    {
+      "id": "way/882553696",
+      "reason": "Corbet's Couloir is a double black diamond on the resort's lift and trail list and printed in black on Jackson Hole's 2025-26 winter trail map, whose scale tops at the double black; OSM rates it extreme. The resort's sources agree and win.",
+      "expect": {
+        "name": "Corbet's Couloir",
+        "piste:difficulty": "extreme"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/318672186",
+      "reason": "The lower way of Teewinot Gully (262 m, beside the Apres Vous chair's bottom), rated easy in OSM; Jackson Hole's 2025-26 winter trail map prints TEEWINOT GULLY in blue and the resort's lift and trail list rates it a blue square, as OSM rates its upper way (way/318672185).",
+      "expect": {
+        "name": "Teewinot Gully",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/445009829",
+      "reason": "Jackson Hole's 2025-26 winter trail map prints TWO IN THE BUSH and the resort's lift and trail list has Two in the Bush (black diamond, as OSM rates it); OSM adds the alias Table Rock in parentheses.",
+      "expect": {
+        "name": "Two In The Bush (Table Rock)",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Two In The Bush"
+      }
+    },
+    {
+      "id": "way/1489631905",
+      "reason": "The Bronco Terrain Park: Jackson Hole's 2025-26 winter trail map labels the run beside the Teewinot chair BRONCO TERRAIN PARK in orange and the resort's lift and trail list lists the Bronco Terrain Park among its 4 terrain parks; OSM has it as a green run named Bronco with no park tag.",
+      "expect": {
+        "name": "Bronco",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Bronco Terrain Park",
+        "park": true
+      }
+    },
+    {
+      "id": "way/318672225",
+      "reason": "As way/1489631905: the second, shorter Bronco way of the Bronco Terrain Park beside the Teewinot chair.",
+      "expect": {
+        "name": "Bronco",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Bronco Terrain Park",
+        "park": true
+      }
+    },
+    {
+      "id": "way/1301013621",
+      "reason": "The Stash at Campground, below the Casper chair's top: Jackson Hole's 2025-26 winter trail map marks it with THE STASH badge beside CAMPGROUND and the resort's lift and trail list lists it as a terrain park (Stash Park - Campground); OSM has it as a blue run with no park tag.",
+      "expect": {
+        "name": "The Stash",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/129586250",
+      "reason": "the resort's lift and trail list names the lift Casper Quad and Jackson Hole's 2025-26 winter trail map labels it CASPER QUAD CHAIR; OSM names it Casper Bowl High Speed Quad, but Casper Bowl is the gated double-black bowl north of the lift, which it does not serve.",
+      "expect": {
+        "name": "Casper Bowl High Speed Quad",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Casper Quad"
+      }
+    },
+    {
+      "id": "way/1125559594",
+      "reason": "the resort's lift and trail list names the beginner lift Eagle's Rest Quad and Jackson Hole's 2025-26 winter trail map labels it EAGLE'S REST QUAD CHAIR; OSM names the lift Eagle's Rest, the name of the green run beside it, so the two would read alike. The list's name fits along the 476 m lift at z14, where the map's longer one did not.",
+      "expect": {
+        "name": "Eagle's Rest",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Eagle's Rest Quad"
+      }
+    },
+    {
+      "id": "way/1528570923",
+      "reason": "The Sweetwater Gondola is one lift with a mid-station at Solitude Station on Jackson Hole's 2025-26 winter trail map (SWEETWATER GONDOLA, MID-STATION) and in the resort's lift and trail list; OSM maps it as two ways and adds Lower to this one.",
+      "expect": {
+        "name": "Sweetwater Gondola Lower",
+        "aerialway": "gondola"
+      },
+      "set": {
+        "name": "Sweetwater Gondola"
+      }
+    },
+    {
+      "id": "way/1125559595",
+      "reason": "As way/1528570923: the Sweetwater Gondola above its Solitude Station mid-station, named Upper in OSM; the map and the list name one lift.",
+      "expect": {
+        "name": "Sweetwater Gondola Upper",
+        "aerialway": "gondola"
+      },
+      "set": {
+        "name": "Sweetwater Gondola"
+      }
+    },
+    {
+      "id": "way/15778036",
+      "reason": "the resort's lift and trail list names the lift Apres Vous Quad and Jackson Hole's 2025-26 winter trail map labels it APRÈS VOUS QUAD CHAIR, with the accent kept here; OSM adds the description High Speed and drops the accent.",
+      "expect": {
+        "name": "Apres Vous High Speed Quad",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Après Vous Quad"
+      }
+    },
+    {
+      "id": "way/129586249",
+      "reason": "the resort's lift and trail list names the lift Teewinot Quad and Jackson Hole's 2025-26 winter trail map labels it TEEWINOT QUAD CHAIR; OSM adds the description High Speed.",
+      "expect": {
+        "name": "Teewinot High Speed Quad",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Teewinot Quad"
+      }
+    },
+    {
+      "id": "way/1297464831",
+      "reason": "Cody Bowl's main line (1,343 m) lies outside the ski-area polygon, beyond the boundary Jackson Hole's 2025-26 winter trail map draws along the Rendezvous ridge, where the map prints CODY BOWL '(EXIT THROUGH GATES ONLY)': backcountry reached through the resort's gates, so drawn out of bounds. OSM rates it freeride with no backcountry tag.",
+      "expect": {
+        "name": "Cody Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1297464832",
+      "reason": "Cody Bowl's northern line (701 m) lies outside the ski-area polygon, beyond the boundary Jackson Hole's 2025-26 winter trail map draws along the Rendezvous ridge, where the map prints CODY BOWL '(EXIT THROUGH GATES ONLY)': backcountry reached through the resort's gates, so drawn out of bounds. OSM rates it freeride with no backcountry tag.",
+      "expect": {
+        "name": "Cody Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/318672230",
+      "reason": "Rock Springs Bowl's main line (2,545 m, down Rock Springs to the exit above Union Pass) lies outside the ski-area polygon, beyond the boundary Jackson Hole's 2025-26 winter trail map draws along the Rendezvous ridge, where the map prints ROCK SPRINGS BOWL '(EXIT THROUGH GATES ONLY)': backcountry reached through the resort's gates, so drawn out of bounds. OSM rates it freeride with no backcountry tag.",
+      "expect": {
+        "name": "Rock Springs Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1293309746",
+      "reason": "Rock Springs Bowl's upper line from the ridge (1,444 m) lies outside the ski-area polygon, beyond the boundary Jackson Hole's 2025-26 winter trail map draws along the Rendezvous ridge, where the map prints ROCK SPRINGS BOWL '(EXIT THROUGH GATES ONLY)': backcountry reached through the resort's gates, so drawn out of bounds. OSM rates it freeride with no backcountry tag.",
+      "expect": {
+        "name": "Rock Springs Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1293309745",
+      "reason": "Rock Springs Bowl's middle line (1,172 m) lies outside the ski-area polygon, beyond the boundary Jackson Hole's 2025-26 winter trail map draws along the Rendezvous ridge, where the map prints ROCK SPRINGS BOWL '(EXIT THROUGH GATES ONLY)': backcountry reached through the resort's gates, so drawn out of bounds. OSM rates it freeride with no backcountry tag.",
+      "expect": {
+        "name": "Rock Springs Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1297464829",
+      "reason": "Rock Springs Bowl's southern line (1,276 m) lies outside the ski-area polygon, beyond the boundary Jackson Hole's 2025-26 winter trail map draws along the Rendezvous ridge, where the map prints ROCK SPRINGS BOWL '(EXIT THROUGH GATES ONLY)': backcountry reached through the resort's gates, so drawn out of bounds. OSM rates it freeride with no backcountry tag.",
+      "expect": {
+        "name": "Rock Springs Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1297466409",
+      "reason": "Four Shadows, a line on Cody Peak in Cody Bowl, lies outside the ski-area polygon, beyond the boundary Jackson Hole's 2025-26 winter trail map draws along the Rendezvous ridge, where the map prints CODY BOWL '(EXIT THROUGH GATES ONLY)'; on neither the map nor the list, so drawn out of bounds like Cody Bowl. OSM rates it freeride with no backcountry tag.",
+      "expect": {
+        "name": "Four Shadows",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1297466411",
+      "reason": "No Shadows, a line on Cody Peak in Cody Bowl, lies outside the ski-area polygon, beyond the boundary Jackson Hole's 2025-26 winter trail map draws along the Rendezvous ridge, where the map prints CODY BOWL '(EXIT THROUGH GATES ONLY)'; on neither the map nor the list, so drawn out of bounds like Cody Bowl. OSM rates it freeride with no backcountry tag.",
+      "expect": {
+        "name": "No Shadows",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1297466410",
+      "reason": "Powder 8, a line on Cody Peak in Cody Bowl, lies outside the ski-area polygon, beyond the boundary Jackson Hole's 2025-26 winter trail map draws along the Rendezvous ridge, where the map prints CODY BOWL '(EXIT THROUGH GATES ONLY)'; on neither the map nor the list, so drawn out of bounds like Cody Bowl. OSM rates it freeride with no backcountry tag.",
+      "expect": {
+        "name": "Powder 8",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1297466408",
+      "reason": "Pucker Face, a line on Cody Peak in Cody Bowl, lies outside the ski-area polygon, beyond the boundary Jackson Hole's 2025-26 winter trail map draws along the Rendezvous ridge, where the map prints CODY BOWL '(EXIT THROUGH GATES ONLY)'; on neither the map nor the list, so drawn out of bounds like Cody Bowl. OSM rates it freeride with no backcountry tag.",
+      "expect": {
+        "name": "Pucker Face",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1363957790",
+      "reason": "An unnamed 219 m freeride line, 10% inside the polygon, continuing the Rock Springs Bowl lines to the resort's south boundary above Union Pass, which Jackson Hole's 2025-26 winter trail map draws there: the end of the backcountry exit, drawn out of bounds like Rock Springs Bowl.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1305149292",
+      "reason": "An unnamed 5.9 km freeride line wholly outside the polygon, from beyond the resort's north boundary behind the Après Vous ridge down to Teton Village: backcountry beyond the boundary Jackson Hole's 2025-26 winter trail map draws along that ridge, on neither the map nor the list, so drawn out of bounds (OSM gives it no backcountry tag).",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1305407651",
+      "reason": "An unnamed 941 m freeride line from the Teton Lift summit north-east over the resort's boundary, wholly outside the polygon: backcountry beyond the boundary Jackson Hole's 2025-26 winter trail map draws at the Teton Lift summit (a gate symbol), so drawn out of bounds (OSM gives it no backcountry tag).",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    }
+  ]
+}

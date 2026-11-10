@@ -1,0 +1,176 @@
+{
+  "slug": "crested-butte",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/530521512 (Crested Butte Mountain Resort): the front side, Paradise, the East River, the North Face and the rest of the Extreme Limits, and the Teocalli Bowls on one ticket and one map. Every named run and lift checked on 2026-11-09 against the resort's 2025-26 winter trail map (skicb.com, 20251103_CB_winter-trail_map_001.pdf, the James Niehues painting with the Teocalli Bowls inset; the PDF is over 10 MB and the resort's site answers scripted requests with a bot page, so it was read from skiresort.com's 3000 x 1875 copy of the same 2025-26 map, enlarged twice to three times and read crop by crop: easiest, intermediate, advanced as one black diamond, and the Extreme Limits as two diamonds with EX, the map's top grade, 'Extreme Terrain'; black lines are its most difficult runs) and the resort's terrain-park page (two parks: Ten Peaks Progression Park, the small park, and Lower Twister Terrain Park, the medium park). The resort's lift and terrain status page loads its list by script and gave nothing to read, so the printed map is the only source of ratings and wins. OSM's advanced is the map's single diamond, and OSM's expert and extreme are both its EX double diamond (the style draws both as double black). Of the 254 named OSM runs, 140 carry a name the map prints, and all of them carry its rating but four: Horseshoe's run area (one diamond on the map, as OSM's Horseshoe line and Horseshoe Springs; expert in OSM), Ruby Road and Schofield Road (black lines on the map, Schofield Road with its diamond; intermediate in OSM) and T-Bar Road (green on the map; intermediate in OSM). Names from the map: Little Lizzy (OSM Little Lizzie), Halfpipe Gully (OSM Halfpipe, which would read as a terrain-park pipe), Banana High Entrance (OSM Upper Banana Entrance), Gunsight Pass (OSM has the summer road's name, Gunsight Pass Road), Lower Canaan (OSM Lower Canaan / Family Cross), and the lifts Gold Link Lift (OSM LIft), High Lift (OSM The High Lift), Aspen Conveyor and Pine Conveyor (OSM Aspen Carpet and Pine Carpet). Names that differ from the map only by an apostrophe, a space or an article stay as OSM has them (Hawk's Nest for HAWKS' NEST, High Life for HIGHLIFE, Liars Bench, Splains Gulch, The Peak for PEAK), as does Coffey Grounds, which the Teocalli inset lists as Grounds; the Extreme Limits' many local names the map does not print stay (Predator, Hidden Chutes, Phaser, Slot Rocks and the rest), as does the misspelt Miushroom Cliffs Bowl, which the map does not print to correct it from. Parks: Ten Peaks Progression Park is a snow park in OSM already; the Lower Twister Terrain Park (the map's MEDIUM PARK along the Red Lady Express) is the lower part of Lower Twister, one way in OSM with the green run above it, so it is not flagged and Lower Twister stays green; Smith Hill Terrain Park, L. Keystone Jib Park and the Family Cross Course, which neither the map nor the parks page shows, are hidden as Palisades Tahoe's Tiegel park is. Lifts: all 15 of the map's are in OSM, none hidden. The runs tagged backcountry in OSM (most of the Extreme Limits and the Teocalli Bowls) lie inside the polygon, where the map draws them inside its boundary, and stay in bounds by the half rule. OSM gaps (shipped as at Palisades Tahoe): Upper Third Bowl, Teocalli Bowl and Teocalli 2 Bowl as named areas, Roosters (EX) and Ptarmigan (one diamond) below Paradise, North Star and Windy Gap beside the High Lift, the Teocalli inset's Cat Road to Paradise Bowl, and the Painter Boy learning area's Topsy, Alley Loop, Elk Ave., Mary Jo, Grand Traverse and Houston Canyon; Upper Timber Chutes is in OSM with piste:type=yes, which the pipeline leaves out. NEIGHBOURS: Crested Butte Nordic is listed in resorts.json.",
+  "overrides": [
+    {
+      "id": "way/546362085",
+      "reason": "Horseshoe is a single black diamond on Crested Butte's 2025-26 winter trail map (beside Horseshoe Springs, also one diamond, below Peoria); OSM rates this run area expert, its Horseshoe line (way/1046111427) advanced. The printed map wins.",
+      "expect": {
+        "name": "Horseshoe",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/377784039",
+      "reason": "Crested Butte's 2025-26 winter trail map draws Ruby Road as a black line (its most difficult runs) from the Silver Queen Road across the tops of Jokerville, Twister and Crystal; OSM rates the track intermediate. The way also carries the summer road's loop back to Yellow Brick Road, which the map does not name; the harder rating stands for all of it.",
+      "expect": {
+        "name": "Ruby Road",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1046111385",
+      "reason": "Schofield Road is a black line with a single black diamond on Crested Butte's 2025-26 winter trail map, from the North Face Lift top towards Teocalli; OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Schofield Road",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1046111381",
+      "reason": "T-Bar Road is green (easiest) on Crested Butte's 2025-26 winter trail map, from the Silver Queen side down to the West Wall Lift; OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "T-Bar Road",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1046111380",
+      "reason": "Spelling from Crested Butte's 2025-26 winter trail map, which labels the blue run beside the Painter Boy Lift LITTLE LIZZY; OSM has Little Lizzie.",
+      "expect": {
+        "name": "Little Lizzie",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Little Lizzy"
+      }
+    },
+    {
+      "id": "way/1046111492",
+      "reason": "Crested Butte's 2025-26 winter trail map labels this Extreme Limits gully below the High Lift top HALFPIPE GULLY (EX); OSM's Halfpipe alone would read as a terrain-park pipe.",
+      "expect": {
+        "name": "Halfpipe",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Halfpipe Gully"
+      }
+    },
+    {
+      "id": "way/1046111477",
+      "reason": "Crested Butte's 2025-26 winter trail map names the line from the High Lift top across to Banana BANANA HIGH ENTRANCE; OSM has Upper Banana Entrance. Extreme, as OSM rates it (a black line on the map).",
+      "expect": {
+        "name": "Upper Banana Entrance",
+        "piste:difficulty": "extreme"
+      },
+      "set": {
+        "name": "Banana High Entrance"
+      }
+    },
+    {
+      "id": "way/227367374",
+      "reason": "Crested Butte's 2025-26 winter trail map names the green run along the bottom from the Painter Boy area to the Paradise and East River bases GUNSIGHT PASS; OSM has the summer road's name, Gunsight Pass Road. Easiest, as OSM rates it.",
+      "expect": {
+        "name": "Gunsight Pass Road",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Gunsight Pass"
+      }
+    },
+    {
+      "id": "way/1046111469",
+      "reason": "A mapper's descriptor: Crested Butte's 2025-26 winter trail map prints LOWER CANAAN (blue) here and no family cross; with the map's name this way draws as one run with OSM's Lower Canaan (way/546686871).",
+      "expect": {
+        "name": "Lower Canaan / Family Cross",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Canaan"
+      }
+    },
+    {
+      "id": "way/139860357",
+      "reason": "Misspelling: Crested Butte's 2025-26 winter trail map labels the chair GOLD LINK LIFT; OSM has LIft.",
+      "expect": {
+        "name": "Gold Link LIft",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Gold Link Lift"
+      }
+    },
+    {
+      "id": "way/139943658",
+      "reason": "Crested Butte's 2025-26 winter trail map labels the T-bar to the top of the Extreme Limits HIGH LIFT; OSM has The High Lift.",
+      "expect": {
+        "name": "The High Lift",
+        "aerialway": "t-bar"
+      },
+      "set": {
+        "name": "High Lift"
+      }
+    },
+    {
+      "id": "way/258658749",
+      "reason": "Crested Butte's 2025-26 winter trail map labels the base area's carpets Aspen, Pine and Spruce Conveyor; OSM names this one Aspen Carpet.",
+      "expect": {
+        "name": "Aspen Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Aspen Conveyor"
+      }
+    },
+    {
+      "id": "way/258658750",
+      "reason": "As way/258658749: Crested Butte's 2025-26 winter trail map labels this carpet PINE CONVEYOR; OSM has Pine Carpet.",
+      "expect": {
+        "name": "Pine Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Pine Conveyor"
+      }
+    },
+    {
+      "id": "way/549379595",
+      "reason": "A terrain park on no current source: Crested Butte's 2025-26 winter trail map draws no park on Smith Hill (Lower Smith Hill is a blue run there) and the resort's terrain-park page lists only Ten Peaks Progression Park and the Lower Twister Terrain Park. Hidden as Palisades Tahoe's Tiegel park is.",
+      "expect": {
+        "name": "Smith Hill Terrain Park",
+        "piste:type": "snow_park"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/546358742",
+      "reason": "As way/549379595: a jib park on Lower Keystone that neither Crested Butte's 2025-26 winter trail map (a green run there) nor the resort's terrain-park page shows.",
+      "expect": {
+        "name": "L. Keystone Jib Park",
+        "piste:type": "snow_park"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/546686872",
+      "reason": "A family cross course beside Lower Canaan on the Paradise side that neither Crested Butte's 2025-26 winter trail map (a blue run there, Lower Canaan) nor the resort's terrain-park page shows; drawn as a park it would mislead.",
+      "expect": {
+        "name": "Family Cross Course",
+        "piste:type": "snow_park"
+      },
+      "hide": true
+    }
+  ]
+}

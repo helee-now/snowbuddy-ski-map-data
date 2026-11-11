@@ -1,0 +1,146 @@
+{
+  "slug": "kicking-horse",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/476843455 (Kicking Horse Resort): the Golden Eagle Express gondola and every bowl on the one ticket on one map (Super Bowl, T2, T1 South and North, Bowl Over, CPR North and South, Crystal Bowl, Feuz Bowl with Redemption Ridge and Whitewall & Ozone, Middle Ridge North and Rudi's Bowl, and the lower mountain's Catamount and Pioneer runs); no other ski area lies in the box or the Overpass window (the cross-country and hiking trails north of the base are left out by the type rule). Every named run and lift checked on 2026-11-10 against the resort's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02, the painted map with its numbered Trail Names list and the expert zones' photo insets), rendered at 288 dpi (6912 x 3168 px) and read tile by tile, and its mountain statistics page (kickinghorseresort.com/discover-kickinghorse/mountain-stats: the lifts). The map numbers its runs (0 to 129) and lists each number's name with its symbol: Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Expert Only (two); OSM's easy, intermediate, advanced and expert match them. The list gives some numbers two symbols where a run changes grade (9 Wapiti and 21 Kicking Horse blue and black, 13 Wolverine green and black, 15 Buffalo Jump green and blue, 121 Crazy Legs one and two diamonds), and the drawn map gives 18 Grizzly Paw a black lower stretch beside the gondola that the list leaves out; OSM's pieces of Wapiti, Kicking Horse, Wolverine and Grizzly Paw already carry the map's drawn grades. The resort's lift and run status loads by script, so the printed map is the only run source and wins. Of OSM's 66 named run ways (58 names: 48 of the list's, the four areas and the six numbered chutes), all carry the map's rating but eight. Ratings from the map: Blaster (43, green) becomes easy; Buffalo Jump (15, drawn twice with a blue square on the line OSM maps) becomes intermediate; Show Off (30), Knee Deep (28), two ways of Sluiceway (33) and Euphoria's upper way (32), black on the map, become advanced; Crazy Legs (121), whose OSM way runs from T2's top down its face (the map's 121-125 double-black zone) to the single-diamond run-out, keeps the harder of the map's two grades, expert. Wiley Coyote's lower way (easy in OSM, 432 m to the base) stays easy: the map's blue 17 ends at the It's A Ten junction above the Learning Centre, and below it draws only green runs in the slow skiing zone where that way lies. The areas OSM names (Feuz Bowl expert, Rudi's Bowl expert, T2 North Ridge expert, Middle Ridge advanced) have no symbol of their own on the map and keep OSM's grade; the six chutes OSM names 139 to 144 are the map's numbered Middle Ridge North chutes (139-144, two diamonds), expert as OSM rates them. Names from the map: Feuz Bowl and Feuz Ski-Out (OSM Fuez Bowl and Fuez Ski Out) and the Jelly Bean surface lift (OSM Jelly Been). Names that differ from the map only by an apostrophe or a capital stay as OSM has them (Brigg's Brag for BRIGGS BRAG, It's a Ten, Rip the World). Lifts: the map's and the statistics page's five are in OSM (Golden Eagle Express, Catamount with its mid-station, Stairway to Heaven, Pioneer and the Jelly Bean surface lift); Pioneer Express, mapped in OSM as under construction (start_date 2027), is hidden: the resort's press release of 2026-05-11 schedules its installation for 2027, and the current map and statistics page show the Pioneer double chair. Parks: the map marks no terrain park (its key has none); OSM's unnamed 379 m snow_park line beside Catamount lies by the Horse Play Corral, a beginners' and family zone the map paints without a park symbol, and is hidden as a park on no current source, as Schweitzer's Terrain Garden and Crested Butte's are (lead's decision 2026-11-10). Out of bounds: none; the bowls, chutes and areas tagged backcountry (Super Bowl's, T1's, T2's and Middle Ridge North's chutes, Feuz Bowl, Middle Ridge, Rudi's Bowl, the lower Sluiceway, Double Digits, Flying Dutchman) lie at least half inside OSM's polygon and stay in bounds by the half rule, as the map draws them inside the area boundary. OSM gaps (shipped as at Palisades Tahoe): of the 130 runs the Trail Names list (0 to 129), OSM names 48; missing are the base area's Grouse, Jelly Bean, Gentle Ben, Crow Foot, Beaver Tail, Snow Goose and Mummery (some of them perhaps among OSM's 16 unnamed run ways), Bail Out, Kickback, Downshift, Goldrush, Little Ben and West Side (green), Stellar Jay and Lone Ranger (blue), Sliver Lining, McFadden's Way and the Redemption Ridge glades Epiphany, Xanadu, Valhalla, Amen, Nirvana, Pearly Gates, Hallelujah, Redemption, Shangri-La and Eden (black), and most of the double-black chutes: CPR North's 49 to 64, Redemption Ridge North's and Whitewall & Ozone's 75 to 106 (T1 North's Truth, Dare and Consequence among them: Glory, 93, alone is mapped), T1 South's 113 to 120 ('Stache to End Zone) and Lessor's Leap, and the chutes the map only numbers, 130 to 138 (Bowl Over's gladed area, CPR South, Whitewall & Ozone). NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/48836247",
+      "reason": "Blaster is 43, a green circle (Easiest), beside It's A Ten above the Pioneer chair's top on Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02), drawn green and listed green in its Trail Names; OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Blaster",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/316623710",
+      "reason": "Buffalo Jump is 15 on Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02), drawn with blue squares (More Difficult) twice on the line OSM maps, from the Downshift traverse across the gondola to the Catamount mid-station; its Trail Names list gives 15 both a green circle and a blue square, and no green 15 is drawn on this line. OSM rates the one way easy. The map's drawn grade, the harder of its two, wins.",
+      "expect": {
+        "name": "Buffalo Jump",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/316623722",
+      "reason": "Show Off, down the gondola's line below CPR South, is 30, one black diamond (Most Difficult), on Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Show Off",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/316623718",
+      "reason": "Knee Deep, from Sluiceway below CPR South to the It's A Ten traverse, is 28, one black diamond (Most Difficult), on Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Knee Deep",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/48836250",
+      "reason": "Sluiceway is 33, one black diamond (Most Difficult) along its whole line from the Eagle's Eye through Bowl Over to below CPR South, on Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02); OSM rates its top way advanced and this 964 m way intermediate. The printed map wins.",
+      "expect": {
+        "name": "Sluiceway",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/316623723",
+      "reason": "The 155 m last piece of Sluiceway, 33, one black diamond (Most Difficult) along its whole line on Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Sluiceway",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/86573432",
+      "reason": "Euphoria is 32, one black diamond (Most Difficult) only, in the Trail Names of Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02), which draws it black from below the Heaven's Door yurt at the Stairway to Heaven's bottom (the blue runs from the yurt are Tail Spin, 45, and Lone Ranger, 46); OSM rates this upper 494 m way intermediate and the lower way advanced. The printed map wins.",
+      "expect": {
+        "name": "Euphoria",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/316623711",
+      "reason": "Crazy Legs is 121 on Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02): its Trail Names list it twice, with one black diamond and with two (among T2's chutes Wild Card, Evil Empire, 3rd Down and Unnecessary Roughness), and the map draws 121 in T2's double-black Expert Only Zone (121-125) and again with one diamond on the run-out below. OSM's one 864 m way runs from T2's top down its face to the run-out and rates it advanced; the harder of the map's grades is kept.",
+      "expect": {
+        "name": "Crazy Legs",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/870955525",
+      "reason": "Misspelling: Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02) labels the bowl below Blue Heaven FEUZ BOWL (after the Feuz family); OSM has Fuez Bowl.",
+      "expect": {
+        "name": "Fuez Bowl",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Feuz Bowl"
+      }
+    },
+    {
+      "id": "way/870955523",
+      "reason": "Misspelling: Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02) lists 107, one black diamond as OSM rates it, as Feuz Ski-Out, the run out of Feuz Bowl below Redemption Ridge North; OSM has Fuez Ski Out.",
+      "expect": {
+        "name": "Fuez Ski Out",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Feuz Ski-Out"
+      }
+    },
+    {
+      "id": "way/1483302018",
+      "reason": "Misspelling: Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02) labels the conveyor at the base Jelly Bean Surface Lift (beside the green run 1, Jelly Bean), and its mountain statistics page lists Jelly Bean Express; OSM has Jelly Been.",
+      "expect": {
+        "name": "Jelly Been",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Jelly Bean"
+      }
+    },
+    {
+      "id": "way/1573515524",
+      "reason": "Not yet built: OSM maps Pioneer Express, Leitner-Poma's new quad from the base to the Stairway to Heaven's bottom in Crystal Bowl, as under construction (construction=yes, start_date 2027), and the resort's press release of 2026-05-11 (kickinghorseresort.com/blog, Announcing the Purchase of Four (4) New Lifts) schedules its installation for 2027. Kicking Horse's current winter trail map (KHmap25-MAP-web.pdf, made 2025-12-02) and mountain statistics page show the Pioneer double chair, which OSM also has. Hidden until it runs.",
+      "expect": {
+        "name": "Pioneer Express",
+        "aerialway": "chair_lift",
+        "construction": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/48836257",
+      "reason": "A park on no current source: Kicking Horse's current winter trail map (kickinghorseresort.com/discover-kickinghorse/resort-map, KHmap25-MAP-web.pdf, made 2025-12-02) marks no terrain park (its key has none), and this unnamed 379 m snow_park line beside the Catamount chair lies by the Horse Play Corral, a beginners' and family zone the map paints without a park symbol. Hidden, as Schweitzer's Terrain Garden and Crested Butte's parks on no current source are (lead's decision 2026-11-10).",
+      "expect": {
+        "name": null,
+        "piste:type": "snow_park"
+      },
+      "hide": true
+    }
+  ]
+}

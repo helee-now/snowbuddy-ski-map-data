@@ -1,0 +1,312 @@
+{
+  "key": "revelstoke-v1",
+  "ski_sha256": "5126fa65242e4bcfba073f4bdb6e2eb81465b3b76603f8a3157f0a7dc070a0bb",
+  "osm_timestamp": "2026-11-11T03:42:47Z",
+  "box": [
+    -118.2,
+    50.93,
+    -118.06,
+    51.01
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -118.165946,
+    50.948161,
+    -118.089104,
+    50.989489
+  ],
+  "margins_km": {
+    "west": 2.38,
+    "south": 2.02,
+    "east": 2.04,
+    "north": 2.28
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 92,
+    "run_areas_in_bounds": 18,
+    "runs_out_of_bounds": 17,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 16,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 7.5,
+    "runs_in_bounds": 93.4,
+    "runs_out_of_bounds": 12.7
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1317761505",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 387,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761506",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 537,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761507",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 668,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761508",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 385,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761509",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 422,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761510",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 529,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761511",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 332,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761512",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 349,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761513",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 1252,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761514",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 509,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761515",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 851,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761516",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 1489,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761517",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 874,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761518",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 484,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761519",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 790,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761521",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 789,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1317761523",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 2092,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -118.300781,
+      50.847573,
+      -117.949219,
+      51.069017
+    ],
+    "12": [
+      -118.212891,
+      50.903033,
+      -118.037109,
+      51.013755
+    ],
+    "13": [
+      -118.212891,
+      50.903033,
+      -118.037109,
+      51.013755
+    ],
+    "14": [
+      -118.212891,
+      50.916887,
+      -118.059082,
+      51.013755
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

@@ -1,0 +1,73 @@
+{
+  "key": "lake-louise-v1",
+  "ski_sha256": "c88b7fe9d6a635efc1d387cd21b8fc2db96012c70049fca5ff631cbb5727f5ca",
+  "osm_timestamp": "2026-11-11T03:22:21Z",
+  "box": [
+    -116.2,
+    51.41,
+    -116.07,
+    51.5
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -116.165429,
+    51.433545,
+    -116.09938,
+    51.47695
+  ],
+  "margins_km": {
+    "west": 2.4,
+    "south": 2.62,
+    "east": 2.04,
+    "north": 2.56
+  },
+  "counts": {
+    "lifts": 13,
+    "runs_in_bounds": 176,
+    "run_areas_in_bounds": 2,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 26,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 14.3,
+    "runs_in_bounds": 102.5,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -116.367188,
+      51.399206,
+      -116.015625,
+      51.508742
+    ],
+    "12": [
+      -116.279297,
+      51.399206,
+      -116.015625,
+      51.508742
+    ],
+    "13": [
+      -116.235352,
+      51.399206,
+      -116.05957,
+      51.508742
+    ],
+    "14": [
+      -116.213379,
+      51.399206,
+      -116.05957,
+      51.508742
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

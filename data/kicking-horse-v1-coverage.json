@@ -1,0 +1,73 @@
+{
+  "key": "kicking-horse-v1",
+  "ski_sha256": "498f721a8114fb023bb2bca6dcfb9a83e5f8e237030db5593d23c901b3230af4",
+  "osm_timestamp": "2026-11-11T03:31:34Z",
+  "box": [
+    -117.14,
+    51.25,
+    -117.01,
+    51.32
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -117.101155,
+    51.269066,
+    -117.044187,
+    51.300584
+  ],
+  "margins_km": {
+    "west": 2.7,
+    "south": 2.12,
+    "east": 2.38,
+    "north": 2.16
+  },
+  "counts": {
+    "lifts": 5,
+    "runs_in_bounds": 78,
+    "run_areas_in_bounds": 4,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 12,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 7.5,
+    "runs_in_bounds": 49.8,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -117.246094,
+      51.179343,
+      -116.894531,
+      51.399206
+    ],
+    "12": [
+      -117.158203,
+      51.234407,
+      -116.982422,
+      51.344339
+    ],
+    "13": [
+      -117.158203,
+      51.234407,
+      -116.982422,
+      51.344339
+    ],
+    "14": [
+      -117.158203,
+      51.248163,
+      -117.004395,
+      51.330612
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

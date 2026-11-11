@@ -1,0 +1,139 @@
+{
+  "slug": "revelstoke",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/475720359 (Revelstoke Mountain Resort): the Revelation Gondola's two sections from the village by Revelation Lodge to the Mackenzie Outpost, the Stoke and Ripper chairs, Stellar, North Bowl, the Sub Peak and Mt. Mackenzie ridge, Greely Bowl, the South Bowl lines inside the boundary (Hot Sauce, Jalapeño, Tally-Ho Glades) and the lower mountain to the village, on one ticket and one map; no other ski area lies in the box or the Overpass window (the town's cross-country trails west of the resort are left out by the type rule). Every named run and lift checked on 2026-11-10 against the resort's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, the James Niehues painting with its North Bowl and Stellar Zone insets, made 2025-11-25 and updated 2026-01-09), rendered at 100 dpi (7600 x 5600 px) and read tile by tile, its symbols checked at 300 dpi, and against the resort's lifts and grooming report (revelstokemountainresort.com/mountain/conditions/lifts-grooming: 42 groomed runs, rated Green, Blue or Black). The map's key has four grades: Beginner (green circle), Intermediate (blue square), Advanced (one black diamond) and Expert (two); OSM's easy, intermediate, advanced and expert match them. Where the map and the report disagree, the harder stands (Bread & Butter, one diamond on the map and Blue in the report; Hickory Run, blue on the map and Black in the report). Of OSM's 72 named run ways and 10 named glade areas, all carry the resorts' ratings but ten ways. Ratings: Kill The Banker (the gondola line run from the Mackenzie Outpost), Drop In and Parachute, two diamonds on the map, become expert; Denver Dollars (one diamond under the Ripper on the main map and the North Bowl inset), Bread & Butter and Hickory Run become advanced; Brake Check and Metal (OSM Metal Health), one diamond, become advanced from expert; Downtowner's 448 m way to the return route, green on the map and in the report, becomes easy; Feller Buncher's 338 m top way, blue on the map and in the report, becomes intermediate. Lines drawn black with no symbol keep OSM's advanced (Greely Bowl, Monkey Bars, SWF, Greely Trail, which the map labels RETURN FROM GREELY), as do the named glades, whose labels carry no symbol except Tasty Glades and Tally-Ho Glades, one diamond as OSM rates them. Names from the map: Jalapeño (OSM Jalapeno), Metal (OSM Metal Health: the map labels the one-diamond line north of Hysteria METAL) and Cupcake, the Kids' Zone conveyor beside the Mackenzie Outpost, unnamed in OSM. Names that differ from the map only by a space, an article or a section suffix stay as OSM has them (Blowdown for BLOW DOWN, The Ripper Connector, The Ripper, The Stoke, Kill The Banker for KILL-THE BANKER, Revelation Gondola - Lower and - Upper for the map's REVELATION, Snow Rodeo (Lower) and The Last Spike (Lower) for the map's -LOWER labels, Separate Reality for SEPARATE REALITY BOWL). Lifts: all of the map's are in OSM (the Revelation Gondola's two sections, The Stoke, The Ripper, Stellar, the Little Bit and Cupcake conveyors); none is hidden. Parks: the Terrain Park, which the map draws orange beside the Stoke, is a snow_park in OSM already. Out of bounds: OSM's 17 unnamed freeride lines tagged backcountry south and east of the boundary (the South Bowl and Montana Bowl slopes the map leaves outside the SKI AREA BOUNDARY, behind its warning signs) are out of bounds by the README's rule, as the map draws them; the glade areas tagged backcountry inside the polygon (Beauty Glades 79%, Upper South Side 66%, the others whole) stay in bounds by the half rule. OSM gaps (shipped as at Palisades Tahoe): 3 Bears (two diamonds, North Bowl), Lemming Line and the Sub Peak Climb boot pack below Sub Peak, the Gnome Zone park beside the Terrain Park, the Return to Stoke Chair route out of South Bowl and the Return Route from Downtowner to the gondola (OSM's Downtowner and unnamed ways carry parts of them). NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/373396450",
+      "reason": "Kill The Banker, down the Revelation Gondola's line from the Mackenzie Outpost, has two black diamonds (Expert) on Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Kill The Banker",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1317062104",
+      "reason": "Drop In, from the Sub Peak ridge into North Bowl, has two black diamonds (Expert) on the North Bowl inset of Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09), as Mania and Discipline beside it; OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Drop In",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/392716058",
+      "reason": "Parachute, below the North Bowl hut, has two black diamonds (Expert) on the North Bowl inset of Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Parachute",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/392716057",
+      "reason": "Brake Check, beside Parachute below the North Bowl hut, has one black diamond (Advanced) on the North Bowl inset of Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09); OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Brake Check",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/914279232",
+      "reason": "Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09) labels the line north of Hysteria, between the Ripper Connector and Hysteria, METAL with one black diamond (Advanced); OSM names it Metal Health and rates it expert. The printed map wins, and its name is taken, as at Crystal Mountain's Northway.",
+      "expect": {
+        "name": "Metal Health",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced",
+        "name": "Metal"
+      }
+    },
+    {
+      "id": "way/373396435",
+      "reason": "Denver Dollars, under the Ripper chair, has one black diamond (Advanced) on Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09), on the main map and its North Bowl inset alike; OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Denver Dollars",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/392716061",
+      "reason": "Bread & Butter, from the Stoke's top down its line, has one black diamond (Advanced) on Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09); the resort's lifts and grooming report (revelstokemountainresort.com/mountain/conditions/lifts-grooming) rates it Blue, as OSM does (intermediate). The resort's sources disagree, so the harder, the map's, stands.",
+      "expect": {
+        "name": "Bread & Butter",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/373396446",
+      "reason": "Hickory Run is Black in the resort's lifts and grooming report (revelstokemountainresort.com/mountain/conditions/lifts-grooming) and blue (Intermediate) on Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09), as OSM rates it (intermediate). The resort's sources disagree, so the harder, the report's, stands.",
+      "expect": {
+        "name": "Hickory Run",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/373396439",
+      "reason": "Downtowner is green (Beginner) along its whole line from the Ripper's top to the return route on Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09) and Green in the resort's lifts and grooming report (revelstokemountainresort.com/mountain/conditions/lifts-grooming); OSM rates its other ways easy and this last 448 m way intermediate. The resort's sources agree and win.",
+      "expect": {
+        "name": "Downtowner",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/137286063",
+      "reason": "Feller Buncher is blue (Intermediate) from its top at The Last Spike's switchbacks on Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09) and Blue in the resort's lifts and grooming report (revelstokemountainresort.com/mountain/conditions/lifts-grooming); OSM rates its 1,260 m way intermediate and this 338 m top way easy. The resort's sources agree and win.",
+      "expect": {
+        "name": "Feller Buncher",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/373396449",
+      "reason": "Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09) labels the South Bowl line beside Hot Sauce JALAPEÑO (one black diamond, as OSM rates it); OSM leaves out the tilde.",
+      "expect": {
+        "name": "Jalapeno",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Jalapeño"
+      }
+    },
+    {
+      "id": "way/1221046154",
+      "reason": "The Kids' Zone conveyor between the Mackenzie Outpost and the Stellar chair's bottom, which Revelstoke's current winter trail map (revelstokemountainresort.com/discover/about/trail-maps, revelstoke-mountain-resort-map-winter-25-26.pdf, made 2025-11-25, updated 2026-01-09) labels CUPCAKE on the main map and its Stellar Zone inset; unnamed in OSM.",
+      "expect": {
+        "name": null,
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Cupcake"
+      }
+    }
+  ]
+}

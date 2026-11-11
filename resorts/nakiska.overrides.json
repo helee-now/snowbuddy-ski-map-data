@@ -1,0 +1,80 @@
+{
+  "slug": "nakiska",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. A derived ski area (resorts.json \"ski_area\": \"derived\", the README's Derived ski area): OpenStreetMap has no landuse=winter_sports polygon for Nakiska (checked on 2026-11-10 in the pack's Overpass window and a wider 0.25 by 0.12 degree one: only a leisure=sports_centre node named Nakiska Mountain Resort and a type=site relation of 56 of its ways, relation/4080380, as at Mountain High), so the area is derived from its kept lifts and runs at the default 100 m buffer: one part, 3.40 km2 (3.09 km2 without the three out-of-bounds lines below, which shape it too). The front runs under the Silver, Olympic and Gold Chairs, the Bronze Chair's learning area and the Monster Glades on Mount Allan's north-east shoulder are one ticket and one map; no other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-10 against the resort's 2025-26 trail map (skinakiska.com's Resort Map page: NAKISKA-TRAIL-MAP25.pdf, made 2025-12-11, one page of 1075 x 892 pt rendered at 6000 px and read tile by tile) and its numbered trail list, which rates every trail: Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Extreme (two), which are OSM's easy, intermediate, advanced and expert; Highway 40, Osprey Alley, Cougar and North Boundary in the Monster Glades carry a diamond and a blue square, as OSM rates their top pieces advanced and the rest intermediate. The resort's site gives no other run list, so the printed map is the only source and wins. All 71 trails of the list but three are in OSM under the list's names (Chiniki Cut-off for the list's Chiniki Cut-Off, case only), and all carry the list's rating but two ways: Arrow (one diamond; expert in OSM) becomes advanced, and the 20 m stub ending Boundary (one diamond alone; intermediate in OSM) becomes advanced. Runs OSM names that the map does not print stay with OSM's rating: Silver Glades, a gladed line between the Olympic and Silver Chairs, and Rabbit Track, a 116 m freeride line above Upper Homesteader. Out of bounds: Bearspaw, Upper North Axe and an unnamed line along the ridge from the Gold Chair's top, all tagged backcountry in OSM, lie on the face above the Silver Chair's top outside the patrol boundary the map draws along Legacy and North Axe; with a derived area nothing is out of bounds by construction, so overrides draw them out of bounds (the owner's rule shows backcountry lines rather than hiding them), and the derived boundary takes them in. Hidden: the lowest 688 m of Lower Legacy, tagged piste:abandoned=yes, which the map draws as no run, and Platter (Ski Patrol Only), tagged access=private, which neither the map nor the resort's lift facilities list. Parks: none (the map marks no terrain park; the orange lanes along Upper, Middle and Lower Mapmaker are the Alpine Canada Alpin National Training Centre's race terrain, and the Wanidu Tube Park is a tubing hill with no run in OSM). Lifts: the map labels its lifts by letter only (A to D, and E and F, the two magic carpets), and the resort names the Gold Chair and Silver Chair; OSM's four chairs (Gold Chair, Silver Chair, Olympic Chair, Bronze Chair: the map's three high-speed quads and one double) and two carpets, unnamed, are its lifts, none renamed; no name repeats. The Ribbon Creek and Kananaskis Village trails' 66 nordic and 18 snowshoe ways are left out by the type rule. OSM gaps (shipped as at Palisades Tahoe): Upper Elbow (22) and Lower Elbow (38), the two blue Alpine Canada training runs between the Silver and Olympic Chairs, and Sweetgrass (24), a green run at the base. NEIGHBOURS: none (no landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/305915928",
+      "reason": "Arrow (run 32, from the Gold Chair's top towards Red Crow) is one black diamond (Most Difficult) on Nakiska's 2025-26 trail map (skinakiska.com's Resort Map page: NAKISKA-TRAIL-MAP25.pdf, made 2025-12-11, rendered at 6000 px and read tile by tile, with its numbered trail list), whose legend keeps two (Extreme) for Eagle Tail, Bobtail and Turbo Traverse; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Arrow",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1341155900",
+      "reason": "The last 20 m of Boundary (run 64 in the Monster Glades, along their north edge) down to Gold Road: the map's trail list gives Boundary one black diamond alone (Highway 40, Osprey Alley, Cougar and North Boundary carry a diamond and a blue square, and OSM rates their lower ways intermediate), on Nakiska's 2025-26 trail map (skinakiska.com's Resort Map page: NAKISKA-TRAIL-MAP25.pdf, made 2025-12-11, rendered at 6000 px and read tile by tile, with its numbered trail list); OSM rates this stub intermediate and the rest of the run advanced. The printed map wins.",
+      "expect": {
+        "name": "Boundary",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1325579198",
+      "reason": "Bearspaw (2,098 m down to 1,943 m at the Silver Chair's top, by the elevation window) lies above the Silver Chair's top on the face below the ridge from the Gold Chair's top, outside the patrol boundary that Nakiska's 2025-26 trail map (skinakiska.com's Resort Map page: NAKISKA-TRAIL-MAP25.pdf, made 2025-12-11, rendered at 6000 px and read tile by tile, with its numbered trail list) draws along Legacy and North Axe (the map shows no run there); OSM tags it piste:grooming=backcountry. With a derived ski area nothing of the resort is out of bounds by construction, so the override draws it out of bounds, as the owner's rule shows backcountry lines rather than hiding them.",
+      "expect": {
+        "name": "Bearspaw",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1325579197",
+      "reason": "Upper North Axe (from the ridge at 2,163 m down to North Axe's top at 1,933 m) lies above the Silver Chair's top on the face below the ridge from the Gold Chair's top, outside the patrol boundary that Nakiska's 2025-26 trail map (skinakiska.com's Resort Map page: NAKISKA-TRAIL-MAP25.pdf, made 2025-12-11, rendered at 6000 px and read tile by tile, with its numbered trail list) draws along Legacy and North Axe (the map shows no run there); OSM tags it piste:grooming=backcountry. With a derived ski area nothing of the resort is out of bounds by construction, so the override draws it out of bounds, as the owner's rule shows backcountry lines rather than hiding them.",
+      "expect": {
+        "name": "Upper North Axe",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1325579196",
+      "reason": "This unnamed line (865 m along the ridge from the Gold Chair's top at 2,259 m to 2,163 m, where Upper North Axe drops off) lies above the Silver Chair's top on the face below the ridge from the Gold Chair's top, outside the patrol boundary that Nakiska's 2025-26 trail map (skinakiska.com's Resort Map page: NAKISKA-TRAIL-MAP25.pdf, made 2025-12-11, rendered at 6000 px and read tile by tile, with its numbered trail list) draws along Legacy and North Axe (the map shows no run there); OSM tags it piste:grooming=backcountry. With a derived ski area nothing of the resort is out of bounds by construction, so the override draws it out of bounds, as the owner's rule shows backcountry lines rather than hiding them.",
+      "expect": {
+        "name": null,
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1471488704",
+      "reason": "The lowest 688 m of Lower Legacy, from the end of the run's black line on Nakiska's 2025-26 trail map (skinakiska.com's Resort Map page: NAKISKA-TRAIL-MAP25.pdf, made 2025-12-11, rendered at 6000 px and read tile by tile, with its numbered trail list) down to the base by the Wanidu Tube Park, is tagged piste:abandoned=yes in OSM and drawn as no run on the map (Lower Legacy, run 36, ends above it). Not a run the resort marks; hidden, so it neither draws as one nor shapes the derived ski area.",
+      "expect": {
+        "name": "Lower Legacy",
+        "piste:abandoned": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1325579254",
+      "reason": "Platter (Ski Patrol Only), tagged access=private, from the Gold Chair's top down the far side of the ridge: the patrol's own lift, on neither Nakiska's 2025-26 trail map (skinakiska.com's Resort Map page: NAKISKA-TRAIL-MAP25.pdf, made 2025-12-11, rendered at 6000 px and read tile by tile, with its numbered trail list) nor its lift facilities (three high-speed quads, one double chair and two magic carpets). Not a lift the public rides.",
+      "expect": {
+        "name": "Platter (Ski Patrol Only)",
+        "aerialway": "platter",
+        "access": "private"
+      },
+      "hide": true
+    }
+  ]
+}

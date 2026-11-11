@@ -1,0 +1,116 @@
+{
+  "key": "nakiska-v1",
+  "ski_sha256": "67b94b207408a2244324f96d3f1df412a342283fda2c10c985617997dca48cf2",
+  "osm_timestamp": "2026-11-11T03:35:36Z",
+  "box": [
+    -115.23,
+    50.92,
+    -115.11,
+    50.98
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -115.194055,
+    50.940752,
+    -115.145948,
+    50.955988
+  ],
+  "margins_km": {
+    "west": 2.52,
+    "south": 2.31,
+    "east": 2.52,
+    "north": 2.67
+  },
+  "counts": {
+    "lifts": 6,
+    "runs_in_bounds": 82,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 3,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 12,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.9,
+    "runs_in_bounds": 34.2,
+    "runs_out_of_bounds": 1.7
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1325579196",
+      "name": null,
+      "difficulty": "advanced",
+      "length_m": 866,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1325579197",
+      "name": "Upper North Axe",
+      "difficulty": "advanced",
+      "length_m": 511,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1325579198",
+      "name": "Bearspaw",
+      "difficulty": "advanced",
+      "length_m": 360,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -115.3125,
+      50.847573,
+      -114.960938,
+      51.069017
+    ],
+    "12": [
+      -115.3125,
+      50.903033,
+      -115.048828,
+      51.013755
+    ],
+    "13": [
+      -115.268555,
+      50.903033,
+      -115.092773,
+      50.986099
+    ],
+    "14": [
+      -115.246582,
+      50.916887,
+      -115.092773,
+      50.986099
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

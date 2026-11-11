@@ -1,0 +1,149 @@
+{
+  "slug": "banff-sunshine",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/739168515 (Banff Sunshine Village): Goat's Eye Mountain, Lookout Mountain and Mount Standish around the village on one ticket and one map, with the Sunshine Village Gondola from the Bourgeau car park (its two sections in OSM, Sunshine Village Gondola I from the base by Curve Station to Goat's Eye and II on to the village; the maps label both GONDOLA and keep them as lifts) and the Banff Avenue ski-out beside it; no other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-10 against the resort's three trail maps (skibanff.com/the-mountain/lifts-terrain/trail-maps: 25_TrailMap_GoatsEye_web.pdf, SSV25_TrailMap_LookOut_web.pdf and SSV25_TrailMap_Standish_web.pdf, Adobe Illustrator, made 2024-11-13, the files the page links for 2026-27; rendered at 400 dpi and read tile by tile; their runs carry the same numbers as OSM's ref tags), the Village & Base Area map linked from the same page, and the resort's lifts and trails report (skibanff.com/the-mountain/mountain-report/lifts-trails-report, read 2026-11-10: 12 lifts and 139 trails rated Easiest, More Difficult, Most Difficult and Experts Only, which are OSM's easy, intermediate, advanced and expert; the maps draw the same four as green circles, blue squares, one black diamond and two). Ratings: of the report's 139 trails, OSM maps 131 under the same name or a spelling of it (the report's Bronze, Silver and Gold Ecstasy as OSM's one Ecstasy, black above and blue below as the Lookout map draws it), and all carry the resort's rating but three ways and the two Freeride Zones: Upper Canyon (101, a blue square, easy in OSM) and the upper piece of Wolverine (6, a blue square along its length, advanced in OSM) become intermediate; the top of Standish (119), which the Standish map draws as a blue square and the report rates Most Difficult, becomes advanced, the harder of the resort's two sources (the rule of 2026-10-22); Delirium Dive and Wild West stay freeride (below). Delirium Dive and Wild West, the resort's gated Freeride Zones (Delirium Dive on Lookout Mountain from its entrance at the Great Divide Express top, Wild West on Goat's Eye from its entrance on the Sunshine Coast traverse; entry with an avalanche transceiver, shovel, probe and a partner), are run areas in OSM (Delirium Dive 62% inside the polygon by outline, OSM's polygon leaving out the Dive's east side, which the maps' boundary takes in, so that G4 Entrance and most of Fat Boy lie beyond the boundary drawn; Wild West 93%) with 35 freeride lines inside them (29 in Delirium Dive, G1 to G6, Bre X, Milky Way, Steel Pipe, Sugar Bowl, the Galaxy Chutes Traverse and the Dive's Exit among them; Kain Cliffs, Engler's, Luxton's, Peyto's and Wheeler's in Wild West), none tagged backcountry. The maps draw both zones inside the ski area boundary ('Freeride Zone, Special Restrictions Apply'; the resort's Freeride Zones page: 'located within the Sunshine Village ski area'), so they stay in bounds by the README's rule. The report rates both Experts Only and the Lookout map prints two black diamonds at Delirium Dive; OSM's freeride, the map's own word for the zones, draws as a double black with the ungroomed dash, so the zones show as the maps rate them and keep the mark of terrain that is never groomed, and no override changes them. The freeride lines inside the zones are named only in OSM and stay as OSM has them; Saddledome (expert), the line that the Goat's Eye map draws without a label from the boundary below Stampede into Eagle Creek, also stays. Names from the maps: Boundary Bowl (OSM Boundry Bowl), Boutry's Bowl (OSM Bounty's Bowl), Wildside (OSM Wildslide), Christmas Tree (OSM Christmas Trees), Paris Basin (OSM Paris), the Super Angel Luxury Express (OSM Super Angel Express), G4 Entrance for OSM's G4 Enterance (a typo), and the Divide Terrain Park for OSM's Rockstar Terrain Park, the park area the Lookout map draws and names DIVIDE TERRAIN PARK at that place, beside the Great Divide Express's middle (the Grizzly XL Terrain Park, nearer its bottom, is in OSM under its own name). The two unnamed carpets are named from the Village & Base Area map and the lifts report: the Mitey Mite Conveyor at the bottom of the Strawberry and Standish lifts and the Tiny Tigers Conveyor by the Wawa Quad's bottom and the gondola's top. Names that differ from the maps or the report only by a space, a hyphen, an apostrophe, an abbreviation or punctuation stay as OSM has them (Banff Avenue for BANFF AVE., Power Line, Forget-Me-Not, Mother-In-Law, Glade Runner, Goatchicken Glade, Goatsucker Glade, Super Model, Fireweed, Short & Sweet, North Pocket and South Pocket for N. POCKET and S. POCKET, Teepee Main Chutes for TP MAIN CHUTES); Trappers stays as the Goat's Eye map prints it (the report says Trapper's Trail) and Bushwackers as the report spells it (the map Bushwhackers); the Tee Pee Town Luxury Express Quad keeps OSM's spelling, which the Lookout map prints (the Goat's Eye map TEEPEE TOWN), the Wawa Quad Chair and Jackrabbit Quad theirs (WAWA QUAD, JACKRABBIT QUAD on the maps); Morain Gully, an OSM-only line in Delirium Dive, is left as it is. Lifts: all twelve of the report's are in OSM (the gondola, Goat's Eye Express, Wolverine Express, Jackrabbit, Teepee Town, Super Angel, Great Divide Express, Standish Express, Strawberry Express, Wawa and the two conveyors); none is hidden and no name repeats. OSM gaps (shipped as at Palisades Tahoe): eight of the report's trails, The Yellowhead (93, green) and Yellowhead North (121, blue) below the Great Divide Express, Showboat (black) by the Standish Express, the Kid's Play, Springhill and Strawberry terrain parks and the Mitey Mite and Tiny Tigers learning areas. The Healy Pass Trail (ski touring) and one hiking path are left out by the type rule. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/23301940",
+      "reason": "Upper Canyon (101), from the Jackrabbit Quad's bottom down beside the gondola to Power Line, is a blue square (More Difficult) on Banff Sunshine's Goat's Eye trail map (skibanff.com/the-mountain/lifts-terrain/trail-maps, 25_TrailMap_GoatsEye_web.pdf, made 2024-11-13) and the resort's lifts and trails report (skibanff.com/the-mountain/mountain-report/lifts-trails-report, read 2026-11-10) rates it More Difficult; OSM rates it easy. The resort's sources agree and win.",
+      "expect": {
+        "name": "Upper Canyon",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/55668709",
+      "reason": "The upper 278 m of Wolverine (6), from the junction with Bluebell and Trappers: Banff Sunshine's Goat's Eye trail map (skibanff.com/the-mountain/lifts-terrain/trail-maps, 25_TrailMap_GoatsEye_web.pdf, made 2024-11-13) draws Wolverine as one blue line with a blue square (More Difficult), and the resort's lifts and trails report (skibanff.com/the-mountain/mountain-report/lifts-trails-report, read 2026-11-10) rates it More Difficult; OSM rates this piece advanced and the lower piece intermediate. The black run beside it is Wolverine Liftline (126), a way of its own. The resort's sources agree and win.",
+      "expect": {
+        "name": "Wolverine",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/842294124",
+      "reason": "The upper 439 m of Standish (119), from the Standish Express top: Banff Sunshine's Standish trail map (skibanff.com/the-mountain/lifts-terrain/trail-maps, SSV25_TrailMap_Standish_web.pdf, made 2024-11-13) draws it as a blue square above the black lines it splits into, as OSM rates its pieces, while the resort's lifts and trails report (skibanff.com/the-mountain/mountain-report/lifts-trails-report, read 2026-11-10) rates Standish Most Difficult. The resort's sources disagree, so the harder is kept (the rule of 2026-10-22): advanced, as OSM's two lower pieces already are.",
+      "expect": {
+        "name": "Standish",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/842302932",
+      "reason": "Misspelling: Banff Sunshine's Lookout trail map (skibanff.com/the-mountain/lifts-terrain/trail-maps, SSV25_TrailMap_LookOut_web.pdf, made 2024-11-13) labels the run BOUNDARY BOWL (31, one black diamond, as OSM rates it), as the resort's lifts and trails report does; OSM has Boundry Bowl.",
+      "expect": {
+        "name": "Boundry Bowl",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Boundary Bowl"
+      }
+    },
+    {
+      "id": "way/842298388",
+      "reason": "Misspelling: Banff Sunshine's Lookout trail map (skibanff.com/the-mountain/lifts-terrain/trail-maps, SSV25_TrailMap_LookOut_web.pdf, made 2024-11-13) labels the run BOUTRY'S BOWL (43, a blue square, as OSM rates it), as the resort's lifts and trails report does; OSM has Bounty's Bowl.",
+      "expect": {
+        "name": "Bounty's Bowl",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Boutry's Bowl"
+      }
+    },
+    {
+      "id": "way/739168521",
+      "reason": "Misspelling: Banff Sunshine's Goat's Eye trail map (skibanff.com/the-mountain/lifts-terrain/trail-maps, 25_TrailMap_GoatsEye_web.pdf, made 2024-11-13) labels the run WILDSIDE (86, two black diamonds, as OSM rates it), as the resort's lifts and trails report does; OSM has Wildslide.",
+      "expect": {
+        "name": "Wildslide",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Wildside"
+      }
+    },
+    {
+      "id": "way/842310887",
+      "reason": "Banff Sunshine's Goat's Eye trail map (skibanff.com/the-mountain/lifts-terrain/trail-maps, 25_TrailMap_GoatsEye_web.pdf, made 2024-11-13) labels the run CHRISTMAS TREE (98, a blue square, as OSM rates it), as the resort's lifts and trails report does; OSM has Christmas Trees.",
+      "expect": {
+        "name": "Christmas Trees",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Christmas Tree"
+      }
+    },
+    {
+      "id": "way/787173423",
+      "reason": "Banff Sunshine's Standish trail map (skibanff.com/the-mountain/lifts-terrain/trail-maps, SSV25_TrailMap_Standish_web.pdf, made 2024-11-13) labels the run below Paris One and Paris Two PARIS BASIN (55, one black diamond, as OSM rates it), as the resort's lifts and trails report does; OSM names it Paris.",
+      "expect": {
+        "name": "Paris",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Paris Basin"
+      }
+    },
+    {
+      "id": "way/23259661",
+      "reason": "Banff Sunshine's trail maps (skibanff.com/the-mountain/lifts-terrain/trail-maps, the Goat's Eye, Lookout and Standish PDFs, made 2024-11-13) and its Village & Base Area map label this six-seat bubble chair SUPER ANGEL LUXURY EXPRESS (the lifts report: Super Angel Luxury Express Six Pack); OSM has Super Angel Express.",
+      "expect": {
+        "name": "Super Angel Express",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Super Angel Luxury Express"
+      }
+    },
+    {
+      "id": "way/842327930",
+      "reason": "Typo: the 24 m way into G4, one of the freeride lines OSM maps in Delirium Dive (named only in OSM), is spelled G4 Enterance.",
+      "expect": {
+        "name": "G4 Enterance",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "name": "G4 Entrance"
+      }
+    },
+    {
+      "id": "way/686319259",
+      "reason": "The terrain park area beside the middle of the Great Divide Express, which Banff Sunshine's Lookout trail map (skibanff.com/the-mountain/lifts-terrain/trail-maps, SSV25_TrailMap_LookOut_web.pdf, made 2024-11-13) draws in orange and names DIVIDE TERRAIN PARK at this place (the resort's lifts and trails report lists Divide Terrain Park); OSM names it Rockstar Terrain Park, a name on no current source. The Grizzly XL Terrain Park, nearer the lift's bottom, is in OSM under its own name.",
+      "expect": {
+        "name": "Rockstar Terrain Park",
+        "piste:type": "snow_park"
+      },
+      "set": {
+        "name": "Divide Terrain Park"
+      }
+    },
+    {
+      "id": "way/258174501",
+      "reason": "The unnamed 59 m carpet at the bottom of the Strawberry Express and Standish Express is the Mitey Mite conveyor: Banff Sunshine's Village & Base Area map (skibanff.com/the-mountain/lifts-terrain/trail-maps, Village&BaseArea_0.pdf) and its Standish and Lookout trail maps draw the Mitey Mite Learning Area and Conveyor Lift there, and the resort's lifts and trails report (read 2026-11-10) lists it as the Mitey Mite Conveyor.",
+      "expect": {
+        "name": null,
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Mitey Mite Conveyor"
+      }
+    },
+    {
+      "id": "way/258178409",
+      "reason": "The unnamed 34 m carpet beside the Wawa Quad's bottom and the gondola's top station is the Tiny Tigers carpet: Banff Sunshine's Village & Base Area map (skibanff.com/the-mountain/lifts-terrain/trail-maps, Village&BaseArea_0.pdf) draws the Tiny Tigers Carpet Lift there, by the daycare, and the resort's lifts and trails report (read 2026-11-10) lists it as the Tiny Tigers Conveyor.",
+      "expect": {
+        "name": null,
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Tiny Tigers Conveyor"
+      }
+    }
+  ]
+}

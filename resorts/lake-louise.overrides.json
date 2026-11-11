@@ -1,0 +1,221 @@
+{
+  "slug": "lake-louise",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1388611703 (Lake Louise Ski Area): the Front Side above the base (the Grizzly Express Gondola, the Glacier, Juniper, Pipestone and Top of the World Expresses and the Summit Chair), West Bowl beyond Pipestone Ridge, the Back Bowls (Whitehorn 1 and its gates, the Whitehorn 2 Alphabet Gullies, Boomerang, Brown Cow and Boundary Bowl), Paradise and E.R. (Eagle Ridge), the Ptarmigan area and Temple Lodge, Larch, and Richardson's Ridge, the resort's newest terrain, on one ticket and one map; no other ski area lies in the box or the Overpass window (Mt. Norquay and Banff Sunshine are about 50 km south-east). Every named run and lift checked on 2026-11-10 against the resort's 2025-26 trail maps, the James Niehues paintings the resort's Lift, Runs & Parks page links (llsr-front-side-and-larch-trail-map-25-26-v1.jpg, the Front Side, West Bowl and Larch, and llsr-backside-trail-map-25-26-v1.jpg, the Back Bowls, Paradise and Richardson's Ridge; 1911 x 1912 px, the largest the resort publishes, skiresort.com's copies being the same size), enlarged five to ten times and read tile by tile. The legend has four grades: Easiest (green circle), More Difficult (blue square), Advanced (one black diamond) and Expert (two), which are OSM's easy, intermediate, advanced and expert; every run carries its number in its symbol, and the double diamond's two points show from five times. The resort's interactive map (lake-louise.steepdeep.ski) loads its runs by script and was not read, so the printed maps are the only source and win. Of OSM's 159 named runs the maps print all but about ten, and all carry the maps' rating but four ways: Lynx (two ways) and Lipalian Chutes in Larch and Couloir in Paradise, two diamonds on the map and advanced in OSM, become expert. Names from the maps: Doughnut Plains (OSM 166 Doughnut Plains, the run number pasted in), Maintenance Gully (OSM Maitenance), Grizzly Gully (OSM Gully), Lake Lindsey Way (OSM Ladies' Downhill, an older name; run 7 between the Glacier Express and the Grizzly Gondola), Eagle Flight (OSM Eagles Flight), Flight Chute 1 and 2 (OSM Flight Chutes 1 and 2, the map keeping Flight Chutes Cat Track), 2nd, 3rd and 4th Gate (OSM Second, Third and Forth Gate), 2/3 Shoulder (OSM Two Thirds Shoulder), 007 Ptarmigan Cat Track (OSM wraps 007 in quote marks), Saddleback (the green easy way down round the Back Bowls, which OSM names Saddleback Bowl; the map's blue Saddleback Bowl keeps OSM's short way of that name), and the lifts Paradise Chair, Ptarmigan Chair and Summit Chair as the map labels them (OSM Paradise, Ptarmigan and Summit; Ptarmigan is also a run's name). Names that differ from the maps only by a space, an apostrophe or a hyphen stay as OSM has them (Drop Out for DROPOUT, Eagles Beak for EAGLE'S BEAK, Lookout for LOOK OUT, Instructor's Bowl and Instructor's Gully for INSTRUCTORS BOWL and GULLY, Grizzly Express Gondola for the map's GRIZZLY GONDOLA and GRIZZLY EXPRESS), and so does Lower Meadowlark, the run to the base the map continues as LOWEST MEADOWLARK (run 12) below Meadowlark (58), its middle section hidden under the Whitehorn Bistro's label. Runs OSM names that the maps do not print stay with OSM's rating (Whitehorn 1, a line where the map prints its Whitehorn 1 area and 1st Gate; Upper 5, beside Paradise Cornice; Upper Kiddies' above Kiddies' Corner; Skyline under the Summit Chair; the Larch connectors). Parks: the maps' three terrain parks (Triple Bridge beside Men's Downhill, Boulevard beside the Juniper Express and Elbow by the Grizzly Gondola's bottom) are not mapped in OSM, so none gets the flag. Lifts: all of the maps' are in OSM (the Grizzly Express Gondola, Glacier Express, Juniper Express, Pipestone Express, Top of the World Express, Summit Chair, Paradise Chair, Ptarmigan Chair, Larch Express and Richardson's Ridge Express, the last tagged construction:aerialway beside aerialway=chair_lift in OSM but open on the 2025-26 map as Richardson's Ridge's lift), with the learning area's three carpets, unnamed; Prunepicker, a platter tagged proposed=yes that neither map draws, is hidden; no name repeats. Out of bounds: none. The runs tagged backcountry in OSM (West Bowl's Instructor's Bowl and Gully, Outback, White Rabbit, Temple, Ten Peaks, West Bowl, West Bowl Gully, Doughnut Plains, Maintenance Gully, Maverick, Free Spirit and the Oly Slides; Lookout Chutes and Tower 12 in Larch; the Ptarmigan Chutes and Pika Trees) lie inside the polygon and stay in bounds by the half rule, as the maps draw them inside the ski area boundary. OSM gaps (shipped as at Palisades Tahoe): Mirkwood, Grizzly Bowl and Kernahan's between the Pipestone and Top of the World Expresses, Eagle Trees and Lower Grouse on the Eagle Ridge side of the front, East Bowl Trees, Hell's Kitchen and Lily Pad in Paradise, Upper Alley and Pikaboo above the Paradise Chair bottom, and the three terrain parks. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/23301488",
+      "reason": "Lynx (run 147 in the Larch area, the upper of its two ways) is two black diamonds (Expert) in the map's legend of four grades on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Lynx",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/23301627",
+      "reason": "Lynx (run 147 in the Larch area, the lower of its two ways) is two black diamonds (Expert) in the map's legend of four grades on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Lynx",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1354249619",
+      "reason": "Lipalian Chutes (run 149, from the Larch Express top along the area boundary) is two black diamonds (Expert) in the map's legend of four grades on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Lipalian Chutes",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/656597044",
+      "reason": "Couloir (run 105 in Paradise, between Vertical Cornice and Peyto's Pitch below the Top of the World Express top) is two black diamonds (Expert) in the map's legend of four grades on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Couloir",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/883614839",
+      "reason": "The map's run number pasted into the name: the West Bowl run is DOUGHNUT PLAINS, run 166, one black diamond, on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile).",
+      "expect": {
+        "name": "166 Doughnut Plains"
+      },
+      "set": {
+        "name": "Doughnut Plains"
+      }
+    },
+    {
+      "id": "way/883614828",
+      "reason": "Spelling: the West Bowl run is MAINTENANCE GULLY (run 167) on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile).",
+      "expect": {
+        "name": "Maitenance Gully"
+      },
+      "set": {
+        "name": "Maintenance Gully"
+      }
+    },
+    {
+      "id": "way/23301798",
+      "reason": "The blue run between the Pipestone Express and the Top of the World Express from Mirkwood down to Wrong Turn is GRIZZLY GULLY on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile); OSM names it Gully.",
+      "expect": {
+        "name": "Gully"
+      },
+      "set": {
+        "name": "Grizzly Gully"
+      }
+    },
+    {
+      "id": "way/261630227",
+      "reason": "The one-diamond run 7 between the Glacier Express and the Grizzly Gondola, from below the Whitehorn Bistro down to Easy Street, is LAKE LINDSEY WAY on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile); OSM keeps an older name, Ladies' Downhill (the map's World Cup Downhill Course is Men's Downhill, run 1).",
+      "expect": {
+        "name": "Ladies' Downhill"
+      },
+      "set": {
+        "name": "Lake Lindsey Way"
+      }
+    },
+    {
+      "id": "way/656592592",
+      "reason": "Spelling: run 48 on the Eagle Ridge side of the front is EAGLE FLIGHT on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile) (beside EAGLE'S BEAK, 49, and EAGLE POMA, 53).",
+      "expect": {
+        "name": "Eagles Flight"
+      },
+      "set": {
+        "name": "Eagle Flight"
+      }
+    },
+    {
+      "id": "way/656592590",
+      "reason": "The map's name: FLIGHT CHUTE 1 (run 42, from the Paradise Chair's top down the front) on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile); the map keeps the plural only for Flight Chutes Cat Track (run 40).",
+      "expect": {
+        "name": "Flight Chutes 1"
+      },
+      "set": {
+        "name": "Flight Chute 1"
+      }
+    },
+    {
+      "id": "way/656592591",
+      "reason": "The map's name: FLIGHT CHUTE 2 (run 43, beside Flight Chute 1) on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile); the map keeps the plural only for Flight Chutes Cat Track (run 40).",
+      "expect": {
+        "name": "Flight Chutes 2"
+      },
+      "set": {
+        "name": "Flight Chute 2"
+      }
+    },
+    {
+      "id": "way/656594334",
+      "reason": "Spelling: the gate below the Summit Chair is 4TH GATE (run 117) on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile); OSM writes Forth Gate. Its neighbours take the map's numerals too (2nd Gate, 3rd Gate), as the map prints the four gates.",
+      "expect": {
+        "name": "Forth Gate"
+      },
+      "set": {
+        "name": "4th Gate"
+      }
+    },
+    {
+      "id": "way/656594333",
+      "reason": "The map's name: 3RD GATE (run 118) below the Summit Chair on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile), written as the map writes the four gates (1st to 4th; OSM's Forth Gate is fixed to 4th Gate).",
+      "expect": {
+        "name": "Third Gate"
+      },
+      "set": {
+        "name": "3rd Gate"
+      }
+    },
+    {
+      "id": "way/656594332",
+      "reason": "The map's name: 2ND GATE (run 119) below the Summit Chair on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile), written as the map writes the four gates (1st to 4th; OSM's Forth Gate is fixed to 4th Gate).",
+      "expect": {
+        "name": "Second Gate"
+      },
+      "set": {
+        "name": "2nd Gate"
+      }
+    },
+    {
+      "id": "way/656590879",
+      "reason": "The map's name: 2/3 SHOULDER (run 87, beside Crow Bowl and Cowboy below Eagle Ridge) on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile), as OSM already writes its neighbour 4/5 Shoulder.",
+      "expect": {
+        "name": "Two Thirds Shoulder"
+      },
+      "set": {
+        "name": "2/3 Shoulder"
+      }
+    },
+    {
+      "id": "way/1446972962",
+      "reason": "Quote marks pasted into the name: the cat track from the Ptarmigan Chair top is 007 PTARMIGAN CAT TRACK (run 67) on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile).",
+      "expect": {
+        "name": "\"007\" Ptarmigan Cat Track"
+      },
+      "set": {
+        "name": "007 Ptarmigan Cat Track"
+      }
+    },
+    {
+      "id": "way/23301456",
+      "reason": "This 2.6 km green line from the Top of the World Express top round the Back Bowls to the Paradise Chair bottom is the map's SADDLEBACK (run 109, Easiest), 'Easy Way Down: Saddleback' on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile); Saddleback Bowl is the map's blue run 111 below it, which OSM's short intermediate way of that name (way/656597039) keeps.",
+      "expect": {
+        "name": "Saddleback Bowl",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Saddleback"
+      }
+    },
+    {
+      "id": "way/4412029",
+      "reason": "The lift's name on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile) and in the resort's lift list (Paradise Triple Chair): PARADISE CHAIR. OSM's bare Paradise also names the Paradise Bowl and Paradise Cornice runs' area; the map's label keeps the lift apart.",
+      "expect": {
+        "name": "Paradise"
+      },
+      "set": {
+        "name": "Paradise Chair"
+      }
+    },
+    {
+      "id": "way/23259587",
+      "reason": "The lift's name on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile) and in the resort's lift list (Ptarmigan Quad Chair): PTARMIGAN CHAIR. OSM's bare Ptarmigan is also the name of the one-diamond run Ptarmigan (run 76) beside it; the map's label keeps the lift apart.",
+      "expect": {
+        "name": "Ptarmigan"
+      },
+      "set": {
+        "name": "Ptarmigan Chair"
+      }
+    },
+    {
+      "id": "way/843637677",
+      "reason": "The lift's name on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile) and in the resort's lift list: SUMMIT CHAIR (the quad to the top of Whitehorn Mountain that replaced the Summit Platter).",
+      "expect": {
+        "name": "Summit"
+      },
+      "set": {
+        "name": "Summit Chair"
+      }
+    },
+    {
+      "id": "way/1443563408",
+      "reason": "Prunepicker, a platter OSM tags proposed=yes (citing the resort's news of the Richardson's Ridge expansion), is not on Lake Louise's 2025-26 trail maps (skilouise.com's Lift, Runs & Parks page: the James Niehues paintings llsr-front-side-and-larch-trail-map-25-26-v1.jpg and llsr-backside-trail-map-25-26-v1.jpg, 1911 x 1912 px, read enlarged tile by tile) nor in the resort's lift list: the Richardson's Ridge area is served by the Richardson's Ridge Express alone. Not a lift the resort runs.",
+      "expect": {
+        "name": "Prunepicker",
+        "aerialway": "platter",
+        "proposed": "yes"
+      },
+      "hide": true
+    }
+  ]
+}

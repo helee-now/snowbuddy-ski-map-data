@@ -1,0 +1,73 @@
+{
+  "key": "banff-sunshine-v1",
+  "ski_sha256": "4e52c3e91602e16325d8c8da38ca940bf0f95b526a330b9ef61b8f140eee76f6",
+  "osm_timestamp": "2026-11-11T03:36:36Z",
+  "box": [
+    -115.83,
+    51.04,
+    -115.71,
+    51.14
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -115.79233,
+    51.067969,
+    -115.745153,
+    51.115553
+  ],
+  "margins_km": {
+    "west": 2.63,
+    "south": 3.11,
+    "east": 2.46,
+    "north": 2.72
+  },
+  "counts": {
+    "lifts": 14,
+    "runs_in_bounds": 200,
+    "run_areas_in_bounds": 4,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 32,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 14.3,
+    "runs_in_bounds": 91.7,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -115.839844,
+      50.958427,
+      -115.664062,
+      51.179343
+    ],
+    "12": [
+      -115.839844,
+      51.013755,
+      -115.664062,
+      51.179343
+    ],
+    "13": [
+      -115.839844,
+      51.013755,
+      -115.708008,
+      51.151786
+    ],
+    "14": [
+      -115.839844,
+      51.027576,
+      -115.708008,
+      51.151786
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

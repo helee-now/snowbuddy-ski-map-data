@@ -1,0 +1,130 @@
+{
+  "slug": "mt-norquay",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1563251164 (Mt Norquay): the North American, Cascade, Spirit and Mystic lifts' terrain on Mount Norquay's south-east face above Banff, with the base area's Sundance and Rundle carpets and the Ski Out to Banff below the base, on one ticket and one map; no other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-10 against the resort's current trail map (banffnorquay.com/trail-map, 25-26_trailmap.pdf, Adobe Illustrator, made 2025-12-05: a painting with a numbered marker per run and a legend listing the 77 named runs by lift with their symbols, green circle, blue square and one black diamond; read from its text layer and rendered at 300 dpi) and the resort's lift and run status (banffnorquay.com/conditions, read 2026-11-10: 79 runs by lift, each in a beginner, intermediate or advanced class). Neither source has a double black, and OSM rates no run expert. The numbers on the map are OSM's ref tags. Ratings: of the map's 77 runs OSM maps 69 under the same name or a spelling of it, all but four ways with the map's rating, and seven ways change. Where the map and the status list agree, they win: Lower Rob's Run (33, a blue square on the map, intermediate on the list) becomes intermediate. Where they disagree, the harder is kept (the rule of 2026-10-22): Express Way (17, a blue square on the map, beginner on the list), the three ways of Deerfoot Trail (58, a green circle on the map, intermediate on the list) and the lower way of Abracadabra (36, one blue square for the whole run on the map; the list splits it into an intermediate Abracadabra pitch and a beginner Abracadabra lower, as OSM's two ways are rated) become intermediate, and Ray's Run (35, one black diamond on the map, intermediate on the list and in OSM) becomes advanced. Sundance (19), the beginner run beside the Sundance carpet, stays novice as OSM tags it (green either way). Runs OSM tags piste:grooming=backcountry (40 Mile Gully, FM2, Sun Chutes, Sheep Chutes, Goat Chute, S-Spine, Spirit Sneak, Norquay 100 and 90 Glades, Banshee Glades, Toni's Trees, Take a Hike, Enchanted Forest, Milky Way on the Mystic and Cascade sides; Boundary Bowl, Norquay Gully, Sunny Side and Herman's under the North American) lie wholly inside the polygon and stay in bounds by the half rule, as the map draws them, with their markers, inside its ski area boundary. Names from the map: Giver Grandi for the way OSM spells Giv'er Grandi (the map, the status list and OSM's other way of the run, 42, spell it Giver Grandi; one name, so the run ranks as one). Names that differ from the map or the list only by a letter, an article, an apostrophe or a plural the other source has stay as OSM has them: The Lone Pine (the map's LONE PINE, the list's The Lone Pine), 40 Mile Gully, Norquay Gully and Bruno's Gully (the map's GULLEY, the list's Gully), Sun Chutes and Sheep Chutes (the map's singular, the list's plural), Asteroid's (the map's Asteroids, the list's Asteroid's), Steelpipes and EDge Hunter as the map prints them. OSM names four runs that neither source lists: Cheat Creek (a green way from the Sundance carpet's top towards the Spirit side, ref 27, which is Slow Dance on the current map, by the Rundle carpet, so not taken as it), Herman's (76 m below the North American top), Take a Hike (between FM2 and 40 Mile Gully) and the Ski Out to Banff (1.8 km from the base down beside Mount Norquay Road to a parking lot, inside the polygon; the map's base area shows 'RETURN TO P2/P3' and 'RETURN TO P1' arrows); they stay as OSM has them. Lifts: the map's North American (A), Cascade (B), Spirit (C, with its Mid Station), Mystic (D, OSM Mystic Express), Sundance (E) and Rundle (F) carpets are in OSM under those names; the Tube Park's carpet (G, OSM Tubing Carpet) serves the tubing lanes, not skiers, and is hidden with its two end stations, which lie within 100 m of the Rundle carpet and the Cascade lift, as Vail's, Keystone's and Winter Park's tubing carpets are; the Banff Gondola on Sulphur Mountain, a sightseeing gondola in the Overpass margin 6 km south, is hidden too. OSM gaps (shipped as at Palisades Tahoe): eight of the map's runs are not in OSM, Corvid's (4a), Waterfall (4b), Boundary Line (4c) and Roger's Shot (4d) beside Boundary Bowl, Hide Away (16d) and the North American's Last Chance (16e, one black diamond; OSM's Last Chance is the Mystic's blue 55), The Big Easy (59a) and Slow Dance (27); the status list's Horse Trail (beginner, Mystic) is on neither the map nor OSM; and the terrain park the map draws in the night-skiing area beside the Cascade lift has no park in OSM. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/1347193572",
+      "reason": "Express Way (17), from the Cascade lift's top to the North American's bottom, is a blue square (intermediate) on Mt. Norquay's 2025-26 trail map (banffnorquay.com/trail-map, 25-26_trailmap.pdf, made 2025-12-05), while the resort's lift and run status (banffnorquay.com/conditions, read 2026-11-10) lists it as beginner, as OSM rates it easy. The resort's sources disagree, so the harder is kept (the rule of 2026-10-22).",
+      "expect": {
+        "name": "Express Way",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1347193561",
+      "reason": "Lower Rob's Run (33), below Rob's Run on the Spirit side, is a blue square (intermediate) on Mt. Norquay's 2025-26 trail map (banffnorquay.com/trail-map, 25-26_trailmap.pdf, made 2025-12-05) and intermediate on the resort's lift and run status (banffnorquay.com/conditions, read 2026-11-10); OSM rates it easy. The resort's sources agree and win.",
+      "expect": {
+        "name": "Lower Rob's Run",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1347193563",
+      "reason": "Ray's Run (35), from the Spirit lift's top, is one black diamond (advanced) on Mt. Norquay's 2025-26 trail map (banffnorquay.com/trail-map, 25-26_trailmap.pdf, made 2025-12-05), in its legend and at its marker beside the lift, while the resort's lift and run status (banffnorquay.com/conditions, read 2026-11-10) lists it as intermediate, as OSM rates it. The printed map wins, and where the resort's sources disagree the harder is kept (the rule of 2026-10-22).",
+      "expect": {
+        "name": "Ray's Run",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1347193558",
+      "reason": "The lower 452 m of Abracadabra (36): Mt. Norquay's 2025-26 trail map (banffnorquay.com/trail-map, 25-26_trailmap.pdf, made 2025-12-05) rates Abracadabra one blue square (intermediate) for the whole run, while the resort's lift and run status (banffnorquay.com/conditions, read 2026-11-10) splits it into an intermediate Abracadabra pitch and a beginner Abracadabra lower, as OSM rates its upper way intermediate and this one easy. The resort's sources disagree on this piece, so the harder is kept (the rule of 2026-10-22).",
+      "expect": {
+        "name": "Abracadabra",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1347193542",
+      "reason": "Deerfoot Trail (58), on the Mystic side down to Abracadabra, is a green circle on Mt. Norquay's 2025-26 trail map (banffnorquay.com/trail-map, 25-26_trailmap.pdf, made 2025-12-05), as OSM rates it easy, while the resort's lift and run status (banffnorquay.com/conditions, read 2026-11-10) lists it as intermediate. The resort's sources disagree, so the harder is kept (the rule of 2026-10-22).",
+      "expect": {
+        "name": "Deerfoot Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1347193543",
+      "reason": "Deerfoot Trail (58), its top piece below Knight Flight: a green circle on Mt. Norquay's 2025-26 trail map (banffnorquay.com/trail-map, 25-26_trailmap.pdf, made 2025-12-05), as OSM rates it easy, while the resort's lift and run status (banffnorquay.com/conditions, read 2026-11-10) lists it as intermediate. The resort's sources disagree, so the harder is kept (the rule of 2026-10-22).",
+      "expect": {
+        "name": "Deerfoot Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1347193548",
+      "reason": "Deerfoot Trail (58), its bottom piece from S-Spine to Abracadabra: a green circle on Mt. Norquay's 2025-26 trail map (banffnorquay.com/trail-map, 25-26_trailmap.pdf, made 2025-12-05), as OSM rates it easy, while the resort's lift and run status (banffnorquay.com/conditions, read 2026-11-10) lists it as intermediate. The resort's sources disagree, so the harder is kept (the rule of 2026-10-22).",
+      "expect": {
+        "name": "Deerfoot Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1347186364",
+      "reason": "Mt. Norquay's 2025-26 trail map (banffnorquay.com/trail-map, 25-26_trailmap.pdf, made 2025-12-05) and the resort's lift and run status (banffnorquay.com/conditions) name the run Giver Grandi (42, one black diamond, as OSM rates it), as OSM names its other way (way/23302274); this way is spelled Giv'er Grandi. One name, so the run's two ways rank as one run.",
+      "expect": {
+        "name": "Giv'er Grandi",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Giver Grandi"
+      }
+    },
+    {
+      "id": "way/1347196860",
+      "reason": "The Tube Park's carpet (G on Mt. Norquay's 2025-26 trail map, banffnorquay.com/trail-map, 25-26_trailmap.pdf), which serves the tubing lanes beside the North American's bottom, not skiers; hidden as Vail's, Keystone's and Winter Park's tubing carpets are.",
+      "expect": {
+        "name": "Tubing Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "node/12461954122",
+      "reason": "The unnamed east end station of the Tube Park's carpet (way/1347196860, hidden above), 70 m from the Rundle carpet's end: the 100 m rule would otherwise draw it as a lift-station circle with no lift.",
+      "expect": {
+        "aerialway": "station",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "node/12461954123",
+      "reason": "The unnamed west end station of the Tube Park's carpet (way/1347196860, hidden above), about 100 m from the Cascade lift's line: the 100 m rule would otherwise draw it as a lift-station circle with no lift.",
+      "expect": {
+        "aerialway": "station",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/24306232",
+      "reason": "The Banff Gondola, the sightseeing gondola up Sulphur Mountain from Mountain Avenue in Banff (its stations tagged Banff Gondola Lower and Upper Terminal, operator Brewster Travel Canada), 6 km south of Mt. Norquay in the Overpass margin below the box: not a ski lift and not on Mt. Norquay's map, and it has no ski-area polygon to list as a neighbour. Its stations go with it (no kept lift lies within 100 m of them).",
+      "expect": {
+        "name": "Banff Gondola",
+        "aerialway": "gondola"
+      },
+      "hide": true
+    }
+  ]
+}

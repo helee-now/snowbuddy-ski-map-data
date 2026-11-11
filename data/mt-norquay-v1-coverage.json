@@ -1,0 +1,73 @@
+{
+  "key": "mt-norquay-v1",
+  "ski_sha256": "77eec762ba2a82d269a0f8ebd4ae72187361b0c0e9900e117e6a0975a714ac77",
+  "osm_timestamp": "2026-11-11T03:41:42Z",
+  "box": [
+    -115.65,
+    51.16,
+    -115.56,
+    51.24
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -115.618627,
+    51.187384,
+    -115.58891,
+    51.21504
+  ],
+  "margins_km": {
+    "west": 2.19,
+    "south": 3.05,
+    "east": 2.01,
+    "north": 2.78
+  },
+  "counts": {
+    "lifts": 6,
+    "runs_in_bounds": 88,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 15,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3,
+    "runs_in_bounds": 30.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -115.664062,
+      51.069017,
+      -115.488281,
+      51.289406
+    ],
+    "12": [
+      -115.664062,
+      51.124213,
+      -115.488281,
+      51.289406
+    ],
+    "13": [
+      -115.664062,
+      51.151786,
+      -115.532227,
+      51.261915
+    ],
+    "14": [
+      -115.664062,
+      51.151786,
+      -115.554199,
+      51.248163
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

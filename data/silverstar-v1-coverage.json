@@ -1,0 +1,298 @@
+{
+  "key": "silverstar-v1",
+  "ski_sha256": "52fb8d77130bcf43dbc70c6e8b4aa8a2d5cc5ce1cbc6cb2b5e39cea1fa192b8d",
+  "osm_timestamp": "2026-11-11T05:26:36Z",
+  "box": [
+    -119.11,
+    50.31,
+    -118.98,
+    50.42
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -119.077977,
+    50.337586,
+    -119.012081,
+    50.400116
+  ],
+  "margins_km": {
+    "west": 2.27,
+    "south": 3.07,
+    "east": 2.28,
+    "north": 2.21
+  },
+  "counts": {
+    "lifts": 10,
+    "runs_in_bounds": 222,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 16,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 17,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 8.2,
+    "runs_in_bounds": 113.9,
+    "runs_out_of_bounds": 8.2
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/446410174",
+      "name": "Valhalla Ridge Access (Hike)",
+      "difficulty": "unknown",
+      "length_m": 291,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/524276059",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 1171,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/524276060",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 34,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/524276061",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 711,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/524276072",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 545,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/524276075",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 22,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/524276077",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 17,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/524276078",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 39,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/524276079",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 18,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/524276082",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 160,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/524276083",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 38,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/66207977",
+      "name": "Cougar Run",
+      "difficulty": "intermediate",
+      "length_m": 752,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/66207978",
+      "name": "Black Pine Street",
+      "difficulty": "easy",
+      "length_m": 1754,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/66207979",
+      "name": "Bear Claw",
+      "difficulty": "advanced",
+      "length_m": 332,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/66207980",
+      "name": "After You",
+      "difficulty": "intermediate",
+      "length_m": 1234,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/66207981",
+      "name": "After Me",
+      "difficulty": "intermediate",
+      "length_m": 1127,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -119.179688,
+      50.289339,
+      -118.828125,
+      50.513427
+    ],
+    "12": [
+      -119.179688,
+      50.289339,
+      -118.916016,
+      50.457504
+    ],
+    "13": [
+      -119.135742,
+      50.289339,
+      -118.959961,
+      50.429518
+    ],
+    "14": [
+      -119.11377,
+      50.303376,
+      -118.959961,
+      50.429518
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

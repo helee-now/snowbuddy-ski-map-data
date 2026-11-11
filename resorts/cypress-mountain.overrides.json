@@ -1,0 +1,169 @@
+{
+  "slug": "cypress-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/15317924 (Cypress Mountain), a multipolygon of two outer rings: the downhill area on Black Mountain and Mount Strachan (the Eagle Express, Raven Ridge, Lions Express, Sky, Midway and Easy Rider chairs and the Magic Carpet) and the Hollyburn Nordic area east of the Cypress Bowl Road, which the resort also runs and whose own map draws inside its SKI AREA BOUNDARY. OSM gives the two one relation (its member ways are untagged), so the map's boundary takes in both; the Nordic area's 188 cross-country ways and its snowshoe and touring trails are left out by the type rule, and its one downhill-type feature (below) is hidden, so only the downhill runs and lifts are drawn. Grouse Mountain's polygon (relation/21277926) lies 6 km east of Cypress's polygon and 4 km beyond the box's east edge, outside the Overpass window, and Mount Seymour's farther east: no neighbour to list. Every named run and lift checked on 2026-11-10 against the resort's 2026 trail maps (cypressmountain.com, Trail Maps and Stats: the Black Mountain map, Cypress_Black_Mountain_Map_2026.pdf, Adobe Illustrator, made 2026-09-23, with its labels as text outlines, rendered at 140 dpi and read tile by tile; and the Downhill Trail Maps image the page links, 79c98ccb8423c167b7013904475f978061f2bfad.jpg, 3000 x 1286 px, uploaded 2026-09-23, the same Black Mountain painting beside Mount Strachan's, whose half is about 1,500 px wide, enlarged twice and read tile by tile) and the page's stats (61 runs on 2 mountains, 6 chairlifts and a magic carpet, the night-skiing runs by name). The legend has four grades: Easier (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Expert (two), which are OSM's easy, intermediate, advanced and expert. The resort's mountain report loads its run list by script, so the printed maps are the only source and win. Of OSM's 64 named runs all carry the maps' rating but six ways: the three ways of 3 Bears OSM rates easy and Access to Raven Ridge, blue squares on the Black Mountain map, become intermediate; Ripcord, one diamond on the Strachan map (RIP CORD, beside the Sky Quad), becomes advanced; and the lowest 161 m of Rainbow, which OSM rates intermediate, becomes advanced: the map draws Rainbow black with one diamond down to the Lions Express Quad's bottom. Names from the maps: OSM keeps the runs' 2010 Olympians' names on four Black Mountain runs the 2026 map labels otherwise: Maelle Ricker's (alt_name Fork: one way from Black Mountain's top round the boundary to the Eagle Express's bottom, the map's FORK and LOWER FORK) becomes Fork, Ashley McIvor's (alt_name Cascade) Cascade, Jasey Jay Anderson's, the line between Fork and the chair, PGS, and Alexandre Bilodeau's (Moguls Run) Bilodeau's Gold; Horsefly on Mount Strachan becomes Horsefly Canyon; and the unnamed carpet by Cypress Creek Lodge, which the map labels MAGIC CARPET as it labels the chairs (and the stats count one Magic Carpet), Magic Carpet. Names that differ from the maps only by a space, a suffix or punctuation stay as OSM has them (Shoreline for SHORE LINE, Rideout for RIDE OUT, Un Run for UNRUN, Ripcord for RIP CORD, L. T. D for L.T.D, and the chairs Eagle Express Quad, Raven Ridge Quad, Lions Express Quad and Easy Rider Quad for the map's ... QUAD CHAIR). Runs OSM names and the maps do not print stay as OSM has them (the Horizon-EagleExpress connector, the map's TO EAGLE EXPRESS QUAD route; Howe Sound Crest Trail, a 160 m green piece of the hiking trail through the base area). Hidden: two glade zones mapped as closed ways without area=yes (Gibsons Glades, which the map labels as a zone with no run line, and the unnamed outline around Under the Volcano Glades), which the pipeline would draw as run loops, as Copper Mountain's Lower Enchanted Forest and Eldora's glades are hidden; and the Fun Terrain Park, a closed snow_park way in the Nordic area that OSM's own FIXME calls a cross-country terrain park, on no downhill map. Lifts: all seven of the maps' are in OSM (the Eagle Express, Raven Ridge, Lions Express, Sky, Midway and Easy Rider chairs and the Magic Carpet); none is hidden and no name repeats. Parks: the maps draw four (Cat Track Park, Sunrise Park, Midway Park and Collins Park on Mount Strachan), none of them in OSM (a gap). Out of bounds: none in OSM's downhill data; the backcountry lines north of Mount Strachan's top (Strachan (NOT IN BOUNDS), Christmas Gully) are tagged as touring routes and left out by the type rule. OSM gaps (shipped as at Palisades Tahoe): Detention Glades (two diamonds, Black Mountain) and the four terrain parks. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/118406754",
+      "reason": "3 Bears, from Windjammer down to the Raven Ridge Quad's bottom, has blue squares (More Difficult) along its length on Cypress Mountain's 2026 Black Mountain trail map (cypressmountain.com, Trail Maps and Stats, Cypress_Black_Mountain_Map_2026.pdf); OSM rates this 565 m way easy and the upper way intermediate. The printed map wins.",
+      "expect": {
+        "name": "3 Bears",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1421942276",
+      "reason": "A 140 m piece of 3 Bears, blue squares (More Difficult) along its length on Cypress Mountain's 2026 Black Mountain trail map (cypressmountain.com, Trail Maps and Stats, Cypress_Black_Mountain_Map_2026.pdf); OSM rates it easy. The printed map wins.",
+      "expect": {
+        "name": "3 Bears",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1421948411",
+      "reason": "The last 58 m of 3 Bears to the Raven Ridge Quad's bottom, blue squares (More Difficult) along its length on Cypress Mountain's 2026 Black Mountain trail map (cypressmountain.com, Trail Maps and Stats, Cypress_Black_Mountain_Map_2026.pdf); OSM rates it easy. The printed map wins.",
+      "expect": {
+        "name": "3 Bears",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/85877878",
+      "reason": "Access to Raven Ridge, from Cypress Creek Lodge to 3 Bears, has a blue square (More Difficult) on Cypress Mountain's 2026 Black Mountain trail map (cypressmountain.com, Trail Maps and Stats, Cypress_Black_Mountain_Map_2026.pdf); OSM rates it easy. The printed map wins.",
+      "expect": {
+        "name": "Access to Raven Ridge",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/40040714",
+      "reason": "Ripcord, beside the Sky Quad from Mount Strachan's top, has one black diamond (Most Difficult) on Cypress Mountain's 2026 Mount Strachan trail map (cypressmountain.com, Trail Maps and Stats, the Downhill Trail Maps image, RIP CORD); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Ripcord",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/91317020",
+      "reason": "The lowest 161 m of Rainbow, to the Lions Express Quad's bottom: Cypress Mountain's 2026 Mount Strachan trail map (cypressmountain.com, Trail Maps and Stats, the Downhill Trail Maps image) draws Rainbow as one black line with one diamond (Most Difficult) down to the chair's bottom; OSM rates this piece intermediate and the run's upper way advanced. The printed map wins.",
+      "expect": {
+        "name": "Rainbow",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/40040601",
+      "reason": "Cypress Mountain's 2026 Black Mountain trail map (cypressmountain.com, Trail Maps and Stats, Cypress_Black_Mountain_Map_2026.pdf) labels the blue run from Black Mountain's top round the boundary to the Eagle Express Quad's bottom FORK, and its lower part LOWER FORK; OSM names this one way after a 2010 Olympian, Maelle Ricker's, with alt_name Fork. The printed map wins.",
+      "expect": {
+        "name": "Maelle Ricker's",
+        "alt_name": "Fork",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Fork"
+      }
+    },
+    {
+      "id": "way/40040618",
+      "reason": "Cypress Mountain's 2026 Black Mountain trail map (cypressmountain.com, Trail Maps and Stats, Cypress_Black_Mountain_Map_2026.pdf) labels the blue run from Fork to the Eagle Express Quad's bottom, beside the chair, CASCADE; OSM names it Ashley McIvor's, with alt_name Cascade. The printed map wins.",
+      "expect": {
+        "name": "Ashley McIvor's",
+        "alt_name": "Cascade",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Cascade"
+      }
+    },
+    {
+      "id": "way/40042418",
+      "reason": "Cypress Mountain's 2026 Black Mountain trail map (cypressmountain.com, Trail Maps and Stats, Cypress_Black_Mountain_Map_2026.pdf) labels the blue run that leaves Fork near Black Mountain's top and runs beside the Eagle Express Quad, between Fork and the chair, PGS (a night-skiing run in the resort's stats); OSM names it Jasey Jay Anderson's, a 2010 Olympian's name the map does not print. The printed map wins.",
+      "expect": {
+        "name": "Jasey Jay Anderson's",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "PGS"
+      }
+    },
+    {
+      "id": "way/85877875",
+      "reason": "Cypress Mountain's 2026 Black Mountain trail map (cypressmountain.com, Trail Maps and Stats, Cypress_Black_Mountain_Map_2026.pdf) labels the mogul run above Lot 1 BILODEAU'S GOLD (one diamond, as OSM rates it); OSM names it Alexandre Bilodeau's (Moguls Run).",
+      "expect": {
+        "name": "Alexandre Bilodeau's (Moguls Run)",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Bilodeau's Gold"
+      }
+    },
+    {
+      "id": "way/40040713",
+      "reason": "Cypress Mountain's 2026 Mount Strachan trail map (cypressmountain.com, Trail Maps and Stats, the Downhill Trail Maps image) labels the blue run from T-33 below the Sky Quad's top HORSEFLY CANYON; OSM names it Horsefly.",
+      "expect": {
+        "name": "Horsefly",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Horsefly Canyon"
+      }
+    },
+    {
+      "id": "way/258201046",
+      "reason": "The carpet beside Cypress Creek Lodge, which Cypress Mountain's 2026 Black Mountain trail map (cypressmountain.com, Trail Maps and Stats, Cypress_Black_Mountain_Map_2026.pdf) labels MAGIC CARPET in the style of its chair names (the stats count one Magic Carpet); unnamed in OSM.",
+      "expect": {
+        "name": null,
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Magic Carpet"
+      }
+    },
+    {
+      "id": "way/52735125",
+      "reason": "The outline of Gibsons Glades: a 1,225 m closed way tagged natural=wood and piste:type=downhill (expert) without area=yes, so the pipeline would draw the zone's outline as a double-black run loop and rank it with the expert trunk runs. Cypress Mountain's 2026 Mount Strachan trail map (cypressmountain.com, Trail Maps and Stats, the Downhill Trail Maps image) shows GIBSONS GLADES as a labelled zone beside Gibsons with no run line (two diamonds); hidden, as Copper Mountain's Lower Enchanted Forest and Eldora's glade outlines are.",
+      "expect": {
+        "name": "Gibsons Glades",
+        "piste:difficulty": "expert",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/899502442",
+      "reason": "An unnamed 921 m closed way tagged natural=wood and piste:type=downhill (expert, backcountry) without area=yes around the trees between Bowen Face and Slash, so the pipeline would draw it as a double-black run loop; Cypress Mountain's 2026 Mount Strachan trail map (cypressmountain.com, Trail Maps and Stats, the Downhill Trail Maps image) shows UNDER THE VOLCANO GLADES there as a labelled zone (two diamonds), which OSM also maps as a line of that name. Hidden, as Copper Mountain's Lower Enchanted Forest and Eldora's glade outlines are.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "expert",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/91042582",
+      "reason": "Fun Terrain Park, a closed snow_park way in the Hollyburn Nordic area by the snow tube park, which OSM's own FIXME calls a cross-country terrain park, not downhill; on neither of Cypress Mountain's 2026 downhill maps (cypressmountain.com, Trail Maps and Stats), whose parks are on Mount Strachan. Hidden, as the Nordic area's trails are left out by the type rule.",
+      "expect": {
+        "name": "Fun Terrain Park",
+        "piste:type": "snow_park"
+      },
+      "hide": true
+    }
+  ]
+}

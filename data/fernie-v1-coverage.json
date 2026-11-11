@@ -1,0 +1,73 @@
+{
+  "key": "fernie-v1",
+  "ski_sha256": "00cc8661e9893c26a26b7c5a58945241bbc03d0d8bf9b06c352fddb22d8033da",
+  "osm_timestamp": "2026-11-11T05:10:18Z",
+  "box": [
+    -115.16,
+    49.41,
+    -115.05,
+    49.5
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -115.126793,
+    49.435841,
+    -115.083317,
+    49.477372
+  ],
+  "margins_km": {
+    "west": 2.4,
+    "south": 2.87,
+    "east": 2.41,
+    "north": 2.52
+  },
+  "counts": {
+    "lifts": 10,
+    "runs_in_bounds": 158,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 19,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 10,
+    "runs_in_bounds": 93.3,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -115.3125,
+      49.382373,
+      -114.960938,
+      49.61071
+    ],
+    "12": [
+      -115.224609,
+      49.382373,
+      -115.048828,
+      49.553726
+    ],
+    "13": [
+      -115.180664,
+      49.382373,
+      -115.048828,
+      49.525208
+    ],
+    "14": [
+      -115.180664,
+      49.396675,
+      -115.048828,
+      49.510944
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

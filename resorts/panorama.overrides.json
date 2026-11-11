@@ -1,0 +1,171 @@
+{
+  "slug": "panorama",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/476844342 (Panorama Mountain Resort): the front face from the Summit Hut to the village, the Extreme Dream Zone, Taynton Bowl with the Monster X snowcat's terrain from Goldie Plateau, and Sun Bowl, on one ticket and one map; no other ski area lies in the box or the Overpass window. OSM's polygon, drawn from the runs (its fixme says so), leaves out the Discovery zone west of the village (the Silver Platter, Beginner, Bell's Landing, Canadian Discovery, Trapper's Ridge and Trapper's Lynx) and the Village Gondola: they carry no backcountry tag and stay in bounds beyond the boundary drawn (an OSM gap). Every named run and lift checked on 2026-11-10 against Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27), read at its full 2984 x 2839 px tile by tile, and against the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02). The map's legend has four grades: Easier (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Expert Only (two); OSM's easy, intermediate, advanced and expert match them, and the report rates every run with the same four symbols. Of OSM's named runs, all carry the map's and the report's rating but seven ways and four unrated pieces. Ratings: Heli High's upper 295 m below the Summit Hut, two diamonds on the map and in the report, becomes expert as its lower way is; Cliff Glades (two ways), two diamonds on the map (the report does not list it), becomes expert; Last Chance (two ways), one diamond on the map and in the report, becomes advanced from expert; Cauldron, one diamond on the map's Taynton Bowl inset and two in the report, becomes expert, the harder; Detour, one diamond on the map and blue in the report, becomes advanced, the harder. Unrated pieces of rated runs get the run's rating: three short ways of Highway 1 and a 27 m way of Beginner, green on the map and in the report. Runs whose OSM way spans two of the map's grades keep OSM's rating (OSM gaps, needing a split in OSM): Schober's Dream is black on the map from the Summit Quad's bottom for about 730 m, to Alive Glades' top, and blue below (the report's Upper and Lower), but OSM's 2,114 m way is one intermediate way; World Cup Way is blue on the map, but OSM's lower 559 m along the Champagne Express, rated advanced, lies where the map draws Liftline black, and stays; Powder Trail, green through the terrain park and blue below, is one intermediate way in OSM; Heaven Can Wait and Little Dipper (the report's Upper blue and Lower black) are blue on the map down to Out Rider, where OSM's ways end. Schober's Glade is one diamond on the map and blue in the report, and keeps OSM's advanced, the harder. Names from the map and the report: Campbell's Canyon (OSM Cambell's Canyon), Evasion Traverse (OSM Evasion), McIntosh Way for OSM's 1,412 m way spelled Mcintosh Way (its 81 m way is spelled McIntosh Way), and Roller Coaster for OSM's 1,090 m way spelled Rollercoaster, the lower half of the map's ROLLER COASTER, whose upper way OSM spells Roller Coaster. Names that differ from the map only by a space, punctuation or a section word stay as OSM has them (Gunbarrel for GUN BARREL, Get Out for GET OUT!, CFI for C.F.I., Canadian Way for UPPER CANADIAN WAY, Lower Millennium for the map's blue MILLENNIUM below its black one). Lifts: all ten of the map and the report are in OSM (the Village Gondola, Mile 1 Express, Champagne Express, Summit Quad, Sunbird, Toby, Discovery, the Silver Platter and the Red Carpet and Little Ripper Carpet), and lift names that differ only by the lift's kind stay as OSM has them (Village, Sunbird, Toby, Discovery); the Monster X snowcat to Goldie Plateau is no lift. Parks: the map's Terrain Park along Powder Trail and the report's Stringer Park, Jib Park and Powder Trail Park are not in OSM, so nothing gets the park flag (an OSM gap). OSM gaps (shipped as at Palisades Tahoe): in the Extreme Dream Zone Zone 2, Trigger, Elmo, Orca, Mocha, Latte, Cafe, Champagne Surf, Fat Chance, Dunes, First Chance, Pi, Toadstool and Surf; on the front face Skyway, Grice Paddy, Liftline, Pod's and Secret Forest; in Sun Bowl Sundog, Solarium and Upper Village Way; in Taynton Bowl Funnel and Sidebocks; and the three parks. NEIGHBOURS: none.",
+  "overrides": [
+    {
+      "id": "way/91992735",
+      "reason": "Heli High, from the Summit Hut down towards Cauldron, has two black diamonds (Expert Only) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27), on its Taynton Bowl inset and in the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02); OSM rates this upper 295 m way advanced and the lower way expert. The printed map wins.",
+      "expect": {
+        "name": "Heli High",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/777349954",
+      "reason": "Cliff Glades, between Hay Fever and Fritz's above Lower Village Way, has two black diamonds (Expert Only) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) (the report does not list it); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Cliff Glades",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/777349955",
+      "reason": "Cliff Glades' second way, as way/777349954: two black diamonds (Expert Only) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Cliff Glades",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/91992734",
+      "reason": "Last Chance, from View of 1000 Peaks down to Laresser Lane, has one black diamond (Most Difficult) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) and in the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02); OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Last Chance",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/371524918",
+      "reason": "Last Chance's lower way, as way/91992734: one black diamond (Most Difficult) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) and in the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02); OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Last Chance",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/48836230",
+      "reason": "Cauldron, below the Summit Hut beside Star Fire, has one black diamond (Most Difficult) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) (its Taynton Bowl inset) and two (Expert Only) in the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02); OSM rates it advanced. The resort's sources disagree, so the harder, the report's, stands.",
+      "expect": {
+        "name": "Cauldron",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/777349957",
+      "reason": "Detour, the short line beside Boomerang above the Sunbird chair's bottom, has one black diamond (Most Difficult) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) and is blue in the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02), as OSM rates it (intermediate). The resort's sources disagree, so the harder, the map's, stands.",
+      "expect": {
+        "name": "Detour",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/819989093",
+      "reason": "A 63 m way of Highway 1, the green beginner run above the Little Ripper Carpet, unrated in OSM; Highway 1 is green (Easier) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) and in the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02), as OSM rates its main way.",
+      "expect": {
+        "name": "Highway 1",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/819989795",
+      "reason": "A 44 m way of Highway 1, as way/819989093: green (Easier) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) and in the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02); unrated in OSM.",
+      "expect": {
+        "name": "Highway 1",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/819989797",
+      "reason": "A 23 m way of Highway 1, as way/819989093: green (Easier) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) and in the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02); unrated in OSM.",
+      "expect": {
+        "name": "Highway 1",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/819989798",
+      "reason": "A 27 m way of Beginner, the green run beside the Silver Platter, unrated in OSM; Beginner is green (Easier) on Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) and in the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02), as OSM rates its 426 m way (novice).",
+      "expect": {
+        "name": "Beginner",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/48836242",
+      "reason": "Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) and the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02) name the green run from the Discovery Quad's top CAMPBELL'S CANYON (Campbell's Canyon); OSM spells it Cambell's Canyon.",
+      "expect": {
+        "name": "Cambell's Canyon",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Campbell's Canyon"
+      }
+    },
+    {
+      "id": "way/891543192",
+      "reason": "Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) (its Taynton Bowl inset) and the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02) name the two-diamond traverse from Goldie Plateau EVASION TRAVERSE (Evasion Traverse); OSM names it Evasion.",
+      "expect": {
+        "name": "Evasion",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Evasion Traverse"
+      }
+    },
+    {
+      "id": "way/774866310",
+      "reason": "Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) labels the one-diamond run between Turnpike 1 and Strobl Strasse MCINTOSH WAY and the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02) spells it McIntosh Way, as OSM spells its 81 m way (way/1359426024); OSM spells this 1,412 m way Mcintosh Way, which would make two runs of one.",
+      "expect": {
+        "name": "Mcintosh Way",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "McIntosh Way"
+      }
+    },
+    {
+      "id": "way/48572338",
+      "reason": "Panorama's Winter Trail Map 26/27 (the James Niehues painting, linked as Winter Trail Map from panoramaresort.com/while-you-are-here/map and published on issuu.com as panorama_w2024-25_trail_map, its title Panorama Mountain Resort Winter Trail Map 26/27) labels the blue run from the Champagne Express's top past Elkhorn Cabin ROLLER COASTER on its upper and lower halves; OSM spells its upper way (way/774866303) Roller Coaster and this lower 1,090 m way Rollercoaster (as the resort's trail report (panoramaresort.com/panorama-today/daily-snow-report, its trail table of 145 runs, the ten lifts and the Monster X snowcat, updated 2026-11-02) does), which would make two runs of one. The printed map's spelling is taken for both.",
+      "expect": {
+        "name": "Rollercoaster",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Roller Coaster"
+      }
+    }
+  ]
+}

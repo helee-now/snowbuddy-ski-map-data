@@ -1,0 +1,73 @@
+{
+  "key": "sun-peaks-v1",
+  "ski_sha256": "9aab9ca3215a38b509c3d6ed91415517edb5587488c15cd4cebe26f251b304be",
+  "osm_timestamp": "2026-11-11T05:16:28Z",
+  "box": [
+    -119.97,
+    50.82,
+    -119.8,
+    50.94
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -119.935364,
+    50.838725,
+    -119.835043,
+    50.919222
+  ],
+  "margins_km": {
+    "west": 2.43,
+    "south": 2.08,
+    "east": 2.46,
+    "north": 2.31
+  },
+  "counts": {
+    "lifts": 12,
+    "runs_in_bounds": 258,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 26,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 13.9,
+    "runs_in_bounds": 161.3,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -120.058594,
+      50.736455,
+      -119.707031,
+      50.958427
+    ],
+    "12": [
+      -119.970703,
+      50.792047,
+      -119.794922,
+      50.958427
+    ],
+    "13": [
+      -119.970703,
+      50.819818,
+      -119.794922,
+      50.958427
+    ],
+    "14": [
+      -119.970703,
+      50.819818,
+      -119.794922,
+      50.944584
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "fernie",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1388612283 (Fernie Alpine Resort): Siberia, Timber, Currie and Lizard Bowls, Polar Peak and the lower mountain, on one ticket and one map; OSM's polygon, a coarse outline of 35 nodes, leaves out Cedar Bowl north of Lizard Bowl (the Haul Back T-Bar's terrain), whose runs carry no backcountry tag and so stay in bounds beyond the boundary drawn (an OSM gap, shipped as Banff Sunshine's Delirium Dive side). Every named run and lift checked on 2026-11-10 against Fernie's current winter trail map (skifernie.com/discover-fernie/resort-map, 18311437874-far-Mapside-2026web.pdf, made 2025-12-10), rendered at 60 to 2400 dpi and read tile by tile: its BOWLS, TRAILS AND ZONES list numbers and rates all 146 trails bowl by bowl (Falling Star in Siberia and Timber), its lift table names the ten lifts, and its Polar Peak inset draws runs 113 to 134. The resort's terrain status and grooming report load by script, so the printed map is the only source. The map's legend has five grades: Novice (green circle), Intermediate (blue square), Advanced (one black diamond), Expert (two) and Extreme (three: the Currie Headwall gated terrain, 129 to 134); OSM's easy, intermediate, advanced, expert and extreme match them. Six runs carry a split symbol, a blue square or green circle behind a diamond (Siberia Ridge, Diamond Back, Boomerang Ridge, Linda's Run, North Ridge and Cedar Centre blue and black; Kodiak green and black): OSM rates their pieces blue or green and black already, except Boomerang Ridge, one advanced way, which keeps the harder. Of OSM's named run ways on Fernie's side, every one carries the map's rating: no rating override. Two pieces where the map is not plain: Lizard (43) is green in the list and on the map from the Great Bear Express's bottom to the base, but OSM's 640 m piece along the lift's lower half, rated intermediate, lies on the lift line where the map draws Lower Ballet (58) and Power Trip (45) blue beside it, so OSM's harder rating stays; Holo Hike's last 413 m below Holiday's junction, easy in OSM, is drawn green on the map (Holiday's line to the Elk Quad's bottom), as OSM has it. Names from the map: Trespass Trail (OSM Tresspass Trail), Side Show Bob (OSM Side Show Bob's) and Bear Chutes (OSM Bear Chute). Lift names that differ from the map's table only by the lift's kind stay as OSM has them (Deer Chair for Deer Triple Chair, Elk Quad for Elk Quad Chair, Boomerang for Boomerang Triple Chair, Haul Back for Haul Back T-Bar, Mighty Moose for Mighty Moose Platter, Mini Moose for Mini Moose Conveyor); all ten lifts of the table are in OSM, none hidden. Runs OSM names and the map does not print stay (Shale Slope, an expert line from the Polar Peak Chair's top, and Snake Ridge, OSM's unrated 299 m traverse along the ridge the Cedar Bowl inset labels SNAKE RIDGE, left unrated). Parks: the map marks no named terrain park; its legend's RCR Rail Park symbol stands at two places on the lower mountain (by Deer Trail below the Currie Bowl traverse and by Lizard beside the Great Bear Express), on no run of its own, and OSM maps no park, so nothing gets the park flag (an OSM gap). OSM gaps (shipped as at Palisades Tahoe): Shooting Star (Siberia Bowl), Big Bang and Mitchy Chutes (Timber Bowl), Ballet, Bear Cub and Deep Space (Lizard Bowl), Lower Ballet and Orange Trail (lower mountain), Trent's (Polar Peak) and the six Currie Headwall extreme lines (Hot Spot, Nice Dish, Wimp Chutes, Wilsons Roll, Fly Line, Up Right). NEIGHBOURS: Island Lake Cat Skiing (way/1466131123), whose freeride lines are left off by the neighbour rule (resorts.json).",
+  "overrides": [
+    {
+      "id": "way/1513890368",
+      "reason": "Fernie's current winter trail map (skifernie.com/discover-fernie/resort-map, 18311437874-far-Mapside-2026web.pdf, made 2025-12-10) lists run 20 in Currie Bowl, blue (Intermediate) as OSM rates it, as TRESPASS TRAIL; OSM spells it Tresspass Trail.",
+      "expect": {
+        "name": "Tresspass Trail",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Trespass Trail"
+      }
+    },
+    {
+      "id": "way/1356288240",
+      "reason": "Fernie's current winter trail map (skifernie.com/discover-fernie/resort-map, 18311437874-far-Mapside-2026web.pdf, made 2025-12-10) lists run 128 on Polar Peak, two black diamonds (Expert) as OSM rates it, as SIDE SHOW BOB, on its list and its Polar Peak inset; OSM names it Side Show Bob's.",
+      "expect": {
+        "name": "Side Show Bob's",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Side Show Bob"
+      }
+    },
+    {
+      "id": "way/371431333",
+      "reason": "Fernie's current winter trail map (skifernie.com/discover-fernie/resort-map, 18311437874-far-Mapside-2026web.pdf, made 2025-12-10) lists run 62 in Lizard Bowl, one black diamond (Advanced) as OSM rates it, as BEAR CHUTES; OSM names it Bear Chute.",
+      "expect": {
+        "name": "Bear Chute",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Bear Chutes"
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "key": "cypress-mountain-v1",
+  "ski_sha256": "5e57cdb19561b4cb5d282a309002e52b07deb270ee7c43ff9c03222bee049d4f",
+  "osm_timestamp": "2026-11-11T05:25:35Z",
+  "box": [
+    -123.25,
+    49.35,
+    -123.14,
+    49.43
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -123.214621,
+    49.373672,
+    -123.168739,
+    49.410585
+  ],
+  "margins_km": {
+    "west": 2.56,
+    "south": 2.63,
+    "east": 2.08,
+    "north": 2.16
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 105,
+    "run_areas_in_bounds": 3,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 14,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.9,
+    "runs_in_bounds": 30.7,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -123.398438,
+      49.267805,
+      -123.046875,
+      49.496675
+    ],
+    "12": [
+      -123.310547,
+      49.325122,
+      -123.134766,
+      49.439557
+    ],
+    "13": [
+      -123.266602,
+      49.325122,
+      -123.134766,
+      49.439557
+    ],
+    "14": [
+      -123.266602,
+      49.339441,
+      -123.134766,
+      49.439557
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

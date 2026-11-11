@@ -1,0 +1,172 @@
+{
+  "slug": "red-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/397735832 (Red Mountain Resort): Red Mountain (the Red Chair and the T-Bar), Granite Mountain (the Silverlode, Motherlode and Paradise chairs, with the Paradise side's runs), Grey Mountain (the Grey Mountain Chair, with its north side down to Topping Creek) and the Topping Creek Chair's terrain on one ticket and one map; Mount Kirkup's in-bounds cat skiing, which the map shows from a pickup at Grey Mountain's top, has no runs in OSM. No other ski area lies in the box or the Overpass window (the Black Jack cross-country trails across Highway 3B and Rossland's trails are left out by the type rule). OSM's polygon was drawn before OSM's Topping Creek Chair (its way id is far older): it leaves out most of Topping Creek's runs (Ardis Way 30% inside, Faceplant 25%, Topping Towers 18%, Golden Dawn 13%, Surprise 12% and 0%, Crackerjack 0%) and Grey Mountain's north side below the Kirkup ridge, which the map draws inside its SKI AREA BOUNDARY; the runs not tagged backcountry stay in bounds as at Banff Sunshine, the backcountry-tagged ones are forced in bounds below, and the boundary drawn is OSM's (a gap to fix in OSM). Every named run and lift checked on 2026-11-10 against the resort's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf, Adobe Illustrator, made 2025-10-01: James Niehues paintings, the main view of the front side, inset A for Granite's Paradise side and inset B for the north side, Red to Grey; their labels are part of the painting's raster, so the map was rendered at 360 dpi, about the painting's own resolution, and read tile by tile, symbols checked at 450 dpi) and the resort's base-area facilities map (redresort-base-area-facilities-map-2425-web.jpg, linked from the same page). The legend has four grades: Beginner (green circle), Intermediate (blue square), Advanced (one black diamond) and Expert (two), which are OSM's easy, intermediate, advanced and expert. The resort's lift and run status (redresort.com/report) loads by script from the resort's API, and that request was refused on our side, so the printed map is the only source and wins. Of OSM's 107 named runs the map prints all but about ten, and all carry the map's rating but one: Papoose Bowl, unrated in OSM, one black diamond on the map, becomes advanced. The Chute Show (OSM freeride), the run through Grey Mountain's CLIFF AREA - OPEN SUBJECT TO SNOWPACK below its top, has two diamonds on the map; OSM's freeride draws as a double black with the ungroomed dash, so it stays, as at Banff Sunshine. Names from the map: High Spirits (OSM High Spirit), Schulz Trees (OSM Schultz Trees), Huckleberry Flats for the green way OSM names Indian Flats (the map prints HUCKLEBERRY FLATS on that line, from the bottom of Main Run across the Silverlode Chair to Aladar's Alley, and no Indian Flats), and the Topping Creek Chair as the map labels it (OSM Topping Creek; the base-area map says TOPPING CHAIR). Names that differ from the map only by a space, an apostrophe or an abbreviation stay as OSM has them (Mad House for MADHOUSE, Topping Street for TOPPING ST., Captain Jack's Trees for the main view's CAPT. JACK'S TREES, which inset B spells out). Runs OSM names and the map does not print stay as OSM has them: Molly's (a green link by Rino's Run), White Riot (a black line beside Taz below Grey Mountain's shoulder), Powder Fields Traverse (upper) and Eureka! (the blue run-out from the foot of Dr. Feel Good, Free as a Bird and Search and Destroy along the boundary to Ardis Way, drawn blue on the map without a label). Hidden: five glade zones mapped as closed ways without area=yes (Hans Run, The Orchards, Ledges and Powder Fields, which the map labels as zones with no run line, and Jumbo Trees, which it does not print), which the pipeline would draw as run loops, as Copper Mountain's Lower Enchanted Forest and Eldora's glades are hidden. Lifts: all eight of the map's are in OSM (the Red Chair, the T-Bar, the Silverlode, Motherlode, Paradise, Grey Mountain and Topping Creek chairs and the carpet at the base, which the base-area map labels CARPET and the trail map's legend calls a Red Carpet, so it stays unnamed); the historic mining tramway south of the base, tagged aerialway=goods, is dropped by the kind rule; none is hidden and no name repeats. Parks: the Terrain Park beside the T-Bar (the legend's Rockstar Energy Terrain Park) is a snow_park in OSM already. Out of bounds: Dr. Feel Good, Free as a Bird, Search and Destroy, the unnamed 179 m foot of Dr. Feel Good and Eureka!, tagged backcountry in OSM and 10% to 48% inside OSM's polygon, are forced in bounds: the map draws them with their ratings inside the SKI AREA BOUNDARY, which runs east of Search and Destroy and along Ardis Way. The other backcountry-tagged runs (The Chute Show) lie inside the polygon and stay in bounds by the half rule. OSM gaps (shipped as at Palisades Tahoe): Pale Face and Roots Meadows (two diamonds, Granite), the T-Bar Slope (blue), a short blue run between Little Bones and the Grey Mountain Chair whose label the painting does not resolve, the Mount Kirkup cat-skiing terrain and the Mt. Kirkup Snowcat Trail, the Millennial Loop (a future touring and snowshoe area), the five hidden glade zones (area=yes missing in OSM) and Topping Creek and Grey Mountain's north side in the polygon. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/570017992",
+      "reason": "Papoose Bowl, the bowl below Granite Mountain's top between Link's Line and Buffalo Ridge, has one black diamond (Advanced) on RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf); OSM leaves it unrated. The printed map wins.",
+      "expect": {
+        "name": "Papoose Bowl",
+        "area": "yes",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/904316729",
+      "reason": "RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf, inset B) labels the gladed line between Booty's Run and Sara's Chute HIGH SPIRITS (two black diamonds, as OSM rates it); OSM names it High Spirit.",
+      "expect": {
+        "name": "High Spirit",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "High Spirits"
+      }
+    },
+    {
+      "id": "way/569996845",
+      "reason": "RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) labels the blue run between Long May You Run and Cory's Run below Grey Mountain's top SCHULZ TREES; OSM spells it Schultz Trees.",
+      "expect": {
+        "name": "Schultz Trees",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Schulz Trees"
+      }
+    },
+    {
+      "id": "way/569763139",
+      "reason": "RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf, the main view and insets A and B) labels the green way from the bottom of Main Run across the Silverlode Chair towards Aladar's Alley HUCKLEBERRY FLATS (a green circle, as OSM rates it) and prints no Indian Flats; OSM still has the old name.",
+      "expect": {
+        "name": "Indian Flats",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Huckleberry Flats"
+      }
+    },
+    {
+      "id": "way/770744308",
+      "reason": "RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) labels the triple chair from Topping Station TOPPING CREEK CHAIR, as it names every chair (RED CHAIR, SILVERLODE CHAIR, GREY MTN CHAIR); OSM names it Topping Creek.",
+      "expect": {
+        "name": "Topping Creek",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Topping Creek Chair"
+      }
+    },
+    {
+      "id": "way/569763150",
+      "reason": "The outline of Hans Run: a 1,369 m closed way tagged piste:type=downhill (expert, backcountry) without area=yes, so the pipeline would draw the zone's outline as a double-black run loop and rank it with the expert trunk runs. RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) shows HANS' RUN as a labelled zone below Granite's Paradise Chair side with no run line (two diamonds); hidden, as Copper Mountain's Lower Enchanted Forest and Eldora's glade outlines are.",
+      "expect": {
+        "name": "Hans Run",
+        "piste:difficulty": "expert",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/569763151",
+      "reason": "The outline of The Orchards: a 1,321 m closed way tagged piste:type=downhill (expert, backcountry) without area=yes, so the pipeline would draw the zone's outline as a double-black run loop. RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) shows THE ORCHARDS as a labelled zone above Southside Road with no run line (two diamonds); hidden, as Copper Mountain's Lower Enchanted Forest and Eldora's glade outlines are.",
+      "expect": {
+        "name": "The Orchards",
+        "piste:difficulty": "expert",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/569763152",
+      "reason": "The outline of Powder Fields: a 2,167 m closed way tagged piste:type=downhill (advanced, backcountry) without area=yes, so the pipeline would draw the zone's outline as a black run loop and rank it with the advanced trunk runs. RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) shows POWDER FIELDS as a labelled zone below the Motherlode Chair with no run line (one diamond); the Powder Fields Traverse lines stay. Hidden, as Copper Mountain's Lower Enchanted Forest and Eldora's glade outlines are.",
+      "expect": {
+        "name": "Powder Fields",
+        "piste:difficulty": "advanced",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/569763154",
+      "reason": "The outline of Ledges: an 880 m closed way tagged piste:type=downhill (expert, backcountry) without area=yes, so the pipeline would draw the zone's outline as a double-black run loop. RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf, inset A) shows LEDGES as a labelled zone above Ledges Traverse with no run line (two diamonds); hidden, as Copper Mountain's Lower Enchanted Forest and Eldora's glade outlines are.",
+      "expect": {
+        "name": "Ledges",
+        "piste:difficulty": "expert",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/569763155",
+      "reason": "The outline of Jumbo Trees: a 1,427 m closed way tagged piste:type=downhill (advanced, backcountry) without area=yes between Alder Gully and Jumbo, so the pipeline would draw it as a black run loop. RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) prints no Jumbo Trees (Alder Gully, Jumbo and Jumbo Gully stay as lines); hidden, as Copper Mountain's Lower Enchanted Forest and Eldora's glade outlines are.",
+      "expect": {
+        "name": "Jumbo Trees",
+        "piste:difficulty": "advanced",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/876354332",
+      "reason": "Dr. Feel Good, from the Kirkup ridge down Grey Mountain's north side, has one black diamond on RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) and lies inside its SKI AREA BOUNDARY, which runs east of Search and Destroy; tagged backcountry in OSM and 43% inside OSM's older polygon, so the half rule would draw it out of bounds: forced in bounds.",
+      "expect": {
+        "name": "Dr. Feel Good",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/876354334",
+      "reason": "The unnamed 179 m foot of Dr. Feel Good (way/876354332, forced in bounds above) to the run-out, tagged backcountry in OSM and 48% inside OSM's older polygon; RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) draws Dr. Feel Good's line to the run-out inside its SKI AREA BOUNDARY: forced in bounds.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/876354333",
+      "reason": "Free as a Bird, from the Kirkup ridge down Grey Mountain's north side, has one black diamond on RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) and lies inside its SKI AREA BOUNDARY; tagged backcountry in OSM and 15% inside OSM's older polygon, so the half rule would draw it out of bounds: forced in bounds.",
+      "expect": {
+        "name": "Free as a Bird",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/876354335",
+      "reason": "Search and Destroy, from the Kirkup ridge down Grey Mountain's north side, has one black diamond on RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) and lies just inside its SKI AREA BOUNDARY, which the map draws along its east side; tagged backcountry in OSM and 13% inside OSM's older polygon, so the half rule would draw it out of bounds: forced in bounds.",
+      "expect": {
+        "name": "Search and Destroy",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/770744314",
+      "reason": "Eureka!, the run-out from the foot of Dr. Feel Good, Free as a Bird and Search and Destroy along the boundary down to Ardis Way and the Topping Creek Chair's bottom, which RED's 2025-26 trail map (redresort.com/maps-stats, RED-Trail-Map-25-26-Web.pdf) draws as a blue run (no label) inside its SKI AREA BOUNDARY; tagged backcountry in OSM and 10% inside OSM's older polygon, which leaves out Topping Creek, so the half rule would draw it out of bounds: forced in bounds.",
+      "expect": {
+        "name": "Eureka!",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    }
+  ]
+}

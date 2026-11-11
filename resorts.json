@@ -799,6 +799,38 @@
       "coverage": "data/crystal-mountain-v1-coverage.json"
     },
     {
+      "slug": "cypress-mountain",
+      "name": "Cypress Mountain",
+      "version": 1,
+      "key": "cypress-mountain-v1",
+      "box": [
+        -123.25,
+        49.35,
+        -123.14,
+        49.43
+      ],
+      "ski_area": "relation/15317924",
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-11T05:25:35Z",
+      "overpass_box": [
+        -123.29,
+        49.33,
+        -123.1,
+        49.45
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-11T05:27:03Z",
+      "ski_file": {
+        "path": "data/cypress-mountain-v1-ski.pmtiles",
+        "bytes": 192522,
+        "sha256": "5e57cdb19561b4cb5d282a309002e52b07deb270ee7c43ff9c03222bee049d4f"
+      },
+      "coverage": "data/cypress-mountain-v1-coverage.json"
+    },
+    {
       "slug": "deer-valley",
       "name": "Deer Valley",
       "version": 2,
@@ -930,6 +962,45 @@
         "sha256": "4832b43b40a86d040b6d07412888e9b52e59147422aa897af60b1c6ef07b1289"
       },
       "coverage": "data/eldora-v1-coverage.json"
+    },
+    {
+      "slug": "fernie",
+      "name": "Fernie",
+      "version": 1,
+      "key": "fernie-v1",
+      "box": [
+        -115.16,
+        49.41,
+        -115.05,
+        49.5
+      ],
+      "ski_area": "way/1388612283",
+      "neighbours": [
+        {
+          "id": "way/1466131123",
+          "name": "Island Lake Cat Skiing",
+          "reason": "Island Lake Lodge's cat-skiing tenure (access=private), a separate operation not on Fernie's ticket, on the Lizard Range north-west of the resort: its polygon reaches into the box's north-west corner, and its freeride lines, all inside it and tagged backcountry, would otherwise draw as out-of-bounds runs on Fernie's map."
+        }
+      ],
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-11T05:10:18Z",
+      "overpass_box": [
+        -115.2,
+        49.39,
+        -115.01,
+        49.52
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-11T05:12:00Z",
+      "ski_file": {
+        "path": "data/fernie-v1-ski.pmtiles",
+        "bytes": 218514,
+        "sha256": "00cc8661e9893c26a26b7c5a58945241bbc03d0d8bf9b06c352fddb22d8033da"
+      },
+      "coverage": "data/fernie-v1-coverage.json"
     },
     {
       "slug": "heavenly",
@@ -1152,6 +1223,38 @@
         "sha256": "498f721a8114fb023bb2bca6dcfb9a83e5f8e237030db5593d23c901b3230af4"
       },
       "coverage": "data/kicking-horse-v1-coverage.json"
+    },
+    {
+      "slug": "kimberley",
+      "name": "Kimberley",
+      "version": 1,
+      "key": "kimberley-v1",
+      "box": [
+        -116.09,
+        49.65,
+        -115.97,
+        49.72
+      ],
+      "ski_area": "way/1388616336",
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-11T05:16:28Z",
+      "overpass_box": [
+        -116.13,
+        49.63,
+        -115.93,
+        49.74
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-11T05:18:51Z",
+      "ski_file": {
+        "path": "data/kimberley-v1-ski.pmtiles",
+        "bytes": 133075,
+        "sha256": "13b09a441d6ca545cfc01aa268b3573e58f0d9eddf5d72f0b44a0f6636fee3eb"
+      },
+      "coverage": "data/kimberley-v1-coverage.json"
     },
     {
       "slug": "kirkwood",
@@ -1615,6 +1718,38 @@
       "coverage": "data/palisades-tahoe-v2-coverage.json"
     },
     {
+      "slug": "panorama",
+      "name": "Panorama",
+      "version": 1,
+      "key": "panorama-v1",
+      "box": [
+        -116.28,
+        50.4,
+        -116.15,
+        50.48
+      ],
+      "ski_area": "way/476844342",
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-11T05:27:38Z",
+      "overpass_box": [
+        -116.32,
+        50.38,
+        -116.11,
+        50.5
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-11T05:28:59Z",
+      "ski_file": {
+        "path": "data/panorama-v1-ski.pmtiles",
+        "bytes": 254819,
+        "sha256": "ce6c652f2042b84e4e378ad9b75601df2620585fca5a0cbf9bfe4cf8075efff9"
+      },
+      "coverage": "data/panorama-v1-coverage.json"
+    },
+    {
       "slug": "park-city-mountain",
       "name": "Park City Mountain",
       "version": 2,
@@ -1677,6 +1812,38 @@
         "sha256": "3b945de31b84783c3abceda7bc6fbaca725c9806b9153f6e8365148e47d358cb"
       },
       "coverage": "data/park-city-mountain-v2-coverage.json"
+    },
+    {
+      "slug": "red-mountain",
+      "name": "RED Mountain",
+      "version": 1,
+      "key": "red-mountain-v1",
+      "box": [
+        -117.9,
+        49.06,
+        -117.78,
+        49.15
+      ],
+      "ski_area": "way/397735832",
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-11T05:12:21Z",
+      "overpass_box": [
+        -117.94,
+        49.04,
+        -117.74,
+        49.17
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-11T05:14:27Z",
+      "ski_file": {
+        "path": "data/red-mountain-v1-ski.pmtiles",
+        "bytes": 197292,
+        "sha256": "5e2cf896d40defffa926a4d580acc518822609477c51a478486cc06830f149fa"
+      },
+      "coverage": "data/red-mountain-v1-coverage.json"
     },
     {
       "slug": "revelstoke",
@@ -1826,6 +1993,45 @@
         "sha256": "e78fc28eae1d83c85a98fdd9fe60cc5ab042299115d2fba0d53db1a734bf74b5"
       },
       "coverage": "data/sierra-at-tahoe-v1-coverage.json"
+    },
+    {
+      "slug": "silverstar",
+      "name": "SilverStar",
+      "version": 1,
+      "key": "silverstar-v1",
+      "box": [
+        -119.11,
+        50.31,
+        -118.98,
+        50.42
+      ],
+      "ski_area": "way/476840539",
+      "neighbours": [
+        {
+          "id": "way/55949859",
+          "name": "Sovereign Lake Nordic Club",
+          "reason": "a separate cross-country ski club 2.4 km west of the resort's polygon, at the box's west edge, with no lift or downhill run of its own (its trails are nordic, which the map leaves out)"
+        }
+      ],
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-11T05:26:36Z",
+      "overpass_box": [
+        -119.15,
+        50.29,
+        -118.94,
+        50.44
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-11T05:28:20Z",
+      "ski_file": {
+        "path": "data/silverstar-v1-ski.pmtiles",
+        "bytes": 211477,
+        "sha256": "52fb8d77130bcf43dbc70c6e8b4aa8a2d5cc5ce1cbc6cb2b5e39cea1fa192b8d"
+      },
+      "coverage": "data/silverstar-v1-coverage.json"
     },
     {
       "slug": "snow-summit",
@@ -2248,6 +2454,38 @@
         "sha256": "3d94907fab35b7d03fd2f61c0035d3839a971019346ff2422296da02a73d7a9a"
       },
       "coverage": "data/summit-at-snoqualmie-v1-coverage.json"
+    },
+    {
+      "slug": "sun-peaks",
+      "name": "Sun Peaks",
+      "version": 1,
+      "key": "sun-peaks-v1",
+      "box": [
+        -119.97,
+        50.82,
+        -119.8,
+        50.94
+      ],
+      "ski_area": "way/1138470815",
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-11T05:16:28Z",
+      "overpass_box": [
+        -120.01,
+        50.8,
+        -119.76,
+        50.96
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-11T05:18:18Z",
+      "ski_file": {
+        "path": "data/sun-peaks-v1-ski.pmtiles",
+        "bytes": 266815,
+        "sha256": "9aab9ca3215a38b509c3d6ed91415517edb5587488c15cd4cebe26f251b304be"
+      },
+      "coverage": "data/sun-peaks-v1-coverage.json"
     },
     {
       "slug": "sun-valley",

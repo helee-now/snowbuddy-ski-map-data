@@ -1,0 +1,73 @@
+{
+  "key": "kimberley-v1",
+  "ski_sha256": "13b09a441d6ca545cfc01aa268b3573e58f0d9eddf5d72f0b44a0f6636fee3eb",
+  "osm_timestamp": "2026-11-11T05:16:28Z",
+  "box": [
+    -116.09,
+    49.65,
+    -115.97,
+    49.72
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -116.053735,
+    49.675787,
+    -116.004955,
+    49.700476
+  ],
+  "margins_km": {
+    "west": 2.61,
+    "south": 2.87,
+    "east": 2.51,
+    "north": 2.17
+  },
+  "counts": {
+    "lifts": 5,
+    "runs_in_bounds": 72,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 9,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 4.6,
+    "runs_in_bounds": 60.8,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -116.191406,
+      49.61071,
+      -115.839844,
+      49.724479
+    ],
+    "12": [
+      -116.103516,
+      49.61071,
+      -115.927734,
+      49.724479
+    ],
+    "13": [
+      -116.103516,
+      49.639177,
+      -115.927734,
+      49.724479
+    ],
+    "14": [
+      -116.103516,
+      49.639177,
+      -115.949707,
+      49.724479
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

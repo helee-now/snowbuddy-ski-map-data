@@ -1,0 +1,240 @@
+{
+  "slug": "sun-peaks",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1138470815 (Sun Peaks Resort, a coarse 17-node outline that also takes in the Nordic area south-east of the village): Tod Mountain (the front face under the Sunburst Express, Crystal, Elevation and Burfield chairs, West Bowl with its West Bowl Express, and Gil's), Sundance Mountain and Mount Morrisey, with the Orient chair and the East Village skiways, on one ticket and one map; no other ski area lies in the box or the Overpass window, and OpenStreetMap's three landuse=winter_sports polygons of the terrain park (Drop Zone, Flight School and Basic Training) lie inside the resort's polygon and are not drawn (the ski file draws only the listed ski area). Every named run and lift checked on 2026-11-10 against the resort's current trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, the 2026-27 James Niehues painting with its West Bowl inset, made 2026-10-15), rendered at 95 dpi and read tile by tile, its labels' symbols checked at 150 to 220 dpi, and against the resort's lifts and trail status page (sunpeaksresort.com/ski-ride/weather-conditions-cams/lifts-trail-status: 157 alpine trails and 12 lifts, each with its mountain and grade: Easiest, More Difficult, Most Difficult, Experts Only, Glades, Park). The map's key has four grades, Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond) and Expert (two black diamonds); OSM's easy, intermediate, advanced and expert match them. The map and the status page agree on every run they both rate. Of OSM's 178 named runs (199 ways), every one that the map or the list rates carries their rating but four. Ratings: Main Face, one black diamond on the map and Most Difficult in the status list, becomes advanced from expert; the lower 301 m way of The Spine, blue along its whole line on the map's West Bowl inset and More Difficult in the list, becomes intermediate from advanced; 7 Mile Road, a cat track the map draws as a ski-out and notes is 'for advanced skiers or riders' (the list files it under a black-diamond category), becomes advanced from intermediate; the run beside the Morrisey Platter, unnamed and rated intermediate in OSM, is the map's and the list's Downtown, green (Easiest). The other ski-outs and connectors, which the map draws orange with no grade, keep OSM's ratings (Gil's Access, Gil's Hike, Gil's Traverse and Gil's Cat Track, Boundary Road, Crystal Cat Track, Burfield Return, Fairways Ski Back, Static Cling Return). Glades: the map numbers sixteen glades with no grade; OSM's glade ways keep their advanced rating. Names from the map and the status list: Bling Glades (OSM Bluff Glades: glade 6, between Bluff and Sting), Bushwacker Glades (OSM Bushwacker Galdes), Chikamichi (OSM Chicamichi), Little Headwalls (OSM Little Headwall), Lone Fir Centre (OSM Lone Fir Center), Freddy's (OSM Freddy's Nightmare), Skunk (OSM Skunk Glades, one of Gil's named areas with Inner Gil's, Easy Out, Rollers and Main Face), Chute Lower (OSM Hully Gully: the blue continuation of Chute from the Sunburst Bar towards Cahilty), Downtown, and Drop Zone for OSM's Sunshine, the line through the terrain park's Drop Zone beside the Sundance Express, which also gets the park flag (the map paints the terrain park there and no run). Names that differ from the map only by a space, a hyphen, punctuation or a section suffix stay as OSM has them (Back Door for BACKDOOR on the inset, CC Riders for C.C. RIDERS, Mid-Mountain for MID MOUNTAIN, Sunnyside for the list's Sunny Side, East Village Skiway beside East Village Ski Way, Chute for the map's CHUTE UPPER, Homesteader, Cruiser, Exhibition, Munro Ridge, Sundance, Sun Downer and Three Bears for the list's Upper and Lower halves); runs OSM names that the map and the list do not print stay (Sun Catcher, Sacred Line, The Goat, Sunnyside West, Chief Shoulder, Nose of the Chief, Mid-Mountain Cat Track, Back Door Glades, Blazer Glades, Challenger Glades, Runaway Lane Glades, the Access pieces, and the East Village paths: Attraverso, Poikki, CEV Return, Centre-East Village Path, Golf Course Run). Lifts (the map's thirteen, the status list's twelve with the Village Carpet as one): names from the map for Crystal (OSM Crystal Quad), Sundance Express (OSM Sundance Express Chairlift), Village Platter (OSM Platter Poma Lift), Lower Carpet and Upper Carpet (OSM Village Carpet Lift and Tube Time Lift, the two carpets in a row beside the Village Platter) and the Learning Zone Carpet beside the Sunburst Express's bottom (unnamed in OSM); hidden: the Morrisey Platter, which OSM draws as a closed triangle (its straight line from the bottom of Downtown to the village, and a dog-leg back) the map does not have, and two runs tagged abandoned that neither the map nor the list has (Hi-Voltage beside the Burfield chair, Hidden Valley west of it, towards the West Bowl Express's bottom). OSM gaps (shipped as at Palisades Tahoe): the Morrisey Platter (hidden: its way needs redrawing as a line), the terrain park's runs (Base Camp, Flight School, Basic Training: OSM maps the park only as polygons, and Drop Zone through the renamed line), PV X-Course, the Orient glades Cześć, Hasta La Vista and Ça M'a Fait Plaisir (14 to 16) and the Ralph's Reach glade, which OSM maps only as runs. NEIGHBOURS: none.",
+  "overrides": [
+    {
+      "id": "way/1177370778",
+      "reason": "Main Face, the eastern of Gil's named areas, has one black diamond (Most Difficult) on Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) and is Most Difficult in the resort's lifts and trail status list (sunpeaksresort.com/ski-ride/weather-conditions-cams/lifts-trail-status); OSM rates it expert. The resort's sources agree and win.",
+      "expect": {
+        "name": "Main Face",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1177340585",
+      "reason": "The Spine is blue (More Difficult) along its whole line from Whyte's Ride to Round-A-Bout on the West Bowl inset of Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) and More Difficult in the resort's lifts and trail status list; OSM rates its upper 447 m way intermediate and this lower 301 m way advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "The Spine",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/372682766",
+      "reason": "7 Mile Road, the cat track from the West Bowl Express's bottom back to Burfield, is drawn as a ski-out on Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15), whose note beside it says '7 Mile Road is a cat track and for advanced skiers or riders', and the resort's lifts and trail status list files it under a black-diamond category; OSM rates it intermediate. The harder, the resort's, stands.",
+      "expect": {
+        "name": "7 Mile Road",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1178368093",
+      "reason": "The run from the village down beside the Morrisey Platter, which Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) labels DOWNTOWN in green (Easiest), as the resort's lifts and trail status list rates it; unnamed and rated intermediate in OSM.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Downtown",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1178098868",
+      "reason": "The glade between Bluff and Sting is glade 6, Bling, on Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15), and Bling Glades in the resort's lifts and trail status list; OSM names it Bluff Glades. The resort's name is taken.",
+      "expect": {
+        "name": "Bluff Glades",
+        "gladed": "yes"
+      },
+      "set": {
+        "name": "Bling Glades"
+      }
+    },
+    {
+      "id": "way/1178193508",
+      "reason": "Misspelling: Bushwacker Glades in the resort's lifts and trail status list (sunpeaksresort.com/ski-ride/weather-conditions-cams/lifts-trail-status), glade 3, Bushwacker, on Sun Peaks' 2026-27 trail map (SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15); OSM has Bushwacker Galdes.",
+      "expect": {
+        "name": "Bushwacker Galdes"
+      },
+      "set": {
+        "name": "Bushwacker Glades"
+      }
+    },
+    {
+      "id": "way/372682782",
+      "reason": "Misspelling: Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) and the resort's lifts and trail status list spell the Orient run CHIKAMICHI; OSM has Chicamichi.",
+      "expect": {
+        "name": "Chicamichi"
+      },
+      "set": {
+        "name": "Chikamichi"
+      }
+    },
+    {
+      "id": "way/1315630006",
+      "reason": "Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) labels the run beside Headwalls LITTLE HEADWALLS (one black diamond, as OSM rates it), as the resort's lifts and trail status list does; OSM has Little Headwall.",
+      "expect": {
+        "name": "Little Headwall"
+      },
+      "set": {
+        "name": "Little Headwalls"
+      }
+    },
+    {
+      "id": "way/372682813",
+      "reason": "Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) and the resort's lifts and trail status list spell it Lone Fir Centre, beside Lone Fir West; OSM has Lone Fir Center.",
+      "expect": {
+        "name": "Lone Fir Center"
+      },
+      "set": {
+        "name": "Lone Fir Centre"
+      }
+    },
+    {
+      "id": "way/878023624",
+      "reason": "Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) labels the expert glade between Expo and Challenger FREDDY'S (two black diamonds, as OSM rates it), and the resort's lifts and trail status list names it Freddy's; OSM has Freddy's Nightmare. The resort's name is taken.",
+      "expect": {
+        "name": "Freddy's Nightmare",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Freddy's"
+      }
+    },
+    {
+      "id": "way/1301524804",
+      "reason": "Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) labels this area of Gil's SKUNK (one black diamond, as OSM rates it), beside Inner Gil's, Easy Out, Rollers and Main Face, and the resort's lifts and trail status list names it Skunk; OSM has Skunk Glades. The resort's name is taken.",
+      "expect": {
+        "name": "Skunk Glades",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Skunk"
+      }
+    },
+    {
+      "id": "way/1136224184",
+      "reason": "The blue run that continues Chute from its end beside the Sunburst Bar east towards Cahilty and 5 Mile is CHUTE LOWER on Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15), More Difficult there and in the resort's lifts and trail status list, as OSM rates it; OSM names it Hully Gully, a name neither source has. The resort's name is taken (the upper part, two black diamonds, keeps OSM's Chute).",
+      "expect": {
+        "name": "Hully Gully",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Chute Lower"
+      }
+    },
+    {
+      "id": "way/372682852",
+      "reason": "The line OSM names Sunshine runs from the village base up through the terrain park's Drop Zone polygon (way/1177884462) beside the Sundance Express, where Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) paints the terrain park, labelled DROP ZONE, and no run; neither the map nor the resort's lifts and trail status list (Terrain Park - Drop Zone) has a run named Sunshine. Named Drop Zone and drawn as a park.",
+      "expect": {
+        "name": "Sunshine",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "name": "Drop Zone",
+        "park": true
+      }
+    },
+    {
+      "id": "way/854343271",
+      "reason": "Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) labels the quad from the Burfield mid-station area to Top of the World CRYSTAL (the lift list: Crystal Chairlift); OSM names it Crystal Quad.",
+      "expect": {
+        "name": "Crystal Quad",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Crystal"
+      }
+    },
+    {
+      "id": "way/85730829",
+      "reason": "Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) labels the lift SUNDANCE EXPRESS, as the Sunburst Express, Morrisey Express and West Bowl Express beside it; OSM adds Chairlift to the name.",
+      "expect": {
+        "name": "Sundance Express Chairlift",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Sundance Express"
+      }
+    },
+    {
+      "id": "way/85730860",
+      "reason": "Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) labels the platter beside Cowabunga and Sunbeam VILLAGE PLATTER, as the resort's lifts and trail status list does; OSM names it Platter Poma Lift.",
+      "expect": {
+        "name": "Platter Poma Lift",
+        "aerialway": "platter"
+      },
+      "set": {
+        "name": "Village Platter"
+      }
+    },
+    {
+      "id": "way/258228924",
+      "reason": "Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) draws two carpets in a row below the Village Platter, LOWER CARPET and UPPER CARPET (its lift hours: Lower/Upper Carpets); this is the lower one, which OSM names Village Carpet Lift (the lifts and trail status list: Village Carpet). The printed map's name is taken.",
+      "expect": {
+        "name": "Village Carpet Lift",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Lower Carpet"
+      }
+    },
+    {
+      "id": "way/258228923",
+      "reason": "Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) draws two carpets in a row below the Village Platter, LOWER CARPET and UPPER CARPET; this is the upper one, from the Lower Carpet's top, which OSM names Tube Time Lift (the map has no tube park). The printed map's name is taken.",
+      "expect": {
+        "name": "Tube Time Lift",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Upper Carpet"
+      }
+    },
+    {
+      "id": "way/1360222756",
+      "reason": "The carpet beside the Sunburst Express's bottom, at the Learning Zone, which Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) labels CARPET there and its lift hours Learning Zone Carpet, as the resort's lifts and trail status list does; unnamed in OSM.",
+      "expect": {
+        "name": null,
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Learning Zone Carpet"
+      }
+    },
+    {
+      "id": "way/85730856",
+      "reason": "Wrongly drawn: OSM maps the Morrisey Platter as a closed way, a triangle of 841 m (the straight line from the bottom of Downtown up to the village, and a dog-leg back east of it), where Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) draws one straight platter beside Downtown; drawn as a line, the triangle would show lift lines that do not exist. Hidden until OSM draws it as a line, as Snow Valley's wrongly drawn chairs are (an OSM gap: the platter runs and is in the resort's lift list).",
+      "expect": {
+        "name": "Morrisey Platter Poma Lift",
+        "aerialway": "platter"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/372682804",
+      "reason": "Tagged abandoned in OSM, and on neither Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) nor the resort's lifts and trail status list: Hi-Voltage, a 511 m line beside the Burfield chair's lower half. Hidden.",
+      "expect": {
+        "name": "Hi-Voltage",
+        "abandoned": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/372682805",
+      "reason": "Tagged abandoned in OSM, and on neither Sun Peaks' 2026-27 trail map (sunpeaksresort.com/ski-ride/the-mountain/trail-maps-stats, SPR-Alpine-Map-2026-27-Web.pdf, made 2026-10-15) nor the resort's lifts and trail status list: Hidden Valley, a 991 m line between the Burfield chair and 7 Mile Road. Hidden.",
+      "expect": {
+        "name": "Hidden Valley",
+        "abandoned": "yes"
+      },
+      "hide": true
+    }
+  ]
+}

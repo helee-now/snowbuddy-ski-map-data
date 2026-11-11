@@ -1,0 +1,204 @@
+{
+  "slug": "silverstar",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/476840539 (Silver Star Mountain Resort, a coarse outline OSM marks 'crudely outlined based on existing mapped runs', which also takes in the village's cross-country trails south of it): the front side (Vance Creek with the Des Schumann Summit Express gondola, the Comet Express, Attridge, Silver Woods and Silver Queen), the back side (Putnam Creek, with the Putnam Express, the Home Run Tee back to Paradise Camp, and Alder Point) on one ticket and one map; the large Nordic network (SilverStar's and the Sovereign Lake Nordic Club's, whose own landuse=winter_sports polygon, way/55949859, is a listed neighbour at the box's west edge) is left out by the type rule. Every named run and lift checked on 2026-11-10 against the resort's current winter trail map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, the 2025/26 Alpine Winter Map, '25-26 Web Map V2.pdf', made 2025-10-24: the James Niehues front-side and back-side paintings with an Alder Point inset; the page lists no 2026/27 map yet), rendered at 330 to 500 dpi and read tile by tile (its labels are outlines, with no text layer). The resort's lift and trail status page loads its list by script, so the printed map is the only source and wins. The map's key has four grades, Easiest (green circle), Intermediate (blue square), Most Difficult (black diamond) and Expert (two black diamonds); OSM's easy, intermediate, advanced and expert match them. Of OSM's 155 named runs (219 ways), every one the map prints carries its rating but three ways. Ratings: Turnaround, blue on the map, unrated in OSM, becomes intermediate; the last pieces of Criss Cross and Attridge Run Out, green along their whole lines on the map, rated intermediate in OSM where the Gold Mountain nordic trail shares them, become easy; Jimmie's Home Run's three unnamed ways keep OSM's intermediate, the map's blue square. Names from the map: Abbott's Gulch (OSM Abbot's Gulch), Russty Whistle (OSM Rusty Whistle; the map spells it so on the back-side painting), Bronco's Pitch (OSM Bucked Off: the blue run beside Paradise Glades to the Putnam Creek base), Jimmie's Home Run (three unnamed ways between Solitude and Ridge Run down to Attridge Run Out), Alder Point Access Traverse (OSM Alder Point Access Hike, also tagged as the nordic Alder Point Loop), and the skiway names where OSM's piste:name, which the pipeline reads first, carries the nordic trail's name: Criss Cross and Attridge Run Out for Gold Mountain Trail, Aberdeen Skiway for three ways of the Night Loop, and Silverwoods Skiway (OSM's name) for the fourth. Names that differ from the map only by a space or punctuation stay as OSM has them (Freefall for FREE FALL, FIS for F.I.S, Horsin Around for Horsin' Around), as does Cloud Nine, the run the map draws as the Cloud 9 Race Centre. Runs OSM names that the map does not print stay: Lonestar, Village Return Hike, Spirit Bowl West, the skiways through the village (Knoll Skiway West, Grandview, Main Street Skiway's pieces), and OSM's freeride lines between the map's runs (Snake Pit on the front side; Eldorado Gulley, Dirt Chute, Dirt Gulley and Tower 20 Trail on the back side), which lie inside the boundary and draw as freeride. Lifts: all of the map's are in OSM (the Des Schumann Summit Express gondola, Comet Express, Silver Woods Express, Attridge Chair, Silver Queen, Putnam Express, Home Run Tee) with the beginner carpets (Discovery Carpet and the Adventure Center carpets); the gondola's name from the map (OSM adds Gondola); hidden: Tube Town's carpet (a tubing park's, as Vail's and Keystone's tubing carpets are). Parks: the map's Terrain Park between Big Dipper and Little Dipper is OSM's Terrain Park (a snow_park); OSM's Little Dipper Terrain Park above Main Street Skiway is on no current source and is hidden, as Kicking Horse's unnamed park is. Out of bounds: the lines OSM tags backcountry north of the back side, beyond the area boundary the map draws along Eldorado (Cougar Run, After Me, After You, Bear Claw, Valhalla Ridge Access), are out of bounds by the README's rule; Black Pine Street, an old track tagged backcountry along that boundary, which the map does not draw, is put out of bounds by override so it never reads as a green run. OSM gaps (shipped as at Palisades Tahoe): Campbell's Loop on the back side, and the Start Park and Bannister Park beside the Silver Queen. NEIGHBOURS: Sovereign Lake Nordic Club (nothing of it is a downhill run or lift).",
+  "overrides": [
+    {
+      "id": "way/779695900",
+      "reason": "Turnaround, between Coaches and Chalet Alley below the summit, is blue (Intermediate) on SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24); OSM has no rating. The printed map's.",
+      "expect": {
+        "name": "Turnaround",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1027262809",
+      "reason": "The western piece of Criss Cross, green (Easiest) along its whole line round the back of Attridge on SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24); OSM names the way Criss Cross but its piste:name, which the pipeline reads first, is Gold Mountain Trail (the nordic trail that shares it), and rates it intermediate. The printed map's name and rating.",
+      "expect": {
+        "name": "Criss Cross",
+        "piste:name": "Gold Mountain Trail",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Criss Cross",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1027262810",
+      "reason": "An 81 m piece of Attridge Run Out, green (Easiest) along its whole line to the village on SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24); OSM names the way Attridge Run Out but its piste:name, which the pipeline reads first, is Gold Mountain Trail (the nordic trail that shares it), and rates it intermediate. The printed map's name and rating.",
+      "expect": {
+        "name": "Attridge Run Out",
+        "piste:name": "Gold Mountain Trail",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Attridge Run Out",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/66210585",
+      "reason": "The blue run between Solitude and Ridge Run down to Attridge Run Out, which SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24) labels JIMMIE'S HOME RUN with a blue square, as OSM rates it; unnamed in OSM (its upper way).",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Jimmie's Home Run"
+      }
+    },
+    {
+      "id": "way/101479152",
+      "reason": "Jimmie's Home Run (SilverStar's 2025/26 Alpine Winter Map, skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24: a blue square), its piece under a road; unnamed in OSM.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "intermediate",
+        "tunnel": "yes"
+      },
+      "set": {
+        "name": "Jimmie's Home Run"
+      }
+    },
+    {
+      "id": "way/101479140",
+      "reason": "Jimmie's Home Run (SilverStar's 2025/26 Alpine Winter Map, skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24: a blue square), its last piece to Attridge Run Out; unnamed in OSM.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Jimmie's Home Run"
+      }
+    },
+    {
+      "id": "way/874477387",
+      "reason": "Misspelling: SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24) labels the blue run below Attridge's top ABBOTT'S GULCH; OSM has Abbot's Gulch.",
+      "expect": {
+        "name": "Abbot's Gulch"
+      },
+      "set": {
+        "name": "Abbott's Gulch"
+      }
+    },
+    {
+      "id": "way/66207994",
+      "reason": "SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24) labels the expert run between Kassanova and Head Wall RUSSTY WHISTLE (two black diamonds, as OSM rates it); OSM has Rusty Whistle. The printed map's spelling is taken.",
+      "expect": {
+        "name": "Rusty Whistle",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Russty Whistle"
+      }
+    },
+    {
+      "id": "way/66207990",
+      "reason": "The blue run beside Paradise Glades down to the Putnam Creek base, which SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24) labels BRONCO'S PITCH with a blue square, as OSM rates it; OSM names it Bucked Off, a name the map does not have. The printed map's name is taken.",
+      "expect": {
+        "name": "Bucked Off",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Bronco's Pitch"
+      }
+    },
+    {
+      "id": "way/1029179520",
+      "reason": "The traverse from Eldorado to the top of Alder Point, which SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24) draws on its Alder Point inset as an access route labelled ALDER POINT ACCESS TRAVERSE; OSM names it Alder Point Access Hike, and its piste:name, which the pipeline reads first, is the nordic Alder Point Loop that shares it. The printed map's name is taken; OSM's easy rating stays.",
+      "expect": {
+        "name": "Alder Point Access Hike",
+        "piste:name": "Alder Point Loop"
+      },
+      "set": {
+        "name": "Alder Point Access Traverse"
+      }
+    },
+    {
+      "id": "way/101372021",
+      "reason": "A piece of Aberdeen Skiway, green (Easiest) on SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24); OSM names the way Aberdeen Skiway but its piste:name, which the pipeline reads first, is the nordic Night Loop that shares it. The skiway's name is kept.",
+      "expect": {
+        "name": "Aberdeen Skiway",
+        "piste:name": "Night Loop"
+      },
+      "set": {
+        "name": "Aberdeen Skiway"
+      }
+    },
+    {
+      "id": "way/101372027",
+      "reason": "A piece of Aberdeen Skiway, green (Easiest) on SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24); OSM names the way Aberdeen Skiway but its piste:name, which the pipeline reads first, is the nordic Night Loop that shares it. The skiway's name is kept.",
+      "expect": {
+        "name": "Aberdeen Skiway",
+        "piste:name": "Night Loop"
+      },
+      "set": {
+        "name": "Aberdeen Skiway"
+      }
+    },
+    {
+      "id": "way/101372032",
+      "reason": "A 26 m bridge of Aberdeen Skiway, green (Easiest) on SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24); OSM names the way Aberdeen Skiway but its piste:name, which the pipeline reads first, is the nordic Night Loop that shares it. The skiway's name is kept.",
+      "expect": {
+        "name": "Aberdeen Skiway",
+        "piste:name": "Night Loop"
+      },
+      "set": {
+        "name": "Aberdeen Skiway"
+      }
+    },
+    {
+      "id": "way/66209139",
+      "reason": "The skiway between the village and the Silver Woods Express's top, which OSM names Silverwoods Skiway (easy) while its piste:name, which the pipeline reads first, is the nordic Night Loop that shares it; SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24) draws the green skiways there without a label. The skiway's name is kept.",
+      "expect": {
+        "name": "Silverwoods Skiway",
+        "piste:name": "Night Loop"
+      },
+      "set": {
+        "name": "Silverwoods Skiway"
+      }
+    },
+    {
+      "id": "way/66207978",
+      "reason": "Black Pine Street, an old track OSM tags backcountry (easy), runs 1.75 km along the area boundary that SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24) draws just beyond Eldorado on the back side, towards the backcountry lines north of it; the map does not draw it. OSM's crude polygon holds most of it, so it would read as an in-bounds green run: drawn out of bounds.",
+      "expect": {
+        "name": "Black Pine Street",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/66110720",
+      "reason": "SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24) labels the eight-pack gondola DES SCHUMANN SUMMIT EXPRESS; OSM adds Gondola to the name.",
+      "expect": {
+        "name": "Des Schumann Summit Express Gondola",
+        "aerialway": "gondola"
+      },
+      "set": {
+        "name": "Des Schumann Summit Express"
+      }
+    },
+    {
+      "id": "way/874484360",
+      "reason": "Tube Town's carpet, the tubing park's lift beside the Silver Queen's bottom (its four tubing lanes are left out by the type rule); SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24) marks Tube Town as a venue with no ski lift. Hidden, as Vail's and Keystone's tubing carpets are.",
+      "expect": {
+        "name": "Tube Town Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1118499135",
+      "reason": "A park on no current source: SilverStar's 2025/26 Alpine Winter Map (skisilverstar.com/the-mountain/mountain-maps/winter-maps, '25-26 Web Map V2.pdf', made 2025-10-24) draws one Terrain Park on the front side, between Big Dipper and Little Dipper below Main Street Skiway (OSM's Terrain Park, way/66210542), and the Start Park and Bannister Park by the Silver Queen; OSM's Little Dipper Terrain Park, a 242 m snow_park line above Main Street Skiway, is on none of them. Hidden, as Kicking Horse's and Schweitzer's parks on no current source are.",
+      "expect": {
+        "name": "Little Dipper Terrain Park",
+        "piste:type": "snow_park"
+      },
+      "hide": true
+    }
+  ]
+}

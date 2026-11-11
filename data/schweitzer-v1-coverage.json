@@ -1,0 +1,73 @@
+{
+  "key": "schweitzer-v1",
+  "ski_sha256": "29f11135dd11750b38599aed8c4c69c439f650a969ced73c303759221dc77494",
+  "osm_timestamp": "2026-11-10T16:52:38Z",
+  "box": [
+    -116.68,
+    48.34,
+    -116.56,
+    48.42
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -116.645911,
+    48.358271,
+    -116.590375,
+    48.398024
+  ],
+  "margins_km": {
+    "west": 2.52,
+    "south": 2.03,
+    "east": 2.24,
+    "north": 2.44
+  },
+  "counts": {
+    "lifts": 10,
+    "runs_in_bounds": 130,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 20,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 9.9,
+    "runs_in_bounds": 77.8,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -116.71875,
+      48.224673,
+      -116.542969,
+      48.458352
+    ],
+    "12": [
+      -116.71875,
+      48.283193,
+      -116.542969,
+      48.458352
+    ],
+    "13": [
+      -116.71875,
+      48.312428,
+      -116.542969,
+      48.429201
+    ],
+    "14": [
+      -116.696777,
+      48.327039,
+      -116.542969,
+      48.429201
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

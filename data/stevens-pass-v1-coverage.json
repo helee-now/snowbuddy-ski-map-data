@@ -1,0 +1,114 @@
+{
+  "key": "stevens-pass-v1",
+  "ski_sha256": "c36cf3b5f6270226b233b9c47d37bacf762e77a567eb413312b5fb2d6135c1d3",
+  "osm_timestamp": "2026-11-10T17:42:44Z",
+  "box": [
+    -121.14,
+    47.7,
+    -121.04,
+    47.77
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -121.111292,
+    47.724923,
+    -121.067282,
+    47.74608
+  ],
+  "margins_km": {
+    "west": 2.15,
+    "south": 2.77,
+    "east": 2.04,
+    "north": 2.66
+  },
+  "counts": {
+    "lifts": 14,
+    "runs_in_bounds": 142,
+    "run_areas_in_bounds": 12,
+    "runs_out_of_bounds": 3,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 21,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 8.5,
+    "runs_in_bounds": 42.1,
+    "runs_out_of_bounds": 2.5
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1174715394",
+      "name": null,
+      "difficulty": "unknown",
+      "length_m": 851,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1174715395",
+      "name": null,
+      "difficulty": "unknown",
+      "length_m": 778,
+      "inside_box": false,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/386642015",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 860,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -121.289062,
+      47.635784,
+      -120.9375,
+      47.872144
+    ],
+    "12": [
+      -121.201172,
+      47.694974,
+      -121.025391,
+      47.813155
+    ],
+    "13": [
+      -121.157227,
+      47.694974,
+      -121.025391,
+      47.783635
+    ],
+    "14": [
+      -121.157227,
+      47.694974,
+      -121.025391,
+      47.783635
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

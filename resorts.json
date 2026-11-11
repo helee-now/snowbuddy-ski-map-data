@@ -734,6 +734,39 @@
       "coverage": "data/crested-butte-v1-coverage.json"
     },
     {
+      "slug": "crystal-mountain",
+      "name": "Crystal Mountain",
+      "version": 1,
+      "key": "crystal-mountain-v1",
+      "box": [
+        -121.54,
+        46.89,
+        -121.44,
+        46.98
+      ],
+      "ski_area": "relation/11518092",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T17:26:22Z",
+      "overpass_box": [
+        -121.58,
+        46.87,
+        -121.4,
+        47
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n47w122/USGS_13_n47w122.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w122/USGS_13_n48w122.tif"
+      ],
+      "built_at": "2026-11-10T17:47:32Z",
+      "ski_file": {
+        "path": "data/crystal-mountain-v1-ski.pmtiles",
+        "bytes": 251692,
+        "sha256": "42a9ae907c5e20dcc12f331640b34aa394687b22ed6f5a57bcb18d0cab7caa93"
+      },
+      "coverage": "data/crystal-mountain-v1-coverage.json"
+    },
+    {
       "slug": "deer-valley",
       "name": "Deer Valley",
       "version": 2,
@@ -1238,6 +1271,39 @@
       "coverage": "data/mountain-high-v1-coverage.json"
     },
     {
+      "slug": "mt-bachelor",
+      "name": "Mt. Bachelor",
+      "version": 1,
+      "key": "mt-bachelor-v1",
+      "box": [
+        -121.75,
+        43.94,
+        -121.62,
+        44.04
+      ],
+      "ski_area": "way/1306486693",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T17:10:06Z",
+      "overpass_box": [
+        -121.79,
+        43.92,
+        -121.58,
+        44.06
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w122/USGS_13_n44w122.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n45w122/USGS_13_n45w122.tif"
+      ],
+      "built_at": "2026-11-10T17:12:31Z",
+      "ski_file": {
+        "path": "data/mt-bachelor-v1-ski.pmtiles",
+        "bytes": 210529,
+        "sha256": "7a73f185d88d496421657baeab7a34e18060b640d8d9d09be9c1e7844fcc7e29"
+      },
+      "coverage": "data/mt-bachelor-v1-coverage.json"
+    },
+    {
       "slug": "northstar",
       "name": "Northstar California",
       "version": 1,
@@ -1451,6 +1517,60 @@
         "sha256": "3b945de31b84783c3abceda7bc6fbaca725c9806b9153f6e8365148e47d358cb"
       },
       "coverage": "data/park-city-mountain-v2-coverage.json"
+    },
+    {
+      "slug": "schweitzer",
+      "name": "Schweitzer",
+      "version": 1,
+      "key": "schweitzer-v1",
+      "box": [
+        -116.68,
+        48.34,
+        -116.56,
+        48.42
+      ],
+      "ski_area": "way/1388583977",
+      "elevation": "3dep1",
+      "elevation_project": "ID_NorthernID_2019_D19",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T16:52:38Z",
+      "overpass_box": [
+        -116.72,
+        48.32,
+        -116.52,
+        48.44
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ID_NorthernID_2019_D19/TIFF/USGS_1M_11_x52y535_ID_NorthernID_2019_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ID_NorthernID_2019_D19/TIFF/USGS_1M_11_x52y536_ID_NorthernID_2019_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ID_NorthernID_2019_D19/TIFF/USGS_1M_11_x52y537_ID_NorthernID_2019_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ID_NorthernID_2019_D19/TIFF/USGS_1M_11_x53y535_ID_NorthernID_2019_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ID_NorthernID_2019_D19/TIFF/USGS_1M_11_x53y536_ID_NorthernID_2019_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ID_NorthernID_2019_D19/TIFF/USGS_1M_11_x53y537_ID_NorthernID_2019_D19.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "ID_NorthernID_2019_D19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -116.68,
+          48.34,
+          -116.56,
+          48.42
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-10T16:59:30Z",
+      "ski_file": {
+        "path": "data/schweitzer-v1-ski.pmtiles",
+        "bytes": 199473,
+        "sha256": "29f11135dd11750b38599aed8c4c69c439f650a969ced73c303759221dc77494"
+      },
+      "coverage": "data/schweitzer-v1-coverage.json"
     },
     {
       "slug": "sierra-at-tahoe",
@@ -1800,6 +1920,38 @@
       "coverage": "data/steamboat-v2-coverage.json"
     },
     {
+      "slug": "stevens-pass",
+      "name": "Stevens Pass",
+      "version": 1,
+      "key": "stevens-pass-v1",
+      "box": [
+        -121.14,
+        47.7,
+        -121.04,
+        47.77
+      ],
+      "ski_area": "way/1564558952",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T17:42:44Z",
+      "overpass_box": [
+        -121.18,
+        47.68,
+        -121,
+        47.79
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w122/USGS_13_n48w122.tif"
+      ],
+      "built_at": "2026-11-10T17:47:55Z",
+      "ski_file": {
+        "path": "data/stevens-pass-v1-ski.pmtiles",
+        "bytes": 216337,
+        "sha256": "c36cf3b5f6270226b233b9c47d37bacf762e77a567eb413312b5fb2d6135c1d3"
+      },
+      "coverage": "data/stevens-pass-v1-coverage.json"
+    },
+    {
       "slug": "sugar-bowl",
       "name": "Sugar Bowl",
       "version": 1,
@@ -1864,6 +2016,48 @@
       "coverage": "data/sugar-bowl-v1-coverage.json"
     },
     {
+      "slug": "summit-at-snoqualmie",
+      "name": "The Summit at Snoqualmie",
+      "version": 1,
+      "key": "summit-at-snoqualmie-v1",
+      "box": [
+        -121.48,
+        47.36,
+        -121.36,
+        47.47
+      ],
+      "ski_area": [
+        "way/1361868120",
+        "relation/6855067"
+      ],
+      "neighbours": [
+        {
+          "id": "relation/6447055",
+          "name": "Sahalie Ski Club",
+          "reason": "A private ski club (access=private, its rope tow tagged 'Private Club Lift') 0.4 km north of Summit West's polygon, on the way to Alpental: not on The Summit at Snoqualmie's ticket, maps or lift report, and its polygon holds the club's rope tow, which would otherwise draw as a lift between the resort's areas. Left off by the owner's rule (\"leave them off\")."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T17:00:51Z",
+      "overpass_box": [
+        -121.52,
+        47.34,
+        -121.32,
+        47.49
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w122/USGS_13_n48w122.tif"
+      ],
+      "built_at": "2026-11-10T17:04:18Z",
+      "ski_file": {
+        "path": "data/summit-at-snoqualmie-v1-ski.pmtiles",
+        "bytes": 367119,
+        "sha256": "3d94907fab35b7d03fd2f61c0035d3839a971019346ff2422296da02a73d7a9a"
+      },
+      "coverage": "data/summit-at-snoqualmie-v1-coverage.json"
+    },
+    {
       "slug": "sun-valley",
       "name": "Sun Valley",
       "version": 1,
@@ -1897,6 +2091,42 @@
         "sha256": "6afb69c2e3c83a41a85a1b1fd188be64cb661499ac203d0b8c260b656907ca38"
       },
       "coverage": "data/sun-valley-v1-coverage.json"
+    },
+    {
+      "slug": "tamarack",
+      "name": "Tamarack",
+      "version": 1,
+      "key": "tamarack-v1",
+      "box": [
+        -116.2,
+        44.64,
+        -116.09,
+        44.73
+      ],
+      "ski_area": "way/1232164006",
+      "elevation": "3dep13",
+      "out_of_bounds_named": [
+        "Summer's Ridge",
+        "Wildwood Bowl"
+      ],
+      "baseline_checked": "2026-11-10",
+      "osm_timestamp": "2026-11-10T16:58:49Z",
+      "overpass_box": [
+        -116.24,
+        44.62,
+        -116.05,
+        44.75
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n45w117/USGS_13_n45w117.tif"
+      ],
+      "built_at": "2026-11-10T17:02:32Z",
+      "ski_file": {
+        "path": "data/tamarack-v1-ski.pmtiles",
+        "bytes": 145619,
+        "sha256": "a3f0e1d066fdfee8248c591416f19ecf7b06b1dc4562ff4ffb5642f939729080"
+      },
+      "coverage": "data/tamarack-v1-coverage.json"
     },
     {
       "slug": "taos-ski-valley",

@@ -1,0 +1,172 @@
+{
+  "key": "crystal-mountain-v1",
+  "ski_sha256": "42a9ae907c5e20dcc12f331640b34aa394687b22ed6f5a57bcb18d0cab7caa93",
+  "osm_timestamp": "2026-11-10T17:26:22Z",
+  "box": [
+    -121.54,
+    46.89,
+    -121.44,
+    46.98
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -121.508915,
+    46.908895,
+    -121.467184,
+    46.956741
+  ],
+  "margins_km": {
+    "west": 2.36,
+    "south": 2.1,
+    "east": 2.06,
+    "north": 2.59
+  },
+  "counts": {
+    "lifts": 11,
+    "runs_in_bounds": 156,
+    "run_areas_in_bounds": 8,
+    "runs_out_of_bounds": 7,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 25,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 10.7,
+    "runs_in_bounds": 57.8,
+    "runs_out_of_bounds": 4.1
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1357545511",
+      "name": "Upper Boondoggle",
+      "difficulty": "advanced",
+      "length_m": 192,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1358229905",
+      "name": "pickhandle ridge",
+      "difficulty": "unknown",
+      "length_m": 1372,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1358230675",
+      "name": "Crystal peak face",
+      "difficulty": "freeride",
+      "length_m": 646,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1358230783",
+      "name": "couloir",
+      "difficulty": "unknown",
+      "length_m": 620,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1358230784",
+      "name": null,
+      "difficulty": "unknown",
+      "length_m": 322,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1358230785",
+      "name": null,
+      "difficulty": "unknown",
+      "length_m": 150,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388926565",
+      "name": "Lower North",
+      "difficulty": "advanced",
+      "length_m": 748,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -121.640625,
+      46.800059,
+      -121.289062,
+      47.040182
+    ],
+    "12": [
+      -121.552734,
+      46.860191,
+      -121.376953,
+      46.980252
+    ],
+    "13": [
+      -121.552734,
+      46.860191,
+      -121.420898,
+      46.980252
+    ],
+    "14": [
+      -121.552734,
+      46.875213,
+      -121.420898,
+      46.980252
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

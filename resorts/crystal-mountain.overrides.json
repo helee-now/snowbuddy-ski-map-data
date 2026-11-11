@@ -1,0 +1,266 @@
+{
+  "slug": "crystal-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/11518092 (Crystal Mountain; its outer way 682228907 is tagged Crystal Mountain Ski Area Boundary): the front side under the Summit House, Green Valley, Campbell Basin and Powder Bowl, Southback (Silver Basin below Silver King, the Throne and Three Way Peak, reached through gates S1 to S5) and Northway (the Northway lift, Northway Peak to Morning Glory Peak, gates N1 to N11) on one ticket and one map; no other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-10 against the resort's current winter trail map, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf (Adobe Illustrator, made 2026-03-09, the file the resort's trail-maps page links; the page itself serves a bot wall to curl and nothing to WebFetch, so its link was read from the Internet Archive's copy of 2026-07-05, and the PDF was fetched from the resort's own media path), rendered at 216 dpi (8064 x 5346 px) and read tile by tile, with the resort's Northway inset (winter-2425-northway-map.jpg, 1247 x 1105 px, linked from the same page) for Northway's names. The key has four grades: Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Expert Only (two); OSM's easy, intermediate, advanced and expert match them, and the map's top grade is the double black, so OSM's one extreme run that the map rates becomes expert, as at Alta and Jackson Hole. The resort's lift and terrain status loads behind the same bot wall, so the printed map is the only source and wins. Of the 146 named runs in OSM, the map labels about 100 and all carry the map's rating but seven ways: K2 (the map's K2 FACE, two diamonds; advanced in OSM) and Right Angle Trees (two diamonds; extreme in OSM) become expert, Right Angle (one diamond at gate G3; expert in OSM) becomes advanced, Snorting Elk (one diamond, Blazing Elk's continuation to Lower Chance) and the 62 m Middle Sluiceway (the map's one-diamond SLUICEWAY) become advanced from intermediate, and Easy Street (a green circle) becomes easy. Names from the map: Kelly's Gap Road (OSM Kelley's, three ways), K2 Face (OSM K2), Double OO's Left and Right (OSM Double Ought's), Boxcar Cornice (OSM Boxcar), Three Way Exit (OSM Three Way Exit Chute), Right Angle Trees and Left Angle Trees (OSM adds (Lower RA) and (Lower LA)), Northway for OSM's Northway Drainage (two ways: the one-diamond run down the Northway lift line that the inset labels NORTHWAY), the Green Valley Express (OSM Green Valley, a stale name), Hike to Silver King (OSM Silver KIng) and Upper Boondoggle (OSM ends it with a full stop), and Bill's Face and Sheppard, whose piste:name (which the pipeline reads first) OSM writes Bill's face and Sheooard. Elevator Shaft and Last Scream, two short lines below the Rainier Express top that the map does not print, carry each other's name in piste:name (way 1171733406 is named Elevator Shaft with piste:name Last Scream, way 1171733407 the reverse); with no source to say which is right, they stay as the pipeline reads them (piste:name) and the slip is reported. Names that differ from the map only by a space, a hyphen, an apostrophe or punctuation, or by a section the map prints, stay as OSM has them (Afterburn, Side Burn, Howeird's, Mr Magoo, Brand X, Lower Brand X Cliffs, Penny Dawgs, 13-F, Mt. Rainier Gondola; Chappelle's for the map's Upper and Lower Chappelle's, Upper Ferk's Run, Middle Ferk's Run and Lower Ferk's Run, Upper and Middle Sluiceway, Gold Hills for the map's GOLD HILLS RUN); Niagaras keeps OSM's spelling (the inset prints NIAGRAS, the main map both NIAGRAS and NIAGAAS). Runs OSM names that the map does not print stay with OSM's rating (in Southback and Campbell Basin Appliance Store, Watch Out for Livestock, Damn Fine Forest, Hourglass, SE Right, Powder 8s, Narnia, Brain Damage, Rabbit Ears, Screaming Babies, Chairline Left and Right, Summit Chute, Divider Chute, Upper and Lower Field, Faith's Slide, Avalanche Basin Traverse and the Traverse to Three Way Exit; elsewhere Boondoggle, Breakover, Elevator Shaft, Last Scream, Front Traverse, Back Traverse to Lucky Shot, Greg's Gulch, Stockholder's, Sled Face, Ms. Magoo, Middle Arwine's, Lower Employee Housing, Lower Spook (To H Lot) and Quicksilver's run); The Airstrip, which the map prints without a symbol, stays unrated. Parks: Sudden Drop Park, which the map draws orange between Lower Arwine's and Quicksilver, gets the park flag on OSM's Sudden Drop. Lifts: all of the map's are in OSM (Mt. Rainier Gondola, Rainier Express, Chinook Express, Forest Queen Express, Green Valley Express, Chair 6, Northway, Quicksilver, Discovery, Gold Hills and the base area's carpet); none is hidden and no name repeats. Out of bounds: the ways tagged backcountry outside the polygon (Crystal peak face, couloir and two unnamed lines below Crystal Peak south-west of Silver Basin, and Lower North below the Northway lift's bottom beyond exit E8) are out of bounds by the README's rule; two untagged ways outside the polygon are put out of bounds by override (Upper Boondoggle, beyond the boundary at the Quicksilver top, and pickhandle ridge on the Pickhandle side south-east of Gold Hills). Runs tagged backcountry inside the polygon (13-F, I-5, Niagaras, O-Meadows, Bear Pits, Snorting Elk Bowl, Hike to Silver King) stay in bounds by the half rule, as the map draws them inside the boundary; Jump Hill, 9% inside OSM's polygon, lies inside the map's boundary loop around Gold Hills and stays in bounds. OSM gaps (shipped as at Palisades Tahoe): Pixie Trees and Rolling Knolls Chutes beside the Forest Queen Express, Campbell Basin and Powder Bowl as runs, Green Valley Bowl, A-Basin and S.E. Trees in Southback, Horseshoe Cliffs in Northway, Berry Patch's left line, Disco Park and Arwine's Park, and the Bluebell Trail to Parking Lot C (OSM's Blue Bell Loop is tagged piste:type=yes, which the type rule leaves out). NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/147068126",
+      "reason": "K2 is the map's K2 FACE, two black diamonds (Expert Only) beside Frisco's one, between gates B7 and B8 on Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09); OSM rates it advanced and names it K2. The printed map wins, and its name is taken.",
+      "expect": {
+        "name": "K2",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert",
+        "name": "K2 Face"
+      }
+    },
+    {
+      "id": "way/129727066",
+      "reason": "Easy Street, from the Quicksilver top to Snow Garden, is a green circle (Easiest) on Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Easy Street",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1170385763",
+      "reason": "The 62 m middle piece of Sluiceway, between two crossings of Kelly's Gap Road: Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) draws Sluiceway as one line with one black diamond (Most Difficult), as OSM rates Upper Sluiceway; OSM rates this piece intermediate. The printed map wins.",
+      "expect": {
+        "name": "Middle Sluiceway",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "downhill"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/129729322",
+      "reason": "Right Angle, from gate G3, has one black diamond (Most Difficult) on Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09), where Right Angle Trees below it has two; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Right Angle",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1338124732",
+      "reason": "Right Angle Trees is two black diamonds (Expert Only) on Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09), whose key tops at the double black; OSM rates it extreme and adds (Lower RA) to its name. The printed map wins, and its name is taken.",
+      "expect": {
+        "name": "Right Angle Trees (Lower RA)",
+        "piste:difficulty": "extreme"
+      },
+      "set": {
+        "difficulty": "expert",
+        "name": "Right Angle Trees"
+      }
+    },
+    {
+      "id": "way/1170380979",
+      "reason": "Snorting Elk, Blazing Elk's continuation down to Lower Chance and Kelly's Gap Road, has one black diamond (Most Difficult) on Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Snorting Elk",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "downhill"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/129729323",
+      "reason": "Misspelling: Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) labels the road KELLY'S GAP ROAD (a blue square); OSM has Kelley's.",
+      "expect": {
+        "name": "Kelley's Gap Road",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Kelly's Gap Road"
+      }
+    },
+    {
+      "id": "way/1457205130",
+      "reason": "Misspelling: Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) labels the road KELLY'S GAP ROAD (a blue square); OSM has Kelley's.",
+      "expect": {
+        "name": "Kelley's Gap Road",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Kelly's Gap Road"
+      }
+    },
+    {
+      "id": "way/1457205131",
+      "reason": "Misspelling: Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) labels the road KELLY'S GAP ROAD (a blue square); OSM has Kelley's.",
+      "expect": {
+        "name": "Kelley's Gap Road",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Kelly's Gap Road"
+      }
+    },
+    {
+      "id": "way/1338124731",
+      "reason": "Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) labels the run LEFT ANGLE TREES (two black diamonds, as OSM rates it); OSM adds (Lower LA) to the name.",
+      "expect": {
+        "name": "Left Angle Trees (Lower LA)",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Left Angle Trees"
+      }
+    },
+    {
+      "id": "way/1169790771",
+      "reason": "Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) labels the run DOUBLE OO's RIGHT (two black diamonds, as OSM rates it) under Chair 6; OSM spells the 00 out as Double Ought's.",
+      "expect": {
+        "name": "Double Ought's Right",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Double OO's Right"
+      }
+    },
+    {
+      "id": "way/1169790770",
+      "reason": "Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) labels the run DOUBLE OO's LEFT (two black diamonds, as OSM rates it) under Chair 6; OSM spells the 00 out as Double Ought's.",
+      "expect": {
+        "name": "Double Ought's Left",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Double OO's Left"
+      }
+    },
+    {
+      "id": "way/1170420247",
+      "reason": "Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) labels the Southback line below Silver King BOXCAR CORNICE (two black diamonds, as OSM rates it); OSM names it Boxcar.",
+      "expect": {
+        "name": "Boxcar",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Boxcar Cornice"
+      }
+    },
+    {
+      "id": "way/1170356099",
+      "reason": "Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) labels the chute below Three Way Peak and exit E1 THREE WAY EXIT (two black diamonds, as OSM rates it); OSM names it Three Way Exit Chute.",
+      "expect": {
+        "name": "Three Way Exit Chute",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Three Way Exit"
+      }
+    },
+    {
+      "id": "way/129729321",
+      "reason": "The one-diamond run down the Northway lift line to the lift's bottom, which the resort's Northway inset (winter-2425-northway-map.jpg) labels NORTHWAY (one black diamond, as OSM rates it); OSM names it Northway Drainage. The map's name is taken, as at Big Sky's Lone Tree Face.",
+      "expect": {
+        "name": "Northway Drainage",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Northway"
+      }
+    },
+    {
+      "id": "way/1170413267",
+      "reason": "The one-diamond run down the Northway lift line to the lift's bottom, which the resort's Northway inset (winter-2425-northway-map.jpg) labels NORTHWAY (one black diamond, as OSM rates it); OSM names it Northway Drainage. The map's name is taken, as at Big Sky's Lone Tree Face.",
+      "expect": {
+        "name": "Northway Drainage",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Northway"
+      }
+    },
+    {
+      "id": "way/49962026",
+      "reason": "Stale name: Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) and the resort's Northway inset (winter-2425-northway-map.jpg) label this lift GREEN VALLEY EXPRESS; OSM has Green Valley.",
+      "expect": {
+        "name": "Green Valley",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Green Valley Express"
+      }
+    },
+    {
+      "id": "way/388924152",
+      "reason": "Typo: the peak is Silver King (SILVER KING 7,012' on Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09)); OSM capitalises it Silver KIng.",
+      "expect": {
+        "name": "Hike to Silver KIng",
+        "piste:type": "connection"
+      },
+      "set": {
+        "name": "Hike to Silver King"
+      }
+    },
+    {
+      "id": "way/1170380976",
+      "reason": "Bill's Face is labelled BILL'S FACE on Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) (a blue square, as OSM rates it), as OSM's name tag has it; its piste:name, which the map's label is read from, writes Bill's face.",
+      "expect": {
+        "name": "Bill's Face",
+        "piste:name": "Bill's face"
+      },
+      "set": {
+        "name": "Bill's Face"
+      }
+    },
+    {
+      "id": "way/1170380981",
+      "reason": "Typo: Sheppard is labelled SHEPPARD on Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) (one black diamond, as OSM rates it), as OSM's name tag has it; its piste:name, which the map's label is read from, is Sheooard.",
+      "expect": {
+        "name": "Sheppard",
+        "piste:name": "Sheooard"
+      },
+      "set": {
+        "name": "Sheppard"
+      }
+    },
+    {
+      "id": "way/1171734302",
+      "reason": "Sudden Drop Park, which Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) draws as an orange Crystal Park between Lower Arwine's and the Quicksilver lift, without a park tag in OSM.",
+      "expect": {
+        "name": "Sudden Drop",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1357545511",
+      "reason": "Upper Boondoggle (OSM 'Upper Boondoggle.', described 'Access through the TLC trail.') lies wholly outside the ski-area polygon, above the Quicksilver top, beyond the designated ski area boundary that Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) draws there; tagged piste:grooming=no, not backcountry or unpatrolled, so the half rule would draw it as an in-bounds black run. Put out of bounds, its stray full stop dropped.",
+      "expect": {
+        "name": "Upper Boondoggle.",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "no"
+      },
+      "set": {
+        "name": "Upper Boondoggle",
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1358229905",
+      "reason": "pickhandle ridge, a 1,366 m line wholly outside the ski-area polygon on the Pickhandle side south-east of Gold Hills, beyond the designated ski area boundary that Crystal Mountain's current winter trail map (crystalmountainresort.com/the-mountain/trail-maps, crystal-winter-2425-trail-map-with-key-and-partner-bar-(2).pdf, made 2026-03-09) draws around Gold Hills, and on no resort source; it has no rating or backcountry tag, so the half rule would draw it as an in-bounds unrated run. Put out of bounds, as Jackson Hole's freeride lines beyond its boundary.",
+      "expect": {
+        "name": "pickhandle ridge",
+        "piste:type": "downhill",
+        "piste:difficulty": null
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,914 @@
+{
+  "key": "summit-at-snoqualmie-v1",
+  "ski_sha256": "3d94907fab35b7d03fd2f61c0035d3839a971019346ff2422296da02a73d7a9a",
+  "osm_timestamp": "2026-11-10T17:00:51Z",
+  "box": [
+    -121.48,
+    47.36,
+    -121.36,
+    47.47
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -121.445704,
+    47.380625,
+    -121.395365,
+    47.448673
+  ],
+  "margins_km": {
+    "west": 2.58,
+    "south": 2.29,
+    "east": 2.66,
+    "north": 2.37
+  },
+  "counts": {
+    "lifts": 25,
+    "runs_in_bounds": 154,
+    "run_areas_in_bounds": 8,
+    "runs_out_of_bounds": 56,
+    "run_areas_out_of_bounds": 4,
+    "lift_stations": 50,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 14.3,
+    "runs_in_bounds": 60.4,
+    "runs_out_of_bounds": 26.6
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1025052390",
+      "name": "No Fog Bowl",
+      "difficulty": "expert",
+      "length_m": 104,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1172669108",
+      "name": "Martin Bowl",
+      "difficulty": "expert",
+      "length_m": 511,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1172669109",
+      "name": "Wally's Wall",
+      "difficulty": "expert",
+      "length_m": 117,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1357539232",
+      "name": "Hemlock couloir",
+      "difficulty": "freeride",
+      "length_m": 421,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/386649855",
+      "name": "Upper Return Trail",
+      "difficulty": "intermediate",
+      "length_m": 407,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130568",
+      "name": "High Traverse",
+      "difficulty": "freeride",
+      "length_m": 995,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130570",
+      "name": "261",
+      "difficulty": "freeride",
+      "length_m": 160,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130571",
+      "name": "Lower Return to Lifts",
+      "difficulty": "intermediate",
+      "length_m": 1182,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130572",
+      "name": "Pineapple Pass",
+      "difficulty": "expert",
+      "length_m": 223,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130573",
+      "name": "Great Scott Bowl",
+      "difficulty": "advanced",
+      "area_m2": 94851,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130574",
+      "name": "Lower Great Scott",
+      "difficulty": "advanced",
+      "length_m": 585,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130575",
+      "name": "No Fog Bowl",
+      "difficulty": "unknown",
+      "length_m": 628,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130576",
+      "name": "Big Trees",
+      "difficulty": "expert",
+      "length_m": 416,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130577",
+      "name": "Rock Face",
+      "difficulty": "expert",
+      "length_m": 356,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130578",
+      "name": "Elevator Shaft",
+      "difficulty": "expert",
+      "length_m": 629,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130579",
+      "name": "Meadows",
+      "difficulty": "expert",
+      "length_m": 287,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130580",
+      "name": "Gibb's Street",
+      "difficulty": "expert",
+      "length_m": 206,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130581",
+      "name": "Rope 3 Bluffs",
+      "difficulty": "expert",
+      "length_m": 216,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130582",
+      "name": "Bluffs",
+      "difficulty": "expert",
+      "area_m2": 23700,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130583",
+      "name": "What's That Trees",
+      "difficulty": "advanced",
+      "length_m": 392,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130584",
+      "name": "Roxoff",
+      "difficulty": "expert",
+      "length_m": 396,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388130585",
+      "name": "Gun Barrel",
+      "difficulty": "expert",
+      "length_m": 564,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388140114",
+      "name": "Northwest Passage",
+      "difficulty": "expert",
+      "length_m": 1040,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388140115",
+      "name": "Martin Bowl",
+      "difficulty": "expert",
+      "length_m": 229,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388140116",
+      "name": "Mach's Couloir",
+      "difficulty": "expert",
+      "length_m": 614,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149036",
+      "name": "Great Scott Traverse",
+      "difficulty": "expert",
+      "length_m": 1158,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149037",
+      "name": "Stokes Bowl",
+      "difficulty": "advanced",
+      "length_m": 463,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149038",
+      "name": "Draft Dodger Ridge",
+      "difficulty": "intermediate",
+      "length_m": 568,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149039",
+      "name": "Upper Unicorn",
+      "difficulty": "expert",
+      "length_m": 213,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149040",
+      "name": "Unicorn",
+      "difficulty": "advanced",
+      "length_m": 147,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149041",
+      "name": "Trash Can",
+      "difficulty": "advanced",
+      "length_m": 602,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149042",
+      "name": "Billington's Ramp",
+      "difficulty": "expert",
+      "length_m": 181,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149043",
+      "name": "Right Of Trash Can",
+      "difficulty": "advanced",
+      "length_m": 487,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149044",
+      "name": "Bozo Bowl",
+      "difficulty": "advanced",
+      "length_m": 655,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149045",
+      "name": "Brownie Bowl",
+      "difficulty": "intermediate",
+      "length_m": 564,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149046",
+      "name": "Crown Bowl",
+      "difficulty": "advanced",
+      "length_m": 501,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149047",
+      "name": "Gun Barrel Trees",
+      "difficulty": "expert",
+      "length_m": 362,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149048",
+      "name": "This Is It",
+      "difficulty": "expert",
+      "length_m": 379,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149049",
+      "name": "Sharon Bowl",
+      "difficulty": "advanced",
+      "area_m2": 109496,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149050",
+      "name": "Corey's Couloir",
+      "difficulty": "freeride",
+      "length_m": 110,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149051",
+      "name": "Stokes Bowl Route",
+      "difficulty": "expert",
+      "length_m": 414,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149052",
+      "name": "Ghost Bowl",
+      "difficulty": "expert",
+      "length_m": 255,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149053",
+      "name": "Wall Street",
+      "difficulty": "expert",
+      "length_m": 393,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149054",
+      "name": "Sweet Little Annie",
+      "difficulty": "expert",
+      "length_m": 223,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149055",
+      "name": "Erskine Alley",
+      "difficulty": "expert",
+      "length_m": 195,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149056",
+      "name": "Heaven Trees",
+      "difficulty": "advanced",
+      "length_m": 278,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149057",
+      "name": "Cirque of Leaps",
+      "difficulty": "advanced",
+      "length_m": 308,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149058",
+      "name": "Mushroom Couloir",
+      "difficulty": "expert",
+      "length_m": 322,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149059",
+      "name": "Sucker Chute",
+      "difficulty": "expert",
+      "length_m": 187,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149060",
+      "name": "Sunshine",
+      "difficulty": "advanced",
+      "length_m": 173,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388149061",
+      "name": "Stoker bowl trees",
+      "difficulty": "expert",
+      "area_m2": 107045,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388295189",
+      "name": "Gun Barrel Trees",
+      "difficulty": "intermediate",
+      "length_m": 362,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388295190",
+      "name": null,
+      "difficulty": "intermediate",
+      "length_m": 549,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388295191",
+      "name": null,
+      "difficulty": "intermediate",
+      "length_m": 305,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388300394",
+      "name": "Slot Couloir",
+      "difficulty": "unknown",
+      "length_m": 571,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388300395",
+      "name": "Snot Couloir",
+      "difficulty": "expert",
+      "length_m": 708,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/388300397",
+      "name": "Crooked Couloir",
+      "difficulty": "unknown",
+      "length_m": 755,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/753627464",
+      "name": "Bryant Couloir",
+      "difficulty": "unknown",
+      "length_m": 798,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/753627465",
+      "name": "The Phantom",
+      "difficulty": "expert",
+      "length_m": 1682,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/753627466",
+      "name": "Chair Peak North Face Descent",
+      "difficulty": "unknown",
+      "length_m": 1099,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -121.640625,
+      47.279229,
+      -121.289062,
+      47.517201
+    ],
+    "12": [
+      -121.552734,
+      47.338823,
+      -121.289062,
+      47.517201
+    ],
+    "13": [
+      -121.508789,
+      47.338823,
+      -121.333008,
+      47.487513
+    ],
+    "14": [
+      -121.486816,
+      47.353711,
+      -121.35498,
+      47.472663
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

@@ -1,0 +1,73 @@
+{
+  "key": "mt-bachelor-v1",
+  "ski_sha256": "7a73f185d88d496421657baeab7a34e18060b640d8d9d09be9c1e7844fcc7e29",
+  "osm_timestamp": "2026-11-10T17:10:06Z",
+  "box": [
+    -121.75,
+    43.94,
+    -121.62,
+    44.04
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -121.722622,
+    43.958534,
+    -121.645061,
+    44.018273
+  ],
+  "margins_km": {
+    "west": 2.19,
+    "south": 2.06,
+    "east": 2,
+    "north": 2.42
+  },
+  "counts": {
+    "lifts": 14,
+    "runs_in_bounds": 129,
+    "run_areas_in_bounds": 16,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 33,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 15.7,
+    "runs_in_bounds": 94.5,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -121.816406,
+      43.834527,
+      -121.464844,
+      44.087585
+    ],
+    "12": [
+      -121.816406,
+      43.897892,
+      -121.552734,
+      44.087585
+    ],
+    "13": [
+      -121.772461,
+      43.92955,
+      -121.59668,
+      44.056012
+    ],
+    "14": [
+      -121.750488,
+      43.92955,
+      -121.618652,
+      44.040219
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

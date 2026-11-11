@@ -1,0 +1,211 @@
+{
+  "slug": "mt-bachelor",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1306486693 (Mt. Bachelor, 26.7 km2): the whole mountain on one map, the Summit Express's terrain (the summit bowls, Cirque Bowl, Pinnacles, Hourglass, Serengeti Plains, West Ridge, The Moraine, Cow's Face) and the catchlines round the back of the cone included; no other ski area lies in the box or the Overpass window. The summit bowls and glades OSM tags backcountry (Backside Bowls, West Bowls, East Bowls, The Low East, Cirque Bowl, Cow's Face, Pinnacles, Hourglass, Serengeti Plains, West Ridge, Sparks Lake Bowl, Hidden Valley, Pecker Woods) lie inside the polygon and stay in bounds by the half rule, as the map draws them inside its ski area boundary. Every named run and lift checked on 2026-11-10 against the resort's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map: FINAL_W2526_TrailMap_WithKey.pdf, the James Niehues painting, whose labels are outlines with no text layer, rendered at 3.2 times its size and read tile by tile: Easier, More Difficult, Most Difficult as one diamond, Extreme Terrain as two, the runs also drawn as lines of their rating's colour; the Woodward Mountain Park zones sized XS to L and the Adventure Zones) and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report, whose data, api.mtbachelor.com/api/v1/dor/drupal/trails, rates 123 alpine runs and sections Easiest, More Difficult, Most Difficult or Extreme and lists 9 parks and 14 winter lifts). OSM's easy, intermediate, advanced and expert are the map's green, blue, one diamond and two (Extreme Terrain tops the map's scale, as Jackson Hole's double black does). Of the 113 named runs in OSM, the report names 101 (by run or section: Upper, Middle and Lower sections match OSM's split ways where OSM splits a run, as at Atkeson's Zoom, Boomerang, Brookie's Run, Canyon, Carnival, Downunder West, I-5, Leeway, Osprey Way, Sparks Lake Run and Sunrise Getback) and two more as Backside Bowls & Glades and West Bowls & Glades; all carry the resort's rating but six: Northwest Crossover (easy in OSM) and the start of Huckleberry Picker (advanced) are blue on the map and the report; Serengeti Plains is one diamond on the map and Extreme on the report, so the harder stands (lead's decision 2026-10-22); The Moraine and The Cone, unrated in OSM, take the report's Most Difficult; and Rainbow Adventure Zone, an intermediate snow park in OSM, is one of the map's beginner Adventure Zones and Easiest on the report. Names from the map and the report: 21 Road, Beverly Hills, Cannon Beach, Cary's Runway, Dilly Dally Alley, Sunrise Getback, Ed's Garden, Chicken Foot (OSM's piste:name, which the map uses first, calls it I-5), Backside Bowls (OSM Back Bowls) and the Chipmunk Carpet (OSM Otter Mountain Carpet). Names that differ only by a space or an apostrophe stay as OSM has them (Rooster Tail for ROOSTERTAIL, Sundog for SUN DOG, Cows Face for COW'S FACE, Halfpipe for the 13' HALF PIPE), as does Bushwacker, which the report spells so and the map BUSHWHACKER. Runs OSM names that neither the map nor the report do stay with OSM's rating (Decaf, Midway, Milkey Way, Modo, Old Outback, Triple Nipple, Turkey Bowl, Wallaby, Hidden Valley and Pecker Woods). Parks: Cannon Beach, Halfpipe, Pacific City, Peace Park, Seaside, Short Sands and The Point are snow parks in OSM, flagged already, and Seaside's upper way gets the flag below; the report's Progression Park and Start Park are not in OSM. Lifts: all 14 of the report's are in OSM (Summit, Pine Marten, Skyliner, Northwest, Outback, Cloudchaser, Sunrise, Rainbow, Red Chair, Little Pine, Alpenglow, Early Riser and the Lava Tube and Chipmunk carpets; OSM's Express and Chair suffixes stay); the First Rays Carpet, on neither, is hidden. The Mt. Bachelor Nordic Center's 145 cross-country ways, 5 hike, 3 ski-touring and 1 snowmobile way are left out by the type rule. OSM gaps (shipped as at Palisades Tahoe): Bev's East and East Healy (blue, off the Summit lift), Avalanche West and Cloudchaser Access (green), the Volcano Adventure Zone beside the Alpenglow lift, and the Progression Park and Start Park.",
+  "overrides": [
+    {
+      "id": "way/363297444",
+      "reason": "Northwest Crossover is blue (More Difficult) on Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) (a blue line and square between the Northwest Express top and Pine Marten Lodge) and More Difficult on its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report); OSM rates it easy. The resort's sources agree, so they win.",
+      "expect": {
+        "name": "Northwest Crossover",
+        "piste:name": "Northwest Crossover",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/163902406",
+      "reason": "The first 163 m of Huckleberry Picker, where it leaves Atkeson's Zoom, rated advanced in OSM: Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) draws Huckleberry Picker blue from there (a blue line and square) and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) rates it More Difficult, as OSM rates its main way (way/163902399). The resort's sources agree, so they win.",
+      "expect": {
+        "name": "Huckleberry Picker",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1305626014",
+      "reason": "Serengeti Plains (an outline, area=yes, on the summit's north-west face), rated advanced in OSM: Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) gives it one diamond, its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) rates it Extreme (two diamonds on the map's legend). The resort's sources disagree, so the harder of theirs and OSM's stands (lead's decision 2026-10-22): expert, as OSM rates the summit's other Extreme bowls.",
+      "expect": {
+        "name": "Serengeti Plains",
+        "piste:difficulty": "advanced",
+        "area": "yes"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1305506568",
+      "reason": "The Moraine (an outline on the summit's north face, below Cirque Bowl), unrated in OSM: its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) rates it Most Difficult (a Summit lift run); Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) names THE MORAINE without a symbol. The report is the only source that rates it.",
+      "expect": {
+        "name": "The Moraine",
+        "piste:difficulty": null,
+        "area": "yes"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "relation/17920912",
+      "reason": "The Cone (the cinder cone west of the West Village base, a multipolygon), unrated in OSM: its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) rates it Most Difficult (listed under Pine Marten); Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) names THE CONE without a symbol. The report is the only source that rates it.",
+      "expect": {
+        "name": "The Cone",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1307649525",
+      "reason": "Rainbow Adventure Zone is one of the map's Adventure Zones ('enhanced natural terrain perfect for beginner skiers and riders', drawn in the zones' yellow-to-orange, not as a Woodward Mountain Park zone) on Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf), and Easiest on its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report), which lists it among the runs, not the parks; OSM has it as an intermediate snow park. Drawn as the green run the resort rates it, not as a park.",
+      "expect": {
+        "name": "Rainbow Adventure Zone",
+        "piste:type": "snow_park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy",
+        "park": false
+      }
+    },
+    {
+      "id": "way/1305626018",
+      "reason": "Capitals: Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) labels this blue run 21 ROAD and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) lists 21 Road; OSM's name tag has 21 Road, its piste:name, which the map uses first, 21 road.",
+      "expect": {
+        "name": "21 Road",
+        "piste:name": "21 road"
+      },
+      "set": {
+        "name": "21 Road"
+      }
+    },
+    {
+      "id": "way/209483176",
+      "reason": "Misspelling: Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) labels this blue run along the Summit lift BEVERLY HILLS and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) lists Beverly Hills (More Difficult, as OSM rates it); OSM has Beverley Hills.",
+      "expect": {
+        "piste:name": "Beverley Hills",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Beverly Hills"
+      }
+    },
+    {
+      "id": "way/219484675",
+      "reason": "Misspelling: Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) labels this Woodward Mountain Park zone CANNON BEACH (M/L) and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) lists Cannon Beach among its parks; OSM has Canon Beach.",
+      "expect": {
+        "name": "Canon Beach",
+        "piste:name": "Canon Beach",
+        "piste:type": "snow_park"
+      },
+      "set": {
+        "name": "Cannon Beach"
+      }
+    },
+    {
+      "id": "way/278750510",
+      "reason": "Misspelling: Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) labels this blue run CARY'S RUNWAY and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) lists Cary's Runway (More Difficult, as OSM rates it); OSM's name tag has Cary's Runway, its piste:name, which the map uses first, Gary's Runway.",
+      "expect": {
+        "name": "Cary's Runway",
+        "piste:name": "Gary's Runway"
+      },
+      "set": {
+        "name": "Cary's Runway"
+      }
+    },
+    {
+      "id": "way/1328079796",
+      "reason": "Misspelling: Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) labels this adventure zone DILLY DALLY ALLEY and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) lists Dilly Dally Alley (Easiest, as OSM rates it); OSM's name tag has Dilly Dally Alley, its piste:name, which the map uses first, Dilly Dalley Alley.",
+      "expect": {
+        "name": "Dilly Dally Alley",
+        "piste:name": "Dilly Dalley Alley"
+      },
+      "set": {
+        "name": "Dilly Dally Alley"
+      }
+    },
+    {
+      "id": "way/163681305",
+      "reason": "Misspelling: the lower Sunrise Getback, SUNRISE GETBACK (LOWER) on Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) and Sunrise Getback (lower) on its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) (Easiest, as OSM rates it); OSM's name tag has Sunrise Getback, its piste:name, which the map uses first, Sunrise Getaback.",
+      "expect": {
+        "name": "Sunrise Getback",
+        "piste:name": "Sunrise Getaback"
+      },
+      "set": {
+        "name": "Sunrise Getback"
+      }
+    },
+    {
+      "id": "way/163902408",
+      "reason": "Capitals: the upper Ed's Garden, ED'S GARDEN on Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) and Ed's Garden (upper) on its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) (More Difficult, as OSM rates it); OSM's piste:name has Ed's GArden.",
+      "expect": {
+        "piste:name": "Ed's GArden",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Ed's Garden"
+      }
+    },
+    {
+      "id": "way/1306297460",
+      "reason": "Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) labels this short blue run between I-5 and Roostertail CHICKEN FOOT and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) lists Chicken Foot (More Difficult, as OSM rates it); OSM's name tag has Chicken Foot, but its piste:name, which the map uses first, is I-5, so the map would label it as part of I-5.",
+      "expect": {
+        "name": "Chicken Foot",
+        "piste:name": "I-5",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Chicken Foot"
+      }
+    },
+    {
+      "id": "way/1305489132",
+      "reason": "Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) names this double-diamond bowl north of the summit BACKSIDE BOWLS and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) lists Backside Bowls & Glades (Extreme, expert as OSM rates it); OSM has Back Bowls.",
+      "expect": {
+        "name": "Back Bowls",
+        "piste:name": "Back Bowls",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Backside Bowls"
+      }
+    },
+    {
+      "id": "way/209711988",
+      "reason": "The conveyor beside the Little Pine base at West Village: Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) marks it B, Chipmunk Carpet (Ski & Ride School lesson use only), and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) lists Chipmunk Carpet; OSM calls it Otter Mountain Carpet.",
+      "expect": {
+        "name": "Otter Mountain Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Chipmunk Carpet"
+      }
+    },
+    {
+      "id": "way/1307649527",
+      "reason": "The upper 235 m of the Seaside park, above the snow-park way OSM also names Seaside (way/219484673): Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) marks SEASIDE (M) as a Woodward Mountain Park zone and its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) lists Seaside among its parks only; OSM has this piece as a plain blue run.",
+      "expect": {
+        "piste:name": "Seaside",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/910655534",
+      "reason": "A 24 m conveyor OSM names First Rays Carpet beside the Early Riser lift's top, by Sunrise Lodge: neither Mt. Bachelor's 2025-26 winter lift and trail map (mtbachelor.com/the-mountain/maps/winter-lift-trail-map, FINAL_W2526_TrailMap_WithKey.pdf) (whose conveyors are A, the Lava Tube Carpet, and B, the Chipmunk Carpet) nor its lift and trail report (mtbachelor.com/the-mountain/lift-trail-report) (two carpets, the same) has it.",
+      "expect": {
+        "name": "First Rays Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    }
+  ]
+}

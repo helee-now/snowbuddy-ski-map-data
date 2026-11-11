@@ -1,0 +1,108 @@
+{
+  "slug": "schweitzer",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1388583977 (Schweitzer Mountain Resort): Schweitzer Bowl (the front side, the south bowl above the village) and Outback Bowl (the back side, the north bowl) on one ticket and one map; no other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-10 against the resort's 2025-26 winter trail maps (schweitzer.com/mountain-info/maps: the James Niehues paintings of Schweitzer Bowl, a 3300 px letter-size JPEG, and Outback Bowl, a 1920 px JPEG, read tile by tile; the resort publishes no PDF of them and its mountain report loads its lift and trail list by script, so the printed maps are the only source and win). Their legend is the usual one: green circle, blue square, one black diamond, two, and orange for parks; OSM's easy, intermediate, advanced and expert match them. Of OSM's 98 run names (128 named ways), every one the maps print carries their rating but four ways: Basin Trail's 14 m top (easy, to intermediate) and E, H and K Chute (advanced, to expert), lettered chutes on the face the front-side map labels SOUTH BOWL CHUTES with two diamonds (lead's decision 2026-11-10; D Chute, K-Mac's name before 2003, stays advanced beside K-Mac's single diamond). Names: OSM's piste:name, which the pipeline draws before the name tag, says Litte Blue Ridge Run, Enchanced Forest and Lower Sams Alley, fixed to the maps' LITTLE BLUE RIDGE RUN, ENCHANTED FOREST and LOWER SAM'S ALLEY (the name tags have them right); its piste:name already has the maps' Kohli's Big Timber and Sars Spur where the name tags say Kohli's Big TImber and Scars Spur, so those need no override; Great Divide becomes The Great Divide, the maps' label and its route relation's name. Names that differ from the maps only by an article, a space, an apostrophe or a suffix stay as OSM has them (The Basin Express for BASIN EXPRESS, Sunny Side for SUNNYSIDE, Charlie's for CHARLIES, Siberia Runout for SIBERIA RUN OUT, Phineas Forest for PHINEAS' FOREST, Toomey's Trail for TOOMEY'S, Down the Hatch). Runs OSM names and the maps do not print stay with OSM's rating: Crystal and D Chute in the South Bowl, Lakeside beside Lakeside Chutes, Midway Unload, Kaniksu Woods, Tower 19 Trees, and Wolf Ridge, five short pieces of the summer and nordic Wolf Ridge trail along the Outback's west ridge that the downhill route relations of Stella's Run, Springboard and Phineas Forest take in (one unrated). The same relations give Phineas Forest its run-out along the Outback's north boundary to the Outback Inn (two tracks, easy and intermediate in OSM) and Springboard a 246 m easy track at its foot; the maps rate no run-out, so OSM's ratings stand there. Parks: Stomping Grounds Terrain Park is a snow_park in OSM, drawn as a park; Terrain Garden, a snow_park line east of the Musical Carpet that no current source shows, is hidden (lead's decision 2026-11-10, as Crested Butte's parks on no current source are). Lifts: all ten on the maps are in OSM (Basin Express, Great Escape Quad, Lakeview Triple, Sunnyside, Creekside Express, Musical Carpet, Colburn Triple, Cedar Park Express, Idyle Our T-Bar and Stella), none hidden. OSM gaps (shipped as at Palisades Tahoe): Britt's Bowl on the front side; Misfortune, Casper, Triple Bypass, Slapshot, Roller Ghoster, Right On, Know Fun and Home School in Outback Bowl; the Southside Park, Bermuda and Bunny Hills parks. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/328737081",
+      "reason": "The top 14 m of Basin Trail, where it leaves the Lakeview Triple's mid-station line, rated easy in OSM; Schweitzer's 2025-26 Schweitzer Bowl trail map (schweitzer.com/mountain-info/maps, the front side) prints BASIN TRAIL with one blue square, as OSM rates its main way (way/328737150). The printed map wins.",
+      "expect": {
+        "name": null,
+        "piste:name": "Basin Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/328737076",
+      "reason": "E Chute (228 m), one of the lettered South Bowl chutes off South Ridge below K-Mac's, rated advanced in OSM. Schweitzer's 2025-26 Schweitzer Bowl trail map (schweitzer.com/mountain-info/maps, the front side) names no chute by letter below C Chute and K-Mac's (the old D Chute, renamed K-Mac's in 2003); it prints SOUTH BOWL CHUTES with two black diamonds on the face where OSM's E, H and K Chute and its South Bowl Chutes way (expert) lie. The harder of the resort's rating and OSM's stands (lead's decision 2026-11-10).",
+      "expect": {
+        "name": "E Chute",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/328737094",
+      "reason": "As way/328737076: H Chute (303 m), another of the lettered chutes under the map's SOUTH BOWL CHUTES (two black diamonds), rated advanced in OSM.",
+      "expect": {
+        "name": "H Chute",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/328737122",
+      "reason": "As way/328737076: K Chute (445 m), another of the lettered chutes under the map's SOUTH BOWL CHUTES (two black diamonds), rated advanced in OSM.",
+      "expect": {
+        "name": "K Chute",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/328737073",
+      "reason": "Misspelling: OSM's piste:name, which the map draws, is Litte Blue Ridge Run (its name tag has Little); Schweitzer's 2025-26 Outback Bowl trail map (schweitzer.com/mountain-info/maps, the back side) labels the blue cat track along the boundary from the Idyle Our T-Bar to the Outback base LITTLE BLUE RIDGE RUN.",
+      "expect": {
+        "name": "Little Blue Ridge Run",
+        "piste:name": "Litte Blue Ridge Run",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Little Blue Ridge Run"
+      }
+    },
+    {
+      "id": "way/328737129",
+      "reason": "Misspelling: OSM's piste:name, which the map draws, is Enchanced Forest (its name tag has Enchanted); Schweitzer's 2025-26 Schweitzer Bowl trail map (schweitzer.com/mountain-info/maps, the front side) labels the green run beside the Creekside Express ENCHANTED FOREST.",
+      "expect": {
+        "name": "Enchanted Forest",
+        "piste:name": "Enchanced Forest",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Enchanted Forest"
+      }
+    },
+    {
+      "id": "way/328737066",
+      "reason": "OSM's piste:name, which the map draws, is Lower Sams Alley; its name tag and Schweitzer's 2025-26 Schweitzer Bowl trail map (schweitzer.com/mountain-info/maps, the front side) (LOWER SAM'S ALLEY, beside Sam's Alley above it) have the apostrophe, so the two Sam's Alley runs read alike.",
+      "expect": {
+        "name": "Lower Sam's Alley",
+        "piste:name": "Lower Sams Alley",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Sam's Alley"
+      }
+    },
+    {
+      "id": "way/1503388596",
+      "reason": "OSM names the main way of this blue run from the Sky House down to Down the Hatch Great Divide, and its 28 m top piece (way/328737110) The Great Divide through its route relation (relation/4598612); Schweitzer's 2025-26 winter trail maps (schweitzer.com/mountain-info/maps: the Schweitzer Bowl front-side map, schweitzer-wintertrailmap-2025-26-1schweitzerbowl-lettersize.jpg, and the Outback Bowl back-side map, schweitzer-wintertrailmap-2025-26-2outbackbowl-web1920.jpg) label it THE GREAT DIVIDE on both sides, so the run takes the map's name whole.",
+      "expect": {
+        "name": "Great Divide",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "The Great Divide"
+      }
+    },
+    {
+      "id": "way/328737107",
+      "reason": "A park on no current source: Schweitzer's 2025-26 Schweitzer Bowl trail map (schweitzer.com/mountain-info/maps, the front side) draws no Terrain Garden (its parks are Stomping Grounds Terrain Park, Southside Park, Bermuda and Bunny Hills beside the Musical Carpet), so the 429 m snow_park line east of the Musical Carpet is hidden, as Crested Butte's parks on no current source are (lead's decision 2026-11-10).",
+      "expect": {
+        "name": null,
+        "piste:name": "Terrain Garden",
+        "piste:type": "snow_park"
+      },
+      "hide": true
+    }
+  ]
+}

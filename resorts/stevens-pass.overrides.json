@@ -1,0 +1,166 @@
+{
+  "slug": "stevens-pass",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1564558952 (Stevens Pass): the Front Side above the US 2 base and Mill Valley, the back side reached over the Double Diamond and Tye Mill tops and served by the Jupiter Express and Southern Cross, on one ticket and one map; no other ski area lies in the box or the Overpass window (the Stevens Pass Nordic Center lies east of it; one nordic way of the Grace Lakes cat track is left out by the type rule). Every named run and lift checked on 2026-11-10 against the resort's 2025-26 trail map, the James Niehues painting of the Front Side and Mill Valley with the base area plan, the lift table and the legend ('Lift Upgrade, new this winter: Kehr's Chair, new fixed-grip quad, upgraded access to Big Chief Mountain'), read from skiresort.com's copy (labelled Season 2025/2026; its deep-zoom tiles at full size, 8400 x 5400 px, read tile by tile) because the resort's own site serves a bot page to curl ('The system cannot process your request') and a 404 to WebFetch, and the Internet Archive was offline at the time; no newer map was found. The legend has four grades: Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Experts Only (two), which are OSM's easy, intermediate, advanced and expert. The map is the only source and wins. Of the 77 named runs in OSM the map prints about 60, and all carry the map's rating but five ways: Rock Garden and Cloud 9 (two diamonds; advanced in OSM) and the lower 285 m of Corona Bowl (the map's one double-black line down to Aquarius; intermediate in OSM) become expert, Lower Terminal (one diamond; expert in OSM) becomes advanced, and Lower Aquarius (a blue square line, unrated in OSM) becomes intermediate. OSM's Rock Garden is one way for the map's Rock Garden and Lower Rock Garden; the map's diamonds sit at its top. Names from the map: Hog Wild (OSM's name tag; its piste:name, which the pipeline reads first, says Marmot Meadows, the short run above it), Hagen Hill (OSM Haagen Hill), 76 Road (OSM Road 76; its piste:name is already 76 Road), Schim's Meadow (OSM Schim 3 Meadows) and Orion Chutes (OSM Orion Chules). Names that differ from the map only by a space, an abbreviation or punctuation stay as OSM has them (Rollercoaster for ROLLER COASTER, Outerlimits for OUTER LIMITS, Southdivide for SOUTH DIVIDE, Walls Street for WALLS ST., Winnie Chute 1 to 4 for the WINNIE CHUTES). The map says the names Big Chief Bowl, Court's Meadow, Schim's Meadow, Tye Bowl and Winnie Chutes (Front Side) and Pegasus Gulch, Andromeda Face, Waybacks, Orion Chutes, South Park and Polaris Bowl (Mill Valley) are for reference only and are not designated trails or runs: it gives them no rating, so OSM's stay (Tye Bowl intermediate; the others advanced to freeride). Runs OSM names that the map does not print stay with OSM's rating (Gun Tower, Nancy's Backside, Meadows, Lower Meadows, Tye Bowl Entrance and Exit, Big Chief cliffs, Cowboy Cliffs, Tye Cliffs/Chutes). Parks: the map's four freestyle areas (Training Grounds, Midway, Upper Mavericks and Lower Mavericks) have no park or run in OSM, so none gets the flag. Lifts: all ten of the map's lift table are in OSM with its names (Brooks Express, Daisy, Double Diamond, Hogsback Express, Jupiter Express, Kehr's Chair, 7th Heaven, Skyline Express, Southern Cross, Tye Mill), with the base area's two carpets and rope tow, unnamed; none is hidden and no name repeats. Hidden: Cabin Run, tagged piste:abandoned=yes and informal in OSM, a loop north of Brennan's Trail that the map does not draw. Out of bounds: the ways tagged backcountry inside the polygon (Rock Garden, Cloud 9, Corona Bowl, Wild Katz, Bobby Chute, Nancy Chute, Solitude, the Winnie Chutes, Tye Bowl and the named bowls and faces) stay in bounds by the half rule, as the map draws them inside the area boundary; three untagged ways are put out of bounds by override: Out of Bounds Woods, east of Andromeda Face beyond the boundary the map draws there (its name dropped: it only says where it is), and two unnamed lines 3.2 km west of the polygon, beyond the box's west edge. OSM gaps (shipped as at Palisades Tahoe): Lower Diamond (one diamond, below Kehr's Chair's top), Little Tree (two diamonds, beside Rock Garden), Barrier Bowl (beside Skyline), the Elevator and Court's Meadow areas, the four parks and the Learning Terrain's runs by name. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/386644888",
+      "reason": "Rock Garden, from the 7th Heaven top down to Hagen Hill, is two black diamonds (Experts Only) on Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable), which labels its lower part Lower Rock Garden; OSM maps both as this one way and rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Rock Garden",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/386644640",
+      "reason": "Cloud 9, from the 7th Heaven top down to the Hogsback Express top, is two black diamonds (Experts Only) on Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Cloud 9",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1360812475",
+      "reason": "The lower 285 m of Corona Bowl, down to Aquarius: Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable) draws Corona Bowl as one black line with two diamonds (Experts Only), as OSM rates its upper way; OSM rates this piece intermediate. The printed map wins.",
+      "expect": {
+        "name": "Corona Bowl",
+        "piste:difficulty": "intermediate",
+        "gladed": "yes"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/992722424",
+      "reason": "Lower Terminal, from the 7th Heaven and Skyline tops down along the area boundary to the Brooks Express top, has one black diamond (Most Difficult) on Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable); OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Lower Terminal",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1351148601",
+      "reason": "Lower Aquarius, from the Aquarius and Gemini junction to the Jupiter Express bottom, is a blue More Difficult line on Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable); OSM gives it no rating. The printed map wins.",
+      "expect": {
+        "name": "Lower Aquarius",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/103026692",
+      "reason": "Hog Wild, the 947 m blue run from Skyline down to the Hogsback Express bottom that International and Hog Heaven join, is labelled HOG WILD on Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable) (a blue square, as OSM rates it), as OSM's name tag has it; its piste:name, which the map's label is read from, is Marmot Meadows, the name of the short run above it (way 1386724023).",
+      "expect": {
+        "name": "Hog Wild",
+        "piste:name": "Marmot Meadows"
+      },
+      "set": {
+        "name": "Hog Wild"
+      }
+    },
+    {
+      "id": "way/103026698",
+      "reason": "Misspelling: Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable) labels the run HAGEN HILL (a blue square, as OSM rates it); OSM has Haagen Hill.",
+      "expect": {
+        "name": "Haagen Hill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Hagen Hill"
+      }
+    },
+    {
+      "id": "way/992725222",
+      "reason": "Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable) labels the green run 76 ROAD, as OSM's own piste:name does; OSM's name is Road 76.",
+      "expect": {
+        "name": "Road 76",
+        "piste:name": "76 Road"
+      },
+      "set": {
+        "name": "76 Road"
+      }
+    },
+    {
+      "id": "way/386644007",
+      "reason": "Misspelling: Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable) labels the area SCHIM'S MEADOW (a name for reference only, not a designated run, the map says); OSM has Schim 3 Meadows.",
+      "expect": {
+        "name": "Schim 3 Meadows",
+        "area": "yes"
+      },
+      "set": {
+        "name": "Schim's Meadow"
+      }
+    },
+    {
+      "id": "way/386641918",
+      "reason": "Misspelling: Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable) labels the area ORION CHUTES (a name for reference only, not a designated run, the map says); OSM has Orion Chules.",
+      "expect": {
+        "name": "Orion Chules",
+        "area": "yes"
+      },
+      "set": {
+        "name": "Orion Chutes"
+      }
+    },
+    {
+      "id": "way/1350043193",
+      "reason": "Cabin Run is tagged piste:abandoned=yes and informal=yes in OSM: an 809 m loop north of Brennan's Trail, which Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable) draws along the area boundary there, and the map draws no run on it. Hidden, as lifts no longer run are.",
+      "expect": {
+        "name": "Cabin Run",
+        "piste:abandoned": "yes",
+        "informal": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/386642015",
+      "reason": "Out of Bounds Woods, an 857 m gladed line (freeride, informal) from Polaris Bowl down to Andromeda Face's foot, 65 to 373 m east of the Southern Cross lift line (Andromeda Face's line lies within 100 m of it): Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable) draws the area boundary along the gully just east of Andromeda Face and marks the slope beyond it OUT OF BOUNDS. OSM's polygon reaches over it and it has no backcountry tag, so the half rule would draw it as an in-bounds double black; it is put out of bounds, and its name, which only says where it lies, is dropped.",
+      "expect": {
+        "name": "Out of Bounds Woods",
+        "piste:difficulty": "freeride",
+        "informal": "yes"
+      },
+      "set": {
+        "name": null,
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1174715394",
+      "reason": "An unnamed, unrated downhill line (847 m) 3.2 km west of the ski-area polygon, north of US 2, beyond the box's west edge and the area boundary Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable) draws west of Brennan's Trail and the Brooks Express; not the resort's terrain, and with no backcountry tag the half rule would draw it as an in-bounds unrated run in the tiles at the box's edge. Put out of bounds, as backcountry lines beyond a boundary are shown.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": null,
+        "piste:difficulty": null
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1174715395",
+      "reason": "An unnamed, unrated downhill line (774 m) 3.2 km west of the ski-area polygon, north of US 2, beyond the box's west edge and the area boundary Stevens Pass's 2025-26 trail map (the James Niehues painting of the Front Side and Mill Valley; skiresort.com's full-size copy, the resort's own site being unreachable) draws west of Brennan's Trail and the Brooks Express; not the resort's terrain, and with no backcountry tag the half rule would draw it as an in-bounds unrated run in the tiles at the box's edge. Put out of bounds, as backcountry lines beyond a boundary are shown.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": null,
+        "piste:difficulty": null
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    }
+  ]
+}

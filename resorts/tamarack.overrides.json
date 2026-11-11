@@ -1,0 +1,183 @@
+{
+  "slug": "tamarack",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1232164006 (Tamarack Resort): the Summit Express, Tamarack Express and Wildwood Express terrain on West Mountain above Lake Cascade, one ticket and one map; no other ski area lies in the box or the Overpass window. OSM's polygon is coarse (23 nodes): it takes in Wildwood Bowl, which the resort draws beyond its boundary, and leaves most of Summer's Ridge, Wildwood Return and the bowls north of Wildwood Bowl outside. Every named run and lift checked on 2026-11-10 against the resort's 2025-26 winter trail map (tamarackidaho.com/the-mountain/maps, TR_25-26_Winter_Trail_Map_Final_Sm.pdf, drawn looking west; its labels are vector outlines with no text layer, so it was rendered at four times its size and read tile by tile). Its legend has three grades, Easiest (green circle), More Difficult (blue square) and Most Difficult (black diamond), with runs drawn in their grade's colour, Cat Track (red arrows, no grade), Terrain Park (orange) and an Un-Patrolled zone (grey, beyond a purple dashed boundary, reached through Backcountry Exit Gates); OSM's easy, intermediate and advanced match the three. Of OSM's 69 in-bounds run names, every one the map grades carries its grade but one way: a 98 m piece of Wildwood Way below Hillary Step (intermediate, to easy). The cat tracks keep OSM's ratings (Canoe Ridge and Mid Mountain Way intermediate, Wildwood Return advanced), as do the names the map prints without a grade (Hibernator Glade, La Bamba Cliffs). Names: Hilary's Step becomes the map's HILLARY STEP; names that differ from the map only by a space or a suffix stay as OSM has them (Hot Sauce for HOTSAUCE, Mutton Buster for MUTTON BUSTER CARPET). Runs OSM names and the map does not print stay with OSM's rating: South Of The Border (two ways, advanced) on the south edge below the summit, where the map prints En Fuego and Next Up, new runs south of Bliss (the map's names are not applied: its lines do not match OSM's two ways closely enough to say which is which); Groomer Trail, Disco Access, Easy Way Down, Terrain Park Access, Upper Exit and the connectors To Encore, To Salsa, To Showtime and To Vista. Parks: the map draws unnamed terrain-park symbols along Homestead and at the Discovery Chair's top, where OSM has Half Pipe and Disco Park as plain runs; both get the park flag. Out of bounds: the map's grey Un-Patrolled zones are Wildwood Bowl (north of Hillary Step, three freeride lines, with The Upper Grove at their foot) and Summer's Ridge (along the south boundary, with Grouse Bowl, South Bowl Classic and Lone Tree Summit beyond); OSM rates them freeride with no backcountry tag (The Upper Grove has one, but lies inside the coarse polygon), so they are drawn out of bounds by override, with the unnamed freeride line along the ridge to Summer's Ridge and the freeride lines north of Wildwood Bowl that the map does not show (Half Moon Bowl, Big Tree, Bananna Bowl as OSM spells it, and an unnamed line); resorts.json names Summer's Ridge and Wildwood Bowl in out_of_bounds_named. Wildwood Return, the cat track below The Grove (tagged backcountry and patrolled=yes, 70% outside the polygon), stays in bounds as the map draws it; The Grove and Upper Exit (tagged backcountry, mostly inside the polygon) stay in bounds by the half rule, as the map draws The Grove inside the boundary. Lifts: all seven on the map are in OSM (Summit Express, Tamarack Express, Wildwood Express, Buttercup Chair, Discovery Chair, Rock Creek Poma, Mutton Buster Carpet), none hidden. OSM gaps (shipped as at Palisades Tahoe): En Fuego, Next Up and Calle Ocho (OSM has South Of The Border and unnamed ways near them), the terrain parks by name, and Lumberjack Land, the kids' area. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/1356799053",
+      "reason": "Misspelling: Tamarack's 2025-26 winter trail map (tamarackidaho.com/the-mountain/maps, TR_25-26_Winter_Trail_Map_Final_Sm.pdf) labels the ridge-top cat track from the summit's lookout to the top of Wildwood Way HILLARY STEP (OSM Hilary's Step).",
+      "expect": {
+        "name": "Hilary's Step",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Hillary Step"
+      }
+    },
+    {
+      "id": "way/1356799054",
+      "reason": "A 98 m piece of Wildwood Way below Hillary Step, rated intermediate in OSM; Tamarack's 2025-26 winter trail map (tamarackidaho.com/the-mountain/maps, TR_25-26_Winter_Trail_Map_Final_Sm.pdf) draws Wildwood Way green (Easiest Terrain) from the ridge to the Mid Mountain Lodge, as OSM rates its other ways. The printed map wins.",
+      "expect": {
+        "name": "Wildwood Way",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1373473346",
+      "reason": "Tamarack's 2025-26 winter trail map (tamarackidaho.com/the-mountain/maps, TR_25-26_Winter_Trail_Map_Final_Sm.pdf) draws terrain-park symbols (orange, Terrain Park) along Homestead above the village, where OSM's Half Pipe line lies (rated intermediate, with no park tag); a terrain feature by its name and the map's symbols, so it gets the park flag.",
+      "expect": {
+        "name": "Half Pipe",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1253341380",
+      "reason": "Tamarack's 2025-26 winter trail map (tamarackidaho.com/the-mountain/maps, TR_25-26_Winter_Trail_Map_Final_Sm.pdf) draws a terrain-park symbol (orange, Terrain Park) at the top of the Discovery Chair, where OSM's Disco Park lies beside the Discovery run (rated easy, with no park tag); a park by its name and the map's symbol, so it gets the park flag.",
+      "expect": {
+        "name": "Disco Park",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1261359794",
+      "reason": "Wildwood Bowl, the northernmost of its three lines: Tamarack's 2025-26 winter trail map (tamarackidaho.com/the-mountain/maps, TR_25-26_Winter_Trail_Map_Final_Sm.pdf) shades Wildwood Bowl grey, an Un-Patrolled zone in its legend, beyond the boundary it draws from Hillary Step down to the Wildwood Express top, reached through the Backcountry Exit Gate on the ridge; OSM rates it freeride with no backcountry tag and its coarse ski-area polygon (23 nodes) takes in part of the bowl, so it is drawn out of bounds by override.",
+      "expect": {
+        "name": "Wildwood Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1356535140",
+      "reason": "As way/1261359794: the middle line of Wildwood Bowl, in the map's grey Un-Patrolled zone beyond the boundary.",
+      "expect": {
+        "name": "Wildwood Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1356535141",
+      "reason": "As way/1261359794: the southern line of Wildwood Bowl, in the map's grey Un-Patrolled zone beyond the boundary.",
+      "expect": {
+        "name": "Wildwood Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1261359796",
+      "reason": "The Upper Grove (freeride, tagged backcountry), the run-out of the Wildwood Bowl lines above the Wildwood Express top, inside OSM's coarse polygon; Tamarack's 2025-26 winter trail map (tamarackidaho.com/the-mountain/maps, TR_25-26_Winter_Trail_Map_Final_Sm.pdf) draws it in the grey Un-Patrolled zone of Wildwood Bowl beyond the boundary, so it is drawn out of bounds with the bowl.",
+      "expect": {
+        "name": "The Upper Grove",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1261359795",
+      "reason": "Half Moon Bowl, a freeride line north of Wildwood Bowl beyond the boundary Tamarack's 2025-26 winter trail map (tamarackidaho.com/the-mountain/maps, TR_25-26_Winter_Trail_Map_Final_Sm.pdf) draws (the map does not show it; its painting fades the terrain north of Wildwood Bowl out); OSM gives it no backcountry tag. Backcountry outside the ski area, drawn out of bounds as Jackson Hole's freeride lines beyond its boundary are.",
+      "expect": {
+        "name": "Half Moon Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1356535136",
+      "reason": "As way/1261359795: the upper line of Big Tree, freeride north of Wildwood Bowl beyond the boundary, not on the map.",
+      "expect": {
+        "name": "Big Tree",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1356535137",
+      "reason": "As way/1261359795: the lower line of Big Tree, beyond the boundary, not on the map.",
+      "expect": {
+        "name": "Big Tree",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1261359797",
+      "reason": "As way/1261359795: Bananna Bowl (so spelt in OSM; no source names it), the northernmost freeride line, beyond the boundary, not on the map.",
+      "expect": {
+        "name": "Bananna Bowl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1356309571",
+      "reason": "As way/1261359795: an unnamed freeride line from the ridge north of Hillary Step towards Bananna Bowl, beyond the boundary, not on the map.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1356799056",
+      "reason": "Summer's Ridge, which Tamarack's 2025-26 winter trail map (tamarackidaho.com/the-mountain/maps, TR_25-26_Winter_Trail_Map_Final_Sm.pdf) prints along the boundary at the south edge of the lift-served terrain, in the grey Un-Patrolled zone (Grouse Bowl, South Bowl Classic, Lone Tree Summit) beyond it, with a Backcountry Exit Gate at its top; OSM rates it freeride with no backcountry tag, so it is drawn out of bounds by override.",
+      "expect": {
+        "name": "Summer's Ridge",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1356799057",
+      "reason": "As way/1356799056: the unnamed freeride line along the ridge from the top of Me First to the head of Summer's Ridge, on the map's boundary beside the grey Un-Patrolled zone.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1356535138",
+      "reason": "Wildwood Return, the cat track from the foot of The Grove back to the Wildwood Express bottom, tagged piste:grooming=backcountry (and patrolled=yes) and lying 70% outside OSM's coarse ski-area polygon, so the half rule would draw it out of bounds; Tamarack's 2025-26 winter trail map (tamarackidaho.com/the-mountain/maps, TR_25-26_Winter_Trail_Map_Final_Sm.pdf) draws it as a Cat Track inside the boundary, below The Grove (Most Difficult, glade and tree skiing, also inside), so it stays in bounds.",
+      "expect": {
+        "name": "Wildwood Return",
+        "piste:grooming": "backcountry",
+        "patrolled": "yes"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    }
+  ]
+}

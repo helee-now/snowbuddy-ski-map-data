@@ -1,0 +1,231 @@
+{
+  "key": "tamarack-v1",
+  "ski_sha256": "a3f0e1d066fdfee8248c591416f19ecf7b06b1dc4562ff4ffb5642f939729080",
+  "osm_timestamp": "2026-11-10T16:58:49Z",
+  "box": [
+    -116.2,
+    44.64,
+    -116.09,
+    44.73
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -116.164927,
+    44.664359,
+    -116.115861,
+    44.703038
+  ],
+  "margins_km": {
+    "west": 2.77,
+    "south": 2.71,
+    "east": 2.04,
+    "north": 3
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 92,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 11,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 14,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 6.4,
+    "runs_in_bounds": 59.2,
+    "runs_out_of_bounds": 12.7
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [
+    "Summer's Ridge",
+    "Wildwood Bowl"
+  ],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1261359794",
+      "name": "Wildwood Bowl",
+      "difficulty": "freeride",
+      "length_m": 1408,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1261359795",
+      "name": "Half Moon Bowl",
+      "difficulty": "freeride",
+      "length_m": 1144,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1261359796",
+      "name": "The Upper Grove",
+      "difficulty": "freeride",
+      "length_m": 455,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1261359797",
+      "name": "Bananna Bowl",
+      "difficulty": "freeride",
+      "length_m": 1481,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1356309571",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 1885,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1356535136",
+      "name": "Big Tree",
+      "difficulty": "freeride",
+      "length_m": 1371,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1356535137",
+      "name": "Big Tree",
+      "difficulty": "freeride",
+      "length_m": 648,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1356535140",
+      "name": "Wildwood Bowl",
+      "difficulty": "freeride",
+      "length_m": 1040,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1356535141",
+      "name": "Wildwood Bowl",
+      "difficulty": "freeride",
+      "length_m": 1060,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1356799056",
+      "name": "Summer's Ridge",
+      "difficulty": "freeride",
+      "length_m": 1513,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1356799057",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 652,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -116.367188,
+      44.590467,
+      -116.015625,
+      44.840291
+    ],
+    "12": [
+      -116.279297,
+      44.590467,
+      -116.015625,
+      44.777936
+    ],
+    "13": [
+      -116.235352,
+      44.621754,
+      -116.05957,
+      44.746733
+    ],
+    "14": [
+      -116.213379,
+      44.637391,
+      -116.081543,
+      44.731126
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

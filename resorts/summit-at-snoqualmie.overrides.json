@@ -1,0 +1,158 @@
+{
+  "slug": "summit-at-snoqualmie",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Summit West, Summit Central, Summit East and Alpental on one map and one ticket (owner's go of 2026-11-10), as resorts.json lists them: way/1361868120 (Three Summits: Summit West, Central and East in one polygon, 3.94 km2) and relation/6855067 (Alpental, 1.64 km2). OpenStreetMap has no polygon of its own for Central or East: its Summit West polygon (way/1499174311) lies inside Three Summits, and relation/20445212, Three Summits with Summit West as its inner ring, is not a clean Central and East polygon (Summit West's ring leaves Three Summits' outline for about 240 m2 near the Summit West base, so the two overlap and the build refuses them as a pair), so Three Summits stands for the three Summit areas. Sahalie Ski Club (relation/6447055), a private club with its own rope tow, is a listed neighbour in resorts.json. Alpental Backcountry (relation/6855066), the Alpental Back Bowls, is neither the resort's ski area nor a neighbour: its runs, tagged backcountry in OSM, lie outside Alpental's polygon and are drawn out of bounds by the README's rule, as the Alpental map puts the Back Bowls behind its Back Bowl Boundary and gates ('No designated trails or runs in the Back Bowls. Beacon, Shovel, Probe & Pass Required'); What's That Trees and Brownie Bowl, back-bowl runs the half rule would keep in bounds, are put out of bounds below. The backcountry lines on Chair Peak and Snoqualmie Mountain (The Phantom, Bryant, Slot, Snot and Crooked Couloirs, the Chair Peak North Face Descent) lie in no polygon and are out of bounds by the same rule. Every named run and lift checked on 2026-11-10 against the resort's four current trail maps (summitatsnoqualmie.com/trail-maps: the Summit West, Summit Central and Summit East maps, rated Easiest, More Difficult and Most Difficult, and the Alpental map, which adds Experts Only as two diamonds; JPEGs of 3000 by 1508 px, read tile by tile) and its lift and trail report (summitatsnoqualmie.com/mountain-report, whose data, /api/reportpal, lists 25 lifts, 83 alpine trails rated beginner, intermediate, advanced or expert, Alpental's non-designated terrain and gates, and the two terrain parks). OSM's easy, intermediate, advanced and expert are the maps' green, blue, one diamond and two. Of the 108 named in-bounds runs in OSM, the report rates 65 by the same name and the maps label most of the rest; all carry the resort's rating but eight: Main Chute (Summit West) and Broadway (Central), rated only by the printed map, Silver Fir's lower run and the lower West to Central crossover, rated only by the report, and Hyak Face, Hidden Valley, Meister and Gala, where the maps and the report agree against OSM. Where OSM splits a run into pieces of different ratings and the map draws the split, OSM's pieces stay: Thunderbolt, Thunderbird and Wildside black above and blue below (the report's Lower Thunderbird and Lower Wildside are blue), Lower Internationale black down to the Cascade Traverse junction, where the map's black line ends, and blue below (the report rates Lower International blue), and the run-outs to a lift base that the map draws among other runs' symbols (Blowdown's last 235 m and Sarrah's Run's last 313 m to the Rampart base, beside Creek Run's green, and Inspiration's 531 m groomed way from its glade down Tanner's Pass's blue route). Snake Dance stays expert: two diamonds on the Alpental map and advanced on the report, so the harder of the resort's and OSM's stands (lead's decision 2026-10-22); Upper Snake Dance, a name neither source prints, keeps OSM's advanced. The blue way OSM names Julie's on the Pacific Crest side of the Julie's chair keeps OSM's intermediate: the Summit West map draws it as an unlabelled blue line (its green JULIES label is on the other way); the report's Easy Rider, a blue Summit West run not in OSM, may be it, but no source says so. Names from the map and the report: Dino's Revenge for an 80 m piece with a stray full stop, and Schluct, the resort's spelling on both, for OSM's Schlucht. Names that differ only by a space, an abbreviation or a suffix stay as OSM has them (Hogwild, which the report spells Hog Wild; Chickamin, Chikamin in the report; Adrenalin, Adrenaline in the report; Saint Bernard for ST. BERNARD, run and lift; Lower and Upper Internationale; the lifts without the report's Chair and Express suffixes). Runs OSM names that neither the maps nor the report do stay with OSM's rating (Bonanza, Chicken Nugget, Nugget Trail, Silver Nugget Bowl, nugget connector., Eclipse Bowl and its traverse, Wildside Cat Track, 360 Bowl Access, Inter-Summit 90, the crossovers by OSM's names, and Alpental's Felsen, Breakover, Powder Bowl and Shot Six, which the report lists as non-designated, Shot 4, Shot 5, Hoadleys, Homework, Pumpkin Patch, High Traverse, Chicken Shot, Side hits, Lower Return to Lifts and the unrated Alpental Goat Trail). Parks: Central Park and Greenhorn Acres, the report's two terrain parks, are snow parks in OSM and carry the park flag already. Lifts: all 25 of the report's are in OSM (Alpental 6, Summit West 8, Summit Central 8, Summit East 3) and no lift name repeats across the four areas, so none takes its area's name. Hidden: the Tubing Park's covered conveyor and Snow Train, a nordic trail tagged nordic;downhill. The Summit Nordic Center's 109 cross-country ways, 21 hike, 12 ski-touring and 2 sledding ways (the Hyak sledding hill and the Tubing Center) are left out by the type rule. OSM gaps (shipped as at Palisades Tahoe): Easy Rider (Summit West, blue on the report) and Mom's (Summit East, blue on the report) are not in OSM, nor is Squirrel's Forest, the tree area the Hidden Valley inset names between Solitude and Revelation. The Back Bowls' runs carry OSM's names; the resort prints none there.",
+  "overrides": [
+    {
+      "id": "way/130428428",
+      "reason": "Main Chute is a single black diamond (Most Difficult) on The Summit's Summit West trail map (summitatsnoqualmie.com/trail-maps) (black label with the diamond, between Thunderbolt and Thunderbird below the Wildside top); OSM rates it intermediate. The report does not list it, so the printed map decides.",
+      "expect": {
+        "name": "Main Chute",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/399151910",
+      "reason": "Broadway is green (Easiest) on The Summit's Summit Central trail map (summitatsnoqualmie.com/trail-maps) (green label and dot below Top Traverse); OSM rates it intermediate. The report does not list it, so the printed map decides.",
+      "expect": {
+        "name": "Broadway",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/391450601",
+      "reason": "The lower Silver Fir run, from the bottom of Silver Fir Face to the Silver Fir lift's base, rated easy in OSM: its lift and trail report (summitatsnoqualmie.com/mountain-report) rates Silver Fir - Lower More Difficult, and the Summit Central trail map (summitatsnoqualmie.com/trail-maps) draws a blue square beside the lower lift line (its black SILVER FIR label is the face below the lift top, OSM's Silver Fir Face). Only the report rates the run by name, and it is the harder.",
+      "expect": {
+        "name": "Silver Fir",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1293287938",
+      "reason": "The lower crossover from Summit West to Central (the Lower Crossover the maps draw as an inter-summit trail, with no rating symbol): its lift and trail report (summitatsnoqualmie.com/mountain-report) rates West to Central Lower Most Difficult; OSM rates it intermediate. Only the report rates it, and it is the harder.",
+      "expect": {
+        "name": "West to Central Lower Crossover",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/130202857",
+      "reason": "Hyak Face is a single black diamond on The Summit's Summit East trail map (summitatsnoqualmie.com/trail-maps) (black label with a diamond, below the East Peak top) and Most Difficult on its lift and trail report (summitatsnoqualmie.com/mountain-report); OSM rates it intermediate. The resort's sources agree, so they win.",
+      "expect": {
+        "name": "Hyak Face",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/130202874",
+      "reason": "Hidden Valley (the run) is a single black diamond on the Hidden Valley - East Backside inset of The Summit's Summit East trail map (summitatsnoqualmie.com/trail-maps) (black label beside the Hidden Valley lift) and Most Difficult on its lift and trail report (summitatsnoqualmie.com/mountain-report); OSM rates it intermediate. The resort's sources agree, so they win.",
+      "expect": {
+        "name": "Hidden Valley",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/126247696",
+      "reason": "Meister is a single black diamond on The Summit's Alpental trail map (summitatsnoqualmie.com/trail-maps) (between Debbie's Gold and Eisfallen below the Cascade Traverse) and Most Difficult on its lift and trail report (summitatsnoqualmie.com/mountain-report); OSM rates it intermediate. The resort's sources agree, so they win.",
+      "expect": {
+        "name": "Meister",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/893959978",
+      "reason": "Gala is blue (More Difficult) on The Summit's Alpental trail map (summitatsnoqualmie.com/trail-maps) (a blue line and square beside the Internationale lift's base) and More Difficult on its lift and trail report (summitatsnoqualmie.com/mountain-report); OSM rates it advanced. The resort's sources agree, so they win.",
+      "expect": {
+        "name": "Gala",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1357927953",
+      "reason": "A stray full stop: the 80 m bottom piece of Dino's Revenge, which The Summit's Summit East trail map (summitatsnoqualmie.com/trail-maps) and its lift and trail report (summitatsnoqualmie.com/mountain-report) name DINO'S REVENGE (Most Difficult, as OSM rates it); OSM has Dino's Revenge. (with a full stop), so the map would label it as another run.",
+      "expect": {
+        "name": "Dino's Revenge.",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Dino's Revenge"
+      }
+    },
+    {
+      "id": "way/126251916",
+      "reason": "The resort's own spelling: The Summit's Alpental trail map (summitatsnoqualmie.com/trail-maps) (the Edelweiss Bowl inset) and its lift and trail report (summitatsnoqualmie.com/mountain-report) both name this double-black chute SCHLUCT (Experts Only, expert as OSM rates it); OSM has Schlucht, the German word. The resort's printed name is what its signs and its skiers use.",
+      "expect": {
+        "name": "Schlucht",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Schluct"
+      }
+    },
+    {
+      "id": "way/388130583",
+      "reason": "What's That Trees lies beyond Alpental's Back Bowl Boundary (half of it in OSM's Alpental Backcountry polygon, relation/6855066, north of the Internationale lift's base): The Summit's Alpental trail map (summitatsnoqualmie.com/trail-maps) puts the Alpental Back Bowls behind that boundary and its gates ('No designated trails or runs in the Back Bowls. Beacon, Shovel, Probe & Pass Required'), and its lift and trail report (summitatsnoqualmie.com/mountain-report) lists no such run. It has no backcountry tag in OSM, so the half rule would keep it in bounds; it is drawn out of bounds, as the back bowls' other runs are.",
+      "expect": {
+        "name": "What's That Trees",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/388149045",
+      "reason": "Brownie Bowl is the back bowl behind the Brownie Bowl Gate on Alpental's Back Bowl Boundary: The Summit's Alpental trail map (summitatsnoqualmie.com/trail-maps) puts the Alpental Back Bowls beyond that boundary ('No designated trails or runs in the Back Bowls. Beacon, Shovel, Probe & Pass Required'), and its lift and trail report (summitatsnoqualmie.com/mountain-report) lists the Brownie Bowl Gate, not a run. OSM tags it backcountry, but its line lies inside OSM's Alpental polygon (relation/6855067), so the half rule would keep it in bounds; it is drawn out of bounds, as the back bowls' other runs are.",
+      "expect": {
+        "name": "Brownie Bowl",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/257784074",
+      "reason": "The Tubing Park's covered conveyor south of SR 906 at Summit Central (unnamed in OSM, outside the resort's polygons): The Summit's Summit Central trail map (summitatsnoqualmie.com/trail-maps) draws it at the Tubing Park, a tubing area, not ski terrain, and its lift and trail report (summitatsnoqualmie.com/mountain-report) does not list it among the lifts; hidden, as Vail's and Keystone's tubing carpets are.",
+      "expect": {
+        "name": null,
+        "aerialway": "magic_carpet",
+        "covered": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1314733656",
+      "reason": "Snow Train, a trail of the Summit Nordic Center on Forest Road 9070-110 (network SummitNordic, piste:type nordic;downhill in OSM) beside Summit East: its lift and trail report (summitatsnoqualmie.com/mountain-report) lists Snow Train under Nordic, and the alpine maps do not draw it. The type rule leaves the nordic centre out, and only its second type would keep this 99 m piece as a run.",
+      "expect": {
+        "piste:name": "Snow Train",
+        "piste:type": "nordic;downhill"
+      },
+      "hide": true
+    }
+  ]
+}

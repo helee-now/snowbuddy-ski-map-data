@@ -1,0 +1,372 @@
+{
+  "slug": "stratton",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/682228180 (Stratton Mountain Resort, landuse=winter_sports with leisure=resort): the front face, Kidderbrook, the Snow Bowl, the Sun Bowl and the base village on one ticket and one map; it holds every lift and run whole. OSM has a second polygon of the same name (way/1367311040, landuse=winter_sports alone) over the same ground that also takes in the Sun Bowl lots, the Stratton Nordic Center and the condominiums east of it; the two overlap, so only one can be listed, and the tighter one is (both hold the same 183 lifts and runs whole). No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12 against Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall): Illustrator vector labels over the painting, read at 200 to 400 dpi. Its trails are dashed lines in their rating's colour, with Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond), Experts Only (two) and an orange pill for a terrain park; glades are hatched green. The resort's lift and trail status loads in an interactive map behind the same bot wall, so the printed map is the only source and wins. Every trail the map names is in OSM (OSM names 116 runs, the connectors and the parks' own ways among them; the resort counts 99 trails), with the map's rating but four: Diamond in the Rough and the Dancing Bear line (expert in OSM, one diamond on the map) become advanced, Shortcut Big Ben (easy, a blue square) intermediate, and Daniel's Web's unrated line easy, as the map and its outline say. Names from the map: four glade outlines or lines whose other way has the map's spelling (Why Not for Why Now, Free Fall Gully for Freefall Gully, Moon Dance for Moondance, Shred Wood Forest for Shredwood Forest) and the Tyro Tube carpet (OSM Tryo Tube). Names that differ from the map only by a word or an abbreviation stay as OSM has them (Lower Liftline for LOWER LIFT LINE, Number 6 for NO. 6, Old Number 8 for OLD #8, Upper and Lower Grizzly Bear for GRIZZLY BEAR and LOWER GRIZZLY, Liftline Cut-thru, Buster's Trail, Upper and Lower Middlebrook for MIDDLE BROOK, Tyrolienne Park and East Byrnes Side Park for the parks, Summit Gondola for GONDOLA, Oso Carpet and Theodore Carpet for OSO and THEODORE). Parks: the five the map marks with an orange pill (Beeline, Betwixt, Tyrolienne, East Byrnes Side and Big Ben with its SBX course) get the park flag. Lifts: the map's 15 are in OSM (the Summit Gondola, Ursa Express, Snow Bowl Express, Shooting Star, Sunrise Express, American Express, Solstice, South American, Tamarack, Villager and the Cub Carpet, Oso, Theodore and Tyro Tube carpets, and the tube park's Slider); hidden: the Slider (tubing, as Vail's and Mt. Norquay's are) and the Catamount and Redlands carpets, which the map does not draw. OSM maps many of Stratton's runs twice, once on a service road carrying the run's piste tags and once as the run's own way (or as route-relation pieces on it): the 15 copies lying on another way of the same name for 94% to 100% of their length are hidden, so each run draws and ranks once; partial overlaps (Way Home, Overpass, Grizzly Access, Black Bear, Polar Bear, Big Ben, Solstice Way) stay. OSM gaps: none of the map's named runs is missing; the uphill routes the map draws in purple are not runs.",
+  "overrides": [
+    {
+      "id": "way/1032762067",
+      "reason": "Diamond in the Rough: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws one black diamond (Most Difficult) on its glade, between Upper Downeaster and Polar Bear; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Diamond In The Rough",
+        "piste:name": "Diamond in the Rough",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/885645027",
+      "reason": "Dancing Bear: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws one black diamond (Most Difficult) beside DANCING BEAR in the race arena below the Snow Bowl Express top, as OSM rates the glade's outline (way/406222222); OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Dancing Bear",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/263062630",
+      "reason": "Shortcut Big Ben: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws a blue square (More Difficult) beside SHORTCUT BIG BEN; OSM rates it easy. The printed map wins.",
+      "expect": {
+        "name": "Shortcut Big Ben",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/851263175",
+      "reason": "Daniel's Web, the glade's line (piste:name only, tagged backcountry with no rating): Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws DANIEL'S WEB as a glade with a green circle (Easiest), as OSM rates its outline (way/1105042888) and its other line (way/1117525834).",
+      "expect": {
+        "name": null,
+        "piste:name": "Daniel's Web",
+        "piste:difficulty": null,
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1575915100",
+      "reason": "Why Now: the glade's outline; its line (way/885645023) is named Why Not in OSM. Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) labels it WHY NOT. Spelling from the map.",
+      "expect": {
+        "name": "Why Now",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Why Not"
+      }
+    },
+    {
+      "id": "way/1575915102",
+      "reason": "Freefall Gully: the glade's outline; its line (way/885645021) is named Free Fall Gully in OSM. Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) labels it FREE FALL GULLY. Spelling from the map.",
+      "expect": {
+        "name": "Freefall Gully",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Free Fall Gully"
+      }
+    },
+    {
+      "id": "way/1575915099",
+      "reason": "Moondance: the glade's outline; its line (way/885645025) is named Moon Dance in OSM. Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) labels it MOON DANCE. Spelling from the map.",
+      "expect": {
+        "name": "Moondance",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Moon Dance"
+      }
+    },
+    {
+      "id": "way/885645026",
+      "reason": "Shredwood Forest: the glade's line; its outline (way/436299989) is named Shred Wood Forest in OSM. Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) labels it SHRED WOOD FOREST. Spelling from the map.",
+      "expect": {
+        "name": "Shredwood Forest",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Shred Wood Forest"
+      }
+    },
+    {
+      "id": "way/1373017263",
+      "reason": "Tryo Tube: the covered carpet in the beginner area by the base, which Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) labels TYRO TUBE. Spelling from the map.",
+      "expect": {
+        "name": "Tryo Tube",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Tyro Tube"
+      }
+    },
+    {
+      "id": "way/263061887",
+      "reason": "Beeline: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws an orange terrain-park pill in place of a difficulty symbol beside BEELINE; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Beeline",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263061889",
+      "reason": "Betwixt: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws an orange terrain-park pill in place of a difficulty symbol beside BETWIXT; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Betwixt",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1117525841",
+      "reason": "Tyrolienne Park: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws an orange terrain-park pill in place of a difficulty symbol beside TYROLIENNE; OSM rates it easy and has no park tag. Park flag from the map; OSM's rating is kept. The lower Tyrolienne in the beginner area (way/1575915106) is green on the map and stays as it is.",
+      "expect": {
+        "name": "Tyrolienne Park",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1098855990",
+      "reason": "East Byrnes Side Park: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws an orange terrain-park pill in place of a difficulty symbol beside EAST BYRNES SIDE; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "East Byrnes Side Park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263062633",
+      "reason": "Big Ben: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws an orange terrain-park pill in place of a difficulty symbol beside BIG BEN (with SBX, the snowboard-cross course); OSM rates it easy and has no park tag. Park flag from the map; OSM's rating is kept. All three of OSM's Big Ben ways (its route relation/16133983) get the flag.",
+      "expect": {
+        "name": "Big Ben",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1192685893",
+      "reason": "Big Ben: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws an orange terrain-park pill in place of a difficulty symbol beside BIG BEN (with SBX, the snowboard-cross course); OSM rates it easy and has no park tag. Park flag from the map; OSM's rating is kept. All three of OSM's Big Ben ways (its route relation/16133983) get the flag.",
+      "expect": {
+        "name": "Big Ben",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1192685895",
+      "reason": "Big Ben: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) draws an orange terrain-park pill in place of a difficulty symbol beside BIG BEN (with SBX, the snowboard-cross course); OSM rates it easy and has no park tag. Park flag from the map; OSM's rating is kept. All three of OSM's Big Ben ways (its route relation/16133983) get the flag.",
+      "expect": {
+        "name": null,
+        "piste:name": "Big Ben",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1032762041",
+      "reason": "Slider (Tube Park Lift): the tube park's lift by the Sun Bowl, which the map labels SLIDER - TUBE PARK; it serves the snow tubing lanes, not ski terrain. Hidden, as Vail's, Keystone's and Mt. Norquay's tubing lifts are.",
+      "expect": {
+        "name": "Slider (Tube Park Lift)",
+        "aerialway": "drag_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1032762061",
+      "reason": "Catamount, a carpet in the beginner area by the base: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) names the area's lifts (Cub Carpet, Oso, Theodore and Tyro Tube, all in OSM, and the Villager and Tamarack chairs) and draws no lift by this name or in this place. Hidden as a lift the resort's map no longer shows.",
+      "expect": {
+        "name": "Catamount",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/191577641",
+      "reason": "Redlands, a carpet in the beginner area by the base: Stratton's winter trail map (the James Niehues painting, 23-24-trailmap.pdf, made 2023-11-10, the map its trail-map page links; the Internet Archive's copy of 2026-01-07, the resort's site serving a bot wall) names the area's lifts (Cub Carpet, Oso, Theodore and Tyro Tube, all in OSM, and the Villager and Tamarack chairs) and draws no lift by this name or in this place. Hidden as a lift the resort's map no longer shows.",
+      "expect": {
+        "name": "Redlands",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1576186348",
+      "reason": "A second copy of Interstate: a piece of the run that lies on the Maintenance Road way that carries the run as piste:name Interstate (way/32683740) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": "Interstate",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/33067138",
+      "reason": "A second copy of Work Road: a service way carrying the run's piste tags that lies on the run's own way (way/1576186347) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": "Maintenance Road",
+        "piste:name": "Work Road",
+        "piste:difficulty": "easy",
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/263062632",
+      "reason": "A second copy of 91 Extension: a service way carrying the run's piste tags that lies on the run's own way (way/1576186349) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": null,
+        "piste:name": "91 Extension",
+        "piste:difficulty": "easy",
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/263062635",
+      "reason": "A second copy of 91: a service way carrying the run's piste tags that lies on the run's own way (way/1192954804) for 99% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": null,
+        "piste:name": "91",
+        "piste:difficulty": "easy",
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1192685894",
+      "reason": "A second copy of 91: a service way carrying the run's piste tags that lies on the run's own way (way/1192954804) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": null,
+        "piste:name": "91",
+        "piste:difficulty": "easy",
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/263063353",
+      "reason": "A second copy of Home Run: a service way carrying the run's piste tags that lies on the run's own way (way/1193567519) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": null,
+        "piste:name": "Home Run",
+        "piste:difficulty": "easy",
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1193567497",
+      "reason": "A second copy of Home Run: a service way carrying the run's piste tags that lies on the run's own way (way/1193567519) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": null,
+        "piste:name": "Home Run",
+        "piste:difficulty": "easy",
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1193567498",
+      "reason": "A second copy of Home Run: a service way carrying the run's piste tags that lies on the run's own way (way/1193567519) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": null,
+        "piste:name": "Home Run",
+        "piste:difficulty": "easy",
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1193567515",
+      "reason": "A second copy of Home Run: a service way carrying the run's piste tags that lies on the run's own way (way/1193567519) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": null,
+        "piste:name": "Home Run",
+        "piste:difficulty": "easy",
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1193567516",
+      "reason": "A second copy of Home Run: a piece of the run that lies on the run's own way (way/1193567519) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": null,
+        "piste:name": "Home Run",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1117525835",
+      "reason": "A second copy of Lad's Legacy: a service way carrying the run's piste tags that lies on the run's own way, rated easy as the map draws it (way/1575915095) for 94% of its length, within 6 m, with the same name and no rating of its own, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": "Maintenance Road",
+        "piste:name": "Lad's Legacy",
+        "piste:difficulty": null,
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1192954787",
+      "reason": "A second copy of Lower Wanderer: a service way carrying the run's piste tags that lies on the run's own way (way/1098855982) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": null,
+        "piste:name": "Lower Wanderer",
+        "piste:difficulty": "easy",
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1192954800",
+      "reason": "A second copy of Runaway: a service way carrying the run's piste tags that lies on the run's own way (way/263061876) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": null,
+        "piste:name": "Runaway",
+        "piste:difficulty": "easy",
+        "highway": "service"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1192481296",
+      "reason": "A second copy of Overpass: a piece of the run that lies on the run's own way (way/1575905985) for 100% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": "Overpass",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/263061890",
+      "reason": "A second copy of Grizzly Access: a cycleway way carrying the run's piste tags that lies on the run's own way (way/1575905986) for 98% of its length, within 6 m, with the same name and rating, so the run would draw twice and count twice in the run ranks. Hidden; the other way stays.",
+      "expect": {
+        "name": "Grizzly Access",
+        "piste:difficulty": "easy",
+        "highway": "cycleway"
+      },
+      "hide": true
+    }
+  ]
+}

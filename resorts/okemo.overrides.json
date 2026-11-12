@@ -1,0 +1,155 @@
+{
+  "slug": "okemo",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1236284348 (Okemo Mountain, 12.8 km2): Okemo's main mountain from the Clock Tower base, the South Face from Southface Village, the Solitude area and Jackson Gore, on one ticket and one map; no other ski area lies in the box or the Overpass window (the nordic and Catamount Trail ways are left out by the type rule). Every named run and lift checked on 2026-11-12 against Okemo's 2025-26 winter trail map (20251120_OK_winter-trail_map_001.pdf, the James Niehues painting with its legend and lift stats), the latest the resort publishes, on its own asset server (okemo.com's trail-maps page lists no winter trail map; the site serves curl an error page, so the PDF was fetched with WebFetch); its labels are outlines with no text layer, so it was rendered at four to five times its size and read tile by tile. The legend has Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Extremely Difficult (two), each also as glade trails, with terrain parks in orange; OSM's easy, intermediate, advanced and expert match the first four. The printed map is the only source used, and it wins. Of OSM's named runs, all carry the map's rating but The Narrows (a Most Difficult Glade; intermediate in OSM) and a 452 m way of Buckhorn that OSM leaves unrated (green on the map). Okemo's piste:grooming=backcountry runs all lie inside the polygon and stay in bounds. Park: Lower Tomahawk, drawn orange as a terrain park (the map's TOMAHAWK in orange below Express Lane), gets the park flag; Progression Park, The Zone, Gordon's Garden and Tree Tap are already snow parks in OSM. The halfpipe between them (OSM's Superpipe, a 263 m closed outline) is hidden: as the pack's only run area, under a pixel wide at z11, it would start the run-area layer at z12, which the pack schema and its test hold to z11. Names from the map: Snow Track (OSM Snow Trak); Jackson Gore Junction, OSM's name on a 19 m connector, left off (the map labels the junction itself in a box, as it does its villages); lifts Evergreen Summit Express (OSM Evergreen Express) and A Quad and B Quad (OSM South Ridge Quad A and B). Names that differ from the map only by a space, an abbreviation or an apostrophe stay as OSM has them: Catnap (CAT NAP), Sun Dog (SUNDOG), Hot Dog Hill (HOTDOG HILL), Side Kick (SIDEKICK), Side Out (SIDEOUT), Rimrock (RIM ROCK), Route 103 (RT. 103) and the South Face Express Quad (the lift's own label; the lift stats say Southface Express Quad). The Mountain Road's sections carry their own piste:name (Upper Mountain Road, Lower Mountain Road, Fairway, Mountain Road), as the map labels them. All 21 lifts of the map's lift stats are in OSM (three renamed above). Hidden: the closed glade outlines of Loose Spruce, Forrest Bump, Supernova, Black Hole and Everglade (natural=wood without area=yes; their lines stay) and the halfpipe's outline (above). OSM gaps (shipped as at Palisades Tahoe): the three Kids Adventure Zones (Fisher Cat Slide, Red Fox Woods, Black Bear Alley) and the Vermont Family Adventure Run; the map's closed areas (red) at Southface Village and under the Sunburst Six and Coleman Brook Express Quad hold no OSM run.",
+  "overrides": [
+    {
+      "id": "way/257636576",
+      "reason": "The Narrows, from Rum Run to Easy Rider below the summit, is a Most Difficult Glade Trail (one black diamond with the glade badge) on Okemo's 2025-26 winter trail map (20251120_OK_winter-trail_map_001.pdf, the latest on okemo.com); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "The Narrows",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1577583789",
+      "reason": "A 452 m way of Buckhorn, from Rimrock and Upper Fall Line below the summit across Challenger and Triplesec, is drawn green with the Easiest circle on Okemo's 2025-26 winter trail map (20251120_OK_winter-trail_map_001.pdf, the latest on okemo.com) (BUCKHORN, under Upper Mountain Road); OSM gives this way no rating (the Buckhorn route relation does not include it). The printed map rates it.",
+      "expect": {
+        "name": "Buckhorn",
+        "piste:type": "downhill",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1528360467",
+      "reason": "OSM names this 19 m connector, where Mountain Road, Roundhouse Run and Blue Moon meet, Jackson Gore Junction: Okemo's 2025-26 winter trail map (20251120_OK_winter-trail_map_001.pdf, the latest on okemo.com) labels that junction JACKSON GORE JUNCTION in a box, as it does its villages and base areas, not as a trail. Shown unnamed, so a place name is not drawn as a run's (it would also be the pack's only named unrated run).",
+      "expect": {
+        "name": "Jackson Gore Junction",
+        "piste:type": "connection"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/257641877",
+      "reason": "Lower Tomahawk, from Express Lane to Lower Sapphire, is drawn as a terrain park (orange, labelled TOMAHAWK with the park's orange marker) on Okemo's 2025-26 winter trail map (20251120_OK_winter-trail_map_001.pdf, the latest on okemo.com), whose upper part (Upper Tomahawk) it draws as a blue trail; OSM has it as a blue run with no park tag.",
+      "expect": {
+        "name": "Lower Tomahawk",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/255728267",
+      "reason": "Okemo's 2025-26 winter trail map (20251120_OK_winter-trail_map_001.pdf, the latest on okemo.com) labels this lift EVERGREEN SUMMIT EXPRESS, on the lift and in its lift stats; OSM names it Evergreen Express.",
+      "expect": {
+        "name": "Evergreen Express",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Evergreen Summit Express"
+      }
+    },
+    {
+      "id": "way/52460239",
+      "reason": "Okemo's 2025-26 winter trail map (20251120_OK_winter-trail_map_001.pdf, the latest on okemo.com) labels the two quads from the Clock Tower base A QUAD and B QUAD, on the lifts and in its lift stats; OSM names this one South Ridge Quad A, the lifts' former name.",
+      "expect": {
+        "name": "South Ridge Quad A",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "A Quad"
+      }
+    },
+    {
+      "id": "way/52460238",
+      "reason": "Okemo's 2025-26 winter trail map (20251120_OK_winter-trail_map_001.pdf, the latest on okemo.com) labels the two quads from the Clock Tower base A QUAD and B QUAD, on the lifts and in its lift stats; OSM names this one South Ridge Quad B, the lifts' former name.",
+      "expect": {
+        "name": "South Ridge Quad B",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "B Quad"
+      }
+    },
+    {
+      "id": "way/257648017",
+      "reason": "Okemo's 2025-26 winter trail map (20251120_OK_winter-trail_map_001.pdf, the latest on okemo.com) labels this green trail below Homeward Bound SNOW TRACK; OSM spells it Snow Trak.",
+      "expect": {
+        "name": "Snow Trak",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Snow Track"
+      }
+    },
+    {
+      "id": "way/1089488618",
+      "reason": "The Superpipe, the pipe Okemo's 2025-26 winter trail map (20251120_OK_winter-trail_map_001.pdf, the latest on okemo.com) labels HALFPIPE between Progression Park and The Zone, mapped in OSM as a closed outline of 263 m (area=yes): it would be Okemo's only run area and is under a pixel wide at z11, so Planetiler would first write the run-area layer at z12, while pack-schema.json and test/packs.test.mjs hold that layer to start at z11. Hidden, so the halfpipe is not drawn (a gap, as the kids' adventure zones are); the parks beside it stay.",
+      "expect": {
+        "name": "Superpipe",
+        "piste:type": "snow_park",
+        "area": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/257512577",
+      "reason": "The 1112 m outline of the Loose Spruce glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "name": "Loose Spruce",
+        "natural": "wood",
+        "piste:difficulty": "expert"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/257513577",
+      "reason": "The 1286 m outline of the Forrest Bump glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "name": "Forrest Bump",
+        "natural": "wood",
+        "piste:difficulty": "expert"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/257664607",
+      "reason": "The 2064 m outline of the Supernova glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "name": "Supernova",
+        "natural": "wood",
+        "piste:difficulty": "expert"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/257664973",
+      "reason": "The 741 m outline of the Black Hole glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "name": "Black Hole",
+        "natural": "wood",
+        "piste:difficulty": "expert"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1019609430",
+      "reason": "The 1322 m outline of the Everglade glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "name": "Everglade",
+        "natural": "wood",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    }
+  ]
+}

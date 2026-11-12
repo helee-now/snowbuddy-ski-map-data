@@ -1,0 +1,73 @@
+{
+  "key": "stowe-v1",
+  "ski_sha256": "312502bacf9d6b73f67e98f46c06eebab230f1f7709ed9f681c3a3c528de60d4",
+  "osm_timestamp": "2026-11-12T09:16:30Z",
+  "box": [
+    -72.84,
+    44.48,
+    -72.73,
+    44.57
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -72.814628,
+    44.50768,
+    -72.764954,
+    44.551914
+  ],
+  "margins_km": {
+    "west": 2.01,
+    "south": 3.08,
+    "east": 2.77,
+    "north": 2.01
+  },
+  "counts": {
+    "lifts": 12,
+    "runs_in_bounds": 176,
+    "run_areas_in_bounds": 4,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 21,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 13.1,
+    "runs_in_bounds": 72.2,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -72.949219,
+      44.465151,
+      -72.597656,
+      44.590467
+    ],
+    "12": [
+      -72.861328,
+      44.465151,
+      -72.685547,
+      44.590467
+    ],
+    "13": [
+      -72.861328,
+      44.465151,
+      -72.729492,
+      44.590467
+    ],
+    "14": [
+      -72.861328,
+      44.465151,
+      -72.729492,
+      44.574817
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

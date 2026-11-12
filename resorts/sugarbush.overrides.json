@@ -1,0 +1,114 @@
+{
+  "slug": "sugarbush",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1094579154 (Sugarbush Resort): Lincoln Peak (Lincoln Peak, Gadd Peak, Castlerock and North Lynx) and Mt. Ellen (with Inverness), joined by the Slide Brook Express Quad across Slide Brook Basin, which OSM maps inside the one polygon, on one ticket and one map. Mad River Glen, whose polygon (way/1094318196) lies 1 km north of Mt. Ellen's, is a listed neighbour in resorts.json (its 5 lifts, 87 runs and 9 stations are left off; one of them, Lower Antelope, by the 250 m rule). Every named run and lift checked on 2026-11-12 against Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08), the James Niehues painting the resort's Winter Maps & Terrain page links (fetched from its image host, links.imagerelay.com, with no bot wall); its labels are drawn, not text, so it was rendered at 400 dpi (6876 x 4730 px) and read tile by tile, the ambiguous places again at 600 dpi. The map prints no key; its symbols are the North American ones: green circle, blue square, one black diamond and two, which are OSM's easy, intermediate, advanced and expert, with the glades as red-hatched zones under a tree symbol and no rating, and the terrain parks as orange bands. The resort's conditions page lists no lifts or trails in its HTML (they load by script), so the printed map is the only source and wins. Of OSM's 131 named runs (after the neighbour rule), all carry the map's rating but one way: the lower 317 m of Lower Ripcord, from Lower Paradise and Bailout down to the Heaven's Gate Quad's bottom, which the map draws as LWR RIPCORD's one black line (one diamond; intermediate in OSM), becomes advanced. The glades (Stein's Woods, Egan's Woods, Gangstas' Grotto, Christmas Tree Woods, Sap Line, Eden, Race Course Woods, Lew's Line, Deeper Sleeper, Bravo, Bravinator, Exterminator, Way Back, Tumbler, Moose Run, Semi Tough, Walt's, Graduation, Ellen's and Brambles Woods) carry no rating on the map, so OSM's stay. Lower Hot Shot's 242 m below Sugarbear Road (green in OSM, unlabelled on the map) stays as OSM has it. Parks: Slowpoke at Lincoln Peak and Sugar Run and Riemergasse at Mt. Ellen, drawn under orange bands (Riemergasse's under the Sunshine Quad), get the park flag. Names from the map: Black Diamond Rush (OSM Black Diamond, under the Summit Quad; the resort's about page also lists Black Diamond Rush among its trail names), Joe's Cruiser (OSM Cruiser), the KBRA T-Bar (OSM GMVS T-Bar, beside the Inverness Quad), Easy Up (OSM Tommy's Toy, the platter beside Easy Does It at the Mt. Ellen base) and the Schoolhouse Lift (OSM Sun Kid Teaching Lift, the carpet between the Welcome Mat and the Village Quad at the Lincoln Peak base, where the map draws the Schoolhouse Lift). Names that differ from the map only by a space or an abbreviation stay as OSM has them (Overshot for OVER SHOT, Southbound for SOUTH BOUND, Lower Ripcord, Lower Hot Shot, Lower Pushover, Lower Elbow and Lower Northstar for LWR, Sugarbear Road and Sleeper Road for RD). Runs OSM names that the map does not print stay with OSM's rating (Reverse Traverse below the Valley House Quad top). Hidden: the GMVS Poma, the Green Mountain Valley School's training platter above the KBRA T-Bar, which the map does not draw. OSM gaps against the map, reported not fixed: Rob Roy (a blue run under the Summit Quad) and Lincoln Peak's named glades Grand Stand, Wood Lot, Ruffed Up, Big Birch, Wild Turkey, Fisher Cat and Witch Hazel are not in OSM; Slide Brook Basin is guided terrain with no lift service, which neither the map nor OSM draws as runs.",
+  "overrides": [
+    {
+      "id": "way/85646466",
+      "reason": "The lower 317 m of Lower Ripcord, from the Lower Paradise and Bailout junction down to the Heaven's Gate Quad's bottom: Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08) draws LWR RIPCORD as one black line with one black diamond to the lift's bottom; OSM rates this piece intermediate (its upper way advanced). The printed map wins.",
+      "expect": {
+        "name": "Lower Ripcord",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/44976916",
+      "reason": "Slowpoke, beside the Gate House Express Quad at Lincoln Peak, is drawn under an orange band (a terrain park) on Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08); OSM has it as a blue run with no park tag.",
+      "expect": {
+        "name": "Slowpoke",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/32220779",
+      "reason": "Sugar Run, beside the Sunshine Quad at the Mt. Ellen base, is drawn under an orange band (a terrain park) on Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08); OSM has it as a green run with no park tag.",
+      "expect": {
+        "name": "Sugar Run",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/32220844",
+      "reason": "Riemergasse, the run under the Sunshine Quad at the Mt. Ellen base, is drawn under an orange band (a terrain park) along the lift on Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08); OSM has it as a green run with no park tag.",
+      "expect": {
+        "name": "Riemergasse",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/32220902",
+      "reason": "The double-black run under the Summit Quad from Mt. Ellen's summit is labelled BLACK DIAMOND RUSH (two black diamonds) on Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08), and the resort's about page lists Black Diamond Rush among its trail names; OSM names it Black Diamond. The map's name is taken.",
+      "expect": {
+        "name": "Black Diamond",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Black Diamond Rush"
+      }
+    },
+    {
+      "id": "way/235500340",
+      "reason": "The blue run from the Glen House down between Northstar and Which Way to the North Ridge Express Quad's bottom is labelled JOE'S CRUISER on Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08); OSM names it Cruiser. The map's name is taken.",
+      "expect": {
+        "name": "Cruiser",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Joe's Cruiser"
+      }
+    },
+    {
+      "id": "way/235499055",
+      "reason": "The T-bar beside the Inverness Quad from the Mt. Ellen base is labelled KBRA T-BAR on Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08); OSM names it GMVS T-Bar. The map's name is taken.",
+      "expect": {
+        "name": "GMVS T-Bar",
+        "aerialway": "t-bar"
+      },
+      "set": {
+        "name": "KBRA T-Bar"
+      }
+    },
+    {
+      "id": "way/235497470",
+      "reason": "The short platter beside Easy Does It at the Mt. Ellen base, next to the Sunshine Quad's bottom, is labelled EASY UP with the surface-lift symbol on Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08); OSM names it Tommy's Toy. The map's name is taken.",
+      "expect": {
+        "name": "Tommy's Toy",
+        "aerialway": "platter"
+      },
+      "set": {
+        "name": "Easy Up"
+      }
+    },
+    {
+      "id": "way/235487980",
+      "reason": "The carpet at the Lincoln Peak base between the Welcome Mat's and the Village Quad's bottoms, where Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08) draws the SCHOOLHOUSE LIFT beside First Time (the Schoolhouse is the base area's ski school building); OSM names it Sun Kid Teaching Lift, after its maker. The map's name is taken.",
+      "expect": {
+        "name": "Sun Kid Teaching Lift",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Schoolhouse Lift"
+      }
+    },
+    {
+      "id": "way/235499057",
+      "reason": "The GMVS Poma, a 578 m platter from the KBRA T-Bar's top up beside the Inverness Quad: the Green Mountain Valley School's race-training lift, which Sugarbush's 2025-26 trail map (sugarbush.com/mountain/maps, 2025-26-Sugarbush_Trail_Map.pdf, made 2025-09-08) does not draw (it draws the KBRA T-Bar alone beside the Inverness Quad). Hidden, as lifts of another venue are.",
+      "expect": {
+        "name": "GMVS Poma",
+        "aerialway": "platter"
+      },
+      "hide": true
+    }
+  ]
+}

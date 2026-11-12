@@ -1,0 +1,244 @@
+{
+  "slug": "mount-snow",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/860260235 (Mount Snow): the Main Face, the North Face, Sunbrook and Carinthia on one ticket and one map; it holds every lift and run of the resort whole. The Hermitage Club at Haystack Mountain, a private club 2.3 km south, is a listed neighbour (resorts.json). Every named run and lift checked on 2026-11-12 against Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf), made 2025-11-03: its painting is a 150 dpi raster with the labels baked in, read from the full-size copy on the resort's image server (scene7, 3175 x 2303 px, the PDF holding a 72 dpi copy), and the page's three area maps (North Face, Sunbrook and Carinthia, sharp copies uploaded 2025-11-07 that show the 2025-26 lifts), which agree with it wherever both are legible. The resort's lift and terrain status page loads by script, so the printed maps are the only source and win. The legend has Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Expert Only (two), as OSM's easy, intermediate, advanced and expert, and Freestyle Terrain in orange, with or without a size (XS to XL). OSM's 89 named runs (108 kept ways, the glades included) carry the map's rating wherever the map gives one, but one piece: the 79 m piece of Skyline below the summit, easy in OSM, blue on the map (its route relation says intermediate too). A few labels in the middle of the Main Face (Uncles, Choke, Hop, Shootout, Little John, Cut Off, Ridge, Drop, Ego Alley, Switchback) are too soft at the painting's resolution to read letter by letter; the symbols where OSM's runs of those names lie are all blue or green, as OSM rates them. Names: the summit's Summit Work Road, a piece of Skyline's route relation, is named Skyline as the map labels it; OSM's Bear Paw for the map's BEARPAW differs by a space and stays. Parks: Carinthia's 14 trails, all orange freestyle terrain on the map (Upper and Lower Fool's Gold, Nitro, Mineshaft, Tunnel Vision, Prospector, The Farm, Iron Run, Inferno, Narrow Gauge, Rusty Nail, The Gulch, The Junkyard and Grommet), get the park flag. The lower part of Roller Coaster, which the map draws as an orange Family Adventure Zone line beside the blue run, is OSM's one blue way and stays as it is. The glades the map outlines with a tree icon and no difficulty symbol (Olympic Glades, One More Time Glades, Mineshaft and Tunnel Vision Glades, two unnamed glades, and the one between Sunspot and Shooting Star that OSM names Dark Side of the Moon and rates advanced) keep OSM's tags: no rating is guessed. Lifts: the 19 OSM maps are all on the map, with the map's numbers in their names (Grommet #1, Nitro Express #2, Heavy Metal #3, Covered Bridge #4, Mercury #5, Sundance Express #7, Canyon Express #9, Outpost #10, Grand Summit Express #11, Ego Alley #12, Beartrap #14, Seasons #16, Bluebird Express #17, Challenger #18, Sunbrook Express #19, Voyager #24, Gemini #25, Apollo #27, Discovery Shuttle #28; the resort's mountain page counts 18 lifts), none hidden. Hidden: the private Bears Crossing Ski Home Trail with its connecting track, and two pieces of Long John lying on its main way. OSM gaps: none of the map's named runs is missing; the summit's 129 m Skyline way is tagged piste:type=yes and left out by the type rule, and the Family Adventure Zone line on Roller Coaster is not mapped.",
+  "overrides": [
+    {
+      "id": "way/263977252",
+      "reason": "Upper Fool's Gold is drawn in orange as freestyle terrain with features, size S in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Upper Fool's Gold",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "classic"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1122191950",
+      "reason": "Lower Fool's Gold is drawn in orange as freestyle terrain with features, size S in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Lower Fool's Gold",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "classic"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263977239",
+      "reason": "Nitro is drawn in orange as freestyle terrain with features, size M in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Nitro",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "classic"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263977253",
+      "reason": "Mineshaft is drawn in orange as freestyle terrain with features, size M in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it advanced and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Mineshaft",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "classic"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/546708523",
+      "reason": "Tunnel Vision is drawn in orange as freestyle terrain (natural terrain, no size) in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Tunnel Vision",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "classic"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263977235",
+      "reason": "Prospector is drawn in orange as freestyle terrain with features, size M in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Prospector",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "classic"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/546708522",
+      "reason": "The Farm is drawn in orange as freestyle terrain with features, size M in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "The Farm",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263977251",
+      "reason": "Iron Run is drawn in orange as freestyle terrain (natural terrain, no size) in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Iron Run",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "classic"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263977234",
+      "reason": "Inferno is drawn in orange as freestyle terrain with features, size XL in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it advanced and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Inferno",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "classic"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263977238",
+      "reason": "Narrow Gauge is drawn in orange as freestyle terrain (natural terrain, no size) in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Narrow Gauge",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263977240",
+      "reason": "Rusty Nail is drawn in orange as freestyle terrain (natural terrain, no size) in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it easy and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Rusty Nail",
+        "piste:difficulty": "easy",
+        "piste:grooming": "classic"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263977250",
+      "reason": "The Gulch is drawn in orange as freestyle terrain with features, size M in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "The Gulch",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "classic"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1356017204",
+      "reason": "The Junkyard is drawn in orange as freestyle terrain with features, size M in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "The Junkyard",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/263977247",
+      "reason": "Grommet is drawn in orange as freestyle terrain with features, size XS in Carinthia, the resort's all-park area, on Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Carinthia map (SO_Carinthia_23-24, uploaded 2025-11-07), with no difficulty symbol; OSM rates it easy and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Grommet",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1227668867",
+      "reason": "The short piece of Skyline below the summit (79 m) is rated easy in OSM, while the run's other pieces and its route relation (relation/15576628) say intermediate; Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Sunbrook map draw SKYLINE with a blue square (More Difficult). The printed map wins.",
+      "expect": {
+        "name": "Skyline",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/263975284",
+      "reason": "Summit Work Road, the service road at the summit that OSM makes a piece of Skyline's route relation (relation/15576628, intermediate), so it draws as an intermediate run under the road's own name; Mount Snow's 2025-26 winter trail map (mountsnow.com/the-mountain/about-the-mountain/trail-maps.aspx, 20251103_SO_winter-trail_map_001.pdf) and the page's Sunbrook and North Face maps label this stretch SKYLINE. Name from the map.",
+      "expect": {
+        "name": "Summit Work Road",
+        "highway": "service"
+      },
+      "set": {
+        "name": "Skyline"
+      }
+    },
+    {
+      "id": "way/893979141",
+      "reason": "Bears Crossing Ski Home Trail, the upper way (1,252 m): a private ski-home trail (access=private) from the bottom of Upper Fool's Gold to the Bears Crossing homes south-east of the resort, outside Mount Snow's polygon and tagged backcountry, so it would draw as an out-of-bounds run; the resort's map does not show it. Hidden, as Deer Valley's private homeowner trails are.",
+      "expect": {
+        "name": "Bears Crossing Ski Home Trail",
+        "access": "private",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1153342312",
+      "reason": "Bears Crossing Ski Home Trail, the lower way (320 m): a private ski-home trail (access=private) from the bottom of Upper Fool's Gold to the Bears Crossing homes south-east of the resort, outside Mount Snow's polygon and tagged backcountry, so it would draw as an out-of-bounds run; the resort's map does not show it. Hidden, as Deer Valley's private homeowner trails are.",
+      "expect": {
+        "name": "Bears Crossing Ski Home Trail",
+        "access": "private",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1152454434",
+      "reason": "A 27 m unnamed track (highway=track, piste:type=downhill) joining the two ways of the private Bears Crossing Ski Home Trail, outside Mount Snow's polygon; hidden with that trail.",
+      "expect": {
+        "name": null,
+        "highway": "track",
+        "piste:difficulty": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1152513345",
+      "reason": "A second copy of Long John (209 m, easy): it lies on Long John's main way (way/1152513340, the service road the run follows, easy) for its whole length, within 6 m, so the run would draw twice and count twice in the run ranks. Hidden; the main way stays.",
+      "expect": {
+        "name": "Long John",
+        "piste:difficulty": "easy",
+        "highway": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1227668853",
+      "reason": "A second copy of Long John (379 m, easy): it lies on Long John's main way (way/1152513340, the service road the run follows, easy) for its whole length, within 6 m, so the run would draw twice and count twice in the run ranks. Hidden; the main way stays.",
+      "expect": {
+        "name": "Long John",
+        "piste:difficulty": "easy",
+        "highway": null
+      },
+      "hide": true
+    }
+  ]
+}

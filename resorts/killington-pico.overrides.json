@@ -1,0 +1,599 @@
+{
+  "slug": "killington-pico",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Killington and Pico on one map (one Ikon destination, Killington-Pico, one ticket; the README's rule for several mountains, as Sun Valley's Bald and Dollar), as resorts.json lists them: way/1228774360 (Killington Resort, 12.8 km2: Killington Peak, Skye Peak, Bear Mountain, Sunrise, Snowdon, Ramshead and the Skyeship base on US 4) and way/1094586461 (Pico Mountain Resort, 2.3 km2), 1.8 km apart at their nearest points, with no lift or trail between them (the resort's Killington/Pico Interconnect is an uphill route). No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12. Killington: its 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf; its labels are outlines with no text layer, so it was rendered at two to four times its size and read tile by tile; rated with the green circle, blue square, black diamond and two black diamonds, with orange terrain-park features and hatching) and its lifts and trails status page (killington.com/lifts-and-trails-status: 19 lifts and 167 alpine trails rated green, blue, black or double black, 8 terrain parks, 5 uphill routes). Pico: its 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf, the James Niehues painting, rendered at three to six times its size; blue and black lines with the diamonds) and its lifts and trails status page (picomountain.com/lifts-and-trails-status: 7 lifts and 60 trails, rated the same way). OSM's easy, intermediate, advanced and expert are green, blue, black and double black. Where the map and the status page both rate a run they agree, and they win over OSM (where they differ, the harder stands); where OSM splits a run the map draws in sections (A Slope, Ridge Run, Ovation, Conclusion, Needle's Eye, East Fall, Great Northern, Gold Rush, Giant Killer, K.A.), OSM's pieces already carry the sections' ratings. Ratings: Catwalk - Upper to expert; High Traverse, the first 318 m of Killington's Home Run, Nivis Walk and a 60 m piece of Pipe Dream to intermediate; the top 46 m of Dream Maker Headwall to advanced; a 131 m stretch of Great Eastern to easy; The Stash's gladed line (advanced) to intermediate; at Pico A Slope Cutoff, That A Way (two ways), Upper Sunset 71 and Mid Pike Glades (its line and its outline) to intermediate, and Peekaboo to advanced. Kept as OSM has them: the 165 m connector of Bittersweet to High Road, which the map draws black with a diamond (the status page rates Bittersweet's upper and lower parts blue; the harder stands); Downdraft, one expert way where the status page rates its upper part black; and Bear Trax, one 1.7 km easy way from below Killington Peak to Bear Mountain, whose upper part, from the peak past Helter Skelter, the map draws blue and the status page rates blue (Bear Trax - Upper) while the rest is green on both: OSM does not split the way there (only an 88 m top piece from Blue Heaven is intermediate), so it stays green as most of its length is (an OSM gap; a judgment call); likewise Northbrook Trail (one easy way, labelled green on the map; the status page rates its upper part blue). Parks: The Stash (both its lines), Lil' Stash and Timberline, which the map draws as terrain parks along their whole length, get the park flag. Not flagged: the parks the status page lists on trails of the same name (Easy Street Park, Mouse Run Park, Reason Park, Full House Park and Dream Maker's park), which OSM maps as the whole trail, so a park flag would draw the whole run as a park; and the orange lanes Pico's map draws beside Prospector and Panhandler, which Pico's list does not name as parks. Names from the maps and the status pages: Snowshed Crossover (OSM Northbrook Crossover, the crossover's lower part), Treezy (OSM Treezy Zone), Summit Glade East and West (OSM Summit Glades East and West), Mid K.A. (OSM Middle K.A., two ways), Mid Pike Glades for the glade outline OSM names Middle Pike Glade; lifts Superstar Six (OSM Superstar Express Six), Snowdon Quad (OSM Snowdon Triple), Snowdon Six Express (OSM Snowdon Six), Learn To Carpet (OSM Learn To Snowboard Carpet) and Progression Carpet I (OSM Snowplay Carpet I). Names that differ from the map or the status page only by a space, an apostrophe, a hyphen or a section suffix stay as OSM has them (Sundog for Sun Dog, Stash Way for STASHWAY, The North Way for The Northway, Skye Hawk for SKYEHAWK, Fool's Gold for Fools Gold, Forty Niner for Forty-Niner, Edgemont/Whiffletree for Edgemont / Whiffletree, Superpipe for Superpipe Trail, Learn To Ski And Ride Area for the map's LEARN TO AREA); runs OSM names that neither source prints stay (Low Traverse, Magic Snow Play Park at the Ramshead base, C Slope at Pico, which the map draws blue and the status page omits). No lift name repeats between Killington and Pico, so none takes its mountain's name. Hidden: Snowplay Carpet II (the map draws one carpet in that learning area), the Alpine Training Venue Poma (a race-training lift on neither source), the abandoned Devil's Fiddle and Northeast Passage chairs, a 35 m gondola stub inside the K-1 base station, Pico's Outpost Double (grey on the 2026-27 map, replaced by the Outpost Rope Tow) and the Bonanza Double and Bonanza Rope Tow (replaced by Bonanza Carpet I and II), and the closed glade outlines of Upper Pike Glade, Poma Woods and Doozie (natural=wood without area=yes; their lines stay). Out of bounds: 15 freeride lines outside Killington's polygon, where neither the map nor the status page has a trail, which OSM rates freeride with no backcountry tag: the former Northeast Passage area's Old Sundog, Old Sunrise Trail, Old Gold Dust, Gold Dust (upper and lower), Hawkeye, Nor'easter (two) and Thunderball east of Sunrise Village, and Horn, Old Vagabond, Old Swirl, Old Timberline and two unnamed lines over the ridge west of the Ramshead and Snowdon tops. OSM gaps (shipped as at Palisades Tahoe): Killington's Grizzly and Ledgewood Yurt Trail (blue on both sources; OSM also maps Superstar and Downdraft whole where the status page names their sections); Pico's Outlaw (tagged piste:type=yes in OSM, so left out by the type rule, as Solitude's Evergreen Chutes), Upper K.A. Glades, the Outpost Rope Tow and Bonanza Carpets I and II.",
+  "overrides": [
+    {
+      "id": "way/204493089",
+      "reason": "Catwalk - Upper, the top of Catwalk below Killington Peak, has two black diamonds on Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf), and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) rates Catwalk - Upper double black; OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Catwalk - Upper",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/204493078",
+      "reason": "High Traverse, from the top of the North Ridge Quad across to Bear Trax, is a blue square on Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) and blue in the resort's lifts and trails status page (killington.com/lifts-and-trails-status); OSM rates it easy. The resort's sources agree and win.",
+      "expect": {
+        "name": "High Traverse",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/204493090",
+      "reason": "The first 318 m of Killington's Home Run, from Bear Trax across Cascade to Great Northern, is drawn blue with a blue square on Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf), and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) rates Home Run blue; OSM rates this piece easy (its other pieces intermediate). The resort's sources agree and win.",
+      "expect": {
+        "name": "Home Run",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/204689779",
+      "reason": "Nivis Walk, below the South Ridge Quad's top, is a blue square on Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) and blue in the resort's lifts and trails status page (killington.com/lifts-and-trails-status); OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Nivis Walk",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1509387664",
+      "reason": "The top 46 m of Dream Maker Headwall, from Great Eastern, is part of the headwall that Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) labels DREAM MAKER - HEADWALL with one black diamond, and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) rates Dream Maker - Headwall black; OSM rates this piece intermediate (the rest of the headwall advanced). The resort's sources agree and win.",
+      "expect": {
+        "name": "Dream Maker Headwall",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1509284158",
+      "reason": "A 60 m piece of Pipe Dream at the South Ridge Link junction: Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws Pipe Dream blue along its whole length and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) rates its upper and lower parts blue; OSM rates this piece easy (the rest intermediate). The resort's sources agree and win.",
+      "expect": {
+        "name": "Pipe Dream",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/204693641",
+      "reason": "A 131 m stretch of Great Eastern above the Skyeship base, a second line beside the main way: Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws Great Eastern green from Skye Peak to the Skyeship base and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) rates its upper and lower parts green; OSM rates this stretch intermediate. The resort's sources agree and win.",
+      "expect": {
+        "name": "Great Eastern",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1509279995",
+      "reason": "The Stash, Killington's terrain park in the woods off Skye Peak, is labelled THE STASH twice with blue squares and drawn with terrain-park features along both its lines on Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf); the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists The Stash as a blue trail and as a terrain park (S, M, L). OSM rates this line advanced and gladed with no park tag. The resort's sources win: blue, and the park flag.",
+      "expect": {
+        "name": "The Stash",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate",
+        "park": true
+      }
+    },
+    {
+      "id": "way/204851362",
+      "reason": "The Stash, Killington's terrain park in the woods off Skye Peak, drawn with terrain-park features on Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) and listed as a terrain park (S, M, L) in the resort's lifts and trails status page (killington.com/lifts-and-trails-status); OSM has it as a blue run with no park tag.",
+      "expect": {
+        "name": "The Stash",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/203956140",
+      "reason": "Lil' Stash, the small terrain park at the Ramshead base, labelled LIL STASH with a terrain-park feature on Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) and listed only as a terrain park (XS, S, M) in the resort's lifts and trails status page (killington.com/lifts-and-trails-status); OSM has it as a green run with no park tag.",
+      "expect": {
+        "name": "Lil' Stash",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/203956143",
+      "reason": "Timberline on Ramshead is drawn with the terrain-park hatching along its whole length and terrain-park features on Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf), and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists Timberline Park (S, M, L) beside the Timberline trail; OSM has it as a blue run with no park tag.",
+      "expect": {
+        "name": "Timberline",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/204704933",
+      "reason": "Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) labels this green line, from Great Eastern to the bottom of the Skyeship Express Gondola's second stage, SNOWSHED CROSSOVER (the lower part of the crossover from Bear Mountain), and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists Snowshed Crossover and no Northbrook Crossover; OSM names it Northbrook Crossover.",
+      "expect": {
+        "name": "Northbrook Crossover",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Snowshed Crossover"
+      }
+    },
+    {
+      "id": "way/203956141",
+      "reason": "Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) labels this green glade at the Ramshead base TREEZY and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists Treezy; OSM names it Treezy Zone.",
+      "expect": {
+        "name": "Treezy Zone",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Treezy"
+      }
+    },
+    {
+      "id": "way/203680474",
+      "reason": "Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) labels the six-seat chair from the K-1 base SUPERSTAR SIX and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists Superstar Six; OSM names it Superstar Express Six.",
+      "expect": {
+        "name": "Superstar Express Six",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Superstar Six"
+      }
+    },
+    {
+      "id": "way/203680475",
+      "reason": "Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) labels this chair from the K-1 base to Snowdon SNOWDON QUAD and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists Snowdon Quad; OSM names it Snowdon Triple.",
+      "expect": {
+        "name": "Snowdon Triple",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Snowdon Quad"
+      }
+    },
+    {
+      "id": "way/33280742",
+      "reason": "Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) labels the bubble six-seat chair to Snowdon's top SNOWDON SIX EXPRESS and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists Snowdon Six Express; OSM names it Snowdon Six.",
+      "expect": {
+        "name": "Snowdon Six",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Snowdon Six Express"
+      }
+    },
+    {
+      "id": "way/203680470",
+      "reason": "Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) labels the carpet at the Snowshed base LEARN TO CARPET and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists the Learn To Carpet; OSM names it Learn To Snowboard Carpet.",
+      "expect": {
+        "name": "Learn To Snowboard Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Learn To Carpet"
+      }
+    },
+    {
+      "id": "way/203680472",
+      "reason": "Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws one carpet in the learning area at the Ramshead base, labelled PROGRESSION CARPET I, and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists Progression Carpet I there; OSM maps two carpets there under the area's former names, Snowplay Carpet I and II. This one keeps its numeral as the map's carpet.",
+      "expect": {
+        "name": "Snowplay Carpet I",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Progression Carpet I"
+      }
+    },
+    {
+      "id": "way/203680471",
+      "reason": "Snowplay Carpet II, the second carpet OSM maps in the former Snowplay area at the Ramshead base: Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws one carpet there (Progression Carpet I, way/203680472) and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists no other, so the resort no longer runs this one.",
+      "expect": {
+        "name": "Snowplay Carpet II",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/751412809",
+      "reason": "The Alpine Training Venue Poma beside the Alpine Training Venue trail on Ramshead: a race-training lift that Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) does not draw and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) does not list (the trail itself stays, blue on both).",
+      "expect": {
+        "name": "Alpine Training Venue Poma",
+        "aerialway": "platter"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1496324388",
+      "reason": "The former Devil's Fiddle chair on Bear Mountain, tagged abandoned in OSM: Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws Devil's Fiddle as a double-black trail with no lift, and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists no such lift.",
+      "expect": {
+        "name": "Devil's Fiddle",
+        "aerialway": "chair_lift",
+        "abandoned": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1496324387",
+      "reason": "The former Northeast Passage chair east of Sunrise Village, tagged abandoned in OSM and outside the resort's polygon: neither Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) nor the resort's lifts and trails status page (killington.com/lifts-and-trails-status) has it.",
+      "expect": {
+        "name": "Northeast Passage",
+        "aerialway": "chair_lift",
+        "abandoned": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1436473709",
+      "reason": "An unnamed 35 m gondola way inside the K-1 Express Gondola's base station (beside its platform, way/1436473708): not a lift of its own, it would draw as a separate lift with two stations.",
+      "expect": {
+        "name": null,
+        "aerialway": "gondola"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1509390700",
+      "reason": "Old Sundog: a freeride line east of Sunrise Village, in the former Northeast Passage area, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Old Sundog",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509391101",
+      "reason": "Old Sunrise Trail: a freeride line east of Sunrise Village, in the former Northeast Passage area, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Old Sunrise Trail",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509390701",
+      "reason": "Old Gold Dust: a freeride line in the former Northeast Passage area, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Old Gold Dust",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509390705",
+      "reason": "Gold Dust - Upper: a freeride line in the former Northeast Passage area, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Gold Dust - Upper",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509390706",
+      "reason": "Gold Dust - Lower: a freeride line in the former Northeast Passage area, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Gold Dust - Lower",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509390702",
+      "reason": "Hawkeye: a freeride line in the former Northeast Passage area, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Hawkeye",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509390703",
+      "reason": "Nor'easter: a freeride line in the former Northeast Passage area, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Nor'easter",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509390707",
+      "reason": "Nor'easter - Lower: a freeride line in the former Northeast Passage area, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Nor'easter - Lower",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509390704",
+      "reason": "Thunderball: a freeride line in the former Northeast Passage area, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Thunderball",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509284160",
+      "reason": "Horn: a freeride line on the far side of the ridge west of the Ramshead and Snowdon tops, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Horn",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509284161",
+      "reason": "Old Vagabond: a freeride line on the far side of the ridge west of the Ramshead and Snowdon tops, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Old Vagabond",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509284162",
+      "reason": "Old Swirl: a freeride line on the far side of the ridge west of the Ramshead and Snowdon tops, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Old Swirl",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509284163",
+      "reason": "Old Timberline: a freeride line on the far side of the ridge west of the Ramshead and Snowdon tops, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": "Old Timberline",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509284164",
+      "reason": "An unnamed line: a freeride line on the far side of the ridge west of the Ramshead and Snowdon tops, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/1509284165",
+      "reason": "An unnamed line: a freeride line on the far side of the ridge west of the Ramshead and Snowdon tops, outside Killington's polygon, where Killington's 2026-27 winter trail map (killington.com/winter-trail-map, KillingtonWinterTrailMap2627.pdf) draws no trail and the resort's lifts and trails status page (killington.com/lifts-and-trails-status) lists none; OSM rates it freeride with no backcountry tag, so the rule would draw it as an in-bounds run. Drawn out of bounds by the owner's rule (backcountry lines are shown, not hidden), as Jackson Hole's and Tamarack's freeride lines beyond their boundaries.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/267910962",
+      "reason": "A Slope Cutoff is drawn as a blue line, labelled A SLOPE CUTOFF, on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf), and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) rates A Slope - Cutoff blue; OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "A Slope Cutoff",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/907937062",
+      "reason": "Peekaboo, between Lower Pike and Exhibition, is a black line with one black diamond on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) and black in Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status); OSM rates it intermediate. The resort's sources agree and win.",
+      "expect": {
+        "name": "Peekaboo",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/273716434",
+      "reason": "That A Way, across the top of the Outpost area to Gold Rush, is a blue line labelled THAT A WAY on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) and blue in Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status); OSM rates it easy. The resort's sources agree and win.",
+      "expect": {
+        "name": "That A Way",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1100861952",
+      "reason": "The last 113 m of That A Way, from Gold Rush to Charlie's Highway: blue on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) and in Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status); OSM rates it easy. The resort's sources agree and win.",
+      "expect": {
+        "piste:name": "That A Way",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/273715148",
+      "reason": "Upper Sunset 71, below the summit, is a blue line labelled SUNSET 71 on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) and blue in Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status); OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Upper Sunset 71",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1105838834",
+      "reason": "Mid Pike Glades is labelled MID PIKE GLADES in blue with a blue square on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) and rated blue in Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status); OSM rates the line advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Mid Pike Glades",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "relation/14718250",
+      "reason": "The outline of the same glade, which OSM names Middle Pike Glade and rates advanced: Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) labels it MID PIKE GLADES with a blue square and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) rates Mid Pike Glades blue. The resort's sources win, for the name and the rating.",
+      "expect": {
+        "name": "Middle Pike Glade",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Mid Pike Glades",
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/556882196",
+      "reason": "Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) labels this black line SUMMIT GLADE EAST and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists Summit Glade East; OSM names it Summit Glades East.",
+      "expect": {
+        "name": "Summit Glades East",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Summit Glade East"
+      }
+    },
+    {
+      "id": "way/273716438",
+      "reason": "Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) labels this black line SUMMIT GLADE WEST and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists Summit Glade West; OSM names it Summit Glades West.",
+      "expect": {
+        "name": "Summit Glades West",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Summit Glade West"
+      }
+    },
+    {
+      "id": "way/1105838830",
+      "reason": "Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) labels the middle of K.A. MID K.A. (as it does Mid Pike) and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists K.A. - Mid; OSM's piste:name on this way is Middle K.A. (its name tag already says Mid K.A.).",
+      "expect": {
+        "name": "Mid K.A.",
+        "piste:name": "Middle K.A.",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Mid K.A."
+      }
+    },
+    {
+      "id": "way/1106892770",
+      "reason": "The last 106 m of Mid K.A. to Mid Pike: Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) labels it MID K.A.; OSM names it Middle K.A.",
+      "expect": {
+        "name": "Middle K.A.",
+        "piste:name": "Middle K.A.",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Mid K.A."
+      }
+    },
+    {
+      "id": "way/159736786",
+      "reason": "The Outpost Double: Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) draws it grey, out of service, with the new OUTPOST ROPE TOW in red across the top of the Outpost area, and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists the Outpost Rope Tow and no Outpost Double; OSM tags it disused (2025-26 announced as its last season). The rope tow is not in OSM yet.",
+      "expect": {
+        "name": "Outpost Double",
+        "aerialway": "chair_lift",
+        "disused:aerialway": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/255729081",
+      "reason": "The Bonanza Double in Pico's beginner area: Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) draws Bonanza Carpet I and Bonanza Carpet II there, and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists those two carpets and no chair, so the resort no longer runs this chair. The carpets are not in OSM yet.",
+      "expect": {
+        "name": "Bonanza Double",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/255729082",
+      "reason": "The Bonanza Rope Tow in Pico's beginner area: Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) draws Bonanza Carpet I and Bonanza Carpet II there, and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists those two carpets and no rope tow. The carpets are not in OSM yet.",
+      "expect": {
+        "name": "Bonanza Rope Tow",
+        "aerialway": "rope_tow"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1105838836",
+      "reason": "The 944 m outline of the Upper Pike Glade glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "piste:name": "Upper Pike Glade",
+        "natural": "wood",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1107164676",
+      "reason": "The 1308 m outline of the Poma Woods glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "piste:name": "Poma Woods",
+        "natural": "wood",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1103906906",
+      "reason": "The 936 m outline of the Doozie glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "piste:name": "Doozie",
+        "natural": "wood",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    }
+  ]
+}

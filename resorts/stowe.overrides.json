@@ -1,0 +1,127 @@
+{
+  "slug": "stowe",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/620836496 (Stowe Mountain Resort): Mt. Mansfield (the Gondola SkyRide, the FourRunner Quad, the Lookout Double, the Sunrise Six and the Toll House Double) and Spruce Peak (the Sensation, Sunny Spruce and Meadows Quads, the Adventure Triple and the two carpets), joined by the Over Easy Gondola, on one ticket and one map. Smugglers' Notch Resort, whose polygon (way/1228354294) reaches into the box's north edge over the Notch, is a listed neighbour in resorts.json (its 9 lifts, 119 runs and 14 stations are left off); the Trapp Family Lodge's nordic polygon (way/1363367352) and the Nordic Center at Edson Hill (way/1236682092) are listed too and hold nothing of the resort's. Every named run and lift checked on 2026-11-12 against Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf), the edition the resort's trail-map page links (made 2025-10-14; the page links a 2026-27 base-area map but no 2026-27 trail map yet). The site serves a bot page to curl, so the PDF was fetched with WebFetch; its labels are drawn, not text, so page 1 was rendered at 250 dpi (6008 x 4203 px) and read tile by tile, the ambiguous places again at 400 dpi. The key has four grades: Easier (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Experts Only (two), which are OSM's easy, intermediate, advanced and expert ('trail ratings are relative to trails at Stowe'), with Gladed Terrain and Freestyle Terrain (orange) as symbols of their own. The resort's lift and terrain status page loads its lists by script (0 / 129 trails shown), so the printed map is the only source and wins. Of the 128 named runs OSM maps for Stowe (after the neighbour rule), all carry the map's rating but five ways: Upper Main Street and Main Street Headwall (one diamond each, from the Sensation Quad top; intermediate in OSM) and the two ways OSM names Main Street, the black lines the map labels MAIN STREET RACE in the race area under the Sensation Quad (two diamonds along them; intermediate in OSM), become advanced, the last two named Main Street Race from the map (it prints no plain Main Street); and Upper Toll Road, one 3.4 km way from the Octagon to the Lower Toll Road, which the map draws blue (a blue square at its top) for its first 2.2 km down to the Sunrise Six top and green below, becomes intermediate: one way cannot carry both, and the harder stands, as at Stevens Pass's Rock Garden. The glades (Lookout, S-53, Tres Amigos, Nosedive, Mary Mason, Whitewater, Ridge, Meadows East, Christie, Sunrise and Birch Glades) carry the map's glade symbol and no rating, so OSM's stay. Short pieces where OSM's rating changes along a run were checked against the map's lines: Midway's 243 m east end (blue on the map after its diamond, blue in OSM), Hayride's 208 m bottom where it meets Lower Hayride (blue in OSM) and Lower National's 274 m below the Crossover (green in OSM, unlabelled on the map) stay as OSM has them. Parks: Lower Standard and Lower Gulch, drawn orange (Freestyle Terrain) on the map, get the park flag. Names from the map: Smugglers for the lower of OSM's two Upper Smugglers ways (the map labels the top loop UPPER SMUGGLERS and the line from it down to Side Street SMUGGLERS, one diamond each, as OSM rates them), the Sunrise Six (OSM Sunrise, the chairlift's name in the map's lift key; the run beside it is also Sunrise) and the Over Easy Gondola (OSM Over Easy Transfer Gondola). Names that differ from the map only by a space, an abbreviation, capitals or a section prefix stay as OSM has them (Ridgeview for RIDGE VIEW, Nosedive for NOSE DIVE, Mountain Glen for MTN. GLEN, Upper Toll Road for the map's upper TOLL ROAD, Gondola Skyride for the map's GONDOLA, which the resort calls the Gondola SkyRide). Runs OSM names that the map does not print stay with OSM's rating (#1 and #2 Cut Across, Armando's Alley and Jug Handle on Spruce Peak, Upper Lookout on Mansfield). Hidden: a 61 m piece of the CCC Road on Mansfield's west side, a forest track that takes the Teardrop Trail relation's downhill and backcountry tags while the rest of the Teardrop is tagged ski touring and left out by the type rule, so it would draw alone as an out-of-bounds stub. The lifts all run: every one of OSM's 12 is on the map. OSM gaps against the map, reported not fixed: Football Fields (a blue run on Spruce Peak beside Lower Main Street), not named in OSM.",
+  "overrides": [
+    {
+      "id": "way/84506965",
+      "reason": "Upper Main Street, from the Sensation Quad top on Spruce Peak, has one black diamond (Most Difficult) on Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Upper Main Street",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/203822058",
+      "reason": "Main Street Headwall, below Upper Main Street on Spruce Peak, has one black diamond (Most Difficult) on Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Main Street Headwall",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/84506952",
+      "reason": "One of the two ways OSM names Main Street, from the Headwall's top through the race area under the Sensation Quad: Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf) draws it as a black line and labels the race area's lines MAIN STREET RACE, with one black diamond (Most Difficult) twice along them, and prints no plain Main Street; OSM rates it intermediate. The printed map wins, and its name is taken.",
+      "expect": {
+        "name": "Main Street",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced",
+        "name": "Main Street Race"
+      }
+    },
+    {
+      "id": "way/84506951",
+      "reason": "The other way OSM names Main Street, down the race area beside the Sensation Quad to Lower Main Street: the line Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf) labels MAIN STREET RACE, one black diamond (Most Difficult) twice along it; OSM rates it intermediate. The printed map wins, and its name is taken.",
+      "expect": {
+        "name": "Main Street",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced",
+        "name": "Main Street Race"
+      }
+    },
+    {
+      "id": "way/85361196",
+      "reason": "Upper Toll Road is one 3.4 km way from the Octagon at the FourRunner Quad top to the Lower Toll Road. Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf) draws the Toll Road blue with a blue square (More Difficult) from the top down to the Sunrise Six top, 2.2 km of this way, and green below it; OSM rates the whole way easy. One way cannot carry both ratings, so the harder of the map's stands, as at Stevens Pass's Rock Garden.",
+      "expect": {
+        "name": "Upper Toll Road",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/204474671",
+      "reason": "Lower Standard is drawn orange with the Freestyle Terrain symbol (a terrain park) on Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf); OSM has it as a blue run with no park tag.",
+      "expect": {
+        "name": "Lower Standard",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/204474668",
+      "reason": "Lower Gulch is drawn orange with the Freestyle Terrain symbol (a terrain park) on Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf); OSM has it as a blue run with no park tag.",
+      "expect": {
+        "name": "Lower Gulch",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/84506967",
+      "reason": "The lower of OSM's two Upper Smugglers ways, from the top loop down to Side Street by the Sunny Spruce Quad top: Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf) labels the top loop UPPER SMUGGLERS and this line SMUGGLERS, one black diamond each, as OSM rates them. The map's name is taken.",
+      "expect": {
+        "name": "Upper Smugglers",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Smugglers"
+      }
+    },
+    {
+      "id": "way/46350308",
+      "reason": "The six-seat chairlift from the Mansfield base to the Toll Road, labelled SUNRISE SIX on Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf) (a six-person lift in its key); OSM names it Sunrise, like the run beside it. The map's name is taken.",
+      "expect": {
+        "name": "Sunrise",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Sunrise Six"
+      }
+    },
+    {
+      "id": "way/46351339",
+      "reason": "The gondola between the Mansfield base and Spruce Peak, labelled OVER EASY GONDOLA on Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf); OSM names it Over Easy Transfer Gondola. The map's name is taken.",
+      "expect": {
+        "name": "Over Easy Transfer Gondola",
+        "aerialway": "gondola"
+      },
+      "set": {
+        "name": "Over Easy Gondola"
+      }
+    },
+    {
+      "id": "way/484297467",
+      "reason": "A 61 m piece of the CCC Road, a forest track (highway=track) on Mt. Mansfield's west side, 2.3 km south-west of the Gondola SkyRide top, outside the ski area: it is the one member of the Teardrop Trail relation (piste:type=downhill, backcountry) inside the Overpass window that is not tagged ski touring, so it takes the relation's downhill tags while the rest of the Teardrop is left out by the type rule, and would draw alone as an out-of-bounds stub named CCC Road. Not on Stowe's 2025-26 winter trail map (stowe.com/the-mountain/about-the-mountain/trail-map.aspx, 20251014_ST_winter-trail_map_001.pdf).",
+      "expect": {
+        "name": "CCC Road",
+        "highway": "track"
+      },
+      "hide": true
+    }
+  ]
+}

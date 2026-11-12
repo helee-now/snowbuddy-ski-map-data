@@ -1,0 +1,73 @@
+{
+  "key": "mount-snow-v1",
+  "ski_sha256": "94d0370d5bad9f75204a36a04cbd3f344c021b15e35357e8d0a06508600e9256",
+  "osm_timestamp": "2026-11-12T09:23:44Z",
+  "box": [
+    -72.96,
+    42.93,
+    -72.86,
+    43
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -72.925469,
+    42.949688,
+    -72.888498,
+    42.972828
+  ],
+  "margins_km": {
+    "west": 2.81,
+    "south": 2.19,
+    "east": 2.32,
+    "north": 3.02
+  },
+  "counts": {
+    "lifts": 19,
+    "runs_in_bounds": 123,
+    "run_areas_in_bounds": 3,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 49,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 16.4,
+    "runs_in_bounds": 65.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -73.125,
+      42.811522,
+      -72.773438,
+      43.068888
+    ],
+    "12": [
+      -73.037109,
+      42.875964,
+      -72.773438,
+      43.004647
+    ],
+    "13": [
+      -72.993164,
+      42.90816,
+      -72.817383,
+      43.004647
+    ],
+    "14": [
+      -72.971191,
+      42.924252,
+      -72.839355,
+      43.004647
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

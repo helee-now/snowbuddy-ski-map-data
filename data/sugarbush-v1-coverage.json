@@ -1,0 +1,73 @@
+{
+  "key": "sugarbush-v1",
+  "ski_sha256": "0d50790a0f68a04ec0969cbc25d8c301a7435b76f94048969b80334ecde66c80",
+  "osm_timestamp": "2026-11-12T09:18:35Z",
+  "box": [
+    -72.96,
+    44.1,
+    -72.86,
+    44.2
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -72.930077,
+    44.125678,
+    -72.886872,
+    44.179683
+  ],
+  "margins_km": {
+    "west": 2.39,
+    "south": 2.86,
+    "east": 2.14,
+    "north": 2.26
+  },
+  "counts": {
+    "lifts": 17,
+    "runs_in_bounds": 149,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 32,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 18.1,
+    "runs_in_bounds": 80.5,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -73.125,
+      44.087585,
+      -72.773438,
+      44.21371
+    ],
+    "12": [
+      -73.037109,
+      44.087585,
+      -72.773438,
+      44.21371
+    ],
+    "13": [
+      -72.993164,
+      44.087585,
+      -72.817383,
+      44.21371
+    ],
+    "14": [
+      -72.971191,
+      44.087585,
+      -72.839355,
+      44.21371
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

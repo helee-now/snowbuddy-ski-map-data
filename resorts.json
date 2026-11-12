@@ -1225,6 +1225,66 @@
       "coverage": "data/kicking-horse-v1-coverage.json"
     },
     {
+      "slug": "killington-pico",
+      "name": "Killington-Pico",
+      "version": 1,
+      "key": "killington-pico-v1",
+      "box": [
+        -72.88,
+        43.57,
+        -72.73,
+        43.69
+      ],
+      "ski_area": [
+        "way/1228774360",
+        "way/1094586461"
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "VT_Statewide_A23",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T09:23:44Z",
+      "overpass_box": [
+        -72.92,
+        43.55,
+        -72.69,
+        43.71
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y483_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y484_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y485_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y483_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y484_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y485_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y483_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y484_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y485_VT_Statewide_A23.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "VT_Statewide_A23",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -72.88,
+          43.57,
+          -72.73,
+          43.69
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-12T09:32:15Z",
+      "ski_file": {
+        "path": "data/killington-pico-v1-ski.pmtiles",
+        "bytes": 277551,
+        "sha256": "bf12139f07bec900ed5dc459f96f59f938a378b096cea23e798bfa5bb79f59c1"
+      },
+      "coverage": "data/killington-pico-v1-coverage.json"
+    },
+    {
       "slug": "kimberley",
       "name": "Kimberley",
       "version": 1,
@@ -1411,6 +1471,65 @@
         "sha256": "c2ef3f52f95a4917baa935d461b28af9526c0af1bcee0c74ee314a90085006c8"
       },
       "coverage": "data/mammoth-mountain-v3-coverage.json"
+    },
+    {
+      "slug": "mount-snow",
+      "name": "Mount Snow",
+      "version": 1,
+      "key": "mount-snow-v1",
+      "box": [
+        -72.96,
+        42.93,
+        -72.86,
+        43
+      ],
+      "ski_area": "way/860260235",
+      "neighbours": [
+        {
+          "id": "way/1107767240",
+          "name": "The Hermitage Club at Haystack Mountain",
+          "reason": "A private members' club on Haystack Mountain (its Barnstormer chair's station is tagged 'Private Ski Area Chair Lift', operator The Hermitage Club), not on Mount Snow's ticket or trail map, 2.3 km south of Mount Snow's polygon: its polygon ends 85 m south of the box, in the Overpass margin, so its lifts and runs would otherwise draw at the box's south edge. Left off by the owner's rule (\"leave them off\")."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "VT_Statewide_A23",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T09:23:44Z",
+      "overpass_box": [
+        -73,
+        42.91,
+        -72.82,
+        43.02
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y476_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y477_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y476_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y477_VT_Statewide_A23.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "VT_Statewide_A23",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -72.96,
+          42.93,
+          -72.86,
+          43
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-12T09:40:49Z",
+      "ski_file": {
+        "path": "data/mount-snow-v1-ski.pmtiles",
+        "bytes": 106439,
+        "sha256": "94d0370d5bad9f75204a36a04cbd3f344c021b15e35357e8d0a06508600e9256"
+      },
+      "coverage": "data/mount-snow-v1-coverage.json"
     },
     {
       "slug": "mountain-high",
@@ -1632,6 +1751,63 @@
         "sha256": "ad70d089bc11a2796dd9570f962aec204e083c1d0aacad0ad6737ba30475ecb7"
       },
       "coverage": "data/northstar-v1-coverage.json"
+    },
+    {
+      "slug": "okemo",
+      "name": "Okemo",
+      "version": 1,
+      "key": "okemo-v1",
+      "box": [
+        -72.79,
+        43.36,
+        -72.68,
+        43.45
+      ],
+      "ski_area": "way/1236284348",
+      "elevation": "3dep1",
+      "elevation_project": "VT_Statewide_A23",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T09:24:46Z",
+      "overpass_box": [
+        -72.83,
+        43.34,
+        -72.64,
+        43.47
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y480_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y481_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y482_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y480_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y481_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y482_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x69y480_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x69y481_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x69y482_VT_Statewide_A23.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "VT_Statewide_A23",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -72.79,
+          43.36,
+          -72.68,
+          43.45
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-12T09:48:13Z",
+      "ski_file": {
+        "path": "data/okemo-v1-ski.pmtiles",
+        "bytes": 128794,
+        "sha256": "26843cc03cfb6d608dbde3f6352d987b5f34ccceb1cd0a7846b7a2bc1dde9973"
+      },
+      "coverage": "data/okemo-v1-coverage.json"
     },
     {
       "slug": "palisades-tahoe",
@@ -2350,6 +2526,134 @@
       "coverage": "data/stevens-pass-v1-coverage.json"
     },
     {
+      "slug": "stowe",
+      "name": "Stowe",
+      "version": 1,
+      "key": "stowe-v1",
+      "box": [
+        -72.84,
+        44.48,
+        -72.73,
+        44.57
+      ],
+      "ski_area": "way/620836496",
+      "neighbours": [
+        {
+          "id": "way/1228354294",
+          "name": "Smugglers' Notch Resort",
+          "reason": "Separate resort on its own ticket, north over Smugglers' Notch (Vermont Route 108, closed to vehicles in winter): its polygon (Sterling, Madonna and Morse Mountains) reaches into the box's north edge 0.5 km north of Stowe's Spruce Peak, so its lifts and runs would otherwise draw beside Stowe's. Left off by the owner's rule (\"leave them off\")."
+        },
+        {
+          "id": "way/1363367352",
+          "name": "Trapp Family Lodge",
+          "reason": "The Trapp Family Lodge's cross-country centre, a separate venue with its own passes: its polygon (the lodge's nordic trails south of the Toll House base) reaches into the box's south edge, so it is listed by the neighbour rule; it holds no lift or downhill run of the resort's, and its nordic trails are left out by the type rule anyway."
+        },
+        {
+          "id": "way/1236682092",
+          "name": "The Nordic Center at Edson Hill",
+          "reason": "The Edson Hill inn's nordic centre, a separate venue (OpenStreetMap maps it as its building, tagged landuse=winter_sports) inside the box's east edge, 2.5 km east of the Toll House base: listed by the neighbour rule; it holds no lift or downhill run of the resort's, and its nordic trails are left out by the type rule anyway."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "VT_Statewide_A23",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T09:16:30Z",
+      "overpass_box": [
+        -72.88,
+        44.46,
+        -72.69,
+        44.59
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y493_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y494_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y495_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y493_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y494_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y495_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y493_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y494_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y495_VT_Statewide_A23.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "VT_Statewide_A23",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -72.84,
+          44.48,
+          -72.73,
+          44.57
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-12T09:23:54Z",
+      "ski_file": {
+        "path": "data/stowe-v1-ski.pmtiles",
+        "bytes": 194647,
+        "sha256": "312502bacf9d6b73f67e98f46c06eebab230f1f7709ed9f681c3a3c528de60d4"
+      },
+      "coverage": "data/stowe-v1-coverage.json"
+    },
+    {
+      "slug": "stratton",
+      "name": "Stratton",
+      "version": 1,
+      "key": "stratton-v1",
+      "box": [
+        -72.96,
+        43.07,
+        -72.86,
+        43.14
+      ],
+      "ski_area": "way/682228180",
+      "elevation": "3dep1",
+      "elevation_project": "VT_Statewide_A23",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T09:30:53Z",
+      "overpass_box": [
+        -73,
+        43.05,
+        -72.82,
+        43.16
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y477_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y478_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y479_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y477_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y478_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y479_VT_Statewide_A23.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "VT_Statewide_A23",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -72.96,
+          43.07,
+          -72.86,
+          43.14
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-12T09:40:05Z",
+      "ski_file": {
+        "path": "data/stratton-v1-ski.pmtiles",
+        "bytes": 115745,
+        "sha256": "383e7ca202dde08b42a2163a308ec634e8c61c73d80a5014d96f65004cb6670a"
+      },
+      "coverage": "data/stratton-v1-coverage.json"
+    },
+    {
       "slug": "sugar-bowl",
       "name": "Sugar Bowl",
       "version": 1,
@@ -2412,6 +2716,70 @@
         "sha256": "e603b8454f0ecb0678f724239802bf1acf3683002643d6ddb8e6927fd97314da"
       },
       "coverage": "data/sugar-bowl-v1-coverage.json"
+    },
+    {
+      "slug": "sugarbush",
+      "name": "Sugarbush",
+      "version": 1,
+      "key": "sugarbush-v1",
+      "box": [
+        -72.96,
+        44.1,
+        -72.86,
+        44.2
+      ],
+      "ski_area": "way/1094579154",
+      "neighbours": [
+        {
+          "id": "way/1094318196",
+          "name": "Mad River Glen",
+          "reason": "Separate resort on its own ticket (a skier-owned cooperative), north of Mount Ellen on General Stark Mountain: its polygon lies 1 km north of Sugarbush's and reaches into the box's north edge, so its lifts (the Single Chair among them) and runs would otherwise draw beside Mount Ellen's. Left off by the owner's rule (\"leave them off\")."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "VT_Statewide_A23",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T09:18:35Z",
+      "overpass_box": [
+        -73,
+        44.08,
+        -72.82,
+        44.22
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x65y489_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x65y490_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x65y491_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y489_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y490_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y491_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y489_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y490_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y491_VT_Statewide_A23.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "VT_Statewide_A23",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -72.96,
+          44.1,
+          -72.86,
+          44.2
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-12T09:26:39Z",
+      "ski_file": {
+        "path": "data/sugarbush-v1-ski.pmtiles",
+        "bytes": 177565,
+        "sha256": "0d50790a0f68a04ec0969cbc25d8c301a7435b76f94048969b80334ecde66c80"
+      },
+      "coverage": "data/sugarbush-v1-coverage.json"
     },
     {
       "slug": "summit-at-snoqualmie",

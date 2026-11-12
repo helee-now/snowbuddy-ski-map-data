@@ -1,0 +1,73 @@
+{
+  "key": "stratton-v1",
+  "ski_sha256": "383e7ca202dde08b42a2163a308ec634e8c61c73d80a5014d96f65004cb6670a",
+  "osm_timestamp": "2026-11-12T09:30:53Z",
+  "box": [
+    -72.96,
+    43.07,
+    -72.86,
+    43.14
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -72.925697,
+    43.088742,
+    -72.886437,
+    43.115475
+  ],
+  "margins_km": {
+    "west": 2.78,
+    "south": 2.08,
+    "east": 2.15,
+    "north": 2.73
+  },
+  "counts": {
+    "lifts": 14,
+    "runs_in_bounds": 133,
+    "run_areas_in_bounds": 17,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 38,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 11.9,
+    "runs_in_bounds": 73.6,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -73.125,
+      43.068888,
+      -72.773438,
+      43.197167
+    ],
+    "12": [
+      -73.037109,
+      43.068888,
+      -72.773438,
+      43.197167
+    ],
+    "13": [
+      -72.993164,
+      43.068888,
+      -72.817383,
+      43.165123
+    ],
+    "14": [
+      -72.971191,
+      43.068888,
+      -72.839355,
+      43.149094
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

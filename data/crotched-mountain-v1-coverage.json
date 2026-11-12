@@ -1,0 +1,73 @@
+{
+  "key": "crotched-mountain-v1",
+  "ski_sha256": "ba1ddcae0c25253a0d4a444328142fb59660e06035069798358dd2cacbd64bc3",
+  "osm_timestamp": "2026-11-12T11:13:39Z",
+  "box": [
+    -71.91,
+    42.98,
+    -71.84,
+    43.04
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -71.884913,
+    43.002066,
+    -71.872608,
+    43.015511
+  ],
+  "margins_km": {
+    "west": 2.04,
+    "south": 2.45,
+    "east": 2.65,
+    "north": 2.72
+  },
+  "counts": {
+    "lifts": 5,
+    "runs_in_bounds": 25,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 10,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 2.8,
+    "runs_in_bounds": 9.6,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -72.070312,
+      42.940339,
+      -71.71875,
+      43.068888
+    ],
+    "12": [
+      -71.982422,
+      42.940339,
+      -71.806641,
+      43.068888
+    ],
+    "13": [
+      -71.938477,
+      42.972502,
+      -71.806641,
+      43.068888
+    ],
+    "14": [
+      -71.916504,
+      42.972502,
+      -71.828613,
+      43.052834
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

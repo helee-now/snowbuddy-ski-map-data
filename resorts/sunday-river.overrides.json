@@ -1,0 +1,193 @@
+{
+  "slug": "sunday-river",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/14637842 (Sunday River, one outer ring): the resort's eight peaks, White Cap, Locke Mountain, Barker Mountain, South Ridge, North Peak, Spruce Peak, Aurora Peak, Oz and Jordan Bowl, with Merrill Hill's frontside, on one ticket and one map; it holds every lift the map draws and all but five short runs (Boots On, Boots Off and Grand Avenue at the Jordan base, two pieces north of Merrill Hill), which carry no backcountry tag and stay in bounds. No other ski area lies in the box; Carter's XC Ski (way/1362834254, a cross-country centre 1 km east of the box) lies only in the Overpass margin and holds no lift or downhill run, so it is not listed. Every named run and lift checked on 2026-11-12 against Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links): one 1920 x 1080 pt page, the painting with its North Peak (Backside) inset (Spruce Peak, Aurora Peak, Oz and Jordan Bowl), its Merrill Hill (Frontside) inset and its South Ridge Base Lodge inset; its labels are drawn on curves with no usable text layer, so it was rendered at 300 dpi and read tile by tile, the doubtful places again at 450 to 600 dpi. The key has four grades: Easiest (green circle), More Difficult (blue square), Difficult (one black diamond) and Most Difficult (two), which are OSM's easy, intermediate, advanced and expert, with Freestyle Terrain as an orange pill on an orange line; trails are drawn in their grade's colour and labelled in it. The resort's mountain report loads its trail status by script (sundayriver.com/mountain-report shows none without it), so the printed map is the only source and wins. Of the 131 named runs OSM maps (150 kept ways), all carry the map's rating but the ones below. Ratings: Lower North Woods (advanced) to expert; Last Mile (easy), Assumption (advanced) and 3D (freeride) to intermediate; Cutback (intermediate), the top way of Moonstruck (intermediate) and Boots Off (unrated) to easy; the lower way of Monday Mourning (intermediate) to advanced. Parks: Starlight, Who-ville and Wonderland get the park flag from their orange lines and pills, keeping OSM's ratings; T72 (freeride in OSM, both its labels orange) becomes a park with no rating, as Park City Mountain's Pick Axe; 3D (freeride in OSM) is one way whose upper part the map draws blue and whose lower part is a park, so it takes intermediate and no park flag, as Killington's parks on part of a trail. Names from the map: Dream Maker (OSM's lower way Dreammaker), Upper North Woods (OSM North Woods; the map prints no plain North Woods), Boots Off (OSM Boots off), Wonderland (OSM Wonderland (Mixing Bowl)) and the Gould Academy Surface Lift (OSM Acadmey). Names that differ from the map only by a space, punctuation or a section word stay as OSM has them: Airglow (one way for the map's UPPER and LOWER AIR GLOW, both one diamond), Overdraft (OVER DRAFT on the inset), iCaramba! (one way for UPPER and LOWER CARAMBA, both two diamonds), Vortex, Chutzpah, Hard Ball, Wizard's Gulch, Risky Business and Downdraft (the map's Upper and Lower pieces, which OSM's ways already rate as the map does: Downdraft's lower way blue). Short pieces where OSM's rating changes along a run were checked against the map's lines: Tempest's upper way black and lower way blue, Jungle Road's 179 m crossing below the Locke Mountain Triple top (advanced; the map draws that crossing black beside Jim's Whim), Downdraft (black above Lower Downdraft, blue), Lazy River's 235 m way by the Chondola (easy) above Lower Lazy River: kept. Runs OSM names that the map does not print stay: 1500 Road, Time To, Broadway Connector, Exit Left and Upper Chondi Line (the map draws their lines unlabelled), Lower Sunday Punch (along the Barker 6 line, where the map draws FLOW STATE), and Brilliant with two short pieces north of Merrill Hill's top, the homesites' ski-home trails. Lifts: the map's 19 (01 Barker 6, 02 South Ridge Express, 03 Quantum Leap Triple, 04 Locke Mountain Triple, 05 Gould Academy Surface Lift, 06 North Peak Express, 07 Chondola, 08 Spruce Peak Triple, 09 White Cap Quad, 10 White Heat Quad, 11 Little White Cap Quad, 12 Aurora Peak Quad, 13 Jordan Mountain Double, 14 Jordan 8, 15 Oz Quad, 16 to 18 the Lower, Middle and Upper Sundance Surface Lifts, 19 Merrill Hill Triple) are all in OSM under those names; hidden: Merrill Hill II, which neither the map nor the resort lists, and its return run. OSM gaps (shipped as at Palisades Tahoe): Starwood (one diamond) and Starstruck (one diamond) on Little White Cap, Hollywood (two diamonds) between Agony and Top Gun on Barker, Cutoff (blue) at Barker's foot, and the Flow State park beside Rocking Chair.",
+  "overrides": [
+    {
+      "id": "way/1497470019",
+      "reason": "Lower North Woods, the glade below Upper North Woods between Absolutely and Upper 3D on North Peak's front, has two black diamonds (Most Difficult) on Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Lower North Woods",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/199387866",
+      "reason": "Last Mile, the traverse from Dream Maker across North Peak's front to Exit Right above the North Peak Express bottom, is a blue line labelled in blue with a blue square (More Difficult) on Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links); OSM rates it easy. The printed map wins.",
+      "expect": {
+        "name": "Last Mile",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/199371365",
+      "reason": "Assumption, from the Little White Cap Quad top across to Heat's On beside White Heat, is a blue line labelled in blue (More Difficult) on Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Assumption",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/199378070",
+      "reason": "Cutback, the short link at the foot of Barker Mountain from the bottom of Cascades towards Bear Paw and the White Cap base, is a green line labelled in green (Easiest) on Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links), below Cutoff (blue, not in OSM); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Cutback",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/199378082",
+      "reason": "The lower way of Monday Mourning (444 m, beside the Gould Academy Surface Lift down to the Barker base): Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links) draws Monday Mourning as one black line with one black diamond (Difficult) from Locke Mountain to the base; OSM rates its upper way advanced and this lower way intermediate. The printed map wins.",
+      "expect": {
+        "name": "Monday Mourning",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/199368364",
+      "reason": "The top way of Moonstruck (278 m from the Little White Cap Quad top): Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links) draws Moonstruck as one green loop labelled in green (Easiest) from the lift's top round Starstruck to the White Cap base; OSM rates this top way intermediate and the rest easy. The printed map wins.",
+      "expect": {
+        "name": "Moonstruck",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1223972070",
+      "reason": "Boots Off, the Jordan base's short green run beside Boots On, is labelled BOOTS OFF in green (Easiest) on Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links); OSM has no rating (unrated would draw grey) and spells it Boots off. Rating and capital from the map.",
+      "expect": {
+        "name": "Boots off",
+        "piste:difficulty": null
+      },
+      "set": {
+        "name": "Boots Off",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/199387862",
+      "reason": "3D, one OSM way from below the Peak Lodge down North Peak's front to the North Peak Express bottom: Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links) labels its upper part UPPER 3D in blue with a blue line (More Difficult) and marks its lower part LOWER 3D with the orange Freestyle Terrain pill; OSM rates it freeride (drawn as an ungroomed double black), a grade the map never gives it. It takes the map's one rating, intermediate; no park flag, which would draw the whole way as a park, as Killington's parks on part of a trail are left unflagged.",
+      "expect": {
+        "name": "3D",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/263844330",
+      "reason": "T72, beside 3D on North Peak's front, is labelled UPPER T72 and LOWER T72, each with the orange Freestyle Terrain pill and an orange line, on Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links): a terrain park. OSM rates it freeride, which would draw it as an ungroomed double black; the map gives parks no rating, so the rating is left unknown, as Park City Mountain's Pick Axe.",
+      "expect": {
+        "name": "T72",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "difficulty": "unknown",
+        "park": true
+      }
+    },
+    {
+      "id": "way/199368373",
+      "reason": "Starlight, from the Little White Cap Quad top down beside Starburst, is drawn as an orange line, labelled twice in orange with the Freestyle Terrain pill, on Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links); OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Starlight",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/199387877",
+      "reason": "Who-ville, on the South Ridge learning slope between Broadway and Spectator, is drawn as an orange line labelled in orange with the Freestyle Terrain pill on Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links) (and its South Ridge Base Lodge inset); OSM rates it easy and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Who-ville",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/199387853",
+      "reason": "The orange line beside Mixing Bowl on the South Ridge learning slope is labelled WONDERLAND in orange with the Freestyle Terrain pill on Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links) (and its South Ridge Base Lodge inset); OSM names it Wonderland (Mixing Bowl), rates it easy and has no park tag. Name and park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Wonderland (Mixing Bowl)",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Wonderland",
+        "park": true
+      }
+    },
+    {
+      "id": "way/199387867",
+      "reason": "The lower way of Dream Maker (729 m, down to the North Peak Express bottom by the South Ridge base): Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links) labels it DREAM MAKER, as OSM names the run's two upper ways; OSM spells this one Dreammaker. Spelling from the map, so the run is one name.",
+      "expect": {
+        "name": "Dreammaker",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Dream Maker"
+      }
+    },
+    {
+      "id": "way/263844331",
+      "reason": "The upper glade of North Woods, from below the Peak Lodge between Northern Exposure and Upper 3D: Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links) labels it UPPER NORTH WOODS (two black diamonds, as OSM rates it) above LOWER NORTH WOODS, which OSM names so, and prints no plain North Woods. Name from the map.",
+      "expect": {
+        "name": "North Woods",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Upper North Woods"
+      }
+    },
+    {
+      "id": "way/715995010",
+      "reason": "Lift 5 on Locke Mountain is the Gould Academy Surface Lift in the lift list of Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links) ('limited to competition and training use'; Gould Academy is the Bethel school whose ski programme trains there); OSM spells it Acadmey. Spelling from the map.",
+      "expect": {
+        "name": "Gould Acadmey Surface Lift",
+        "aerialway": "t-bar"
+      },
+      "set": {
+        "name": "Gould Academy Surface Lift"
+      }
+    },
+    {
+      "id": "way/1146572729",
+      "reason": "Merrill Hill II, a chair OSM maps from Merrill Hill's top 1.2 km down its north side to a bottom station at about 340 m beside the Sunday River Road, outside the resort's polygon: neither Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links), whose Merrill Hill (Frontside) inset and lift list show one lift there (19, Merrill Hill Triple), nor the resort's 2030 plan pages (sundayriver.com/2030: completed projects Jordan 8, Barker 6 and Merrill Hill's triple; future projects four chair replacements) list it. Hidden, as a lift the resort does not run (its bottom station node, far from every kept lift, is dropped with it).",
+      "expect": {
+        "name": "Merrill Hill II",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1259470011",
+      "reason": "An unnamed easy line (1.7 km) OSM maps from Merrill Hill's top down its north side to the bottom of Merrill Hill II, tagged backcountry and lying 97% outside the resort's polygon, so it would draw as an out-of-bounds run: it is the return run of that unlisted lift, and Sunday River's winter trail map (sundayriver.com/resort-maps, 'Winter Trail Map', the James Niehues painting, the PDF made 2023-11-17 that the page still links) draws no trail there (its boundary runs along Merrill Hill's ridge). Hidden with the lift.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "easy",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    }
+  ]
+}

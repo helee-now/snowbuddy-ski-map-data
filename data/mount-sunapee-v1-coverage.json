@@ -1,0 +1,73 @@
+{
+  "key": "mount-sunapee-v1",
+  "ski_sha256": "d6ae2f7aaa03f688540587734c457576a53f0c17dbb88d9364065411d84359b3",
+  "osm_timestamp": "2026-11-12T11:10:40Z",
+  "box": [
+    -72.12,
+    43.29,
+    -72.03,
+    43.36
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -72.091046,
+    43.310891,
+    -72.058035,
+    43.340645
+  ],
+  "margins_km": {
+    "west": 2.34,
+    "south": 2.32,
+    "east": 2.27,
+    "north": 2.15
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 94,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 14,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.2,
+    "runs_in_bounds": 36.3,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -72.246094,
+      43.197167,
+      -71.894531,
+      43.452919
+    ],
+    "12": [
+      -72.158203,
+      43.261206,
+      -71.982422,
+      43.389082
+    ],
+    "13": [
+      -72.158203,
+      43.261206,
+      -72.026367,
+      43.389082
+    ],
+    "14": [
+      -72.13623,
+      43.277205,
+      -72.026367,
+      43.373112
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

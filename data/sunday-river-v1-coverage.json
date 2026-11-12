@@ -1,0 +1,73 @@
+{
+  "key": "sunday-river-v1",
+  "ski_sha256": "a398a55321c049e7dc350caff2679a3ab64a3c3f9fcd25ee1e2397712ece9324",
+  "osm_timestamp": "2026-11-12T11:19:47Z",
+  "box": [
+    -70.94,
+    44.43,
+    -70.81,
+    44.51
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -70.910803,
+    44.45678,
+    -70.845154,
+    44.487026
+  ],
+  "margins_km": {
+    "west": 2.32,
+    "south": 2.98,
+    "east": 2.79,
+    "north": 2.55
+  },
+  "counts": {
+    "lifts": 19,
+    "runs_in_bounds": 150,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 37,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 17,
+    "runs_in_bounds": 86.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -71.015625,
+      44.339565,
+      -70.664062,
+      44.590467
+    ],
+    "12": [
+      -71.015625,
+      44.402392,
+      -70.751953,
+      44.527843
+    ],
+    "13": [
+      -70.97168,
+      44.402392,
+      -70.795898,
+      44.527843
+    ],
+    "14": [
+      -70.949707,
+      44.418088,
+      -70.795898,
+      44.512176
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

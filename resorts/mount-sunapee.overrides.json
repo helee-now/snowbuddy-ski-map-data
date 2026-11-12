@@ -1,0 +1,101 @@
+{
+  "slug": "mount-sunapee",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1230199887 (Mount Sunapee): the main face from the summit, North Peak, the Sunbowl and the South Peak Learning Area on one ticket and one map (Epic); it holds every lift and run whole. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12 against Mount Sunapee's Winter 2025-2026 Trail Map (the James Niehues painting, 20251226_MS_winter-trail_map_001, the only winter map the resort's trail-maps page, mountsunapee.com/the-mountain/about-the-mountain/trail-maps.aspx, links; the site serves curl an error page, so the page was read with WebFetch and the map at its full size, 3075 x 2233 px, from the resort's image server), its labels baked into the painting and read tile by tile. The key has Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Extremely Difficult (two), OSM's easy, intermediate, advanced and expert, with Freestyle Terrain as an orange pill, slow zones hatched and the boundary dashed; the map counts 66 trails (the resort's mountain-info page 67) and lists eight lifts, A to H. The resort's lift and terrain status loads by script, so the printed map is the source and wins. All 66 of the map's trails are in OSM, with the map's rating but two: Beck Brook Glades and a 73 m piece of Ridge Glades (advanced in OSM, two diamonds on the map); OSM's novice (Lemon, Lime, Flip Flop, Promenade) draws green like easy. Names from the map: Hawe's Hideout and Smooth Sailin' (OSM Hawes's Hideout and Smooth Sail'n) and the Little Carpet (OSM Small Carpet); names that differ from the map only by a hyphen, a space or a word stay as OSM has them (Upper Hansen Chase and Hansen Chase for HANSEN-CHASE, Goose Bumps for GOOSEBUMPS, Fly Way for FLYWAY, Sunrise Glade for SUNRISE GLADES, Lower Flying Goose for FLYING GOOSE, the Sunbowl Express Quad and Sunapee Express Quad for SUNBOWL EXPRESS and SUNAPEE EXPRESS). Runs OSM names that the map does not print stay with OSM's rating: seven freeride tree lines between the map's trails (Bob's Glade, Lower Summit Glades, Old Elliot T-Bar Lift Line, Old Flying Goose, Old Lift Line, Three Musketeers Glade and Tin Can, four of them tagged backcountry), which lie inside the polygon and stay in bounds, and two short connectors (Bonanza Jug and Lower Hansen Chase). Parks: Jet Stream and Pipeline, which the map marks with orange pills, get the park flag. Lifts: the map's eight are in OSM (the Sunbowl Express, Spruce Triple, North Peak Triple, Sunapee Express, Clipper Ship Quad, which the map also labels BEGINNER QUAD, and the Little, Middle and Flying Carpets); hidden: the Piggyback and Rope Tow tows in the learning area, which the map does not draw. OSM gaps: none of the map's trails or lifts is missing.",
+  "overrides": [
+    {
+      "id": "way/1507399545",
+      "reason": "Ridge Glades, a 73 m piece at its top: Mount Sunapee's Winter 2025-2026 Trail Map (the James Niehues painting, 20251226_MS_winter-trail_map_001, the image mountsunapee.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2233 px, from the resort's image server) draws two black diamonds (Extremely Difficult) beside RIDGE GLADES, as OSM rates the glade's main way (way/260538092); OSM rates this piece advanced. The printed map wins.",
+      "expect": {
+        "name": "Ridge Glades",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1155845766",
+      "reason": "Beck Brook Glades: Mount Sunapee's Winter 2025-2026 Trail Map (the James Niehues painting, 20251226_MS_winter-trail_map_001, the image mountsunapee.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2233 px, from the resort's image server) draws two black diamonds (Extremely Difficult) beside BECK BROOK GLADES, between Beck Brook and Upper Ridge; OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Beck Brook Glades",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/205277314",
+      "reason": "Hawes's Hideout: Mount Sunapee's Winter 2025-2026 Trail Map (the James Niehues painting, 20251226_MS_winter-trail_map_001, the image mountsunapee.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2233 px, from the resort's image server) labels the glade HAWE'S HIDEOUT (two black diamonds, beside the Sunbowl Express). Spelling from the map.",
+      "expect": {
+        "name": "Hawes's Hideout",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Hawe's Hideout"
+      }
+    },
+    {
+      "id": "way/260538100",
+      "reason": "Smooth Sail'n: Mount Sunapee's Winter 2025-2026 Trail Map (the James Niehues painting, 20251226_MS_winter-trail_map_001, the image mountsunapee.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2233 px, from the resort's image server) labels the green run SMOOTH SAILIN' in the South Peak Learning Area. Spelling from the map.",
+      "expect": {
+        "name": "Smooth Sail'n",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Smooth Sailin'"
+      }
+    },
+    {
+      "id": "way/242371283",
+      "reason": "Small Carpet: Mount Sunapee's Winter 2025-2026 Trail Map (the James Niehues painting, 20251226_MS_winter-trail_map_001, the image mountsunapee.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2233 px, from the resort's image server) lists eight lifts, A to H, and labels this carpet, F, the first above the Clipper Ship Quad's bottom at the Adventure Center, LITTLE CARPET. Name from the map.",
+      "expect": {
+        "name": "Small Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Little Carpet"
+      }
+    },
+    {
+      "id": "way/242371287",
+      "reason": "Piggyback, an 83 m rope tow beside Lime in the learning area: Mount Sunapee's Winter 2025-2026 Trail Map (the James Niehues painting, 20251226_MS_winter-trail_map_001, the image mountsunapee.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2233 px, from the resort's image server) lists eight lifts (the Sunbowl Express, Spruce Triple, North Peak Triple, Sunapee Express, Clipper Ship Quad and the Little, Middle and Flying Carpets) and draws no rope tow.",
+      "expect": {
+        "name": "Piggyback",
+        "aerialway": "rope_tow"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/242371285",
+      "reason": "Rope Tow, a 52 m tow between the Little and Middle Carpets in the learning area: Mount Sunapee's Winter 2025-2026 Trail Map (the James Niehues painting, 20251226_MS_winter-trail_map_001, the image mountsunapee.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2233 px, from the resort's image server) lists eight lifts (the Sunbowl Express, Spruce Triple, North Peak Triple, Sunapee Express, Clipper Ship Quad and the Little, Middle and Flying Carpets) and draws no rope tow.",
+      "expect": {
+        "name": "Rope Tow",
+        "aerialway": "rope_tow"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/205297779",
+      "reason": "Jet Stream: Mount Sunapee's Winter 2025-2026 Trail Map (the James Niehues painting, 20251226_MS_winter-trail_map_001, the image mountsunapee.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2233 px, from the resort's image server) draws an orange freestyle-terrain pill beside JET STREAM (blue square), below the Spruce Triple; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Jet Stream",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/205297780",
+      "reason": "Pipeline: Mount Sunapee's Winter 2025-2026 Trail Map (the James Niehues painting, 20251226_MS_winter-trail_map_001, the image mountsunapee.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2233 px, from the resort's image server) draws an orange freestyle-terrain pill beside PIPELINE (blue square), under the Spruce Triple; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Pipeline",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    }
+  ]
+}

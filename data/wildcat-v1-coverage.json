@@ -1,0 +1,102 @@
+{
+  "key": "wildcat-v1",
+  "ski_sha256": "ea725a2acb8f8b88a95133244f331b6a8c1bcc56132dcfc3db76a7665ff6a2a6",
+  "osm_timestamp": "2026-11-12T11:07:38Z",
+  "box": [
+    -71.28,
+    44.23,
+    -71.19,
+    44.29
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -71.246634,
+    44.248493,
+    -71.220091,
+    44.266389
+  ],
+  "margins_km": {
+    "west": 2.66,
+    "south": 2.06,
+    "east": 2.4,
+    "north": 2.63
+  },
+  "counts": {
+    "lifts": 4,
+    "runs_in_bounds": 50,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 2,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 8,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 4.4,
+    "runs_in_bounds": 25.7,
+    "runs_out_of_bounds": 2.4
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1504242100",
+      "name": "Thompson Brook Trail",
+      "difficulty": "unknown",
+      "length_m": 698,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1504242101",
+      "name": "Thompson Brook Trail",
+      "difficulty": "unknown",
+      "length_m": 1659,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -71.367188,
+      44.21371,
+      -71.015625,
+      44.339565
+    ],
+    "12": [
+      -71.367188,
+      44.21371,
+      -71.103516,
+      44.339565
+    ],
+    "13": [
+      -71.323242,
+      44.21371,
+      -71.147461,
+      44.308127
+    ],
+    "14": [
+      -71.30127,
+      44.229457,
+      -71.169434,
+      44.292401
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

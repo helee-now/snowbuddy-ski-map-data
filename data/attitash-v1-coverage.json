@@ -1,0 +1,73 @@
+{
+  "key": "attitash-v1",
+  "ski_sha256": "47237eabd9b549bc6037976b9bfb7457b2b0a9219e74665f21d8ee53a9ae9e72",
+  "osm_timestamp": "2026-11-12T11:04:35Z",
+  "box": [
+    -71.29,
+    44.04,
+    -71.19,
+    44.11
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -71.255528,
+    44.064206,
+    -71.216631,
+    44.084291
+  ],
+  "margins_km": {
+    "west": 2.75,
+    "south": 2.69,
+    "east": 2.13,
+    "north": 2.86
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 90,
+    "run_areas_in_bounds": 4,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 16,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 7.3,
+    "runs_in_bounds": 38.8,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -71.367188,
+      43.961191,
+      -71.015625,
+      44.21371
+    ],
+    "12": [
+      -71.367188,
+      44.024422,
+      -71.103516,
+      44.150681
+    ],
+    "13": [
+      -71.323242,
+      44.024422,
+      -71.147461,
+      44.119142
+    ],
+    "14": [
+      -71.30127,
+      44.024422,
+      -71.169434,
+      44.119142
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

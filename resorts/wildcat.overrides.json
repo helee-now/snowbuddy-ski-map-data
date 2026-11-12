@@ -1,0 +1,335 @@
+{
+  "slug": "wildcat",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/251260219 (Wildcat Mountain), which holds every lift and run of the resort. Two other winter_sports polygons reach into the box and are listed neighbours (resorts.json): Tuckerman Ravine, Mount Washington's backcountry bowl across Pinkham Notch, which is not Wildcat's (its gullies are left off), and Great Glen Trails, the nordic centre north on Route 16. Every named run and lift checked on 2026-11-12 against Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting with its legend and mountain stats: 48 trails, 5 lifts), the only map the page lists (read with WebFetch), read from the PDF's full-size copy on the resort's image server (scene7, 3575 x 4990 px), tile by tile. The legend has Easier (green circle), More Difficult (blue square) and Most Difficult (one black diamond), as OSM's easy, intermediate and advanced, and Tree Skiing (a pattern of trees, each area marked with a black diamond); there is no double black and no terrain park. The resort's lift and terrain status page loads by script, so the printed map is the only source and wins. Of OSM's named runs, all carry the map's rating but Stray-Cat (blue on the map; easy in OSM). The painting writes its names with a dash between words (UPPER-CATAPULT, LOWER-POLECAT, TOP-CAT, MIDDLE-POLECAT, WILDCAT-EXPRESS-QUAD) and OSM follows it on some runs and not on others (Upper-Wildcat, Lower-Polecat, Lift-Lion, Black-Cat; Middle Polecat, Lower Lynx): names that differ from the map only by that separator, an apostrophe or a space stay as OSM has them, Leos-Leap (LEO'S LEAP) among them. Names from the map: Al's Folly (OSM Alls-Folly), Tomcat (OSM TopCat, the green trail from Cat-Track to Catnap; the map's TOP-CAT is the black trail from the summit, OSM's Top-Cat), The Chute (OSM The-Chutes), and capitals for Middle Wildcat, Lower Wildcat, Lower Cat Track and Snowcat Trail (OSM Middle wildcat, Lower wild cat, Lower cat track, Snowcat trail). OSM's CAt-Catofe, a 216 m blue way from Cat-Track's east end towards Upper-Wildcat, is on no source under that name (the map draws Cat-Track running on into Middle Wildcat there and labels no trail of its own), so it stays as OSM has it; reported. OSM's Easy Way (161 m, green, near the Tomcat Triple's base) is not labelled on the map either and stays. Lifts: the four chairs (Wildcat Express Quad, Tomcat Triple, Bobcat Triple, Snowcat Triple) are in OSM, none hidden. Hidden: the seven tree-skiing areas OSM draws only as closed outlines (natural=wood without area=yes, rated advanced; one named Tree Skiing, one with the loc_name Bonus Woods), which would draw as runs looping round the woods, as Okemo's and Copper Mountain's glade outlines are. Out of bounds: the Thompson Brook Trail (two ways of a path tagged downhill and backcountry, 2.4 km), on Wildcat Mountain's own north-east flank beyond the boundary the map draws along Polecat, is drawn out of bounds by the rule (37 % and 1 % of its ways inside the polygon). Mount Washington's backcountry across Pinkham Notch is left off whole: Tuckerman Ravine's gullies by the neighbour rule, and by hides the 16 lines outside that polygon in the Overpass window (the Gulf of Slides' five gullies and the Southern Snowfields' four ways on Boott Spur, six lines near the Lakes of the Clouds, two of them untagged, which would draw as unrated runs in bounds, and a touring line on the mountain's west side), all beyond the box's west edge. OSM gaps (shipped as at Palisades Tahoe): Copy-Cat (blue, beside the Bobcat Triple), Ocelot Way (blue, at the Tomcat Triple's base), Cat & Mouse (green, by the lodge), the Snowbelt surface lift, and the tree-skiing areas as runs.",
+  "overrides": [
+    {
+      "id": "way/250187684",
+      "reason": "Stray-Cat, from Middle Polecat along the northern boundary to the base, is drawn blue with the More Difficult square (STRAY-CAT) on Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server); OSM rates it easy. The printed map wins.",
+      "expect": {
+        "name": "Stray-Cat",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/250212229",
+      "reason": "Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) labels this black trail between Middle Lynx and Starr-Line AL'S FOLLY; OSM spells it Alls-Folly. Name from the map.",
+      "expect": {
+        "name": "Alls-Folly",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Al's Folly"
+      }
+    },
+    {
+      "id": "way/250181890",
+      "reason": "OSM names this green trail, from Cat-Track and Upper Polecat down to the Catnap and Middle Polecat junction, TopCat; Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) labels it TOMCAT (green), while its TOP-CAT is the black trail from the summit beside the Wildcat Express Quad (OSM's Top-Cat). Name from the map.",
+      "expect": {
+        "name": "TopCat",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Tomcat"
+      }
+    },
+    {
+      "id": "way/250220759",
+      "reason": "Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) labels this black trail beside the Wildcat Express Quad near the base THE-CHUTE (one chute; the painting writes a dash between words); OSM names it The-Chutes. Name from the map.",
+      "expect": {
+        "name": "The-Chutes",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "The Chute"
+      }
+    },
+    {
+      "id": "way/250372569",
+      "reason": "Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) labels this trail MIDDLE WILDCAT, as its other names are written with capitals (Upper Wildcat, Cat-Track, Snowcat Slope); OSM writes it Middle wildcat. Name from the map.",
+      "expect": {
+        "name": "Middle wildcat",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Middle Wildcat"
+      }
+    },
+    {
+      "id": "way/250358022",
+      "reason": "Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) labels this trail LOWER WILDCAT, as its other names are written with capitals (Upper Wildcat, Cat-Track, Snowcat Slope); OSM writes it Lower wild cat. Name from the map.",
+      "expect": {
+        "name": "Lower wild cat",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Wildcat"
+      }
+    },
+    {
+      "id": "way/250357704",
+      "reason": "Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) labels this trail LOWER CAT TRACK, as its other names are written with capitals (Upper Wildcat, Cat-Track, Snowcat Slope); OSM writes it Lower cat track. Name from the map.",
+      "expect": {
+        "name": "Lower cat track",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Cat Track"
+      }
+    },
+    {
+      "id": "way/250360321",
+      "reason": "Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) labels this trail SNOWCAT TRAIL, as its other names are written with capitals (Upper Wildcat, Cat-Track, Snowcat Slope); OSM writes it Snowcat trail. Name from the map.",
+      "expect": {
+        "name": "Snowcat trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Snowcat Trail"
+      }
+    },
+    {
+      "id": "way/250413902",
+      "reason": "The 201 m outline of a tree-skiing area named Tree Skiing, a closed way tagged natural=wood without area=yes (piste:type=downhill, advanced), which would draw as a run looping round the wood; Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) shades its tree-skiing areas with a pattern of trees and a black diamond, not as trails. Hidden as Okemo's and Copper Mountain's glade outlines are.",
+      "expect": {
+        "name": "Tree Skiing",
+        "natural": "wood",
+        "piste:difficulty": "advanced",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/250372570",
+      "reason": "The 1755 m outline of a tree-skiing area (loc_name Bonus Woods), a closed way tagged natural=wood without area=yes (piste:type=downhill, advanced), which would draw as a run looping round the wood; Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) shades its tree-skiing areas with a pattern of trees and a black diamond, not as trails. Hidden as Okemo's and Copper Mountain's glade outlines are.",
+      "expect": {
+        "name": null,
+        "natural": "wood",
+        "piste:difficulty": "advanced",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/250374751",
+      "reason": "The 1685 m outline of a tree-skiing area, a closed way tagged natural=wood without area=yes (piste:type=downhill, advanced), which would draw as a run looping round the wood; Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) shades its tree-skiing areas with a pattern of trees and a black diamond, not as trails. Hidden as Okemo's and Copper Mountain's glade outlines are.",
+      "expect": {
+        "name": null,
+        "natural": "wood",
+        "piste:difficulty": "advanced",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/250376208",
+      "reason": "The 961 m outline of a tree-skiing area, a closed way tagged natural=wood without area=yes (piste:type=downhill, advanced), which would draw as a run looping round the wood; Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) shades its tree-skiing areas with a pattern of trees and a black diamond, not as trails. Hidden as Okemo's and Copper Mountain's glade outlines are.",
+      "expect": {
+        "name": null,
+        "natural": "wood",
+        "piste:difficulty": "advanced",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/250382878",
+      "reason": "The 899 m outline of a tree-skiing area, a closed way tagged natural=wood without area=yes (piste:type=downhill, advanced), which would draw as a run looping round the wood; Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) shades its tree-skiing areas with a pattern of trees and a black diamond, not as trails. Hidden as Okemo's and Copper Mountain's glade outlines are.",
+      "expect": {
+        "name": null,
+        "natural": "wood",
+        "piste:difficulty": "advanced",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/250402292",
+      "reason": "The 1452 m outline of a tree-skiing area, a closed way tagged natural=wood without area=yes (piste:type=downhill, advanced), which would draw as a run looping round the wood; Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) shades its tree-skiing areas with a pattern of trees and a black diamond, not as trails. Hidden as Okemo's and Copper Mountain's glade outlines are.",
+      "expect": {
+        "name": null,
+        "natural": "wood",
+        "piste:difficulty": "advanced",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/250415371",
+      "reason": "The 545 m outline of a tree-skiing area, a closed way tagged natural=wood without area=yes (piste:type=downhill, advanced), which would draw as a run looping round the wood; Wildcat's 2025-26 winter trail map (skiwildcat.com/the-mountain/about-the-mountain/trail-map.aspx, 20251226_WC_winter-trail_map_001.pdf, the James Niehues painting, read from its full-size copy on the resort's image server) shades its tree-skiing areas with a pattern of trees and a black diamond, not as trails. Hidden as Okemo's and Copper Mountain's glade outlines are.",
+      "expect": {
+        "name": null,
+        "natural": "wood",
+        "piste:difficulty": "advanced",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/732602065",
+      "reason": "Main Gully (alt_name Gully #1), a backcountry gully in the Gulf of Slides on Boott Spur (Mount Washington), across Pinkham Notch 3 to 4 km west of Wildcat's boundary and just beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": "Main Gully",
+        "piste:difficulty": "freeride",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/732602063",
+      "reason": "Gully #2, a backcountry gully in the Gulf of Slides on Boott Spur (Mount Washington), across Pinkham Notch 3 to 4 km west of Wildcat's boundary and just beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": "Gully #2",
+        "piste:difficulty": "freeride",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/732602062",
+      "reason": "Gully #3, a backcountry gully in the Gulf of Slides on Boott Spur (Mount Washington), across Pinkham Notch 3 to 4 km west of Wildcat's boundary and just beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": "Gully #3",
+        "piste:difficulty": "freeride",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/732602061",
+      "reason": "Boot Spur Fingers (alt_name Gully #4), a backcountry gully in the Gulf of Slides on Boott Spur (Mount Washington), across Pinkham Notch 3 to 4 km west of Wildcat's boundary and just beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": "Boot Spur Fingers",
+        "piste:difficulty": "freeride",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/732602064",
+      "reason": "Gully #5, a backcountry gully in the Gulf of Slides on Boott Spur (Mount Washington), across Pinkham Notch 3 to 4 km west of Wildcat's boundary and just beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": "Gully #5",
+        "piste:difficulty": "freeride",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/886696627",
+      "reason": "A piece of the Southern Snowfields (OSM's route relation/12043367 names it), a backcountry line on Boott Spur's south side (Mount Washington), across Pinkham Notch 4 km south-west of Wildcat's boundary and beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:name": "Southern Snowfields",
+        "piste:difficulty": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/886696628",
+      "reason": "A piece of the Southern Snowfields (OSM's route relation/12043367 names it), a backcountry line on Boott Spur's south side (Mount Washington), across Pinkham Notch 4 km south-west of Wildcat's boundary and beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:name": "Southern Snowfields",
+        "piste:difficulty": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/886696629",
+      "reason": "A piece of the Southern Snowfields (OSM's route relation/12043367 names it), a backcountry line on Boott Spur's south side (Mount Washington), across Pinkham Notch 4 km south-west of Wildcat's boundary and beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:name": "Southern Snowfields",
+        "piste:difficulty": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/886696630",
+      "reason": "A piece of the Southern Snowfields (OSM's route relation/12043367 names it), a backcountry line on Boott Spur's south side (Mount Washington), across Pinkham Notch 4 km south-west of Wildcat's boundary and beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:name": "Southern Snowfields",
+        "piste:difficulty": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/981491133",
+      "reason": "An unnamed backcountry line near the Lakes of the Clouds on Mount Washington's south-west side, 5.5 km west of Wildcat's boundary and beyond the box's west edge; with no backcountry tag it would even draw as an unrated run in bounds: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": null,
+        "piste:grooming": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/981491135",
+      "reason": "An unnamed backcountry line near the Lakes of the Clouds on Mount Washington's south-west side, 5.5 km west of Wildcat's boundary and beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/981491136",
+      "reason": "An unnamed backcountry line near the Lakes of the Clouds on Mount Washington's south-west side, 5.5 km west of Wildcat's boundary and beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/981491137",
+      "reason": "An unnamed backcountry line near the Lakes of the Clouds on Mount Washington's south-west side, 5.5 km west of Wildcat's boundary and beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/981491138",
+      "reason": "An unnamed backcountry line near the Lakes of the Clouds on Mount Washington's south-west side, 5.5 km west of Wildcat's boundary and beyond the box's west edge: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/981491139",
+      "reason": "An unnamed backcountry line near the Lakes of the Clouds on Mount Washington's south-west side, 5.5 km west of Wildcat's boundary and beyond the box's west edge; with no backcountry tag it would even draw as an unrated run in bounds: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": null,
+        "piste:grooming": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/901411628",
+      "reason": "An unnamed backcountry line (a piece of an unnamed ski-touring route, relation/12247278) on Mount Washington's west side, 7 to 8 km west of Wildcat's boundary and beyond the Overpass window, where the pack has no elevation: no lift, no patrol, not on Wildcat's ticket or trail map. Left off as the gullies of Tuckerman Ravine, the listed neighbour, are, so the map draws none of Mount Washington's backcountry; kept, it would draw as an out-of-bounds run in the tiles at the box's west edge.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "easy",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    }
+  ]
+}

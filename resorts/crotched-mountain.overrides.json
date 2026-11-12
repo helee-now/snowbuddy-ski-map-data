@@ -1,0 +1,82 @@
+{
+  "slug": "crotched-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One multipolygon, relation/18511194 (Crotched Mountain Ski & Ride, two outer rings): the resort's north face from the summit to the base lodge on Francestown Road, on one ticket and one map (Epic); it holds every lift and run whole. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12 against Crotched Mountain's Winter 2025-2026 Trail Map (20251226_CR_winter-trial_map_001, the only winter map the resort's trail-maps page, crotchedmtn.com/the-mountain/about-the-mountain/trail-maps.aspx, links; the site serves curl an error page, so the page was read with WebFetch and the map at its full size, 3075 x 2204 px, from the resort's image server). Its trails are lines in their rating's colour with the symbol (green Easier, blue More Difficult, black Most Difficult, OSM's easy, intermediate and advanced), terrain parks orange with their feature sizes and glades red-labelled hatched areas; its statistics list 25 trails, two terrain parks (CM Park and NCC-1701) and five lifts (Rocket, high-speed detachable; Valley, a fixed-grip quad; Rover, a fixed-grip triple; West, a fixed-grip double; Lift Off, a surface lift). The resort publishes no other rating, so the printed map is the source and wins. All 25 trails are in OSM, with the map's rating but Zero G (OSM's Zero-G Progression Park, freeride; a green line on the map and not one of its parks). Names from the map: Zero G, Meteor (OSM Meteor (FIS Trail)), Rover (OSM Park Lift) and Lift Off (OSM Wonder Carpet); names that differ only by a space or a word stay as OSM has them (Blastoff for BLAST OFF, Super Nova for SUPERNOVA, Crotched Rocket for ROCKET). Parks: CM Park and NCC-1701 get the park flag (OSM rates both freeride, kept). Hidden: an unnamed T-bar tagged abandoned east of the polygon. OSM gaps (reported, not blocking): the map's four glades are not drawn: Darkstar, Solstice Glade and Final Frontier Glade are in OSM tagged piste:type=yes, which the type rule leaves out (as Pico's Outlaw glade), and Kuiper Belt is not in OSM.",
+  "overrides": [
+    {
+      "id": "way/360390345",
+      "reason": "Zero-G Progression Park: Crotched Mountain's Winter 2025-2026 Trail Map (20251226_CR_winter-trial_map_001, the image crotchedmtn.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2204 px, from the resort's image server) draws ZERO G as a green line (Easiest) from Comet to the base beside the Rover chair, with no terrain-park colour, and its statistics list two terrain parks, CM Park and NCC-1701; OSM names the way Zero-G Progression Park and rates it freeride. Name and rating from the map.",
+      "expect": {
+        "name": "Zero-G Progression Park",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "name": "Zero G",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/360386396",
+      "reason": "Meteor (FIS Trail): Crotched Mountain's Winter 2025-2026 Trail Map (20251226_CR_winter-trial_map_001, the image crotchedmtn.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2204 px, from the resort's image server) labels the blue run METEOR; OSM's name adds a description in brackets. Name from the map.",
+      "expect": {
+        "name": "Meteor (FIS Trail)",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Meteor"
+      }
+    },
+    {
+      "id": "way/360389374",
+      "reason": "CM Park: Crotched Mountain's Winter 2025-2026 Trail Map (20251226_CR_winter-trial_map_001, the image crotchedmtn.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2204 px, from the resort's image server) draws CM PARK as an orange terrain-park line (size L) beside the Valley chair, and its statistics name it one of the two terrain parks; OSM rates it freeride and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "CM Park",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/360387755",
+      "reason": "NCC-1701: Crotched Mountain's Winter 2025-2026 Trail Map (20251226_CR_winter-trial_map_001, the image crotchedmtn.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2204 px, from the resort's image server) draws NCC-1701 as an orange terrain-park line (sizes S and M) above Galaxy, and its statistics name it one of the two terrain parks; OSM rates it freeride and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "NCC-1701",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/255586624",
+      "reason": "Park Lift: the triple between the Crotched Rocket and the Zero G run, which Crotched Mountain's Winter 2025-2026 Trail Map (20251226_CR_winter-trial_map_001, the image crotchedmtn.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2204 px, from the resort's image server) labels ROVER and its statistics list as Rover (fixed grip triple). Name from the map.",
+      "expect": {
+        "name": "Park Lift",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Rover"
+      }
+    },
+    {
+      "id": "way/255586622",
+      "reason": "Wonder Carpet: the surface lift beside Launch Pad at the base, which Crotched Mountain's Winter 2025-2026 Trail Map (20251226_CR_winter-trial_map_001, the image crotchedmtn.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2204 px, from the resort's image server) labels LIFT-OFF and its statistics list as Lift Off (surface). Name from the map.",
+      "expect": {
+        "name": "Wonder Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Lift Off"
+      }
+    },
+    {
+      "id": "way/1382888232",
+      "reason": "An unnamed T-bar tagged abandoned=yes, 253 m long, about 0.8 km east of the resort's polygon: Crotched Mountain's Winter 2025-2026 Trail Map (20251226_CR_winter-trial_map_001, the image crotchedmtn.com/the-mountain/about-the-mountain/trail-maps.aspx links, read at its full size, 3075 x 2204 px, from the resort's image server) draws no lift there, and its statistics list five lifts (Rocket, Valley, Rover, West and Lift Off).",
+      "expect": {
+        "aerialway": "t-bar",
+        "abandoned": "yes"
+      },
+      "hide": true
+    }
+  ]
+}

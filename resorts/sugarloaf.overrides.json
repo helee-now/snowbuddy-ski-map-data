@@ -1,0 +1,363 @@
+{
+  "slug": "sugarloaf",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/18484946 (Sugarloaf, three outer ways): the lift-served mountain from the Snowfields above the lifts to the base village, West Mountain and the Snubber lift on one ticket and one map. Maine Huts and Trails (way/1233552674), a separate non-profit's hut-to-hut network whose polygon reaches into the box's north edge, is a listed neighbour in resorts.json and holds nothing of the resort's; the Sugarloaf Outdoor Center (way/1233552673, the resort's own nordic centre) is the resort's and not a neighbour, and its nordic trails are left out by the type rule. Every named run and lift checked on 2026-11-12 against Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12): one 1530 x 1323 pt page, the painting with its Snowfields inset (front side with the six chutes and the back side's numbered lines 70 to 74) and its Burnt Mountain, Eastern Territory and Brackett Basin panels; its labels are drawn as outlines over a 72 dpi copy of the painting, so it was rendered at 300 dpi and read tile by tile, the doubtful places at 400 to 600 dpi. Its key: Experts Only (two black diamonds, 'use extreme caution'), Most Difficult (one), More Difficult (blue square), Easier (green circle), Wild Things (not groomed), Slow and Family Skiing, Friendliest Way Down, Freestyle Terrain (orange pills), and line styles for the Ski Area Boundary (red dashes), Golden Road, the Burnt Mountain Trail, Whiffletree Egress, King Pine X-Cut, Snubber Egress, the logging and cat roads; 80 glades and connecting trails are numbered, named in the key and drawn in their grade's colour without symbols. The resort's mountain report loads its trail status by script, so the printed map is the only source and wins. OSM's easy, intermediate, advanced and expert are the map's four grades. Ratings: Haywire (advanced) and the east way of Tote Road Crosscut (easy) to intermediate, the middle way of Upper Scoot (easy) to intermediate, the east way of Bucksaw X-Cut (intermediate) to easy, and Rough Cut Glade (advanced) to expert with the rest of Brackett Basin. Brackett Basin, the Eastern Territory and Burnt Mountain lie inside the map's boundary (the brief's rule: in bounds only where the map draws them inside it), so their three run areas (rated expert, the zones' two diamonds, and named Brackett Basin and Burnt Mountain as the map labels them) and their 15 lines OSM tags backcountry (Golden Road, the glades, Logging Road and the Whiffletree and Snubber egresses) are kept in bounds by overrides, with OSM's ratings on the lines; the Snowfields' chutes lie inside OSM's polygon or carry no backcountry tag and are in bounds already, and the back side's lines 70 to 74, which the map numbers without symbols, keep OSM's ratings (Awesome extreme, the others expert). Names from the map: Hard Tack (OSM Hard Track), Hayburner (Hayburnder), Natalie's Birches (Birches Slope), Beaver Tail (the upper way's Beaver Trail), Androscoggin Glade (Adroscoggin), Cant Dog 1 and 2 (Can't Dog), Whiffletree Egress (Wiffletree), Brackett Basin and Burnt Mountain for the areas, the Double Runner West lift (Doubble) and Snubber for the lift's lower way (Snubber Lower); the '[condo access]' note is hidden as a name. Names that differ from the map only by an abbreviation, a word or a section stay as OSM has them: the U., M. and L. names, Upper and Lower Poleline (U. and L. POLE LINE), Tote Road Crosscut (TOTE ROAD X-CUT), Edger 1 and 2 and Sweeper 1 (EDGER and SWEEPER GLADE), Sheer Boom (the map's 31 Upper Sheer Boom and SHEER BOOM along the SuperQuad, both black), Whiffletree SuperQuad (WHIFFLETREE). Kept as OSM has them after checking the lines: Candy Side's lower way (easy: the map's blue Candy Side ends at the green run to the base), Upper Whiffletree's top way (intermediate: the short blue line between Jill Poke and Rollway at the lift's top), and runs the map draws unlabelled or not at all (Stomping Ground, Pipeline, Winter's Way Crosscut, the west way of Tote Road Crosscut). Parks: none flagged. The map's orange pills (S/M, M, S, L, BX) sit on rated trails drawn in their own colours, and a park flag would draw the whole trail as a park, as at Killington; its one named park, The Yard (M/L), is not in OSM. Lifts: the map's A to N are in OSM (Whiffletree, Sugarloaf SuperQuad, Bucksaw Express, King Pine, Timberline, Skyline, Snubber in two ways, Skidway, Sawduster, Double Runner East and West, West Mountain, Bateau T-Bar, Moosecalator). OSM gaps (shipped as at Palisades Tahoe): the CVA Colby T-Bar (lift O); The Yard; L. Sheer Boom, L. Skidder and L. Double Bitter; Skid Road; Rookie River and Lower Rookie River; Drop Line (closed to skiing); the glades Cant Hook, Blade, Stump Shot, Fred's Pitch, Boomer, Kickback, Swedish Fiddle, Raker Tooth, Broccoli Garden, Stub's, Blueberry's Grove, Kerf, Ram Pasture, Boomscooter, Barber Chair, Jackpot, Branding Ax, Greenhorn, Gondi, Alice's Winterland, Red Horse, Blacksmith, High Ball and Slashfire; the King Pine X-Cut and the Burnt Mountain Trail.",
+  "overrides": [
+    {
+      "id": "way/198538959",
+      "reason": "Haywire, from Peavy X-Cut down to the lower Candy Side above the base, is a blue line with a blue square (More Difficult) on Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Haywire",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/198997269",
+      "reason": "The east way of Bucksaw X-Cut (104 m, to the Lower Timberline corridor): Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws Bucksaw X-Cut (trail 36) as one green line with a green circle (Easier); OSM rates its west way easy and this one intermediate. The printed map wins.",
+      "expect": {
+        "name": "Bucksaw X-Cut",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/198987684",
+      "reason": "The middle way of Upper Scoot (74 m, where Good Chance X-Cut leaves it): Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws U. SCOOT as one blue line with a blue square (More Difficult) from Spurline down to Horseshoe; OSM rates its two other ways intermediate and this one easy. The printed map wins.",
+      "expect": {
+        "name": "Upper Scoot",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/961456430",
+      "reason": "The east way of Tote Road Crosscut (177 m, across the SuperQuad line from the Double Runner West top): Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws trail 47, TOTE ROAD X-CUT, there as a blue line with a blue square (More Difficult) between Lower Spillway and Upper Competition Hill; OSM rates it easy. The printed map wins. (Its 575 m west way, which the map does not draw, keeps OSM's easy.)",
+      "expect": {
+        "name": "Tote Road Crosscut",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1510195785",
+      "reason": "Rough Cut Glade (trail 62) lies in Brackett Basin, which Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) labels with two black diamonds (Experts Only) as a whole and whose glades it numbers without symbols of their own; OSM rates this glade advanced and the basin's others expert. The map's grade, the harder, wins.",
+      "expect": {
+        "name": "Rough Cut Glade",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/770748719",
+      "reason": "Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; named BRACKETT BASIN and rated Experts Only (two diamonds) from the map (OSM advanced).",
+      "expect": {
+        "name": "Brackett Basin Sidecountry Terrain",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "name": "Brackett Basin",
+        "difficulty": "expert",
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/770748721",
+      "reason": "Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; rated Experts Only (two diamonds) from the map (OSM advanced).",
+      "expect": {
+        "name": "Eastern Territory",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "expert",
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/372778061",
+      "reason": "Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; named BURNT MOUNTAIN and rated Experts Only (two diamonds) from the map (OSM advanced).",
+      "expect": {
+        "name": "Burnt Mountain Sidecountry Area",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "name": "Burnt Mountain",
+        "difficulty": "expert",
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510195777",
+      "reason": "Golden Road (trail 55), the access road along Brackett Basin's top, drawn in its own orange dashes beside the boundary. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line).",
+      "expect": {
+        "name": "Golden Road",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510195780",
+      "reason": "Androscoggin Glade (trail 75) on Burnt Mountain, which OSM spells Adroscoggin. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line). Name from the map (Androscoggin Glade).",
+      "expect": {
+        "name": "Adroscoggin Glade",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false,
+        "name": "Androscoggin Glade"
+      }
+    },
+    {
+      "id": "way/1510195782",
+      "reason": "Little Androscoggin Glade (trail 78) on Burnt Mountain. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line).",
+      "expect": {
+        "name": "Little Androscoggin Glade",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510195781",
+      "reason": "Kennebec Glade (trail 79) on Burnt Mountain. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line).",
+      "expect": {
+        "name": "Kennebec Glade",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510195783",
+      "reason": "Cant Dog Glade 1 (trail 67) in Brackett Basin (a cant dog is a logging tool, as the basin's other names are: OSM's apostrophe is a misspelling). Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line). Name from the map (Cant Dog 1).",
+      "expect": {
+        "name": "Can't Dog 1",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false,
+        "name": "Cant Dog 1"
+      }
+    },
+    {
+      "id": "way/1510195784",
+      "reason": "Cant Dog Glade 2 (trail 68) in Brackett Basin (OSM's apostrophe is a misspelling, as for Cant Dog 1). Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line). Name from the map (Cant Dog 2).",
+      "expect": {
+        "name": "Can't Dog 2",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false,
+        "name": "Cant Dog 2"
+      }
+    },
+    {
+      "id": "way/1510205575",
+      "reason": "Birler Glade 1 (trail 56) in Brackett Basin. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line).",
+      "expect": {
+        "name": "Birler Glade 1",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510205576",
+      "reason": "Birler Glade 2 (trail 57) in Brackett Basin. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line).",
+      "expect": {
+        "name": "Birler Glade 2",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510205579",
+      "reason": "Edger Glade 1 (trail 58) in Brackett Basin. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line).",
+      "expect": {
+        "name": "Edger 1",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510205580",
+      "reason": "Edger Glade 2 (trail 59) in Brackett Basin. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line).",
+      "expect": {
+        "name": "Edger 2",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510205578",
+      "reason": "Sweeper Glade 1 (trail 60) in Brackett Basin. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line).",
+      "expect": {
+        "name": "Sweeper 1",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510195787",
+      "reason": "Logging Road (trail 66), the logging road through the Eastern Territory to the log yards, drawn in its own blue dashes. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line).",
+      "expect": {
+        "name": "Logging Road",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510195786",
+      "reason": "Whiffletree Egress, the route from Brackett Basin back to the Whiffletree lift, drawn in its own purple dashes and named in the key (OSM spells it Wiffletree). Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line). Name from the map (Whiffletree Egress).",
+      "expect": {
+        "name": "Wiffletree Egress",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false,
+        "name": "Whiffletree Egress"
+      }
+    },
+    {
+      "id": "way/1510195788",
+      "reason": "Snubber Egress, the route from the Eastern Territory's log yards to the Snubber lift's bottom, drawn in its own lilac dashes and named in the key. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws it; OSM's rating is kept (the map rates the zone, not this line).",
+      "expect": {
+        "name": "Snubber Egress",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1510206176",
+      "reason": "A 27 m unnamed glade stub between Birler Glade 2 and Edger Glade 1 in Brackett Basin. Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) draws its Ski Area Boundary (red dashes) along the ridge from Sugarloaf's summit to Burnt Mountain's and down Burnt Mountain's and the Eastern Territory's far side to the Outdoor Center, so Brackett Basin, the Eastern Territory and Burnt Mountain lie inside it, each shaded and labelled with two black diamonds, with Golden Road, the egress routes and the numbered glades ('You can ski back to the King Pine or Whiffletree lifts from anywhere in Brackett Basin'; 'Brackett Basin closes at 3:00pm'). OSM's polygon covers the lift-served front only and tags this terrain backcountry, so it would draw out of bounds. In bounds, as the map draws the basin.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/198987689",
+      "reason": "Trail 2 of the Snowfields above the lifts is HARD TACK (two black diamonds, as OSM rates it) on Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12), its Snowfields inset and its key (hardtack, a logger's ration, as the mountain's other names are logging words); OSM spells it Hard Track. Spelling from the map.",
+      "expect": {
+        "name": "Hard Track",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Hard Tack"
+      }
+    },
+    {
+      "id": "way/137918273",
+      "reason": "HAYBURNER (one black diamond, as OSM rates it), between Upper Skidder and King's Landing on Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12); OSM spells it Hayburnder. Spelling from the map.",
+      "expect": {
+        "name": "Hayburnder",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Hayburner"
+      }
+    },
+    {
+      "id": "way/198539213",
+      "reason": "The green run down beside the Snubber lift from the base village is labelled NATALIE'S BIRCHES (green circle, as OSM rates it) on Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12), above Snowbrook; OSM names it Birches Slope. Name from the map.",
+      "expect": {
+        "name": "Birches Slope",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Natalie's Birches"
+      }
+    },
+    {
+      "id": "way/1356016980",
+      "reason": "The upper part of Beaver Tail below Upper West Mountain is labelled BEAVER TAIL with a blue square (as OSM rates it) on Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12), above the green lower part that OSM names Beaver Tail; OSM names this way Beaver Trail. Name from the map, so the run is one name.",
+      "expect": {
+        "name": "Beaver Trail",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Beaver Tail"
+      }
+    },
+    {
+      "id": "way/263540987",
+      "reason": "A 175 m link to the condominiums below Lower Glancer that OSM names '[condo access]', a mapper's note in brackets; Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12) writes CONDO ACCESS ONLY along it, a notice, not a trail name. The name is hidden; the run stays.",
+      "expect": {
+        "name": "[condo access]",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/140628525",
+      "reason": "Lift K is Double Runner West in the lift list of Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12); OSM spells it Doubble. Spelling from the map.",
+      "expect": {
+        "name": "Doubble Runner West",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Double Runner West"
+      }
+    },
+    {
+      "id": "way/137779428",
+      "reason": "The Snubber triple (lift G, 400 vertical feet) is one lift on Sugarloaf's 2025-26 winter trail map (sugarloaf.com/mountain-info, 'Trail Map', the James Niehues painting, the PDF made 2025-11-12), with a mid-station; OSM maps it as two ways joined at that station, the upper named Snubber and this lower one Snubber Lower. Named Snubber, as the map names it.",
+      "expect": {
+        "name": "Snubber Lower",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Snubber"
+      }
+    }
+  ]
+}

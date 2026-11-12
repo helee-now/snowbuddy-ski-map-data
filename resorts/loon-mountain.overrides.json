@@ -1,0 +1,105 @@
+{
+  "slug": "loon-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/334246239 (Loon Mountain Resort): Loon Peak, North Peak and South Peak, with the West Basin and the Governor Adams, Octagon and Pemigewasset bases, on one ticket and one map (Ikon); it holds every lift and run of the resort but the bottom of the River's Edge Double beside the Pemigewasset base. The Kanc Recreation Area, a separate venue with its own rope tow west of the West Basin, is a listed neighbour (resorts.json). Every named run and lift checked on 2026-11-12 against Loon's winter trail map (the PDF its Mountain Maps page, loonmtn.com/mountain-maps, links as Winter Trail Map, served from the resort's content host and last modified 2026-11-10: the 2026-27 edition, with the Black Ridge expansion shaded as future terrain and a future gondola dashed), one raster page with no text layer, rendered at three to seven times its size and read tile by tile, with the resort's Lifts page (loonmtn.com/lifts), its Terrain Parks page (loonmtn.com/parks) and its Mountain Stats page (loonmtn.com/mountain-stats: 73 trails; 13 lifts, a gondola, the Kancamagus 8, three high-speed quads, two quads, three doubles and three carpets). The key has Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Most Difficult use extra caution (two), OSM's easy, intermediate, advanced and expert, with Freestyle Terrain as an orange pill and symbols for tree skiing, moguls, the halfpipe and race trails. The resort's lift and trail status loads by script, so the printed map is the source and wins. OSM's named runs carry the map's rating but two: Brookway Extension (intermediate in OSM, a green circle on the map) and Undercut (advanced, two diamonds). Names that differ from the map only by an apostrophe, a space or an article stay as OSM has them (Can't Dog for CANT DOG, Rip Saw for RIPSAW, The Link for LINK), as do lift names without the map's Gondola or Double (White Mountain Express, River's Edge) and the Sarsaparilla Carpet Lift. Runs OSM names that the map does not print stay with OSM's rating (Bail Out, Ken's Way and Slash). Parks: the map's orange pills mark Loon Mountain Park, Springboard, Little Sister, Lil' Stash (the resort's Burton tree park, both of OSM's ways) and Air Site, which get the park flag with OSM's ratings kept. Lifts: the map draws twelve (the White Mountain Express Gondola, the North Peak and Seven Brothers Express Quads, the East Basin Double, the Kancamagus 8, the Kissin' Cousin Double, the Sarsaparilla Carpet and a short lift beside it, the Tote Road Quad, the Lincoln Express Quad, the River's Edge Double and the Timbertown Quad), all in OSM but that short lift; hidden: the Little Sister Double, decommissioned in 2026, which OSM still maps. OSM gaps (reported, not blocking): Sarsaparilla, a green run beside the carpet of that name; the short lift beside the Sarsaparilla Carpet, whose label (LITTLE ...) is not legible at the map's resolution, and the third carpet the stats count; and the halfpipe the map draws at the foot of the gondola.",
+  "overrides": [
+    {
+      "id": "way/143797790",
+      "reason": "Brookway Extension: Loon Mountain Resort's winter trail map (the PDF its Mountain Maps page, loonmtn.com/mountain-maps, links as Winter Trail Map, served from the resort's content host and last modified 2026-11-10: the 2026-27 edition, with the Black Ridge expansion shaded as future terrain) draws a green circle (Easiest) beside BROOKWAY EXTENSION, the link from Camp III to Brookway along the boundary below North Peak; OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Brookway Extension",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1292871668",
+      "reason": "Undercut: Loon Mountain Resort's winter trail map (the PDF its Mountain Maps page, loonmtn.com/mountain-maps, links as Winter Trail Map, served from the resort's content host and last modified 2026-11-10: the 2026-27 edition, with the Black Ridge expansion shaded as future terrain) draws two black diamonds (Most Difficult, use extra caution) beside UNDERCUT on South Peak, west of the Lincoln Express Quad; OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Undercut",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/143801549",
+      "reason": "Loon Mountain Park: Loon Mountain Resort's winter trail map (the PDF its Mountain Maps page, loonmtn.com/mountain-maps, links as Winter Trail Map, served from the resort's content host and last modified 2026-11-10: the 2026-27 edition, with the Black Ridge expansion shaded as future terrain) draws an orange freestyle-terrain pill beside LOON MOUNTAIN PARK under the White Mountain Express Gondola, and the resort's Terrain Parks page (loonmtn.com/parks: Little Sister's Progression and Little Sister parks, Springboard Park, Loon Mountain Park and Lil' Stash) names it the resort's main park; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Loon Mountain Park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/143801546",
+      "reason": "Springboard: Loon Mountain Resort's winter trail map (the PDF its Mountain Maps page, loonmtn.com/mountain-maps, links as Winter Trail Map, served from the resort's content host and last modified 2026-11-10: the 2026-27 edition, with the Black Ridge expansion shaded as future terrain) draws an orange freestyle-terrain pill beside SPRINGBOARD, beside Seven Brothers, and the resort's Terrain Parks page (loonmtn.com/parks: Little Sister's Progression and Little Sister parks, Springboard Park, Loon Mountain Park and Lil' Stash) names Springboard Park; OSM rates it intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Springboard",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/143801582",
+      "reason": "Little Sister: Loon Mountain Resort's winter trail map (the PDF its Mountain Maps page, loonmtn.com/mountain-maps, links as Winter Trail Map, served from the resort's content host and last modified 2026-11-10: the 2026-27 edition, with the Black Ridge expansion shaded as future terrain) draws an orange freestyle-terrain pill beside LITTLE SISTER (green circle) at the foot of Loon Peak, and the resort's Terrain Parks page (loonmtn.com/parks: Little Sister's Progression and Little Sister parks, Springboard Park, Loon Mountain Park and Lil' Stash) puts the Progression and Little Sister parks on the Little Sister trail; OSM rates it easy and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Little Sister",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1247968696",
+      "reason": "Lil' Stash, the glade's outline: Loon Mountain Resort's winter trail map (the PDF its Mountain Maps page, loonmtn.com/mountain-maps, links as Winter Trail Map, served from the resort's content host and last modified 2026-11-10: the 2026-27 edition, with the Black Ridge expansion shaded as future terrain) draws three STASH icons with orange freestyle-terrain pills in the woods between Brookway and Lower Bear Claw, and the resort's Terrain Parks page (loonmtn.com/parks: Little Sister's Progression and Little Sister parks, Springboard Park, Loon Mountain Park and Lil' Stash) names Lil' Stash, a tree park built with Burton; OSM rates the outline easy and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Lil' Stash",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1489649650",
+      "reason": "Lil' Stash, the glade's line: Loon Mountain Resort's winter trail map (the PDF its Mountain Maps page, loonmtn.com/mountain-maps, links as Winter Trail Map, served from the resort's content host and last modified 2026-11-10: the 2026-27 edition, with the Black Ridge expansion shaded as future terrain) draws three STASH icons with orange freestyle-terrain pills in the woods between Brookway and Lower Bear Claw, and the resort's Terrain Parks page (loonmtn.com/parks: Little Sister's Progression and Little Sister parks, Springboard Park, Loon Mountain Park and Lil' Stash) names Lil' Stash, a tree park built with Burton; OSM rates the line intermediate and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Lil' Stash",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/466214761",
+      "reason": "Air Site: Loon Mountain Resort's winter trail map (the PDF its Mountain Maps page, loonmtn.com/mountain-maps, links as Winter Trail Map, served from the resort's content host and last modified 2026-11-10: the 2026-27 edition, with the Black Ridge expansion shaded as future terrain) marks AIR SITE, between Lower Flume and Triple Trouble under the North Peak Express Quad, with an orange freestyle-terrain pill and the race/competition-trail symbol, and no difficulty symbol; OSM rates it advanced with moguls and has no park tag. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Air Site",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "mogul"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/143797779",
+      "reason": "Little Sister Double: decommissioned in 2026 (the resort's news page Little Sister Chairlift Auction: installed 1966, decommissioned 2026, its chairs auctioned); Loon Mountain Resort's winter trail map (the PDF its Mountain Maps page, loonmtn.com/mountain-maps, links as Winter Trail Map, served from the resort's content host and last modified 2026-11-10: the 2026-27 edition, with the Black Ridge expansion shaded as future terrain) draws no lift beside the Little Sister trail, and the resort's Mountain Stats page counts three doubles (East Basin, Kissin' Cousin and River's Edge). OSM still maps it.",
+      "expect": {
+        "name": "Little Sister Double",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    }
+  ]
+}

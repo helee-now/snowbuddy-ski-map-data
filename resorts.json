@@ -201,6 +201,67 @@
       "coverage": "data/aspen-snowmass-v2-coverage.json"
     },
     {
+      "slug": "attitash",
+      "name": "Attitash",
+      "version": 1,
+      "key": "attitash-v1",
+      "box": [
+        -71.29,
+        44.04,
+        -71.19,
+        44.11
+      ],
+      "ski_area": "way/256024127",
+      "neighbours": [
+        {
+          "id": "way/1360714249",
+          "name": "Bear Notch Ski Touring Center",
+          "reason": "The Bear Notch Ski Touring Center's cross-country centre, a separate venue with its own passes on Bear Notch Road 1.6 km west of Bear Peak: its polygon (the centre's nordic trails) reaches into the box's west edge, so it is listed by the neighbour rule; it holds no lift or downhill run of the resort's, and its nordic trails are left out by the type rule anyway."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "NH_Umbagog_LiDAR_2016_D16",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T11:04:35Z",
+      "overpass_box": [
+        -71.33,
+        44.02,
+        -71.15,
+        44.13
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x31y488_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x31y489_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x31y490_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x32y488_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x32y489_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x32y490_NH_Umbagog_LiDAR_2016_D16.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "NH_Umbagog_LiDAR_2016_D16",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -71.29,
+          44.04,
+          -71.19,
+          44.11
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-12T11:08:16Z",
+      "ski_file": {
+        "path": "data/attitash-v1-ski.pmtiles",
+        "bytes": 123660,
+        "sha256": "47237eabd9b549bc6037976b9bfb7457b2b0a9219e74665f21d8ee53a9ae9e72"
+      },
+      "coverage": "data/attitash-v1-coverage.json"
+    },
+    {
       "slug": "banff-sunshine",
       "name": "Banff Sunshine",
       "version": 1,
@@ -764,6 +825,39 @@
         "sha256": "8193e5b5054075e0cbb3ec4d0a671ca333dbe8a6f8b54880e4fb0781c69a00c5"
       },
       "coverage": "data/crested-butte-v1-coverage.json"
+    },
+    {
+      "slug": "crotched-mountain",
+      "name": "Crotched Mountain",
+      "version": 1,
+      "key": "crotched-mountain-v1",
+      "box": [
+        -71.91,
+        42.98,
+        -71.84,
+        43.04
+      ],
+      "ski_area": "relation/18511194",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T11:13:39Z",
+      "overpass_box": [
+        -71.95,
+        42.96,
+        -71.8,
+        43.06
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n43w072/USGS_13_n43w072.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w072/USGS_13_n44w072.tif"
+      ],
+      "built_at": "2026-11-12T11:19:27Z",
+      "ski_file": {
+        "path": "data/crotched-mountain-v1-ski.pmtiles",
+        "bytes": 64869,
+        "sha256": "ba1ddcae0c25253a0d4a444328142fb59660e06035069798358dd2cacbd64bc3"
+      },
+      "coverage": "data/crotched-mountain-v1-coverage.json"
     },
     {
       "slug": "crystal-mountain",
@@ -1412,6 +1506,67 @@
       "coverage": "data/lake-louise-v1-coverage.json"
     },
     {
+      "slug": "loon-mountain",
+      "name": "Loon Mountain",
+      "version": 1,
+      "key": "loon-mountain-v1",
+      "box": [
+        -71.69,
+        44.01,
+        -71.59,
+        44.08
+      ],
+      "ski_area": "way/334246239",
+      "neighbours": [
+        {
+          "id": "way/759661881",
+          "name": "Kanc Recreation Area",
+          "reason": "A separate venue in Lincoln, west of Loon's West Basin and inside the box: a small hill with its own rope tow (Kanc Rope Tow), four named runs (Papoose, Brave, Chief and Kanc Park) and five short unnamed ones, on no Loon trail map or lift list (the resort counts 13 lifts, none of them a rope tow). Left off by the owner's rule (\"leave them off\")."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "NH_Umbagog_LiDAR_2016_D16",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T11:09:40Z",
+      "overpass_box": [
+        -71.73,
+        43.99,
+        -71.55,
+        44.1
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x28y488_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x28y489_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x29y488_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x29y489_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w072/USGS_13_n44w072.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n45w072/USGS_13_n45w072.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "NH_Umbagog_LiDAR_2016_D16",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -71.69,
+          44.01,
+          -71.59,
+          44.08
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 66.697,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 33.303
+      },
+      "built_at": "2026-11-12T11:13:09Z",
+      "ski_file": {
+        "path": "data/loon-mountain-v1-ski.pmtiles",
+        "bytes": 129312,
+        "sha256": "22f000385c24507c00bae490de29d8374d9fb631708974261ad17dd5c527998e"
+      },
+      "coverage": "data/loon-mountain-v1-coverage.json"
+    },
+    {
       "slug": "mammoth-mountain",
       "name": "Mammoth Mountain",
       "version": 3,
@@ -1530,6 +1685,64 @@
         "sha256": "94d0370d5bad9f75204a36a04cbd3f344c021b15e35357e8d0a06508600e9256"
       },
       "coverage": "data/mount-snow-v1-coverage.json"
+    },
+    {
+      "slug": "mount-sunapee",
+      "name": "Mount Sunapee",
+      "version": 1,
+      "key": "mount-sunapee-v1",
+      "box": [
+        -72.12,
+        43.29,
+        -72.03,
+        43.36
+      ],
+      "ski_area": "way/1230199887",
+      "elevation": "3dep1",
+      "elevation_project": "NH_CT_RiverNorthL6_2015",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T11:10:40Z",
+      "overpass_box": [
+        -72.16,
+        43.27,
+        -71.99,
+        43.38
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_CT_RiverNorthL6_2015/TIFF/USGS_one_meter_x24y480_NH_CT_RiverNorthL6_2015.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_CT_RiverNorthL6_2015/TIFF/USGS_one_meter_x24y481_NH_CT_RiverNorthL6_2015.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_CT_RiverNorthL6_2015/TIFF/USGS_one_meter_x25y480_NH_CT_RiverNorthL6_2015.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_CT_RiverNorthL6_2015/TIFF/USGS_one_meter_x25y481_NH_CT_RiverNorthL6_2015.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_CT_RiverNorthL6_2015/TIFF/USGS_one_meter_x73y480_NH_CT_RiverNorthL6_2015.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_CT_RiverNorthL6_2015/TIFF/USGS_one_meter_x73y481_NH_CT_RiverNorthL6_2015.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_CT_RiverNorthL6_2015/TIFF/USGS_one_meter_x74y480_NH_CT_RiverNorthL6_2015.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_CT_RiverNorthL6_2015/TIFF/USGS_one_meter_x74y481_NH_CT_RiverNorthL6_2015.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w072/USGS_13_n44w072.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w073/USGS_13_n44w073.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "NH_CT_RiverNorthL6_2015",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -72.12,
+          43.29,
+          -72.03,
+          43.36
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 99.961,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 0.039
+      },
+      "built_at": "2026-11-12T11:15:37Z",
+      "ski_file": {
+        "path": "data/mount-sunapee-v1-ski.pmtiles",
+        "bytes": 95165,
+        "sha256": "d6ae2f7aaa03f688540587734c457576a53f0c17dbb88d9364065411d84359b3"
+      },
+      "coverage": "data/mount-sunapee-v1-coverage.json"
     },
     {
       "slug": "mountain-high",
@@ -2782,6 +2995,69 @@
       "coverage": "data/sugarbush-v1-coverage.json"
     },
     {
+      "slug": "sugarloaf",
+      "name": "Sugarloaf",
+      "version": 1,
+      "key": "sugarloaf-v1",
+      "box": [
+        -70.37,
+        45.01,
+        -70.25,
+        45.09
+      ],
+      "ski_area": "relation/18484946",
+      "neighbours": [
+        {
+          "id": "way/1233552674",
+          "name": "Maine Huts and Trails",
+          "reason": "Maine Huts and Trails, a separate non-profit's hut-to-hut trail network: its polygon (the network's land from Carrabassett Valley north to the Dead River, about 20 km2) reaches into the box's north edge north of Sugarloaf's Outdoor Center, so it is listed by the neighbour rule; it holds no lift or downhill run of the resort's, and its nordic trails are left out by the type rule anyway."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "ME_WesternMtns_B24",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T11:23:50Z",
+      "overpass_box": [
+        -70.41,
+        44.99,
+        -70.21,
+        45.11
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x38y499_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x38y500_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x39y499_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x39y500_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x40y499_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x40y500_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n45w071/USGS_13_n45w071.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n46w071/USGS_13_n46w071.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "ME_WesternMtns_B24",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -70.37,
+          45.01,
+          -70.25,
+          45.09
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 98.463,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 1.537
+      },
+      "built_at": "2026-11-12T11:36:10Z",
+      "ski_file": {
+        "path": "data/sugarloaf-v1-ski.pmtiles",
+        "bytes": 158312,
+        "sha256": "343f23403ee823a0f4467eaa06d81eec791ba3eb763e0dee6fb13608159ffcc3"
+      },
+      "coverage": "data/sugarloaf-v1-coverage.json"
+    },
+    {
       "slug": "summit-at-snoqualmie",
       "name": "The Summit at Snoqualmie",
       "version": 1,
@@ -2889,6 +3165,60 @@
         "sha256": "6afb69c2e3c83a41a85a1b1fd188be64cb661499ac203d0b8c260b656907ca38"
       },
       "coverage": "data/sun-valley-v1-coverage.json"
+    },
+    {
+      "slug": "sunday-river",
+      "name": "Sunday River",
+      "version": 1,
+      "key": "sunday-river-v1",
+      "box": [
+        -70.94,
+        44.43,
+        -70.81,
+        44.51
+      ],
+      "ski_area": "relation/14637842",
+      "elevation": "3dep1",
+      "elevation_project": "ME_WesternMtns_B24",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T11:19:47Z",
+      "overpass_box": [
+        -70.98,
+        44.41,
+        -70.77,
+        44.53
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x34y492_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x34y493_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x34y494_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x35y492_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x35y493_ME_WesternMtns_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/ME_WesternMtns_B24/TIFF/USGS_1M_19_x35y494_ME_WesternMtns_B24.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "ME_WesternMtns_B24",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -70.94,
+          44.43,
+          -70.81,
+          44.51
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-12T11:35:46Z",
+      "ski_file": {
+        "path": "data/sunday-river-v1-ski.pmtiles",
+        "bytes": 165228,
+        "sha256": "a398a55321c049e7dc350caff2679a3ab64a3c3f9fcd25ee1e2397712ece9324"
+      },
+      "coverage": "data/sunday-river-v1-coverage.json"
     },
     {
       "slug": "tamarack",
@@ -3130,6 +3460,73 @@
         "sha256": "ff73c9a03c7c9484f2a4a3137401acd1df8b16e62c22bd1948ae9b37e261a366"
       },
       "coverage": "data/whistler-blackcomb-v4-coverage.json"
+    },
+    {
+      "slug": "wildcat",
+      "name": "Wildcat",
+      "version": 1,
+      "key": "wildcat-v1",
+      "box": [
+        -71.28,
+        44.23,
+        -71.19,
+        44.29
+      ],
+      "ski_area": "way/251260219",
+      "neighbours": [
+        {
+          "id": "way/1361274255",
+          "name": "Tuckerman Ravine",
+          "reason": "Mount Washington's backcountry bowl across Pinkham Notch (Route 16) from Wildcat, reached on foot from the Pinkham Notch Visitor Center: no lift, no patrol and not on Wildcat's ticket or trail map. Its polygon reaches into the box's west edge, so its gullies (Left Gully, The Chute, Lobster Claw, Right Gully, the Lip, the Sluice) would otherwise draw beside Wildcat's runs. Left off by the owner's rule (\"leave them off\"): Mount Washington's backcountry is not Wildcat's."
+        },
+        {
+          "id": "way/1361269903",
+          "name": "Great Glen Trails",
+          "reason": "Great Glen Trails' nordic and snowshoe centre, a separate venue with its own passes on Route 16 2 km north of Wildcat's base: its polygon reaches into the box's north edge, so it is listed by the neighbour rule; it holds no lift or downhill run of the resort's, and its nordic, snowshoe, hiking and tubing ways are left out by the type rule anyway."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "NH_Umbagog_LiDAR_2016_D16",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T11:07:38Z",
+      "overpass_box": [
+        -71.32,
+        44.21,
+        -71.15,
+        44.31
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x31y490_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x31y491_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x31y492_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x32y490_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x32y491_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x32y492_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n45w072/USGS_13_n45w072.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "NH_Umbagog_LiDAR_2016_D16",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -71.28,
+          44.23,
+          -71.19,
+          44.29
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 97.578,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 2.422
+      },
+      "built_at": "2026-11-12T11:13:31Z",
+      "ski_file": {
+        "path": "data/wildcat-v1-ski.pmtiles",
+        "bytes": 115121,
+        "sha256": "ea725a2acb8f8b88a95133244f331b6a8c1bcc56132dcfc3db76a7665ff6a2a6"
+      },
+      "coverage": "data/wildcat-v1-coverage.json"
     },
     {
       "slug": "winter-park",

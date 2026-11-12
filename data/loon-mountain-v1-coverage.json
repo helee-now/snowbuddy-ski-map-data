@@ -1,0 +1,73 @@
+{
+  "key": "loon-mountain-v1",
+  "ski_sha256": "22f000385c24507c00bae490de29d8374d9fb631708974261ad17dd5c527998e",
+  "osm_timestamp": "2026-11-12T11:09:40Z",
+  "box": [
+    -71.69,
+    44.01,
+    -71.59,
+    44.08
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -71.663185,
+    44.033321,
+    -71.616099,
+    44.05677
+  ],
+  "margins_km": {
+    "west": 2.14,
+    "south": 2.59,
+    "east": 2.09,
+    "north": 2.58
+  },
+  "counts": {
+    "lifts": 11,
+    "runs_in_bounds": 92,
+    "run_areas_in_bounds": 8,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 20,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 10.4,
+    "runs_in_bounds": 50.2,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -71.71875,
+      43.961191,
+      -71.542969,
+      44.087585
+    ],
+    "12": [
+      -71.71875,
+      43.961191,
+      -71.542969,
+      44.087585
+    ],
+    "13": [
+      -71.71875,
+      43.992815,
+      -71.586914,
+      44.087585
+    ],
+    "14": [
+      -71.696777,
+      44.00862,
+      -71.586914,
+      44.087585
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

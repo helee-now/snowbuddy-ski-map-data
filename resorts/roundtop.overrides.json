@@ -1,0 +1,207 @@
+{
+  "slug": "roundtop",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/390539624 (Roundtop Mountain Resort, landuse=winter_sports with leisure=sports_centre): the north face of Roundtop above Lewisberry, from the summit to the base lodge, the Mountain View Lodge and the snow tubing park, on one ticket and one map (Epic); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12 against Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes): the trail-map page links it as the Roundtop Winter 2024-2025 Trail Map; the site serves curl an error page, so the PDF (two pages, the painting on the first, 911 x 685 pt, an image with no text layer) was fetched with WebFetch and rendered at two to eight times its size, read tile by tile. Its key: Easier (green circle), More Difficult (blue square), Most Difficult (black diamond) and Freestyle Terrain (an orange pill); two trails carry two diamonds, which the key does not list, read as OSM's expert as at the other resorts; its lifts are the Ramrod Triple, Exhibition Quad, Minuteman Quad, Fife & Drum Triple and Drummer Boy Quad chairs, the J-Bar, the Magic Mtn. Lift, Revere's Ride (a surface lift) and the Snow Tubing Lift, the nine lifts the resort's mountain-info page counts. The resort's lift and trail status loads by script, so the printed map is the source and wins. OSM draws most runs twice, as a line and as an outline (area=yes, as at Camelback); overrides name each way. Ratings from the map: Upper Ramrod (two diamonds; advanced in OSM), Upper Exhibition (one diamond; expert in OSM, with the 50 m piece OSM names Exhibition at the Exhibition Quad's top) and Recruit (one diamond on a black line; intermediate in OSM). Names from the map: Upper Lafayette's Leap and Lower Lafayette's Leap (OSM Upper and Lower Lafeyette Leap; the map's lower label reads LAFAYETT'S, its upper one LAFAYETTE'S, whose spelling is kept for both, and OSM's second Upper outline is the lower trail's), Barrett's Trail (Barrett's trail), Fife & Drum (Fife and Drum), Upper Exhibition for OSM's Exhibition piece and J-Bar for OSM's unnamed J-bar. Hidden: the 101 m line OSM names Half Pipe, inside J-Bar Park's outline beside the J-Bar, as the map draws no halfpipe (J-Bar Park is OSM's outline, a snow park, labelled from z14). Parks: the map's three freestyle pills sit on Recruit, Fife & Drum and J-Bar Park, the resort's three terrain parks; their outlines are snow parks in OSM, and the Recruit and Fife & Drum lines, ordinary trails on the map, get no park flag (a flag would draw the whole trail as a park, as at Hunter Mountain's Lower 42nd Street). Palisade Glade (one diamond) is OSM's 92 m glade line, tagged backcountry and inside the polygon, so it stays in bounds; the glade's wooded outline, a closed way named Palisade without area=yes that the pipeline would draw as a loop of run line, is hidden, as Winter Park's Wildwood Glade loops are. Kept as OSM has them: the lifts Magic Mountain (MAGIC MTN. LIFT) and Fife & Drum (the painting's FIFE & DRUM TRIPLE CHAIR), and Discovery Area's two outlines (novice in OSM, drawn green). The zip line and the tubing lanes are left out by their types. OSM gaps: none of the map's 20 trail names (the resort counts 21 trails) or nine lifts is missing.",
+  "overrides": [
+    {
+      "id": "way/1222871513",
+      "reason": "Upper Ramrod (OSM's line), from the Ramrod Triple's top down beside the chair, carries two black diamonds on Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Upper Ramrod",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1222869852",
+      "reason": "Upper Ramrod (OSM's outline), from the Ramrod Triple's top down beside the chair, carries two black diamonds on Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Upper Ramrod",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/153647405",
+      "reason": "Upper Exhibition (OSM's line), from the Exhibition Quad's top down between Upper Ramrod and the chair, carries one black diamond on Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes), which marks Upper Gunbarrel and Upper Ramrod beside it with two; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Upper Exhibition",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1222871512",
+      "reason": "Upper Exhibition (OSM's outline), from the Exhibition Quad's top down between Upper Ramrod and the chair, carries one black diamond on Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes), which marks Upper Gunbarrel and Upper Ramrod beside it with two; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Upper Exhibition",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/153647433",
+      "reason": "Exhibition: the 50 m piece from the Exhibition Quad's top onto Upper Exhibition, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) draws as the top of UPPER EXHIBITION, one black diamond; OSM rates it expert. Name and rating from the map.",
+      "expect": {
+        "name": "Exhibition",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Upper Exhibition",
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/153647395",
+      "reason": "Upper Lafeyette Leap (OSM's line): the black trail from the summit lodge down beside Bunker Hill, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) labels UPPER LAFAYETTE'S LEAP with one black diamond. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Upper Lafeyette Leap",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Upper Lafayette's Leap"
+      }
+    },
+    {
+      "id": "way/1222869843",
+      "reason": "Upper Lafeyette Leap (OSM's outline): the black trail from the summit lodge down beside Bunker Hill, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) labels UPPER LAFAYETTE'S LEAP with one black diamond. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Upper Lafeyette Leap",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Upper Lafayette's Leap"
+      }
+    },
+    {
+      "id": "way/1222869842",
+      "reason": "Upper Lafeyette Leap, the second outline of that name: it lies round OSM's Lower Lafeyette Leap line, the blue trail from Bunker Hill's foot past Palisade Glade to the base, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) labels LOWER LAFAYETT'S LEAP with a blue square (its upper label spells LAFAYETTE'S, kept for both). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Upper Lafeyette Leap",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Lafayette's Leap"
+      }
+    },
+    {
+      "id": "way/153647448",
+      "reason": "Lower Lafeyette Leap: the blue trail from Bunker Hill's foot past Palisade Glade to the base, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) labels LOWER LAFAYETT'S LEAP with a blue square (its upper label spells LAFAYETTE'S, kept for both). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Lower Lafeyette Leap",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Lafayette's Leap"
+      }
+    },
+    {
+      "id": "way/153647414",
+      "reason": "Barrett's trail (OSM's line): the black trail from the summit along the ski area boundary to Powderhorn and Fanny Hill, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) labels BARRETT'S TRAIL with one black diamond. Capitalisation from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Barrett's trail",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Barrett's Trail"
+      }
+    },
+    {
+      "id": "way/1222869836",
+      "reason": "Barrett's trail (OSM's outline): the black trail from the summit along the ski area boundary to Powderhorn and Fanny Hill, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) labels BARRETT'S TRAIL with one black diamond. Capitalisation from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Barrett's trail",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Barrett's Trail"
+      }
+    },
+    {
+      "id": "way/153647447",
+      "reason": "Recruit: the trail between Susquehanna and Minuteman, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) draws as a black line with one black diamond (and a freestyle pill near its top); OSM rates it intermediate. The printed map wins; the line gets no park flag (an ordinary trail on the map; its park is OSM's Recruit outline).",
+      "expect": {
+        "name": "Recruit",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1222869851",
+      "reason": "Recruit's outline, a snow park in OSM: Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) marks Recruit with one black diamond and a freestyle pill, one of the resort's three terrain parks; OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Recruit",
+        "piste:type": "snow_park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/153647444",
+      "reason": "Fife and Drum (OSM's line): the blue trail beside the Fife & Drum Triple, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) labels FIFE & DRUM with a blue square and a freestyle pill. Name from the map, as OSM names the chair; OSM's rating is the map's, and the line gets no park flag (its park is OSM's outline).",
+      "expect": {
+        "name": "Fife and Drum",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Fife & Drum"
+      }
+    },
+    {
+      "id": "way/1222869841",
+      "reason": "Fife and Drum (OSM's outline, a snow park): the trail beside the Fife & Drum Triple, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) labels FIFE & DRUM with a blue square and a freestyle pill. Name from the map, as OSM names the chair; OSM's rating is the map's.",
+      "expect": {
+        "name": "Fife and Drum",
+        "piste:type": "snow_park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Fife & Drum"
+      }
+    },
+    {
+      "id": "way/390542266",
+      "reason": "Half Pipe: a 101 m straight line inside OSM's J-Bar Park outline, beside the J-Bar. Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) draws no halfpipe; the lane there is J-BAR PARK, with a blue square and a freestyle pill, one of the resort's three terrain parks, which OSM's J-Bar Park outline (a snow park) draws and names. Hidden as a feature the resort no longer shows (renamed instead, it would be a second J-Bar Park and, as the only named park line, rank as a trunk run).",
+      "expect": {
+        "name": "Half Pipe",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/390539074",
+      "reason": "Palisade: the wooded outline of Palisade Glade (a closed way tagged natural=wood, gladed=yes and piste:type=downhill without area=yes), which the pipeline would draw as a 329 m loop of black run line round OSM's 92 m Palisade Glade line. Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) shows PALISADE GLADE, one black diamond, as a short glade between Bunker Hill and Lower Lafayette's Leap, drawn here by that line. Hidden until OpenStreetMap tags it area=yes, as Winter Park's Wildwood Glade loops; this expect then stops the build.",
+      "expect": {
+        "name": "Palisade",
+        "natural": "wood",
+        "gladed": "yes",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/256717307",
+      "reason": "An unnamed J-bar (114 m) at the foot of J-Bar Park, which Roundtop's Winter 2024-2025 trail map (20241205_RO_winter-trail_map_001.pdf, the 60th-anniversary painting skiroundtop.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) draws and labels J-BAR. Name from the map.",
+      "expect": {
+        "aerialway": "j-bar",
+        "name": null
+      },
+      "set": {
+        "name": "J-Bar"
+      }
+    }
+  ]
+}

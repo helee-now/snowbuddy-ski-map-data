@@ -1,0 +1,27 @@
+{
+  "slug": "liberty-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/390274626 (Liberty Mountain Resort, landuse=winter_sports with leisure=sports_centre): the mountain above Carroll Valley from its summit to the Alpine Lodge base (north-west) and the South Pole base (east), with the bubly Tube Park, on one ticket and one map (Epic); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12 against Liberty's Winter 2024-2025 trail map (20241122_LB_winter-trail_map_001.pdf, the James Niehues painting libertymountainresort.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes): the trail-map page links it as the Liberty Winter 2024-2025 Trail Map and no newer winter map is linked (the 2025-26 file name tried on the resort's asset server, 20251122_LB_winter-trail_map_001.pdf, answers 404); the site serves curl an error page, so the PDF (two 864 x 648 pt pages, the painting on the first, its trail and lift labels part of the image) was fetched with WebFetch and rendered at two and four times its size, read tile by tile. Its key: Easier (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Extremely Difficult (two), OSM's novice and easy, intermediate, advanced and expert, with Freestyle Terrain (an orange oval), Slow Skiing Zone (yellow hatching) and Terrain Park (a shaded area); its lifts are the Strata Quad, Eastwind Quad, Alpine Quad (with a mid station), Dipsy Quad, First Class Quad, First Class Carpet, Snow Cat Alley and the Snow Tubing Carpet, the eight lifts the resort's mountain-info page counts. The resort's lift and trail status loads by script, so the printed map is the source and wins. All of the map's 20 trail names are in OSM, each drawn twice (a line and an outline, area=yes, as at Camelback), and every one carries the map's rating: double black Upper Strata, Upper Eastwind and Upper Ultra; black Upper Blue Streak, White Lightning and West Side Park; blue Sidewinder, Lower Strata, Lower Eastwind, Lower Ultra, Upper and Lower Heavenly and Whitney's Way; green Dipsy Doodle, Adventure Alley, Vertigo, Lower Blue Streak, Sneaky Pete, Nova and the First Class Area (novice in OSM, drawn green). Parks: West Side Park, the shaded terrain park with the map's freestyle oval, is a snow park in OSM; East Side Park, also a snow park in OSM, is not marked on the painting, but the resort's terrain-parks page (libertymountainresort.com/the-mountain/about-the-mountain/terrain-parks.aspx) names it as its beginner park at the bottom of Adventure Alley, so it stays as OSM has it (intermediate, the harder of OSM's rating and the page's 'Beginner Area'). Kept as OSM has them, on no map: Cut Through, a 33 m blue connector, and Nova's second outline, the run-out at Snow Cat Alley. Lifts: OSM's Boulder Ridge Carpet is the carpet along the tubing lanes that the map labels Snow Tubing Carpet (renamed; kept as Camelback's tubing carpets are, on the map), and the Terrain Park J-Bar, tagged abandoned=yes in OSM and on no map or lift count, is hidden. The tubing lanes are left out by the type rule, as are 11 short piste:type=yes ways. OSM gaps: none of the map's trails or lifts is missing (the Alpine Quad's mid station is not mapped).",
+  "overrides": [
+    {
+      "id": "way/256656001",
+      "reason": "Boulder Ridge Carpet: the 120 m carpet beside the bubly Tube Park's lanes, below Dipsy Doodle, which Liberty's Winter 2024-2025 trail map (20241122_LB_winter-trail_map_001.pdf, the James Niehues painting libertymountainresort.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) draws along the tubing lanes and labels SNOW TUBING CARPET (one of the eight lifts the resort counts). Name from the map.",
+      "expect": {
+        "name": "Boulder Ridge Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Snow Tubing Carpet"
+      }
+    },
+    {
+      "id": "way/670049360",
+      "reason": "Terrain Park J-Bar: a 202 m J-bar between Adventure Alley and Vertigo, tagged abandoned=yes in OSM. Liberty's Winter 2024-2025 trail map (20241122_LB_winter-trail_map_001.pdf, the James Niehues painting libertymountainresort.com/the-mountain/about-the-mountain/trail-map.aspx links, the newest the resort publishes) draws no surface lift there and lists eight lifts without it, as the resort's mountain-info page counts them, so it is a lift the resort no longer runs.",
+      "expect": {
+        "name": "Terrain Park J-Bar",
+        "aerialway": "j-bar",
+        "abandoned": "yes"
+      },
+      "hide": true
+    }
+  ]
+}

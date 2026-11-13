@@ -1,0 +1,278 @@
+{
+  "slug": "seven-springs",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/256580493 (Seven Springs Mountain Resort): the front side above the main lodge, the summit with the Tahoe Lodge, the Southwind village and the North Face on Laurel Hill, on one ticket and one map (Epic); it holds every lift and run. Hidden Valley Resort, a separate resort 5 km north-east on the same ridge, is a listed neighbour (resorts.json): its polygon's west tip reaches the box's north-east corner and the rest lies in the Overpass window. Every named run and lift checked on 2026-11-12 against Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile). Its legend: Easier (green circle), More Difficult (blue square), Most Difficult (one black diamond) and two black diamonds ('provides a much higher level of challenge and risk'), as OSM's easy, intermediate, advanced and expert; Freestyle Terrain (orange, sized XS, SM, MD and LRG) and Slow Skiing Zone (hatching); its lifts the Avalanche, Tyrol, Cortina, Southwind, Polar Bear Express, Blitzen, North Pole, North Face, Giant Steps and Gunnar lifts, Santa's Beard Rope Tow and the Stowe Beginner, Tyrol and Easy Rider conveyors of the three beginner areas. The resort's lift and terrain status loads by script, so the printed map is the only source and wins. OpenStreetMap draws most runs twice, as a line and as an outline (area=yes) with the same tags; each override names both ways. Of OSM's named runs, all carry the map's rating but five short pieces at the runs' ends rated easy (Avalanche Slope 47 m, Goosebumps Slope 12 m, Tyrol Slope 32 m, Wagner Slope 37 m and Yodeler Trail's 69 m link from Turtleneck Glades with its small outline), flat links at the lift tops and the bases that orient.py leaves without a direction, set to their run's rating on the map. Names from the map: Southwind Lift (OSM Soutwind Lift), and the Southwind village's three ski-ways, which OSM names Southwind Village Trail, Soutwind Village Trail and E Southwind Village Trail and the map Tunnel, Gully and Bridge: matched by OSM's own structures (the way under the Southwind Circle and Southwind Drive road bridges is Tunnel, the way over the Southwind Drive road tunnel is Bridge) and by their order from the lift. Hidden as a description the map does not print: North Face Lifts, the run-out along the bottom of the North Face to the lifts. Names that differ from the map only by a space stay as OSM has them (North Face Bypass Trail and Little North Face Glades for NORTHFACE, Yodeler By Pass for YODELER BYPASS), as do the parks' longer names (Santa's Beard Terrain Park and Arctic Blast Children's Park for SANTA'S BEARD, SM, and ARCTIC BLAST, XS) and Great Western Trail, the summit traverse towards Lost Girl Trail, which the map draws without a name. Parks: Santa's Beard, Arctic Blast, Foggy Bowl, The Spot and The Alley are snow parks in OSM; Alpine Meadows Glades, a double-black glade on the map that OSM tags snow_park on its outline (its line is piste:type=backcountry and left out by the type rule), and the Stowe Beginner Area, beginner area 1 in the map's green, which OSM tags snow_park with the difficulty 'beginner', lose the park flag (the beginner area rated easy). Hidden: the five glades' wood outlines (Avalanche, Tyrol, Little North Face, Turtleneck and Turtle Claw Glades), closed ways without area=yes that carry the run's tags and would draw as runs looping round the woods, as Copper Mountain's and Okemo's are (each glade keeps its line), and the snow tubing area's two carpets, which the map's lift list does not name, as Vail's and Keystone's tubing carpets are. The 181 m stretch of Lost Girl Trail OSM tags nordic at the summit is left out by the type rule, as are the tubing lanes and the Orange XC Trail. OSM gaps (shipped as at Palisades Tahoe): Helen's Trail (green, below Helen's), North Park (MD, between Little North Face Slope and the North Pole Lift) and the Easy Rider Beginner Area are not named in OSM.",
+  "overrides": [
+    {
+      "id": "way/248396960",
+      "reason": "Soutwind Lift: the triple from the bottom of Wagner Slope up to the Southwind village, which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) labels SOUTHWIND LIFT. Spelling from the map.",
+      "expect": {
+        "name": "Soutwind Lift",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Southwind Lift"
+      }
+    },
+    {
+      "id": "way/391686904",
+      "reason": "E Southwind Village Trail (OSM's line): the Southwind village's outermost ski-way, which loops south of the houses and crosses over the Southwind Drive road tunnel (way/391686909) to the Southwind Lift's bottom; Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) names the village's three ski-ways BRIDGE, GULLY and TUNNEL (green), BRIDGE the outermost from the lift. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "E Southwind Village Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Bridge"
+      }
+    },
+    {
+      "id": "way/1220652001",
+      "reason": "E Southwind Village Trail (OSM's outline): the Southwind village's outermost ski-way, which loops south of the houses and crosses over the Southwind Drive road tunnel (way/391686909) to the Southwind Lift's bottom; Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) names the village's three ski-ways BRIDGE, GULLY and TUNNEL (green), BRIDGE the outermost from the lift. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "E Southwind Village Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Bridge"
+      }
+    },
+    {
+      "id": "way/391686914",
+      "reason": "Soutwind Village Trail (OSM's line): the Southwind village's middle ski-way, between Bridge and Tunnel, which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) labels GULLY (green), between BRIDGE and TUNNEL. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Soutwind Village Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Gully"
+      }
+    },
+    {
+      "id": "way/1220652000",
+      "reason": "Soutwind Village Trail (OSM's outline): the Southwind village's middle ski-way, between Bridge and Tunnel, which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) labels GULLY (green), between BRIDGE and TUNNEL. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Soutwind Village Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Gully"
+      }
+    },
+    {
+      "id": "way/391686913",
+      "reason": "Southwind Village Trail (OSM's line): the Southwind village's ski-way beside the Southwind Lift, which passes under the Southwind Circle and Southwind Drive road bridges (way/391686908, way/391686910) to the lift's bottom; Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) labels the ski-way beside the lift TUNNEL (green). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Southwind Village Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Tunnel"
+      }
+    },
+    {
+      "id": "way/1220652002",
+      "reason": "Southwind Village Trail (OSM's outline): the Southwind village's ski-way beside the Southwind Lift, which passes under the Southwind Circle and Southwind Drive road bridges (way/391686908, way/391686910) to the lift's bottom; Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) labels the ski-way beside the lift TUNNEL (green). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Southwind Village Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Tunnel"
+      }
+    },
+    {
+      "id": "way/391426988",
+      "reason": "North Face Lifts (OSM's line): the run-out along the bottom of the North Face to the bottoms of the North Pole, North Face, Giant Steps and Gunnar lifts, which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) draws in its slow skiing zone without a name; the name says where it goes, not a run. The name is hidden; OSM's rating stays.",
+      "expect": {
+        "name": "North Face Lifts",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/1221211395",
+      "reason": "North Face Lifts (OSM's outline): the run-out along the bottom of the North Face to the bottoms of the North Pole, North Face, Giant Steps and Gunnar lifts, which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) draws in its slow skiing zone without a name; the name says where it goes, not a run. The name is hidden; OSM's rating stays.",
+      "expect": {
+        "name": "North Face Lifts",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/391686902",
+      "reason": "A 47 m piece of Avalanche Slope, at the top, from the Avalanche Lift's top station onto the slope, which OSM rates easy: Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks AVALANCHE SLOPE with one black diamond. The printed map wins; the piece takes its run's rating.",
+      "expect": {
+        "name": "Avalanche Slope",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/256469170",
+      "reason": "A 12 m piece of Goosebumps Slope, at the top, where the slope leaves Village Trail and Boomerang Trail, which OSM rates easy: Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks GOOSEBUMPS SLOPE with two black diamonds. The printed map wins; the piece takes its run's rating.",
+      "expect": {
+        "name": "Goosebumps Slope",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/391686920",
+      "reason": "A 32 m piece of Tyrol Slope, at the top, from the Tyrol Lift's top station to the slope and Village Trail, which OSM rates easy: Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks TYROL SLOPE with a blue square. The printed map wins; the piece takes its run's rating.",
+      "expect": {
+        "name": "Tyrol Slope",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/391686922",
+      "reason": "A 37 m piece of Wagner Slope, the link from the Southwind Lift's bottom, where Bridge and Tunnel end, to the top of Wagner Slope and Fawn Lane Trail, which OSM rates easy: Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks WAGNER SLOPE with a blue square. The printed map wins; the piece takes its run's rating.",
+      "expect": {
+        "name": "Wagner Slope",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/391426995",
+      "reason": "A 69 m piece of Yodeler Trail, the link from Lost Girl Trail and the bottom of Turtleneck Glades onto the trail, which OSM rates easy: Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks YODELER TRAIL with one black diamond. The printed map wins; the piece takes its run's rating.",
+      "expect": {
+        "name": "Yodeler Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1220652018",
+      "reason": "Yodeler Trail's small outline (266 m round) at the link from the bottom of Turtleneck Glades, which OSM rates easy: Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks YODELER TRAIL with one black diamond. The printed map wins.",
+      "expect": {
+        "name": "Yodeler Trail",
+        "piste:difficulty": "easy",
+        "area": "yes"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1221211396",
+      "reason": "Alpine Meadows Glades' outline: Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) draws ALPINE MEADOWS GLADES with two black diamonds, a glade between Alpine Meadows Slope and Deer Pass Trail, not freestyle terrain; OSM tags the outline snow_park (its line is piste:type=backcountry, left out by the type rule). The park flag is removed; OSM's expert rating is the map's.",
+      "expect": {
+        "name": "Alpine Meadows Glades",
+        "piste:type": "snow_park",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "park": false
+      }
+    },
+    {
+      "id": "way/1566325474",
+      "reason": "Stowe Beginner Area: beginner area 1 with the Stowe Beginner Conveyor beside the Ski Lodge, which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) lists in green under Beginner Areas and shades as a slow skiing zone; OSM tags it snow_park with the difficulty 'beginner', which is no rating. The park flag is removed and the area rated easy (the map's green).",
+      "expect": {
+        "name": "Stowe Beginner Area",
+        "piste:type": "snow_park",
+        "piste:difficulty": "beginner"
+      },
+      "set": {
+        "park": false,
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/256504215",
+      "reason": "Avalanche Glades: a closed way of 626 m round the glade's wood (natural=wood, no area=yes) that carries the run's tags, so it would draw as a run looping round the wood; the glade keeps its line (way/1221204600), which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks with two black diamonds. Hidden as Copper Mountain's and Okemo's glade outlines are.",
+      "expect": {
+        "name": "Avalanche Glades",
+        "natural": "wood",
+        "piste:type": "downhill",
+        "piste:difficulty": "expert",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/256505200",
+      "reason": "Tyrol Glades: a closed way of 535 m round the glade's wood (natural=wood, no area=yes) that carries the run's tags, so it would draw as a run looping round the wood; the glade keeps its line (way/1221204599), which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks with two black diamonds. Hidden as Copper Mountain's and Okemo's glade outlines are.",
+      "expect": {
+        "name": "Tyrol Glades",
+        "natural": "wood",
+        "piste:type": "downhill",
+        "piste:difficulty": "expert",
+        "area": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/256517839",
+      "reason": "Little North Face Glades: a closed way of 683 m round the glade's wood (natural=wood, no area=yes) that carries the run's tags, so it would draw as a run looping round the wood; the glade keeps its line (way/1220652003), which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks with two black diamonds. Hidden as Copper Mountain's and Okemo's glade outlines are.",
+      "expect": {
+        "name": "Little North Face Glades",
+        "natural": "wood",
+        "piste:type": "downhill",
+        "piste:difficulty": "expert",
+        "area": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/256567334",
+      "reason": "Turtleneck Glades: a closed way of 864 m round the glade's wood (natural=wood, no area=yes) that carries the run's tags, so it would draw as a run looping round the wood; the glade keeps its line (way/1220652013), which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks with two black diamonds. Hidden as Copper Mountain's and Okemo's glade outlines are.",
+      "expect": {
+        "name": "Turtleneck Glades",
+        "natural": "wood",
+        "piste:type": "downhill",
+        "piste:difficulty": "expert",
+        "area": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1220652012",
+      "reason": "Turtle Claw Glades: a closed way of 641 m round the glade's wood (natural=wood, no area=yes) that carries the run's tags, so it would draw as a run looping round the wood; the glade keeps its line (way/1220652011), which Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) marks with two black diamonds. Hidden as Copper Mountain's and Okemo's glade outlines are.",
+      "expect": {
+        "name": "Turtle Claw Glades",
+        "natural": "wood",
+        "piste:type": "downhill",
+        "piste:difficulty": "expert",
+        "area": null,
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1565570999",
+      "reason": "An unnamed carpet in the snow tubing area beside the North Lot, which serves the tubing lanes (left out by the type rule): Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) draws the tubing area but does not name its lifts among its chairlifts and conveyors. Hidden as Vail's and Keystone's tubing carpets are.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/784106978",
+      "reason": "An unnamed carpet in the snow tubing area beside the North Lot, which serves the tubing lanes (left out by the type rule): Seven Springs' Winter 2025-2026 trail map (20251205_SN_winter-trail_map_001.pdf, the winter map 7springs.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 4200 x 2133 px, tile by tile) draws the tubing area but does not name its lifts among its chairlifts and conveyors. Hidden as Vail's and Keystone's tubing carpets are.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "hide": true
+    }
+  ]
+}

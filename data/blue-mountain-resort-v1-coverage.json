@@ -1,0 +1,73 @@
+{
+  "key": "blue-mountain-resort-v1",
+  "ski_sha256": "1c2adca6cf58c38e8932d41441b5362dc29c2359fd02f956c09adb00354a2a64",
+  "osm_timestamp": "2026-11-13T03:30:21Z",
+  "box": [
+    -75.56,
+    40.79,
+    -75.47,
+    40.85
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -75.526304,
+    40.808152,
+    -75.498802,
+    40.824161
+  ],
+  "margins_km": {
+    "west": 2.84,
+    "south": 2.02,
+    "east": 2.42,
+    "north": 2.87
+  },
+  "counts": {
+    "lifts": 14,
+    "runs_in_bounds": 39,
+    "run_areas_in_bounds": 40,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 22,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.5,
+    "runs_in_bounds": 17.7,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -75.585938,
+      40.713956,
+      -75.410156,
+      40.979898
+    ],
+    "12": [
+      -75.585938,
+      40.780541,
+      -75.410156,
+      40.913513
+    ],
+    "13": [
+      -75.585938,
+      40.780541,
+      -75.454102,
+      40.880295
+    ],
+    "14": [
+      -75.563965,
+      40.780541,
+      -75.454102,
+      40.86368
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

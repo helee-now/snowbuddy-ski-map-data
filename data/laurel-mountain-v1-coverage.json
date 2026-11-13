@@ -1,0 +1,73 @@
+{
+  "key": "laurel-mountain-v1",
+  "ski_sha256": "e5b2a74992baa69d8c1136308a87e326557d1566de341a156c54eb0a36a84fe5",
+  "osm_timestamp": "2026-11-13T03:57:01Z",
+  "box": [
+    -79.21,
+    40.14,
+    -79.13,
+    40.19
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -79.176533,
+    40.16332,
+    -79.162132,
+    40.170251
+  ],
+  "margins_km": {
+    "west": 2.84,
+    "south": 2.59,
+    "east": 2.73,
+    "north": 2.2
+  },
+  "counts": {
+    "lifts": 1,
+    "runs_in_bounds": 22,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 2,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 0.7,
+    "runs_in_bounds": 7,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -79.277344,
+      40.044438,
+      -79.101562,
+      40.313043
+    ],
+    "12": [
+      -79.277344,
+      40.111689,
+      -79.101562,
+      40.245992
+    ],
+    "13": [
+      -79.233398,
+      40.111689,
+      -79.101562,
+      40.212441
+    ],
+    "14": [
+      -79.211426,
+      40.128491,
+      -79.123535,
+      40.195659
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

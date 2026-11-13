@@ -1,0 +1,48 @@
+{
+  "slug": "laurel-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1026204281 (Laurel Mountain Ski Resort): the north face of Laurel Hill in Laurel Mountain State Park in the Laurel Highlands, from the Laurel Lodge at the top down to the quad's bottom, on one ticket and one map (Epic); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12 against Laurel Mountain's Winter 2024-2025 trail map (20241022_LM_winter-trail_map_001.pdf, the map laurelmountainski.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1469 px, read enlarged 1.2 to 1.6 times). The map numbers its trails 1 to 19 in its list of Slopes and Trails, each with its rating: Easiest (green circle), Intermediate (blue square), Advanced (one black diamond) and Expert (two), as OSM's easy, intermediate, advanced and expert; its only lift is the Four Person Chairlift (Quad), as the resort's mountain page counts one lift. The resort's lift and terrain status loads by script, so the printed map is the only source and wins. All 19 of the map's trails are in OSM with the map's rating: 1 Dream Highway, 2 Easy Way and 3 The Slot (blue), 4 Ski Top (green), 5 Laurel Run and 7 Upper Wildcat (one diamond), 6 Tame Cat (green), 8 Lower Wildcat (two diamonds), 9 Lynx Trail, 10 Last Chance Trail and 11 Woodland Trail (green), 12 Upper Broadway (blue), 13 Lower Broadway (green), 14 Lincoln Highway (blue), 15 Innsbruck, 16 and 17 Old Innsbruck (green), 18 Hegan's Cut (blue) and 19 Deer Path (green). Names from the map: Old Innsbruck for the way OSM names '18 Old Innsbruck' (the map's 17). The quad keeps OSM's name, Quad Chairlift, the map giving it none. Hidden: DOC's Forest Glades (its line and its wood outline), a double-black glade from Upper Broadway down to Innsbruck beside Lincoln Highway that OSM itself notes has been on no map since 2020 and that the current map neither draws nor lists, and the Laurel Tow, a rope tow OSM maps at the lodge that the map does not draw and the resort's one-lift count leaves out. Liftline Run, the line under the quad that OSM rates freeride and notes as unmarked on the map but signed on the hill, stays as OSM has it (runs OSM names and the maps do not print stay, as at Telluride). OSM gaps: none of the map's trails is missing.",
+  "overrides": [
+    {
+      "id": "way/1026225761",
+      "reason": "18 Old Innsbruck: the short green trail off Innsbruck at the area's west side, which Laurel Mountain's Winter 2024-2025 trail map (20241022_LM_winter-trail_map_001.pdf, the map laurelmountainski.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1469 px, read enlarged 1.2 to 1.6 times) numbers 17 and lists as OLD INNSBRUCK with a green circle (16 is the other Old Innsbruck, OSM's way/1026225760); the '18' is a number, not part of the name. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "18 Old Innsbruck",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Old Innsbruck"
+      }
+    },
+    {
+      "id": "way/1026225769",
+      "reason": "DOC's Forest Glades (OSM's line): a double-black glade from Upper Broadway down to Innsbruck beside Lincoln Highway, which OSM itself notes has been on no map since 2020; Laurel Mountain's Winter 2024-2025 trail map (20241022_LM_winter-trail_map_001.pdf, the map laurelmountainski.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1469 px, read enlarged 1.2 to 1.6 times) neither draws nor lists it among its 19 trails. Hidden as a run the resort no longer shows, as Palisades Tahoe's Tiegel Terrain Park is.",
+      "expect": {
+        "name": "DOC's Forest Glades",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry",
+        "note": "Not on maps since 2020"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1090524519",
+      "reason": "DOC's Forest Glades (OSM's wood outline): a double-black glade from Upper Broadway down to Innsbruck beside Lincoln Highway, which OSM itself notes has been on no map since 2020; Laurel Mountain's Winter 2024-2025 trail map (20241022_LM_winter-trail_map_001.pdf, the map laurelmountainski.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1469 px, read enlarged 1.2 to 1.6 times) neither draws nor lists it among its 19 trails. Hidden as a run the resort no longer shows, as Palisades Tahoe's Tiegel Terrain Park is.",
+      "expect": {
+        "name": "DOC's Forest Glades",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry",
+        "area": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/256655440",
+      "reason": "Laurel Tow: a 105 m rope tow OSM maps below Tame Cat near the Laurel Lodge, which Laurel Mountain's Winter 2024-2025 trail map (20241022_LM_winter-trail_map_001.pdf, the map laurelmountainski.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1469 px, read enlarged 1.2 to 1.6 times) neither draws nor lists (its only lift is the Four Person Chairlift (Quad)), and the resort's mountain page counts one lift. Hidden as a lift the resort no longer runs.",
+      "expect": {
+        "name": "Laurel Tow",
+        "aerialway": "rope_tow"
+      },
+      "hide": true
+    }
+  ]
+}

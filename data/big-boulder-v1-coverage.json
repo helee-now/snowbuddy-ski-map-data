@@ -1,0 +1,73 @@
+{
+  "key": "big-boulder-v1",
+  "ski_sha256": "8f0780c7b38e6ee3ca5d7ce95dcbffdec9f9307ff4fab84ef7288f20c95598a7",
+  "osm_timestamp": "2026-11-13T03:50:40Z",
+  "box": [
+    -75.64,
+    41.02,
+    -75.57,
+    41.08
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -75.60761,
+    41.043709,
+    -75.594993,
+    41.053419
+  ],
+  "margins_km": {
+    "west": 2.72,
+    "south": 2.64,
+    "east": 2.1,
+    "north": 2.96
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 18,
+    "run_areas_in_bounds": 19,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 13,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 2.4,
+    "runs_in_bounds": 6.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -75.761719,
+      40.979898,
+      -75.410156,
+      41.112469
+    ],
+    "12": [
+      -75.673828,
+      40.979898,
+      -75.498047,
+      41.112469
+    ],
+    "13": [
+      -75.673828,
+      41.013066,
+      -75.541992,
+      41.112469
+    ],
+    "14": [
+      -75.651855,
+      41.013066,
+      -75.563965,
+      41.095912
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

@@ -489,6 +489,60 @@
       "coverage": "data/big-bear-mountain-resort-v2-coverage.json"
     },
     {
+      "slug": "big-boulder",
+      "name": "Big Boulder",
+      "version": 1,
+      "key": "big-boulder-v1",
+      "box": [
+        -75.64,
+        41.02,
+        -75.57,
+        41.08
+      ],
+      "ski_area": "way/390166745",
+      "elevation": "3dep1",
+      "elevation_project": "PA_Northcentral_2019_B19",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-13T03:50:40Z",
+      "overpass_box": [
+        -75.68,
+        41,
+        -75.53,
+        41.1
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x44y454_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x44y455_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x44y456_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x45y454_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x45y455_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x45y456_PA_Northcentral_2019_B19.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "PA_Northcentral_2019_B19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -75.64,
+          41.02,
+          -75.57,
+          41.08
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-13T03:54:25Z",
+      "ski_file": {
+        "path": "data/big-boulder-v1-ski.pmtiles",
+        "bytes": 48325,
+        "sha256": "8f0780c7b38e6ee3ca5d7ce95dcbffdec9f9307ff4fab84ef7288f20c95598a7"
+      },
+      "coverage": "data/big-boulder-v1-coverage.json"
+    },
+    {
       "slug": "big-sky",
       "name": "Big Sky",
       "version": 1,
@@ -612,6 +666,60 @@
         "sha256": "f5d552b41eb2faca545562b0cd7698251cff717ba828d1940a81def2ede023c1"
       },
       "coverage": "data/blue-mountain-ontario-v1-coverage.json"
+    },
+    {
+      "slug": "blue-mountain-resort",
+      "name": "Blue Mountain Resort",
+      "version": 1,
+      "key": "blue-mountain-resort-v1",
+      "box": [
+        -75.56,
+        40.79,
+        -75.47,
+        40.85
+      ],
+      "ski_area": "way/390536570",
+      "elevation": "3dep1",
+      "elevation_project": "PA_Northcentral_2019_B19",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-13T03:30:21Z",
+      "overpass_box": [
+        -75.6,
+        40.77,
+        -75.43,
+        40.87
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x44y452_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x44y453_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x45y452_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x45y453_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x46y452_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x46y453_PA_Northcentral_2019_B19.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "PA_Northcentral_2019_B19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -75.56,
+          40.79,
+          -75.47,
+          40.85
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-13T03:34:19Z",
+      "ski_file": {
+        "path": "data/blue-mountain-resort-v1-ski.pmtiles",
+        "bytes": 81676,
+        "sha256": "1c2adca6cf58c38e8932d41441b5362dc29c2359fd02f956c09adb00354a2a64"
+      },
+      "coverage": "data/blue-mountain-resort-v1-coverage.json"
     },
     {
       "slug": "breckenridge",
@@ -1240,6 +1348,67 @@
       "coverage": "data/heavenly-v1-coverage.json"
     },
     {
+      "slug": "hidden-valley-pennsylvania",
+      "name": "Hidden Valley",
+      "version": 1,
+      "key": "hidden-valley-pennsylvania-v1",
+      "box": [
+        -79.29,
+        40.03,
+        -79.21,
+        40.09
+      ],
+      "ski_area": "way/398100052",
+      "neighbours": [
+        {
+          "id": "way/256580493",
+          "name": "Seven Springs Mountain Resort",
+          "reason": "Separate resort on its own ticket, 5 km south-west on the same ridge: its polygon reaches the Overpass window south-west of the box, with its North Face and front-side lifts and runs; left off by the owner's rule of 2026-10-21."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "PA_WesternPA_2019_D20",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-13T03:48:36Z",
+      "overpass_box": [
+        -79.33,
+        40.01,
+        -79.17,
+        40.11
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x64y443_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x64y444_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x64y445_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x65y443_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x65y444_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x65y445_PA_WesternPA_2019_D20.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "PA_WesternPA_2019_D20",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -79.29,
+          40.03,
+          -79.21,
+          40.09
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-13T03:53:22Z",
+      "ski_file": {
+        "path": "data/hidden-valley-pennsylvania-v1-ski.pmtiles",
+        "bytes": 69361,
+        "sha256": "2bf18626f2091cdb4e54f3520b50b71560914e718a4a8c04c1f1bc8a365663df"
+      },
+      "coverage": "data/hidden-valley-pennsylvania-v1-coverage.json"
+    },
+    {
       "slug": "hunter-mountain",
       "name": "Hunter Mountain",
       "version": 1,
@@ -1295,6 +1464,61 @@
         "sha256": "5ae9652bb34dd203960488a113e5f1eb654472790f6ee5a42b0a735f8825b6c5"
       },
       "coverage": "data/hunter-mountain-v1-coverage.json"
+    },
+    {
+      "slug": "jack-frost",
+      "name": "Jack Frost",
+      "version": 1,
+      "key": "jack-frost-v1",
+      "box": [
+        -75.69,
+        41.08,
+        -75.62,
+        41.14
+      ],
+      "ski_area": "way/390163427",
+      "elevation": "3dep1",
+      "elevation_project": "PA_Northcentral_2019_B19",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-13T03:41:33Z",
+      "overpass_box": [
+        -75.73,
+        41.06,
+        -75.58,
+        41.16
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x43y455_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x43y456_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x44y455_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x44y456_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x45y455_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x45y456_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n42w076/USGS_13_n42w076.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "PA_Northcentral_2019_B19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -75.69,
+          41.08,
+          -75.62,
+          41.14
+        ],
+        "lidar_box_pct": 97.696,
+        "lidar_window_pct": 79.153,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 20.847
+      },
+      "built_at": "2026-11-13T03:49:56Z",
+      "ski_file": {
+        "path": "data/jack-frost-v1-ski.pmtiles",
+        "bytes": 53322,
+        "sha256": "f701f7ccbdc9b7b5fea3dcaedade2c3b1603ec832ffb8f3186ed348b28875ba1"
+      },
+      "coverage": "data/jack-frost-v1-coverage.json"
     },
     {
       "slug": "jackson-hole",
@@ -1671,6 +1895,60 @@
       "coverage": "data/lake-louise-v1-coverage.json"
     },
     {
+      "slug": "laurel-mountain",
+      "name": "Laurel Mountain",
+      "version": 1,
+      "key": "laurel-mountain-v1",
+      "box": [
+        -79.21,
+        40.14,
+        -79.13,
+        40.19
+      ],
+      "ski_area": "way/1026204281",
+      "elevation": "3dep1",
+      "elevation_project": "PA_WesternPA_2019_D20",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-13T03:57:01Z",
+      "overpass_box": [
+        -79.25,
+        40.12,
+        -79.09,
+        40.21
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x64y445_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x64y446_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x65y445_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x65y446_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x66y445_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x66y446_PA_WesternPA_2019_D20.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "PA_WesternPA_2019_D20",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -79.21,
+          40.14,
+          -79.13,
+          40.19
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-13T04:01:51Z",
+      "ski_file": {
+        "path": "data/laurel-mountain-v1-ski.pmtiles",
+        "bytes": 54358,
+        "sha256": "e5b2a74992baa69d8c1136308a87e326557d1566de341a156c54eb0a36a84fe5"
+      },
+      "coverage": "data/laurel-mountain-v1-coverage.json"
+    },
+    {
       "slug": "le-massif",
       "name": "Le Massif de Charlevoix",
       "version": 1,
@@ -1708,6 +1986,63 @@
         "sha256": "270088d76b4742e31d24f6c5c3f024304e46c21a38b553ac264af62cba75d3ec"
       },
       "coverage": "data/le-massif-v1-coverage.json"
+    },
+    {
+      "slug": "liberty-mountain",
+      "name": "Liberty Mountain",
+      "version": 1,
+      "key": "liberty-mountain-v1",
+      "box": [
+        -77.41,
+        39.73,
+        -77.33,
+        39.79
+      ],
+      "ski_area": "way/390274626",
+      "elevation": "3dep1",
+      "elevation_project": "PA_17County_D24",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-13T03:33:20Z",
+      "overpass_box": [
+        -77.45,
+        39.71,
+        -77.29,
+        39.81
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x28y440_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x28y441_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x29y440_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x29y441_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x29y442_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x30y440_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x30y441_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x30y442_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w078/USGS_13_n40w078.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "PA_17County_D24",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -77.41,
+          39.73,
+          -77.33,
+          39.79
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 78.595,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 21.405
+      },
+      "built_at": "2026-11-13T03:37:01Z",
+      "ski_file": {
+        "path": "data/liberty-mountain-v1-ski.pmtiles",
+        "bytes": 59368,
+        "sha256": "45421c1fa611247ac1299f8c599677207219b50cd4e7fcce08451384f7b40b2c"
+      },
+      "coverage": "data/liberty-mountain-v1-coverage.json"
     },
     {
       "slug": "loon-mountain",
@@ -2503,6 +2838,60 @@
       "coverage": "data/revelstoke-v1-coverage.json"
     },
     {
+      "slug": "roundtop",
+      "name": "Roundtop",
+      "version": 1,
+      "key": "roundtop-v1",
+      "box": [
+        -76.97,
+        40.08,
+        -76.89,
+        40.14
+      ],
+      "ski_area": "way/390539624",
+      "elevation": "3dep1",
+      "elevation_project": "PA_17County_D24",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-13T03:37:19Z",
+      "overpass_box": [
+        -77.01,
+        40.06,
+        -76.85,
+        40.16
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x32y444_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x32y445_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x33y444_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x33y445_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x34y444_PA_17County_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_17County_D24/TIFF/USGS_1M_18_x34y445_PA_17County_D24.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "PA_17County_D24",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -76.97,
+          40.08,
+          -76.89,
+          40.14
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-13T03:47:54Z",
+      "ski_file": {
+        "path": "data/roundtop-v1-ski.pmtiles",
+        "bytes": 54658,
+        "sha256": "242c941cc9aada0c842b85fc6e82dbce8c9b26228edf0aa807179924e11ee4c4"
+      },
+      "coverage": "data/roundtop-v1-coverage.json"
+    },
+    {
       "slug": "schweitzer",
       "name": "Schweitzer",
       "version": 1,
@@ -2555,6 +2944,70 @@
         "sha256": "29f11135dd11750b38599aed8c4c69c439f650a969ced73c303759221dc77494"
       },
       "coverage": "data/schweitzer-v1-coverage.json"
+    },
+    {
+      "slug": "seven-springs",
+      "name": "Seven Springs",
+      "version": 1,
+      "key": "seven-springs-v1",
+      "box": [
+        -79.35,
+        39.98,
+        -79.26,
+        40.06
+      ],
+      "ski_area": "way/256580493",
+      "neighbours": [
+        {
+          "id": "way/398100052",
+          "name": "Hidden Valley Resort",
+          "reason": "Separate resort on its own ticket, 5 km north-east on the same ridge: its polygon's west tip reaches the box's north-east corner and the rest of it, with its lifts and runs, lies in the Overpass window; left off by the owner's rule of 2026-10-21."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "PA_WesternPA_2019_D20",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-13T03:31:21Z",
+      "overpass_box": [
+        -79.39,
+        39.96,
+        -79.22,
+        40.08
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x63y443_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x63y444_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x63y445_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x64y443_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x64y444_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x64y445_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x65y443_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x65y444_PA_WesternPA_2019_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_WesternPA_2019_D20/TIFF/USGS_1M_17_x65y445_PA_WesternPA_2019_D20.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "PA_WesternPA_2019_D20",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -79.35,
+          39.98,
+          -79.26,
+          40.06
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-13T03:35:08Z",
+      "ski_file": {
+        "path": "data/seven-springs-v1-ski.pmtiles",
+        "bytes": 105820,
+        "sha256": "e05945f9d04eabd438d3bd419b6650a5d7c8654cc9dad96c2c429dc2aa848d80"
+      },
+      "coverage": "data/seven-springs-v1-coverage.json"
     },
     {
       "slug": "sierra-at-tahoe",
@@ -3796,6 +4249,39 @@
         "sha256": "ff73c9a03c7c9484f2a4a3137401acd1df8b16e62c22bd1948ae9b37e261a366"
       },
       "coverage": "data/whistler-blackcomb-v4-coverage.json"
+    },
+    {
+      "slug": "whitetail",
+      "name": "Whitetail",
+      "version": 1,
+      "key": "whitetail-v1",
+      "box": [
+        -77.98,
+        39.71,
+        -77.9,
+        39.77
+      ],
+      "ski_area": "way/893138900",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-13T03:40:27Z",
+      "overpass_box": [
+        -78.02,
+        39.69,
+        -77.86,
+        39.79
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w078/USGS_13_n40w078.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w079/USGS_13_n40w079.tif"
+      ],
+      "built_at": "2026-11-13T03:47:28Z",
+      "ski_file": {
+        "path": "data/whitetail-v1-ski.pmtiles",
+        "bytes": 80541,
+        "sha256": "6c6d98083e6015976c3915d7274dcff176a4b2961d5f84c0445338b03e10903d"
+      },
+      "coverage": "data/whitetail-v1-coverage.json"
     },
     {
       "slug": "wildcat",

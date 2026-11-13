@@ -1,0 +1,54 @@
+{
+  "slug": "big-boulder",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/390166745 (Big Boulder Ski Resort Area, Lake Harmony in the Poconos): the north face of the hill above Big Boulder Lake, from the summit to the Main Lodge, the Incline Lodge and the tube park, on one ticket and one map (Epic; Jack Frost and Big Boulder share a card and the jfbb.com site but are two hills 5.7 km apart, each with its own map). The resort runs Big Boulder this season: jfbb.com's home page on 2026-11-12 announces Beginner Takeover Days at Big Boulder from 1/6 and its mountain-info page lists Big Boulder (19 trails, 7 lifts, 2 terrain parks) beside Jack Frost, with no word of a closure. The polygon holds every lift and run. No other ski area lies in the box or the Overpass window: Jack Frost's polygon begins 5.7 km north of Big Boulder's, north of the window. Every named run and lift checked on 2026-11-12 against Big Boulder's 2024-25 trail map (20241017_JFBB_winter-trail_map_002.pdf, titled bb_25_trailmap, its 1944 x 1472 px picture read at three times the page size, and the 932 x 706 px image 20241205_JFBB_winter-trail_map_002, both from jfbb.com/the-mountain/about-the-mountain/trail-map.aspx, the resort's trail-map page, which lists the 2024-25 maps as current). jfbb.com refuses automated requests (its pages and PDFs answer with a bot wall to curl); the image server answered, and the PDF came through a fetch tool. The resort's lift and trail status loads by script, so the printed map is the only source and wins. Its legend: Easier (green circle), More Difficult (blue square), Most Difficult (black diamond; no double black) and Freestyle Terrain (an orange bar). OpenStreetMap draws every run twice, as a line and as an outline (area=yes) with the same tags; each override names both. Every named run carries the map's rating in OSM already (Draufganger, Snowdrift, Big Boulder, Midway, Upper Sitzmark and Mineshaft one black diamond, The Elbow, Der Schuss and Merry Widow blue, Coal Chute, Carbon Way, Lower Sitzmark, Little Boulder, Edelweiss and the Ski School Slopes green). Parks: Tannenbaum and Central Park, the map's two freestyle trails (an orange bar and no rating symbol, so OSM's intermediate stays). Lifts as the map draws them and the resort counts them (7): Big Boulder, Harmony, Tannenbaum, Blue Heron, the Carpet Lift and the tube park's two Tubing Only Carpet Lifts. Kept although the map does not name it: Hickory Run (OSM, advanced, along the Harmony lift between Midway and Merry Widow, where the map draws an unnamed slope), and two unnamed outlines (the summit traverse and the runout above the lodges). The tubing lanes are left out by the type rule. OSM gaps: Carbon Way is only a 57 m line at the top of the Blue Heron (the map draws it longer); every other trail of the map is in OSM.",
+  "overrides": [
+    {
+      "id": "way/390166249",
+      "reason": "Tannenbaum (OSM's line, a downhill run): the freestyle trail along the Tannenbaum chair, between Little Boulder and Central Park, which Big Boulder's 2024-25 trail map (20241017_JFBB_winter-trail_map_002.pdf, titled bb_25_trailmap, its 1944 x 1472 px picture read at three times the page size, and the 932 x 706 px image 20241205_JFBB_winter-trail_map_002, both from jfbb.com/the-mountain/about-the-mountain/trail-map.aspx, the resort's trail-map page, which lists the 2024-25 maps as current) labels TANNENBAUM with the orange Freestyle Terrain bar and no rating symbol (one of the resort's two terrain parks), so it gets the park flag and OSM's intermediate stays.",
+      "expect": {
+        "name": "Tannenbaum",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1221650035",
+      "reason": "Tannenbaum (OSM's outline, a downhill run): the freestyle trail along the Tannenbaum chair, between Little Boulder and Central Park, which Big Boulder's 2024-25 trail map (20241017_JFBB_winter-trail_map_002.pdf, titled bb_25_trailmap, its 1944 x 1472 px picture read at three times the page size, and the 932 x 706 px image 20241205_JFBB_winter-trail_map_002, both from jfbb.com/the-mountain/about-the-mountain/trail-map.aspx, the resort's trail-map page, which lists the 2024-25 maps as current) labels TANNENBAUM with the orange Freestyle Terrain bar and no rating symbol (one of the resort's two terrain parks), so it gets the park flag and OSM's intermediate stays.",
+      "expect": {
+        "name": "Tannenbaum",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/390166250",
+      "reason": "Central Park (OSM's line, a downhill run): the freestyle trail between Merry Widow and Tannenbaum above the Main Lodge, which Big Boulder's 2024-25 trail map (20241017_JFBB_winter-trail_map_002.pdf, titled bb_25_trailmap, its 1944 x 1472 px picture read at three times the page size, and the 932 x 706 px image 20241205_JFBB_winter-trail_map_002, both from jfbb.com/the-mountain/about-the-mountain/trail-map.aspx, the resort's trail-map page, which lists the 2024-25 maps as current) labels CENTRAL PARK with the orange Freestyle Terrain bar and no rating symbol (one of the resort's two terrain parks), so it gets the park flag and OSM's intermediate stays.",
+      "expect": {
+        "name": "Central Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1221650020",
+      "reason": "Central Park (OSM's outline, a downhill run): the freestyle trail between Merry Widow and Tannenbaum above the Main Lodge, which Big Boulder's 2024-25 trail map (20241017_JFBB_winter-trail_map_002.pdf, titled bb_25_trailmap, its 1944 x 1472 px picture read at three times the page size, and the 932 x 706 px image 20241205_JFBB_winter-trail_map_002, both from jfbb.com/the-mountain/about-the-mountain/trail-map.aspx, the resort's trail-map page, which lists the 2024-25 maps as current) labels CENTRAL PARK with the orange Freestyle Terrain bar and no rating symbol (one of the resort's two terrain parks), so it gets the park flag and OSM's intermediate stays.",
+      "expect": {
+        "name": "Central Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "key": "liberty-mountain-v1",
+  "ski_sha256": "45421c1fa611247ac1299f8c599677207219b50cd4e7fcce08451384f7b40b2c",
+  "osm_timestamp": "2026-11-13T03:33:20Z",
+  "box": [
+    -77.41,
+    39.73,
+    -77.33,
+    39.79
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -77.380631,
+    39.754279,
+    -77.36104,
+    39.767235
+  ],
+  "margins_km": {
+    "west": 2.51,
+    "south": 2.7,
+    "east": 2.65,
+    "north": 2.53
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 27,
+    "run_areas_in_bounds": 25,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 13,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 2.9,
+    "runs_in_bounds": 9.7,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -77.519531,
+      39.639538,
+      -77.167969,
+      39.909736
+    ],
+    "12": [
+      -77.431641,
+      39.707187,
+      -77.255859,
+      39.842286
+    ],
+    "13": [
+      -77.431641,
+      39.707187,
+      -77.299805,
+      39.808536
+    ],
+    "14": [
+      -77.431641,
+      39.724089,
+      -77.321777,
+      39.791655
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

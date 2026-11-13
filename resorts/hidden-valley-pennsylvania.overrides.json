@@ -1,0 +1,166 @@
+{
+  "slug": "hidden-valley-pennsylvania",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/398100052 (Hidden Valley Resort): the main face above the Ski Lodge and the Avalanche side above the Avalanche Lodge, both falling north from Laurel Hill's ridge, on one ticket and one map (Epic); it holds every lift and run. Seven Springs Mountain Resort, a separate resort 5 km south-west on the same ridge, is a listed neighbour (resorts.json): its polygon lies in the Overpass window. Every named run and lift checked on 2026-11-12 against Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times). Its legend: Easier (green circle), More Difficult (blue square) and Most Difficult (one black diamond), as OSM's novice and easy, intermediate and advanced, with no double black; Freestyle Terrain (orange, sized XS and SM/M) and Slow Skiing Zone (yellow hatching); Quad Chairlift, Triple Chairlift, Rope Tow and Conveyor, and on the painting the Avalanche, Blizzard, Sunrise and Sunset lifts, the Crossover and Jaguar rope tows and the Bobcat and Rippers conveyors (the resort's mountain page counts 8 lifts). The resort's lift and terrain status loads by script, so the printed map is the only source and wins. OpenStreetMap draws most runs twice, as a line and as an outline (area=yes) with the same tags; each override names both ways. Of OSM's named runs, all carry the map's rating but Barracuda's 142 m link from The Bug's end across the Avalanche Lift to the foot of Upper Comet, rated intermediate with its outline: Barracuda is one black diamond on the map. Names from the map: Upper Comet and Lower Comet for OSM's two Comets (blue above the junction with Angel's Elbow and Voyager, green below it, as the map draws them), Crossover for the rope tow OSM names Tracker Tow beside Tracker at the Avalanche Lift's top, Bobcat and Rippers for the two conveyors OSM leaves unnamed (beside Bobcat and at the Rippers Run Beginner Area), and Jaguar Terrain Park for the park OSM maps as Jaguar and Jaguar Half Pipe (the map draws one park, SM/M, from below Model T down to the Ski Lodge, and no half pipe; its name keeps it apart from the Jaguar rope tow beside it), with the 42 m downhill piece named Jaguar at the park's top, which gets the park flag. Parks: Jaguar Terrain Park is a snow park in OSM. Ratings that differ only in grade stay: Rippers Run Beginner Area is novice in OSM, green on the map. OSM tags Tracker's outline gladed; the map draws Tracker as a green traverse (an override cannot clear the tag). OSM gaps (shipped as at Palisades Tahoe): the Jaguar rope tow, Continental Glades (one diamond, between Upper Continental and the Sunset Lift) and the Continental Terrain Park (XS, at the top of Lower Continental) are not in OSM.",
+  "overrides": [
+    {
+      "id": "way/391691673",
+      "reason": "Tracker Tow: the rope tow beside Tracker along the ridge at the Avalanche Lift's top, which Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) labels CROSSOVER (red, with the rope tow symbol). Name from the map.",
+      "expect": {
+        "name": "Tracker Tow",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Crossover"
+      }
+    },
+    {
+      "id": "way/256650185",
+      "reason": "An unnamed carpet beside Bobcat at the bottom of the main face, west of the Ski Lodge, which Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) labels BOBCAT (red, with the conveyor symbol). Name from the map.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "set": {
+        "name": "Bobcat"
+      }
+    },
+    {
+      "id": "way/256650186",
+      "reason": "An unnamed 26 m carpet at the Rippers Run Beginner Area beside the Ski Lodge, which Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) labels RIPPERS (red, with the conveyor symbol). Name from the map.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "set": {
+        "name": "Rippers"
+      }
+    },
+    {
+      "id": "way/391691632",
+      "reason": "Comet (OSM's line): the blue upper part of Comet, from Tracker on the ridge down beside the Avalanche Lift to its junction with Angel's Elbow and Voyager, which Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) labels UPPER COMET with a blue square. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Comet",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Upper Comet"
+      }
+    },
+    {
+      "id": "way/1223674713",
+      "reason": "Comet (OSM's outline): the blue upper part of Comet, from Tracker on the ridge down beside the Avalanche Lift to its junction with Angel's Elbow and Voyager, which Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) labels UPPER COMET with a blue square. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Comet",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Upper Comet"
+      }
+    },
+    {
+      "id": "way/391691633",
+      "reason": "Comet (OSM's line): the green lower part of Comet, from the junction with Angel's Elbow and Voyager down to the Avalanche Lift's bottom by the Avalanche Lodge, which Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) labels LOWER COMET with a green circle. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Comet",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Lower Comet"
+      }
+    },
+    {
+      "id": "way/1223674706",
+      "reason": "Comet (OSM's outline): the green lower part of Comet, from the junction with Angel's Elbow and Voyager down to the Avalanche Lift's bottom by the Avalanche Lodge, which Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) labels LOWER COMET with a green circle. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Comet",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Lower Comet"
+      }
+    },
+    {
+      "id": "way/391691625",
+      "reason": "Barracuda (OSM's line): a 142 m link from Barracuda, where The Bug joins it beside the Avalanche Lift, to the junction of Upper Comet, Lower Comet, Angel's Elbow and Voyager, which OSM rates intermediate; Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) marks BARRACUDA with one black diamond and draws no blue run there. The printed map wins.",
+      "expect": {
+        "name": "Barracuda",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1223674707",
+      "reason": "Barracuda (OSM's outline): a 142 m link from Barracuda, where The Bug joins it beside the Avalanche Lift, to the junction of Upper Comet, Lower Comet, Angel's Elbow and Voyager, which OSM rates intermediate; Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) marks BARRACUDA with one black diamond and draws no blue run there. The printed map wins.",
+      "expect": {
+        "name": "Barracuda",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/391691645",
+      "reason": "Jaguar (OSM's line of the park's upper part, from below Model T across to the top of the half pipe): Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) draws one terrain park here, JAGUAR TERRAIN PARK (orange, SM/M), from below Model T down to the Ski Lodge, with no half pipe, and names the rope tow beside it JAGUAR. Name from the map; the park keeps OSM's rating.",
+      "expect": {
+        "name": "Jaguar",
+        "piste:type": "snow_park",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Jaguar Terrain Park"
+      }
+    },
+    {
+      "id": "way/1223674726",
+      "reason": "Jaguar (OSM's outline of the park's upper part): Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) draws one terrain park here, JAGUAR TERRAIN PARK (orange, SM/M), from below Model T down to the Ski Lodge, with no half pipe, and names the rope tow beside it JAGUAR. Name from the map; the park keeps OSM's rating.",
+      "expect": {
+        "name": "Jaguar",
+        "piste:type": "snow_park",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Jaguar Terrain Park"
+      }
+    },
+    {
+      "id": "way/391691639",
+      "reason": "Jaguar Half Pipe (OSM's line of the park's lower part, down to the Ski Lodge): Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) draws one terrain park here, JAGUAR TERRAIN PARK (orange, SM/M), from below Model T down to the Ski Lodge, with no half pipe, and names the rope tow beside it JAGUAR. Name from the map; the park keeps OSM's rating.",
+      "expect": {
+        "name": "Jaguar Half Pipe",
+        "piste:type": "snow_park",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Jaguar Terrain Park"
+      }
+    },
+    {
+      "id": "way/1223674725",
+      "reason": "Jaguar Half Pipe (OSM's outline of the park's lower part): Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) draws one terrain park here, JAGUAR TERRAIN PARK (orange, SM/M), from below Model T down to the Ski Lodge, with no half pipe, and names the rope tow beside it JAGUAR. Name from the map; the park keeps OSM's rating.",
+      "expect": {
+        "name": "Jaguar Half Pipe",
+        "piste:type": "snow_park",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Jaguar Terrain Park"
+      }
+    },
+    {
+      "id": "way/391691646",
+      "reason": "Jaguar: a 42 m downhill piece at the top of the Jaguar park's outline, which OSM tags as a run, not a park; Hidden Valley's Winter 2024-2025 trail map (20241022_HP_winter-trail_map_001.pdf, the winter map hiddenvalleyresort.com/the-mountain/about-the-mountain/trail-map.aspx links, still the current one; the site serves curl an error page, so the page was read with WebFetch and the painting from its full-size copy on the resort's image server, scene7, 2000 x 1447 px, read enlarged 1.6 to 2.6 times) draws it as part of JAGUAR TERRAIN PARK (orange). Name and park flag from the map; OSM's rating stays.",
+      "expect": {
+        "name": "Jaguar",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Jaguar Terrain Park",
+        "park": true
+      }
+    }
+  ]
+}

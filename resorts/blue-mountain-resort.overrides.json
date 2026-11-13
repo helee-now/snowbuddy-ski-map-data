@@ -1,0 +1,137 @@
+{
+  "slug": "blue-mountain-resort",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/390536570 (Blue Mountain Resort, Palmerton; not Ontario's Blue Mountain): the north face of Blue Mountain (the Kittatinny Ridge) from the Summit Lodge on the ridge down to the Valley Lodge, the Frontier Center and the Adventure Center's tubing park, on one ticket and one map (Ikon); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12 against Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) and the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols). The map's legend: Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Extremely Difficult (two), as OSM's novice and easy, intermediate, advanced and expert; Slow Skiing Trail (yellow) and Freestyle Terrain (an orange bar behind the trail's symbol). The resort's page counts 40 trails (15 green, 4 blue, 12 black, 3 double black and the parks) and 15 lifts. The map is the printed source and wins; where the map and the 2026 report disagree, the harder of theirs and OSM's is kept. OpenStreetMap draws most runs twice, as a line and as an outline (area=yes, or a multipolygon) with the same tags; each override names both. Of OSM's named runs, all carry the map's rating but Dream Weaver (a blue square with the freestyle bar on the map, a black diamond with it in the 2026 report; intermediate in OSM): the harder, advanced. Nightmare stays expert, as OSM and the map have it (two diamonds with the freestyle bar; the 2026 report one). Names from the map: Crossover (OSM Connector, an advanced line at the top of Lower Sidewinder; the map's green Connector is the summit trail OSM also names Connector) and Sky Top (OSM Skytop); Home Stretch, Switchback, Come Around Park and Upper and Lower Main Street keep OSM's spelling (the map's HOME STRETCH, SWITCH BACK, COMEAROUND PARK and MAIN ST. differ by a space or an abbreviation, and the report writes Homestretch, Switchback, Come Around). Parks: Central Park's and Lower Sidewinder's lines and Lower Sidewinder's outline get the park flag (black with the freestyle bar on the map and in the report); Nightmare, Dream Weaver, Pioneer Park, Come Around Park and Yeti are snow parks in OSM already. Lifts: the map's Main Street Express, Challenge Express, Comet Quad, Vista Chair, Valley School Triple (the map's VALLEY SHOOL TRIPLE), School Hill Lift (the 2026 report's Summit School Conveyor; the printed map's name and OSM's kind stay), the Valley and Frontier Conveyors Lifts (three each) and the tubing park's conveyors; the upper Frontier conveyor takes its full name. Hidden: a fourth Valley conveyor OSM maps beside the Valley School Triple's bottom, which neither the map nor the report's lift list has, and two lines OSM's own descriptions call local kids' finds (Scoliogeddon, a mountain-bike trail along the summit, and Shot 720), on neither the map nor the report's 40 trails. The tubing lanes are left out by the type rule. OSM gaps (shipped as at Palisades Tahoe): Razorback (black), Blue Baumer Glade and Sleepy Hollow Glade (black glades), and two of the tubing park's four conveyors are not in OSM.",
+  "overrides": [
+    {
+      "id": "way/44526325",
+      "reason": "Connector (OSM's line, rated advanced): the short black trail between the Challenge Express and the Comet Quad at the top of Lower Sidewinder, which Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) labels CROSSOVER with a black diamond (and the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols) lists as Crossover, black). The map's Connector is the green summit trail OSM also names Connector (way/44526396), so this one takes the map's name; OSM's rating is the map's.",
+      "expect": {
+        "name": "Connector",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Crossover"
+      }
+    },
+    {
+      "id": "way/1222378192",
+      "reason": "Connector (OSM's outline, rated advanced): the short black trail between the Challenge Express and the Comet Quad at the top of Lower Sidewinder, which Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) labels CROSSOVER with a black diamond (and the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols) lists as Crossover, black). The map's Connector is the green summit trail OSM also names Connector (way/44526396), so this one takes the map's name; OSM's rating is the map's.",
+      "expect": {
+        "name": "Connector",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Crossover"
+      }
+    },
+    {
+      "id": "way/44526376",
+      "reason": "Skytop: the green trail along the summit at the east end of the ridge, above Nightmare and Paradise, which Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) labels SKY TOP with a green circle (and the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols) writes Sky Top). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Skytop",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Sky Top"
+      }
+    },
+    {
+      "id": "way/211754256",
+      "reason": "Dream Weaver (OSM's line), a terrain park trail east of Razorback: Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) gives it a blue square with the orange Freestyle Terrain bar, the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols) a black diamond with the bar (Dreamweaver); OSM rates it intermediate. The resort's sources disagree, so the harder of theirs and OSM's is kept: advanced. It stays a snow park, as OSM has it.",
+      "expect": {
+        "name": "Dream Weaver",
+        "piste:difficulty": "intermediate",
+        "piste:type": "snow_park"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1222378187",
+      "reason": "Dream Weaver (OSM's outline), a terrain park trail east of Razorback: Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) gives it a blue square with the orange Freestyle Terrain bar, the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols) a black diamond with the bar (Dreamweaver); OSM rates it intermediate. The resort's sources disagree, so the harder of theirs and OSM's is kept: advanced. It stays a snow park, as OSM has it.",
+      "expect": {
+        "name": "Dream Weaver",
+        "piste:difficulty": "intermediate",
+        "piste:type": "snow_park"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/44526391",
+      "reason": "Central Park (OSM's line, a downhill run): the terrain park trail between the Challenge Express and Barb's Way above the Valley Lodge, which Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) marks with a black diamond on the orange Freestyle Terrain bar (and the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols) with the same, 2 features). OSM's outline of it is a snow park already; the line gets the park flag. OSM's rating is the map's.",
+      "expect": {
+        "name": "Central Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/211754261",
+      "reason": "Lower Sidewinder (OSM's line, a downhill run): the trail from Crossover down between the Comet Quad and the Challenge Express, which Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) marks with a black diamond on the orange Freestyle Terrain bar (and the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols) with the same, 1 feature): a terrain park. OSM's rating is the map's.",
+      "expect": {
+        "name": "Lower Sidewinder",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "relation/18281110",
+      "reason": "Lower Sidewinder (OSM's outline, a multipolygon): the trail from Crossover down between the Comet Quad and the Challenge Express, which Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) marks with a black diamond on the orange Freestyle Terrain bar (and the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols) with the same, 1 feature): a terrain park. OSM's rating is the map's.",
+      "expect": {
+        "name": "Lower Sidewinder",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1222144685",
+      "reason": "Upper: the top one of the three carpets between the Frontier Center and Pioneer Park, which Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) draws as FRONTIER CONVEYOR LIFTS in three segments, LOWER, MID and UPPER (and the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols) lists as Frontier Conveyor Upper). OSM names the other two Frontier Conveyor Lifts Lower and Mid; this one takes the same full name, as the map has it.",
+      "expect": {
+        "name": "Upper",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Frontier Conveyor Lifts Upper"
+      }
+    },
+    {
+      "id": "way/256636932",
+      "reason": "Valley Conveyor, a 55 m carpet OSM maps west of the Valley School Triple's bottom station, beside OSM's three Valley Conveyor Lifts (Lower, Mid and Upper, east of the triple): Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) draws only those three segments there (VALLEY CONVEYORS LIFTS, LOWER, MID and UPPER) and the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols) lists only Valley Conveyor Lower, Middle and Upper, so this fourth one is a lift the resort does not run (likely the older mapping of the same carpets).",
+      "expect": {
+        "name": "Valley Conveyor",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1512156014",
+      "reason": "Scoliogeddon, a 413 m mogul line OSM maps along the summit ridge, whose own description says local kids turned the mountain-bike trail into a ski run and named it: not a resort trail, on neither Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) nor the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols)'s 40 trails, so it is hidden rather than drawn as a blue run.",
+      "expect": {
+        "name": "Scoliogeddon",
+        "piste:type": "downhill"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1510578653",
+      "reason": "Shot 720, a 70 m mogul line OSM maps in the woods beside Nightmare, whose own description says local kids found it: not a resort trail, on neither Blue Mountain's trail map (Trail-Map-23-24-scaled.jpg, 2560 x 2199 px, the 2023-24 map and the newest the resort's page skibluemt.com/winter-sports/skiing-snowboarding/trail-map/ shows) nor the resort's condition report of 2026-03-29 (Condition-Report-3-29-26.pdf, linked from the same page, which lists the 40 trails with their symbols)'s 40 trails, so it is hidden rather than drawn as a double-black run.",
+      "expect": {
+        "name": "Shot 720",
+        "piste:type": "downhill"
+      },
+      "hide": true
+    }
+  ]
+}

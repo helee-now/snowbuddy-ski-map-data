@@ -1,0 +1,73 @@
+{
+  "key": "seven-springs-v1",
+  "ski_sha256": "e05945f9d04eabd438d3bd419b6650a5d7c8654cc9dad96c2c429dc2aa848d80",
+  "osm_timestamp": "2026-11-13T03:31:21Z",
+  "box": [
+    -79.35,
+    39.98,
+    -79.26,
+    40.06
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -79.316832,
+    40.007614,
+    -79.284419,
+    40.034414
+  ],
+  "margins_km": {
+    "west": 2.82,
+    "south": 3.07,
+    "east": 2.08,
+    "north": 2.84
+  },
+  "counts": {
+    "lifts": 14,
+    "runs_in_bounds": 64,
+    "run_areas_in_bounds": 48,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 25,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 6.8,
+    "runs_in_bounds": 27.9,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -79.453125,
+      39.909736,
+      -79.101562,
+      40.178873
+    ],
+    "12": [
+      -79.365234,
+      39.97712,
+      -79.189453,
+      40.111689
+    ],
+    "13": [
+      -79.365234,
+      39.97712,
+      -79.233398,
+      40.078071
+    ],
+    "14": [
+      -79.365234,
+      39.97712,
+      -79.255371,
+      40.061257
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

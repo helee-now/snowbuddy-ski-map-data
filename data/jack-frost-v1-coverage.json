@@ -1,0 +1,73 @@
+{
+  "key": "jack-frost-v1",
+  "ski_sha256": "f701f7ccbdc9b7b5fea3dcaedade2c3b1603ec832ffb8f3186ed348b28875ba1",
+  "osm_timestamp": "2026-11-13T03:41:33Z",
+  "box": [
+    -75.69,
+    41.08,
+    -75.62,
+    41.14
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -75.658377,
+    41.104662,
+    -75.64566,
+    41.116537
+  ],
+  "margins_km": {
+    "west": 2.65,
+    "south": 2.74,
+    "east": 2.15,
+    "north": 2.61
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 21,
+    "run_areas_in_bounds": 23,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 10,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.9,
+    "runs_in_bounds": 9,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -75.761719,
+      40.979898,
+      -75.585938,
+      41.244772
+    ],
+    "12": [
+      -75.761719,
+      41.046217,
+      -75.585938,
+      41.178654
+    ],
+    "13": [
+      -75.717773,
+      41.079351,
+      -75.585938,
+      41.14557
+    ],
+    "14": [
+      -75.695801,
+      41.079351,
+      -75.60791,
+      41.14557
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

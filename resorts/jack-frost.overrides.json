@@ -1,0 +1,52 @@
+{
+  "slug": "jack-frost",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/390163427 (Jack Frost Mountain Resort, near Blakeslee in the Poconos): an upside-down mountain, its Main Lodge and parking on the top at the south end and its runs falling north to the lifts' bottoms above the Lehigh River, on one ticket and one map (Epic; Jack Frost and Big Boulder share a card and the jfbb.com site but are two hills 5.7 km apart, each with its own map). The polygon holds every lift and run. No other ski area lies in the box or the Overpass window: Big Boulder's polygon ends 5.7 km south of Jack Frost's, south of the window, and the Locust Lake Village ski hill lies east of it. Every named run and lift checked on 2026-11-12 against Jack Frost's 2024-25 trail map (20241205_JFBB_winter-trail_map_001, 2625 x 1849 px from the resort's image server, and the PDF 20241017_JFBB_winter-trail_map_001.pdf, titled jack_frost_trailmap_2025, both from jfbb.com/the-mountain/about-the-mountain/trail-map.aspx, the resort's trail-map page, which lists the 2024-25 maps as current). jfbb.com refuses automated requests (its pages and PDFs answer with a bot wall to curl); the image server answered, and the PDF came through a fetch tool. The resort's lift and trail status loads by script, so the printed map is the only source and wins. Its legend: Easier (green circle), More Difficult (blue square), Most Difficult (black diamond; no double black) and Freestyle Terrain (an orange bar). The resort's mountain-info page gives Jack Frost 20 trails, 9 lifts and 1 terrain park. OpenStreetMap draws every run twice, as a line and as an outline (area=yes) with the same tags; each override names both. Every named run carries the map's rating in OSM already (Telstar, Solitude, Lightning, River Shot, Floyd's Folly, Challenge and Thunderbolt one black diamond, the blue runs Snow Chute, Dematte's Demise, Exhibition, Jane's Lane, Lehigh, Easy Rider and Ridge Run, the green Snowflake, Powder Puff and Frosty, and the ski school's slope). Name from the map: Snow Chute (OSM Sno Chute). Park: One Park, the map's freestyle terrain (an orange bar and no rating symbol, so OSM's intermediate stays). Lifts as the map draws them: Paradise, A-Lift, Tobyhanna, D I and D II (the map's DI-LIFT and DII-LIFT, two doubles side by side, OSM's D-Lift I and D-Lift II), Pocono and the carpet beside D I (OSM's Snow Monsters Carpet); OSM's names stay. Kept although the map does not name them: Thunderbolt Glades (OSM, advanced, beside Thunderbolt), Snowmonster Alley (a 34 m beginner line at the carpet) and two unnamed outlines (the traverse below the lodge and the runout along the lifts' bottoms). The tubing lane is left out by the type rule. OSM gaps: the resort counts 9 lifts and 20 trails; the map draws 7 lifts and names 19 trails, all of them in OSM.",
+  "overrides": [
+    {
+      "id": "way/390160780",
+      "reason": "Sno Chute (OSM's line): the blue run from below the Main Lodge's parking east to the tops of the Paradise lift and Lightning, which Jack Frost's 2024-25 trail map (20241205_JFBB_winter-trail_map_001, 2625 x 1849 px from the resort's image server, and the PDF 20241017_JFBB_winter-trail_map_001.pdf, titled jack_frost_trailmap_2025, both from jfbb.com/the-mountain/about-the-mountain/trail-map.aspx, the resort's trail-map page, which lists the 2024-25 maps as current) labels SNOW CHUTE with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Sno Chute",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Snow Chute"
+      }
+    },
+    {
+      "id": "way/1221657071",
+      "reason": "Sno Chute (OSM's outline): the blue run from below the Main Lodge's parking east to the tops of the Paradise lift and Lightning, which Jack Frost's 2024-25 trail map (20241205_JFBB_winter-trail_map_001, 2625 x 1849 px from the resort's image server, and the PDF 20241017_JFBB_winter-trail_map_001.pdf, titled jack_frost_trailmap_2025, both from jfbb.com/the-mountain/about-the-mountain/trail-map.aspx, the resort's trail-map page, which lists the 2024-25 maps as current) labels SNOW CHUTE with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Sno Chute",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Snow Chute"
+      }
+    },
+    {
+      "id": "way/390160774",
+      "reason": "One Park (OSM's line, a downhill run): the run between Exhibition and the D I lift, which Jack Frost's 2024-25 trail map (20241205_JFBB_winter-trail_map_001, 2625 x 1849 px from the resort's image server, and the PDF 20241017_JFBB_winter-trail_map_001.pdf, titled jack_frost_trailmap_2025, both from jfbb.com/the-mountain/about-the-mountain/trail-map.aspx, the resort's trail-map page, which lists the 2024-25 maps as current) marks with the orange Freestyle Terrain bar (the resort's one terrain park) and no rating symbol, so it gets the park flag and OSM's intermediate stays.",
+      "expect": {
+        "name": "One Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1221657064",
+      "reason": "One Park (OSM's outline, a downhill run): the run between Exhibition and the D I lift, which Jack Frost's 2024-25 trail map (20241205_JFBB_winter-trail_map_001, 2625 x 1849 px from the resort's image server, and the PDF 20241017_JFBB_winter-trail_map_001.pdf, titled jack_frost_trailmap_2025, both from jfbb.com/the-mountain/about-the-mountain/trail-map.aspx, the resort's trail-map page, which lists the 2024-25 maps as current) marks with the orange Freestyle Terrain bar (the resort's one terrain park) and no rating symbol, so it gets the park flag and OSM's intermediate stays.",
+      "expect": {
+        "name": "One Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    }
+  ]
+}

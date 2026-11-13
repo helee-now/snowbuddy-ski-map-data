@@ -1,0 +1,73 @@
+{
+  "key": "whitetail-v1",
+  "ski_sha256": "6c6d98083e6015976c3915d7274dcff176a4b2961d5f84c0445338b03e10903d",
+  "osm_timestamp": "2026-11-13T03:40:27Z",
+  "box": [
+    -77.98,
+    39.71,
+    -77.9,
+    39.77
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -77.947419,
+    39.733809,
+    -77.927399,
+    39.751809
+  ],
+  "margins_km": {
+    "west": 2.79,
+    "south": 2.65,
+    "east": 2.34,
+    "north": 2.02
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 33,
+    "run_areas_in_bounds": 24,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 15,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.2,
+    "runs_in_bounds": 11.5,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -78.046875,
+      39.639538,
+      -77.871094,
+      39.774769
+    ],
+    "12": [
+      -78.046875,
+      39.707187,
+      -77.871094,
+      39.774769
+    ],
+    "13": [
+      -78.00293,
+      39.707187,
+      -77.871094,
+      39.774769
+    ],
+    "14": [
+      -77.980957,
+      39.707187,
+      -77.893066,
+      39.774769
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

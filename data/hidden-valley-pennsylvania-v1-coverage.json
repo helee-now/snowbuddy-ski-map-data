@@ -1,0 +1,73 @@
+{
+  "key": "hidden-valley-pennsylvania-v1",
+  "ski_sha256": "2bf18626f2091cdb4e54f3520b50b71560914e718a4a8c04c1f1bc8a365663df",
+  "osm_timestamp": "2026-11-13T03:48:36Z",
+  "box": [
+    -79.29,
+    40.03,
+    -79.21,
+    40.09
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -79.260779,
+    40.050961,
+    -79.242973,
+    40.066636
+  ],
+  "margins_km": {
+    "west": 2.49,
+    "south": 2.33,
+    "east": 2.81,
+    "north": 2.6
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 36,
+    "run_areas_in_bounds": 33,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 10,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 2.8,
+    "runs_in_bounds": 11.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -79.453125,
+      39.909736,
+      -79.101562,
+      40.178873
+    ],
+    "12": [
+      -79.365234,
+      39.97712,
+      -79.189453,
+      40.111689
+    ],
+    "13": [
+      -79.321289,
+      40.010787,
+      -79.189453,
+      40.111689
+    ],
+    "14": [
+      -79.299316,
+      40.027614,
+      -79.189453,
+      40.094882
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

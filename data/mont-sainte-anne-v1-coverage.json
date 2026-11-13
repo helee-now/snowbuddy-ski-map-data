@@ -1,0 +1,73 @@
+{
+  "key": "mont-sainte-anne-v1",
+  "ski_sha256": "6c59d5634a926e60157725153d9450b571dd671aaded227c20f2af6aa20c0774",
+  "osm_timestamp": "2026-11-12T17:21:49Z",
+  "box": [
+    -70.98,
+    47.05,
+    -70.87,
+    47.12
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -70.947635,
+    47.073289,
+    -70.904004,
+    47.101413
+  ],
+  "margins_km": {
+    "west": 2.45,
+    "south": 2.59,
+    "east": 2.57,
+    "north": 2.07
+  },
+  "counts": {
+    "lifts": 9,
+    "runs_in_bounds": 80,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 14,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 10.6,
+    "runs_in_bounds": 70.3,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -71.015625,
+      47.040182,
+      -70.839844,
+      47.15984
+    ],
+    "12": [
+      -71.015625,
+      47.040182,
+      -70.839844,
+      47.15984
+    ],
+    "13": [
+      -71.015625,
+      47.040182,
+      -70.839844,
+      47.129951
+    ],
+    "14": [
+      -70.993652,
+      47.040182,
+      -70.861816,
+      47.129951
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

@@ -560,6 +560,60 @@
       "coverage": "data/big-white-v3-coverage.json"
     },
     {
+      "slug": "blue-mountain-ontario",
+      "name": "Blue Mountain",
+      "version": 1,
+      "key": "blue-mountain-ontario-v1",
+      "box": [
+        -80.37,
+        44.46,
+        -80.27,
+        44.53
+      ],
+      "ski_area": "way/1040649718",
+      "neighbours": [
+        {
+          "id": "way/496731548",
+          "name": "Craigleith Ski Club",
+          "reason": "A private members' ski club on the Niagara Escarpment, not on Blue Mountain's ticket or trail map: its polygon adjoins Blue Mountain's north side inside the box, so its lifts (Funnel, Comet, National, V-Hill, Little John and the Zipper carpet) and runs would otherwise draw as Blue Mountain's. Left off by the owner's rule (\"leave them off\"): the neighbouring private clubs are never drawn as Blue Mountain's."
+        },
+        {
+          "id": "way/1040649719",
+          "name": "Alpine Ski Club",
+          "reason": "A private members' ski club on the Niagara Escarpment north of Craigleith, not on Blue Mountain's ticket or trail map: its polygon lies inside the box's north-west corner, so its lifts (Summit Express, the Arrowhead, Millennium and Steeps chairs and the Square One carpet) and runs would otherwise draw beside Blue Mountain's. Left off by the owner's rule (\"leave them off\"): the neighbouring private clubs are never drawn as Blue Mountain's."
+        },
+        {
+          "id": "way/496731546",
+          "name": "Osler Bluff Ski Club",
+          "reason": "A private members' ski club on the Niagara Escarpment 2.5 km south of Blue Mountain, not on its ticket or trail map: its polygon reaches into the box's south edge, so its lifts (the Poplar, Clubhouse and Exhibition chairs and the Beehive J-bar) and runs would otherwise draw at the box's south edge. Left off by the owner's rule (\"leave them off\"): the neighbouring private clubs are never drawn as Blue Mountain's."
+        },
+        {
+          "id": "way/496731547",
+          "name": "Georgian Peaks Club",
+          "reason": "A private members' ski club on the Niagara Escarpment north-west of Alpine, not on Blue Mountain's ticket or trail map: its polygon ends about 175 m west of the box, in the Overpass margin, so its lifts (Champlain Express, Roger's Chair, Minute Mile Chair, Bay Street Chair and the Riot Platter) and runs would otherwise draw at the box's north-west corner. Left off by the owner's rule (\"leave them off\"): the neighbouring private clubs are never drawn as Blue Mountain's."
+        }
+      ],
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T17:22:51Z",
+      "overpass_box": [
+        -80.41,
+        44.44,
+        -80.23,
+        44.55
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-12T17:24:59Z",
+      "ski_file": {
+        "path": "data/blue-mountain-ontario-v1-ski.pmtiles",
+        "bytes": 68820,
+        "sha256": "f5d552b41eb2faca545562b0cd7698251cff717ba828d1940a81def2ede023c1"
+      },
+      "coverage": "data/blue-mountain-ontario-v1-coverage.json"
+    },
+    {
       "slug": "breckenridge",
       "name": "Breckenridge",
       "version": 1,
@@ -703,6 +757,60 @@
         "sha256": "a3c2201ad03cdc0289bdfed276bd7e01af833d0b4462415aa9067cfbe4c6f48b"
       },
       "coverage": "data/brighton-v2-coverage.json"
+    },
+    {
+      "slug": "camelback",
+      "name": "Camelback",
+      "version": 1,
+      "key": "camelback-v1",
+      "box": [
+        -75.39,
+        41.02,
+        -75.31,
+        41.08
+      ],
+      "ski_area": "way/52067284",
+      "elevation": "3dep1",
+      "elevation_project": "PA_Northcentral_2019_B19",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T17:22:51Z",
+      "overpass_box": [
+        -75.43,
+        41,
+        -75.27,
+        41.1
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x46y454_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x46y455_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x46y456_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x47y454_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x47y455_PA_Northcentral_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/PA_Northcentral_2019_B19/TIFF/USGS_1M_18_x47y456_PA_Northcentral_2019_B19.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "PA_Northcentral_2019_B19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -75.39,
+          41.02,
+          -75.31,
+          41.08
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-12T17:26:46Z",
+      "ski_file": {
+        "path": "data/camelback-v1-ski.pmtiles",
+        "bytes": 79801,
+        "sha256": "4b7b57e5168e8d8a8db65dffba787a35123596e70665dc6d99a7e47e5a4588bc"
+      },
+      "coverage": "data/camelback-v1-coverage.json"
     },
     {
       "slug": "copper-mountain",
@@ -1132,6 +1240,63 @@
       "coverage": "data/heavenly-v1-coverage.json"
     },
     {
+      "slug": "hunter-mountain",
+      "name": "Hunter Mountain",
+      "version": 1,
+      "key": "hunter-mountain-v1",
+      "box": [
+        -74.27,
+        42.17,
+        -74.18,
+        42.23
+      ],
+      "ski_area": "relation/14322044",
+      "elevation": "3dep1",
+      "elevation_project": "NY_FEMAR2_Central_2018_D19",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T17:16:51Z",
+      "overpass_box": [
+        -74.31,
+        42.15,
+        -74.14,
+        42.25
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NY_FEMAR2_Central_2018_D19/TIFF/USGS_1M_18_x55y467_NY_FEMAR2_Central_2018_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NY_FEMAR2_Central_2018_D19/TIFF/USGS_1M_18_x55y468_NY_FEMAR2_Central_2018_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NY_FEMAR2_Central_2018_D19/TIFF/USGS_1M_18_x55y469_NY_FEMAR2_Central_2018_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NY_FEMAR2_Central_2018_D19/TIFF/USGS_1M_18_x56y467_NY_FEMAR2_Central_2018_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NY_FEMAR2_Central_2018_D19/TIFF/USGS_1M_18_x56y468_NY_FEMAR2_Central_2018_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NY_FEMAR2_Central_2018_D19/TIFF/USGS_1M_18_x56y469_NY_FEMAR2_Central_2018_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NY_FEMAR2_Central_2018_D19/TIFF/USGS_1M_18_x57y467_NY_FEMAR2_Central_2018_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NY_FEMAR2_Central_2018_D19/TIFF/USGS_1M_18_x57y468_NY_FEMAR2_Central_2018_D19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NY_FEMAR2_Central_2018_D19/TIFF/USGS_1M_18_x57y469_NY_FEMAR2_Central_2018_D19.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "NY_FEMAR2_Central_2018_D19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -74.27,
+          42.17,
+          -74.18,
+          42.23
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-12T17:49:30Z",
+      "ski_file": {
+        "path": "data/hunter-mountain-v1-ski.pmtiles",
+        "bytes": 99770,
+        "sha256": "5ae9652bb34dd203960488a113e5f1eb654472790f6ee5a42b0a735f8825b6c5"
+      },
+      "coverage": "data/hunter-mountain-v1-coverage.json"
+    },
+    {
       "slug": "jackson-hole",
       "name": "Jackson Hole",
       "version": 1,
@@ -1506,6 +1671,45 @@
       "coverage": "data/lake-louise-v1-coverage.json"
     },
     {
+      "slug": "le-massif",
+      "name": "Le Massif de Charlevoix",
+      "version": 1,
+      "key": "le-massif-v1",
+      "box": [
+        -70.65,
+        47.25,
+        -70.54,
+        47.31
+      ],
+      "ski_area": "relation/8027590",
+      "elevation": "mrdem30",
+      "out_of_bounds_named": [
+        "Hors-Piste Zone 1",
+        "Hors-Piste Zone 2",
+        "Hors-Piste Zone 3",
+        "Hors-Piste Zone 4",
+        "Hors-Piste Zone 5"
+      ],
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T17:14:51Z",
+      "overpass_box": [
+        -70.69,
+        47.23,
+        -70.5,
+        47.33
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-12T17:17:27Z",
+      "ski_file": {
+        "path": "data/le-massif-v1-ski.pmtiles",
+        "bytes": 91076,
+        "sha256": "270088d76b4742e31d24f6c5c3f024304e46c21a38b553ac264af62cba75d3ec"
+      },
+      "coverage": "data/le-massif-v1-coverage.json"
+    },
+    {
       "slug": "loon-mountain",
       "name": "Loon Mountain",
       "version": 1,
@@ -1626,6 +1830,38 @@
         "sha256": "c2ef3f52f95a4917baa935d461b28af9526c0af1bcee0c74ee314a90085006c8"
       },
       "coverage": "data/mammoth-mountain-v3-coverage.json"
+    },
+    {
+      "slug": "mont-sainte-anne",
+      "name": "Mont-Sainte-Anne",
+      "version": 1,
+      "key": "mont-sainte-anne-v1",
+      "box": [
+        -70.98,
+        47.05,
+        -70.87,
+        47.12
+      ],
+      "ski_area": "way/391681261",
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T17:21:49Z",
+      "overpass_box": [
+        -71.02,
+        47.03,
+        -70.83,
+        47.14
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-12T17:23:44Z",
+      "ski_file": {
+        "path": "data/mont-sainte-anne-v1-ski.pmtiles",
+        "bytes": 102331,
+        "sha256": "6c59d5634a926e60157725153d9450b571dd671aaded227c20f2af6aa20c0774"
+      },
+      "coverage": "data/mont-sainte-anne-v1-coverage.json"
     },
     {
       "slug": "mount-snow",
@@ -2609,6 +2845,42 @@
       "coverage": "data/snowbird-v1-coverage.json"
     },
     {
+      "slug": "snowshoe",
+      "name": "Snowshoe",
+      "version": 1,
+      "key": "snowshoe-v1",
+      "box": [
+        -80.05,
+        38.38,
+        -79.95,
+        38.47
+      ],
+      "ski_area": [
+        "way/1244062674",
+        "way/1311361876"
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T17:29:01Z",
+      "overpass_box": [
+        -80.09,
+        38.36,
+        -79.91,
+        38.49
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w080/USGS_13_n39w080.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w081/USGS_13_n39w081.tif"
+      ],
+      "built_at": "2026-11-12T17:32:55Z",
+      "ski_file": {
+        "path": "data/snowshoe-v1-ski.pmtiles",
+        "bytes": 175017,
+        "sha256": "60d02dfa10acc8a57d9e3acddb2db0338ba643729f4ff9cd7b0b929dae0221d2"
+      },
+      "coverage": "data/snowshoe-v1-coverage.json"
+    },
+    {
       "slug": "solitude",
       "name": "Solitude",
       "version": 1,
@@ -2737,6 +3009,38 @@
         "sha256": "c36cf3b5f6270226b233b9c47d37bacf762e77a567eb413312b5fb2d6135c1d3"
       },
       "coverage": "data/stevens-pass-v1-coverage.json"
+    },
+    {
+      "slug": "stoneham",
+      "name": "Stoneham",
+      "version": 1,
+      "key": "stoneham-v1",
+      "box": [
+        -71.44,
+        46.99,
+        -71.35,
+        47.07
+      ],
+      "ski_area": "way/422827842",
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T17:36:09Z",
+      "overpass_box": [
+        -71.48,
+        46.97,
+        -71.31,
+        47.09
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-12T17:38:22Z",
+      "ski_file": {
+        "path": "data/stoneham-v1-ski.pmtiles",
+        "bytes": 100018,
+        "sha256": "07341e7f21d9baf99620bec18a5cd9d81d3118aee1f48fc86e78a49a4322c250"
+      },
+      "coverage": "data/stoneham-v1-coverage.json"
     },
     {
       "slug": "stowe",
@@ -3364,6 +3668,38 @@
         "sha256": "3ba0b1778e27bbe70a4f0e20f9e2d43e064c7de6290c7f96fda7eb0402c915b6"
       },
       "coverage": "data/telluride-v1-coverage.json"
+    },
+    {
+      "slug": "tremblant",
+      "name": "Tremblant",
+      "version": 1,
+      "key": "tremblant-v1",
+      "box": [
+        -74.62,
+        46.17,
+        -74.49,
+        46.28
+      ],
+      "ski_area": "way/671144531",
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-12",
+      "osm_timestamp": "2026-11-12T17:29:01Z",
+      "overpass_box": [
+        -74.66,
+        46.15,
+        -74.45,
+        46.3
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-12T17:40:04Z",
+      "ski_file": {
+        "path": "data/tremblant-v1-ski.pmtiles",
+        "bytes": 189023,
+        "sha256": "1f5c16d176b23460f302fa9cec18b316e205f8ed7b89e66b988626e44b1515cb"
+      },
+      "coverage": "data/tremblant-v1-coverage.json"
     },
     {
       "slug": "vail",

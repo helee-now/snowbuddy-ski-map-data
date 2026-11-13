@@ -1,0 +1,73 @@
+{
+  "key": "blue-mountain-ontario-v1",
+  "ski_sha256": "f5d552b41eb2faca545562b0cd7698251cff717ba828d1940a81def2ede023c1",
+  "osm_timestamp": "2026-11-12T17:22:51Z",
+  "box": [
+    -80.37,
+    44.46,
+    -80.27,
+    44.53
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -80.336039,
+    44.48798,
+    -80.301733,
+    44.511772
+  ],
+  "margins_km": {
+    "west": 2.69,
+    "south": 3.11,
+    "east": 2.52,
+    "north": 2.03
+  },
+  "counts": {
+    "lifts": 11,
+    "runs_in_bounds": 68,
+    "run_areas_in_bounds": 3,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 22,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.5,
+    "runs_in_bounds": 33.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -80.507812,
+      44.339565,
+      -80.15625,
+      44.590467
+    ],
+    "12": [
+      -80.419922,
+      44.402392,
+      -80.244141,
+      44.590467
+    ],
+    "13": [
+      -80.375977,
+      44.43378,
+      -80.244141,
+      44.559163
+    ],
+    "14": [
+      -80.375977,
+      44.449468,
+      -80.266113,
+      44.543505
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

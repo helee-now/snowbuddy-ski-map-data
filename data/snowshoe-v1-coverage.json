@@ -1,0 +1,73 @@
+{
+  "key": "snowshoe-v1",
+  "ski_sha256": "60d02dfa10acc8a57d9e3acddb2db0338ba643729f4ff9cd7b0b929dae0221d2",
+  "osm_timestamp": "2026-11-12T17:29:01Z",
+  "box": [
+    -80.05,
+    38.38,
+    -79.95,
+    38.47
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -80.018523,
+    38.399323,
+    -79.982921,
+    38.448515
+  ],
+  "margins_km": {
+    "west": 2.74,
+    "south": 2.15,
+    "east": 2.87,
+    "north": 2.39
+  },
+  "counts": {
+    "lifts": 13,
+    "runs_in_bounds": 68,
+    "run_areas_in_bounds": 68,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 26,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 9.5,
+    "runs_in_bounds": 32.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -80.15625,
+      38.272689,
+      -79.804688,
+      38.548165
+    ],
+    "12": [
+      -80.068359,
+      38.341656,
+      -79.892578,
+      38.479395
+    ],
+    "13": [
+      -80.068359,
+      38.376115,
+      -79.936523,
+      38.479395
+    ],
+    "14": [
+      -80.068359,
+      38.376115,
+      -79.936523,
+      38.479395
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

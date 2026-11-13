@@ -1,0 +1,106 @@
+{
+  "slug": "snowshoe",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Two polygons, both named Snowshoe Mountain in OpenStreetMap and listed in resorts.json as one map (one resort, one ticket, Ikon): way/1244062674, Snowshoe Basin under the village on Cheat Mountain's ridge with the Western Territory across the road, and way/1311361876, Silver Creek 1.4 km north; they hold every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12 against Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read), read enlarged two to five times. Its key: Easier (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Extremely Difficult (two), as OSM's easy, intermediate, advanced and expert; Terrain Park (orange hatching, with S, M and L), Gladed Terrain (black hatching), Uphill Routes and Tubing Terrain (dashed lines), Terrain Based Learning and Slow Skiing Area. Its lifts: Soaring Eagle Express, Ballhooter High Speed Quad, Grabhammer, Skidder, Powder Monkey, Powderidge and, in the Western Territory, the Western Express; at Silver Creek the Flying Eagle, Cascade, Mountaineer and Cubb Run chairs, a carpet at the lodge, the Rope Tow in Mountaineer Park (marked NEW) and the tube park's lift. The resort's lift and trail status could not be read (the bot wall), so the printed map is the source and wins. OpenStreetMap draws most runs twice, as a line and as an outline (area=yes); overrides name each way. All of OSM's named runs carry the map's rating: the glades (Sawmill, Knot Bumper, Flying Eagle and Sunset Glades, one diamond each) are tagged backcountry in OSM and lie inside the polygons, so they stay in bounds by the rule. Names from the map: Sunset Glades (OSM SunSet Glades), Cubb Run for the two ways OSM spells Cubb run, and Mountaineer Park for the Silver Creek terrain park (OSM Mountaineer Terrain Park, and Moutainteer Terrain  Park on its outline). Names hidden as descriptions the map does not print: Mid-Station (the connector at the Western Express's mid-station), To Western Territory (an outline at the Powder Monkey's top) and magic carpet slope (the beginner slope at Silver Creek's lodge). Names that differ from the map only by an apostrophe or a section stay as OSM has them: Can't Hook (CANT HOOK), Cupp Run and Shay's Revenge, single ways where the map labels an upper and a lower part (CUPP RUN and LOWER CUPP RUN, both one diamond; Lower Shay's Revenge, two diamonds, is OSM's own way), Whistlepunk (the map's UPPER WHISTLEPUNK and WHISTLEPUNK) and Timberjack (TIMBERJACK PARK). Parks: Progression Park, Evolution Park, Timberjack and Mountaineer Park are snow parks in OSM; Evolution Park's outline, drawn as a downhill run there, gets the park flag as its line has. Lifts: the eleven chairs are in OSM under the map's names; Village Access, a 44 m carpet OSM maps at the Skidder's bottom that the painting does not draw, stays (no source says it has gone), as does the unnamed carpet at Silver Creek's lodge. OSM gaps (shipped as at Palisades Tahoe): the Rope Tow in Mountaineer Park and the tube park's lift; Lower Ballhooter (blue), Shamrock and Black Bear (green, by the Powderidge top) are not named in OSM.",
+  "overrides": [
+    {
+      "id": "way/1493722657",
+      "reason": "SunSet Glades: the gladed line between Cupp Run and Shay's Revenge under the Western Express, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) labels Sunset Glades with one black diamond. Capitalisation from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "SunSet Glades",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Sunset Glades"
+      }
+    },
+    {
+      "id": "way/321576367",
+      "reason": "Cubb run: Silver Creek's long green run from the lodge round the area's east side to the Cubb Run chair's bottom, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) labels Cubb Run with a green circle, as OSM names the run's other ways and the lift. Capitalisation from the map.",
+      "expect": {
+        "name": "Cubb run",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Cubb Run"
+      }
+    },
+    {
+      "id": "way/1498095460",
+      "reason": "Cubb run: the first 63 m of Silver Creek's green Cubb Run at the lodge, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) labels Cubb Run. Capitalisation from the map.",
+      "expect": {
+        "name": "Cubb run",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Cubb Run"
+      }
+    },
+    {
+      "id": "way/321576354",
+      "reason": "Mountaineer Terrain Park: the terrain park beside the Mountaineer chair at Silver Creek, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) labels Mountaineer Park (orange hatching, features S-M). Name from the map.",
+      "expect": {
+        "name": "Mountaineer Terrain Park",
+        "piste:type": "snow_park"
+      },
+      "set": {
+        "name": "Mountaineer Park"
+      }
+    },
+    {
+      "id": "way/1494642355",
+      "reason": "Moutainteer Terrain  Park: the outline of the terrain park beside the Mountaineer chair at Silver Creek (misspelt, with a double space), which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) labels Mountaineer Park. Name from the map.",
+      "expect": {
+        "name": "Moutainteer Terrain  Park",
+        "piste:type": "snow_park"
+      },
+      "set": {
+        "name": "Mountaineer Park"
+      }
+    },
+    {
+      "id": "way/1245957536",
+      "reason": "Evolution Park's outline: Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) draws Evolution Park as terrain park (orange hatching, features M-L) beside the Powderidge chair; OSM tags its line a snow park and its outline a downhill run. Park flag from the map; OSM's rating is kept.",
+      "expect": {
+        "name": "Evolution Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1495154445",
+      "reason": "Mid-Station: a 202 m connector at the Western Express's mid-station between Cupp Run and Shay's Revenge, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) draws without a name; 'Mid-Station' names the lift's station, not a run. The name is hidden; OSM's rating stays.",
+      "expect": {
+        "name": "Mid-Station",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/1497549295",
+      "reason": "To Western Territory: a 164 m outline at the Powder Monkey's top where skiers cross the road to the Western Territory, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) does not name ('Located across the street from the Powder Monkey lift'); the name is a direction, not a run. The name is hidden; OSM's rating stays.",
+      "expect": {
+        "name": "To Western Territory",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/1493409656",
+      "reason": "magic carpet slope: the beginner slope beside the carpet at Silver Creek's lodge, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) draws in its Slow Skiing Area without a name; the name is a description. Hidden; OSM's rating stays.",
+      "expect": {
+        "name": "magic carpet slope",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "name": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "slug": "le-massif",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/8027590 (Le Massif, one outer way): the whole lift-served mountain from the Chalet du Sommet (710 m) and the Camp-Boule sector on the plateau to the Chalet de la Base (38 m) on the St. Lawrence, with the Massif Express gondola, the Grande-Pointe, Maillard and Camp-Boule Express chairs and the two learning areas, on one ticket and one map; no other ski area lies in the box or the Overpass window (the resort's own cross-country, snowshoe and ski-touring trails and its 7.5 km sled run are left out by the type rule). Every named run and lift checked on 2026-11-12 against Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11), one 5184 x 5184 pt page whose labels are drawn as outlines over the painting, rendered at 0.3 to 1.0 times its size and read tile by tile, and against the resort's French trail status list (lemassif.com/fr/montagne/hiver/remontees-pistes-et-damage, each trail with its level icon: green circle, blue square, black diamond or double black diamond); the English list is the same but for one stale name (La Lavoie). The map has no legend: its runs are drawn green with a green circle, blue with a blue square, black with one or two black diamonds, the glades with a tree icon, the access lines dotted, and the Secteur hors-piste shaded and labelled 'Non patrouillé / Unpatrolled'. OSM's easy, intermediate, advanced and expert match the four grades (its novice for La Prélude and La Moussaillon draws green too). Of OSM's 62 rated named run ways in bounds (53 names; the four Accès lines and the Club Med ski-in and ski-out are unrated) all but two carry the resort's ratings. Ratings: La Racine, green on the map and in the list, becomes easy from intermediate; the upper way of La Pointue, drawn blue on the map down to La Bordage while the list rates La Pointue black as one trail, becomes advanced, the harder of the resort's two sources (the rule of 2026-10-22, as Revelstoke's Hickory Run). La Goélette, blue squares on the map and green in the list, keeps OSM's intermediate, the harder. The list's Haut and Bas sections match OSM's ways (La Combe, La Desjardins and La Misaine: the upper green, blue and blue, the lower blue, green and black; La Charlevoix's Haut double black and Bas black). Names from the map and the French list: La Pellerin (OSM La Lavoie, the English list's stale name). Lift names from the French lift list (the map marks the lifts with letters only): Tapis magique sommet (OSM Tapis Magique, F), Téléski secteur débutant sommet (OSM Téléski secteur débutant, E) and Tapis magique base for the two carpets beside the base platter (H1 and H2, unnamed in OSM). Names that differ from the resort's only by a hyphen or a section suffix stay as OSM has them (La Dominique Maltais, as the map prints it, for the list's La Dominique-Maltais; La Charlevoix (Haut) and (Bas) for the list's La Charlevoix accès C (Haut) and accès D (Bas); Massif Express for Massif Express (Télécabine)). Parks: La Moussaillon, the list's only Parc à neige trail and the map's park icon, gets the park flag; OSM's Snow Park outline beside it, a closed way without area=yes, is hidden. Lifts: the map's A to H are all in OSM (Massif Express, Grande-Pointe Express, Maillard Express, Camp-Boule Express, the two platters and the three carpets); Transit, a disused pulse gondola at the base on neither the map nor the list, is hidden. Out of bounds: OSM's Hors-Piste Zone 1 to 5, Hors Piste and Hors-Piste Ski-Out lines, tagged backcountry and north and east of the polygon, are the map's Secteur hors-piste, shaded beyond the patrolled area and labelled unpatrolled, so they are out of bounds by the README's rule and the five zones are required by out_of_bounds_named, as Tamarack's un-patrolled zones; L'Écore, tagged backcountry inside the polygon, stays in bounds. OSM gaps (shipped as at Palisades Tahoe): La Brise-Glace, the green run beside the base platter, and La Pente-École, the list's beginner trail at the summit. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/759915767",
+      "reason": "La Racine, from the Camp-Boule Express's bottom down the east side of the mountain to the base by the Club Med, is drawn green with a green circle on Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11) and is green in the resort's French trail status list (lemassif.com/fr/montagne/hiver/remontees-pistes-et-damage, each trail with its level icon: green circle, blue square, black diamond or double black diamond); OSM rates it intermediate. The resort's sources agree and win.",
+      "expect": {
+        "name": "La Racine",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/198707016",
+      "reason": "The upper way of La Pointue (336 m, from below Le Mur to the head of La Bordage): Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11) draws it blue and the lower way black with a black diamond, as OSM rates them (intermediate and advanced), but the resort's French trail status list (lemassif.com/fr/montagne/hiver/remontees-pistes-et-damage, each trail with its level icon: green circle, blue square, black diamond or double black diamond) rates La Pointue black (one black diamond) as one trail. The resort's sources disagree, so the harder, the list's, stands for the whole run.",
+      "expect": {
+        "name": "La Pointue",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/198649231",
+      "reason": "Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11) labels the blue run between La Simard and La Bouchard, from the Camp-Boule Express's top, LA PELLERIN, and the resort's French trail status list (lemassif.com/fr/montagne/hiver/remontees-pistes-et-damage, each trail with its level icon: green circle, blue square, black diamond or double black diamond) lists it as La Pellerin (blue); OSM and the resort's English list keep its earlier name, La Lavoie. The map's name is taken.",
+      "expect": {
+        "name": "La Lavoie",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "La Pellerin"
+      }
+    },
+    {
+      "id": "way/198650722",
+      "reason": "La Moussaillon, beside La Prélude below the summit learning area, is the only trail under Parc à neige in the resort's French trail status list (lemassif.com/fr/montagne/hiver/remontees-pistes-et-damage, each trail with its level icon: green circle, blue square, black diamond or double black diamond) (green) and carries the terrain park icon on Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11); OSM tags it a novice run with no park tag.",
+      "expect": {
+        "name": "La Moussaillon",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/397900932",
+      "reason": "OSM's Snow Park, a 622 m closed outline (piste:type=snow_park without area=yes) between La Moussaillon and La Prélude, would draw as a park run looping round the slope; the park is La Moussaillon, which Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11) marks with the park icon and the resort's French trail status list (lemassif.com/fr/montagne/hiver/remontees-pistes-et-damage, each trail with its level icon: green circle, blue square, black diamond or double black diamond) lists under Parc à neige, and which carries the park flag.",
+      "expect": {
+        "name": "Snow Park",
+        "piste:type": "snow_park"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/198548301",
+      "reason": "Transit, a 253 m pulse gondola at the base tagged disused=yes in OSM, is on neither Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11) (lifts A to H) nor the resort's lift list (eight lifts); not a lift the resort runs.",
+      "expect": {
+        "name": "Transit",
+        "aerialway": "gondola",
+        "disused": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/198548298",
+      "reason": "The summit carpet beside the Massif Express's top, F on Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11), is Tapis magique sommet in the resort's French lift list (lemassif.com/fr/montagne/hiver/remontees-pistes-et-damage); OSM names it Tapis Magique.",
+      "expect": {
+        "name": "Tapis Magique",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Tapis magique sommet"
+      }
+    },
+    {
+      "id": "way/198548302",
+      "reason": "The summit learning area's platter, E on Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11), is Téléski secteur débutant sommet in the resort's French lift list (lemassif.com/fr/montagne/hiver/remontees-pistes-et-damage), beside the Téléski secteur débutant base; OSM names it Téléski secteur débutant.",
+      "expect": {
+        "name": "Téléski secteur débutant",
+        "aerialway": "platter"
+      },
+      "set": {
+        "name": "Téléski secteur débutant sommet"
+      }
+    },
+    {
+      "id": "way/1373769130",
+      "reason": "One of the two carpets beside the base learning area's platter, H1 on Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11), which the resort's French lift list (lemassif.com/fr/montagne/hiver/remontees-pistes-et-damage) names Tapis magique base; unnamed in OSM.",
+      "expect": {
+        "name": null,
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Tapis magique base"
+      }
+    },
+    {
+      "id": "way/1373769131",
+      "reason": "One of the two carpets beside the base learning area's platter, H2 on Le Massif de Charlevoix's trail map (lemassif.com, Lifts, Trails & Grooming, 'Download trail map': P-7856-LeMassif-Carte des pistes 2024-WEB.pdf, the K.M. Mastin painting with bilingual labels, posted 2024-11), which the resort's French lift list (lemassif.com/fr/montagne/hiver/remontees-pistes-et-damage) names Tapis magique base; unnamed in OSM.",
+      "expect": {
+        "name": null,
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Tapis magique base"
+      }
+    }
+  ]
+}

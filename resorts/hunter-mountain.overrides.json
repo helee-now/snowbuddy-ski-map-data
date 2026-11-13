@@ -1,0 +1,104 @@
+{
+  "slug": "hunter-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One multipolygon, relation/14322044 (landuse=winter_sports, five outer ways, no name in OpenStreetMap): Hunter East, Hunter Mountain's main face, Hunter West and Hunter North on one ticket and one map (Epic); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12 against Hunter Mountain's Winter 2025-2026 trail map (20251122_HU_winter-trail_map_001.pdf, the winter map huntermtn.com/the-mountain/about-the-mountain/trail-map.aspx links): the site serves curl an error page, so the PDF (one 1266 x 834 pt page, the painting with a text layer for its labels) was fetched with WebFetch, its labels read from the text layer and the trails' lines and symbols from renders at 5 and 12 times its size, tile by tile. Its key: Easier (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Extremely Difficult (two), OSM's easy, intermediate, advanced and expert, Glades (a tree icon beside the trail's own symbol), Freestyle Terrain (orange pills) and Slow Zone (shaded); its lift list names Hunter East's H Lift, EC East Carpet, 20th Century Quad, FC Frostyland Carpet, DC Discovery Carpet, HP Poma Lift and Otis Quad, Hunter Mountain's F Lift, Kaatskill Flyer and Broadway Express, Hunter West's Zephyr Express Quad, Hunter North's Northern Express and the Snow Tubing Park's carpet. The resort's lift and terrain status loads by script, so the printed map is the only source and wins. Of OSM's 57 named runs, all carry the map's rating but two: Grand Concourse (green on the map; intermediate in OSM) and Which Way Glades (one black diamond with the glade icon; expert in OSM). Names from the map: Sleepy Hollow (OSM Sleepy Hallow; the map labels its upper and lower halves, both blue), The Colonel's Alternative (OSM Colonel's Alternate), Jimmy Heuga for the black run OSM names Heuga Express (the map labels it JIMMY HUEGA, misspelling the skier Jimmy Heuga's name; the map's name is kept with his spelling), Park Avenue West for the unnamed park lane OSM draws east of Park Avenue, Otis Quad (OSM Otis) and East Carpet (OSM Hunter East Carpet; the map's EC). Names that differ from the map only by a hyphen or a word stay as OSM has them: Gun-Hill Road (GUN HILL ROAD), Woodstock (WOODSTOCK GLADES), East Side Drive and Taylor's Run, single ways where the map labels an upper and a lower part of one rating (UPPER and LOWER EAST SIDE DRIVE, UPPER TAYLOR'S RUN and TAYLOR'S RUN), and the lifts Zephyr Express (ZEPHYR EXPRESS QUAD in the key) and 20th Century Quad (the key's name; the painting labels the lift 20TH CENTURY LIMITED); OSM's Broadway, an 80 m blue way at the Broadway Express top that the map does not label, stays. Parks: Park Avenue and Park Avenue West, black lanes with the map's freestyle pills, are snow parks in OSM already; the pill on Lower 42nd Street sits on a blue trail and gets no park flag (a flag would draw the whole trail as a park, as at Sugarloaf). Hidden: OSM's PL Pony Lift, a 76 m rope tow at the 20th Century Quad's bottom that neither the painting nor the lift list shows (the map's surface lifts there are the EC, DC and FC carpets). OSM gaps (shipped as at Palisades Tahoe): the HP Poma Lift at the top of Hunter East, the FC Frostyland and DC Discovery carpets and the tubing park's carpet; the runs Macombs (blue), Madison Square, Gramercy Park, Learning Zone, Bucky's Run and KMC Drive (green, the base area's beginner runs), Milky Way, The Milky Glades and Mad Box (black) and Belt Parkway Bypass (blue), some perhaps among OSM's unnamed ways.",
+  "overrides": [
+    {
+      "id": "way/386023562",
+      "reason": "Grand Concourse, from the 20th Century Quad's top down beside Fordham Road on Hunter East, is a green line with a green circle (Easier) on Hunter Mountain's Winter 2025-2026 trail map (20251122_HU_winter-trail_map_001.pdf, the winter map huntermtn.com/the-mountain/about-the-mountain/trail-map.aspx links); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Grand Concourse",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/547363342",
+      "reason": "Which Way Glades, between Taylor's Run and Clair's Way under the Zephyr Express on Hunter West, carries one black diamond (Most Difficult) and the glade icon on Hunter Mountain's Winter 2025-2026 trail map (20251122_HU_winter-trail_map_001.pdf, the winter map huntermtn.com/the-mountain/about-the-mountain/trail-map.aspx links), whose key ranks two diamonds (Extremely Difficult) above it; OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Which Way Glades",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/774855218",
+      "reason": "Sleepy Hallow: the blue trail from Belt Parkway's west end down to Hunter North's base, which Hunter Mountain's Winter 2025-2026 trail map (20251122_HU_winter-trail_map_001.pdf, the winter map huntermtn.com/the-mountain/about-the-mountain/trail-map.aspx links) labels UPPER SLEEPY HOLLOW and LOWER SLEEPY HOLLOW, both with a blue square. Spelling from the map; OSM's one way keeps its rating.",
+      "expect": {
+        "name": "Sleepy Hallow",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Sleepy Hollow"
+      }
+    },
+    {
+      "id": "way/47793901",
+      "reason": "Colonel's Alternate: the black trail from the summit beside Clair's Way, which Hunter Mountain's Winter 2025-2026 trail map (20251122_HU_winter-trail_map_001.pdf, the winter map huntermtn.com/the-mountain/about-the-mountain/trail-map.aspx links) labels THE COLONEL'S ALTERNATIVE with one black diamond. Name from the map.",
+      "expect": {
+        "name": "Colonel's Alternate",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "The Colonel's Alternative"
+      }
+    },
+    {
+      "id": "way/909115032",
+      "reason": "Heuga Express: the black trail from Mad Box down to White Cloud between The Cliff and Belt Parkway, which Hunter Mountain's Winter 2025-2026 trail map (20251122_HU_winter-trail_map_001.pdf, the winter map huntermtn.com/the-mountain/about-the-mountain/trail-map.aspx links) labels JIMMY HUEGA with one black diamond: the map misspells the name of the skier the trail is named after, Jimmy Heuga. Name from the map (its full label, Jimmy, no Express) with the skier's spelling, Heuga; OSM's rating is the map's.",
+      "expect": {
+        "name": "Heuga Express",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Jimmy Heuga"
+      }
+    },
+    {
+      "id": "way/386023553",
+      "reason": "The unnamed park lane east of Park Avenue, from Empire Trail down to the Broadway Express base: Hunter Mountain's Winter 2025-2026 trail map (20251122_HU_winter-trail_map_001.pdf, the winter map huntermtn.com/the-mountain/about-the-mountain/trail-map.aspx links) labels it PARK AVENUE WEST, a black lane with a black diamond and freestyle pills. Name from the map; OSM's snow park and rating are kept.",
+      "expect": {
+        "name": null,
+        "piste:type": "snow_park",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Park Avenue West"
+      }
+    },
+    {
+      "id": "way/1455922407",
+      "reason": "Otis: the quad from Hunter East's base area to the bottom of the HP Poma Lift, which Hunter Mountain's Winter 2025-2026 trail map (20251122_HU_winter-trail_map_001.pdf, the winter map huntermtn.com/the-mountain/about-the-mountain/trail-map.aspx links) lists as OTIS QUAD and labels so on the painting. Name from the map.",
+      "expect": {
+        "name": "Otis",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Otis Quad"
+      }
+    },
+    {
+      "id": "way/256592821",
+      "reason": "Hunter East Carpet (alt_name C1 Carpet One): the carpet between the H Lift and the 20th Century Quad at Hunter East's base, which Hunter Mountain's Winter 2025-2026 trail map (20251122_HU_winter-trail_map_001.pdf, the winter map huntermtn.com/the-mountain/about-the-mountain/trail-map.aspx links) marks EC and lists as EC EAST CARPET. Name from the map.",
+      "expect": {
+        "name": "Hunter East Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "East Carpet"
+      }
+    },
+    {
+      "id": "way/256592816",
+      "reason": "PL Pony Lift, a 76 m rope tow at the 20th Century Quad's bottom: Hunter Mountain's Winter 2025-2026 trail map (20251122_HU_winter-trail_map_001.pdf, the winter map huntermtn.com/the-mountain/about-the-mountain/trail-map.aspx links) draws no rope tow or pony lift there and its lift list has none (Hunter East's surface lifts are the EC, DC and FC carpets and the HP Poma Lift at the top of the face), so it is a lift the resort no longer runs, or not as mapped.",
+      "expect": {
+        "name": "PL Pony Lift",
+        "aerialway": "rope_tow"
+      },
+      "hide": true
+    }
+  ]
+}

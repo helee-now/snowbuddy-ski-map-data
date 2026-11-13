@@ -1,0 +1,127 @@
+{
+  "slug": "mont-sainte-anne",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/391681261 (Mont-Sainte-Anne): the South side from the summit (800 m) to the base at Beaupré, with L'Étoile Filante gondola, the Panorama Express, L'Express du Sud and La Tortue, the North side with L'Express du Nord and L'Échappée, and the West side with La Corde Raide, on one ticket; the resort prints its South side and its North and West sides as two maps, drawn here as one. No other ski area lies in the box or the Overpass window: the resort's Nordic centre north of the mountain (the Classique Alex Harvey and the other cross-country trails), its hiking trails and its alpine touring routes (Montée A to D, eight of their ways tagged only piste:type=yes) are left out by the type rule, and a zip line east of the base by the kind rule. Every named run and lift checked on 2026-11-12 against Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run (Facile, a green circle; Difficile, a blue square; Très difficile, a black diamond; Extrême, two), rendered at 0.8 to 5 times its size and read tile by tile, against Mont-Sainte-Anne's North and West side map (mont-sainte-anne.com, Alpine skiing trail maps, 'North side details': Nord.pdf, the Murray Hay painting, made 2023-11-03), whose runs carry the same symbols on the painting, rendered at 2 to 4 times its size, and against the resort's French snow conditions list (mont-sainte-anne.com/conditions-de-neige-ski-alpin, each trail with its difficulty icon), the same four grades (green_easy, blue_difficult, diamond and D_diamond), its lift list (nine lifts) and its park list (La Grande Allée and the Parc de l'Envolée). OSM's easy, intermediate, advanced and expert match the four grades (its novice for L'Oie Blanche and Première Glisse draws green too). Of OSM's 80 named run ways (70 names), 77 carry the resort's ratings and one, La Crête's top way, none. Ratings: La Crête's lowest way, the run-out to the base the South map draws blue, and its unrated top way from the summit become advanced, and so does La Montmorency's lower way, which the South map draws blue below its black upper part: the map's own run table and the conditions list rate both runs black as one trail (La Crête 3,460 m, La Montmorency 1,234 m), so the harder of the resort's sources stands for the whole run (the rule of 2026-10-22). La Grande Ouest keeps OSM's advanced upper way, drawn black with a diamond on the North and West map though the list rates the trail blue, and L'Archipel keeps OSM's advanced, the list's black diamond, though the North map draws it blue: the harder stands. Names from the maps and the list: La Familiale (OSM La Familliale, three ways), La P-A Rousseau (OSM Lap A Rousseau), La Ferréolaise (OSM La Férréolaise; the run of Saint-Ferréol-les-Neiges), the lift L'Étoile Filante (OSM L'Étoile Fillante), and La Dolce Vita for OSM's upper La Beaupré way: the South map draws the green run from the summit along La Tortue as LA DOLCE VITA and starts La Beaupré, blue, where it leaves it. Names that differ from the resort's only by an article, a hyphen, a capital or a section suffix stay as OSM has them (Espresso for L'ESPRESSO, Sentier des Bouleaux for LE SENTIER DES BOULEAUX, Domino for LA DOMINO, La Mélanie Turgeon for LA MÉLANIE-TURGEON, La Gondoleuse and La Gondoleuse (Haut) for LA GONDOLEUSE-BAS and -HAUT), and so do OSM spellings the conditions list or one map confirms (La Buissonnière, as the list spells it, for the South map's BUISSONIÈRE; L'Amaroq and La Sidney-Dawes, as the North map prints them, for the list's L'Amarok and La Sydney Dawes; La Vital-Roy and Les Îlots). Parks: La Grande Allée, which the South map's table marks with the snowpark icon and the conditions list names as a park (29 features), gets the park flag. Lifts: the nine of the maps and the list are all in OSM (L'Étoile Filante, Panorama Express, L'Express du Sud, La Tortue, L'Express du Nord, L'Échappée, La Corde Raide, Le Mille-Pattes and La Montée Magique); none is hidden. Many glades and the steep south-face runs carry piste:grooming=backcountry in OSM, but all lie inside the polygon, so they stay in bounds. OSM gaps (shipped as at Palisades Tahoe): L'Envolée, the green family and park run beside L'Oie Blanche at the base (the Parc de l'Envolée), and La Passe à Alex, a green link from La Familiale to La Domino. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "overrides": [
+    {
+      "id": "way/200092439",
+      "reason": "La Familiale, the long green run from the summit round the east side to the base, is LA FAMILIALE on Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run and on Mont-Sainte-Anne's North and West side map (mont-sainte-anne.com, Alpine skiing trail maps, 'North side details': Nord.pdf, the Murray Hay painting, made 2023-11-03), and La Familiale in the resort's French snow conditions list (mont-sainte-anne.com/conditions-de-neige-ski-alpin, each trail with its difficulty icon); OSM spells it La Familliale.",
+      "expect": {
+        "name": "La Familliale",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "La Familiale"
+      }
+    },
+    {
+      "id": "way/200092449",
+      "reason": "La Familiale, the long green run from the summit round the east side to the base, is LA FAMILIALE on Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run and on Mont-Sainte-Anne's North and West side map (mont-sainte-anne.com, Alpine skiing trail maps, 'North side details': Nord.pdf, the Murray Hay painting, made 2023-11-03), and La Familiale in the resort's French snow conditions list (mont-sainte-anne.com/conditions-de-neige-ski-alpin, each trail with its difficulty icon); OSM spells it La Familliale.",
+      "expect": {
+        "name": "La Familliale",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "La Familiale"
+      }
+    },
+    {
+      "id": "way/200092455",
+      "reason": "La Familiale, the long green run from the summit round the east side to the base, is LA FAMILIALE on Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run and on Mont-Sainte-Anne's North and West side map (mont-sainte-anne.com, Alpine skiing trail maps, 'North side details': Nord.pdf, the Murray Hay painting, made 2023-11-03), and La Familiale in the resort's French snow conditions list (mont-sainte-anne.com/conditions-de-neige-ski-alpin, each trail with its difficulty icon); OSM spells it La Familliale.",
+      "expect": {
+        "name": "La Familliale",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "La Familiale"
+      }
+    },
+    {
+      "id": "way/904601713",
+      "reason": "Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run and the resort's French snow conditions list (mont-sainte-anne.com/conditions-de-neige-ski-alpin, each trail with its difficulty icon) name the double-black run between Le Canyon and La Brunelle on the south face LA P-A ROUSSEAU (Extrême, as OSM rates it); OSM writes Lap A Rousseau.",
+      "expect": {
+        "name": "Lap A Rousseau",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "La P-A Rousseau"
+      }
+    },
+    {
+      "id": "way/200092452",
+      "reason": "Mont-Sainte-Anne's North and West side map (mont-sainte-anne.com, Alpine skiing trail maps, 'North side details': Nord.pdf, the Murray Hay painting, made 2023-11-03) labels the green run down the North side's east flank LA FERRÉOLAISE, and the resort's French snow conditions list (mont-sainte-anne.com/conditions-de-neige-ski-alpin, each trail with its difficulty icon) lists La Ferréolaise (after Saint-Ferréol-les-Neiges); OSM spells it La Férréolaise.",
+      "expect": {
+        "name": "La Férréolaise",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "La Ferréolaise"
+      }
+    },
+    {
+      "id": "way/198869894",
+      "reason": "The gondola from the base to the summit is L'ÉTOILE FILANTE on Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run and L'Étoile Filante in the resort's lift list (mont-sainte-anne.com/conditions-de-neige-ski-alpin); OSM spells it L'Étoile Fillante.",
+      "expect": {
+        "name": "L'Étoile Fillante",
+        "aerialway": "gondola"
+      },
+      "set": {
+        "name": "L'Étoile Filante"
+      }
+    },
+    {
+      "id": "way/200092454",
+      "reason": "OSM's upper La Beaupré way (566 m, from the summit by La Tortue's top to where La Dolce Vita and La Beaupré part): Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run draws this stretch green and labels it LA DOLCE VITA (Facile), and starts LA BEAUPRÉ, blue, at the junction below it; OSM's La Dolce Vita is only the lower 366 m to La Tortue's bottom. The map's name is taken; its rating, easy, is OSM's.",
+      "expect": {
+        "name": "La Beaupré",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "La Dolce Vita"
+      }
+    },
+    {
+      "id": "way/200085534",
+      "reason": "La Crête's lowest way (862 m, the run-out from the foot of the south face to the base): Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run draws it blue, but its run table rates La Crête (3,460 m from the summit to the base) Très difficile, a black diamond, as the resort's French snow conditions list (mont-sainte-anne.com/conditions-de-neige-ski-alpin, each trail with its difficulty icon) does, for the whole trail; OSM rates this way intermediate. The resort's sources disagree, so the harder stands for the whole run.",
+      "expect": {
+        "name": "La Crête",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/904601712",
+      "reason": "La Crête's top way (572 m, from the summit west along the ridge), unrated in OSM: Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run draws it black with black diamonds and rates La Crête Très difficile in its run table, as the resort's French snow conditions list (mont-sainte-anne.com/conditions-de-neige-ski-alpin, each trail with its difficulty icon) does.",
+      "expect": {
+        "name": "La Crête",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/200092442",
+      "reason": "La Montmorency's lower way (523 m, to L'Express's foot): Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run draws it blue below the black upper part, but its run table rates La Montmorency (1,234 m) Très difficile, a black diamond, as the resort's French snow conditions list (mont-sainte-anne.com/conditions-de-neige-ski-alpin, each trail with its difficulty icon) does, for the whole trail; OSM rates this way intermediate and the upper way advanced. The resort's sources disagree, so the harder stands for the whole run.",
+      "expect": {
+        "name": "La Montmorency",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/200092447",
+      "reason": "La Grande Allée, the green run beside La Tortue below the summit, carries the snowpark icon in the run table of Mont-Sainte-Anne's South side trail map (mont-sainte-anne.com, Alpine skiing trail maps, 'South side details': sud-2.pdf, made 2020-11-16), whose run table rates every south-side run, and the resort's French snow conditions list (mont-sainte-anne.com/conditions-de-neige-ski-alpin, each trail with its difficulty icon) lists it among its parks (29 features) beside the Parc de l'Envolée; OSM has no park tag.",
+      "expect": {
+        "name": "La Grande Allée",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "key": "tremblant-v1",
+  "ski_sha256": "1f5c16d176b23460f302fa9cec18b316e205f8ed7b89e66b988626e44b1515cb",
+  "osm_timestamp": "2026-11-12T17:29:01Z",
+  "box": [
+    -74.62,
+    46.17,
+    -74.49,
+    46.28
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -74.592545,
+    46.197812,
+    -74.519944,
+    46.252116
+  ],
+  "margins_km": {
+    "west": 2.11,
+    "south": 3.09,
+    "east": 2.3,
+    "north": 3.1
+  },
+  "counts": {
+    "lifts": 15,
+    "runs_in_bounds": 173,
+    "run_areas_in_bounds": 4,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 40,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 15.9,
+    "runs_in_bounds": 89.8,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -74.707031,
+      46.073231,
+      -74.355469,
+      46.316584
+    ],
+    "12": [
+      -74.707031,
+      46.13417,
+      -74.443359,
+      46.316584
+    ],
+    "13": [
+      -74.663086,
+      46.164614,
+      -74.487305,
+      46.286224
+    ],
+    "14": [
+      -74.641113,
+      46.164614,
+      -74.487305,
+      46.286224
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

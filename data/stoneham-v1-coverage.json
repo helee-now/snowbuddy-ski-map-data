@@ -1,0 +1,102 @@
+{
+  "key": "stoneham-v1",
+  "ski_sha256": "07341e7f21d9baf99620bec18a5cd9d81d3118aee1f48fc86e78a49a4322c250",
+  "osm_timestamp": "2026-11-12T17:36:09Z",
+  "box": [
+    -71.44,
+    46.99,
+    -71.35,
+    47.07
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -71.408677,
+    47.013869,
+    -71.38018,
+    47.044354
+  ],
+  "margins_km": {
+    "west": 2.37,
+    "south": 2.65,
+    "east": 2.29,
+    "north": 2.85
+  },
+  "counts": {
+    "lifts": 6,
+    "runs_in_bounds": 63,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 2,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 14,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 4.8,
+    "runs_in_bounds": 31.6,
+    "runs_out_of_bounds": 1.1
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1468425556",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 601,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1468425557",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 469,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -71.542969,
+      46.920255,
+      -71.191406,
+      47.15984
+    ],
+    "12": [
+      -71.455078,
+      46.980252,
+      -71.279297,
+      47.100045
+    ],
+    "13": [
+      -71.455078,
+      46.980252,
+      -71.323242,
+      47.070122
+    ],
+    "14": [
+      -71.455078,
+      46.980252,
+      -71.345215,
+      47.070122
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

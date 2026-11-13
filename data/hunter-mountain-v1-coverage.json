@@ -1,0 +1,73 @@
+{
+  "key": "hunter-mountain-v1",
+  "ski_sha256": "5ae9652bb34dd203960488a113e5f1eb654472790f6ee5a42b0a735f8825b6c5",
+  "osm_timestamp": "2026-11-12T17:16:51Z",
+  "box": [
+    -74.27,
+    42.17,
+    -74.18,
+    42.23
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -74.244009,
+    42.195197,
+    -74.206212,
+    42.211472
+  ],
+  "margins_km": {
+    "west": 2.14,
+    "south": 2.8,
+    "east": 2.16,
+    "north": 2.06
+  },
+  "counts": {
+    "lifts": 9,
+    "runs_in_bounds": 77,
+    "run_areas_in_bounds": 1,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 27,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 7.1,
+    "runs_in_bounds": 31.9,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -74.355469,
+      42.163403,
+      -74.179688,
+      42.293564
+    ],
+    "12": [
+      -74.355469,
+      42.163403,
+      -74.179688,
+      42.293564
+    ],
+    "13": [
+      -74.311523,
+      42.163403,
+      -74.179688,
+      42.261049
+    ],
+    "14": [
+      -74.289551,
+      42.163403,
+      -74.179688,
+      42.244785
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

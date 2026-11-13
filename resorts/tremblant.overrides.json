@@ -1,0 +1,182 @@
+{
+  "slug": "tremblant",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/671144531 (Mont Tremblant Resort, name:fr Station Mont Tremblant): the Versant Sud above the pedestrian village, the Versant Nord down to La Fourchette du Diable, the Edge and the Versant Soleil with its base by the Casino, on one ticket and one map; no other ski area lies in the box or the Overpass window. Kept outside the polygon and in bounds (no backcountry tag): the Cabriolet, the village's open gondola from the Chalet des Voyageurs car park, the Porte du Soleil chair to the Versant Soleil, and the Voyageur, Le Plateau and lowest Chalumeau runs, all drawn on the resort's map. Every named run and lift checked on 2026-11-12 against Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, modified 2026-11-03, (c) Station Mont Tremblant 2026, with the Sommet Timber terrain shaded red as opening in winter 2027-2028; the resort's maps page, tremblant.ca/mountain-village/maps, answers automated requests with a bot wall, so the PDF was read from the resort's media host directly): two 1584 x 864 pt pages, the Versant Sud and Versant Nord paintings with the legend and the mountain stats (103 trails, 875 m summit, 645 m of vertical, 15 lifts, 4 faces, 4 snowparks), whose trail labels are numbered and printed in French, rendered at 80 dpi whole and at 230 to 450 dpi tile by tile, every doubtful symbol at 400 dpi or more (its diamonds turn with their labels, so a single one can look like a square). The key has Facile / Easy (green circle), Difficile / Difficult (blue square), Très difficile / Very Difficult (one black diamond) and Extrême / Extreme (two), OSM's easy (and novice), intermediate, advanced and expert, with the Smart Style snowparks as orange lines. The resort's conditions pages sit behind the same bot wall, so the printed map is the source and wins; the lift count was checked against skiresort.com's lift list (15 lifts: the Télécabine Express, Casino Express and Cabriolet gondolas, Lowell Thomas Express, Flying Mile, TGV, Expo Express, Duncan Express, Le Soleil, L'Hymne des Trembles (2025), Edge and Porte du Soleil chairs and the Équilibre 1 and 2 and Onésime carpets), which the map's count of 15 matches. Of OSM's named runs all carry the map's rating but one: Dynagriffe (102), two diamonds on the map, advanced in OSM, becomes expert. Names from the map, in its French: Roger McCarthy for the run OSM still names Alpine (trail 7, OSM piste:ref 7, and its lower snow-park way to the Progression park), Lucile Wheeler for Ligne de Pente (trail 30, OSM piste:ref 30), Gaétan Boucher, Taïga and Banzaï with their accents (OSM Gaetan Boucher, Taiga, Banzai), Devil's River (OSM Devils River), Deserres Haut and Deserres Bas (trail 20 DESERRES; OSM Desserres) and Le Soleil, the map's name for the high-speed quad OSM calls Soleil Express; the name of a 320 m mogul link between Nansen and the old Alpine, which OSM labels Nansen \"Alpine\" and the map does not print, is hidden. Names that differ from the map only by an article, punctuation, a space or an abbreviation stay as OSM has them: L'Algonquin (95 ALGONQUIN), Carriole (49 LA CARRIOLE), Saint-Bernard (26 ST-BERNARD), Zig Zag, Tam Tam and Andy Moe (ZIG-ZAG, TAM-TAM, ANDY-MOE), Shortcut (74 SHORT CUT), L.T.E. (97 LTE), the Haut and Bas pieces of runs the map labels once (Nansen, Beauchemin, Beauvallon, Duncan, Ryan, Sensation, Archipel, Expo, Gagnon, Les Rapides, Fuddle Duddle), and the lifts Flying Mile Express (FLYING MILE) and Casino Express (TÉLÉCABINE CASINO EXPRESS). Runs OSM names that the map does not print stay, with OSM's rating: Sentier du Refuge (the path to the Refuge hut), Dernier Cri Bas below Dernier Cri, the short Sissy Schuss way beside the park, Expo Bas, Gagnon Bas and Les Rapides Bas. Two short unnamed black ways at the foot of the Versant Soleil take the name of the side's route relation (Station Mont Tremblant - Versant Soleil, a list of its runs) through the pipeline's relation fill; that name is hidden on both. The name OSM gives in quotes to an unrated 89 m passage in the village at the Casino Express's village station, \"La passe à Lacasse\", which the map does not print, is hidden: named, it would be the pack's only named unrated run and so a trunk run drawn heavy at the overview zooms. Parks: Progression, Adrénaline, Le P'tit Parc and Mitik, the map's four, are snow-park areas in OSM, and the orange park lines OSM tags as snow parks (Curé Deslauriers, Promenade, Sissy Schuss, the lower Roger McCarthy, Dernier Cri Bas) are drawn orange on the map too; Curé Deslauriers keeps OSM's advanced, the map's diamond at its top (its lower label is blue). The lines OSM tags backcountry (Ryan Haut and Bas, Bon Vieux Temps, Brasse-Camarades, La Jamme, Tam-Tam, Sentier du Refuge) lie inside the polygon and the map's boundary and stay in bounds. Lifts: all fifteen are in OSM; L'Hymne des Trembles, the fixed quad of 2025 at the Versant Soleil base serving the new development there, is on the lift list but not drawn on the map, and stays; hidden: Rescue Practice Area (name:fr Centre d'évac), a 55 m patrol evacuation-training chair at mid-mountain between the Flying Mile top and the TGV bottom, on neither the map nor the lift list. The Ziptrek zip lines are dropped by the kind rule and the fat-bike, nordic and hiking trails by the type rule. OSM gaps: none of the map's numbered trails is missing from OSM (the Sommet Timber terrain, closed until 2027-2028, is not drawn on either), and the Orée learning zone at the Versant Soleil base has no run of its own in OSM.",
+  "overrides": [
+    {
+      "id": "way/31535166",
+      "reason": "Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) labels trail 7, the blue run from the Versant Sud summit beside 8 Beauvallon Haut down to the Progression snowpark, 7 ROGER MCCARTHY (blue square, as OSM rates it); OSM still names it Alpine (its piste:ref is 7). Name from the map.",
+      "expect": {
+        "name": "Alpine",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Roger McCarthy"
+      }
+    },
+    {
+      "id": "way/1252083947",
+      "reason": "The lower way of trail 7, drawn as an orange snowpark line down to the Progression snowpark on Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026), which labels the trail 7 ROGER MCCARTHY; OSM names this snow-park way Alpine, the trail's old name. Name from the map, so the trail is one name.",
+      "expect": {
+        "name": "Alpine",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Roger McCarthy"
+      }
+    },
+    {
+      "id": "way/1007478761",
+      "reason": "A 320 m mogul link between Nansen and trail 7 near the Versant Sud summit that OSM labels Nansen \"Alpine\", a mapper's description (Alpine being trail 7's old name, now Roger McCarthy); Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) prints no such name. The name is hidden; the run stays with OSM's rating.",
+      "expect": {
+        "name": "Nansen \"Alpine\"",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/1289480891",
+      "reason": "An unrated 89 m passage (piste:grooming=no) in the pedestrian village at the Casino Express's village station that OSM names \"La passe à Lacasse\", the quotes marking a nickname; Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) prints no such name. Named, it would be the pack's only named unrated run and so a trunk run (rank 1) drawn heavy at the overview zooms. The name is hidden; the way stays, unrated.",
+      "expect": {
+        "name": "\"La passe à Lacasse\"",
+        "piste:difficulty": null
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/30794029",
+      "reason": "Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) labels trail 30, the black run from the Standard junction down the Flying Mile chair's west side, 30 LUCILE WHEELER (one black diamond, as OSM rates it); OSM names it Ligne de Pente (its piste:ref is 30). Name from the map.",
+      "expect": {
+        "name": "Ligne de Pente",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Lucile Wheeler"
+      }
+    },
+    {
+      "id": "way/30764820",
+      "reason": "Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) labels trail 15 GAÉTAN BOUCHER (one black diamond, as OSM rates it); OSM leaves out the accent. Spelling from the map.",
+      "expect": {
+        "name": "Gaetan Boucher",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Gaétan Boucher"
+      }
+    },
+    {
+      "id": "way/671144536",
+      "reason": "Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) labels the Versant Nord glade along the ski area boundary 100 TAÏGA (two black diamonds, as OSM rates it); OSM leaves out the diaeresis. Spelling from the map.",
+      "expect": {
+        "name": "Taiga",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Taïga"
+      }
+    },
+    {
+      "id": "way/30734987",
+      "reason": "Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) labels trail 65 on the Versant Nord 65 BANZAÏ (one black diamond, as OSM rates it); OSM leaves out the diaeresis. Spelling from the map.",
+      "expect": {
+        "name": "Banzai",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Banzaï"
+      }
+    },
+    {
+      "id": "way/671144545",
+      "reason": "Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) labels trail 57 on the Versant Nord 57 DEVIL'S RIVER (one black diamond, as OSM rates it); OSM leaves out the apostrophe. Spelling from the map.",
+      "expect": {
+        "name": "Devils River",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Devil's River"
+      }
+    },
+    {
+      "id": "way/1293516272",
+      "reason": "The upper way of trail 20, which Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) labels 20 DESERRES (blue square, as OSM rates it); OSM spells it Desserres. Spelling from the map; OSM's Haut stays.",
+      "expect": {
+        "name": "Desserres Haut",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Deserres Haut"
+      }
+    },
+    {
+      "id": "way/30794123",
+      "reason": "The lower way of trail 20, which Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) labels 20 DESERRES (blue square, as OSM rates it); OSM spells it Desserres. Spelling from the map; OSM's Bas stays.",
+      "expect": {
+        "name": "Desserres Bas",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Deserres Bas"
+      }
+    },
+    {
+      "id": "way/671144561",
+      "reason": "Dynagriffe (102), the Versant Nord glade between La Griffe and Dynamite, has two black diamonds (Extrême / Extreme) on Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026), read at 450 dpi; OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Dynagriffe",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/30734563",
+      "reason": "The high-speed quad from the Versant Soleil base to the summit is labelled LE SOLEIL on Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026), whose other express lifts keep their Express (Lowell Thomas Express, Duncan Express, Expo Express); OSM names it Soleil Express. Name from the map.",
+      "expect": {
+        "name": "Soleil Express",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Le Soleil"
+      }
+    },
+    {
+      "id": "way/1359660371",
+      "reason": "Rescue Practice Area (name:fr Centre d'évac), a 55 m chair OSM maps at mid-mountain between the Flying Mile chair's top and the TGV chair's bottom, for the patrol's evacuation training: not a lift skiers ride, it is on neither Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) nor its count of 15 lifts. Hidden.",
+      "expect": {
+        "name": "Rescue Practice Area",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1394013098",
+      "reason": "Two short black ways at the foot of the Versant Soleil, above its base (way/1394013098, 63 m, and way/1334988612, 125 m), carry no name of their own in OSM; the Versant Soleil's route relation (relation/19235702, Station Mont Tremblant - Versant Soleil, a list of the side's runs) gives them its name, which the pipeline copies onto a member way without one, so each would be labelled Station Mont Tremblant - Versant Soleil. That is the relation's title, not a run: Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) prints no such run. The name is hidden; the ways stay with OSM's rating.",
+      "expect": {
+        "name": null,
+        "piste:name": "Station Mont Tremblant - Versant Soleil",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/1334988612",
+      "reason": "Two short black ways at the foot of the Versant Soleil, above its base (way/1394013098, 63 m, and way/1334988612, 125 m), carry no name of their own in OSM; the Versant Soleil's route relation (relation/19235702, Station Mont Tremblant - Versant Soleil, a list of the side's runs) gives them its name, which the pipeline copies onto a member way without one, so each would be labelled Station Mont Tremblant - Versant Soleil. That is the relation's title, not a run: Tremblant's 2026-27 trail map (Carte des pistes / Trail Map, medias.tremblant.ca/pdf/cartes/carte-pistes-tremblant.pdf, (c) Station Mont Tremblant 2026) prints no such run. The name is hidden; the ways stay with OSM's rating.",
+      "expect": {
+        "name": null,
+        "piste:name": "Station Mont Tremblant - Versant Soleil",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": null
+      }
+    }
+  ]
+}

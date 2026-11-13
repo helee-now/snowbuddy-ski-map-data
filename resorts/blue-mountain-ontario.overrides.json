@@ -1,0 +1,69 @@
+{
+  "slug": "blue-mountain-ontario",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1040649718 (Blue Mountain Ski Resort): the Orchard, South, Village, Valley and North areas and the South and Village Learning Centres on the Niagara Escarpment above Blue Mountain Village, on one ticket and one map; it holds every lift and run of the resort. Four private members' clubs share the escarpment, none of them on Blue Mountain's ticket or map, and are listed neighbours in resorts.json, so nothing of theirs is drawn as Blue Mountain's: Craigleith Ski Club (way/496731548) and Alpine Ski Club (way/1040649719) north of the resort, Georgian Peaks Club (way/496731547) beyond Alpine in the Overpass margin, and Osler Bluff Ski Club (way/496731546) to the south; the Scenic Caves zip lines south of the resort are dropped by the kind rule and its nordic trails by the type rule. Every named run and lift checked on 2026-11-12 against Blue Mountain's winter 2025-26 Mountain Map (bluemountain.ca/about-us/maps, 'Mountain Map', bmr-winter-26-mountain-web.pdf, made 2025-11-24): one 1008 x 612 pt page whose labels are drawn as outlines with no text layer, so it was rendered at 110 dpi for the whole and at 260 to 300 dpi tile by tile, with its trail list by lift (Orchard, South, South Learning Centre, Village, Village Learning Centre, Valley, North), and against the resort's Skiing and Boarding page (bluemountain.ca/things-to-do/skiing-and-boarding: 43 runs; 5 high-speed six-packs, 1 triple, 1 quad and 4 surface lifts; 720 ft / 220 m of vertical). The key has Beginner (green circle), Intermediate (blue square), Advanced (black diamond) and Expert (two), OSM's easy (and novice), intermediate, advanced and expert, with Terrain Park as an orange pill; the trail list marks the parks and L-Park's cross track as sections of other trails. The resort's mountain report loads its status by script, so the printed map is the source and wins. All of OSM's named runs carry the map's rating but Hell's Half Acre, which OSM leaves unrated (a blue square on the map). Names from the map: Founders (OSM Founder), Hell's Half Acre (OSM Hell;s Half Acre), Senator/Larway (OSM Senator/Laraway) and L-Park Cross Track/Park (OSM L-Park Terrain Park). Names that differ from the map only by a word stay as OSM has them: Undergrad, run and carpet (the drawing labels the carpet UNDERGRAD, the list Undergraduate Carpet), the carpets Little Ripper, Explorer and Easy Rider (the list's Little Ripper Carpet, Explorer Carpet and Easy Rider Carpet) and Graduate Triple (the drawing's GRADUATE). Runs OSM names that the map does not print stay (Road Runner, a 48 m run at the top of the North area, and Greatest Hits Freestyle Terrain, 40 m at the Valley base). The map's named glades it rates two diamonds, Bear Trail Glades and Village Glades, are in OSM as expert lines tagged backcountry inside the polygon, so they stay in bounds. Parks: Badlands Terrain Park, Yahoo Terrain Park and L-Park are snow parks in OSM already. Lifts: the map's eleven (Orchard Express, Southern Comfort Express, Silver Bullet Express, Valley Express, Weider Express, Graduate Triple, Voyageur Quad and the Little Ripper, Explorer, Easy Rider and Undergrad carpets) are all in OSM; hidden, as lifts the resort does not run (the map neither draws nor lists them, and the resort counts 4 surface lifts, the four carpets): North Rope, a rope tow at the top of the North area, and a carpet OSM maps beside the Enchanted Forest run. OSM gaps (shipped as at Palisades Tahoe): Burner (one black diamond, Valley), Grove Terrain Park (Orchard), and the glades Upper and Lower Orchard Glades, Old South Glades, Showcase Glades, Going South Glades and North Glades (two diamonds each).",
+  "overrides": [
+    {
+      "id": "way/247107411",
+      "reason": "Blue Mountain's winter 2025-26 Mountain Map (bluemountain.ca/about-us/maps, bmr-winter-26-mountain-web.pdf, made 2025-11-24) labels the blue run beside Finally under the Orchard Express FOUNDERS (blue square, as OSM rates it) and lists it as Founders; OSM has Founder. Name from the map.",
+      "expect": {
+        "name": "Founder",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Founders"
+      }
+    },
+    {
+      "id": "way/1460355377",
+      "reason": "Blue Mountain's winter 2025-26 Mountain Map (bluemountain.ca/about-us/maps, bmr-winter-26-mountain-web.pdf, made 2025-11-24) labels the run between North Glades and Kandahar at the top of the North area HELL'S HALF ACRE with a blue square (Intermediate); OSM types a semicolon for the apostrophe and gives no rating, which would draw it grey. Name and rating from the map.",
+      "expect": {
+        "name": "Hell;s Half Acre",
+        "piste:difficulty": null
+      },
+      "set": {
+        "name": "Hell's Half Acre",
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/203682400",
+      "reason": "Blue Mountain's winter 2025-26 Mountain Map (bluemountain.ca/about-us/maps, bmr-winter-26-mountain-web.pdf, made 2025-11-24) lists the North run under the Weider Express as Senator/Larway (one black diamond, as OSM rates it); OSM spells it Senator/Laraway. Spelling from the map.",
+      "expect": {
+        "name": "Senator/Laraway",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Senator/Larway"
+      }
+    },
+    {
+      "id": "way/1040655008",
+      "reason": "Blue Mountain's winter 2025-26 Mountain Map (bluemountain.ca/about-us/maps, bmr-winter-26-mountain-web.pdf, made 2025-11-24) labels the park beside L-Hill in the Village area L-PARK CROSS TRACK/PARK with the orange Terrain Park pill and lists it under the Silver Bullet Express as L-Park Cross Track/ Park; OSM names it L-Park Terrain Park (a snow park already). Name from the map.",
+      "expect": {
+        "name": "L-Park Terrain Park",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "L-Park Cross Track/Park"
+      }
+    },
+    {
+      "id": "way/203682385",
+      "reason": "North Rope, a 59 m rope tow OSM maps at the top of the North area beside Road Runner: Blue Mountain's winter 2025-26 Mountain Map (bluemountain.ca/about-us/maps, bmr-winter-26-mountain-web.pdf, made 2025-11-24) neither draws nor lists it (its lift list names eleven lifts, the four surface lifts being the Little Ripper, Explorer, Easy Rider and Undergraduate carpets), and the resort's Skiing and Boarding page counts 4 surface lifts. Hidden, as a lift the resort does not run.",
+      "expect": {
+        "name": "North Rope",
+        "aerialway": "rope_tow"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/203678534",
+      "reason": "A 93 m carpet OSM names Enchanted Forest, beside the green Enchanted Forest run in the South Learning Centre: Blue Mountain's winter 2025-26 Mountain Map (bluemountain.ca/about-us/maps, bmr-winter-26-mountain-web.pdf, made 2025-11-24) draws no carpet there and lists the Learning Centre's lifts as the Voyageur Quad, the Little Ripper Carpet and the Explorer Carpet, and the resort's Skiing and Boarding page counts 4 surface lifts (the map's four carpets). Hidden, as a lift the resort does not run; the run stays.",
+      "expect": {
+        "name": "Enchanted Forest",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    }
+  ]
+}

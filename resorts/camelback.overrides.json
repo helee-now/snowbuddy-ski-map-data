@@ -1,0 +1,209 @@
+{
+  "slug": "camelback",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/52067284 (Camelback Mountain Resort): the north face of Camelback Mountain in Big Pocono State Park, from the Summit House to Mountain Village and the Snow Tubing Park, on one ticket and one map (Ikon); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-12 against Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times). Its legend: Easier - Novice (green circle), More Difficult - Intermediate (blue square), Most Difficult - Expert (one black diamond) and Extremely Difficult - Advanced Expert (two), as OSM's novice and easy, intermediate, advanced and expert; Slow Zone (green hatching) and Terrain Park (orange hatching, features S, M and L); and its lift list L1 Raceway, L2 The Glen, L5 Black Bear 6, L6 Bailey, L7 Meadows, L8 Stevenson Express, L9 Sunbowl, L10 Kids Learning Center Carpet I, L11 Sunbowl Carpet, L12 Coolmoor Carpet, L13 Ski & Ride Academy Carpet, L14 Beginner Carpet and the tubing park's L15 Tubing I and L16 Tubing II. The resort's snow report loads its trail status by script, so the printed map is the only source and wins. OpenStreetMap draws most runs twice, as a line and as an outline (area=yes) with the same tags; each override names both ways. Of OSM's named runs, all carry the map's rating but Sphinx (green on the map; intermediate in OSM, one line). Names from the map: Basilisk (OSM Basalisk), Julius Caesar (Julius Caeser), Little Caesar (Little Ceasar), Bactrian (Bactrain), Oak Grove (Oak Groove) and Old Main Line (Old Main Lane), and the carpets L10 Kids Learning Center Carpet I (OSM Kids Learning Center I) and L11 Sunbowl Carpet (OSM Kids Learning Center Carpet II); Cool Moor (COOLMOOR) differs only by a space and stays. Parks: the terrain park's three trails, Rhododendron Glen, Upper Moore's Ramble and Oak Grove, are snow parks in OSM already (with the map's ratings: blue, green, green). Hidden: the Marc Antony (L3) and Cleopatra (L4) chairs, which OSM still maps between The Glen and Black Bear 6 and which the 2025-26 map neither draws nor lists (its numbers skip from L2 to L5), and their bottom stations, which lie within 100 m of the Sunbowl chair and would draw as circles with no lift. The tubing park's two carpets stay, on the map's lift list; its tubing lanes are left out by the type rule, as is a hiking path. OSM gaps (shipped as at Palisades Tahoe): the L14 Beginner Carpet; Home Again (green, from Honeymoon to the Sunbowl) and the Progression Park beside Dromedary are not named in OSM, though OSM's unnamed easy outlines may hold them.",
+  "overrides": [
+    {
+      "id": "way/1223363077",
+      "reason": "Basalisk (OSM's line): the double-black run (two black diamonds) between Rocket and Asp below the Summit House, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels BASILISK. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Basalisk",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Basilisk"
+      }
+    },
+    {
+      "id": "way/1223363078",
+      "reason": "Basalisk (OSM's outline): the double-black run (two black diamonds) between Rocket and Asp below the Summit House, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels BASILISK. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Basalisk",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Basilisk"
+      }
+    },
+    {
+      "id": "way/389474772",
+      "reason": "Julius Caeser (OSM's line): the green run from the summit along the top of the mountain to the east side, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels JULIUS CAESAR with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Julius Caeser",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Julius Caesar"
+      }
+    },
+    {
+      "id": "way/1223363067",
+      "reason": "Julius Caeser (OSM's outline): the green run from the summit along the top of the mountain to the east side, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels JULIUS CAESAR with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Julius Caeser",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Julius Caesar"
+      }
+    },
+    {
+      "id": "way/389474769",
+      "reason": "Little Ceasar (OSM's line): the green run along the summit ridge east of the Summit House, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels LITTLE CAESAR with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Little Ceasar",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Little Caesar"
+      }
+    },
+    {
+      "id": "way/1223363065",
+      "reason": "Little Ceasar (OSM's outline): the green run along the summit ridge east of the Summit House, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels LITTLE CAESAR with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Little Ceasar",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Little Caesar"
+      }
+    },
+    {
+      "id": "way/52113268",
+      "reason": "Bactrain (OSM's line): the blue run between Cliffhanger and Pocono Raceway on the east side, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels BACTRIAN (the two-humped camel) with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Bactrain",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Bactrian"
+      }
+    },
+    {
+      "id": "way/1223363059",
+      "reason": "Bactrain (OSM's outline): the blue run between Cliffhanger and Pocono Raceway on the east side, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels BACTRIAN (the two-humped camel) with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Bactrain",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Bactrian"
+      }
+    },
+    {
+      "id": "way/389556920",
+      "reason": "Oak Groove (OSM's line): the green trail in the terrain park beside Upper Moore's Ramble, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels OAK GROVE with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Oak Groove",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Oak Grove"
+      }
+    },
+    {
+      "id": "way/1223363053",
+      "reason": "Oak Groove (OSM's outline): the green trail in the terrain park beside Upper Moore's Ramble, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels OAK GROVE with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Oak Groove",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Oak Grove"
+      }
+    },
+    {
+      "id": "way/389556931",
+      "reason": "Old Main Lane (OSM's line): the short blue trail between Lower Cleopatra and Honeymoon, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels OLD MAIN LINE with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Old Main Lane",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Old Main Line"
+      }
+    },
+    {
+      "id": "way/1223363069",
+      "reason": "Old Main Lane (OSM's outline): the short blue trail between Lower Cleopatra and Honeymoon, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) labels OLD MAIN LINE with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Old Main Lane",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Old Main Line"
+      }
+    },
+    {
+      "id": "way/389484359",
+      "reason": "Sphinx, from Honeymoon down towards the Sullivan Trail, is a green line with a green circle (Easier - Novice) on Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times); OSM rates it intermediate. The printed map wins.",
+      "expect": {
+        "name": "Sphinx",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1211959658",
+      "reason": "Kids Learning Center I (ref L10): the carpet at the east end of the Sunbowl, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) numbers L10 and lists as Kids Learning Center Carpet I. Name from the map.",
+      "expect": {
+        "name": "Kids Learning Center I",
+        "aerialway": "magic_carpet",
+        "ref": "L10"
+      },
+      "set": {
+        "name": "Kids Learning Center Carpet I"
+      }
+    },
+    {
+      "id": "way/1211959659",
+      "reason": "Kids Learning Center Carpet II (ref L11): the carpet along the bottom of the Sunbowl west of L10, which Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) numbers L11 and lists as Sunbowl Carpet. Name from the map.",
+      "expect": {
+        "name": "Kids Learning Center Carpet II",
+        "aerialway": "magic_carpet",
+        "ref": "L11"
+      },
+      "set": {
+        "name": "Sunbowl Carpet"
+      }
+    },
+    {
+      "id": "way/256639317",
+      "reason": "Marc Antony (ref L3), a chair OSM maps between The Glen and Black Bear 6: Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) neither draws it nor lists it (its lift list runs L1, L2, then L5 to L16), so it is a lift the resort no longer runs.",
+      "expect": {
+        "name": "Marc Antony",
+        "aerialway": "chair_lift",
+        "ref": "L3"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/256639320",
+      "reason": "Cleopatra (ref L4), a chair OSM maps between The Glen and Black Bear 6: Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) neither draws it nor lists it (its lift list runs L1, L2, then L5 to L16), so it is a lift the resort no longer runs.",
+      "expect": {
+        "name": "Cleopatra",
+        "aerialway": "chair_lift",
+        "ref": "L4"
+      },
+      "hide": true
+    },
+    {
+      "id": "node/2622831697",
+      "reason": "The bottom station of Marc Antony, a chair Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) neither draws nor lists (hidden above): it lies within 100 m of the Sunbowl chair and its carpet, so the station rule would keep it, drawn as a circle with no lift.",
+      "expect": {
+        "aerialway": "station"
+      },
+      "hide": true
+    },
+    {
+      "id": "node/2622831703",
+      "reason": "The bottom station of Cleopatra, a chair Camelback's 2025-26 trail map (trail-map-2025-26.jpg, the James Niehues painting camelbackresort.com/trail-map shows, 1440 x 720 px, the only size the site serves, read enlarged four times) neither draws nor lists (hidden above): it lies within 100 m of the Sunbowl chair and its carpet, so the station rule would keep it, drawn as a circle with no lift.",
+      "expect": {
+        "aerialway": "station"
+      },
+      "hide": true
+    }
+  ]
+}

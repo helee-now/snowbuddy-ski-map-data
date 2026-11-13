@@ -1,0 +1,206 @@
+{
+  "key": "le-massif-v1",
+  "ski_sha256": "270088d76b4742e31d24f6c5c3f024304e46c21a38b553ac264af62cba75d3ec",
+  "osm_timestamp": "2026-11-12T17:14:51Z",
+  "box": [
+    -70.65,
+    47.25,
+    -70.54,
+    47.31
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -70.621281,
+    47.270142,
+    -70.571915,
+    47.28908
+  ],
+  "margins_km": {
+    "west": 2.17,
+    "south": 2.24,
+    "east": 2.41,
+    "north": 2.33
+  },
+  "counts": {
+    "lifts": 9,
+    "runs_in_bounds": 86,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 9,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 20,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 9.9,
+    "runs_in_bounds": 50.8,
+    "runs_out_of_bounds": 7.9
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [
+    "Hors-Piste Zone 1",
+    "Hors-Piste Zone 2",
+    "Hors-Piste Zone 3",
+    "Hors-Piste Zone 4",
+    "Hors-Piste Zone 5"
+  ],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/993520846",
+      "name": "Hors Piste",
+      "difficulty": "unknown",
+      "length_m": 747,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/993528429",
+      "name": "Hors-Piste Zone 1",
+      "difficulty": "unknown",
+      "length_m": 1072,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/993528430",
+      "name": "Hors-Piste Zone 2",
+      "difficulty": "unknown",
+      "length_m": 991,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/993528431",
+      "name": "Hors-Piste Zone 3",
+      "difficulty": "unknown",
+      "length_m": 1182,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/993528432",
+      "name": "Hors-Piste Zone 4",
+      "difficulty": "unknown",
+      "length_m": 616,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/993528433",
+      "name": "Hors-Piste Zone 5",
+      "difficulty": "unknown",
+      "length_m": 1161,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/993528434",
+      "name": "Hors-Piste Ski-Out",
+      "difficulty": "unknown",
+      "length_m": 741,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/993528435",
+      "name": "Hors Piste",
+      "difficulty": "intermediate",
+      "length_m": 564,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/993587817",
+      "name": "Hors-Piste Zone 3",
+      "difficulty": "unknown",
+      "length_m": 802,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -70.664062,
+      47.15984,
+      -70.488281,
+      47.398349
+    ],
+    "12": [
+      -70.664062,
+      47.219568,
+      -70.488281,
+      47.338823
+    ],
+    "13": [
+      -70.664062,
+      47.249407,
+      -70.532227,
+      47.338823
+    ],
+    "14": [
+      -70.664062,
+      47.249407,
+      -70.532227,
+      47.323931
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

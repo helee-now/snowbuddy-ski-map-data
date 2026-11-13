@@ -1,0 +1,73 @@
+{
+  "key": "camelback-v1",
+  "ski_sha256": "4b7b57e5168e8d8a8db65dffba787a35123596e70665dc6d99a7e47e5a4588bc",
+  "osm_timestamp": "2026-11-12T17:22:51Z",
+  "box": [
+    -75.39,
+    41.02,
+    -75.31,
+    41.08
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -75.363213,
+    41.043297,
+    -75.341019,
+    41.054541
+  ],
+  "margins_km": {
+    "west": 2.25,
+    "south": 2.59,
+    "east": 2.6,
+    "north": 2.83
+  },
+  "counts": {
+    "lifts": 13,
+    "runs_in_bounds": 37,
+    "run_areas_in_bounds": 43,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 23,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 4.8,
+    "runs_in_bounds": 14.9,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -75.410156,
+      40.979898,
+      -75.234375,
+      41.112469
+    ],
+    "12": [
+      -75.410156,
+      40.979898,
+      -75.234375,
+      41.112469
+    ],
+    "13": [
+      -75.410156,
+      41.013066,
+      -75.27832,
+      41.112469
+    ],
+    "14": [
+      -75.410156,
+      41.013066,
+      -75.300293,
+      41.095912
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

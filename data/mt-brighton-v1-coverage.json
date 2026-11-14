@@ -1,0 +1,73 @@
+{
+  "key": "mt-brighton-v1",
+  "ski_sha256": "cdd6a874530341f1e3c1657ad9bd518046ebe69f16426fa3b6b1df1c7ea95599",
+  "osm_timestamp": "2026-11-14T10:01:51Z",
+  "box": [
+    -83.84,
+    42.51,
+    -83.78,
+    42.56
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -83.812952,
+    42.536893,
+    -83.804796,
+    42.541823
+  ],
+  "margins_km": {
+    "west": 2.22,
+    "south": 2.99,
+    "east": 2.03,
+    "north": 2.02
+  },
+  "counts": {
+    "lifts": 12,
+    "runs_in_bounds": 26,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 23,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 2.4,
+    "runs_in_bounds": 5.3,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -83.847656,
+      42.423457,
+      -83.671875,
+      42.682435
+    ],
+    "12": [
+      -83.847656,
+      42.488302,
+      -83.759766,
+      42.617791
+    ],
+    "13": [
+      -83.847656,
+      42.488302,
+      -83.759766,
+      42.585444
+    ],
+    "14": [
+      -83.847656,
+      42.504503,
+      -83.759766,
+      42.569264
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

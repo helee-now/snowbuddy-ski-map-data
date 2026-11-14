@@ -1,0 +1,395 @@
+{
+  "slug": "snowriver",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Snowriver Mountain Resort (Wakefield, Michigan's Upper Peninsula; Ikon) is two ski areas 600 m apart on one ticket, linked by a shuttle: Jackson Creek Summit (formerly Indianhead), way/473859022, and Black River Basin (formerly Blackjack), way/473859023, both landuse=winter_sports with leisure=sports_centre: one map with both polygons, as Sun Valley's Bald and Dollar Mountains. They hold every lift and run. Big Powderhorn Mountain Resort (way/473859024), 6 km west, and Mount Zion (Ironwood) lie outside the Overpass window, so nothing is left out as a neighbour. Every named run and lift checked on 2026-11-14 against Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links), fetched with curl (one 2870 x 886 pt page, an image with no text layer, rendered at two to eight times its size and read tile by tile), and the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14), which lists every lift and run by area with its rating (Beginner, Intermediate, Advanced, Expert, Terrain Park). The map has no key: it marks runs with a green circle, a blue square, one black diamond or two, glades with a brown label and a tree sign; read as OSM's easy, intermediate, advanced and expert, as the report's four ratings. The printed map wins over OSM; where the map and the report disagree the harder of theirs and OSM's is kept. Jackson Creek Summit: OSM carries the current names but for six; its lifts are the Voyageur Express, Cloudfront Double, Bear Creek Double and East T-Bar (kept as OSM has them; the map writes CLOUDFRONT, BEAR CREEK and EAST T, the report Cloudfront Double, Bear Creek and East T), the Sugar Hills Conveyor and the Maple Tow (OSM's Magic Carpet Lift and Pinecone Poma, renamed). Black River Basin's runs and lifts were renamed for the 2025 map: OSM still carries Blackjack's names (the chairs A, B, C and D, Just Cuz, Thornapple, Shanty Girl and the rest), so each way takes the name of the run the map draws in its place, matched by its ends and its order across the slope against the map and against the Big Snow Resort map of Indianhead and Blackjack that OpenStreetMap's Black River Basin names come from (OnTheSnow's copy), whose painting is laid out alike: A to D are Ascender, Brigantine, Capstan and Draw Stroke (in that order from east to west on both maps); Just Cuz is Maiden Voyage, Crosscut Lost Tarn, Thornapple the Privateer terrain park, Oxbow with Blue Ox below it Oxbow (OX BOW on the map), Shanty Girl Sailors' Delight, Nastar Trail Starboard, Family X Cross Port Side, Gig Trail River Guide, Cameron Spur the Draw Stroke run, Steiger's Mill Yooperlite, Duke's Mixture Brookeside, No Name Trail Powder Pank and Horseshoe Tintalle Turnout; River Drive, Whitesides Crossing, Upper and Lower Spillway and Log Jam keep their names. Shanty Boy, a line from Shanty Girl across to Family X Cross, has no counterpart on the 2025 map and is drawn unnamed. Hidden: Blackjack's rope tow and Uncharted Park beside it, on neither the 2025 map nor the report's four Black River Basin lifts. Park: OSM's Flow Park, the easy line from Superior to Voyageur's Highway, is the map's dark teal line with two snowflake shields and no name (the sign the sister resorts' maps, by the same painter, key as a Fun Slope under Freestyle Terrain) and the report's Voyageur Funpark (Terrain Park), its only park at Jackson Creek Summit (the resort counts one family cross park there): renamed, with the park flag. Kept as OSM has them: three unnamed connectors. OSM gaps (shipped as at Palisades Tahoe): the glades (Densow's Dream, Catamaran Cliffs, Bowline Bluff, River Ridge, U.P. A Creek, Coriolis Effect, Gully Washer, Hailstrike, Flash Flood, Papa's and Goldi's Glade at Jackson Creek Summit; Treasure Trove aside, Red Night, Blimey Bluff, Glader's Gulch, Paddle Shaft, Cool Runnings, Microburst and Boomer's Hideout at Black River Basin), Gitchee Gumee Gulch, Supercell and Bear Creek Egress at Jackson Creek Summit, and Nautical Mile at Black River Basin. Nordic and snowshoe trails are left out by the type rule.",
+  "overrides": [
+    {
+      "id": "way/997277232",
+      "reason": "East Voyager's Headwall: the short steep pitch from the East T-Bar's top down to Voyageur's Highway, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels VOYAGEUR'S HEADWALL with two black diamonds, the report's Voyageur's Headwall (Expert); OSM rates it advanced. Name and rating from the map.",
+      "expect": {
+        "name": "East Voyager's Headwall",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Voyageur's Headwall",
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1283813075",
+      "reason": "Artesian Alley, beside the Voyageur Express near its bottom, carries two black diamonds on Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) and is Expert in the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Artesian Alley",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/997277252",
+      "reason": "Elkhorn, beside the Bear Creek chair, carries a blue square on Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) and is Intermediate in the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14); OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Elkhorn",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/997277249",
+      "reason": "Kodiak: the traverse from the Cloudfront Double's top west to Grizzly on the Bear Creek side, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws as a dashed blue line labelled KODIAK CROSSING with a blue square, the report's Kodiak Crossing (Intermediate); OSM rates it advanced. Name and rating from the map.",
+      "expect": {
+        "name": "Kodiak",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Kodiak Crossing",
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/997277247",
+      "reason": "Whitetail: the green traverse from the Sugar Maple Chalet and Maple west to the Bear Creek Double's top, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws as a dashed green line labelled BEAR CREEK ACCESS, the report's Bear Creek Access (Beginner). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Whitetail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Bear Creek Access"
+      }
+    },
+    {
+      "id": "way/997277254",
+      "reason": "Antler Alley: the traverse from Torrent west to Buffalo near the top of the front face, where Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws the dashed black U.S.2 (one black diamond, the report's U.S.2, Advanced) across the tops of Nimbus, Stormfront and Torrent to Buffalo; no Antler Alley is on the map or in the report. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Antler Alley",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "U.S.2"
+      }
+    },
+    {
+      "id": "way/997277255",
+      "reason": "Huskey: the line from the summit by the Bear Creek Double's top down to Stormfront, crossing Antler Alley, where Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws the dashed black U.S.2 (one black diamond, the report's U.S.2, Advanced) from the summit down across the front face; no Huskey is on the map or in the report. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Huskey",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "U.S.2"
+      }
+    },
+    {
+      "id": "way/997277238",
+      "reason": "Sugarhill Learning Area: the beginner slope beside the summit conveyor, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels SUGAR HILLS with a green circle, the report's Sugar Hills (Beginner). Name from the map; OSM's rating (novice) draws green.",
+      "expect": {
+        "name": "Sugarhill Learning Area",
+        "piste:difficulty": "novice"
+      },
+      "set": {
+        "name": "Sugar Hills"
+      }
+    },
+    {
+      "id": "way/256992633",
+      "reason": "Magic Carpet Lift: the conveyor beside Sugar Hills by the Sugar Maple Chalet, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels SUGAR HILLS CONVEYOR, the report's Sugar Hills Conveyor. Name from the map.",
+      "expect": {
+        "name": "Magic Carpet Lift",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Sugar Hills Conveyor"
+      }
+    },
+    {
+      "id": "way/256993682",
+      "reason": "Pinecone Poma: the surface lift beside Maple below the Sugar Maple Chalet, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels MAPLE TOW, the report's Maple Tow. Name from the map.",
+      "expect": {
+        "name": "Pinecone Poma",
+        "aerialway": "platter"
+      },
+      "set": {
+        "name": "Maple Tow"
+      }
+    },
+    {
+      "id": "way/997277233",
+      "reason": "Flow Park: the easy line from Superior's top down to Voyageur's Highway beside it, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws as a dark teal line with two snowflake shields and no name (the sign the sister resorts' maps by the same painter key as a Fun Slope, under Freestyle Terrain), and the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14) lists the Main Face's one terrain park as Voyageur Funpark (Terrain Park). Name from the report, and the park flag; OSM's rating stays.",
+      "expect": {
+        "name": "Flow Park",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Voyageur Funpark",
+        "park": true
+      }
+    },
+    {
+      "id": "way/181603081",
+      "reason": "A: Blackjack's chair A (OSM keeps the old letters), which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels ASCENDER, the report's Ascender: the four chairs A to D are Ascender, Brigantine, Capstan and Draw Stroke, in that order from east to west on both the 2025 map and the Big Snow Resort map of Indianhead and Blackjack that OpenStreetMap's Black River Basin names come from (OnTheSnow's copy). Name from the map.",
+      "expect": {
+        "name": "A",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Ascender"
+      }
+    },
+    {
+      "id": "way/181603079",
+      "reason": "B: Blackjack's chair B (OSM keeps the old letters), which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels BRIGANTINE, the report's Brigantine (it prints Birgantine): the four chairs A to D are Ascender, Brigantine, Capstan and Draw Stroke, in that order from east to west on both the 2025 map and the Big Snow Resort map of Indianhead and Blackjack that OpenStreetMap's Black River Basin names come from (OnTheSnow's copy). Name from the map.",
+      "expect": {
+        "name": "B",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Brigantine"
+      }
+    },
+    {
+      "id": "way/181603080",
+      "reason": "C: Blackjack's chair C (OSM keeps the old letters), which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels CAPSTAN, the report's Capstan: the four chairs A to D are Ascender, Brigantine, Capstan and Draw Stroke, in that order from east to west on both the 2025 map and the Big Snow Resort map of Indianhead and Blackjack that OpenStreetMap's Black River Basin names come from (OnTheSnow's copy). Name from the map.",
+      "expect": {
+        "name": "C",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Capstan"
+      }
+    },
+    {
+      "id": "way/181603078",
+      "reason": "D: Blackjack's chair D (OSM keeps the old letters), which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels DRAW STROKE, the report's Draw Stroke: the four chairs A to D are Ascender, Brigantine, Capstan and Draw Stroke, in that order from east to west on both the 2025 map and the Big Snow Resort map of Indianhead and Blackjack that OpenStreetMap's Black River Basin names come from (OnTheSnow's copy). Name from the map.",
+      "expect": {
+        "name": "D",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Draw Stroke"
+      }
+    },
+    {
+      "id": "way/181603160",
+      "reason": "An unnamed rope tow (203 m) east of the Ascender's bottom by the Black River Chalet: Blackjack's tow, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) does not draw and the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14) does not list (its Black River Basin lifts are Ascender, Brigantine, Capstan and Draw Stroke). Hidden as a lift the resort no longer runs.",
+      "expect": {
+        "aerialway": "rope_tow",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1283812551",
+      "reason": "Uncharted Park: a 234 m easy line along that rope tow, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) does not draw and the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14) does not list (Black River Basin's terrain park is Privateer, from the top). Hidden with the tow, as a run the resort no longer shows.",
+      "expect": {
+        "name": "Uncharted Park",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1193263375",
+      "reason": "Just Cuz: Blackjack's outermost easy run, from the Ascender's top east along the top of the hill and down past the Village at Black River to the Black River Chalet, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels MAIDEN VOYAGE with a green circle (the report's Maiden Voyage, Beginner). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Just Cuz",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Maiden Voyage"
+      }
+    },
+    {
+      "id": "way/1193263376",
+      "reason": "Crosscut: the easy shortcut inside Just Cuz (Maiden Voyage), leaving it at the top and rejoining it lower down, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels LOST TARN with a green circle, inside Maiden Voyage (the report's Lost Tarn, Beginner). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Crosscut",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Lost Tarn"
+      }
+    },
+    {
+      "id": "way/1283812549",
+      "reason": "An unnamed easy line (262 m, tagged piste:grooming=backcountry) through the woods between Crosscut (Lost Tarn) and Gig Trail (River Guide), where Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws the glade TREASURE TROVE with a green circle (the report's sidecountry Treasure Trove, Beginner), between Lost Tarn and Privateer. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Treasure Trove"
+      }
+    },
+    {
+      "id": "way/1193263378",
+      "reason": "Thornapple: Blackjack's blue trail from the top of Just Cuz (Maiden Voyage) down to Gig Trail (River Guide), east of Oxbow, where Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws the orange PRIVATEER, the report's terrain park Privateer, from Maiden Voyage at the top down between Treasure Trove and Ox Bow. Name from the map, and the park flag (it draws as a park, whatever its rating).",
+      "expect": {
+        "name": "Thornapple",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Privateer",
+        "park": true
+      }
+    },
+    {
+      "id": "way/1193263379",
+      "reason": "Oxbow: the run from the top of Just Cuz (Maiden Voyage) beside the Ascender's top down to Blue Ox, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws as OX BOW from the top to the Ascender's bottom with a blue square, the report's Oxbow (Intermediate); OSM rates it advanced (Blackjack's map gave it one diamond). The printed map wins; the name stays as OSM and the report write it.",
+      "expect": {
+        "name": "Oxbow",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1193263388",
+      "reason": "Blue Ox: the lower half of Oxbow, from its foot to the base just east of the Ascender's bottom, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels OXBOW (OX BOW) with a blue square from the top to the Ascender's bottom, the report's Oxbow (Intermediate); the report and the map write no Blue Ox. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Blue Ox",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Oxbow"
+      }
+    },
+    {
+      "id": "way/1193263381",
+      "reason": "Shanty Girl: Blackjack's black run from the Ascender's top down along the chair (no rating in OSM; one black diamond on the Big Snow Resort map of Indianhead and Blackjack that OpenStreetMap's Black River Basin names come from (OnTheSnow's copy)), which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels SAILORS' DELIGHT with one black diamond beside the Ascender's top, the report's Sailor's Delight (Advanced). Name (the map's spelling) and rating from the map.",
+      "expect": {
+        "name": "Shanty Girl",
+        "piste:difficulty": null
+      },
+      "set": {
+        "name": "Sailors' Delight",
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1193263383",
+      "reason": "Nastar Trail: the black run between the Ascender and the Brigantine, from Shanty Girl (Sailors' Delight) to the base just east of the Brigantine's bottom, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels STARBOARD with one black diamond between the two chairs (the report's Starboard, Advanced). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Nastar Trail",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Starboard"
+      }
+    },
+    {
+      "id": "way/1193263380",
+      "reason": "Family X Cross: the line from the Brigantine's top down along the chair's west side to River Drive just west of its bottom (no rating in OSM), where Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws PORT SIDE with one black diamond, the report's Portside (Advanced). Name (the map's spelling) and rating from the map.",
+      "expect": {
+        "name": "Family X Cross",
+        "piste:difficulty": null
+      },
+      "set": {
+        "name": "Port Side",
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1193263382",
+      "reason": "Shanty Boy: Blackjack's black run from Shanty Girl (Sailors' Delight) across to Family X Cross (Port Side) between the two chairs. Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) and the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14) name no run here (Starboard and Port Side are Nastar Trail and Family X Cross); the name is hidden, OSM's rating (one black diamond, as every run beside it) stays.",
+      "expect": {
+        "name": "Shanty Boy",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/1193263377",
+      "reason": "Gig Trail: the traverse from River Drive east across the Brigantine and the Ascender, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws as a dashed blue line labelled RIVER GUIDE with a blue square, the report's River Guide (Intermediate); OSM rates it easy. Name and rating from the map.",
+      "expect": {
+        "name": "Gig Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "River Guide",
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1283812550",
+      "reason": "UpperSpillway: the run from River Drive down to Whitesides Crossing beside the moguls, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels UPPER SPILLWAY with a blue square, the report's Upper Spillway (Intermediate); OSM rates it advanced. Name (the space) and rating from the map.",
+      "expect": {
+        "name": "UpperSpillway",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Upper Spillway",
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1193263390",
+      "reason": "Lower Spillway, from Whitesides Crossing to the Capstan's bottom beside the mogul field, carries one black diamond on Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) and is Expert in the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14); OSM rates it advanced. The resort's sources disagree, so the harder, Expert, is kept (tagged piste:grooming=backcountry in OSM, it lies inside the polygon and stays in bounds).",
+      "expect": {
+        "name": "Lower Spillway",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1193263393",
+      "reason": "Cameron Spur: Blackjack's black run between chairs C and D (Capstan and Draw Stroke), from Log Jam to the Capstan's bottom, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels DRAW STROKE with one black diamond between the two chairs (the report's Draw Stroke run, Advanced; the chair beside it has the same name). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Cameron Spur",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Draw Stroke"
+      }
+    },
+    {
+      "id": "way/1193263392",
+      "reason": "Steiger's Mill: Blackjack's black run from the top down along the west side of chair D (Draw Stroke) to its bottom, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels YOOPERLIITE (sic) with one black diamond, the report's Yooperlite (Advanced). Name from the report, the map's spelling being a misprint of the Upper Peninsula's glowing stone; OSM's rating is the map's.",
+      "expect": {
+        "name": "Steiger's Mill",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Yooperlite"
+      }
+    },
+    {
+      "id": "way/1193263389",
+      "reason": "Duke's Mixture: the blue run from Horseshoe (Tintalle Turnout) down west of Steiger's Mill (Yooperlite) to the Draw Stroke chair's bottom, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels BROOKESIDE with a blue square (the report's Brookeside, Intermediate). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Duke's Mixture",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Brookeside"
+      }
+    },
+    {
+      "id": "way/1193263386",
+      "reason": "No Name Trail: the blue run from Horseshoe (Tintalle Turnout) down the west side, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels POWDER PANK with a green circle and the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14) rates Intermediate. Name from the map; the resort's sources disagree, so the harder, Intermediate (OSM's), is kept.",
+      "expect": {
+        "name": "No Name Trail",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Powder Pank"
+      }
+    },
+    {
+      "id": "way/1193263385",
+      "reason": "Horseshoe: the easy run from chair D's (Draw Stroke's) top round the west side of the hill back to its bottom, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels TINTALLE TURNOUT with a green circle (the report's Tintalle Turnout, Beginner). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Horseshoe",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Tintalle Turnout"
+      }
+    }
+  ]
+}

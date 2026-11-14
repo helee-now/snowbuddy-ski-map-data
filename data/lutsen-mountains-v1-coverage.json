@@ -1,0 +1,73 @@
+{
+  "key": "lutsen-mountains-v1",
+  "ski_sha256": "d6334fef4af286530c904511accadf6648656915b65357d9f5f324f0574c5731",
+  "osm_timestamp": "2026-11-14T10:06:49Z",
+  "box": [
+    -90.77,
+    47.62,
+    -90.67,
+    47.69
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -90.73762,
+    47.644616,
+    -90.702661,
+    47.669778
+  ],
+  "margins_km": {
+    "west": 2.43,
+    "south": 2.74,
+    "east": 2.45,
+    "north": 2.25
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 117,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 17,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 6.7,
+    "runs_in_bounds": 35.8,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -90.878906,
+      47.517201,
+      -90.527344,
+      47.754098
+    ],
+    "12": [
+      -90.791016,
+      47.576526,
+      -90.615234,
+      47.694974
+    ],
+    "13": [
+      -90.791016,
+      47.606163,
+      -90.65918,
+      47.694974
+    ],
+    "14": [
+      -90.791016,
+      47.606163,
+      -90.65918,
+      47.694974
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

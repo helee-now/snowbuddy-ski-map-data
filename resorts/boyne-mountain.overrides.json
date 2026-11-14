@@ -1,0 +1,161 @@
+{
+  "slug": "boyne-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1351013953 (Boyne Mountain): the front face above the Mountain Grand Lodge and the village, the Superbowl and Meadows side to the south, the north face under Disciples 8 and the Alpine side behind the ridge, on one ticket and one map (Ikon); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-14 against Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18): the PDF has no text layer, so it was rendered in tiles and read with the picture, which has fewer labels (its two Disciples Ridge parks unlabelled) and spaces three names otherwise (NOSEDIVE, HEMING WAY, JOHNNYMAC); the PDF's spellings agree with OSM there. The key: Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond), Experts Only (two), Freestyle Terrain (orange, S, M or L), terrain park, tubing park and learning areas; its lifts are Superbowl, Meadows, Victor, Hemlock, Mountain Express, Boyneland, Ramshead, Disciples 8 (DISCIPLE8), Alpine and the Estelle's Way carpet, the ten lifts the resort's mountain-stats page (boynemountain.com/mountain-stats, read 2026-11-14) lists with the Top Notch tube-park conveyor. The resort's trail status loads by script, so the printed map is the source and wins. Every rating OSM gives matches the map: the 61 named runs kept, one way each. Names from the map: North, Center and South McLouth (OSM McClouth), Crazy Mustache (Moustache), Grice's Way (Griece's), Zippie's (Zippee's), Skop Ski (Shop ski), Into the Woods (In the Woods), Easy Does It (Easy Does it) and the Chmielew-Ski Skier/Boarder Cross Course (Ski/Border Cross Course). Names that differ from the map only by a space, a hyphen or an apostrophe stay as OSM has them (Super Bowl, Short Cut, Top Notch, See No Land, To Disciple's Ridge, Boyne Land; the lift Super Bowl). Easy Street stays novice in OSM, drawn green as the map's circle. Parks: Campbell's Alley Park and the cross course, the map's two M parks on Disciples Ridge, get the park flag. Hidden: Traveler's Station Park, a run area at the base on no map, and the two abandoned Disciples chairs Disciples 8 replaced in 2022. The zip line and the tubing area are left out by their types, and the cross-country, fat-bike and hiking trails by the type rule. OSM gaps: Dave's Glade (black, above Cold Springs), Patty Lane (blue, beside the Boyneland chair), Fritz's Terrain Park (S, beside the Boyneland run) and the Ramshead Terrain Park (L, beside the Ramshead chair); Aurora's temporary park is on no map.",
+  "overrides": [
+    {
+      "id": "way/780730260",
+      "reason": "North McClouth: the black run down the front face from the summit to the base, the northernmost of the three McLouths, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) labels NORTH MCLOUTH with one black diamond, as it spells Center and South McLouth. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "North McClouth",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "North McLouth"
+      }
+    },
+    {
+      "id": "way/780730259",
+      "reason": "Center McClouth: the black run down the front face from the summit to the base, between North and South McLouth, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) labels CENTER MCLOUTH with one black diamond, as it spells North and South McLouth. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Center McClouth",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Center McLouth"
+      }
+    },
+    {
+      "id": "way/780730258",
+      "reason": "South McClouth: the black run down the front face from the summit to the base, the southernmost of the three McLouths, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) labels SOUTH MCLOUTH with one black diamond, as it spells North and Center McLouth. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "South McClouth",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "South McLouth"
+      }
+    },
+    {
+      "id": "way/1455900591",
+      "reason": "Crazy Moustache: the black run from Disciples Ridge between Klaus' Laufen and the Disciples 8 chair, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) labels CRAZY MUSTACHE with one black diamond. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Crazy Moustache",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Crazy Mustache"
+      }
+    },
+    {
+      "id": "way/780730279",
+      "reason": "Griece's Way: the long green run from the Disciples 8 top down the north face to the chair's bottom, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) labels GRICE'S WAY (twice) with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Griece's Way",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Grice's Way"
+      }
+    },
+    {
+      "id": "way/780730281",
+      "reason": "Zippee's: the blue run on the north face between Mr. Moll and the terrain parks above Grice's Way, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) labels ZIPPIE'S with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Zippee's",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Zippie's"
+      }
+    },
+    {
+      "id": "way/780730300",
+      "reason": "Shop ski: the short green link on the Alpine side between William J and Johnny Mac, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) labels SKOP SKI with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Shop ski",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Skop Ski"
+      }
+    },
+    {
+      "id": "way/780730301",
+      "reason": "In the Woods: the green run on the Alpine side from Pat's Knob down to the Alpine chair's bottom, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) labels IN TO THE WOODS with a green circle; OSM's name lacks the map's 'to', read as one word (the painting's lettering spaces every word's letters apart: W OODS). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "In the Woods",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Into the Woods"
+      }
+    },
+    {
+      "id": "way/780730266",
+      "reason": "Easy Does it: the short green link between Cold Springs and the Victor chair's top, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) labels EASY DOES IT with a green circle. Capitalisation from the map (as Roundtop's Barrett's Trail); OSM's rating is the map's.",
+      "expect": {
+        "name": "Easy Does it",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Easy Does It"
+      }
+    },
+    {
+      "id": "way/780730280",
+      "reason": "Campbell's Alley Park: the terrain park from the Disciples 8 top down beside Grice's Way, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) draws in the key's terrain park area hatching and labels CAMPBELL'S ALLEY TERRAINPARK with an orange M (freestyle terrain, medium); the page's picture draws the same hatched strip. OSM tags it a plain downhill run; the park flag is the map's. OSM's name and rating stay.",
+      "expect": {
+        "name": "Campbell's Alley Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/780730287",
+      "reason": "Ski/Border Cross Course: the winding terrain-park course on Disciples Ridge between Zippie's and Campbell's Alley, which Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) draws in the key's terrain park area hatching and labels CHMIELEW-SKI SKIER/BOARDER CROSS COURSE with an orange M (freestyle terrain, medium); the resort's mountain-stats page (boynemountain.com/mountain-stats, read 2026-11-14) lists the Chmielew-Ski Skier-Boarder Cross, 'located on Disciples Ridge', among its five terrain parks. Name from the map (OSM's is a description) and the park flag; OSM's rating stays.",
+      "expect": {
+        "name": "Ski/Border Cross Course",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Chmielew-Ski Skier/Boarder Cross Course",
+        "park": true
+      }
+    },
+    {
+      "id": "way/780730254",
+      "reason": "Traveler's Station Park: a 5,300 m2 outline OSM draws as an advanced run area at the base on Boynehof Pass, between the Meadows and Victor chairs' bottoms. Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) and the page's picture draw no park or run there, and the resort's mountain-stats page (boynemountain.com/mountain-stats, read 2026-11-14) lists five terrain parks (Ramshead, Aurora, the Chmielew-Ski Skier-Boarder Cross, Transfer Station and Fritz's), none of that name. Hidden as a park on no current map, as Palisades Tahoe's Tiegel Terrain Park.",
+      "expect": {
+        "name": "Traveler's Station Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced",
+        "area": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1446626525",
+      "reason": "An unnamed chair tagged abandoned in OSM, 759 m up the north face beside Disciples 8: the old Disciples I. the resort's mountain-stats page (boynemountain.com/mountain-stats, read 2026-11-14) says Disciples 8, completed in 2022, replaced Disciples I and II, and Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) draws only Disciples 8 there. Hidden as a lift the resort no longer runs, as Killington's abandoned chairs.",
+      "expect": {
+        "name": null,
+        "aerialway": "chair_lift",
+        "abandoned": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1450767248",
+      "reason": "An unnamed chair tagged abandoned in OSM, 909 m from the Disciples top north down the ridge: the old Disciples II. the resort's mountain-stats page (boynemountain.com/mountain-stats, read 2026-11-14) says Disciples 8, completed in 2022, replaced Disciples I and II, and Boyne Mountain's winter trail map (the James Niehues painting boynemountain.com/mountain-maps links as its Winter Trail Map, 2e6da7da9636ee2658c93598780e7764f99525f5.pdf, made 2023-10-27 and on the resort's file server since 2024-10-29, with its key; read at four to six times its size beside the page's own picture of the same painting, 342b691d59ea9415f1f03d65a1a8e02fa0cad921-5090x2582.png, uploaded 2025-02-18) draws only Disciples 8 on the north face. Hidden as a lift the resort no longer runs, as Killington's abandoned chairs.",
+      "expect": {
+        "name": null,
+        "aerialway": "chair_lift",
+        "abandoned": "yes"
+      },
+      "hide": true
+    }
+  ]
+}

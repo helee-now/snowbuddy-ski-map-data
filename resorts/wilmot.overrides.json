@@ -1,0 +1,64 @@
+{
+  "slug": "wilmot",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1183389371 (Wilmot Mountain, landuse=winter_sports with leisure=sports_centre): the hill on the Wisconsin side of the Illinois line at Wilmot, from its ridge, with the tube park beyond it, down to the Main Lodge, the learning area and the terrain park, on one ticket and one map (Epic); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-14 against Wilmot's Winter 2025-2026 trail map (20251121_WM_winter-trail_map_001.pdf, the map wilmotmountain.com/the-mountain/about-the-mountain/trail-map.aspx links), the newest the resort publishes: the trail-map page links it as the Wilmot Winter 2025-2026 Trail Map; the site serves curl an error page, so the page was read with WebFetch and the PDF fetched with WebFetch (two 792 x 612 pt pages, the VistaMap painting on the first, an image with no text layer), rendered at two and six times its size and read tile by tile. Its key: Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond; no double black), Terrain Park (an orange pill on orange shading) and Beginner Area, OSM's easy, intermediate and advanced; its lifts are chairs 1 to 6 (1 and 4 doubles, 5 a triple, 2, 3 and 6 quads), the carpets 8 (Bunny East and West) and 9 (Turtle, in the Wilmot Learning Area), the rope tows 10 and 11 in the terrain park and the tube park's carpets 12 and 13, numbered on the map as OSM names chairs 1 to 6 and carpets 8 and 9 (the resort's mountain-info page counts 10 lifts, 25 trails and 3 terrain parks). The resort's lift and terrain status loads by script, so the printed map is the only source and wins. Of the map's 25 trail and park names, 22 are in OSM, every rated one with the map's rating but Walter's Folly: drawn blue with a blue square on the map, easy in OSM, it becomes intermediate. Parks: The Gully and The Rope, two of the map's terrain-park lanes (orange pills, no rating symbol), are unrated downhill runs in OSM and get the park flag (their rating stays unknown, as nothing rates them). Hidden: chair 7 (OSM's triple named 7, between chair 6 and the rope tows), which the map draws nowhere, its chairs numbered 1 to 6 (Liftblog's Wilmot news of 2021-09-03: Lift 7 taken down with no replacement planned), with its two stations. Kept as OSM has them, unnamed: the rope tows and the tube park's two carpets (the map's 10 to 13; their OSM lines lie 6 to 7 m apart, too close to tell which number is which). The tube park's lanes (piste:type=yes) are left out by the type rule. OSM gaps: Heartland (one black diamond, between Competition and chair 5), The Pasture (a terrain-park lane between The Gully and the rope tows) and Progression Park (the small park by chair 6's bottom) are not in OSM.",
+  "overrides": [
+    {
+      "id": "way/798496309",
+      "reason": "Walter's Folly: from the ridge north of chair 3's top down to chair 3's bottom by Walt's Tavern, which Wilmot's Winter 2025-2026 trail map (20251121_WM_winter-trail_map_001.pdf, the map wilmotmountain.com/the-mountain/about-the-mountain/trail-map.aspx links) draws as a blue line with a blue square (More Difficult) labelled WALTER'S FOLLY; OSM rates it easy. The printed map wins.",
+      "expect": {
+        "name": "Walter's Folly",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/798496321",
+      "reason": "The Gully: the terrain-park lane north of chair 6, which Wilmot's Winter 2025-2026 trail map (20251121_WM_winter-trail_map_001.pdf, the map wilmotmountain.com/the-mountain/about-the-mountain/trail-map.aspx links) labels THE GULLY with the orange Terrain Park pill on the park's shading and no rating symbol, so it gets the park flag; OSM gives it no rating, and none is guessed.",
+      "expect": {
+        "name": "The Gully",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/798496320",
+      "reason": "The Rope: the terrain-park lane beside the rope tows, which Wilmot's Winter 2025-2026 trail map (20251121_WM_winter-trail_map_001.pdf, the map wilmotmountain.com/the-mountain/about-the-mountain/trail-map.aspx links) labels THE ROPE with the orange Terrain Park pill on the park's shading and no rating symbol, so it gets the park flag; OSM gives it no rating, and none is guessed.",
+      "expect": {
+        "name": "The Rope",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/132555208",
+      "reason": "Chair 7 (OSM's triple named 7, 256 m, between chair 6 and the terrain park's rope tows): Wilmot's Winter 2025-2026 trail map (20251121_WM_winter-trail_map_001.pdf, the map wilmotmountain.com/the-mountain/about-the-mountain/trail-map.aspx links) draws no lift there, its chairs numbered 1 to 6 and its other lifts 8 to 13, and Liftblog's news roundup of 2021-09-03 reports that Wilmot took Lift 7 down with no replacement planned. A lift the resort no longer runs.",
+      "expect": {
+        "name": "7",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "node/1457980597",
+      "reason": "The north end station of chair 7 (way/132555208, hidden above), 55 m from chair 6's: the 100 m rule would otherwise draw it as a lift-station circle with no lift.",
+      "expect": {
+        "aerialway": "station"
+      },
+      "hide": true
+    },
+    {
+      "id": "node/1457980608",
+      "reason": "The south end station of chair 7 (way/132555208, hidden above), within 100 m of chair 6's line: the 100 m rule would otherwise draw it as a lift-station circle with no lift.",
+      "expect": {
+        "aerialway": "station"
+      },
+      "hide": true
+    }
+  ]
+}

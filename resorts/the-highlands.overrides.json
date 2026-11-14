@@ -1,0 +1,102 @@
+{
+  "slug": "the-highlands",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/997160539 (named Boyne Highlands Resort in OSM, the resort's name before 2022): the Camelot, Heather, Challenger and Amy's faces above the Main Lodge and the North Peak side reached by the Interconnect, on one ticket and one map (Ikon). Nub's Nob, a separate ski area 1 km east on the same ridge, is a listed neighbour: its polygon, eight chairs, rope tow and runs are left off (resorts.json). Every named run and lift checked on 2026-11-14 against The Highlands' winter trail map (20241203_Highlands_Winter_Trail_Map, the PDF highlandsharborsprings.com/resort-maps links as its Winter Trail Map, 2b808578555a4836d020ceb9c975fea82cfbef39.pdf, made 2024-12-03 and the newest the page links; read at four to eight times its size). The map paints its runs and marks each with its symbol and name; its key: Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond), Experts Only (two), Area Terrain Park, Freestyle Terrain (orange, S, M or L); its chairlifts are Camelot 6, Heather Express, Challenger, Amy's, North Face and Interconnect (the painting labels the North Face chair NORTH PEAK, its list NORTH FACE, as OSM names it) and its surface lifts Magic Carpet and Renate's Express. The resort's trail status loads by script, so the printed map is the source and wins. Ratings from the map: Loren's Lollapalooza Glade (one diamond; expert in OSM); every other rating OSM gives is the map's. Names from the map: Payson's Bypass (OSM Payton's), Loren's Lollapalooza Glade (Lollapaloosa), Black Diamond Glade and Tyler's Tangle Glade (OSM without 'Glade', as the map names Everett's Escape Glade and Stein's Chute Glade, which OSM names so), and Renate's Express for OSM's Wonder Carpet beside Boardwalk. Names that differ from the map only by an article or an apostrophe stay as OSM has them (The Sound of Skiing for SOUND OF SKIING, Steins Chute Glade). Boardwalk stays novice in OSM, drawn green as the map's circle. Parks: the map's three terrain parks, Funland (S), Fun Cross (M) and Amy's (L), are plain runs in OSM and get the park flag. Four unnamed run outlines OSM draws on the Heather, Challenger, Amy's and North Face slopes stay as OSM has them. The nordic and hiking trails (the Red, Blue and Orange Trails) are left out by the type rule. OSM gaps: Sugar & Spice (green) and Molly's Way (blue) on the North Peak side, and the Magic Carpet.",
+  "overrides": [
+    {
+      "id": "way/778125163",
+      "reason": "Payton's Bypass: the green run from the Heather Express's top round to Amy's top, which The Highlands' winter trail map (20241203_Highlands_Winter_Trail_Map, the PDF highlandsharborsprings.com/resort-maps links as its Winter Trail Map, 2b808578555a4836d020ceb9c975fea82cfbef39.pdf, made 2024-12-03 and the newest the page links; read at four to eight times its size) labels PAYSON'S BYPASS with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Payton's Bypass",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Payson's Bypass"
+      }
+    },
+    {
+      "id": "way/778125135",
+      "reason": "Loren's Lollapaloosa Glade: the glade at the south end of the Camelot side beside South Tournament, which The Highlands' winter trail map (20241203_Highlands_Winter_Trail_Map, the PDF highlandsharborsprings.com/resort-maps links as its Winter Trail Map, 2b808578555a4836d020ceb9c975fea82cfbef39.pdf, made 2024-12-03 and the newest the page links; read at four to eight times its size) labels LOREN'S LOLLAPALOOZA GLADE with one black diamond (the key's Most Difficult; Sendelhofer's Legacy carries the two of Experts Only); OSM rates it expert. The printed map wins; spelling from the map.",
+      "expect": {
+        "name": "Loren's Lollapaloosa Glade",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "name": "Loren's Lollapalooza Glade",
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/778125179",
+      "reason": "Black Diamond: the glade beside the North Face chair below North Peak, which The Highlands' winter trail map (20241203_Highlands_Winter_Trail_Map, the PDF highlandsharborsprings.com/resort-maps links as its Winter Trail Map, 2b808578555a4836d020ceb9c975fea82cfbef39.pdf, made 2024-12-03 and the newest the page links; read at four to eight times its size) labels BLACK DIAMOND GLADE with one black diamond; OSM's name, without the map's 'Glade', reads as a rating. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Black Diamond",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "name": "Black Diamond Glade"
+      }
+    },
+    {
+      "id": "way/778125170",
+      "reason": "Tyler's Tangle: the glade's outline between Amy's Terrain Park and Stephen's Pass, which The Highlands' winter trail map (20241203_Highlands_Winter_Trail_Map, the PDF highlandsharborsprings.com/resort-maps links as its Winter Trail Map, 2b808578555a4836d020ceb9c975fea82cfbef39.pdf, made 2024-12-03 and the newest the page links; read at four to eight times its size) labels TYLER'S TANGLE GLADE with one black diamond, as it names Everett's Escape Glade and Stein's Chute Glade, which OSM names so. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Tyler's Tangle",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry",
+        "area": "yes"
+      },
+      "set": {
+        "name": "Tyler's Tangle Glade"
+      }
+    },
+    {
+      "id": "way/1429083838",
+      "reason": "Amy's Terrain Park: the terrain park down the slope between Amy's chair and Tyler's Tangle Glade, which The Highlands' winter trail map (20241203_Highlands_Winter_Trail_Map, the PDF highlandsharborsprings.com/resort-maps links as its Winter Trail Map, 2b808578555a4836d020ceb9c975fea82cfbef39.pdf, made 2024-12-03 and the newest the page links; read at four to eight times its size) draws as an Area Terrain Park and labels AMY'S TERRAIN PARK with an orange L (freestyle terrain). OSM tags it a plain downhill run; the park flag is the map's, OSM's name stays (OSM rates it only with a difficulty=advanced tag, which the pipeline does not read, and the map gives a park no rating).",
+      "expect": {
+        "name": "Amy's Terrain Park",
+        "piste:type": "downhill",
+        "piste:difficulty": null
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/778125146",
+      "reason": "Fun Cross Terrain Park: the terrain park from below the Heather Express's top down beside Olympic to the base, which The Highlands' winter trail map (20241203_Highlands_Winter_Trail_Map, the PDF highlandsharborsprings.com/resort-maps links as its Winter Trail Map, 2b808578555a4836d020ceb9c975fea82cfbef39.pdf, made 2024-12-03 and the newest the page links; read at four to eight times its size) draws as an Area Terrain Park and labels FUN CROSS TERRAIN PARK with an orange M (freestyle terrain). OSM tags it a plain downhill run; the park flag is the map's, OSM's name stays and so does its rating.",
+      "expect": {
+        "name": "Fun Cross Terrain Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/778125141",
+      "reason": "Funland Terrain Park: the terrain park from the top beside the Camelot 6 chair down past Upper Camelot, which The Highlands' winter trail map (20241203_Highlands_Winter_Trail_Map, the PDF highlandsharborsprings.com/resort-maps links as its Winter Trail Map, 2b808578555a4836d020ceb9c975fea82cfbef39.pdf, made 2024-12-03 and the newest the page links; read at four to eight times its size) draws as an Area Terrain Park and labels FUNLAND TERRAIN PARK with an orange S (freestyle terrain). OSM tags it a plain downhill run; the park flag is the map's, OSM's name stays and so does its rating.",
+      "expect": {
+        "name": "Funland Terrain Park",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/130101583",
+      "reason": "Wonder Carpet: the 91 m carpet OSM draws along the Boardwalk beginner slope at the Camelot 6's bottom. The Highlands' winter trail map (20241203_Highlands_Winter_Trail_Map, the PDF highlandsharborsprings.com/resort-maps links as its Winter Trail Map, 2b808578555a4836d020ceb9c975fea82cfbef39.pdf, made 2024-12-03 and the newest the page links; read at four to eight times its size) lists two surface lifts, Magic Carpet and Renate's Express, and draws only Renate's Express as a line, beside BOARDWALK; the Magic Carpet is a label at the base by the Snowsports School and Ski Patrol. Name from the map.",
+      "expect": {
+        "name": "Wonder Carpet",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Renate's Express"
+      }
+    }
+  ]
+}

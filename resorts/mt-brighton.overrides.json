@@ -1,0 +1,88 @@
+{
+  "slug": "mt-brighton",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1057669089 (Mt Brighton): the front side above the base lodge and the back side, on one ticket and one map (Epic, Vail Resorts); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-14 against Mt. Brighton's Winter 2025-2026 trail map (20251113_MB_winter-trail_map_001.pdf, the map mtbrighton.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF's front-side and back-side views rendered at five to eight times their size): its two views, Front Side and Back Side, name every trail with its symbol, Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond) and Experts Only (two), with orange terrain-park pills, and number the lifts 1 to 5 (chairs: 1 and 2 triples, 3 and 4 quads, 5 a triple, as OSM's occupancies) and 7 to 13 (rope tows and carpets), as the resort's mountain-info page (5 chairlifts and 7 surface lifts, read 2026-11-14); the resort's lift and trail status loads by script, so the printed map is the source and wins. All 25 of the map's trails are in OSM with the map's rating (Perk's Folly, two diamonds, as two ways). Names from the map: Blue Sky (OSM Blue sky) and Snowshoe (OSM Showshoe); Thalackers stays as OSM has it (THALACKER'S: an apostrophe). Lifts: the five chairs take the map's numbers as Chair 1 to Chair 5 (OSM names only lift 1, with its old names in the name); the five rope tows and two carpets keep OSM's lack of a name (the map gives them only numbers). Parks: Chicken Chute, Ryan's Run, Gasoline Alley and Sawtooth Ridge, which the map marks with terrain-park pills, are snow parks in OSM already. OSM gaps: none of the map's trails or lifts is missing.",
+  "overrides": [
+    {
+      "id": "way/256916921",
+      "reason": "Chair 1 (Prior to 2013: Red Lift, or, Red Triple Chair): the triple chair up the front side between Spike's Folly and Thalacker's, which Mt. Brighton's Winter 2025-2026 trail map (20251113_MB_winter-trail_map_001.pdf, the map mtbrighton.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF's front-side and back-side views rendered at five to eight times their size) numbers 1 with its triple-chair symbol; the map names its lifts only by number, and the resort's mountain-info page (5 chairlifts and 7 surface lifts, read 2026-11-14) counts five chairs, the map's 1 to 5. Named Chair 1, as OSM's own official_name names lift 1 'Chair 1' (its name tag is a description with the lift's old names).",
+      "expect": {
+        "name": "Chair 1 (Prior to 2013: Red Lift, or, Red Triple Chair)",
+        "aerialway": "chair_lift",
+        "aerialway:occupancy": "3"
+      },
+      "set": {
+        "name": "Chair 1"
+      }
+    },
+    {
+      "id": "way/256916922",
+      "reason": "An unnamed triple chair: the triple chair up the front side between Sawtooth Ridge and Spike's Folly, which Mt. Brighton's Winter 2025-2026 trail map (20251113_MB_winter-trail_map_001.pdf, the map mtbrighton.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF's front-side and back-side views rendered at five to eight times their size) numbers 2 with its triple-chair symbol; the map names its lifts only by number, and the resort's mountain-info page (5 chairlifts and 7 surface lifts, read 2026-11-14) counts five chairs, the map's 1 to 5. Named Chair 2, as OSM's own official_name names lift 1 'Chair 1'.",
+      "expect": {
+        "name": null,
+        "aerialway": "chair_lift",
+        "aerialway:occupancy": "3"
+      },
+      "set": {
+        "name": "Chair 2"
+      }
+    },
+    {
+      "id": "way/256916924",
+      "reason": "An unnamed quad chair: the quad chair up the north end of the front side between Grand River and Big Riskey, which Mt. Brighton's Winter 2025-2026 trail map (20251113_MB_winter-trail_map_001.pdf, the map mtbrighton.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF's front-side and back-side views rendered at five to eight times their size) numbers 3 with its quad-chair symbol; the map names its lifts only by number, and the resort's mountain-info page (5 chairlifts and 7 surface lifts, read 2026-11-14) counts five chairs, the map's 1 to 5. Named Chair 3, as OSM's own official_name names lift 1 'Chair 1'.",
+      "expect": {
+        "name": null,
+        "aerialway": "chair_lift",
+        "aerialway:occupancy": "4"
+      },
+      "set": {
+        "name": "Chair 3"
+      }
+    },
+    {
+      "id": "way/256916925",
+      "reason": "An unnamed quad chair: the quad chair up the back side between Golden Eagle and Ore Creek, which Mt. Brighton's Winter 2025-2026 trail map (20251113_MB_winter-trail_map_001.pdf, the map mtbrighton.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF's front-side and back-side views rendered at five to eight times their size) numbers 4 with its quad-chair symbol; the map names its lifts only by number, and the resort's mountain-info page (5 chairlifts and 7 surface lifts, read 2026-11-14) counts five chairs, the map's 1 to 5. Named Chair 4, as OSM's own official_name names lift 1 'Chair 1'.",
+      "expect": {
+        "name": null,
+        "aerialway": "chair_lift",
+        "aerialway:occupancy": "4"
+      },
+      "set": {
+        "name": "Chair 4"
+      }
+    },
+    {
+      "id": "way/256916923",
+      "reason": "An unnamed triple chair: the triple chair up the back side beside Wolverine Way and Spartan Street to the summit, which Mt. Brighton's Winter 2025-2026 trail map (20251113_MB_winter-trail_map_001.pdf, the map mtbrighton.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF's front-side and back-side views rendered at five to eight times their size) numbers 5 with its triple-chair symbol; the map names its lifts only by number, and the resort's mountain-info page (5 chairlifts and 7 surface lifts, read 2026-11-14) counts five chairs, the map's 1 to 5. Named Chair 5, as OSM's own official_name names lift 1 'Chair 1'.",
+      "expect": {
+        "name": null,
+        "aerialway": "chair_lift",
+        "aerialway:occupancy": "3"
+      },
+      "set": {
+        "name": "Chair 5"
+      }
+    },
+    {
+      "id": "way/1057669073",
+      "reason": "Blue sky: the blue run on the front side between Chicken Chute and the rope tows, which Mt. Brighton's Winter 2025-2026 trail map (20251113_MB_winter-trail_map_001.pdf, the map mtbrighton.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF's front-side and back-side views rendered at five to eight times their size) labels BLUE SKY with a blue square. Capitalisation from the map (as Roundtop's Barrett's Trail); OSM's rating is the map's.",
+      "expect": {
+        "name": "Blue sky",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Blue Sky"
+      }
+    },
+    {
+      "id": "way/1057669061",
+      "reason": "Showshoe: the short green slope at the base beside Bunny and the carpet, which Mt. Brighton's Winter 2025-2026 trail map (20251113_MB_winter-trail_map_001.pdf, the map mtbrighton.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF's front-side and back-side views rendered at five to eight times their size) labels SNOWSHOE with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Showshoe",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Snowshoe"
+      }
+    }
+  ]
+}

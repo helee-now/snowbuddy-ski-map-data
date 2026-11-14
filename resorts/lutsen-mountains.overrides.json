@@ -1,0 +1,172 @@
+{
+  "slug": "lutsen-mountains",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/20342475 (Lutsen Mountains, landuse=winter_sports): the resort's four peaks above Lake Superior's North Shore, Eagle Mountain, Ullr Mountain, Moose Mountain and Mystery Mountain, on one ticket and one map (Ikon), joined by the Summit Express Gondola and the Moose Access catwalk; it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-14 against the resort's two 2025 trail maps, Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) and Lutsen Mountains' Ullr and Eagle Mountain trail map (LUTSEN UE-02.9 09292025forWEBkey.pdf, the Trail Map Back Side of lutsen.com/mountain-info/trail-map-mountain-stats), fetched with curl (one page each, 2745 x 1546 and 2662 x 1400 pt, images with no text layer, rendered at two to four times their size and read tile by tile), and the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14), which lists every lift and run by mountain with its rating (Beginner, Intermediate, Advanced, Expert, Terrain Park). The maps' key: Easier (green circle), More Difficult (blue square), Most Difficult (one black diamond), Extremely Difficult (two), Gladed Area (a tree sign), Fun Slope, Freestyle Terrain (S/M), Road or Catwalk (dashed, may include flat terrain), Moguls; read as OSM's easy, intermediate, advanced and expert. The printed maps win over OSM; where a map and the report disagree the harder of theirs and OSM's is kept: White Wolf, The Stash, Valley Run and Moose Crossing, one black diamond on the map and Intermediate in the report, are advanced; Fall Line, two diamonds on the map and Advanced in the report, stays expert as OSM rates it. Its lifts are the Summit Express Gondola, the Caribou Express and Raptor Express six-packs, the Timberwolf, Mystery Mountain, Ullr and Bridge chairs and the Conveyor, as OSM names them. Kept as OSM has them: the spellings the report shares (Freefall, Koo Koo, George's Run, Upper and Lower Hari Kari, Chris's Couloir, Short Shot; the maps print FREE FALL, KOO-KOO, GEORGE'S, HARIKARI, CHRIS'S COULOIR, SHORT SHOT), Upper and Lower Bull Run (the maps' names; the report's one Bull Run), Meadows Access, a 133 m link the maps draw without a name, Mystery Mountain's runs inside the maps' temporarily closed area (Sugar Maple, Maple Glade, Tap, Black Spruce, Grouse Gully; the report lists them), and The Plunge, an expert mogul line off Moose Mountain's north side that the maps do not draw but the resort's mountain statistics name as one of its two steepest runs. Timberjack is a snow park in OSM, the maps' S/M freestyle terrain. OSM gaps (shipped as at Palisades Tahoe): Huff and Puff, an expert glade in the report on neither map, and the report's beginner Catwalk (Return to Eagle Ridge), the maps' EASIEST WAY DOWN. Nordic trails (the North Shore Mountains Ski Trail and the Lutsen Nordic Center's loops) are left out by the type rule.",
+  "overrides": [
+    {
+      "id": "way/778337279",
+      "reason": "Moose Tracks, the glade between Moose Meadows and Middle Meadows on Moose Mountain, carries one black diamond on Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) and is Advanced in the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14); OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Moose Tracks",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/778337277",
+      "reason": "White Wolf, the glade below the Timberwolf Chair on Moose Mountain, carries one black diamond on Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side); the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14) rates it Intermediate, as OSM does. The resort's sources disagree, so the harder, the map's, is kept.",
+      "expect": {
+        "name": "White Wolf",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/778337255",
+      "reason": "The Stash, the glade between Coyote and Antler Alley on Moose Mountain, carries one black diamond on Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side); the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14) rates it Intermediate, as OSM does. The resort's sources disagree, so the harder, the map's, is kept.",
+      "expect": {
+        "name": "The Stash",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/778337288",
+      "reason": "Valley Run (from Freefall's and Adrenaline's bottoms round Moose Mountain's north side): Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) draws the catwalk round the mountain from the summit to the base as a dashed black line with one black diamond, VALLEY RUN; the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14) rates it Intermediate, as OSM does. The resort's sources disagree, so the harder, the map's, is kept on every way of the run.",
+      "expect": {
+        "name": "Valley Run",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/976137752",
+      "reason": "Valley Run (on Moose Mountain's north side, past the Summit Express Gondola's line): Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) draws the catwalk round the mountain from the summit to the base as a dashed black line with one black diamond, VALLEY RUN; the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14) rates it Intermediate, as OSM does. The resort's sources disagree, so the harder, the map's, is kept on every way of the run.",
+      "expect": {
+        "name": "Valley Run",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/875602085",
+      "reason": "Valley Run (a 66 m piece on Moose Mountain's east side): Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) draws the catwalk round the mountain from the summit to the base as a dashed black line with one black diamond, VALLEY RUN; the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14) rates it Intermediate, as OSM does. The resort's sources disagree, so the harder, the map's, is kept on every way of the run.",
+      "expect": {
+        "name": "Valley Run",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/875602084",
+      "reason": "Valley Run (down Moose Mountain's east side past Bear's Den and Moose Maze to Lower Grizzly's bottom): Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) draws the catwalk round the mountain from the summit to the base as a dashed black line with one black diamond, VALLEY RUN; the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14) rates it Intermediate, as OSM does. The resort's sources disagree, so the harder, the map's, is kept on every way of the run.",
+      "expect": {
+        "name": "Valley Run",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/778337280",
+      "reason": "Moose Return: the traverse from Mark's Run across Upper Grizzly and the glades below the Summit Chalet (Cedar Ridge, Red Fox, Bear's Den, Moose Maze) to Valley Run, which Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) draws as a dashed black line with one black diamond labelled MOOSE CROSSING, the report's Moose Crossing (Intermediate); the maps' Moose Return is the shuttle back from the Moose base. Name from the map, and the harder of the resort's ratings, the map's.",
+      "expect": {
+        "name": "Moose Return",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Moose Crossing",
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/778337261",
+      "reason": "Moose Crossing: the blue run leaving Moose Glade mid-mountain and running down beside Bobcat to Lower Meadows and Second Cut below the Caribou Express, which Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) draws as the lower half of MOOSE GLADE (blue square); its MOOSE CROSSING is the dashed black traverse OSM names Moose Return. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Moose Crossing",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Moose Glade"
+      }
+    },
+    {
+      "id": "way/778337286",
+      "reason": "Bear Claw: a 138 m expert glade line among Bear's Den, Moose Maze, Red Fox and Cedar Ridge below the Summit Chalet. Neither Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) nor the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14) names it (the map's glades there are those four; the report's fifth expert glade, Huff and Puff, is on no map). The name is hidden; OSM's rating, the two diamonds of every glade beside it, stays.",
+      "expect": {
+        "name": "Bear Claw",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/778337287",
+      "reason": "Cowabunga: a 130 m expert glade line among Bear's Den, Moose Maze, Red Fox and Cedar Ridge below the Summit Chalet. Neither Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) nor the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14) names it (the map's glades there are those four; the report's fifth expert glade, Huff and Puff, is on no map). The name is hidden; OSM's rating, the two diamonds of every glade beside it, stays.",
+      "expect": {
+        "name": "Cowabunga",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/778337247",
+      "reason": "Cross Cut: the sidecountry traverse from Upper Bull Run across Moose Mountain's face to The Stash, which the resort's lift and trail status (lutsen.com/mountain-info/mountain-report, read 2026-11-14) lists as Crosscut (Intermediate) and Lutsen Mountains' Moose and Mystery Mountain trail map (LUTSEN MM-02.9 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that lutsen.com/mountain-info/trail-map-mountain-stats links as its Trail Map Front Side) does not label. Spelling from the report; OSM's rating is the report's.",
+      "expect": {
+        "name": "Cross Cut",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Crosscut"
+      }
+    },
+    {
+      "id": "way/1493914750",
+      "reason": "Dipsey Doodle: the glade beside Mogen on Eagle Mountain, which Lutsen Mountains' Ullr and Eagle Mountain trail map (LUTSEN UE-02.9 09292025forWEBkey.pdf, the Trail Map Back Side of lutsen.com/mountain-info/trail-map-mountain-stats) labels DIPSY DOODLE with a blue square, the report's Dipsy Doodle (Intermediate). Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Dipsey Doodle",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Dipsy Doodle"
+      }
+    },
+    {
+      "id": "way/778337318",
+      "reason": "Karen's corner: the green run from Ullr down the side of Ullr Mountain to the Ullr Chair's bottom, which Lutsen Mountains' Ullr and Eagle Mountain trail map (LUTSEN UE-02.9 09292025forWEBkey.pdf, the Trail Map Back Side of lutsen.com/mountain-info/trail-map-mountain-stats) labels KAREN'S CORNER, the report's Karen's Corner (Beginner). Capitalisation from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Karen's corner",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Karen's Corner"
+      }
+    },
+    {
+      "id": "way/1489229334",
+      "reason": "An unnamed 29 m piece at Lower Bridge Run's foot, from its last way to the Brule bridge at the Eagle base, which the pipeline would name Bridge Run after OSM's route relation (relation/20385208, Bridge Run, whose other members are Upper and Lower Bridge Run). Lutsen Mountains' Ullr and Eagle Mountain trail map (LUTSEN UE-02.9 09292025forWEBkey.pdf, the Trail Map Back Side of lutsen.com/mountain-info/trail-map-mountain-stats) labels the trail's two halves UPPER BRIDGE RUN and LOWER BRIDGE RUN, the report's Upper and Lower Bridge Run, and the piece is the lower one's end. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Bridge Run"
+      }
+    }
+  ]
+}

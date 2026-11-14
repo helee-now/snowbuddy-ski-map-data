@@ -1,0 +1,104 @@
+{
+  "slug": "afton-alps",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/543987749 (Afton Alps, landuse=winter_sports with leisure=sports_centre): the bluffs above the St. Croix south of Afton, from the Highlands chalet at the top of chairs 13 to 17 to the Alps, Meadows and Landing Zone bases along the bottom, with the tube park, on one ticket and one map (Epic); it holds every lift and run. No other ski area lies in the box or the Overpass window; Afton State Park's cross-country and hiking trails east of the resort are left out by the type rule. Every named run and lift checked on 2026-11-14 against Afton Alps' Winter 2025-2026 trail map (20251122_AA_winter-trail_map_001.pdf, the map aftonalps.com/the-mountain/about-the-mountain/trail-map.aspx links), the newest the resort publishes: the trail-map page links it as the Afton Alps Winter 2025-2026 Trail Map; the site serves curl an error page, so the page was read with WebFetch and the PDF fetched with WebFetch (two 792 x 612 pt pages, the painting on the first, an image with no text layer), rendered at two and six times its size and read tile by tile. Its key: Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond; no double black), Terrain Park (an orange pill) and Beginner Area (green shading), OSM's novice and easy, intermediate and advanced; its lifts are chairs 1 to 7, 9 to 13 and 15 to 17 (numbered on the map, as OSM names them: chair 2 a quad, 3 and 13 triples, the others doubles), two carpets, the tow ropes and the tube park's carpet. The resort's lift and terrain status loads by script (its counters read 20 lifts and 35 trails; the mountain-info page counts 17 lifts, 50 trails and 3 terrain parks), so the printed map is the only source and wins. Of the map's 32 trail names, 30 are in OSM, every one with the map's rating but on two ways. Ratings from the map: Micky's Meadow, drawn blue with a blue square from the To Highlands junction to the Landing Zone, easy in OSM, becomes intermediate; the 113 m runout of Rosie's Run to chair 17's bottom, which OSM rates easy (Vicky's Valley's bottom joins it), takes the run's black diamond, as the map draws Rosie's Run black to the chair. Names: two pieces OSM spells with a typographic apostrophe (Inga’s Run at chair 1's bottom, Trudy’s Schuss at chair 3's) take the straight one of the runs' other ways, so each run is one name (the map prints INGA'S RUN and TRUDY'S SCHUSS); Chris's Canyon (the map's CHRIS' CANYON) differs only by its apostrophe and stays. Hidden: chairs 8 and 14 (a quad and a double in OSM), which the map draws nowhere, its numbers running 7, 9 and 13, 15, with their four stations; the slope where chair 8 stood, between chair 9 and the tow ropes, carries the map's terrain-park marks. Kept as OSM has them: the three carpets (OSM's 153 m carpet below Micky's Meadow, between chairs 9 and 7, is where the map draws its TOW ROPES; the lift's kind stays OSM's), and six runs OSM names that the map does not print, on slopes or links the map draws unnamed or not at all (Brenda's Bypass, a 220 m blue loop off Hazel's Highlands; Carol's Crib, the green slope along chair 8's old line; Dolly's Dip, Renee's Ridge and Ruthie's Meadow, the green and blue links from Dawn's Highlands and Polly's Pass to the Meadows; Sadie's Slide, the blue link from Belinda's Bowl to Teresa's Trail), as at Big Boulder and Telluride. Parks: the map marks three terrain-park pills on the Meadows slope by chairs 9 and 10 and the tow ropes but names no park, and OSM maps none, so no run gets the park flag. OSM gaps: Tucker's Trench (one black diamond, between chairs 16 and 15 near chair 15's bottom), Meadows Maze (in the Meadows beginner area, no symbol) and the Exit Highlands route are not in OSM, nor is the tube park's carpet.",
+  "overrides": [
+    {
+      "id": "way/893688929",
+      "reason": "Micky's Meadow: from the junction below Sally's Valley and Fannie's Folley (the map's To Highlands junction) down to chair 7's bottom at the Landing Zone, which Afton Alps' Winter 2025-2026 trail map (20251122_AA_winter-trail_map_001.pdf, the map aftonalps.com/the-mountain/about-the-mountain/trail-map.aspx links) draws as a blue line with a blue square (More Difficult) labelled MICKY'S MEADOW; OSM rates it easy. The printed map wins.",
+      "expect": {
+        "name": "Micky's Meadow",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/893688935",
+      "reason": "Rosie's Run: the 113 m runout from where Rosie's Run and Vicky's Valley meet to chair 17's bottom. Afton Alps' Winter 2025-2026 trail map (20251122_AA_winter-trail_map_001.pdf, the map aftonalps.com/the-mountain/about-the-mountain/trail-map.aspx links) draws ROSIE'S RUN black with a black diamond (Most Difficult) from the top of chair 17 down to the chair's bottom, and Vicky's Valley's green line ending above it; OSM rates this piece easy and the rest of Rosie's Run (way/543987739) advanced. The printed map wins, so the run reads as one black trail.",
+      "expect": {
+        "name": "Rosie's Run",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/709782250",
+      "reason": "Inga’s Run: a 51 m piece of Inga's Run at chair 1's bottom, spelled with a typographic apostrophe where the run's other ways (way/709782249, way/709782251) use a straight one; Afton Alps' Winter 2025-2026 trail map (20251122_AA_winter-trail_map_001.pdf, the map aftonalps.com/the-mountain/about-the-mountain/trail-map.aspx links) prints INGA'S RUN. One spelling, so the run is one name for its rank and its label.",
+      "expect": {
+        "name": "Inga’s Run",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Inga's Run"
+      }
+    },
+    {
+      "id": "way/709782254",
+      "reason": "Trudy’s Schuss: a 68 m piece of Trudy's Schuss at chair 3's bottom, spelled with a typographic apostrophe where the run's other ways (way/709782252, way/709782253) use a straight one; Afton Alps' Winter 2025-2026 trail map (20251122_AA_winter-trail_map_001.pdf, the map aftonalps.com/the-mountain/about-the-mountain/trail-map.aspx links) prints TRUDY'S SCHUSS. One spelling, so the run is one name for its rank and its label.",
+      "expect": {
+        "name": "Trudy’s Schuss",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Trudy's Schuss"
+      }
+    },
+    {
+      "id": "way/256864080",
+      "reason": "Chair 8 (OSM's quad named 8, 389 m from the Landing Zone up between chairs 9 and 7): Afton Alps' Winter 2025-2026 trail map (20251122_AA_winter-trail_map_001.pdf, the map aftonalps.com/the-mountain/about-the-mountain/trail-map.aspx links) draws no lift there, its chairs numbered 7, 9 and 10 along the Meadows and Landing Zone bases, and marks the slope with its terrain-park pills and the tow ropes instead (Liftblog's Afton Alps page and its readers note chair 8's removal). A lift the resort no longer runs.",
+      "expect": {
+        "name": "8",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/243736724",
+      "reason": "Chair 14 (OSM's double named 14, 530 m from the east up to the Highlands chalet between chairs 13 and 15): Afton Alps' Winter 2025-2026 trail map (20251122_AA_winter-trail_map_001.pdf, the map aftonalps.com/the-mountain/about-the-mountain/trail-map.aspx links) draws no lift there, its back-side chairs numbered 12, 13, 15, 16 and 17 (a reader's comment on Liftblog's Afton Alps page notes that the 2024-25 map dropped chair 14). A lift the resort no longer runs.",
+      "expect": {
+        "name": "14",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "node/2624907542",
+      "reason": "The bottom station of chair 8 (way/256864080, hidden above), 81 m from chair 9's bottom: the 100 m rule would otherwise draw it as a lift-station circle with no lift.",
+      "expect": {
+        "aerialway": "station",
+        "aerialway:station": "bottom"
+      },
+      "hide": true
+    },
+    {
+      "id": "node/2624907545",
+      "reason": "The top station of chair 8 (way/256864080, hidden above), 33 m from chair 11's top: the 100 m rule would otherwise draw it as a lift-station circle with no lift.",
+      "expect": {
+        "aerialway": "station",
+        "aerialway:station": "top"
+      },
+      "hide": true
+    },
+    {
+      "id": "node/2511102103",
+      "reason": "The bottom station of chair 14 (way/243736724, hidden above), 75 m from chair 15's bottom: the 100 m rule would otherwise draw it as a lift-station circle with no lift.",
+      "expect": {
+        "aerialway": "station",
+        "aerialway:station": "bottom"
+      },
+      "hide": true
+    },
+    {
+      "id": "node/2511102106",
+      "reason": "The top station of chair 14 (way/243736724, hidden above), 32 m from chair 13's top at the Highlands chalet: the 100 m rule would otherwise draw it as a lift-station circle with no lift.",
+      "expect": {
+        "aerialway": "station",
+        "aerialway:station": "top"
+      },
+      "hide": true
+    }
+  ]
+}

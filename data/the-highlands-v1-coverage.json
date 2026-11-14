@@ -1,0 +1,73 @@
+{
+  "key": "the-highlands-v1",
+  "ski_sha256": "1cc2264aee1eac09a76cb556e1b4f85b7748c81fe9032f2a013ba7c96538ba32",
+  "osm_timestamp": "2026-11-14T09:58:47Z",
+  "box": [
+    -84.99,
+    45.44,
+    -84.89,
+    45.51
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -84.955269,
+    45.464291,
+    -84.92448,
+    45.49
+  ],
+  "margins_km": {
+    "west": 2.71,
+    "south": 2.7,
+    "east": 2.69,
+    "north": 2.22
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 54,
+    "run_areas_in_bounds": 5,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 14,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 4.7,
+    "runs_in_bounds": 23.2,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -85.078125,
+      45.336702,
+      -84.726562,
+      45.58329
+    ],
+    "12": [
+      -84.990234,
+      45.39845,
+      -84.814453,
+      45.521744
+    ],
+    "13": [
+      -84.990234,
+      45.429299,
+      -84.858398,
+      45.521744
+    ],
+    "14": [
+      -84.990234,
+      45.429299,
+      -84.880371,
+      45.521744
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

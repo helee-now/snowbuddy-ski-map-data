@@ -1,0 +1,297 @@
+{
+  "slug": "granite-peak",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/317142448 (Granite Peak Ski Area, landuse=winter_sports with leisure=sports_centre, in Rib Mountain State Park above Wausau): the north face of Rib Mountain, the Eastern Terrain off the Cupid Express, the main face off the Comet Express and the Blitzen and the West side off the Dasher Express, on one ticket and one map (Ikon); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-14 against Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links), fetched with curl (one 2755 x 1516 pt page, an image with no text layer, rendered at two to three times its size and read tile by tile), and the resort's lift and trail status (skigranitepeak.com/mountain-info/mountain-report, read 2026-11-14), which lists every lift and run by lift with its rating (Beginner, Intermediate, Advanced, Expert, Terrain Park). The map's key: Easier (green circle), More Difficult (blue square), Most Difficult (one black diamond), Extremely Difficult (two), Gladed Area, Moguls, Freestyle Terrain (S, M/L) and Fun Slope, Road or Catwalk (dashed); read as OSM's easy, intermediate, advanced and expert. The printed map wins over OSM; where the map and the report disagree the harder of theirs and OSM's is kept (Hawk's Ridge, blue on the map and Advanced in the report and OSM, stays advanced). Lift names from the map: Comet Express, Cupid Express, Dasher Express and Frosty (OSM Comet, Cupid, Dasher and Frosty-the-Snowman); Blitzen, Santa and Blizzard as OSM has them. Parks: the map's orange freestyle lines are The Grom Park (S, a snow park in OSM), Aspen and Sky High (M/L), which get the park flag (OSM's freeride rating left unknown, as at Park City Mountain); the map's Fun Slopes, a sign its key lists under Freestyle Terrain, are Gem Stone, Red Quartz and Timber Pass, drawn as dark teal lines (the resort's page: rollers and berms in a boarder-cross style, no jumps), which get the park flag too, keeping OSM's rating (the report lists Gem Stone and Red Quartz as terrain parks and Timber Pass as Intermediate; the printed map wins). The report also lists Upper Dusky as a terrain park, which the map draws as a black-diamond run, as OSM rates it: no flag. Kept as OSM has them: Elk Run, Wedge Woods and Timberwolf (the map's ELK RUN, WEDGE WOODS and TIMBER WOLF; the report's Elk, Wedge Wood and Timberwolf) and Upper Dusky. OSM gaps (shipped as at Palisades Tahoe): the Summit Trail catwalk, Overlook, Rock Pile Woods, Berg's Boundary, Prange's Glade, Robin Hood, Sherwood and Enchanted Forest are not in OSM. The Yellow Trail (a hiking path tagged piste:type=hike) and the Nine Mile County Forest's nordic trails are left out by the type rule.",
+  "overrides": [
+    {
+      "id": "way/730789551",
+      "reason": "Superstition, between Carver and High Traverse below Rendezvous, carries two black diamonds on Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) and is Expert in the resort's lift and trail status (skigranitepeak.com/mountain-info/mountain-report, read 2026-11-14); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Superstition",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/730204030",
+      "reason": "Slalom, on the main face west of Sundance, carries one black diamond on Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) and is Advanced in the resort's lift and trail status (skigranitepeak.com/mountain-info/mountain-report, read 2026-11-14); OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Slalom",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/730249540",
+      "reason": "White Wolf (its lower way, from mid-mountain down beside the Cupid Express to its bottom): Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) marks WHITE WOLF with one black diamond at both its labels and the resort's lift and trail status (skigranitepeak.com/mountain-info/mountain-report, read 2026-11-14) rates it Advanced, as OSM rates its upper way; OSM rates this way intermediate. The printed map wins; the run takes one rating end to end.",
+      "expect": {
+        "name": "White Wolf",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/730916603",
+      "reason": "Mama Mie: the double-diamond chute below the summit beside Caroline's Couloir, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels MAMMA MIE, the report's Mamma Mie. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Mama Mie",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Mamma Mie"
+      }
+    },
+    {
+      "id": "way/730916604",
+      "reason": "Wood Spur: the black run beside the Blitzen from Rendezvous down, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels WOODSPUR, the report's Woodspur. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Wood Spur",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Woodspur"
+      }
+    },
+    {
+      "id": "way/730206758",
+      "reason": "Carnie's Couloir: the black run down the west side of the Blitzen, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels CARMIE'S COULOIR, the report's Carmie's Couloir. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Carnie's Couloir",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Carmie's Couloir"
+      }
+    },
+    {
+      "id": "way/730208084",
+      "reason": "Shadow Ridge: the black run down the east edge of the Eastern Terrain, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels SHADOWRIDGE, the report's Shadowridge. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Shadow Ridge",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Shadowridge"
+      }
+    },
+    {
+      "id": "way/730208089",
+      "reason": "Siidewinder: the blue run from the foot of Idle Wild and Shadowridge down the east edge to the Cupid Express's bottom, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels SIDEWINDER, the report's Sidewinder. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Siidewinder",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Sidewinder"
+      }
+    },
+    {
+      "id": "way/730206757",
+      "reason": "Stone Bridge: the blue run from Meadow Ridge east to the Cupid Express's bottom, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels STONEBRIDGE, the report's Stonebridge. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Stone Bridge",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Stonebridge"
+      }
+    },
+    {
+      "id": "way/730934266",
+      "reason": "Bob Cat: the mogul run at the Dasher Express's top on the West side, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels BOBCAT, the report's Bobcat. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Bob Cat",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Bobcat"
+      }
+    },
+    {
+      "id": "way/730917519",
+      "reason": "Hawks Ridge: the short run off Miracle's top on the West side, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels HAWK'S RIDGE with a blue square; the resort's lift and trail status (skigranitepeak.com/mountain-info/mountain-report, read 2026-11-14) rates it Advanced, as OSM does. Spelling from the map; the resort's sources disagree, so the harder rating, OSM's and the report's, stays.",
+      "expect": {
+        "name": "Hawks Ridge",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Hawk's Ridge"
+      }
+    },
+    {
+      "id": "way/1063294398",
+      "reason": "Meadow Ridge: the blue run from Whitetail east to Stonebridge and Wedge Woods, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels MEADOW RIDGE with a blue square, the report's Meadow Ridge (Intermediate); OSM gives it no rating. Rating from the map.",
+      "expect": {
+        "name": "Meadow Ridge",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1063294397",
+      "reason": "Cottonwood: the blue run from the foot of High Traverse and Superstition east to Wedge Woods, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels COTTONWOOD with a blue square, the report's Cottonwood (Intermediate); OSM gives it no rating. Rating from the map.",
+      "expect": {
+        "name": "Cottonwood",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1063294396",
+      "reason": "Buffett's Pass: the green catwalk from Whitetail's foot east along the bottom of the hill to the Cupid Express's bottom (no rating in OSM), which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) draws as a dashed green road with a green circle labelled EASTERN ESCAPE, the report's Eastern Escape (Beginner). Name and rating from the map.",
+      "expect": {
+        "name": "Buffett's Pass",
+        "piste:difficulty": null
+      },
+      "set": {
+        "name": "Eastern Escape",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1063294394",
+      "reason": "Sky High: the main face's freestyle line beside the Comet Express, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) draws orange with an M/L (medium and large features) sign, labelled SKY HIGH, and the report lists as a terrain park; OSM has no park tag. Park flag from the map. OSM rates it freeride, which would draw it as an ungroomed double black; the map gives parks a feature size, not a rating, so the rating is left unknown, as Park City Mountain's Pick Axe and Sunday River's T72.",
+      "expect": {
+        "name": "Sky High",
+        "piste:difficulty": "freeride",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true,
+        "difficulty": "unknown"
+      }
+    },
+    {
+      "id": "way/459835286",
+      "reason": "Aspen: the main face's freestyle line beside the Comet Express, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) draws orange with an M/L (medium and large features) sign, labelled ASPEN, and the report lists as a terrain park; OSM has no park tag. Park flag from the map. OSM rates it freeride, which would draw it as an ungroomed double black; the map gives parks a feature size, not a rating, so the rating is left unknown, as Park City Mountain's Pick Axe and Sunday River's T72.",
+      "expect": {
+        "name": "Aspen",
+        "piste:difficulty": "freeride",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true,
+        "difficulty": "unknown"
+      }
+    },
+    {
+      "id": "way/1126116842",
+      "reason": "Kingdom: the gladed outline on the West side (area=yes), which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels KINGDOM with a gladed-area sign and one black diamond, the report's Kingdom (Advanced); OSM gives it no rating. Rating from the map.",
+      "expect": {
+        "piste:name": "Kingdom",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1240166643",
+      "reason": "Beyond: the gladed outline on the West side (area=yes), which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels BEYOND with a gladed-area sign and one black diamond, the report's Beyond (Advanced); OSM gives it no rating. Rating from the map.",
+      "expect": {
+        "piste:name": "Beyond",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1240166645",
+      "reason": "Westwood: the gladed outline on the West side (area=yes), which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels WESTWOOD with a gladed-area sign and one black diamond, the report's Westwood (Advanced); OSM gives it no rating. Rating from the map.",
+      "expect": {
+        "name": "Westwood",
+        "piste:difficulty": null
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/730934129",
+      "reason": "Gem Stone: the West side's line from Top Notch's foot down the West side between Legends and Red Quartz, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) draws as a dark teal line with a Fun Slope shield, a sign its key lists under Freestyle Terrain (the resort's page: rollers and berms in a boarder-cross style, no jumps), and the resort's lift and trail status (skigranitepeak.com/mountain-info/mountain-report, read 2026-11-14) lists as a terrain park. Park flag from the map; OSM's rating (intermediate) stays.",
+      "expect": {
+        "name": "Gem Stone",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/730934128",
+      "reason": "Red Quartz: the West side's line from Top Notch's foot down beside Gem Stone and the Kingdom glade, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) draws as a dark teal line with a Fun Slope shield, a sign its key lists under Freestyle Terrain (the resort's page: rollers and berms in a boarder-cross style, no jumps), and the resort's lift and trail status (skigranitepeak.com/mountain-info/mountain-report, read 2026-11-14) lists as a terrain park. Park flag from the map; OSM's rating (intermediate) stays.",
+      "expect": {
+        "name": "Red Quartz",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/730934130",
+      "reason": "Timber Pass: the West side's line below Gem Stone's and Red Quartz's meeting, down to Sunset, which Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) draws as a dark teal line with a Fun Slope shield, a sign its key lists under Freestyle Terrain (the resort's page: rollers and berms in a boarder-cross style, no jumps); the resort's lift and trail status (skigranitepeak.com/mountain-info/mountain-report, read 2026-11-14) lists it as Intermediate, the printed map wins. Park flag from the map; OSM's rating (intermediate) stays.",
+      "expect": {
+        "name": "Timber Pass",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/148285762",
+      "reason": "Comet: the lift Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels COMET EXPRESS (the report names the chairs by their seats: Comet 6-Pack, Cupid Quad, Dasher Quad). Name from the map.",
+      "expect": {
+        "name": "Comet",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Comet Express"
+      }
+    },
+    {
+      "id": "way/148286368",
+      "reason": "Cupid: the lift Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels CUPID EXPRESS (the report names the chairs by their seats: Comet 6-Pack, Cupid Quad, Dasher Quad). Name from the map.",
+      "expect": {
+        "name": "Cupid",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Cupid Express"
+      }
+    },
+    {
+      "id": "way/256900698",
+      "reason": "Dasher: the lift Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels DASHER EXPRESS (the report names the chairs by their seats: Comet 6-Pack, Cupid Quad, Dasher Quad). Name from the map.",
+      "expect": {
+        "name": "Dasher",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Dasher Express"
+      }
+    },
+    {
+      "id": "way/256900699",
+      "reason": "Frosty-the-Snowman: the lift Granite Peak's trail map (GRANITE PEAK-01.6 09292025forWEBkey.pdf, the VistaMap painting dated 2025 that skigranitepeak.com/mountain-info/trail-map-mountain-stats links) labels FROSTY (the beginner carpet by the Historic Chalet; the report's Frosty Carpet). Name from the map.",
+      "expect": {
+        "name": "Frosty-the-Snowman",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Frosty"
+      }
+    }
+  ]
+}

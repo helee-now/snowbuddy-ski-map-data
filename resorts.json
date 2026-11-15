@@ -66,6 +66,60 @@
       "coverage": "data/afton-alps-v1-coverage.json"
     },
     {
+      "slug": "alpine-valley-ohio",
+      "name": "Alpine Valley",
+      "version": 1,
+      "key": "alpine-valley-ohio-v1",
+      "box": [
+        -81.3,
+        41.5,
+        -81.23,
+        41.55
+      ],
+      "ski_area": "way/1432101063",
+      "elevation": "3dep1",
+      "elevation_project": "OH_Statewide_Phase1_2019_B19",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T00:33:50Z",
+      "overpass_box": [
+        -81.34,
+        41.48,
+        -81.19,
+        41.57
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x47y459_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x47y460_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x47y461_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x48y459_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x48y460_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x48y461_OH_Statewide_Phase1_2019_B19.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "OH_Statewide_Phase1_2019_B19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -81.3,
+          41.5,
+          -81.23,
+          41.55
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-15T00:40:41Z",
+      "ski_file": {
+        "path": "data/alpine-valley-ohio-v1-ski.pmtiles",
+        "bytes": 35781,
+        "sha256": "26b1a0bd9a9920034ccb235151365473f27ad54d44fe6ea22733d21af8449c1d"
+      },
+      "coverage": "data/alpine-valley-ohio-v1-coverage.json"
+    },
+    {
       "slug": "alta",
       "name": "Alta",
       "version": 1,
@@ -118,6 +172,41 @@
         "sha256": "67128d0ad3671218301364571497aab7f09a10023b1c0d7c0cdf6e0b24c14cba"
       },
       "coverage": "data/alta-v1-coverage.json"
+    },
+    {
+      "slug": "alyeska",
+      "name": "Alyeska",
+      "version": 1,
+      "key": "alyeska-v1",
+      "box": [
+        -149.16,
+        60.93,
+        -149.01,
+        61
+      ],
+      "ski_area": "way/934351306",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T00:53:05Z",
+      "overpass_box": [
+        -149.2,
+        60.91,
+        -148.97,
+        61.02
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n61w149/USGS_13_n61w149.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n61w150/USGS_13_n61w150.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n62w149/USGS_13_n62w149.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n62w150/USGS_13_n62w150.tif"
+      ],
+      "built_at": "2026-11-15T00:55:36Z",
+      "ski_file": {
+        "path": "data/alyeska-v1-ski.pmtiles",
+        "bytes": 242504,
+        "sha256": "6f58dff11dd94dd46a197dbde1d1126133d478922825e2325a9a41b1b431e004"
+      },
+      "coverage": "data/alyeska-v1-coverage.json"
     },
     {
       "slug": "arapahoe-basin",
@@ -754,6 +843,65 @@
       "coverage": "data/blue-mountain-resort-v1-coverage.json"
     },
     {
+      "slug": "boston-mills",
+      "name": "Boston Mills",
+      "version": 1,
+      "key": "boston-mills-v1",
+      "box": [
+        -81.6,
+        41.24,
+        -81.53,
+        41.29
+      ],
+      "ski_area": "way/452323654",
+      "neighbours": [
+        {
+          "id": "way/391698033",
+          "name": "Brandywine Ski Resort",
+          "reason": "Brandywine, the other hill on Boston Mills' Epic card (bmbw.com, Boston Mills Brandywine), about 2 km north-east in the Cuyahoga Valley with its own lodge, lifts and trail map and joined to Boston Mills by no lift or trail (one map each, the owner's rule of 2026-11-14): its polygon, with its lifts and runs, lies in the north-east of the box and the Overpass window; left off by the owner's rule of 2026-10-21."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "OH_Statewide_Phase1_2019_B19",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T00:42:02Z",
+      "overpass_box": [
+        -81.64,
+        41.22,
+        -81.49,
+        41.31
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x44y457_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x44y458_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x45y457_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x45y458_OH_Statewide_Phase1_2019_B19.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "OH_Statewide_Phase1_2019_B19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -81.6,
+          41.24,
+          -81.53,
+          41.29
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-15T00:46:45Z",
+      "ski_file": {
+        "path": "data/boston-mills-v1-ski.pmtiles",
+        "bytes": 47235,
+        "sha256": "3c5f138579d12fd1cc577f62cbe0012c090eb8a4f9a0f9f1f33086e4fd257910"
+      },
+      "coverage": "data/boston-mills-v1-coverage.json"
+    },
+    {
       "slug": "boyne-mountain",
       "name": "Boyne Mountain",
       "version": 1,
@@ -808,6 +956,65 @@
         "sha256": "0de3ee3e31f74c74b9fb03bdeaa32b49bc717fed5938928f394338aa9c4cfa62"
       },
       "coverage": "data/boyne-mountain-v1-coverage.json"
+    },
+    {
+      "slug": "brandywine",
+      "name": "Brandywine",
+      "version": 1,
+      "key": "brandywine-v1",
+      "box": [
+        -81.59,
+        41.26,
+        -81.52,
+        41.31
+      ],
+      "ski_area": "way/391698033",
+      "neighbours": [
+        {
+          "id": "way/452323654",
+          "name": "Boston Mills Ski Resort",
+          "reason": "Boston Mills, the other hill on Brandywine's Epic card (bmbw.com, Boston Mills Brandywine), about 2 km south-west in the Cuyahoga Valley with its own lodge, lifts and trail map and joined to Brandywine by no lift or trail (one map each, the owner's rule of 2026-11-14): its polygon, with its lifts and runs, lies in the south-west of the box and the Overpass window; left off by the owner's rule of 2026-10-21."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "OH_Statewide_Phase1_2019_B19",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T00:46:02Z",
+      "overpass_box": [
+        -81.63,
+        41.24,
+        -81.48,
+        41.33
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x44y457_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x44y458_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x45y457_OH_Statewide_Phase1_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase1_2019_B19/TIFF/USGS_1M_17_x45y458_OH_Statewide_Phase1_2019_B19.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "OH_Statewide_Phase1_2019_B19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -81.59,
+          41.26,
+          -81.52,
+          41.31
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-15T00:49:52Z",
+      "ski_file": {
+        "path": "data/brandywine-v1-ski.pmtiles",
+        "bytes": 44276,
+        "sha256": "2f7ab5360f30d9c25566313046f46fc495c1988f5214c25ae0a5bb3c630512f3"
+      },
+      "coverage": "data/brandywine-v1-coverage.json"
     },
     {
       "slug": "breckenridge",
@@ -1486,6 +1693,38 @@
         "sha256": "17aea3dea47c73712cc8445a6a6daf5b030400500314e3f7e1ed4a02bab79794"
       },
       "coverage": "data/heavenly-v1-coverage.json"
+    },
+    {
+      "slug": "hidden-valley-missouri",
+      "name": "Hidden Valley",
+      "version": 1,
+      "key": "hidden-valley-missouri-v1",
+      "box": [
+        -90.69,
+        38.51,
+        -90.62,
+        38.56
+      ],
+      "ski_area": "way/990531013",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T00:33:50Z",
+      "overpass_box": [
+        -90.73,
+        38.49,
+        -90.58,
+        38.58
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w091/USGS_13_n39w091.tif"
+      ],
+      "built_at": "2026-11-15T00:35:58Z",
+      "ski_file": {
+        "path": "data/hidden-valley-missouri-v1-ski.pmtiles",
+        "bytes": 60380,
+        "sha256": "639acca224e7bd4594dce49a637c677672f4e6ec57768a1debdc6f06ee5a622c"
+      },
+      "coverage": "data/hidden-valley-missouri-v1-coverage.json"
     },
     {
       "slug": "hidden-valley-pennsylvania",
@@ -2299,6 +2538,60 @@
       "coverage": "data/lutsen-mountains-v1-coverage.json"
     },
     {
+      "slug": "mad-river-mountain",
+      "name": "Mad River Mountain",
+      "version": 1,
+      "key": "mad-river-mountain-v1",
+      "box": [
+        -83.71,
+        40.29,
+        -83.64,
+        40.34
+      ],
+      "ski_area": "way/1263732880",
+      "elevation": "3dep1",
+      "elevation_project": "OH_Statewide_Phase3_2021_B21",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T00:42:02Z",
+      "overpass_box": [
+        -83.75,
+        40.27,
+        -83.6,
+        40.36
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase3_2021_B21/TIFF/USGS_1M_17_x26y446_OH_Statewide_Phase3_2021_B21.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase3_2021_B21/TIFF/USGS_1M_17_x26y447_OH_Statewide_Phase3_2021_B21.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase3_2021_B21/TIFF/USGS_1M_17_x26y448_OH_Statewide_Phase3_2021_B21.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase3_2021_B21/TIFF/USGS_1M_17_x27y446_OH_Statewide_Phase3_2021_B21.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase3_2021_B21/TIFF/USGS_1M_17_x27y447_OH_Statewide_Phase3_2021_B21.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/OH_Statewide_Phase3_2021_B21/TIFF/USGS_1M_17_x27y448_OH_Statewide_Phase3_2021_B21.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "OH_Statewide_Phase3_2021_B21",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -83.71,
+          40.29,
+          -83.64,
+          40.34
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-15T00:47:37Z",
+      "ski_file": {
+        "path": "data/mad-river-mountain-v1-ski.pmtiles",
+        "bytes": 46913,
+        "sha256": "fa77529e7435b7a43d920917ff343d60bbe76e01bc70ee99679bb436b917954b"
+      },
+      "coverage": "data/mad-river-mountain-v1-coverage.json"
+    },
+    {
       "slug": "mammoth-mountain",
       "name": "Mammoth Mountain",
       "version": 3,
@@ -2960,6 +3253,58 @@
       "coverage": "data/panorama-v1-coverage.json"
     },
     {
+      "slug": "paoli-peaks",
+      "name": "Paoli Peaks",
+      "version": 1,
+      "key": "paoli-peaks-v1",
+      "box": [
+        -86.54,
+        38.53,
+        -86.48,
+        38.59
+      ],
+      "ski_area": "derived",
+      "elevation": "3dep1",
+      "elevation_project": "IN_Indiana_Statewide_LiDAR_2017_B17",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T00:49:03Z",
+      "overpass_box": [
+        -86.58,
+        38.51,
+        -86.44,
+        38.61
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/IN_Indiana_Statewide_LiDAR_2017_B17/TIFF/USGS_1M_16_x53y427_IN_Indiana_Statewide_LiDAR_2017_B17.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/IN_Indiana_Statewide_LiDAR_2017_B17/TIFF/USGS_1M_16_x53y428_IN_Indiana_Statewide_LiDAR_2017_B17.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/IN_Indiana_Statewide_LiDAR_2017_B17/TIFF/USGS_1M_16_x54y427_IN_Indiana_Statewide_LiDAR_2017_B17.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/IN_Indiana_Statewide_LiDAR_2017_B17/TIFF/USGS_1M_16_x54y428_IN_Indiana_Statewide_LiDAR_2017_B17.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "IN_Indiana_Statewide_LiDAR_2017_B17",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -86.54,
+          38.53,
+          -86.48,
+          38.59
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-15T00:53:06Z",
+      "ski_file": {
+        "path": "data/paoli-peaks-v1-ski.pmtiles",
+        "bytes": 53481,
+        "sha256": "b21112b3f55a84d18c358b2779b7d422cce486b9c0b5e4c6dc998e6a58244516"
+      },
+      "coverage": "data/paoli-peaks-v1-coverage.json"
+    },
+    {
       "slug": "park-city-mountain",
       "name": "Park City Mountain",
       "version": 2,
@@ -3360,6 +3705,60 @@
         "sha256": "52fb8d77130bcf43dbc70c6e8b4aa8a2d5cc5ce1cbc6cb2b5e39cea1fa192b8d"
       },
       "coverage": "data/silverstar-v1-coverage.json"
+    },
+    {
+      "slug": "snow-creek",
+      "name": "Snow Creek",
+      "version": 1,
+      "key": "snow-creek-v1",
+      "box": [
+        -95,
+        39.44,
+        -94.94,
+        39.49
+      ],
+      "ski_area": "way/442940109",
+      "elevation": "3dep1",
+      "elevation_project": "MO_FEMANRCS_2020_D20",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T00:54:05Z",
+      "overpass_box": [
+        -95.04,
+        39.42,
+        -94.9,
+        39.51
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MO_FEMANRCS_2020_D20/TIFF/USGS_1M_15_x32y437_MO_FEMANRCS_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MO_FEMANRCS_2020_D20/TIFF/USGS_1M_15_x32y438_MO_FEMANRCS_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MO_FEMANRCS_2020_D20/TIFF/USGS_1M_15_x33y437_MO_FEMANRCS_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MO_FEMANRCS_2020_D20/TIFF/USGS_1M_15_x33y438_MO_FEMANRCS_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w095/USGS_13_n40w095.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w096/USGS_13_n40w096.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "MO_FEMANRCS_2020_D20",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -95,
+          39.44,
+          -94.94,
+          39.49
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 88.083,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 11.917
+      },
+      "built_at": "2026-11-15T00:57:44Z",
+      "ski_file": {
+        "path": "data/snow-creek-v1-ski.pmtiles",
+        "bytes": 39262,
+        "sha256": "e67926c39b02789ef0260695d30fbc78c062d578b3ee05cc5f8cbdd4231aa353"
+      },
+      "coverage": "data/snow-creek-v1-coverage.json"
     },
     {
       "slug": "snow-summit",

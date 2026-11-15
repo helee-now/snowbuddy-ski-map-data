@@ -1,0 +1,104 @@
+{
+  "slug": "hidden-valley-missouri",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/990531013 (Hidden Valley, landuse=winter_sports): the hill above the Main Lodge and the Tubing Park Lodge in Wildwood, west of St. Louis, from its two tops (the Lewis & Clark and the West Mountain chairs' tops) down to the base, with the Polar Plunge tubing park beside it, on one ticket and one map (Epic); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-14 against Hidden Valley's Winter 2025-2026 trail map (20251121_HI_winter-trail_map_001.pdf, the map hiddenvalleyski.com/the-mountain/about-the-mountain/trail-maps.aspx links, read from the Internet Archive's copy of 2026-10-20): hiddenvalleyski.com serves curl an error page and WebFetch refused the 10,555,636-byte file (over its 10 MB limit), so the copy the Internet Archive saved on 2026-10-20 was read; its SHA-1 is the digest the Archive lists for the file it saved from the same address on 2025-12-01, and skiresort.info shows the same painting as the 2025/2026 map. Two 792 x 612 pt pages, the painting on the first, an image with no text layer, rendered at two to fourteen times its size and read tile by tile; the resort's 2022-23 map (20221121_HI_WinterTrailMap_40th_001.pdf, the Internet Archive's copy of 2023-01-17) was read beside it for the runs renamed since. The 2025-26 map's key: Easier (green circle), More Difficult (blue square), Most Difficult (black diamond; no double black), Freestyle Terrain (an orange pill) and Beginner Zone, OSM's easy, intermediate and advanced; its lifts are the Gateway and Ozark triples, the Lewis & Clark and West Mtn. quads, the East Mtn. double, a rope tow, two carpets in the beginner zone and the tubing park's two carpets (the resort's lift and terrain status, read 2026-11-14 with WebFetch, counts 10 lifts; it lists no names while the hill is closed, and its mountain-info page counts 13 trails and 2 terrain parks). Every one of the map's 13 trails is in OSM with the map's rating. Six of them carry the 2022-23 map's names in OSM, which the 2025-26 map gives new ones in the same places: Skid Row is T-Rav Way, Slow Poke Red Bird Lane, Betty's Butte Spirit Lane, Lauren's Lane 270, Missi's Wish Arch Way and Josh's Jaunt Meramec Valley, matched by their places on both maps and by OSM's lines (the order across the slope, the lifts beside them, their ends); and Gold Rush is COLD RUSH on both maps. Lift names: Lewis & Clark from the map (OSM Lewis and Clark); West Mountain and East Mountain as OSM has them (the map's West Mtn. and East Mtn. abbreviate); Gateway and Ozark as OSM has them. Kept as OSM has them, unnamed: the rope tow and the beginner zone's two carpets, which the map does not name. Hidden: a magic carpet 2.5 km south-west of the hill (OSM access=no), inside the Hurricane Harbor water park at Mid America Adventure (formerly Six Flags St. Louis), in Eureka: another venue's tube conveyor. OSM gaps: the map's two terrain parks, The Badlands Terrain Park (under the Ozark chair) and the Outlaw Terrain Park (beside Route 66), the Polar Plunge tubing park's lanes and its two carpets are not in OSM.",
+  "overrides": [
+    {
+      "id": "way/1214431484",
+      "reason": "Skid Row: the green run along the bottom of the hill from the beginner zone to the East Mountain chair's far end, which the resort's 2022-23 map (20221121_HI_WinterTrailMap_40th_001.pdf, the Internet Archive's copy of 2023-01-17) labels SKID-ROW and Hidden Valley's Winter 2025-2026 trail map (20251121_HI_winter-trail_map_001.pdf, the map hiddenvalleyski.com/the-mountain/about-the-mountain/trail-maps.aspx links, read from the Internet Archive's copy of 2026-10-20) labels T-RAV WAY in the same place, with a green circle. Name from the 2025-26 map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Skid Row",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "T-Rav Way"
+      }
+    },
+    {
+      "id": "way/1214431483",
+      "reason": "Slow Poke: the green run down the beginner zone beside Easy Street to Skid Row, which the resort's 2022-23 map (20221121_HI_WinterTrailMap_40th_001.pdf, the Internet Archive's copy of 2023-01-17) labels SLOW-POKE and Hidden Valley's Winter 2025-2026 trail map (20251121_HI_winter-trail_map_001.pdf, the map hiddenvalleyski.com/the-mountain/about-the-mountain/trail-maps.aspx links, read from the Internet Archive's copy of 2026-10-20) labels RED BIRD LANE in the same place, with a green circle. Name from the 2025-26 map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Slow Poke",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Red Bird Lane"
+      }
+    },
+    {
+      "id": "way/1214431485",
+      "reason": "Betty's Butte: the green run between Eureka and the Gateway chair, beside the rope tow, which the resort's 2022-23 map (20221121_HI_WinterTrailMap_40th_001.pdf, the Internet Archive's copy of 2023-01-17) labels BETTY'S-BUTTE and Hidden Valley's Winter 2025-2026 trail map (20251121_HI_winter-trail_map_001.pdf, the map hiddenvalleyski.com/the-mountain/about-the-mountain/trail-maps.aspx links, read from the Internet Archive's copy of 2026-10-20) labels SPIRIT LANE in the same place, with a green circle. Name from the 2025-26 map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Betty's Butte",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Spirit Lane"
+      }
+    },
+    {
+      "id": "way/1214431488",
+      "reason": "Lauren's Lane: the blue run from the tops of the Gateway and Ozark chairs straight down between them to the base, which the resort's 2022-23 map (20221121_HI_WinterTrailMap_40th_001.pdf, the Internet Archive's copy of 2023-01-17) labels LAUREN'S-LANE and Hidden Valley's Winter 2025-2026 trail map (20251121_HI_winter-trail_map_001.pdf, the map hiddenvalleyski.com/the-mountain/about-the-mountain/trail-maps.aspx links, read from the Internet Archive's copy of 2026-10-20) labels 270 in the same place, with a blue square. Name from the 2025-26 map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Lauren's Lane",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "270"
+      }
+    },
+    {
+      "id": "way/1214431489",
+      "reason": "Missi's Wish: the blue run from Lauren's Lane near the Ozark chair's top, curving down beside that chair to its bottom, which the resort's 2022-23 map (20221121_HI_WinterTrailMap_40th_001.pdf, the Internet Archive's copy of 2023-01-17) labels MISSI'S-WISH and Hidden Valley's Winter 2025-2026 trail map (20251121_HI_winter-trail_map_001.pdf, the map hiddenvalleyski.com/the-mountain/about-the-mountain/trail-maps.aspx links, read from the Internet Archive's copy of 2026-10-20) labels ARCH WAY in the same place, with a blue square. Name from the 2025-26 map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Missi's Wish",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Arch Way"
+      }
+    },
+    {
+      "id": "way/1214431490",
+      "reason": "Josh's Jaunt: the blue run across the lower slope from Arch Way to the bottoms of the Lewis & Clark and West Mountain chairs, which the resort's 2022-23 map (20221121_HI_WinterTrailMap_40th_001.pdf, the Internet Archive's copy of 2023-01-17) labels JOSH'S-JAUNT and Hidden Valley's Winter 2025-2026 trail map (20251121_HI_winter-trail_map_001.pdf, the map hiddenvalleyski.com/the-mountain/about-the-mountain/trail-maps.aspx links, read from the Internet Archive's copy of 2026-10-20) labels MERAMEC VALLEY in the same place, with a blue square. Name from the 2025-26 map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Josh's Jaunt",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Meramec Valley"
+      }
+    },
+    {
+      "id": "way/1214431492",
+      "reason": "Gold Rush: the black run from the West Mountain chair's top down its west side to the Lewis & Clark chair's bottom, which Hidden Valley's Winter 2025-2026 trail map (20251121_HI_winter-trail_map_001.pdf, the map hiddenvalleyski.com/the-mountain/about-the-mountain/trail-maps.aspx links, read from the Internet Archive's copy of 2026-10-20) labels COLD RUSH with a black diamond, as the resort's 2022-23 map (20221121_HI_WinterTrailMap_40th_001.pdf, the Internet Archive's copy of 2023-01-17) does (COLD-RUSH; read at fourteen times the page's size: a C, with no bar). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Gold Rush",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Cold Rush"
+      }
+    },
+    {
+      "id": "way/256856497",
+      "reason": "Lewis and Clark: the quad from the bottom of Cold Rush and Meramec Valley up to the top above Ice Man's Ridge, which Hidden Valley's Winter 2025-2026 trail map (20251121_HI_winter-trail_map_001.pdf, the map hiddenvalleyski.com/the-mountain/about-the-mountain/trail-maps.aspx links, read from the Internet Archive's copy of 2026-10-20) labels LEWIS & CLARK with the quad-chairlift sign. Name from the map.",
+      "expect": {
+        "name": "Lewis and Clark",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Lewis & Clark"
+      }
+    },
+    {
+      "id": "way/1376343082",
+      "reason": "An unnamed magic carpet (OSM access=no, oneway=yes) 2.5 km south-west of Hidden Valley's polygon, inside the Hurricane Harbor St. Louis water park at Mid America Adventure (formerly Six Flags St. Louis), in Eureka, among its tube slides: another venue's conveyor, on no Hidden Valley map. It lies inside the box, so it would draw as a lone lift.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "access": "no",
+        "name": null
+      },
+      "hide": true
+    }
+  ]
+}

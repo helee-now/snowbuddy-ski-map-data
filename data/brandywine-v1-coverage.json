@@ -1,0 +1,73 @@
+{
+  "key": "brandywine-v1",
+  "ski_sha256": "2f7ab5360f30d9c25566313046f46fc495c1988f5214c25ae0a5bb3c630512f3",
+  "osm_timestamp": "2026-11-15T00:46:02Z",
+  "box": [
+    -81.59,
+    41.26,
+    -81.52,
+    41.31
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -81.562907,
+    41.281057,
+    -81.548209,
+    41.288071
+  ],
+  "margins_km": {
+    "west": 2.26,
+    "south": 2.34,
+    "east": 2.36,
+    "north": 2.44
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 9,
+    "run_areas_in_bounds": 2,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 13,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 1.7,
+    "runs_in_bounds": 2,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -81.738281,
+      41.244772,
+      -81.386719,
+      41.376809
+    ],
+    "12": [
+      -81.650391,
+      41.244772,
+      -81.474609,
+      41.310824
+    ],
+    "13": [
+      -81.606445,
+      41.244772,
+      -81.518555,
+      41.310824
+    ],
+    "14": [
+      -81.606445,
+      41.244772,
+      -81.518555,
+      41.310824
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

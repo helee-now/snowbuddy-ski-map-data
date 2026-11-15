@@ -1,0 +1,153 @@
+{
+  "slug": "mad-river-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1263732880 (Mad River Mountain, landuse=winter_sports), on the hill south-east of Bellefontaine near Zanesfield: the north-west face from the summit down to the Main Lodge, the learning areas and the tube park, on one ticket and one map (Epic); it holds every lift and run, Sidewinder Glades (tagged piste:grooming=backcountry) all inside, so in bounds. No other ski area lies in the box or the Overpass window, and no part of the resort is reached only by shuttle or road. Every named run and lift checked on 2026-11-14 against Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map), the newest the resort publishes; the site serves curl an error page, so the page was read with WebFetch and the PDF fetched with WebFetch (two 792 x 612 pt pages, the VistaMap painting on the first, an image with no text layer), rendered at two to eight times its size and read tile by tile. Its key: Easier (green circle), More Difficult (blue square), Most Difficult (black diamond; no double black), Freestyle Terrain (an orange pill) and Slow Zone, OSM's easy, intermediate and advanced; its lifts are the Sugarbush Chair and Flight Deck (doubles), the Sundowner Triple Chair and Momentum Triple Chair (triples), the Fourstar Express (a quad), the handle tows Discovery Lift, Skid Row Lift, Adventure Place Lift and Fanny Hill Lift in the Discovery Hill and Fanny Hill Learning Areas, and the tube park's two Bubly Carpet Lifts (the resort's lift status counts 11 lifts and 20 trails, its mountain-info page 16 trails, 9 lifts and 3 terrain parks; the lift and terrain status loads by script, so the printed map is the only source and wins). All 14 of the map's trails are in OSM, every rated one with the map's rating. Parks: Capital Park, Kicker Lane and L.V.L.P., the map's three orange freestyle lines (no rating symbol), are rated freeride in OSM, which would draw them as ungroomed double blacks: they get the park flag and their rating left unknown, as Granite Peak's Sky High and Aspen. Names from the map: Capital Park (OSM Captial Park) and L.V.L.P. (OSM L.V.L.P); the chairs Sugarbush Chair, Sundowner Triple Chair, Momentum Triple Chair and Flight Deck (OSM Sugar Bush Double, Sundowner Triple, Momentum Triple and Flight Deck Double; the Fourstar Express as OSM has it); and the four learning-area lifts, matched by their order across the base area on the map turned to OSM's lines (OSM's Fanny Hill, Bunny Hill, Carpet Lift and Discovery Area, from the north to the south, are the map's Fanny Hill Lift, Adventure Place Lift, Skid Row Lift and Discovery Lift; the map draws all four as handle tows, OSM's Carpet Lift is kept a carpet). Hidden: the tube park's two carpets (OSM's Avalanche Carpet 1 and 2, the map's Bubly Carpet Lifts beside the Tubing Park Lodge), which serve the tubing lanes, not skiers, as Mt. Norquay's, Keystone's and Winter Park's tubing carpets are. OSM gaps: the Discovery Hill and Fanny Hill Learning Areas, which the map shades green, are not drawn as runs in OSM.",
+  "overrides": [
+    {
+      "id": "way/1126798748",
+      "reason": "Captial Park: the freestyle line from the summit down the west edge beside Kicker Lane to the bottom of the Flight Deck, the longest of the three, which Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) draws orange with the Freestyle Terrain pill and no rating symbol, labelled CAPITAL PARK (spelling from the map); the resort's mountain-info page counts three terrain parks. Park flag from the map. OSM rates it freeride, which would draw it as an ungroomed double black; the map gives its parks no rating, so the rating is left unknown, as Granite Peak's Sky High and Aspen.",
+      "expect": {
+        "name": "Captial Park",
+        "piste:difficulty": "freeride",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "name": "Capital Park",
+        "park": true,
+        "difficulty": "unknown"
+      }
+    },
+    {
+      "id": "way/1126798746",
+      "reason": "Kicker Lane: the freestyle line from the summit down the west edge between Capital Park and Sugarbush, which Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) draws orange with the Freestyle Terrain pill and no rating symbol, labelled KICKER LANE; the resort's mountain-info page counts three terrain parks. Park flag from the map. OSM rates it freeride, which would draw it as an ungroomed double black; the map gives its parks no rating, so the rating is left unknown, as Granite Peak's Sky High and Aspen.",
+      "expect": {
+        "name": "Kicker Lane",
+        "piste:difficulty": "freeride",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true,
+        "difficulty": "unknown"
+      }
+    },
+    {
+      "id": "way/1126798749",
+      "reason": "L.V.L.P: the freestyle line beside the Flight Deck, from its top to its bottom, which Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) draws orange with the Freestyle Terrain pill and no rating symbol, labelled L.V.L.P. (spelling from the map); the resort's mountain-info page counts three terrain parks. Park flag from the map. OSM rates it freeride, which would draw it as an ungroomed double black; the map gives its parks no rating, so the rating is left unknown, as Granite Peak's Sky High and Aspen.",
+      "expect": {
+        "name": "L.V.L.P",
+        "piste:difficulty": "freeride",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "name": "L.V.L.P.",
+        "park": true,
+        "difficulty": "unknown"
+      }
+    },
+    {
+      "id": "way/256776234",
+      "reason": "Sugar Bush Double: the chair Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) labels SUGARBUSH CHAIR (a double). Name from the map.",
+      "expect": {
+        "name": "Sugar Bush Double",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Sugarbush Chair"
+      }
+    },
+    {
+      "id": "way/256776230",
+      "reason": "Sundowner Triple: the chair Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) labels SUNDOWNER TRIPLE CHAIR (a triple). Name from the map.",
+      "expect": {
+        "name": "Sundowner Triple",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Sundowner Triple Chair"
+      }
+    },
+    {
+      "id": "way/1126798756",
+      "reason": "Momentum Triple: the chair Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) labels MOMENTUM TRIPLE CHAIR (a triple). Name from the map.",
+      "expect": {
+        "name": "Momentum Triple",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Momentum Triple Chair"
+      }
+    },
+    {
+      "id": "way/256776233",
+      "reason": "Flight Deck Double: the chair Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) labels FLIGHT DECK (a double). Name from the map.",
+      "expect": {
+        "name": "Flight Deck Double",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Flight Deck"
+      }
+    },
+    {
+      "id": "way/256776225",
+      "reason": "Fanny Hill: one of the four learning-area lifts below the chairs' bottoms by the Main Lodge, the northernmost of the four, at the foot of the Fanny Hill Learning Area. Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) names them, from the north (the bottom of the map) to the south, FANNY HILL LIFT, ADVENTURE PLACE LIFT, SKID ROW LIFT and DISCOVERY LIFT, matched to OSM's lines by their order across the base area with the map turned to OSM's lines. Name from the map: Fanny Hill Lift.",
+      "expect": {
+        "name": "Fanny Hill",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Fanny Hill Lift"
+      }
+    },
+    {
+      "id": "way/451956491",
+      "reason": "Bunny Hill: one of the four learning-area lifts below the chairs' bottoms by the Main Lodge, the second from the north. Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) names them, from the north (the bottom of the map) to the south, FANNY HILL LIFT, ADVENTURE PLACE LIFT, SKID ROW LIFT and DISCOVERY LIFT, matched to OSM's lines by their order across the base area with the map turned to OSM's lines. Name from the map: Adventure Place Lift.",
+      "expect": {
+        "name": "Bunny Hill",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Adventure Place Lift"
+      }
+    },
+    {
+      "id": "way/256776224",
+      "reason": "Carpet Lift: one of the four learning-area lifts below the chairs' bottoms by the Main Lodge, the third from the north (the map draws a handle tow; OSM's carpet is kept a carpet). Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) names them, from the north (the bottom of the map) to the south, FANNY HILL LIFT, ADVENTURE PLACE LIFT, SKID ROW LIFT and DISCOVERY LIFT, matched to OSM's lines by their order across the base area with the map turned to OSM's lines. Name from the map: Skid Row Lift.",
+      "expect": {
+        "name": "Carpet Lift",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Skid Row Lift"
+      }
+    },
+    {
+      "id": "way/256776229",
+      "reason": "Discovery Area: one of the four learning-area lifts below the chairs' bottoms by the Main Lodge, the southernmost, nearest the Main Lodge, the one OSM draws at an angle to the other three, as the map draws it across the Discovery Hill Learning Area. Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) names them, from the north (the bottom of the map) to the south, FANNY HILL LIFT, ADVENTURE PLACE LIFT, SKID ROW LIFT and DISCOVERY LIFT, matched to OSM's lines by their order across the base area with the map turned to OSM's lines. Name from the map: Discovery Lift.",
+      "expect": {
+        "name": "Discovery Area",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Discovery Lift"
+      }
+    },
+    {
+      "id": "way/256776228",
+      "reason": "Avalanche Carpet 1: one of the tube park's two carpets north-east of the Momentum Triple Chair's bottom, which Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) draws as the Bubly Carpet Lifts along the Tubing Park's lanes below the Tubing Park Lodge; they serve the tubing lanes, not skiers, so hidden as Mt. Norquay's, Keystone's and Winter Park's tubing carpets are.",
+      "expect": {
+        "name": "Avalanche Carpet 1",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/256776227",
+      "reason": "Avalanche Carpet 2: one of the tube park's two carpets north-east of the Momentum Triple Chair's bottom, which Mad River Mountain's Winter 2025-2026 trail map (20251113_MA_winter-trail_map_001.pdf, the map skimadriver.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Mad River Winter 2025-2026 Trail Map) draws as the Bubly Carpet Lifts along the Tubing Park's lanes below the Tubing Park Lodge; they serve the tubing lanes, not skiers, so hidden as Mt. Norquay's, Keystone's and Winter Park's tubing carpets are.",
+      "expect": {
+        "name": "Avalanche Carpet 2",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    }
+  ]
+}

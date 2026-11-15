@@ -1,0 +1,104 @@
+{
+  "slug": "alyeska",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/934351306 (Alyeska Resort, landuse=winter_sports): Mount Alyeska above Girdwood, from the Daylodge and the Hotel Alyeska bases up the North Face, the Upper Bowl and the Lower Bowl to the Mountain Station at the Aerial Tram's top and the Glacier Bowl Express's top, on one ticket and one map (Ikon); it holds every lift and run. No other ski area lies in the box or the Overpass window; the Girdwood Nordic trails (the 5K Nordic Loop, Winner Creek, Moose Meadows, Beaver Pond) are left out by the type rule. Every named run and lift checked on 2026-11-14 against Alyeska Resort's winter trail map (Summer_Winter-2024-Trail-Map-UPDATED.pdf, the winter side of the James Niehues painting, alyeskaresort.com/wp-content/uploads/2024/05/), fetched with curl (two 1494 x 1224 pt pages, the summer side and the winter side; the winter side rendered at one to five times its size and read tile by tile). alyeskaresort.com answers curl and WebFetch with a JavaScript challenge on every page, so which file its trail-map page links could not be read; its upload folder serves files directly, and this is the newest trail map among the resort's uploads that the Internet Archive lists for 2024 to 2026 (the server's copy is dated 2024-05-28; skiresort.info's copy, labelled 2025/2026, is an earlier state of the same painting, with an Upper Tram Terminal where this one has the Mountain Station and a double chair in its key). The map's key: Easier Runs (green circle), More Difficult Runs (blue square), Most Difficult Runs (one black diamond), Experts Only (two), Freestyle Terrain (orange), Access Gates, Slow Zone and Permanently Closed Area; read as OSM's easy, intermediate, advanced and expert. The resort's about-the-mountain page (the Internet Archive's copy of 2025-03-17): 7 lifts (the Aerial Tram, 2 high-speed quads, 2 fixed quads, 2 magic carpets), 76 named trails, 1,610 acres, 2,500 ft of vertical rise. Of OSM's 101 downhill run ways, every named one is on the map, every rating but one the map's: Max's Traverse, two black diamonds on the map and advanced in OSM, becomes expert. Names from the map: Cheechako (OSM Cheechacko), Perseverance (OSM Perseverence), Upper and Lower Von Imhof (OSM Vom Imhof, four ways), and Gun Barrel, the one-diamond run from Autobahn down to Jay's Way's foot and Jim's Branch, which OSM names Tram Pocket like the double-diamond pocket below the tram's top 1.6 km away (matched by its ends: Autobahn above, the meeting of Jay's Way and Jim's Branch below). Kept as OSM has them: Sitzmark Run (green on the map, novice in OSM, which draws green), Klondike Cutoff (the map's KLONDIKE CUT-OFF, its hyphen the map's word separator), Eagle Rock (the one-diamond link from South Face to Alpine past the landmark the map names EAGLE ROCK, with no symbol of its own) and an unnamed blue link from Jetway to Hammel Highway. Parks: The Refinery, North Slope and Pump Station 3 Terrain Parks are snow-park areas in OSM with the map's names. Lifts: the Aerial Tram, Glacier Bowl Express, Ted's Express, Chair 7, Bear Cub Quad and the carpets Finnland and Wade's Way as OSM and the map name them. Hidden: the Tanaka chair (OSM abandoned=yes, note Not operational), which the map does not draw. OSM gaps (shipped as at Palisades Tahoe): the Headwall's and the Max's side's named lines (Alyeska Chute, High Sun Spots, Low Sun Spots, Slow Boy 1 and 2, Fast Boy, Wedge, High Silver, Center Ridge, Chilkoot Knoll, Max's Chute, The Fan, Marshall's Meadows, Hourglass, International, Far Meadows, Pad's Pitch, Tanaka Express), Wick's Knoll, West Line, Slot, Gummy Worm and the Ski Back Trail are not in OSM, nor the small freestyle area beside the Bear Cub Quad.",
+  "overrides": [
+    {
+      "id": "way/929871263",
+      "reason": "Max's Traverse: the traverse from the foot of the High Traverse below Saddle across the Headwall's foot towards Max's, which Alyeska Resort's winter trail map (Summer_Winter-2024-Trail-Map-UPDATED.pdf, the winter side of the James Niehues painting, alyeskaresort.com/wp-content/uploads/2024/05/) labels MAX'S TRAVERSE with two black diamonds (Experts Only); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Max's Traverse",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/932527072",
+      "reason": "Tram Pocket (this way): the one-diamond run on the North Face from Autobahn down to where Jay's Way meets Jim's Branch, which Alyeska Resort's winter trail map (Summer_Winter-2024-Trail-Map-UPDATED.pdf, the winter side of the James Niehues painting, alyeskaresort.com/wp-content/uploads/2024/05/) labels GUN BARREL with one black diamond, OSM's rating. The map's TRAM POCKET (two diamonds) is the pocket below the Aerial Tram's top, 1.6 km away, which OSM draws as its own way (way/932527074). Name from the map.",
+      "expect": {
+        "name": "Tram Pocket",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Gun Barrel"
+      }
+    },
+    {
+      "id": "way/929871242",
+      "reason": "Cheechacko: the blue run from Lower Von Imhof down beside the Bear Cub Quad to Chair 3 Road, which Alyeska Resort's winter trail map (Summer_Winter-2024-Trail-Map-UPDATED.pdf, the winter side of the James Niehues painting, alyeskaresort.com/wp-content/uploads/2024/05/) labels CHEECHAKO with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Cheechacko",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Cheechako"
+      }
+    },
+    {
+      "id": "way/929871241",
+      "reason": "Perseverence: the green run from Chair 3 Road down past the Pump Station 3 Terrain Park to Christmas, which Alyeska Resort's winter trail map (Summer_Winter-2024-Trail-Map-UPDATED.pdf, the winter side of the James Niehues painting, alyeskaresort.com/wp-content/uploads/2024/05/) labels PERSEVERANCE with a green circle. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Perseverence",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Perseverance"
+      }
+    },
+    {
+      "id": "way/929871249",
+      "reason": "Upper Vom Imhof: the blue run from the foot of Denali, Jetway and Steilhang down to Sourdough and Lower Von Imhof, which Alyeska Resort's winter trail map (Summer_Winter-2024-Trail-Map-UPDATED.pdf, the winter side of the James Niehues painting, alyeskaresort.com/wp-content/uploads/2024/05/) labels UPPER VON IMHOF with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Upper Vom Imhof",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Upper Von Imhof"
+      }
+    },
+    {
+      "id": "way/946627232",
+      "reason": "Lower Vom Imhof (its upper way, from the foot of Upper Von Imhof and Sourdough): the blue run across the slope above the Bear Cub Quad, which Alyeska Resort's winter trail map (Summer_Winter-2024-Trail-Map-UPDATED.pdf, the winter side of the James Niehues painting, alyeskaresort.com/wp-content/uploads/2024/05/) labels LOWER VON IMHOF with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Lower Vom Imhof",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Von Imhof"
+      }
+    },
+    {
+      "id": "way/946627231",
+      "reason": "Lower Vom Imhof (its middle way): the blue run across the slope above the Bear Cub Quad, which Alyeska Resort's winter trail map (Summer_Winter-2024-Trail-Map-UPDATED.pdf, the winter side of the James Niehues painting, alyeskaresort.com/wp-content/uploads/2024/05/) labels LOWER VON IMHOF with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Lower Vom Imhof",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Von Imhof"
+      }
+    },
+    {
+      "id": "way/929871260",
+      "reason": "Lower Vom Imhof (its lower way, down to Chair 3 Road and Blueberry Hill): the blue run across the slope above the Bear Cub Quad, which Alyeska Resort's winter trail map (Summer_Winter-2024-Trail-Map-UPDATED.pdf, the winter side of the James Niehues painting, alyeskaresort.com/wp-content/uploads/2024/05/) labels LOWER VON IMHOF with a blue square. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Lower Vom Imhof",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Von Imhof"
+      }
+    },
+    {
+      "id": "way/184077718",
+      "reason": "Tanaka: a double chair from the Daylodge's south end up to the Tanaka Hill and the Tanaka Cat Road (OSM abandoned=yes, note Not operational), which Alyeska Resort's winter trail map (Summer_Winter-2024-Trail-Map-UPDATED.pdf, the winter side of the James Niehues painting, alyeskaresort.com/wp-content/uploads/2024/05/) does not draw (only the Tanaka Hill run and the cat road are there); the resort's about-the-mountain page counts 7 lifts, the Aerial Tram, 2 high-speed quads, 2 fixed quads and 2 magic carpets, which are OSM's other seven. A lift the resort no longer runs.",
+      "expect": {
+        "name": "Tanaka",
+        "aerialway": "chair_lift",
+        "abandoned": "yes"
+      },
+      "hide": true
+    }
+  ]
+}

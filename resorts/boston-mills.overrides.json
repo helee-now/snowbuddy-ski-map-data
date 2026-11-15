@@ -1,0 +1,41 @@
+{
+  "slug": "boston-mills",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/452323654 (Boston Mills Ski Resort, landuse=winter_sports): the hill on the west side of the Cuyahoga Valley above Riverview Road at Peninsula, in Cuyahoga Valley National Park, Ohio, its seven lifts fanning out from the Main Lodge, on one map (Epic, Vail Resorts); it holds every lift and run, and no part of it is reached only by shuttle or road. Brandywine Ski Resort, the other hill on the same Epic card (bmbw.com: Boston Mills Brandywine, two resorts about 2 km apart with their own lodges, lifts and trail maps, joined by no lift or trail, so one map each by the owner's rule of 2026-11-14), is a listed neighbour (resorts.json): its polygon lies in the north-east of the box. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-14 against Boston Mills' Winter 2025-2026 trail map (20251113_BMBW_boston-mills-winter-trail_map_001.pdf, the Boston Mills Trail Map bmbw.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF's painting, an image with no text layer, rendered at two and five times its size and read tile by tile), the newest the resort publishes. Its key: Easier (green circle), More Difficult (blue square), Most Difficult (black diamond; no double black), Freestyle Terrain (orange) and Slow Zone, read as OSM's easy, intermediate and advanced; its lifts are Lift 1 (double chair), Lifts 2, 3, 4 and 6 (triple chairs), Buena Vista (quad chair) and the Carpet Lift, as OSM names them with the map's occupancies. The resort's lift and terrain status loads by script, and its mountain-info page gives Boston Mills' and Brandywine's statistics together (18 trails, 15 lifts, 3 terrain parks: 'BW offers 2 and BM offers 1', read 2026-11-14), so the printed map is the source and wins. All seven of the map's trails are in OSM, each with the map's rating (Jug Handle, Buttermilk, Tiger, Summit, Peter's Pride, North Bowl and Croyle). Parks: Peter's Pride, which the map draws in orange with the Freestyle Terrain pill (Boston Mills' one park), gets the park flag on its line and its outline, keeping OSM's rating (intermediate), as the map gives it no rating symbol. Hidden: OSM's unnamed snow_park outline on Buttermilk between Lift 2 and Lift 3, where the 2025-26 map draws no park. OSM gaps: none of the map's trails or lifts is missing.",
+  "overrides": [
+    {
+      "id": "way/1471786143",
+      "reason": "Peter's Pride: the run between Lift 4 and Buena Vista from the top to the Main Lodge, which Boston Mills' Winter 2025-2026 trail map (20251113_BMBW_boston-mills-winter-trail_map_001.pdf, the Boston Mills Trail Map bmbw.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF rendered at two and five times its size) draws in orange with the orange Freestyle Terrain pill and labels PETER'S PRIDE, Boston Mills' one terrain park (the mountain-info page: 'BM offers 1'), so it gets the park flag. The map gives it no rating symbol, so OSM's rating (intermediate) stays.",
+      "expect": {
+        "name": "Peter's Pride",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1318424016",
+      "reason": "Peter's Pride's outline (area=yes, around the line way/1471786143): the terrain park Boston Mills' Winter 2025-2026 trail map (20251113_BMBW_boston-mills-winter-trail_map_001.pdf, the Boston Mills Trail Map bmbw.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF rendered at two and five times its size) draws in orange with the Freestyle Terrain pill, so it gets the park flag like its line; OSM's rating (intermediate) stays.",
+      "expect": {
+        "name": "Peter's Pride",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate",
+        "area": "yes"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/498268573",
+      "reason": "An unnamed snow_park outline (area=yes) on Buttermilk between Lift 2 and Lift 3: Boston Mills' Winter 2025-2026 trail map (20251113_BMBW_boston-mills-winter-trail_map_001.pdf, the Boston Mills Trail Map bmbw.com/the-mountain/about-the-mountain/trail-map.aspx links; the site serves curl an error page, so the page and the PDF were read with WebFetch, the PDF rendered at two and five times its size) draws Buttermilk there as a blue run and no park, its one freestyle terrain being Peter's Pride (the mountain-info page: 'BM offers 1'). A park the resort no longer builds there, hidden as Boyne Mountain's Traveler's Station Park is.",
+      "expect": {
+        "name": null,
+        "piste:type": "snow_park",
+        "area": "yes"
+      },
+      "hide": true
+    }
+  ]
+}

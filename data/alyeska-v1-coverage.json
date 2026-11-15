@@ -1,0 +1,73 @@
+{
+  "key": "alyeska-v1",
+  "ski_sha256": "6f58dff11dd94dd46a197dbde1d1126133d478922825e2325a9a41b1b431e004",
+  "osm_timestamp": "2026-11-15T00:53:05Z",
+  "box": [
+    -149.16,
+    60.93,
+    -149.01,
+    61
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -149.113204,
+    60.949172,
+    -149.056063,
+    60.974815
+  ],
+  "margins_km": {
+    "west": 2.53,
+    "south": 2.13,
+    "east": 2.49,
+    "north": 2.8
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 104,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 13,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.2,
+    "runs_in_bounds": 39.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -149.238281,
+      60.844911,
+      -148.886719,
+      61.015725
+    ],
+    "12": [
+      -149.238281,
+      60.8877,
+      -148.974609,
+      61.015725
+    ],
+    "13": [
+      -149.194336,
+      60.909073,
+      -148.974609,
+      61.015725
+    ],
+    "14": [
+      -149.172363,
+      60.919755,
+      -148.996582,
+      61.005076
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

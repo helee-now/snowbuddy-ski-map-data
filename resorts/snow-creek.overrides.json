@@ -1,0 +1,49 @@
+{
+  "slug": "snow-creek",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/442940109 (Snow Creek, landuse=winter_sports), on the Missouri River bluffs north of Weston: the hill from its top down to the Main Lodge, with the Tornado Alley tube park on its east side, on one ticket and one map (Epic); it holds every lift and run. No other ski area lies in the box or the Overpass window, and no part of the resort is reached only by shuttle or road. Every named run and lift checked on 2026-11-14 against Snow Creek's Winter 2025-2026 trail map (20251121_SC_winter-trail_map_001.pdf, the map skisnowcreek.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Snow Creek Winter 2025-2026 Trail Map), the newest the resort publishes, the 40th-season painting. The site serves curl an error page and the PDF (11.7 MB) is over WebFetch's 10 MB limit, so it was fetched with curl from the Internet Archive's capture of that URL of 2025-12-24 (web.archive.org, the file the resort serves: 11,663,563 bytes, last modified 2025-11-21, the length the Archive's later crawl of 2026-05-17 also records); two 792 x 612 pt pages, the painting with a text layer for its lift names, read from its text and rendered at two and four times its size. Its key: Beginner (green circle), More Difficult (blue square), Most Difficult (black diamond; no double black), Freestyle Terrain (an orange pill) and Slow Zone, OSM's easy (and novice), intermediate and advanced; its lifts are the Jayhawk Lift and Show Me Lift (triples), the Tiger Lift (a double), the Long Rider (a surface lift), the Easy Rider (a carpet) and the tube park's Twister (a carpet); the resort's mountain-info page counts 5 lifts, 14 trails and 1 terrain park and names the Twister as the Tube Park's lift (its lift and terrain status loads by script, so the printed map is the only source and wins). Of the map's 14 trails, 13 are in OSM, every rated one with the map's rating. Names from the map: Six Shooter and Lower Six Shooter (OSM Upper Sixshooter and Lower Sixshooter) and Gunslinger (OSM Gunslinger Progression Park: the map draws a blue trail with no freestyle sign). The Rattlesnake Terrain Park (a snow park in OSM, on the map's Rattlesnake trail, with the Rattlesnake logo and the orange pill) stays as OSM has it. Hidden: the Twister, the tube park's carpet, which serves the tubing lanes, not skiers, as Mt. Norquay's, Keystone's and Winter Park's tubing carpets are; the tube park's three lanes (piste:type=sled) are left out by the type rule. OSM gaps: Jason's Run (a blue trail between Grenier's Gamble and Gunslinger) is not in OSM; OSM's Holiday Bowl runs on from the bowl at the top down the middle of the hill to Jayme's Way, where the map labels only the bowl, and is kept as OSM has it.",
+  "overrides": [
+    {
+      "id": "way/442940111",
+      "reason": "Upper Sixshooter: the black run from the top beside the Show Me Lift down to its meeting with Wild Turkey, which Snow Creek's Winter 2025-2026 trail map (20251121_SC_winter-trail_map_001.pdf, the map skisnowcreek.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Snow Creek Winter 2025-2026 Trail Map) labels SIX SHOOTER with one black diamond above LOWER SIX SHOOTER (blue). Name from the map; OSM's rating (advanced) is the map's.",
+      "expect": {
+        "name": "Upper Sixshooter",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Six Shooter"
+      }
+    },
+    {
+      "id": "way/442940101",
+      "reason": "Lower Sixshooter: the blue run from Six Shooter's foot down beside the Tiger Lift to the bottom, which Snow Creek's Winter 2025-2026 trail map (20251121_SC_winter-trail_map_001.pdf, the map skisnowcreek.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Snow Creek Winter 2025-2026 Trail Map) labels LOWER SIX SHOOTER with a blue square. Name from the map; OSM's rating (intermediate) is the map's.",
+      "expect": {
+        "name": "Lower Sixshooter",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Six Shooter"
+      }
+    },
+    {
+      "id": "way/442940095",
+      "reason": "Gunslinger Progression Park: the short blue run from Holiday Bowl's middle down to Oregon Trail between Jason's Run and Wagon Wheel, which Snow Creek's Winter 2025-2026 trail map (20251121_SC_winter-trail_map_001.pdf, the map skisnowcreek.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Snow Creek Winter 2025-2026 Trail Map) labels GUNSLINGER with a blue square and no freestyle sign (its one park is the Rattlesnake Terrain Park, as the resort's mountain-info page counts one terrain park). Name from the map; OSM's rating (intermediate) is the map's, and it gets no park flag.",
+      "expect": {
+        "name": "Gunslinger Progression Park",
+        "piste:difficulty": "intermediate",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "name": "Gunslinger"
+      }
+    },
+    {
+      "id": "way/256856827",
+      "reason": "Twister: the tube park's carpet beside the Tornado Alley Tube Park's lanes on the east side, which Snow Creek's Winter 2025-2026 trail map (20251121_SC_winter-trail_map_001.pdf, the map skisnowcreek.com/the-mountain/about-the-mountain/trail-maps.aspx links as the Snow Creek Winter 2025-2026 Trail Map) draws beside the TUBING lanes (a carpet), and which the resort's mountain-info page names as the Tube Park's lift (\"A tornado touched down at our Tube Park, hence it's name and it's lift: Twister\"); it serves the tubing lanes, not skiers, so hidden as Mt. Norquay's, Keystone's and Winter Park's tubing carpets are.",
+      "expect": {
+        "name": "Twister",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    }
+  ]
+}

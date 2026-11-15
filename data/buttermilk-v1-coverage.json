@@ -1,0 +1,73 @@
+{
+  "key": "buttermilk-v1",
+  "ski_sha256": "8694499e85c3094695cc027a0c9d25261514a717a07e6fb728d8186ab42d7e6f",
+  "osm_timestamp": "2026-11-15T07:11:20Z",
+  "box": [
+    -106.91,
+    39.16,
+    -106.83,
+    39.23
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -106.885579,
+    39.179155,
+    -106.854447,
+    39.206427
+  ],
+  "margins_km": {
+    "west": 2.1,
+    "south": 2.13,
+    "east": 2.11,
+    "north": 2.62
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 51,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 14,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 7.2,
+    "runs_in_bounds": 40.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -107.050781,
+      39.095963,
+      -106.699219,
+      39.232253
+    ],
+    "12": [
+      -106.962891,
+      39.095963,
+      -106.787109,
+      39.232253
+    ],
+    "13": [
+      -106.918945,
+      39.13006,
+      -106.787109,
+      39.232253
+    ],
+    "14": [
+      -106.918945,
+      39.147103,
+      -106.809082,
+      39.232253
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

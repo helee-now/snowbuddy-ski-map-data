@@ -1,0 +1,72 @@
+{
+  "slug": "buttermilk",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/530538581 (Buttermilk, with Tiehack and West Buttermilk), one of Aspen Snowmass's four mountains, on its own map by the owner's rule of 2026-11-14 (one map per ski area unless the areas are connected by lift or trail): Aspen Highlands and Aspen Mountain, whose polygons reach into the box, and Snowmass (its polygon named Aspen Snowmass in OpenStreetMap), half of which lies in the Overpass window, are listed neighbours and left off. No lift or trail joins the four mountains; the resort links them by free buses (the 4-Mountain Connector on aspensnowmass.com/visit/getting-around), and each has its own ski area boundary and trail map. Split from the retired combined map aspen-snowmass: its nine overrides that touch Buttermilk's features are carried here with their reasons (checked 2026-10-21 against the same map and list), and Pines Upper's hide (a residential platter at Snowmass in the Overpass window's west margin). Checked again on 2026-11-14, every named run and lift, against the resort's current sources, the combined map's two: the 2025-26 trail map (2526buttermilk-map-layeredwebsite.pdf; its text layer gives the spellings, and it was rendered at four times its size to read the symbols) and the grooming report's trail list for Buttermilk (aspensnowmass.com's GroomingReport feed: 49 ski trails, each with its rating, 11 of them under Pipes/Parks). The legend: Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond), Freestyle Terrain Areas in orange. OpenStreetMap is as the combined map's data of 2026-10-22 had it here. Of the 43 named OSM runs, all carry the map's and the list's names and ratings after the carried overrides but Klaus' Way, which OSM still calls Tiehack Parkway (renamed, matched by its ends and the runs that leave it). OSM's piste:name, which the pipeline reads first, already gives the map's names where the name tag is stale or misspelt (Tom's Thumb for Under My Thumb, Red's Rover for Red Rover, Big Face Hollow, Savio, Little Teaser and Teaser), so they need no override. Ratings carried: Eagle Hill's end, Rabbit Run and the run Magic Carpet blue; where the sources disagree OSM's harder rating stays (Ridge Trail blue, listed green and blue; Spruce black on the map and in OSM, the list's upper Spruce green). Parks: Superpipe, Government, Spruce Face, Uncle Chuck's Glades and Alex's Alley (Jacob's Ladder on the map) take the park flag (the list's Pipes/Parks); Red's Rover, a green trail with small features, stays green. Lifts: the Tiehack Express, Summit Express, West Buttermilk Express and Panda Peak; the map's Surface Lift and Magic Carpet at the base are OSM's Ski School Lift and Ski School Magic Carpet, kept with OSM's names; an unnamed carpet at the base and an unnamed rope tow between the summits, on no map, stay as the combined map kept them. OSM gaps against the map and the list (shipped as at Palisades Tahoe): Northeast Passage and five parks (Family Cross, Mini Pipe, Panda Park, Teaser Park, Tiehack Snow Cross).",
+  "overrides": [
+    {
+      "id": "way/1210150814",
+      "reason": "Pines Upper: a residential platter at The Pines, Snowmass, 270 m outside Snowmass's polygon, so the neighbour rule's 250 m does not give it to Snowmass and it would stay in this file, in the Overpass window's west margin; not on the resort's maps or lift list (hidden on the snowmass map too).",
+      "expect": { "name": "Pines Upper", "aerialway": "platter" },
+      "hide": true
+    },
+    {
+      "id": "way/99957848",
+      "reason": "Buttermilk's Superpipe (the X Games pipe; Super Pipe under Pipes/Parks in the resort's list) without a park tag in OSM.",
+      "expect": { "name": "Superpipe", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/99957851",
+      "reason": "Government: a terrain park in the resort's list (Pipes/Parks) and freestyle terrain on its map; OSM has no park tag.",
+      "expect": { "name": "Government", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/99957843",
+      "reason": "Spruce Face: a terrain park in the resort's list (Pipes/Parks) and freestyle terrain on its map; OSM has no park tag.",
+      "expect": { "name": "Spruce Face", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/99961333",
+      "reason": "Uncle Chuck's Glades: a terrain park in the resort's list (Pipes/Parks) and freestyle terrain on its map; OSM has no park tag.",
+      "expect": { "piste:name": "Uncle Chuck's Glades", "piste:type": "downhill" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/99961337",
+      "reason": "The resort's list now names this park Alex's Alley (formerly Jacob's ladder), under Pipes/Parks; the 2025-26 map still says Jacob's Ladder and draws it as freestyle terrain. OSM has the old name and no park tag.",
+      "expect": { "name": "Jacob's Ladder", "piste:type": "downhill" },
+      "set": { "name": "Alex's Alley", "park": true }
+    },
+    {
+      "id": "way/99962999",
+      "reason": "200 m end of Eagle Hill rated easy; the resort's list and map rate Eagle Hill blue (intermediate), as OSM's other piece is.",
+      "expect": { "name": "Eagle Hill", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/99961332",
+      "reason": "Rabbit Run is blue (intermediate) in the resort's list and on its map; OSM rates it easy.",
+      "expect": { "name": "Rabbit Run", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/99962996",
+      "reason": "The run Magic Carpet (Tiehack) is blue (intermediate) in the resort's list and on its map; OSM rates it easy.",
+      "expect": { "name": "Magic Carpet", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/99961330",
+      "reason": "Parenthesised extra: the resort's list names it Oregon Trail (the map adds the direction, to Tiehack).",
+      "expect": { "piste:name": "Oregon Trail (To Tiehack)", "name": null },
+      "set": { "name": "Oregon Trail" }
+    },
+    {
+      "id": "way/99957858",
+      "reason": "Stale name: OSM's Tiehack Parkway runs from the top of the Tiehack Express (the Cliffhouse) east along the ski area boundary to the top of Tiehack Trail, with Ptarmigan Glade, Sterner and Timber Doodle Glade leaving it; the 2025-26 Buttermilk map labels that black trail KLAUS' WAY, and the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14) lists Klaus' Way as advanced (Tiehack), as OSM rates it. No Tiehack Parkway is on the map or the list.",
+      "expect": { "name": "Tiehack Parkway", "piste:name": "Tiehack Parkway", "piste:difficulty": "advanced" },
+      "set": { "name": "Klaus' Way" }
+    }
+  ]
+}

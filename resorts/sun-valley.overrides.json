@@ -1,6 +1,6 @@
 {
   "slug": "sun-valley",
-  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Bald Mountain (way/1244099443, Sun Valley - Bald Mountain: the River Run, Seattle Ridge and Warm Springs sides) and Dollar Mountain (way/1244098768, Sun Valley - Dollar Mountain) on one map (owner decision 2026-11-09), as resorts.json lists them; their polygons lie 1.8 km apart across the Big Wood River south of Ketchum. Every named run and lift checked on 2026-11-10 against the resort's 2026-27 trail maps (sunvalley.com/the-mountain/maps-guides: 2627_SV_Baldy_Map_26-27_2580X1456.pdf and 2627_SV_Dollar_Map_26-27_5002X2000.pdf, rendered at four and a half to six times their size and read tile by tile: Easiest, More Difficult, Most Difficult as one diamond, Experts Only as two, freestyle terrain as orange size badges) and its mountain report (sunvalley.com/the-mountain/mountain-report: 12 Bald Mountain and 5 Dollar Mountain lifts, 118 Bald Mountain and 22 Dollar Mountain trails rated easy, moderate, difficult, most difficult or terrain park). OSM's easy, intermediate, advanced and expert are the maps' green, blue, one diamond and two. Of the 122 named runs in OSM (100 on Bald Mountain, 22 on Dollar Mountain, beside the four ski-jump pieces hidden below), the report rates 99 by the same name and the maps label most of the rest by section; all carry the resort's rating but seven runs, where the maps and the report agree against OSM (ten ways): Numbers, Sunrise Bowl and The Glades (one diamond on the map and Most Difficult on the report; expert in OSM, their lines and outlines), Little Scorpion's outline (expert; its line is advanced already), Cut Off (one diamond, intermediate in OSM), Ridge (blue, easy in OSM) and the upper way of Olympic Ridge (green, intermediate in OSM). Fire Trail stays expert: two diamonds on the map and Most Difficult on the report, so the harder of the resort's and OSM's stands (lead's decision 2026-10-22). Names from the maps: Elkhorn Face (OSM Elhorn Face), Bitterroot Bowl (OSM Bitteroot Bowl), Sepp's (OSM Sepp; the report says Sepp's Bowl), Sunset Strip (OSM Sunset Trip), Upper Flying Squirrel (OSM Flying Squirrel, the name of the chairlift beside it), the Roundhouse Express Gondola (OSM Roundhouse Gondola, a stale name) and the Accelerator (Dollar Mountain's conveyor, unnamed in OSM). Names that differ from the maps only by a space, an abbreviation or a section stay as OSM has them: Undergraduate (UNDER GRADUATE), Sunnyside Bowl (SUNNY SIDE BOWL), Mineshaft (MINE SHAFT), Machine Road (MACHINE RD), Lower Picabo's (LOWER PICABO'S ST), and runs OSM maps whole where the map prints Upper, Mid and Lower sections (Cozy for Mid and Lower Cozy, Hemingway for Mid and Lower Hemingway, Picabo's Street for Upper and Mid Picabo's St, Limelight for Mid Limelight, Janss Pass, Can-Can and French Dip for their Upper sections), each already rated as its sections are. Runs OSM names that neither the maps nor the report do stay with OSM's rating (Graduation, Lombard Street, Prospector Park and Upper Trestles at Dollar; International Ridge, International Trees, Upper and Lower Liftline and Mindbender on Bald Mountain). Parks: Dollar Mountain's map marks Mine Shaft, Motherlode and Trestles as freestyle terrain and the report lists them as terrain parks; they get the park flag. Bald Mountain's parks (Broadway Park, Showtime Park, Saddle Up, College Hike Park) and Dollar's Name Dropper, Sluice Box, Train Yard and Sunny's Adventure Park are not in OSM. Byron's Park is an easy run on both, not a park. Out of bounds: OSM's Sunrise Bowl (Out of Bounds), a line and an outline south of the in-bounds Sunrise Bowl beyond the boundary the map draws, has no backcountry tag and lies inside OSM's Bald Mountain polygon, so it is put out of bounds by override and drawn as Sunrise Bowl (out of bounds). The runs tagged backcountry in OSM (Little Scorpion's line and an unnamed way below it) lie inside the polygon and stay in bounds, as the map draws them inside the boundary. Lifts: all 17 of the report's are in OSM (Bald Mountain: Seattle Ridge, Mayday, Lookout, Christmas, Broadway, Roundhouse Express Gondola, River Run, Lookout Express, Frenchman's, Flying Squirrel, Challenger and the Kinderspielplatz conveyor; Dollar Mountain: Dollar, Quarter Dollar, Half Dollar, Elkhorn and the Accelerator), and no lift name repeats across the two mountains, so none takes its mountain's name. Hidden: four ski-jump pieces (two inruns and two landings, 35 to 71 m, freeride in OSM) 1.9 km north of Dollar Mountain's polygon by a historic lift station, which are not the resort's terrain and lie in no polygon that could be listed. Bitterroot Bowl lies only 17% inside OSM's Dollar Mountain polygon (the polygon stops short of the bowl the map draws inside its boundary) and stays in bounds, having no backcountry tag. The Sun Valley Nordic Center's and the Wood River trails' cross-country ways (88) are left out by the pipeline's type rule. OSM gaps (shipped as at Palisades Tahoe): on Bald Mountain 29 Turns, 42nd Street, Bear Den, Lookout Lane, Pioneer Bowl, Ridge S. Slopes, Sheep Camp, Tim's, Upper Warm Springs, Wolverton and the Kinderspielplatz learning slope are on the map or the report but not in OSM, nor are the parks above; Dollar Mountain's are its four parks above. NEIGHBOURS: none (no other landuse=winter_sports polygon lies in the box or the Overpass window).",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Sun Valley's Bald Mountain (way/1244099443, Sun Valley - Bald Mountain: the River Run, Seattle Ridge and Warm Springs sides) on its own map from sun-valley-v2 (the owner's rule of 2026-11-14: one map per ski area unless the areas are connected by lift or ski trail); sun-valley-v1 drew it with Dollar Mountain, whose entries moved to dollar-mountain.overrides.json. Dollar Mountain (way/1244098768) is a listed neighbour in resorts.json: its polygon lies 1.8 km east across the Big Wood River, joined to Bald Mountain by no lift or ski trail (the resort gives each mountain its own trail map at sunvalley.com/the-mountain/maps-guides, the Bald Mountain map draws the Mountain Rides bus between River Run Plaza, Ketchum and Dollar Mountain, and sunvalley.com/about/getting-here sends guests between the two on that free bus), and its 5 lifts and 30 runs in the Overpass window are left off (Bitterroot Bowl by the 250 m rule). No part of Bald Mountain is reached only by road or shuttle: River Run and Warm Springs are joined over the top by the lifts and runs. Every named run and lift checked again on 2026-11-14 against the resort's 2026-27 Bald Mountain trail map (sunvalley.com/the-mountain/maps-guides: 2627_SV_Baldy_Map_26-27_2580X1456.pdf, the file of 2026-10-01, rendered at six times its size and read tile by tile: Easiest, More Difficult, Most Difficult as one diamond, Experts Only as two, freestyle terrain as orange size badges) and its mountain report (sunvalley.com/the-mountain/mountain-report: 12 Bald Mountain lifts, 109 trails rated easy, moderate, difficult or most difficult and 4 terrain parks), the starting point being the combined map's check of 2026-11-10. OSM's easy, intermediate, advanced and expert are the map's green, blue, one diamond and two. Of the 100 named runs in OSM on Bald Mountain, the report rates most by the same name and the map labels the rest by section; all carry the resort's rating but seven runs, where the map and the report agree against OSM (ten ways): Numbers, Sunrise Bowl and The Glades (one diamond on the map and Most Difficult on the report; expert in OSM, their lines and outlines), Little Scorpion's outline (expert; its line is advanced already), Cut Off (one diamond, intermediate in OSM), Ridge (blue, easy in OSM) and the upper way of Olympic Ridge (green, intermediate in OSM). Fire Trail stays expert: two diamonds on the map and Most Difficult on the report, so the harder of the resort's and OSM's stands (lead's decision 2026-10-22). Names from the map: Sunset Strip (OSM Sunset Trip), Upper Flying Squirrel (OSM Flying Squirrel, the name of the chairlift beside it) and the Roundhouse Express Gondola (OSM Roundhouse Gondola, a stale name). Names that differ from the map only by a space, an abbreviation or a section stay as OSM has them: Undergraduate (UNDER GRADUATE), Sunnyside Bowl (SUNNY SIDE BOWL), Machine Road (MACHINE RD), Lower Picabo's (LOWER PICABO'S ST), and runs OSM maps whole where the map prints Upper, Mid and Lower sections (Cozy for Mid and Lower Cozy, Hemingway for Mid and Lower Hemingway, Picabo's Street for Upper and Mid Picabo's St, Limelight for Mid Limelight, Janss Pass, Can-Can and French Dip for their Upper sections), each already rated as its sections are. Runs OSM names that neither the map nor the report does stay with OSM's rating (International Ridge, International Trees, Upper and Lower Liftline and Mindbender). Parks: Bald Mountain's (Showtime Park, Saddle Up Park, College Hike Park and the Broadway Family Cross Course on the 2026-11-14 report) are not in OSM. Byron's Park is an easy run on both, not a park. Out of bounds: OSM's Sunrise Bowl (Out of Bounds), a line and an outline south of the in-bounds Sunrise Bowl beyond the boundary the map draws, has no backcountry tag and lies inside OSM's Bald Mountain polygon, so it is put out of bounds by override and drawn as Sunrise Bowl (out of bounds). The runs tagged backcountry in OSM (Little Scorpion's line and an unnamed way below it) lie inside the polygon and stay in bounds, as the map draws them inside the boundary. Lifts: all 12 of the report's Bald Mountain lifts are in OSM (Seattle Ridge, Mayday, Lookout, Christmas, Broadway, Roundhouse Express Gondola, River Run, Lookout Express, Frenchman's, Flying Squirrel, Challenger and the Kinderspielplatz conveyor). Hidden: four ski-jump pieces (two inruns and two landings, 35 to 71 m, freeride in OSM) 1.9 km north of Dollar Mountain's polygon by a historic lift station, just east of the box and inside the Overpass window, which are neither mountain's terrain and lie in no polygon that could be listed (hidden on dollar-mountain's map too). The Sun Valley Nordic Center's and the Wood River trails' cross-country ways (88 in the window) are left out by the pipeline's type rule, and three aerialway=yes station platforms at Dollar Mountain by the lift rule. OSM gaps (shipped as at Palisades Tahoe): 29 Turns, 42nd Street, Bear Den, Lookout Lane, Pioneer Bowl, Ridge S. Slopes, Sheep Camp, Tim's, Upper Warm Springs, Wolverton and the Kinderspielplatz learning slope are on the map or the report but not in OSM, nor are the parks above.",
   "overrides": [
     {
       "id": "way/1340804773",
@@ -117,39 +117,6 @@
       }
     },
     {
-      "id": "way/776091019",
-      "reason": "Misspelling: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) labels this blue run on the Elkhorn side ELKHORN FACE, as its mountain report (sunvalley.com/the-mountain/mountain-report) lists it (More Difficult, as OSM rates it); OSM has Elhorn Face.",
-      "expect": {
-        "name": "Elhorn Face",
-        "piste:difficulty": "intermediate"
-      },
-      "set": {
-        "name": "Elkhorn Face"
-      }
-    },
-    {
-      "id": "way/1305837567",
-      "reason": "Misspelling: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) labels this black-diamond bowl BITTERROOT BOWL, as its mountain report (sunvalley.com/the-mountain/mountain-report) lists it (Most Difficult, as OSM rates it); OSM has Bitteroot Bowl.",
-      "expect": {
-        "name": "Bitteroot Bowl",
-        "piste:difficulty": "advanced"
-      },
-      "set": {
-        "name": "Bitterroot Bowl"
-      }
-    },
-    {
-      "id": "way/776091006",
-      "reason": "Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) labels this green run SEPP'S (its mountain report (sunvalley.com/the-mountain/mountain-report) lists Sepp's Bowl, Easiest, as OSM rates it); OSM names it Sepp.",
-      "expect": {
-        "name": "Sepp",
-        "piste:difficulty": "easy"
-      },
-      "set": {
-        "name": "Sepp's"
-      }
-    },
-    {
       "id": "way/1342719816",
       "reason": "Misspelling: Sun Valley's 2026-27 Bald Mountain trail map (sunvalley.com/the-mountain/maps-guides, 2627_SV_Baldy_Map_26-27_2580X1456.pdf) labels this green run from Frenchman's to the Lookout Express base SUNSET STRIP, as its mountain report (sunvalley.com/the-mountain/mountain-report) lists it (Easiest, as OSM rates it); OSM has Sunset Trip.",
       "expect": {
@@ -197,42 +164,6 @@
       }
     },
     {
-      "id": "way/776091001",
-      "reason": "Terrain park without a park tag in OSM: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) marks MINE SHAFT (S) as freestyle terrain (an orange size badge), and its mountain report (sunvalley.com/the-mountain/mountain-report) lists Mineshaft as a terrain park; OSM has it as a plain blue run.",
-      "expect": {
-        "name": "Mineshaft",
-        "piste:type": "downhill",
-        "piste:difficulty": "intermediate"
-      },
-      "set": {
-        "park": true
-      }
-    },
-    {
-      "id": "way/776090998",
-      "reason": "Terrain park without a park tag in OSM: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) marks MOTHERLODE (L) as freestyle terrain (an orange size badge), and its mountain report (sunvalley.com/the-mountain/mountain-report) lists Motherlode as a terrain park; OSM has it as a plain green run.",
-      "expect": {
-        "name": "Motherlode",
-        "piste:type": "downhill",
-        "piste:difficulty": "easy"
-      },
-      "set": {
-        "park": true
-      }
-    },
-    {
-      "id": "way/776090999",
-      "reason": "Terrain park without a park tag in OSM: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) marks TRESTLES (M/L) as freestyle terrain (an orange size badge), and its mountain report (sunvalley.com/the-mountain/mountain-report) lists Trestles as a terrain park; OSM has it as a plain green run.",
-      "expect": {
-        "name": "Trestles",
-        "piste:type": "downhill",
-        "piste:difficulty": "easy"
-      },
-      "set": {
-        "park": true
-      }
-    },
-    {
       "id": "way/58996544",
       "reason": "A stale name: Sun Valley's 2026-27 Bald Mountain trail map (sunvalley.com/the-mountain/maps-guides, 2627_SV_Baldy_Map_26-27_2580X1456.pdf) labels the gondola from River Run Plaza to the Roundhouse ROUNDHOUSE EXPRESS GONDOLA and its mountain report (sunvalley.com/the-mountain/mountain-report) lists it as Roundhouse Express (Gondola); OSM still calls it Roundhouse Gondola.",
       "expect": {
@@ -241,17 +172,6 @@
       },
       "set": {
         "name": "Roundhouse Express Gondola"
-      }
-    },
-    {
-      "id": "way/776090995",
-      "reason": "The conveyor between the bottoms of the Dollar and Half Dollar chairs at Carol's Dollar Mountain Lodge, unnamed in OSM: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) labels it ACCELERATOR (a conveyor lift) and its mountain report (sunvalley.com/the-mountain/mountain-report) lists The Accelerator among Dollar Mountain's five lifts.",
-      "expect": {
-        "name": null,
-        "aerialway": "magic_carpet"
-      },
-      "set": {
-        "name": "Accelerator"
       }
     },
     {

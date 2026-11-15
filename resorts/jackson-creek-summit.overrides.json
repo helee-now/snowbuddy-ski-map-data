@@ -1,0 +1,130 @@
+{
+  "slug": "jackson-creek-summit",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Jackson Creek Summit (formerly Indianhead), Snowriver Mountain Resort's main mountain (Wakefield, Michigan's Upper Peninsula; Ikon): way/473859022, landuse=winter_sports with leisure=sports_centre, which holds every lift and run of its own. Its own map since 2026-11-14 (the owner's rule: one map per ski area unless the areas are connected by lift or ski trail): until then one map with Black River Basin (formerly Blackjack, way/473859023, 600 m west) (snowriver-v1, retired). The two are joined by no lift or ski trail, only the resort's base-to-base shuttle (snowriver.com/mountain-info/trail-map-mountain-stats: two mountains separated by a brief shuttle ride; mountain-info/hours-of-operation: the Base-to-Base Shuttle from across the base of the Voyageur Express to the Black River Chalet, read 2026-11-14); the 2025 map draws Blackjack Road and a snowshoe trail between them, no ski trail. Black River Basin is a listed neighbour (resorts.json), and nothing of it is drawn. These overrides are those of the retired snowriver.overrides.json that touch Jackson Creek Summit's features (11 of its 35; the other 24 are in black-river-basin.overrides.json), with their reasons; every one was checked again against the map and the report the same day and none changed. Big Powderhorn Mountain Resort (way/473859024), about 8 km west, lies outside the Overpass window. Every named run and lift checked on 2026-11-14 against Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links), fetched again with curl on 2026-11-14 (6,398,974 bytes, SHA-256 4ba3fad2eb03623f41bee1cac9d84fba273478ed91438e5485c93a4ed2a3427c: one 2870 x 886 pt page, the painting one image and every label and run line a vector path with no text layer, rendered at four times its size and read tile by tile), and the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14), which lists every lift and run by mountain and side with its rating (Beginner, Intermediate, Advanced, Expert, Terrain Park). The map has no key: it marks runs with a green circle, a blue square, one black diamond or two, glades with a brown label and a tree sign; read as OSM's easy, intermediate, advanced and expert, as the report's four ratings. The printed map wins over OSM; where the map and the report disagree the harder of theirs and OSM's is kept. OSM carries the current names but for six; the lifts are the Voyageur Express, Cloudfront Double, Bear Creek Double and East T-Bar (kept as OSM has them; the map writes CLOUDFRONT, BEAR CREEK and EAST T, the report Cloudfront Double, Bear Creek and East T), the Sugar Hills Conveyor and the Maple Tow (OSM's Magic Carpet Lift and Pinecone Poma, renamed): the report's six Jackson Creek Summit lifts. Park: OSM's Flow Park, the easy line from Superior to Voyageur's Highway, is the map's dark teal line with two snowflake shields and no name (the sign the sister resorts' maps, by the same painter, key as a Fun Slope under Freestyle Terrain) and the report's Voyageur Funpark (Terrain Park), its only park at Jackson Creek Summit (the resort counts one family cross park there): renamed, with the park flag. Kept as OSM has them: two unnamed lines (way/997277230 and way/1283812552). OSM gaps (shipped as at Palisades Tahoe): the glades (Densow's Dream, Catamaran Cliffs, Bowline Bluff, River Ridge, U.P. A Creek, Coriolis Effect, Gully Washer, Hailstrike, Flash Flood, Papa's and Goldi's Glade), Gitchee Gumee Gulch, Supercell and Bear Creek Egress. Nordic and snowshoe trails are left out by the type rule.",
+  "overrides": [
+    {
+      "id": "way/997277232",
+      "reason": "East Voyager's Headwall: the short steep pitch from the East T-Bar's top down to Voyageur's Highway, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels VOYAGEUR'S HEADWALL with two black diamonds, the report's Voyageur's Headwall (Expert); OSM rates it advanced. Name and rating from the map.",
+      "expect": {
+        "name": "East Voyager's Headwall",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Voyageur's Headwall",
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1283813075",
+      "reason": "Artesian Alley, beside the Voyageur Express near its bottom, carries two black diamonds on Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) and is Expert in the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14); OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Artesian Alley",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/997277252",
+      "reason": "Elkhorn, beside the Bear Creek chair, carries a blue square on Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) and is Intermediate in the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14); OSM rates it expert. The printed map wins.",
+      "expect": {
+        "name": "Elkhorn",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/997277249",
+      "reason": "Kodiak: the traverse from the Cloudfront Double's top west to Grizzly on the Bear Creek side, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws as a dashed blue line labelled KODIAK CROSSING with a blue square, the report's Kodiak Crossing (Intermediate); OSM rates it advanced. Name and rating from the map.",
+      "expect": {
+        "name": "Kodiak",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Kodiak Crossing",
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/997277247",
+      "reason": "Whitetail: the green traverse from the Sugar Maple Chalet and Maple west to the Bear Creek Double's top, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws as a dashed green line labelled BEAR CREEK ACCESS, the report's Bear Creek Access (Beginner). Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Whitetail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Bear Creek Access"
+      }
+    },
+    {
+      "id": "way/997277254",
+      "reason": "Antler Alley: the traverse from Torrent west to Buffalo near the top of the front face, where Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws the dashed black U.S.2 (one black diamond, the report's U.S.2, Advanced) across the tops of Nimbus, Stormfront and Torrent to Buffalo; no Antler Alley is on the map or in the report. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Antler Alley",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "U.S.2"
+      }
+    },
+    {
+      "id": "way/997277255",
+      "reason": "Huskey: the line from the summit by the Bear Creek Double's top down to Stormfront, crossing Antler Alley, where Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws the dashed black U.S.2 (one black diamond, the report's U.S.2, Advanced) from the summit down across the front face; no Huskey is on the map or in the report. Name from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Huskey",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "U.S.2"
+      }
+    },
+    {
+      "id": "way/997277238",
+      "reason": "Sugarhill Learning Area: the beginner slope beside the summit conveyor, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels SUGAR HILLS with a green circle, the report's Sugar Hills (Beginner). Name from the map; OSM's rating (novice) draws green.",
+      "expect": {
+        "name": "Sugarhill Learning Area",
+        "piste:difficulty": "novice"
+      },
+      "set": {
+        "name": "Sugar Hills"
+      }
+    },
+    {
+      "id": "way/256992633",
+      "reason": "Magic Carpet Lift: the conveyor beside Sugar Hills by the Sugar Maple Chalet, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels SUGAR HILLS CONVEYOR, the report's Sugar Hills Conveyor. Name from the map.",
+      "expect": {
+        "name": "Magic Carpet Lift",
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Sugar Hills Conveyor"
+      }
+    },
+    {
+      "id": "way/256993682",
+      "reason": "Pinecone Poma: the surface lift beside Maple below the Sugar Maple Chalet, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) labels MAPLE TOW, the report's Maple Tow. Name from the map.",
+      "expect": {
+        "name": "Pinecone Poma",
+        "aerialway": "platter"
+      },
+      "set": {
+        "name": "Maple Tow"
+      }
+    },
+    {
+      "id": "way/997277233",
+      "reason": "Flow Park: the easy line from Superior's top down to Voyageur's Highway beside it, which Snowriver's trail map (SNOWRIVER-01.5 09292025forWEB.pdf, the VistaMap painting of both mountains, dated 2025, that snowriver.com/mountain-info/trail-map-mountain-stats links) draws as a dark teal line with two snowflake shields and no name (the sign the sister resorts' maps by the same painter key as a Fun Slope, under Freestyle Terrain), and the resort's lift and trail status (snowriver.com/mountain-info/mountain-report, read 2026-11-14) lists the Main Face's one terrain park as Voyageur Funpark (Terrain Park). Name from the report, and the park flag; OSM's rating stays.",
+      "expect": {
+        "name": "Flow Park",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Voyageur Funpark",
+        "park": true
+      }
+    }
+  ]
+}

@@ -1,39 +1,39 @@
 {
-  "key": "summit-at-snoqualmie-v1",
-  "ski_sha256": "3d94907fab35b7d03fd2f61c0035d3839a971019346ff2422296da02a73d7a9a",
-  "osm_timestamp": "2026-11-10T17:00:51Z",
+  "key": "alpental-v1",
+  "ski_sha256": "65afff8b1bf63291f55b38a64ac2508e14c7faa284db02af708ed6c7c6f4fc9e",
+  "osm_timestamp": "2026-11-15T07:16:25Z",
   "box": [
     -121.48,
-    47.36,
-    -121.36,
+    47.41,
+    -121.39,
     47.47
   ],
   "min_margin_km": 2,
   "terrain_extent": [
     -121.445704,
-    47.380625,
-    -121.395365,
+    47.433125,
+    -121.422806,
     47.448673
   ],
   "margins_km": {
     "west": 2.58,
-    "south": 2.29,
-    "east": 2.66,
+    "south": 2.57,
+    "east": 2.47,
     "north": 2.37
   },
   "counts": {
-    "lifts": 25,
-    "runs_in_bounds": 154,
-    "run_areas_in_bounds": 8,
+    "lifts": 6,
+    "runs_in_bounds": 40,
+    "run_areas_in_bounds": 2,
     "runs_out_of_bounds": 56,
     "run_areas_out_of_bounds": 4,
-    "lift_stations": 50,
+    "lift_stations": 12,
     "ski_area": 1,
     "other_lifts_and_runs": 0
   },
   "length_km": {
-    "lifts": 14.3,
-    "runs_in_bounds": 60.4,
+    "lifts": 3.8,
+    "runs_in_bounds": 14.8,
     "runs_out_of_bounds": 26.6
   },
   "lifts_outside_box": [],
@@ -72,7 +72,7 @@
       "osm": "way/1172669109",
       "name": "Wally's Wall",
       "difficulty": "expert",
-      "length_m": 117,
+      "length_m": 116,
       "inside_box": true,
       "drawn_whole_at": [
         11,
@@ -142,7 +142,7 @@
       "osm": "way/388130571",
       "name": "Lower Return to Lifts",
       "difficulty": "intermediate",
-      "length_m": 1182,
+      "length_m": 1181,
       "inside_box": true,
       "drawn_whole_at": [
         11,
@@ -170,7 +170,7 @@
       "osm": "way/388130573",
       "name": "Great Scott Bowl",
       "difficulty": "advanced",
-      "area_m2": 94851,
+      "area_m2": 94806,
       "inside_box": true,
       "drawn_whole_at": [
         11,
@@ -296,7 +296,7 @@
       "osm": "way/388130582",
       "name": "Bluffs",
       "difficulty": "expert",
-      "area_m2": 23700,
+      "area_m2": 23688,
       "inside_box": true,
       "drawn_whole_at": [
         11,
@@ -366,7 +366,7 @@
       "osm": "way/388140115",
       "name": "Martin Bowl",
       "difficulty": "expert",
-      "length_m": 229,
+      "length_m": 228,
       "inside_box": true,
       "drawn_whole_at": [
         11,
@@ -394,7 +394,7 @@
       "osm": "way/388149036",
       "name": "Great Scott Traverse",
       "difficulty": "expert",
-      "length_m": 1158,
+      "length_m": 1157,
       "inside_box": true,
       "drawn_whole_at": [
         11,
@@ -506,7 +506,7 @@
       "osm": "way/388149044",
       "name": "Bozo Bowl",
       "difficulty": "advanced",
-      "length_m": 655,
+      "length_m": 654,
       "inside_box": true,
       "drawn_whole_at": [
         11,
@@ -576,7 +576,7 @@
       "osm": "way/388149049",
       "name": "Sharon Bowl",
       "difficulty": "advanced",
-      "area_m2": 109496,
+      "area_m2": 109444,
       "inside_box": true,
       "drawn_whole_at": [
         11,
@@ -618,7 +618,7 @@
       "osm": "way/388149052",
       "name": "Ghost Bowl",
       "difficulty": "expert",
-      "length_m": 255,
+      "length_m": 254,
       "inside_box": true,
       "drawn_whole_at": [
         11,
@@ -744,7 +744,7 @@
       "osm": "way/388149061",
       "name": "Stoker bowl trees",
       "difficulty": "expert",
-      "area_m2": 107045,
+      "area_m2": 106994,
       "inside_box": true,
       "drawn_whole_at": [
         11,
@@ -884,26 +884,26 @@
   "tile_footprints": {
     "11": [
       -121.640625,
-      47.279229,
+      47.398349,
       -121.289062,
       47.517201
     ],
     "12": [
       -121.552734,
-      47.338823,
-      -121.289062,
+      47.398349,
+      -121.376953,
       47.517201
     ],
     "13": [
       -121.508789,
-      47.338823,
-      -121.333008,
+      47.398349,
+      -121.376953,
       47.487513
     ],
     "14": [
       -121.486816,
-      47.353711,
-      -121.35498,
+      47.398349,
+      -121.376953,
       47.472663
     ]
   },

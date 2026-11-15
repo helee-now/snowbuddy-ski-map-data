@@ -1,0 +1,90 @@
+{
+  "slug": "snowmass",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1144096092 (named Aspen Snowmass in OpenStreetMap: Snowmass, from Two Creeks and Elk Camp across the Big Burn, the Cirque, Hanging Valley and Sam's Knob to Campground, above Snowmass Village), one of Aspen Snowmass's four mountains, on its own map by the owner's rule of 2026-11-14 (one map per ski area unless the areas are connected by lift or trail): Buttermilk and Aspen Highlands, whose polygons lie in the Overpass window east of the box, are listed neighbours and left off. No lift or trail joins the four mountains; the resort links them by free buses (the 4-Mountain Connector on aspensnowmass.com/visit/getting-around), and each has its own ski area boundary and trail map. Split from the retired combined map aspen-snowmass: its thirteen overrides that touch Snowmass's features are carried here with their reasons (checked 2026-10-21 against the same map and list), and Pines Upper's hide. Checked again on 2026-11-14, every named run and lift, against the resort's current sources, the combined map's two: the 2025-26 trail map (2526snowmass-map-layeredwebsite.pdf; its text layer gives the spellings, and it was rendered at seven to eight times its size to read the symbols) and the grooming report's trail list for Snowmass (aspensnowmass.com's GroomingReport feed: 130 ski trails, each with its rating). The legend: Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond), Expert Only (two diamonds), Extreme Terrain (EX), Freestyle Terrain Areas in orange. OpenStreetMap is as the combined map's data of 2026-10-22 had it here but the Elk Camp chair's line, redrawn 7 m shorter. All 130 named OSM runs carry the map's and the list's names and ratings after the carried overrides (Grinder and Cookies advanced; the Cirque's and Hanging Valley's EX lines extreme; Sheer Bliss's spelling); where the sources disagree OSM's harder rating stays: Cabin black (black on the map, blue in the list), its lower part a snow park in OSM inside the map's Freestyle Terrain Area, as Snowmass Park is. Hidden: the residential platters at The Pines (Pines Upper and Pines Lower). Lifts: OSM's sixteen kept are the map's: the Elk Camp Gondola, Elk Camp, Two Creeks, Assay Hill, Meadows, Alpine Springs, High Alpine, Big Burn, Sheer Bliss, the Cirque T-Bar, Sam's Knob, Campground, Village Express, Coney Express, Sky Cab and Scooper. OSM gaps against the map and the list (shipped as at Palisades Tahoe): Coyote Hollow, West Garrett and Burn Cliffs (EX), Hang On Halvin's, Sunkiss Glades, Cabin Cut Off, Burnt Mountain Glades, Elk Camp Meadows, Mousetrap, High Pass's lower double-black part, and five parks (13' Pipe, Fanny Hill Park, Low Down Mini Pipe, Low Down Park, Makaha Park).",
+  "overrides": [
+    {
+      "id": "way/1210150814",
+      "reason": "Pines Upper: a residential platter at The Pines, Snowmass, 270 m outside the ski-area polygon; not on the resort's map or lift list.",
+      "expect": { "name": "Pines Upper", "aerialway": "platter" },
+      "hide": true
+    },
+    {
+      "id": "way/1210150815",
+      "reason": "Pines Lower: a residential platter at The Pines, Snowmass, nine tenths of it outside the ski-area polygon; not on the resort's map or lift list.",
+      "expect": { "name": "Pines Lower", "aerialway": "platter" },
+      "hide": true
+    },
+    {
+      "id": "way/1566846712",
+      "reason": "Grinder is advanced in the resort's list and a black-diamond run on its map; OSM rates it expert.",
+      "expect": { "name": "Grinder", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/556749587",
+      "reason": "Cookies is advanced in the resort's list and a black (Most Difficult) run on its map; OSM rates it expert.",
+      "expect": { "name": "Cookies", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/556749687",
+      "reason": "Typo: the resort's list, its map and the lift say Sheer Bliss; OSM's other piece is Sheer Bliss too (one run split into two names).",
+      "expect": { "name": "Shear Bliss" },
+      "set": { "name": "Sheer Bliss" }
+    },
+    {
+      "id": "way/1451781851",
+      "reason": "Extreme Terrain: the Snowmass map marks Rock Island EX and the resort's list rates it extreme (Cirque); OSM rates it expert, so it also lacked the ungroomed dash. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Rock Island", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1451781853",
+      "reason": "Extreme Terrain: the Snowmass map marks Buckskin Cliffs EX and the resort's list rates it extreme (Cirque); OSM rates it expert, so it also lacked the ungroomed dash. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Buckskin Cliffs", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1451781826",
+      "reason": "Extreme Terrain: the Snowmass map marks Cirque Cornice EX and the resort's list rates it extreme (Cirque); OSM rates it expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Cirque Cornice", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/772798774",
+      "reason": "Extreme Terrain: the resort's list rates Gowdy's extreme (Cirque) and the Snowmass map marks its line EX; OSM rates it expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Gowdy's", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1451781834",
+      "reason": "Extreme Terrain: the Snowmass map marks Baby Ruth EX and the resort's list rates it extreme (Hanging Valley); OSM rates it expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Baby Ruth", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1378349660",
+      "reason": "Extreme Terrain: the Snowmass map marks Possible EX and the resort's list rates it extreme (Hanging Valley); OSM rates it expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Possible", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1378349659",
+      "reason": "Extreme Terrain: the Snowmass map marks Roberto's EX and the resort's list rates it extreme (Hanging Valley); OSM rates it expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "Roberto's", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1451781829",
+      "reason": "Extreme Terrain: the Snowmass map marks WEST I & II EX and the resort's list rates West 1 & 2 extreme (Hanging Valley); OSM rates West I expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "West I", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    },
+    {
+      "id": "way/1451781830",
+      "reason": "Extreme Terrain: the Snowmass map marks WEST I & II EX and the resort's list rates West 1 & 2 extreme (Hanging Valley); OSM rates West II expert. Extreme, like the pack's other EX runs in OSM.",
+      "expect": { "name": "West II", "piste:difficulty": "expert" },
+      "set": { "difficulty": "extreme" }
+    }
+  ]
+}

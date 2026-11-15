@@ -1,0 +1,61 @@
+{
+  "slug": "silver-creek",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Silver Creek, Snowshoe Mountain's third area, 1.4 km north of the village on Cheat Mountain's ridge (one polygon, way/1311361876, named Snowshoe Mountain in OpenStreetMap, 0.96 km2: the lodge with the Coca-Cola Tube Park at the top, the Black Run Sugar Shack at the lifts' bottoms). It is joined to Snowshoe Basin and the Western Territory by no lift or trail, so it has its own map by the owner's rule of 2026-11-14, which retired the combined map snowshoe-v1: the trail map draws no run or lift between Silver Creek and the Basin, only a wooded valley, and a bus stop at each base; snowshoemtn.com's Silver Creek page offers a 'free shuttle to & from' and lists its own 6 lifts and 15 to 18 trails, and its shuttle page runs continuous loops between Silver Creek, the Village and Top of the World (the Internet Archive's copies of 2025-03-13 and 2024-12-12; the site answers automated requests with a bot wall). The Basin's polygon (way/1244062674, also named Snowshoe Mountain) is a listed neighbour in resorts.json (snowshoe.overrides.json). Nothing of Silver Creek is reached only by road. Every named run and lift checked on 2026-11-14 against Snowshoe's trail map (the James Niehues painting; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season, the same file the combined map was checked against on 2026-11-12; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read), read enlarged two to five times; the OpenStreetMap data in the window are the combined map's of 2026-11-12, an answer pinned to its timestamp being the same, element for element. Its key: Easier (green circle), More Difficult (blue square), Most Difficult (one black diamond) and Extremely Difficult (two), as OSM's easy, intermediate, advanced and expert; Terrain Park (orange hatching, with S, M and L), Gladed Terrain (black hatching), Uphill Routes and Tubing Terrain (dashed lines), Terrain Based Learning and Slow Skiing Area. Its lifts at Silver Creek: the Flying Eagle, Cascade, Mountaineer and Cubb Run chairs, a carpet at the lodge, the Rope Tow in Mountaineer Park (marked NEW) and the tube park's lift. The resort's lift and trail status could not be read (the bot wall), so the printed map is the source and wins. OpenStreetMap draws most runs twice, as a line and as an outline (area=yes); overrides name each way. All of OSM's named runs carry the map's rating: Flying Eagle Glades (one diamond) is tagged backcountry in OSM and lies inside the polygon, so it stays in bounds by the rule. Names from the map: Cubb Run for the two ways OSM spells Cubb run, and Mountaineer Park for the terrain park (OSM Mountaineer Terrain Park, and Moutainteer Terrain  Park on its outline). Names hidden as descriptions the map does not print: magic carpet slope (the beginner slope at the lodge). Names that differ from the map only by an apostrophe or a section stay as OSM has them: Can't Hook (CANT HOOK) and Timberjack (TIMBERJACK PARK). Parks: Timberjack and Mountaineer Park are snow parks in OSM. Lifts: the four chairs are in OSM under the map's names and no lift name repeats with the Basin's; the unnamed carpet at the lodge stays. The tube park's sled lane is left out by the type rule. OSM gaps (shipped as at Palisades Tahoe): the Rope Tow in Mountaineer Park and the tube park's lift.",
+  "overrides": [
+    {
+      "id": "way/321576367",
+      "reason": "Cubb run: Silver Creek's long green run from the lodge round the area's east side to the Cubb Run chair's bottom, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) labels Cubb Run with a green circle, as OSM names the run's other ways and the lift. Capitalisation from the map.",
+      "expect": {
+        "name": "Cubb run",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Cubb Run"
+      }
+    },
+    {
+      "id": "way/1498095460",
+      "reason": "Cubb run: the first 63 m of Silver Creek's green Cubb Run at the lodge, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) labels Cubb Run. Capitalisation from the map.",
+      "expect": {
+        "name": "Cubb run",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Cubb Run"
+      }
+    },
+    {
+      "id": "way/321576354",
+      "reason": "Mountaineer Terrain Park: the terrain park beside the Mountaineer chair at Silver Creek, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) labels Mountaineer Park (orange hatching, features S-M). Name from the map.",
+      "expect": {
+        "name": "Mountaineer Terrain Park",
+        "piste:type": "snow_park"
+      },
+      "set": {
+        "name": "Mountaineer Park"
+      }
+    },
+    {
+      "id": "way/1494642355",
+      "reason": "Moutainteer Terrain  Park: the outline of the terrain park beside the Mountaineer chair at Silver Creek (misspelt, with a double space), which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) labels Mountaineer Park. Name from the map.",
+      "expect": {
+        "name": "Moutainteer Terrain  Park",
+        "piste:type": "snow_park"
+      },
+      "set": {
+        "name": "Mountaineer Park"
+      }
+    },
+    {
+      "id": "way/1493409656",
+      "reason": "magic carpet slope: the beginner slope beside the carpet at Silver Creek's lodge, which Snowshoe's trail map (the James Niehues painting with its Western Territory inset; skiresort.info's copy, 3000 x 1013 px, which that site lists for the 2025/2026 season; snowshoemtn.com answers curl and WebFetch alike with a bot wall, so the resort's own copy could not be read) draws in its Slow Skiing Area without a name; the name is a description. Hidden; OSM's rating stays.",
+      "expect": {
+        "name": "magic carpet slope",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "name": null
+      }
+    }
+  ]
+}

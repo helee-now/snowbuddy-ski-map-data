@@ -1,0 +1,126 @@
+{
+  "slug": "dollar-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Sun Valley's Dollar Mountain (way/1244098768, Sun Valley - Dollar Mountain) on its own map (the owner's rule of 2026-11-14: one map per ski area unless the areas are connected by lift or ski trail); sun-valley-v1 drew it with Bald Mountain, and these are that map's Dollar Mountain entries (sun-valley.overrides.json of 2026-11-10), with the four ski-jump hides, whose pieces lie in both maps' windows. Bald Mountain (way/1244099443) is a listed neighbour in resorts.json: its polygon lies 1.8 km west across the Big Wood River, joined to Dollar Mountain by no lift or ski trail (the resort gives each mountain its own trail map at sunvalley.com/the-mountain/maps-guides, the Bald Mountain map draws the Mountain Rides bus between River Run Plaza, Ketchum and Dollar Mountain, and sunvalley.com/about/getting-here sends guests between the two on that free bus), and its 12 lifts, 163 runs, 5 run areas and 21 stations in the Overpass window are left off. Every part of Dollar Mountain is reached by its own lifts from Carol's Dollar Mountain Lodge. Every named run and lift checked again on 2026-11-14 against the resort's 2026-27 Dollar Mountain trail map (sunvalley.com/the-mountain/maps-guides: 2627_SV_Dollar_Map_26-27_5002X2000.pdf, the file of 2026-10-01, rendered at five times its size and read tile by tile: Easiest, More Difficult, Most Difficult as one diamond, freestyle terrain as orange size badges) and its mountain report (sunvalley.com/the-mountain/mountain-report: 5 Dollar Mountain lifts, 15 trails rated easy, moderate or difficult and 7 terrain parks; sunvalley.com/the-mountain/dollar-mountain gives 628 feet of vertical), the starting point being the combined map's check of 2026-11-10. OSM's easy, intermediate and advanced are the map's green, blue and one diamond; the map has no two-diamond run. Of the 22 named runs in OSM, all carry the resort's rating. Names from the map: Elkhorn Face (OSM Elhorn Face), Bitterroot Bowl (OSM Bitteroot Bowl), Sepp's (OSM Sepp; the report says Sepp's Bowl) and the Accelerator (the conveyor, unnamed in OSM; The Accelerator on the report). Runs OSM names that neither the map nor the report does stay with OSM's rating (Graduation, Lombard Street, Prospector Park and Upper Trestles). Parks: the map marks Mine Shaft, Motherlode and Trestles as freestyle terrain and the report lists them as terrain parks; they get the park flag. Name Dropper, Sluice Box, Train Yard and Sunny's Adventure Park are not in OSM. Bitterroot Bowl lies only 17% inside OSM's Dollar Mountain polygon (the polygon stops short of the bowl the map draws inside its boundary) and stays in bounds, having no backcountry tag; the 250 m rule gives it to Dollar Mountain on this map (and leaves it off Bald Mountain's). Lifts: all 5 of the report's are in OSM (Dollar, Quarter Dollar, Half Dollar, Elkhorn and the Accelerator). Hidden: four ski-jump pieces (two inruns and two landings, 35 to 71 m, freeride in OSM) on the hill north-east of Sun Valley Village, 1.9 km north of Dollar Mountain's polygon inside the box's north edge beside a historic lift station building (way/1361277863, historic=yes): not Dollar Mountain's terrain, on neither of the resort's maps nor its report, in no landuse=winter_sports polygon that could be listed. Three aerialway=yes station platforms at the lifts' ends are left out by the lift rule, and 77 cross-country ways of the Sun Valley Nordic Center and the Wood River trails by the type rule. OSM gaps (shipped as at Palisades Tahoe): the four parks above.",
+  "overrides": [
+    {
+      "id": "way/776091019",
+      "reason": "Misspelling: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) labels this blue run on the Elkhorn side ELKHORN FACE, as its mountain report (sunvalley.com/the-mountain/mountain-report) lists it (More Difficult, as OSM rates it); OSM has Elhorn Face.",
+      "expect": {
+        "name": "Elhorn Face",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Elkhorn Face"
+      }
+    },
+    {
+      "id": "way/1305837567",
+      "reason": "Misspelling: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) labels this black-diamond bowl BITTERROOT BOWL, as its mountain report (sunvalley.com/the-mountain/mountain-report) lists it (Most Difficult, as OSM rates it); OSM has Bitteroot Bowl.",
+      "expect": {
+        "name": "Bitteroot Bowl",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Bitterroot Bowl"
+      }
+    },
+    {
+      "id": "way/776091006",
+      "reason": "Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) labels this green run SEPP'S (its mountain report (sunvalley.com/the-mountain/mountain-report) lists Sepp's Bowl, Easiest, as OSM rates it); OSM names it Sepp.",
+      "expect": {
+        "name": "Sepp",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Sepp's"
+      }
+    },
+    {
+      "id": "way/776091001",
+      "reason": "Terrain park without a park tag in OSM: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) marks MINE SHAFT (S) as freestyle terrain (an orange size badge), and its mountain report (sunvalley.com/the-mountain/mountain-report) lists Mineshaft as a terrain park; OSM has it as a plain blue run.",
+      "expect": {
+        "name": "Mineshaft",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/776090998",
+      "reason": "Terrain park without a park tag in OSM: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) marks MOTHERLODE (L) as freestyle terrain (an orange size badge), and its mountain report (sunvalley.com/the-mountain/mountain-report) lists Motherlode as a terrain park; OSM has it as a plain green run.",
+      "expect": {
+        "name": "Motherlode",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/776090999",
+      "reason": "Terrain park without a park tag in OSM: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) marks TRESTLES (M/L) as freestyle terrain (an orange size badge), and its mountain report (sunvalley.com/the-mountain/mountain-report) lists Trestles as a terrain park; OSM has it as a plain green run.",
+      "expect": {
+        "name": "Trestles",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/776090995",
+      "reason": "The conveyor between the bottoms of the Dollar and Half Dollar chairs at Carol's Dollar Mountain Lodge, unnamed in OSM: Sun Valley's 2026-27 Dollar Mountain trail map (2627_SV_Dollar_Map_26-27_5002X2000.pdf) labels it ACCELERATOR (a conveyor lift) and its mountain report (sunvalley.com/the-mountain/mountain-report) lists The Accelerator among Dollar Mountain's five lifts.",
+      "expect": {
+        "name": null,
+        "aerialway": "magic_carpet"
+      },
+      "set": {
+        "name": "Accelerator"
+      }
+    },
+    {
+      "id": "way/1306063029",
+      "reason": "A ski-jump piece (71 m, freeride in OSM) on the hill north-east of Sun Valley Village, 1.9 km north of Dollar Mountain's polygon beside a historic lift station building (way/1361277863, historic=yes): not Bald Mountain's or Dollar Mountain's terrain, on neither of the resort's 2026-27 maps nor its mountain report. It lies in no landuse=winter_sports polygon, so it cannot be listed as a neighbour, and would otherwise draw as a double-black run inside the box's north edge.",
+      "expect": {
+        "name": "40M Ski Jump Inrun",
+        "piste:type": "downhill",
+        "piste:difficulty": "freeride"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1306063031",
+      "reason": "A ski-jump piece (53 m, freeride in OSM) on the hill north-east of Sun Valley Village, 1.9 km north of Dollar Mountain's polygon beside a historic lift station building (way/1361277863, historic=yes): not Bald Mountain's or Dollar Mountain's terrain, on neither of the resort's 2026-27 maps nor its mountain report. It lies in no landuse=winter_sports polygon, so it cannot be listed as a neighbour, and would otherwise draw as a double-black run inside the box's north edge.",
+      "expect": {
+        "name": "40M Ski Jump Landing",
+        "piste:type": "downhill",
+        "piste:difficulty": "freeride"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1306063030",
+      "reason": "A ski-jump piece (35 m, freeride in OSM) on the hill north-east of Sun Valley Village, 1.9 km north of Dollar Mountain's polygon beside a historic lift station building (way/1361277863, historic=yes): not Bald Mountain's or Dollar Mountain's terrain, on neither of the resort's 2026-27 maps nor its mountain report. It lies in no landuse=winter_sports polygon, so it cannot be listed as a neighbour, and would otherwise draw as a double-black run inside the box's north edge.",
+      "expect": {
+        "name": "Small Ski Jump Inrun",
+        "piste:type": "downhill",
+        "piste:difficulty": "freeride"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1306063032",
+      "reason": "A ski-jump piece (35 m, freeride in OSM) on the hill north-east of Sun Valley Village, 1.9 km north of Dollar Mountain's polygon beside a historic lift station building (way/1361277863, historic=yes): not Bald Mountain's or Dollar Mountain's terrain, on neither of the resort's 2026-27 maps nor its mountain report. It lies in no landuse=winter_sports polygon, so it cannot be listed as a neighbour, and would otherwise draw as a double-black run inside the box's north edge.",
+      "expect": {
+        "name": "Small Ski Jump Landing",
+        "piste:type": "downhill",
+        "piste:difficulty": "freeride"
+      },
+      "hide": true
+    }
+  ]
+}

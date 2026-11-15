@@ -1,0 +1,73 @@
+{
+  "key": "jackson-creek-summit-v1",
+  "ski_sha256": "0a3fbfb94e0665c14199baa0405cc23d66143ec0579c222d9546708837585f60",
+  "osm_timestamp": "2026-11-15T07:13:20Z",
+  "box": [
+    -90.02,
+    46.47,
+    -89.93,
+    46.53
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -89.984107,
+    46.496971,
+    -89.962105,
+    46.509874
+  ],
+  "margins_km": {
+    "west": 2.75,
+    "south": 3,
+    "east": 2.46,
+    "north": 2.24
+  },
+  "counts": {
+    "lifts": 6,
+    "runs_in_bounds": 34,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 12,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.1,
+    "runs_in_bounds": 15.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -90.175781,
+      46.437857,
+      -89.824219,
+      46.55886
+    ],
+    "12": [
+      -90.087891,
+      46.437857,
+      -89.912109,
+      46.55886
+    ],
+    "13": [
+      -90.043945,
+      46.468133,
+      -89.912109,
+      46.55886
+    ],
+    "14": [
+      -90.021973,
+      46.468133,
+      -89.912109,
+      46.54375
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

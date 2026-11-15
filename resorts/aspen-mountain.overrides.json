@@ -1,0 +1,132 @@
+{
+  "slug": "aspen-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/530531925 (Aspen Mountain, above the town of Aspen), one of Aspen Snowmass's four mountains, on its own map by the owner's rule of 2026-11-14 (one map per ski area unless the areas are connected by lift or trail): Aspen Highlands and Buttermilk, whose polygons reach into the box, are listed neighbours and left off. No lift or trail joins the four mountains; the resort links them by free buses (the 4-Mountain Connector on aspensnowmass.com/visit/getting-around; the Rubey Park bus station's 'free shuttle to all mountains' on this map), and each has its own ski area boundary and trail map. Split from the retired combined map aspen-snowmass: its twelve overrides that touch Aspen Mountain's features are carried here with their reasons (checked 2026-10-21 against the same map). Checked again on 2026-11-14, every named run and lift, against the resort's current sources: the 2025-26 trail map (2526aspenmountainwebsite.pdf, the edition aspensnowmass.com/four-mountains/trail-maps still links; its text layer gives the spellings, and it was rendered at four to twelve times its size to read the symbols) and the grooming report's trail list for Aspen Mountain (aspensnowmass.com's GroomingReport feed: 139 ski trails, each with its rating; the combined map's check had read the lists of Snowmass and Buttermilk only). The legend: More Difficult (blue square), Most Difficult (black diamond, a black line), Expert Only (two diamonds on a yellow line), Extreme Terrain (EX on a yellow line), OSM's intermediate, advanced, expert and extreme; no beginner terrain. OpenStreetMap is as the combined map's data of 2026-10-22 had it here (in the four mountains' window only the Elk Camp chair's line at Snowmass was edited since). Of the 142 named OSM runs, the map and the list agree with OSM after the carried overrides but for six. Upper Jim's, Expert Only on the map's Hero's view and expert in the list, becomes expert. Bell Meadow (a Most Difficult line on the map), the El Avalanchero and E=m(SKI)2 glades (black labels with no line or diamond, which do not tell Most Difficult from Expert Only) and Lud's Lane (a flat catwalk, unrated on the map) take the list's harder rating (expert, expert, expert and advanced), by the rule of 2026-10-22: where the resort's sources disagree, or only one of them rates a run, the harder of theirs and OSM's is kept. So Traynor Ridge stays extreme (OSM; advanced in the list, a black label on the map), and North Star and Pussyfoot stay advanced (black lines on the map, as in OSM; the list's upper Northstar and Pussyfoot Flats are blue). Names that differ from the list's only by a space, an abbreviation, punctuation or a piece's number stay, the map printing most of them as OSM has them (Star Walk, Powerline I and II, Gent's Ridge for the list's Gentleman's Ridge, 1 & 2 Leaf, Reds Run, E. 5th Ave and West 5th Ave). Hidden: the World Cup course's outline (America's Downhill). Lifts: OSM's six are the six the resort's snow report counts for 2026-27: the Silver Queen gondola, Ajax Express, F.I.S., Ruthie's, Hero's and Nell Bell, which the resort's Aspen Mountain page calls new this season, from Gondola Plaza to the top of Bell Mountain, where the 2025-26 map draws the Little Nell and Bell Mountain lifts; the 2025-26 map's Shadow Mountain lift is in neither OSM nor that count. OSM gaps against the map and the list (shipped as at Palisades Tahoe): Beattie Way, Tower 7 Road, Gent's Flats and Hero's Chutes #1 and #2 (OSM has the traverse to them).",
+  "overrides": [
+    {
+      "id": "way/1194834859",
+      "reason": "America's Downhill: a 5.5 km unrated outline of the World Cup course laid over Aspen Mountain's runs; it would draw as one large grey run area. Not a run on the resort's map.",
+      "expect": { "name": "America's Downhill", "area": "yes", "piste:type": "downhill", "piste:difficulty": null },
+      "hide": true
+    },
+    {
+      "id": "way/423698146",
+      "reason": "Lower Roch Run is a blue (More Difficult) run on the Aspen Mountain map; OSM rates it advanced.",
+      "expect": { "name": "Lower Roch Run", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1443980875",
+      "reason": "Typo; the Aspen Mountain map labels it LEGAL TENDER.",
+      "expect": { "name": "Legel Tender" },
+      "set": { "name": "Legal Tender" }
+    },
+    {
+      "id": "way/423526680",
+      "reason": "Typo; the Aspen Mountain map labels it KLEENEX CORNER.",
+      "expect": { "name": "Kleenex Cornner" },
+      "set": { "name": "Kleenex Corner" }
+    },
+    {
+      "id": "way/1443980876",
+      "reason": "Typo; the Aspen Mountain map labels it HERE'S TO...",
+      "expect": { "name": "Here's Too..." },
+      "set": { "name": "Here's To..." }
+    },
+    {
+      "id": "way/423698153",
+      "reason": "Missing space; the Aspen Mountain map labels it LAZY 8 GULLY.",
+      "expect": { "name": "Lazy8 Gully" },
+      "set": { "name": "Lazy 8 Gully" }
+    },
+    {
+      "id": "way/1049271287",
+      "reason": "Near-duplicate spelling of North Star (the map's NORTH STAR), whose main way it continues (one run split into two names).",
+      "expect": { "name": "Northstar" },
+      "set": { "name": "North Star" }
+    },
+    {
+      "id": "way/423507039",
+      "reason": "Truncated: the Aspen Mountain map labels this connector below the Sundeck BUCKHORN CUTOFF.",
+      "expect": { "name": "Cutoff" },
+      "set": { "name": "Buckhorn Cutoff" }
+    },
+    {
+      "id": "way/1049271337",
+      "reason": "Truncated: the Aspen Mountain map labels this connector below the Sundeck BUCKHORN CUTOFF.",
+      "expect": { "name": "Cutoff" },
+      "set": { "name": "Buckhorn Cutoff" }
+    },
+    {
+      "id": "way/1049271330",
+      "reason": "A mapper's descriptor added to the name: the Aspen Mountain map labels the run's lower part 1 & 2 LEAF as well (its upper-mountain view names the run twice, never Bottom Half), and this way ends on OSM's main 1 & 2 Leaf way (one run split into two names).",
+      "expect": { "name": "1 & 2 Leaf Bottom Half" },
+      "set": { "name": "1 & 2 Leaf" }
+    },
+    {
+      "id": "way/1049271296",
+      "reason": "Typo (letters swapped): the headwall's ways join Dipsy Doodle, which the Aspen Mountain map labels DIPSY DOODLE; the map does not name the headwall itself.",
+      "expect": { "name": "Dispy Headwall" },
+      "set": { "name": "Dipsy Headwall" }
+    },
+    {
+      "id": "way/423526685",
+      "reason": "Typo (doubled t): the run beside it is Face of Bell Cut-off in OSM; the map does not name either cut-off.",
+      "expect": { "name": "Back of Bell Cutt-off" },
+      "set": { "name": "Back of Bell Cut-off" }
+    },
+    {
+      "id": "way/1228342186",
+      "reason": "Upper Jim's, from the top of Hero's down beside the lift to the blue lower Jim's: two diamonds (Expert Only) on the 2025-26 Aspen Mountain map's Hero's view, and Jim's is expert in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14) (its lower part intermediate, as OSM's other way); OSM rates this piece advanced.",
+      "expect": { "name": "Jim's", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1049271288",
+      "reason": "Bell Meadow: expert in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14); the 2025-26 map draws it as a plain black (Most Difficult) line below Face of Bell. The resort's sources disagree, so the harder of theirs and OSM's (advanced) is kept: expert (the rule of 2026-10-22).",
+      "expect": { "name": "Bell Meadow", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1049271293",
+      "reason": "Bell Meadow: expert in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14); the 2025-26 map draws it as a plain black (Most Difficult) line below Face of Bell. The resort's sources disagree, so the harder of theirs and OSM's (advanced) is kept: expert (the rule of 2026-10-22).",
+      "expect": { "name": "Bell Meadow", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1049271309",
+      "reason": "Bell Meadow: expert in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14); the 2025-26 map draws it as a plain black (Most Difficult) line below Face of Bell. The resort's sources disagree, so the harder of theirs and OSM's (advanced) is kept: expert (the rule of 2026-10-22).",
+      "expect": { "name": "Bell Meadow", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1049271315",
+      "reason": "Bell Meadow: expert in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14); the 2025-26 map draws it as a plain black (Most Difficult) line below Face of Bell. The resort's sources disagree, so the harder of theirs and OSM's (advanced) is kept: expert (the rule of 2026-10-22).",
+      "expect": { "name": "Bell Meadow", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1049271333",
+      "reason": "Bell Meadow: expert in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14); the 2025-26 map draws it as a plain black (Most Difficult) line below Face of Bell. The resort's sources disagree, so the harder of theirs and OSM's (advanced) is kept: expert (the rule of 2026-10-22).",
+      "expect": { "name": "Bell Meadow", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1443980867",
+      "reason": "E=m(SKI)2 Glade: expert in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14); the 2025-26 map labels the glade in a black box with no line or diamond, which does not tell Most Difficult from Expert Only, so the list's harder rating is kept (the rule of 2026-10-22). OSM rates it advanced.",
+      "expect": { "name": "E=m(SKI)2 Glade", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1443980866",
+      "reason": "El Avalanchero Glade: expert in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14); the 2025-26 map labels the glade in a black box with no line or diamond, which does not tell Most Difficult from Expert Only, so the list's harder rating is kept (the rule of 2026-10-22). OSM rates it advanced.",
+      "expect": { "name": "El Avalanchero Glade", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/423526651",
+      "reason": "Lud's Lane: advanced in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14); the 2025-26 map draws it as a flat catwalk (pink dots), with no rating, so the list's rating, the harder of it and OSM's (intermediate), is kept (the rule of 2026-10-22).",
+      "expect": { "name": "Lud's Lane", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    }
+  ]
+}

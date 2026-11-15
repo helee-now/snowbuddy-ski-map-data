@@ -1,0 +1,62 @@
+{
+  "slug": "alpental",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Alpental, The Summit at Snoqualmie's fourth area, on its own map by the owner's rule of 2026-11-14 (one map per ski area unless the areas are connected by lift or trail), which retired the combined map summit-at-snoqualmie-v1: it lies across Interstate 90 from Summit West, Central and East and is joined to them by no lift or trail (summitatsnoqualmie.com/summit-shuttle: free bus transportation between the Summit areas and Alpental, the crossover trails joining only West, Central and East; Alpental's trail map: 'Shuttle or drive to Summit West, Central, East'). Nothing of this map is reached only by shuttle or road. The ski area is relation/6855067 (Alpental, 1.64 km2). Listed neighbours in resorts.json: Three Summits (way/1361868120, Summit West, Central and East: a separate ski area of the same resort, on its own map, summit-at-snoqualmie) and the Sahalie Ski Club (relation/6447055), a private club with its own rope tow; Three Summits takes the Tubing Park's conveyor and Snow Train, which lie within 250 m of it, by the neighbour rule. Alpental Backcountry (relation/6855066), the Alpental Back Bowls, is neither the ski area nor a neighbour: its runs, tagged backcountry in OSM, lie outside Alpental's polygon and are drawn out of bounds by the README's rule, as the Alpental map puts the Back Bowls behind its Back Bowl Boundary and gates ('No designated trails or runs in the Back Bowls. Beacon, Shovel, Probe & Pass Required'); What's That Trees and Brownie Bowl, back-bowl runs the half rule would keep in bounds, are put out of bounds below. The backcountry lines on Chair Peak and Snoqualmie Mountain (The Phantom, Bryant, Slot, Snot and Crooked Couloirs, the Chair Peak North Face Descent) lie in no polygon and are out of bounds by the same rule: 60 run lines and areas in all, as on the combined map. OpenStreetMap's Avalanche Safety Training Area (way/885692374, landuse=winter_sports, 0.004 km2 at the base) is no other resort and holds no lift or run: not listed. Every named run and lift checked on 2026-11-14 against the resort's Alpental trail map (summitatsnoqualmie.com/trail-maps: rated Easiest, More Difficult, Most Difficult and Experts Only, two diamonds, with the Edelweiss Bowl inset; a JPEG of 3000 by 1508 px, read tile by tile) and its lift and trail report (summitatsnoqualmie.com/mountain-report, whose data, /api/reportpal, lists Alpental's 6 lifts, 19 alpine trails rated beginner, intermediate, advanced or expert, its non-designated terrain and its gates), as the combined map's were on 2026-11-10 (the same map file, and the OpenStreetMap data in the window the combined map's, an answer pinned to its timestamp being the same, element for element). OSM's easy, intermediate, advanced and expert are the map's green, blue, one diamond and two. Of the 34 named in-bounds runs in OSM, the report rates 15 by the same name and the map labels most of the rest; all carry the resort's rating but two, Meister and Gala, where the map and the report agree against OSM. Lower Internationale stays black down to the Cascade Traverse junction, where the map's black line ends, and blue below (the report rates Lower International blue). Snake Dance stays expert: two diamonds on the Alpental map and advanced on the report, so the harder of the resort's and OSM's stands (lead's decision 2026-10-22); Upper Snake Dance, a name neither source prints, keeps OSM's advanced. Names from the map and the report: Schluct, the resort's spelling on both, for OSM's Schlucht. Names that differ only by a letter or an abbreviation stay as OSM has them (Adrenalin, Adrenaline in the report; Saint Bernard for ST. BERNARD, run and lift; Lower and Upper Internationale; the lifts without the report's Chair suffix). Runs OSM names that neither the map nor the report do stay with OSM's rating (Felsen, Breakover, Powder Bowl and Shot Six, which the report lists as non-designated, Shot 4, Shot 5, Hoadleys, Homework, Pumpkin Patch, High Traverse, Chicken Shot, Side hits, Lower Return to Lifts and the unrated Alpental Goat Trail). No terrain park. Lifts: all 6 of the report's are in OSM and none repeats a Summit area's lift name. 46 nordic, 16 hike, 12 ski-touring and 2 sledding ways in the window are left out by the type rule. The Back Bowls' runs carry OSM's names; the resort prints none there.",
+  "overrides": [
+    {
+      "id": "way/126247696",
+      "reason": "Meister is a single black diamond on The Summit's Alpental trail map (summitatsnoqualmie.com/trail-maps) (between Debbie's Gold and Eisfallen below the Cascade Traverse) and Most Difficult on its lift and trail report (summitatsnoqualmie.com/mountain-report); OSM rates it intermediate. The resort's sources agree, so they win.",
+      "expect": {
+        "name": "Meister",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/893959978",
+      "reason": "Gala is blue (More Difficult) on The Summit's Alpental trail map (summitatsnoqualmie.com/trail-maps) (a blue line and square beside the Internationale lift's base) and More Difficult on its lift and trail report (summitatsnoqualmie.com/mountain-report); OSM rates it advanced. The resort's sources agree, so they win.",
+      "expect": {
+        "name": "Gala",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/126251916",
+      "reason": "The resort's own spelling: The Summit's Alpental trail map (summitatsnoqualmie.com/trail-maps) (the Edelweiss Bowl inset) and its lift and trail report (summitatsnoqualmie.com/mountain-report) both name this double-black chute SCHLUCT (Experts Only, expert as OSM rates it); OSM has Schlucht, the German word. The resort's printed name is what its signs and its skiers use.",
+      "expect": {
+        "name": "Schlucht",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "Schluct"
+      }
+    },
+    {
+      "id": "way/388130583",
+      "reason": "What's That Trees lies beyond Alpental's Back Bowl Boundary (half of it in OSM's Alpental Backcountry polygon, relation/6855066, north of the Internationale lift's base): The Summit's Alpental trail map (summitatsnoqualmie.com/trail-maps) puts the Alpental Back Bowls behind that boundary and its gates ('No designated trails or runs in the Back Bowls. Beacon, Shovel, Probe & Pass Required'), and its lift and trail report (summitatsnoqualmie.com/mountain-report) lists no such run. It has no backcountry tag in OSM, so the half rule would keep it in bounds; it is drawn out of bounds, as the back bowls' other runs are.",
+      "expect": {
+        "name": "What's That Trees",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    },
+    {
+      "id": "way/388149045",
+      "reason": "Brownie Bowl is the back bowl behind the Brownie Bowl Gate on Alpental's Back Bowl Boundary: The Summit's Alpental trail map (summitatsnoqualmie.com/trail-maps) puts the Alpental Back Bowls beyond that boundary ('No designated trails or runs in the Back Bowls. Beacon, Shovel, Probe & Pass Required'), and its lift and trail report (summitatsnoqualmie.com/mountain-report) lists the Brownie Bowl Gate, not a run. OSM tags it backcountry, but its line lies inside OSM's Alpental polygon (relation/6855067), so the half rule would keep it in bounds; it is drawn out of bounds, as the back bowls' other runs are.",
+      "expect": {
+        "name": "Brownie Bowl",
+        "piste:difficulty": "intermediate",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": true
+      }
+    }
+  ]
+}

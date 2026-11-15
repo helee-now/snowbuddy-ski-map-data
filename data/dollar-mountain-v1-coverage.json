@@ -1,0 +1,73 @@
+{
+  "key": "dollar-mountain-v1",
+  "ski_sha256": "d24a7a49a95ab5d17ae82fa2d6e244532f4ec6b1b422f86dc61ec22833ab67e5",
+  "osm_timestamp": "2026-11-15T07:11:20Z",
+  "box": [
+    -114.38,
+    43.65,
+    -114.3,
+    43.71
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -114.352458,
+    43.673803,
+    -114.334074,
+    43.690583
+  ],
+  "margins_km": {
+    "west": 2.21,
+    "south": 2.65,
+    "east": 2.74,
+    "north": 2.16
+  },
+  "counts": {
+    "lifts": 5,
+    "runs_in_bounds": 30,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 8,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 2.3,
+    "runs_in_bounds": 13.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -114.433594,
+      43.580391,
+      -114.257812,
+      43.834527
+    ],
+    "12": [
+      -114.433594,
+      43.644026,
+      -114.257812,
+      43.771094
+    ],
+    "13": [
+      -114.389648,
+      43.644026,
+      -114.257812,
+      43.739352
+    ],
+    "14": [
+      -114.389648,
+      43.644026,
+      -114.279785,
+      43.723475
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

@@ -66,6 +66,50 @@
       "coverage": "data/afton-alps-v1-coverage.json"
     },
     {
+      "slug": "alpental",
+      "name": "Alpental",
+      "version": 1,
+      "key": "alpental-v1",
+      "box": [
+        -121.48,
+        47.41,
+        -121.39,
+        47.47
+      ],
+      "ski_area": "relation/6855067",
+      "neighbours": [
+        {
+          "id": "way/1361868120",
+          "name": "Three Summits",
+          "reason": "OpenStreetMap's polygon of Summit West, Central and East, The Summit at Snoqualmie's other three areas across Interstate 90 (Summit West's own polygon, way/1499174311, lies inside it): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14), joined to Alpental by no lift or trail (summitatsnoqualmie.com/summit-shuttle, the free bus between the Summit areas and Alpental, whose crossover trails join only Summit West, Central and East; Alpental's trail map, summitatsnoqualmie.com/trail-maps: 'Shuttle or drive to Summit West, Central, East'). Summit West lies in the south-east of the box, the rest in the Overpass window; left off by the owner's rule of 2026-10-21."
+        },
+        {
+          "id": "relation/6447055",
+          "name": "Sahalie Ski Club",
+          "reason": "A private ski club (access=private, its rope tow tagged 'Private Club Lift') 0.4 km north of Summit West's polygon and 1.6 km south-east of Alpental's base, on the road between them: not on The Summit at Snoqualmie's ticket, maps or lift report, and its polygon holds the club's rope tow, which would otherwise draw as a lift in the box. Left off by the owner's rule (\"leave them off\")."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:16:25Z",
+      "overpass_box": [
+        -121.52,
+        47.39,
+        -121.35,
+        47.49
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w122/USGS_13_n48w122.tif"
+      ],
+      "built_at": "2026-11-15T07:19:28Z",
+      "ski_file": {
+        "path": "data/alpental-v1-ski.pmtiles",
+        "bytes": 200663,
+        "sha256": "65afff8b1bf63291f55b38a64ac2508e14c7faa284db02af708ed6c7c6f4fc9e"
+      },
+      "coverage": "data/alpental-v1-coverage.json"
+    },
+    {
       "slug": "alpine-valley-ohio",
       "name": "Alpine Valley",
       "version": 1,
@@ -284,42 +328,97 @@
       "coverage": "data/arapahoe-basin-v1-coverage.json"
     },
     {
-      "slug": "aspen-snowmass",
-      "name": "Aspen Snowmass",
-      "version": 2,
-      "key": "aspen-snowmass-v2",
+      "slug": "aspen-highlands",
+      "name": "Aspen Highlands",
+      "version": 1,
+      "key": "aspen-highlands-v1",
       "box": [
-        -107.01,
-        39.09,
-        -106.78,
-        39.24
+        -106.91,
+        39.1,
+        -106.82,
+        39.21
       ],
-      "ski_area": [
-        "way/1144096092",
-        "way/530531926",
-        "way/530531925",
-        "way/530538581"
+      "ski_area": "way/530531926",
+      "neighbours": [
+        {
+          "id": "way/530531925",
+          "name": "Aspen Mountain",
+          "reason": "Aspen Mountain, another of Aspen Snowmass's four mountains on one ticket, about 1.6 km east across Castle Creek above the town of Aspen, with its own base, lifts, ski area boundary and trail map, and joined to Aspen Highlands by no lift or trail (the resort's free buses run between the four mountains: the 4-Mountain Connector on its Getting Around page): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14; aspen-mountain). Half of its polygon lies in the box's east part, the rest in the Overpass window; left off by the owner's rule of 2026-10-21."
+        },
+        {
+          "id": "way/530538581",
+          "name": "Buttermilk",
+          "reason": "Buttermilk, another of Aspen Snowmass's four mountains on one ticket, about 0.6 km north across Maroon Creek, with its own base, lifts, ski area boundary and trail map, and joined to Aspen Highlands by no lift or trail (the resort's free buses run between the four mountains: the 4-Mountain Connector on its Getting Around page): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14; buttermilk). Its polygon lies wholly in the box's north part, with its lifts and runs; left off by the owner's rule of 2026-10-21."
+        },
+        {
+          "id": "way/1144096092",
+          "name": "Aspen Snowmass",
+          "reason": "Snowmass (its polygon named Aspen Snowmass in OpenStreetMap), another of Aspen Snowmass's four mountains on one ticket, about 4.1 km north-west above Snowmass Village, with its own bases, lifts, ski area boundary and trail map, and joined to Aspen Highlands by no lift or trail (the resort's free buses run between the four mountains: the 4-Mountain Connector on its Getting Around page): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14; snowmass). Half of its polygon (Elk Camp and Two Creeks) lies in the Overpass window west of the box, with those lifts and runs; left off by the owner's rule of 2026-10-21."
+        }
       ],
       "elevation": "3dep13",
-      "baseline_checked": "2026-10-22",
-      "osm_timestamp": "2026-10-22T06:51:06Z",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:17:26Z",
       "overpass_box": [
-        -107.05,
-        39.07,
-        -106.74,
-        39.26
+        -106.95,
+        39.08,
+        -106.78,
+        39.23
       ],
       "elevation_inputs": [
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w107/USGS_13_n40w107.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w108/USGS_13_n40w108.tif"
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w107/USGS_13_n40w107.tif"
       ],
-      "built_at": "2026-10-23T06:28:50Z",
+      "built_at": "2026-11-15T07:25:43Z",
       "ski_file": {
-        "path": "data/aspen-snowmass-v2-ski.pmtiles",
-        "bytes": 865404,
-        "sha256": "56080678da141fe7db3344c6c2807878a1f034da8fbba529e99cb5d28aa379a5"
+        "path": "data/aspen-highlands-v1-ski.pmtiles",
+        "bytes": 287285,
+        "sha256": "72cdbd3ff099f53b3ea5a9d2f80aacdea0613366753f23540b9c658db4326137"
       },
-      "coverage": "data/aspen-snowmass-v2-coverage.json"
+      "coverage": "data/aspen-highlands-v1-coverage.json"
+    },
+    {
+      "slug": "aspen-mountain",
+      "name": "Aspen Mountain",
+      "version": 1,
+      "key": "aspen-mountain-v1",
+      "box": [
+        -106.86,
+        39.12,
+        -106.78,
+        39.21
+      ],
+      "ski_area": "way/530531925",
+      "neighbours": [
+        {
+          "id": "way/530531926",
+          "name": "Aspen Highlands",
+          "reason": "Aspen Highlands, another of Aspen Snowmass's four mountains on one ticket, about 1.6 km west across Castle Creek, with its own base, lifts, ski area boundary and trail map, and joined to Aspen Mountain by no lift or trail (the resort's free buses run between the four mountains: the 4-Mountain Connector on its Getting Around page, the free shuttle to all mountains from Rubey Park on Aspen Mountain's 2025-26 map): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14; aspen-highlands). Its polygon reaches into the box's west part, with its lifts and runs in the Overpass window; left off by the owner's rule of 2026-10-21."
+        },
+        {
+          "id": "way/530538581",
+          "name": "Buttermilk",
+          "reason": "Buttermilk, another of Aspen Snowmass's four mountains on one ticket, about 2.3 km north-west beyond Castle Creek and Maroon Creek, with its own base, lifts, ski area boundary and trail map, and joined to Aspen Mountain by no lift or trail (the resort's free buses run between the four mountains): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14; buttermilk). Its polygon reaches into the box's north-west corner, with its lifts and runs in the Overpass window; left off by the owner's rule of 2026-10-21."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:16:25Z",
+      "overpass_box": [
+        -106.9,
+        39.1,
+        -106.74,
+        39.23
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w107/USGS_13_n40w107.tif"
+      ],
+      "built_at": "2026-11-15T07:24:40Z",
+      "ski_file": {
+        "path": "data/aspen-mountain-v1-ski.pmtiles",
+        "bytes": 202980,
+        "sha256": "b61688dd194610a8362fc863836a0b615865fdceab471509d4cea1b4e24291f5"
+      },
+      "coverage": "data/aspen-mountain-v1-coverage.json"
     },
     {
       "slug": "attitash",
@@ -430,7 +529,7 @@
         {
           "id": "way/1554647623",
           "name": "Snow Summit",
-          "reason": "Snow Summit, the resort's other mountain, on its own map (snow-summit; the two stay together on big-bear-mountain-resort): its polygon lies inside the box's west half, 2 km west of Bear Mountain, with its 15 lifts and 40 runs."
+          "reason": "Snow Summit, the resort's other mountain, on its own map (snow-summit; the combined map, big-bear-mountain-resort, retired on 2026-11-15 by the owner's rule of one map per ski area unless connected by lift or trail): its polygon lies inside the box's west half, 2 km west of Bear Mountain, with its 15 lifts and 40 runs."
         },
         {
           "id": "way/329813045",
@@ -540,74 +639,6 @@
         "sha256": "7e3ee1790b5019e0a3bece84b729ed1514eca5484aa33b0738c5bd19f0cdb92d"
       },
       "coverage": "data/beaver-creek-v1-coverage.json"
-    },
-    {
-      "slug": "big-bear-mountain-resort",
-      "name": "Big Bear Mountain Resort",
-      "version": 2,
-      "key": "big-bear-mountain-resort-v2",
-      "box": [
-        -116.93,
-        34.19,
-        -116.82,
-        34.26
-      ],
-      "ski_area": [
-        "way/1554647623",
-        "way/682224991"
-      ],
-      "neighbours": [
-        {
-          "id": "way/329813045",
-          "name": "Big Bear Snow Play",
-          "reason": "a separate snow play area (sledding and tubing) with its two carpets, not part of the ski resort"
-        }
-      ],
-      "elevation": "3dep1",
-      "elevation_project": "CA_SoCal_Wildfires_B1_2018",
-      "baseline_checked": "2026-10-22",
-      "osm_timestamp": "2026-10-22T06:41:51Z",
-      "overpass_box": [
-        -116.97,
-        34.17,
-        -116.78,
-        34.28
-      ],
-      "elevation_inputs": [
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x50y378_CA_SoCal_Wildfires_B1_2018.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x50y379_CA_SoCal_Wildfires_B1_2018.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x50y380_CA_SoCal_Wildfires_B1_2018.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x51y378_CA_SoCal_Wildfires_B1_2018.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x51y379_CA_SoCal_Wildfires_B1_2018.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x51y380_CA_SoCal_Wildfires_B1_2018.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x52y378_CA_SoCal_Wildfires_B1_2018.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x52y379_CA_SoCal_Wildfires_B1_2018.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_SoCal_Wildfires_B1_2018/TIFF/USGS_one_meter_x52y380_CA_SoCal_Wildfires_B1_2018.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n35w117/USGS_13_n35w117.tif"
-      ],
-      "elevation_coverage": {
-        "source": "3dep1",
-        "project": "CA_SoCal_Wildfires_B1_2018",
-        "grid": "EPSG:3857, 4.777314 m",
-        "box": [
-          -116.93,
-          34.19,
-          -116.82,
-          34.26
-        ],
-        "lidar_box_pct": 100,
-        "lidar_window_pct": 98.11,
-        "min_lidar_box_pct": 95,
-        "fill_source": "3dep13",
-        "filled_window_pct": 1.89
-      },
-      "built_at": "2026-10-23T06:23:40Z",
-      "ski_file": {
-        "path": "data/big-bear-mountain-resort-v2-ski.pmtiles",
-        "bytes": 149841,
-        "sha256": "efe20319e7bac54fc8fb6910832016c3057f99fe76764df9caff80d60efba650"
-      },
-      "coverage": "data/big-bear-mountain-resort-v2-coverage.json"
     },
     {
       "slug": "big-boulder",
@@ -733,6 +764,46 @@
         "sha256": "2441855b7379ad42f1de4f2e7fa815755a8926626e387ab01b00d11bbef3921a"
       },
       "coverage": "data/big-white-v3-coverage.json"
+    },
+    {
+      "slug": "black-river-basin",
+      "name": "Black River Basin",
+      "version": 1,
+      "key": "black-river-basin-v1",
+      "box": [
+        -90.04,
+        46.48,
+        -89.96,
+        46.53
+      ],
+      "ski_area": "way/473859023",
+      "neighbours": [
+        {
+          "id": "way/473859022",
+          "name": "Jackson Creek Summit",
+          "reason": "Jackson Creek Summit (formerly Indianhead), Snowriver Mountain Resort's main mountain, about 600 m east, across Blackjack Road, with its own chalet, six lifts and trail network, joined to Black River Basin by no lift or ski trail, only the resort's base-to-base shuttle (snowriver.com/mountain-info/trail-map-mountain-stats: \"two mountains—Jackson Creek Summit and Black River Basin, which are separated by a brief shuttle ride\"; mountain-info/hours-of-operation: the Base-to-Base Shuttle between the base of the Voyageur Express and the Black River Chalet; read 2026-11-14): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14). Its polygon, with its lifts and runs, lies whole in the east of the box and the Overpass window; left off by the owner's rule of 2026-10-21."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:15:23Z",
+      "overpass_box": [
+        -90.08,
+        46.46,
+        -89.92,
+        46.55
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n47w090/USGS_13_n47w090.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n47w091/USGS_13_n47w091.tif"
+      ],
+      "built_at": "2026-11-15T07:17:04Z",
+      "ski_file": {
+        "path": "data/black-river-basin-v1-ski.pmtiles",
+        "bytes": 49699,
+        "sha256": "d4c99fcead4d55d8954be22cfee6a571f05f4e1453cb9167452b8202301f0af8"
+      },
+      "coverage": "data/black-river-basin-v1-coverage.json"
     },
     {
       "slug": "blue-mountain-ontario",
@@ -1162,6 +1233,76 @@
       "coverage": "data/brighton-v2-coverage.json"
     },
     {
+      "slug": "buttermilk",
+      "name": "Buttermilk",
+      "version": 1,
+      "key": "buttermilk-v1",
+      "box": [
+        -106.91,
+        39.16,
+        -106.83,
+        39.23
+      ],
+      "ski_area": "way/530538581",
+      "neighbours": [
+        {
+          "id": "way/530531926",
+          "name": "Aspen Highlands",
+          "reason": "Aspen Highlands, another of Aspen Snowmass's four mountains on one ticket, about 0.6 km south across Maroon Creek, with its own base, lifts, ski area boundary and trail map, and joined to Buttermilk by no lift or trail (the resort's free buses run between the four mountains: the 4-Mountain Connector on its Getting Around page): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14; aspen-highlands). A third of its polygon (its lower mountain down to the Highlands base) lies in the box's south part, the rest in the Overpass window; left off by the owner's rule of 2026-10-21."
+        },
+        {
+          "id": "way/530531925",
+          "name": "Aspen Mountain",
+          "reason": "Aspen Mountain, another of Aspen Snowmass's four mountains on one ticket, about 2.3 km south-east above the town of Aspen, with its own base, lifts, ski area boundary and trail map, and joined to Buttermilk by no lift or trail (the resort's free buses run between the four mountains: the 4-Mountain Connector on its Getting Around page): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14; aspen-mountain). Its polygon's west tip lies at the box's east edge, the rest in the Overpass window; left off by the owner's rule of 2026-10-21."
+        },
+        {
+          "id": "way/1144096092",
+          "name": "Aspen Snowmass",
+          "reason": "Snowmass (its polygon named Aspen Snowmass in OpenStreetMap), another of Aspen Snowmass's four mountains on one ticket, about 2.4 km west above Snowmass Village, with its own bases, lifts, ski area boundary and trail map, and joined to Buttermilk by no lift or trail (the resort's free buses run between the four mountains: the 4-Mountain Connector on its Getting Around page): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14; snowmass). Half of its polygon (Elk Camp and Two Creeks) lies in the Overpass window west of the box, with those lifts and runs; left off by the owner's rule of 2026-10-21."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "CO_CONMGaps_D24",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:11:20Z",
+      "overpass_box": [
+        -106.95,
+        39.14,
+        -106.79,
+        39.25
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_CONMGaps_D24/TIFF/USGS_1M_13_x33y434_CO_CONMGaps_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_CONMGaps_D24/TIFF/USGS_1M_13_x33y435_CO_CONMGaps_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_CONMGaps_D24/TIFF/USGS_1M_13_x34y434_CO_CONMGaps_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CO_CONMGaps_D24/TIFF/USGS_1M_13_x34y435_CO_CONMGaps_D24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w107/USGS_13_n40w107.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CO_CONMGaps_D24",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -106.91,
+          39.16,
+          -106.83,
+          39.23
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 84.5,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 15.5
+      },
+      "built_at": "2026-11-15T07:26:44Z",
+      "ski_file": {
+        "path": "data/buttermilk-v1-ski.pmtiles",
+        "bytes": 128924,
+        "sha256": "8694499e85c3094695cc027a0c9d25261514a717a07e6fb728d8186ab42d7e6f"
+      },
+      "coverage": "data/buttermilk-v1-coverage.json"
+    },
+    {
       "slug": "camelback",
       "name": "Camelback",
       "version": 1,
@@ -1515,6 +1656,45 @@
         "sha256": "4b38917f0833a8b8a89292363d9fcede2f4ade6aa6642cf5a8d11fe0eb267565"
       },
       "coverage": "data/diamond-peak-v1-coverage.json"
+    },
+    {
+      "slug": "dollar-mountain",
+      "name": "Dollar Mountain",
+      "version": 1,
+      "key": "dollar-mountain-v1",
+      "box": [
+        -114.38,
+        43.65,
+        -114.3,
+        43.71
+      ],
+      "ski_area": "way/1244098768",
+      "neighbours": [
+        {
+          "id": "way/1244099443",
+          "name": "Sun Valley - Bald Mountain",
+          "reason": "Bald Mountain, a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14): sun-valley. Its polygon lies 1.8 km west of Dollar Mountain's across the Big Wood River, joined to it by no lift or ski trail (sunvalley.com/the-mountain/maps-guides gives each mountain its own 2026-27 trail map, and sunvalley.com/about/getting-here sends guests between the two on the free Mountain Rides bus), and reaches into the box's west edge with the River Run base and its lifts and runs."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:11:20Z",
+      "overpass_box": [
+        -114.42,
+        43.63,
+        -114.26,
+        43.73
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w115/USGS_13_n44w115.tif"
+      ],
+      "built_at": "2026-11-15T07:13:21Z",
+      "ski_file": {
+        "path": "data/dollar-mountain-v1-ski.pmtiles",
+        "bytes": 115251,
+        "sha256": "d24a7a49a95ab5d17ae82fa2d6e244532f4ec6b1b422f86dc61ec22833ab67e5"
+      },
+      "coverage": "data/dollar-mountain-v1-coverage.json"
     },
     {
       "slug": "eldora",
@@ -1900,6 +2080,46 @@
       "coverage": "data/jack-frost-v1-coverage.json"
     },
     {
+      "slug": "jackson-creek-summit",
+      "name": "Jackson Creek Summit",
+      "version": 1,
+      "key": "jackson-creek-summit-v1",
+      "box": [
+        -90.02,
+        46.47,
+        -89.93,
+        46.53
+      ],
+      "ski_area": "way/473859022",
+      "neighbours": [
+        {
+          "id": "way/473859023",
+          "name": "Black River Basin",
+          "reason": "Black River Basin (formerly Blackjack), Snowriver Mountain Resort's other mountain, about 600 m west, across Blackjack Road, with its own chalet, four chairs and trail network, joined to Jackson Creek Summit by no lift or ski trail, only the resort's base-to-base shuttle (snowriver.com/mountain-info/trail-map-mountain-stats: \"two mountains—Jackson Creek Summit and Black River Basin, which are separated by a brief shuttle ride\"; mountain-info/hours-of-operation: the Base-to-Base Shuttle between the base of the Voyageur Express and the Black River Chalet; read 2026-11-14): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14). Its polygon, with its lifts and runs, lies whole in the west of the box and the Overpass window; left off by the owner's rule of 2026-10-21."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:13:20Z",
+      "overpass_box": [
+        -90.06,
+        46.45,
+        -89.89,
+        46.55
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n47w090/USGS_13_n47w090.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n47w091/USGS_13_n47w091.tif"
+      ],
+      "built_at": "2026-11-15T07:15:27Z",
+      "ski_file": {
+        "path": "data/jackson-creek-summit-v1-ski.pmtiles",
+        "bytes": 54271,
+        "sha256": "0a3fbfb94e0665c14199baa0405cc23d66143ec0579c222d9546708837585f60"
+      },
+      "coverage": "data/jackson-creek-summit-v1-coverage.json"
+    },
+    {
       "slug": "jackson-hole",
       "name": "Jackson Hole",
       "version": 1,
@@ -2087,37 +2307,37 @@
       "coverage": "data/kicking-horse-v1-coverage.json"
     },
     {
-      "slug": "killington-pico",
-      "name": "Killington-Pico",
+      "slug": "killington",
+      "name": "Killington",
       "version": 1,
-      "key": "killington-pico-v1",
+      "key": "killington-v1",
       "box": [
-        -72.88,
+        -72.85,
         43.57,
         -72.73,
-        43.69
+        43.65
       ],
-      "ski_area": [
-        "way/1228774360",
-        "way/1094586461"
+      "ski_area": "way/1228774360",
+      "neighbours": [
+        {
+          "id": "way/1094586461",
+          "name": "Pico Mountain Resort",
+          "reason": "Pico Mountain, a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14): pico. Its polygon lies 1.8 km north-west of Killington's, joined to it by no lift or ski trail (each has its own 2026-27 trail map and lift list; the Killington/Pico Interconnect on killington.com/lifts-and-trails-status is an uphill travel route, and picomountain.com/transportation-parking-and-shuttles sends guests on to Killington by The Bus), and reaches into the box's north-west corner with its lifts and runs."
+        }
       ],
       "elevation": "3dep1",
       "elevation_project": "VT_Statewide_A23",
-      "baseline_checked": "2026-11-12",
-      "osm_timestamp": "2026-11-12T09:23:44Z",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:12:21Z",
       "overpass_box": [
-        -72.92,
+        -72.89,
         43.55,
         -72.69,
-        43.71
+        43.67
       ],
       "elevation_inputs": [
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y483_VT_Statewide_A23.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y484_VT_Statewide_A23.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y485_VT_Statewide_A23.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y483_VT_Statewide_A23.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y484_VT_Statewide_A23.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y485_VT_Statewide_A23.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y483_VT_Statewide_A23.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y484_VT_Statewide_A23.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y485_VT_Statewide_A23.tif"
@@ -2127,10 +2347,10 @@
         "project": "VT_Statewide_A23",
         "grid": "EPSG:3857, 4.777314 m",
         "box": [
-          -72.88,
+          -72.85,
           43.57,
           -72.73,
-          43.69
+          43.65
         ],
         "lidar_box_pct": 100,
         "lidar_window_pct": 100,
@@ -2138,13 +2358,13 @@
         "fill_source": null,
         "filled_window_pct": 0
       },
-      "built_at": "2026-11-12T09:32:15Z",
+      "built_at": "2026-11-15T07:19:14Z",
       "ski_file": {
-        "path": "data/killington-pico-v1-ski.pmtiles",
-        "bytes": 277551,
-        "sha256": "bf12139f07bec900ed5dc459f96f59f938a378b096cea23e798bfa5bb79f59c1"
+        "path": "data/killington-v1-ski.pmtiles",
+        "bytes": 188331,
+        "sha256": "348d7bbc509cf7d526990870f582b4f9bd76569c8522a500b9e4ebeba67297aa"
       },
-      "coverage": "data/killington-pico-v1-coverage.json"
+      "coverage": "data/killington-v1-coverage.json"
     },
     {
       "slug": "kimberley",
@@ -3369,6 +3589,70 @@
       "coverage": "data/park-city-mountain-v2-coverage.json"
     },
     {
+      "slug": "pico",
+      "name": "Pico Mountain",
+      "version": 1,
+      "key": "pico-v1",
+      "box": [
+        -72.88,
+        43.62,
+        -72.8,
+        43.69
+      ],
+      "ski_area": "way/1094586461",
+      "neighbours": [
+        {
+          "id": "way/1228774360",
+          "name": "Killington Resort",
+          "reason": "Killington, a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14): killington. Its polygon lies 1.8 km south-east of Pico's, joined to it by no lift or ski trail (each has its own 2026-27 trail map and lift list; the Killington/Pico Interconnect on killington.com/lifts-and-trails-status is an uphill travel route, and picomountain.com/transportation-parking-and-shuttles sends guests on to Killington by The Bus), and reaches into the box's south-east corner with Ramshead, Snowdon and the K-1 base and their lifts and runs."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "VT_Statewide_A23",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:18:29Z",
+      "overpass_box": [
+        -72.92,
+        43.6,
+        -72.76,
+        43.71
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y483_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y484_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x66y485_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y483_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y484_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x67y485_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y483_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y484_VT_Statewide_A23.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/VT_Statewide_A23/TIFF/USGS_1M_18_x68y485_VT_Statewide_A23.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "VT_Statewide_A23",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -72.88,
+          43.62,
+          -72.8,
+          43.69
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-15T07:23:57Z",
+      "ski_file": {
+        "path": "data/pico-v1-ski.pmtiles",
+        "bytes": 93680,
+        "sha256": "4d0656244bef70a887bbaffd595e1e347c22b750688249f63fd51992e7a230fb"
+      },
+      "coverage": "data/pico-v1-coverage.json"
+    },
+    {
       "slug": "red-mountain",
       "name": "RED Mountain",
       "version": 1,
@@ -3668,6 +3952,46 @@
       "coverage": "data/sierra-at-tahoe-v1-coverage.json"
     },
     {
+      "slug": "silver-creek",
+      "name": "Silver Creek",
+      "version": 1,
+      "key": "silver-creek-v1",
+      "box": [
+        -80.03,
+        38.42,
+        -79.96,
+        38.47
+      ],
+      "ski_area": "way/1311361876",
+      "neighbours": [
+        {
+          "id": "way/1244062674",
+          "name": "Snowshoe Mountain",
+          "reason": "Snowshoe Basin with the Western Territory across the road (named Snowshoe Mountain in OpenStreetMap, as Silver Creek's polygon is), Snowshoe Mountain's main areas under the village, 1.4 km south of Silver Creek's polygon across a wooded valley: a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14), joined to Silver Creek by no lift or trail (Snowshoe's trail map, the James Niehues painting, draws no run or lift between them, only a wooded valley, and a bus stop at each base; snowshoemtn.com's Silver Creek page offers a 'free shuttle to & from' and its shuttle page runs continuous loops between Silver Creek, the Village and Top of the World (the Internet Archive's copies of 2025-03-13 and 2024-12-12: the site itself answers automated requests with a bot wall)). Its northern part lies in the south of the box, most of the rest in the Overpass window; left off by the owner's rule of 2026-10-21."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:13:20Z",
+      "overpass_box": [
+        -80.07,
+        38.4,
+        -79.92,
+        38.49
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w080/USGS_13_n39w080.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w081/USGS_13_n39w081.tif"
+      ],
+      "built_at": "2026-11-15T07:15:58Z",
+      "ski_file": {
+        "path": "data/silver-creek-v1-ski.pmtiles",
+        "bytes": 76456,
+        "sha256": "6f07489f6395177dd656e0cc933970cac487652b9ce4b8f75e2fb2a73ac28c25"
+      },
+      "coverage": "data/silver-creek-v1-coverage.json"
+    },
+    {
       "slug": "silverstar",
       "name": "SilverStar",
       "version": 1,
@@ -3776,7 +4100,7 @@
         {
           "id": "way/682224991",
           "name": "Big Bear Mountain Resort",
-          "reason": "Bear Mountain, the resort's other mountain, on its own map (bear-mountain; the two stay together on big-bear-mountain-resort): its polygon (named Big Bear Mountain Resort in OpenStreetMap) crosses the box's east edge 2 km east of Snow Summit, with its 11 lifts and 26 runs in the Overpass window."
+          "reason": "Bear Mountain, the resort's other mountain, on its own map (bear-mountain; the combined map, big-bear-mountain-resort, retired on 2026-11-15 by the owner's rule of one map per ski area unless connected by lift or trail): its polygon (named Big Bear Mountain Resort in OpenStreetMap) crosses the box's east edge 2 km east of Snow Summit, with its 11 lifts and 26 runs in the Overpass window."
         },
         {
           "id": "way/329813045",
@@ -3947,76 +4271,89 @@
       "coverage": "data/snowbird-v1-coverage.json"
     },
     {
-      "slug": "snowriver",
-      "name": "Snowriver",
+      "slug": "snowmass",
+      "name": "Snowmass",
       "version": 1,
-      "key": "snowriver-v1",
+      "key": "snowmass-v1",
       "box": [
-        -90.04,
-        46.47,
-        -89.93,
-        46.53
+        -107.01,
+        39.14,
+        -106.89,
+        39.24
       ],
-      "ski_area": [
-        "way/473859022",
-        "way/473859023"
+      "ski_area": "way/1144096092",
+      "neighbours": [
+        {
+          "id": "way/530538581",
+          "name": "Buttermilk",
+          "reason": "Buttermilk, another of Aspen Snowmass's four mountains on one ticket, about 2.4 km east, with its own base, lifts, ski area boundary and trail map, and joined to Snowmass by no lift or trail (the resort's free buses run between the four mountains: the 4-Mountain Connector on its Getting Around page): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14; buttermilk). Its polygon lies wholly in the Overpass window east of the box, with its lifts and runs; left off by the owner's rule of 2026-10-21."
+        },
+        {
+          "id": "way/530531926",
+          "name": "Aspen Highlands",
+          "reason": "Aspen Highlands, another of Aspen Snowmass's four mountains on one ticket, about 4.1 km south-east beyond Buttermilk, with its own base, lifts, ski area boundary and trail map, and joined to Snowmass by no lift or trail (the resort's free buses run between the four mountains: the 4-Mountain Connector on its Getting Around page): a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14; aspen-highlands). Its polygon lies in the Overpass window east of the box, with its lifts and runs; left off by the owner's rule of 2026-10-21."
+        }
       ],
       "elevation": "3dep13",
       "baseline_checked": "2026-11-14",
-      "osm_timestamp": "2026-11-14T09:46:35Z",
+      "osm_timestamp": "2026-11-15T07:20:36Z",
       "overpass_box": [
-        -90.08,
-        46.45,
-        -89.89,
-        46.55
+        -107.05,
+        39.12,
+        -106.85,
+        39.26
       ],
       "elevation_inputs": [
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n47w090/USGS_13_n47w090.tif",
-        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n47w091/USGS_13_n47w091.tif"
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w107/USGS_13_n40w107.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w108/USGS_13_n40w108.tif"
       ],
-      "built_at": "2026-11-14T10:36:32Z",
+      "built_at": "2026-11-15T07:23:03Z",
       "ski_file": {
-        "path": "data/snowriver-v1-ski.pmtiles",
-        "bytes": 67927,
-        "sha256": "f6187660cf4926de3b84a0aeac53f36392b1b150e715b1034e48b49d7cb59064"
+        "path": "data/snowmass-v1-ski.pmtiles",
+        "bytes": 344274,
+        "sha256": "492434f41e471fb4e6682acc7a96eb55115dc54c190b2f83174199803d685c5f"
       },
-      "coverage": "data/snowriver-v1-coverage.json"
+      "coverage": "data/snowmass-v1-coverage.json"
     },
     {
       "slug": "snowshoe",
       "name": "Snowshoe",
-      "version": 1,
-      "key": "snowshoe-v1",
+      "version": 2,
+      "key": "snowshoe-v2",
       "box": [
         -80.05,
         38.38,
         -79.95,
-        38.47
+        38.45
       ],
-      "ski_area": [
-        "way/1244062674",
-        "way/1311361876"
+      "ski_area": "way/1244062674",
+      "neighbours": [
+        {
+          "id": "way/1311361876",
+          "name": "Snowshoe Mountain",
+          "reason": "Silver Creek (named Snowshoe Mountain in OpenStreetMap, as the Basin's polygon is), Snowshoe Mountain's third area, 1.4 km north of Snowshoe Basin's polygon across a wooded valley: a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14), joined to Snowshoe Basin and the Western Territory by no lift or trail (Snowshoe's trail map, the James Niehues painting, draws no run or lift between them, only a wooded valley, and a bus stop at each base; snowshoemtn.com's Silver Creek page offers a 'free shuttle to & from' and its shuttle page runs continuous loops between Silver Creek, the Village and Top of the World (the Internet Archive's copies of 2025-03-13 and 2024-12-12: the site itself answers automated requests with a bot wall)). It lies in the north of the box and the Overpass window; left off by the owner's rule of 2026-10-21."
+        }
       ],
       "elevation": "3dep13",
-      "baseline_checked": "2026-11-12",
-      "osm_timestamp": "2026-11-12T17:29:01Z",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:09:19Z",
       "overpass_box": [
         -80.09,
         38.36,
         -79.91,
-        38.49
+        38.47
       ],
       "elevation_inputs": [
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w080/USGS_13_n39w080.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w081/USGS_13_n39w081.tif"
       ],
-      "built_at": "2026-11-12T17:32:55Z",
+      "built_at": "2026-11-15T07:11:09Z",
       "ski_file": {
-        "path": "data/snowshoe-v1-ski.pmtiles",
-        "bytes": 175017,
-        "sha256": "60d02dfa10acc8a57d9e3acddb2db0338ba643729f4ff9cd7b0b929dae0221d2"
+        "path": "data/snowshoe-v2-ski.pmtiles",
+        "bytes": 140642,
+        "sha256": "6463916ca73343efd2b73c8f8c5e98350761f36da97420d68cf06c4b85e53111"
       },
-      "coverage": "data/snowshoe-v1-coverage.json"
+      "coverage": "data/snowshoe-v2-coverage.json"
     },
     {
       "slug": "solitude",
@@ -4502,44 +4839,51 @@
     {
       "slug": "summit-at-snoqualmie",
       "name": "The Summit at Snoqualmie",
-      "version": 1,
-      "key": "summit-at-snoqualmie-v1",
+      "version": 2,
+      "key": "summit-at-snoqualmie-v2",
       "box": [
-        -121.48,
+        -121.47,
         47.36,
         -121.36,
-        47.47
+        47.45
       ],
-      "ski_area": [
-        "way/1361868120",
-        "relation/6855067"
-      ],
+      "ski_area": "way/1361868120",
       "neighbours": [
         {
           "id": "relation/6447055",
           "name": "Sahalie Ski Club",
           "reason": "A private ski club (access=private, its rope tow tagged 'Private Club Lift') 0.4 km north of Summit West's polygon, on the way to Alpental: not on The Summit at Snoqualmie's ticket, maps or lift report, and its polygon holds the club's rope tow, which would otherwise draw as a lift between the resort's areas. Left off by the owner's rule (\"leave them off\")."
+        },
+        {
+          "id": "relation/6855067",
+          "name": "Alpental",
+          "reason": "Alpental, The Summit at Snoqualmie's fourth area, across Interstate 90 from Summit West: a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14), joined to Summit West, Central and East by no lift or trail (summitatsnoqualmie.com/summit-shuttle, the free bus between the Summit areas and Alpental, whose crossover trails join only Summit West, Central and East; Alpental's trail map, summitatsnoqualmie.com/trail-maps: 'Shuttle or drive to Summit West, Central, East'). Its polygon, with its lifts and runs, lies in the north-west of the box and the Overpass window; left off by the owner's rule of 2026-10-21."
+        },
+        {
+          "id": "relation/6855066",
+          "name": "Alpental Backcountry",
+          "reason": "OpenStreetMap's polygon of the Alpental Back Bowls, beyond Alpental's Back Bowl Boundary and gates (Alpental's trail map, summitatsnoqualmie.com/trail-maps) and reached only from Alpental's lifts: part of Alpental, a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14), where its runs are drawn out of bounds. It reaches into the north-west corner of the box and lies in the Overpass window; left off, so that none of its backcountry lines draws on The Summit's map."
         }
       ],
       "elevation": "3dep13",
-      "baseline_checked": "2026-11-10",
-      "osm_timestamp": "2026-11-10T17:00:51Z",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:27:42Z",
       "overpass_box": [
-        -121.52,
+        -121.51,
         47.34,
         -121.32,
-        47.49
+        47.47
       ],
       "elevation_inputs": [
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w122/USGS_13_n48w122.tif"
       ],
-      "built_at": "2026-11-10T17:04:18Z",
+      "built_at": "2026-11-15T07:30:28Z",
       "ski_file": {
-        "path": "data/summit-at-snoqualmie-v1-ski.pmtiles",
-        "bytes": 367119,
-        "sha256": "3d94907fab35b7d03fd2f61c0035d3839a971019346ff2422296da02a73d7a9a"
+        "path": "data/summit-at-snoqualmie-v2-ski.pmtiles",
+        "bytes": 253365,
+        "sha256": "6d738ae89f991dc0048db52ccbabb8065859a9d19fd079ae8adbfde4a87b9cc4"
       },
-      "coverage": "data/summit-at-snoqualmie-v1-coverage.json"
+      "coverage": "data/summit-at-snoqualmie-v2-coverage.json"
     },
     {
       "slug": "sun-peaks",
@@ -4576,37 +4920,41 @@
     {
       "slug": "sun-valley",
       "name": "Sun Valley",
-      "version": 1,
-      "key": "sun-valley-v1",
+      "version": 2,
+      "key": "sun-valley-v2",
       "box": [
         -114.45,
         43.62,
-        -114.3,
+        -114.34,
         43.71
       ],
-      "ski_area": [
-        "way/1244099443",
-        "way/1244098768"
+      "ski_area": "way/1244099443",
+      "neighbours": [
+        {
+          "id": "way/1244098768",
+          "name": "Sun Valley - Dollar Mountain",
+          "reason": "Dollar Mountain, a separate ski area of the same resort, on its own map (the owner's rule, 2026-11-14): dollar-mountain. Its polygon lies 1.8 km east of Bald Mountain's across the Big Wood River, joined to it by no lift or ski trail (sunvalley.com/the-mountain/maps-guides gives each mountain its own 2026-27 trail map, and sunvalley.com/about/getting-here sends guests between the two on the free Mountain Rides bus), and reaches into the box's east edge with its lifts and runs."
+        }
       ],
       "elevation": "3dep13",
-      "baseline_checked": "2026-11-10",
-      "osm_timestamp": "2026-11-10T08:18:05Z",
+      "baseline_checked": "2026-11-14",
+      "osm_timestamp": "2026-11-15T07:05:20Z",
       "overpass_box": [
         -114.49,
         43.6,
-        -114.26,
+        -114.3,
         43.73
       ],
       "elevation_inputs": [
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w115/USGS_13_n44w115.tif"
       ],
-      "built_at": "2026-11-10T08:25:54Z",
+      "built_at": "2026-11-15T07:07:32Z",
       "ski_file": {
-        "path": "data/sun-valley-v1-ski.pmtiles",
-        "bytes": 340735,
-        "sha256": "6afb69c2e3c83a41a85a1b1fd188be64cb661499ac203d0b8c260b656907ca38"
+        "path": "data/sun-valley-v2-ski.pmtiles",
+        "bytes": 262991,
+        "sha256": "356c6390dd2578a85e680a5d68c67abbc9be38ba7520d1b48507eb211ca9e98b"
       },
-      "coverage": "data/sun-valley-v1-coverage.json"
+      "coverage": "data/sun-valley-v2-coverage.json"
     },
     {
       "slug": "sunday-river",

@@ -1,0 +1,188 @@
+{
+  "slug": "pico",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Pico Mountain (way/1094586461, Pico Mountain Resort, 2.3 km2) on its own map (the owner's rule of 2026-11-14: one map per ski area unless the areas are connected by lift or ski trail); killington-pico-v1, retired, drew it with Killington, and these are that map's Pico entries (killington-pico.overrides.json of 2026-11-12) with their reasons. Killington (way/1228774360) is a listed neighbour in resorts.json: its polygon lies 1.8 km south-east at the nearest points, joined to Pico by no lift or ski trail (each mountain has its own 2026-27 trail map, picomountain.com/winter-trail-map and killington.com/winter-trail-map, with its own ski area boundary; Pico's map paints Killington in the distance; the Killington/Pico Interconnect on killington.com/lifts-and-trails-status is an uphill travel route, not a trail; picomountain.com/transportation-parking-and-shuttles describes Pico's single base on Route 4 and sends guests on to Killington by The Bus), and its 22 lifts, 205 runs and 3 stations in the Overpass window are left off, 8 of them by the 250 m rule (Killington's Field Goal at the Skyeship base, and the 7 freeride lines over the ridge west of Ramshead and Snowdon and east of Sunrise Village that Killington's map draws out of bounds). Every part of Pico is reached by its own lifts from the one base. Every named run and lift checked again on 2026-11-14 against Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf, the James Niehues painting of 2026-10-08, rendered at four times its size; green, blue and black lines with the diamonds; summit 3,967 ft, base 2,000 ft) and its lifts and trails status page (picomountain.com/lifts-and-trails-status: 7 lifts and 61 trails rated green, blue, black or double black), the starting point being the combined map's check of 2026-11-12. OSM's easy, intermediate, advanced and expert are green, blue, black and double black. Where the map and the status page both rate a run they agree, and they win over OSM; where OSM splits a run the map draws in sections (A Slope, Gold Rush, Giant Killer, K.A.), OSM's pieces already carry the sections' ratings. Ratings: A Slope Cutoff, That A Way (two ways), Upper Sunset 71 and Mid Pike Glades (its line and its outline) to intermediate, and Peekaboo to advanced. C Slope, intermediate in OSM, is now on the status page as blue, as the map draws it (the combined map found it missing there). Names from the map and the status page: Summit Glade East and West (OSM Summit Glades East and West), Mid K.A. (OSM Middle K.A., two ways), Mid Pike Glades for the glade outline OSM names Middle Pike Glade. Names that differ from the map or the status page only by an apostrophe, a hyphen or a section suffix stay as OSM has them (Fool's Gold for Fools Gold, Forty Niner for Forty-Niner, A Slope Cutoff and B Slope Cutoff for A Slope - Cutoff and B Slope - Cutoff). No park: the orange lanes Pico's map draws beside Prospector and Panhandler are not named as parks in Pico's list. Lifts: the status page's Summit Express Quad, Golden Express Quad, Little Pico Triple and Knomes Knoll Triple are in OSM. Hidden: Pico's Outpost Double (grey on the 2026-27 map, replaced by the Outpost Rope Tow) and the Bonanza Double and Bonanza Rope Tow (replaced by Bonanza Carpet I and II), and the closed glade outlines of Upper Pike Glade, Poma Woods and Doozie (natural=wood without area=yes; their lines stay). Two aerialway=yes platforms are left out by the lift rule, and 134 nordic and 485 ski-touring ways (the Catamount Trail among them) and 6 piste:type=yes ways by the type rule, Pico's Outlaw glade among them. OSM gaps (shipped as at Palisades Tahoe): Outlaw (tagged piste:type=yes in OSM, so left out by the type rule, as Solitude's Evergreen Chutes), Upper K.A. Glades, the Outpost Rope Tow and Bonanza Carpets I and II.",
+  "overrides": [
+    {
+      "id": "way/267910962",
+      "reason": "A Slope Cutoff is drawn as a blue line, labelled A SLOPE CUTOFF, on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf), and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) rates A Slope - Cutoff blue; OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "A Slope Cutoff",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/907937062",
+      "reason": "Peekaboo, between Lower Pike and Exhibition, is a black line with one black diamond on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) and black in Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status); OSM rates it intermediate. The resort's sources agree and win.",
+      "expect": {
+        "name": "Peekaboo",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/273716434",
+      "reason": "That A Way, across the top of the Outpost area to Gold Rush, is a blue line labelled THAT A WAY on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) and blue in Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status); OSM rates it easy. The resort's sources agree and win.",
+      "expect": {
+        "name": "That A Way",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1100861952",
+      "reason": "The last 113 m of That A Way, from Gold Rush to Charlie's Highway: blue on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) and in Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status); OSM rates it easy. The resort's sources agree and win.",
+      "expect": {
+        "piste:name": "That A Way",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/273715148",
+      "reason": "Upper Sunset 71, below the summit, is a blue line labelled SUNSET 71 on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) and blue in Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status); OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Upper Sunset 71",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1105838834",
+      "reason": "Mid Pike Glades is labelled MID PIKE GLADES in blue with a blue square on Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) and rated blue in Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status); OSM rates the line advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Mid Pike Glades",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "relation/14718250",
+      "reason": "The outline of the same glade, which OSM names Middle Pike Glade and rates advanced: Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) labels it MID PIKE GLADES with a blue square and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) rates Mid Pike Glades blue. The resort's sources win, for the name and the rating.",
+      "expect": {
+        "name": "Middle Pike Glade",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Mid Pike Glades",
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/556882196",
+      "reason": "Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) labels this black line SUMMIT GLADE EAST and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists Summit Glade East; OSM names it Summit Glades East.",
+      "expect": {
+        "name": "Summit Glades East",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Summit Glade East"
+      }
+    },
+    {
+      "id": "way/273716438",
+      "reason": "Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) labels this black line SUMMIT GLADE WEST and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists Summit Glade West; OSM names it Summit Glades West.",
+      "expect": {
+        "name": "Summit Glades West",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Summit Glade West"
+      }
+    },
+    {
+      "id": "way/1105838830",
+      "reason": "Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) labels the middle of K.A. MID K.A. (as it does Mid Pike) and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists K.A. - Mid; OSM's piste:name on this way is Middle K.A. (its name tag already says Mid K.A.).",
+      "expect": {
+        "name": "Mid K.A.",
+        "piste:name": "Middle K.A.",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Mid K.A."
+      }
+    },
+    {
+      "id": "way/1106892770",
+      "reason": "The last 106 m of Mid K.A. to Mid Pike: Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) labels it MID K.A.; OSM names it Middle K.A.",
+      "expect": {
+        "name": "Middle K.A.",
+        "piste:name": "Middle K.A.",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Mid K.A."
+      }
+    },
+    {
+      "id": "way/159736786",
+      "reason": "The Outpost Double: Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) draws it grey, out of service, with the new OUTPOST ROPE TOW in red across the top of the Outpost area, and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists the Outpost Rope Tow and no Outpost Double; OSM tags it disused (2025-26 announced as its last season). The rope tow is not in OSM yet.",
+      "expect": {
+        "name": "Outpost Double",
+        "aerialway": "chair_lift",
+        "disused:aerialway": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/255729081",
+      "reason": "The Bonanza Double in Pico's beginner area: Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) draws Bonanza Carpet I and Bonanza Carpet II there, and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists those two carpets and no chair, so the resort no longer runs this chair. The carpets are not in OSM yet.",
+      "expect": {
+        "name": "Bonanza Double",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/255729082",
+      "reason": "The Bonanza Rope Tow in Pico's beginner area: Pico's 2026-27 winter trail map (picomountain.com/winter-trail-map, PicoWinterTrailMap2627.pdf) draws Bonanza Carpet I and Bonanza Carpet II there, and Pico's lifts and trails status page (picomountain.com/lifts-and-trails-status) lists those two carpets and no rope tow. The carpets are not in OSM yet.",
+      "expect": {
+        "name": "Bonanza Rope Tow",
+        "aerialway": "rope_tow"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1105838836",
+      "reason": "The 944 m outline of the Upper Pike Glade glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "piste:name": "Upper Pike Glade",
+        "natural": "wood",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1107164676",
+      "reason": "The 1308 m outline of the Poma Woods glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "piste:name": "Poma Woods",
+        "natural": "wood",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1103906906",
+      "reason": "The 936 m outline of the Doozie glade, a closed way tagged natural=wood without area=yes, which would draw as a run looping round the wood; the glade's own line is kept. Hidden as Copper Mountain's Lower Enchanted Forest outline is.",
+      "expect": {
+        "piste:name": "Doozie",
+        "natural": "wood",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    }
+  ]
+}

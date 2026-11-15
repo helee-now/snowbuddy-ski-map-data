@@ -1,0 +1,144 @@
+{
+  "slug": "aspen-highlands",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/530531926 (Aspen Highlands, from Loge Peak and the hike-to Highland Bowl down to Highlands Village), one of Aspen Snowmass's four mountains, on its own map by the owner's rule of 2026-11-14 (one map per ski area unless the areas are connected by lift or trail): Aspen Mountain and Buttermilk, whose polygons reach into the box, and Snowmass (its polygon named Aspen Snowmass in OpenStreetMap), half of which lies in the Overpass window, are listed neighbours and left off. No lift or trail joins the four mountains; the resort links them by free buses (the 4-Mountain Connector on aspensnowmass.com/visit/getting-around), and each has its own ski area boundary and trail map. Split from the retired combined map aspen-snowmass: its seventeen overrides that touch Highlands' features are carried here with their reasons (checked 2026-10-21 against the same map), and Pines Upper's hide (a residential platter at Snowmass in the Overpass window's west margin). Checked again on 2026-11-14, every named run and lift, against the resort's current sources: the 2025-26 trail map (2526highlands-map-layeredwebsite.pdf, with its Highland Bowl and Olympic Bowl views; its text layer gives the spellings, and it was rendered at four to fourteen times its size to read the symbols) and the grooming report's trail list for Aspen Highlands (aspensnowmass.com's GroomingReport feed: 124 ski trails, each with its rating; the combined map's check had read the lists of Snowmass and Buttermilk only). The legend: More Difficult (blue square), Most Difficult (black diamond, a black line), Expert Only (two diamonds on a yellow line), Extreme Terrain (EX on a yellow line), OSM's intermediate, advanced, expert and extreme; no beginner terrain. OpenStreetMap is as the combined map's data of 2026-10-22 had it here. Of the 110 named OSM runs, the map and the list agree with OSM after the carried overrides but for these: Jug's Hill (a black label with no line or diamond on the map) and Mousetrap (not on the map) take the list's harder rating, expert, by the rule of 2026-10-22 (where the resort's sources disagree, or only one of them rates a run, the harder of theirs and OSM's is kept); so Audacious and Filip's Leap stay extreme (EX on the map, expert in the list) and Boomerang Woods expert (two diamonds on a yellow line on the map, advanced in the list). Names: Hot Y's loses a mapper's descriptor (Y-3 to Y-8), and Separator takes the map's spelling, Sepparator. Names written as the map writes them, or differing only by punctuation or a space, stay (Be-One, Hines-Sight, Mosh Pit, Steep 'N Deep, Aces & Eights, Why Knot, Riverside Dr., Sherwood Forest, No Name, Jugs Hill; G-0 for the list's G-Zero). Hidden: Five Trees, a private chair from homes beside the ski area. Lifts: Exhibition, Loge Peak, Cloud Nine, Deep Temerity and Thunderbowl, the map's five and the five the resort's snow report counts. OSM gaps against the map and the list (shipped as at Palisades Tahoe), names of the list with no OSM run: Child's Play and Northwoods (Highland Bowl), Hot Spot (Olympic side), A+, Fran's Love, GLE, Hot Ridge, Log Jam Gully and Snyder's Ridge (Steeplechase), Mystery Gully and Thermal (Temerity), Cakewalk and Shred It (Thunderbowl), Easy Street, El's Wood, Sashay, Turk's Delight and Upper Meadows (upper mountain), Finale, Jerome Park and Mac 6 (lower mountain) and Moment Catwalk. The two Maroon Bells backcountry lines the combined map drew out of bounds (The Landry Line, North Face of North Maroon Peak) lie beyond this map's Overpass window.",
+  "overrides": [
+    {
+      "id": "way/1212154522",
+      "reason": "Five Trees: a private chair from homes beside Aspen Highlands (access=private), not on the resort's map or lift list.",
+      "expect": { "name": "Five Trees", "aerialway": "chair_lift", "access": "private" },
+      "hide": true
+    },
+    {
+      "id": "way/1210150814",
+      "reason": "Pines Upper: a residential platter at The Pines, Snowmass, 270 m outside Snowmass's polygon, so the neighbour rule's 250 m does not give it to Snowmass and it would stay in this file, in the Overpass window's west margin; not on the resort's maps or lift list (hidden on the snowmass map too).",
+      "expect": { "name": "Pines Upper", "aerialway": "platter" },
+      "hide": true
+    },
+    {
+      "id": "way/772755570",
+      "reason": "Typo; the Highlands map labels it EXHIBITION, like the lift beside it.",
+      "expect": { "name": "Exibition" },
+      "set": { "name": "Exhibition" }
+    },
+    {
+      "id": "way/1080644837",
+      "reason": "Truncated; the Highlands map labels it GRAND PRIX.",
+      "expect": { "name": "Grand Pr" },
+      "set": { "name": "Grand Prix" }
+    },
+    {
+      "id": "way/772755573",
+      "reason": "Near-duplicate spelling: the Highlands map and the lift say THUNDERBOWL, as the run's other ways do (one run split into two names).",
+      "expect": { "name": "Thunder Bowl" },
+      "set": { "name": "Thunderbowl" }
+    },
+    {
+      "id": "way/1049084957",
+      "reason": "Typo: the Highlands map spells the bowl OLYMPIC BOWL.",
+      "expect": { "name": "Olymic Bowl Exit" },
+      "set": { "name": "Olympic Bowl Exit" }
+    },
+    {
+      "id": "way/772755554",
+      "reason": "Typo; the Highlands map labels it FACE OF OLY.",
+      "expect": { "name": "Face of Olly" },
+      "set": { "name": "Face of Oly" }
+    },
+    {
+      "id": "way/1049084953",
+      "reason": "Typo; the Highlands map labels it AEROBIE.",
+      "expect": { "name": "Aeroble" },
+      "set": { "name": "Aerobie" }
+    },
+    {
+      "id": "way/1015108584",
+      "reason": "Typo; the Highlands map labels it FILIP'S LEAP.",
+      "expect": { "name": "Flip's Leap" },
+      "set": { "name": "Filip's Leap" }
+    },
+    {
+      "id": "way/1466107548",
+      "reason": "Parenthesised extra; the Highlands map labels it NO NAME.",
+      "expect": { "name": "No Name (Highlands)" },
+      "set": { "name": "No Name" }
+    },
+    {
+      "id": "way/772755566",
+      "reason": "Truncated; the Highlands map labels it T-LAZY-7 CATWALK.",
+      "expect": { "name": "T-Lazy Catwalk" },
+      "set": { "name": "T-Lazy-7 Catwalk" }
+    },
+    {
+      "id": "way/579412453",
+      "reason": "The Highlands map draws Grand Traverse as a black (Most Difficult) catwalk; OSM rates it expert.",
+      "expect": { "name": "Grand Traverse", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/579412454",
+      "reason": "The Highlands map draws Grand Reverse as a black (Most Difficult) catwalk; OSM rates it expert.",
+      "expect": { "name": "Grand Reverse", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/579412472",
+      "reason": "The Highlands map draws Bear Hollow Road as a black (Most Difficult) catwalk; OSM rates it expert.",
+      "expect": { "piste:name": "Bear Hollow Road", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1015108586",
+      "reason": "The Highlands map draws South Fork in the Expert Only yellow; OSM rates it advanced.",
+      "expect": { "name": "South Fork", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1049084924",
+      "reason": "The Highlands map draws Middle Fork in the Expert Only yellow; OSM rates it advanced.",
+      "expect": { "name": "Middle Fork", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1049084947",
+      "reason": "The Highlands map draws North Fork in the Expert Only yellow; OSM rates it advanced.",
+      "expect": { "name": "North Fork", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1372693164",
+      "reason": "The 163 m start of Kandahar, from Face of Oly across the head of Cloud Nine to OSM's main Kandahar way, rated advanced; the Highlands map draws Kandahar blue (More Difficult) for its whole length from beside the Cloud Nine top, with no black piece, as OSM's main way is.",
+      "expect": { "name": "Kandahar", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1462870757",
+      "reason": "Jug's Hill: expert in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14); the 2025-26 Highlands map labels it in a black box with no line or diamond, which does not tell Most Difficult from Expert Only, so the list's harder rating is kept (the rule of 2026-10-22). OSM rates it advanced. The name differs from the map's JUG'S HILL only by the apostrophe and stays.",
+      "expect": { "piste:name": "Jugs Hill", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1460650123",
+      "reason": "Mousetrap, beside Broadway below the Loge Peak top: expert in the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14) (Upper Mountain); the 2025-26 Highlands map does not name it, so the list's rating, the harder of it and OSM's (advanced), is kept (the rule of 2026-10-22).",
+      "expect": { "piste:name": "Mousetrap", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1049084920",
+      "reason": "A mapper's descriptor in the name: the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14) names the run Hot Y's (Highland Bowl); the parenthesis lists the chutes it covers. The map does not name it.",
+      "expect": { "name": "Hot Y's (Y-3 to Y-8)" },
+      "set": { "name": "Hot Y's" }
+    },
+    {
+      "id": "way/1049084928",
+      "reason": "A mapper's descriptor in the name: the resort's grooming-report trail list (aspensnowmass.com, GroomingReport feed, 2026-11-14) names the run Hot Y's (Highland Bowl); the parenthesis lists the chutes it covers. The map does not name it.",
+      "expect": { "name": "Hot Y's (Y-3 to Y-8)" },
+      "set": { "name": "Hot Y's" }
+    },
+    {
+      "id": "way/772755586",
+      "reason": "The 2025-26 Highlands map labels this run, a black line from beside Bob's Glade and Upper Stein down to P-Chutes Road, SEPPARATOR (the resort's grooming-report list spells it Sepperator); OSM has Separator. The printed map's spelling wins.",
+      "expect": { "name": "Separator" },
+      "set": { "name": "Sepparator" }
+    }
+  ]
+}

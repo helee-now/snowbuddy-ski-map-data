@@ -1,39 +1,39 @@
 {
-  "key": "snowshoe-v1",
-  "ski_sha256": "60d02dfa10acc8a57d9e3acddb2db0338ba643729f4ff9cd7b0b929dae0221d2",
-  "osm_timestamp": "2026-11-12T17:29:01Z",
+  "key": "silver-creek-v1",
+  "ski_sha256": "6f07489f6395177dd656e0cc933970cac487652b9ce4b8f75e2fb2a73ac28c25",
+  "osm_timestamp": "2026-11-15T07:13:20Z",
   "box": [
-    -80.05,
-    38.38,
-    -79.95,
+    -80.03,
+    38.42,
+    -79.96,
     38.47
   ],
   "min_margin_km": 2,
   "terrain_extent": [
-    -80.018523,
-    38.399323,
-    -79.982921,
+    -80.000692,
+    38.438302,
+    -79.985321,
     38.448515
   ],
   "margins_km": {
-    "west": 2.74,
-    "south": 2.15,
-    "east": 2.87,
+    "west": 2.55,
+    "south": 2.04,
+    "east": 2.21,
     "north": 2.39
   },
   "counts": {
-    "lifts": 13,
-    "runs_in_bounds": 68,
-    "run_areas_in_bounds": 68,
+    "lifts": 5,
+    "runs_in_bounds": 21,
+    "run_areas_in_bounds": 21,
     "runs_out_of_bounds": 0,
     "run_areas_out_of_bounds": 0,
-    "lift_stations": 26,
+    "lift_stations": 10,
     "ski_area": 1,
     "other_lifts_and_runs": 0
   },
   "length_km": {
-    "lifts": 9.5,
-    "runs_in_bounds": 32.1,
+    "lifts": 2.9,
+    "runs_in_bounds": 9,
     "runs_out_of_bounds": 0
   },
   "lifts_outside_box": [],
@@ -43,26 +43,26 @@
   "tile_footprints": {
     "11": [
       -80.15625,
-      38.272689,
+      38.410558,
       -79.804688,
       38.548165
     ],
     "12": [
       -80.068359,
-      38.341656,
+      38.410558,
       -79.892578,
       38.479395
     ],
     "13": [
       -80.068359,
-      38.376115,
+      38.410558,
       -79.936523,
       38.479395
     ],
     "14": [
-      -80.068359,
-      38.376115,
-      -79.936523,
+      -80.046387,
+      38.410558,
+      -79.958496,
       38.479395
     ]
   },

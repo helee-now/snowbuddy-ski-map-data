@@ -1,0 +1,73 @@
+{
+  "key": "aspen-highlands-v1",
+  "ski_sha256": "72cdbd3ff099f53b3ea5a9d2f80aacdea0613366753f23540b9c658db4326137",
+  "osm_timestamp": "2026-11-15T07:17:26Z",
+  "box": [
+    -106.91,
+    39.1,
+    -106.82,
+    39.21
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -106.878278,
+    39.126036,
+    -106.847411,
+    39.187779
+  ],
+  "margins_km": {
+    "west": 2.74,
+    "south": 2.9,
+    "east": 2.36,
+    "north": 2.47
+  },
+  "counts": {
+    "lifts": 5,
+    "runs_in_bounds": 124,
+    "run_areas_in_bounds": 6,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 10,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 8.2,
+    "runs_in_bounds": 65.8,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -107.050781,
+      39.095963,
+      -106.699219,
+      39.232253
+    ],
+    "12": [
+      -106.962891,
+      39.095963,
+      -106.787109,
+      39.232253
+    ],
+    "13": [
+      -106.918945,
+      39.095963,
+      -106.787109,
+      39.232253
+    ],
+    "14": [
+      -106.918945,
+      39.095963,
+      -106.809082,
+      39.215231
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

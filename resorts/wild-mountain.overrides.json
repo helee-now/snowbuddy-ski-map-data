@@ -1,0 +1,133 @@
+{
+  "slug": "wild-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1240327159 (Wild Mountain, landuse=winter_sports with leisure=sports_centre): the bluff above the St. Croix north of Taylors Falls, from the tops of chairs 1 to 4 and the Back Stage park down to the chalet and the parking lot, on one ticket and one map (an Ikon Bonus Mountain); it holds every lift and run, and no part of it is reached only by road or shuttle. OSM's second polygon beside it, way/1240327160 (Wild Chutes Snow Tubing), is the resort's own tubing hill, no ski terrain and no other resort, so it is neither the ski area nor a listed neighbour (the ski file draws only the listed ski area): its carpet and its outline, tagged as a snow park, are hidden below, and its seven lanes (piste:type=sled) are left out by the type rule. Trollhaugen (way/584094054, Dresser, Wisconsin) lies about 15 km south, outside the box and the Overpass window, so nothing is left out as a neighbour; 41 cross-country ways of Wild River State Park's trails north of the hill are left out by the type rule. Every named run and lift checked on 2026-11-15 against Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows), the only map the resort publishes (a 1200 x 800 px painting looking west-south-west, fetched with curl with the SnowBuddy-maps User-Agent and read in crops enlarged three times: each label carries its symbol, green circle, blue square, black diamond or double black diamond, and the parks are orange), and against the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15), which lists every trail under Easier, More Difficult, Most Difficult or Expert Only and its parks (The Main Stage, The Back Stage, Front Stage and Quarter Rabbit), and its lifts (Chair 1 to Chair 4, the Beginner Hill, Front Stage, Back Stage and Main Stage rope tows, and the Conveyor); the site counts 26 trails, 4 chairlifts, 4 rope tows and 1 conveyor. The two sources agree on every rating, and every rated run in OSM carries it: The Wall, the one double black (Expert Only), expert; Challenger, Competition, Ego Alley, North Wild, South Wild and You Asked For It advanced; Broadway, Expressway, Lower and Upper Sunshine and Moonshine intermediate; Dandy, Lower and Upper Easy Rider and Northern Route easy. Names from the map and the report: Eago Alley, Express Way and Uppser Sunshine become Ego Alley, Expressway and Upper Sunshine; chairs 1 to 4 (OSM's Chair Lift 1 to 4, in the same order from south to north) take the map's and the report's Chair 1 to Chair 4; OSM's North Tow Rope and South Tow Rope, two lines 2 to 3 m apart beside Dandy and Front Stage, take the map's DANDY ROPE and FRONT STAGE ROPE by that order (the report calls the first the Beginner Hill Rope Tow). Parks: Quarter Rabbit, drawn orange with the park pill on the map and listed with the terrain parks in the report, takes the park flag (its rating stays OSM's intermediate, the map giving parks none); Main Stage, Back Stage and Front Stage are snow parks in OSM already, and OSM's Terrain Park outline around Main Stage and Back Stage stays. Kept as OSM has them: Back Stage Rope Tow and Main Stage Rope Tow (the report's names; the map's BACK STAGE ROPE and MAIN STAGE ROPE), and the Conveyor Belt (the map's CONVEYOR, a 33 m line OSM tags as a rope tow). OSM gaps: The Ridge and Sunshine Cutoff (green), Chicken Ridge (blue) and Mad Cow (black) are not in OSM; Bear (black) is, as piste:type=yes, which the type rule leaves out with the 22 m Bunny Hill (piste:type=yes) and Quitter (a 121 m piste:type=nordic line by the conveyor, on neither the map nor the report); piste:type=downhill on Bear in OSM brings it into a later version.",
+  "overrides": [
+    {
+      "id": "way/503901870",
+      "reason": "Eago Alley: the black run between chairs 2 and 3, which Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows) labels EGO ALLEY with a black diamond, as the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15) lists Ego Alley under Most Difficult. The resort's spelling; OSM's advanced stays.",
+      "expect": {
+        "name": "Eago Alley",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Ego Alley"
+      }
+    },
+    {
+      "id": "way/504491068",
+      "reason": "Express Way: the blue run beside chair 1, which Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows) labels EXPRESSWAY with a blue square, as the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15) lists Expressway under More Difficult. The resort's spelling; OSM's intermediate stays.",
+      "expect": {
+        "name": "Express Way",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Expressway"
+      }
+    },
+    {
+      "id": "way/503901867",
+      "reason": "Uppser Sunshine: the blue run from the top of chair 2 to Lower Sunshine, which Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows) labels UPPER SUNSHINE with a blue square, as the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15) lists Upper Sunshine under More Difficult. A typo in OSM; its intermediate stays.",
+      "expect": {
+        "name": "Uppser Sunshine",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Upper Sunshine"
+      }
+    },
+    {
+      "id": "way/503901868",
+      "reason": "Quarter Rabbit: the run along the top from chair 4 to the top of chair 2, which Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows) draws orange with the park pill, as the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15) lists Quarter Rabbit among its terrain parks, so it gets the park flag; OSM rates it intermediate, which stays (the map gives its parks no rating).",
+      "expect": {
+        "name": "Quarter Rabbit",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/256882337",
+      "reason": "Chair Lift 1: the southern chair, between Competition and Expressway, which Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows) labels CHAIR 1, as the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15) names it. The resort's name.",
+      "expect": {
+        "name": "Chair Lift 1",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Chair 1"
+      }
+    },
+    {
+      "id": "way/256882335",
+      "reason": "Chair Lift 2: the chair between Lower Sunshine and Ego Alley, which Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows) labels CHAIR 2, as the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15) names it. The resort's name.",
+      "expect": {
+        "name": "Chair Lift 2",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Chair 2"
+      }
+    },
+    {
+      "id": "way/256882334",
+      "reason": "Chair Lift 3: the chair between Mad Cow and South Wild, which Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows) labels CHAIR 3, as the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15) names it. The resort's name.",
+      "expect": {
+        "name": "Chair Lift 3",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Chair 3"
+      }
+    },
+    {
+      "id": "way/256882333",
+      "reason": "Chair Lift 4: the northern chair, between Bear and The Wall, which Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows) labels CHAIR 4, as the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15) names it. The resort's name.",
+      "expect": {
+        "name": "Chair Lift 4",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Chair 4"
+      }
+    },
+    {
+      "id": "way/504490734",
+      "reason": "North Tow Rope: the northern of two rope tows 2 to 3 m apart between Front Stage and Dandy, which Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows) labels DANDY ROPE beside Dandy, north of the FRONT STAGE ROPE (the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15) calls it the Beginner Hill Rope Tow). The map's name, matched by the order of the two lines.",
+      "expect": {
+        "name": "North Tow Rope",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Dandy Rope"
+      }
+    },
+    {
+      "id": "way/256882336",
+      "reason": "South Tow Rope: the southern of the two rope tows beside Front Stage, which Wild Mountain's trail map (trail_map_small_2024.jpg, the painting wildmountain.com/mountain-info/skisb-trail-map shows) labels FRONT STAGE ROPE (the resort's snow report (wildmountain.com/mountain-info/snow-report, read 2026-11-15): the Front Stage Rope Tow). The map's name, matched by the order of the two lines.",
+      "expect": {
+        "name": "South Tow Rope",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Front Stage Rope"
+      }
+    },
+    {
+      "id": "way/1240327161",
+      "reason": "An unnamed magic carpet beside the Wild Chutes Snow Tubing lanes, inside OSM's Wild Chutes Snow Tubing polygon (way/1240327160) south of the ski runs: the tubing hill's lift (the resort's tubing pages: wildmountain.com/snow-tubing), which serves the tubing lanes, not skiers, and which the trail map does not draw; hidden as Mad River Mountain's, Brandywine's and Snow Creek's tubing carpets.",
+      "expect": {
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1240327173",
+      "reason": "Wild Chutes Snow Tubing: the tubing hill's outline, tagged piste:type=snow_park, inside OSM's polygon of the same name south of the ski runs, which would draw as a terrain park; the resort's tubing hill (wildmountain.com/snow-tubing), not a terrain park, and on no trail map, so hidden. Its lanes are left out by the type rule.",
+      "expect": {
+        "name": "Wild Chutes Snow Tubing",
+        "piste:type": "snow_park"
+      },
+      "hide": true
+    }
+  ]
+}

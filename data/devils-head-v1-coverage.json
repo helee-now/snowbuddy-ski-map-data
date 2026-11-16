@@ -1,0 +1,73 @@
+{
+  "key": "devils-head-v1",
+  "ski_sha256": "5f7769af038c3dcdcab43693f191aeab6172be49bf7ec7df8f8a52eef364e233",
+  "osm_timestamp": "2026-11-16T03:22:01Z",
+  "box": [
+    -89.67,
+    43.39,
+    -89.59,
+    43.45
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -89.636056,
+    43.415914,
+    -89.619076,
+    43.427488
+  ],
+  "margins_km": {
+    "west": 2.74,
+    "south": 2.88,
+    "east": 2.35,
+    "north": 2.5
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 28,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 16,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.9,
+    "runs_in_bounds": 13.8,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -89.824219,
+      43.325178,
+      -89.472656,
+      43.452919
+    ],
+    "12": [
+      -89.736328,
+      43.389082,
+      -89.560547,
+      43.452919
+    ],
+    "13": [
+      -89.692383,
+      43.389082,
+      -89.560547,
+      43.452919
+    ],
+    "14": [
+      -89.67041,
+      43.389082,
+      -89.58252,
+      43.452919
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

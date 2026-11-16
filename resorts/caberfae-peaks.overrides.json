@@ -1,0 +1,50 @@
+{
+  "slug": "caberfae-peaks",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1241940633 (Caberfae Peaks, landuse=winter_sports, west of Cadillac): the resort's three peaks, East Peak (1,530 ft), North Peak (1,561 ft) and South Peak (1,535 ft), with the base by the Blackmer and Green Mountain day lodges, on one ticket and one map (an Ikon Bonus Mountain); it holds every lift and run. The three peaks are one ski area joined by trails, so one map by the owner's rule: every chair's bottom lies in one base area along the foot of the hill, and the trail map draws trails between the peaks (South Peak Trail from North Peak's top across to the South Peak side, North Peak Trail from the South Peak side to the North Peak chairs' bottoms, Olympia from South Peak's top round to the South Peak Triple's bottom), as OpenStreetMap does, the runs of all three ending at those bottoms; no part is reached only by road or shuttle. No other ski area lies in the box or the Overpass window; the Mackenzie trails' 19 nordic ways west of the hill are left out by the type rule. Every named run and lift checked on 2026-11-15 against Caberfae Peaks' trail map (CABERFAE-PEAKS-01.4-07312025forWEBkey.jpg, the VistaMap painting dated 2025-07-31 that the resort's Trail Map page on caberfaepeaks.com shows and links as its large trail map, 2585 x 1289 px, fetched with curl and read at one and two times its size tile by tile) and the resort's Snow Report page (caberfaepeaks.com/snow-report, read 2026-11-15, dated November 13, 2026), which lists its 5 lifts and 27 slopes by name, without ratings. The map's key: Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond), Experts Only (two black diamonds), Terrain Park (orange pill) and Backcountry Terrain (an orange outline); read as OSM's easy, intermediate, advanced and expert. All 26 of the map's named runs are in OSM; every one has the map's rating but Olympia (blue on the map, advanced in OSM: intermediate). Names: I-75 and BB Boulevard from the map and the report (OSM's 1-75 and BB Boulevarde); Smiling Irishmen as OSM has it (the map's SMILING IRISHMAN, the report's SMILING IRISHMEN: the resort's sources disagree). Lifts: OSM's East Peak Triple Chair, Vista 1561' Triple, North Peak Quad and South Peak Triple are the map's EAST PEAK TRIPLE CHAIR, VISTA 1561' TRIPLE CHAIR, NORTH PEAK QUAD CHAIR and SOUTH PEAK TRIPLE CHAIR, kept as OSM names them; OSM's Taxi Surface Lift beside Hot Dog takes the map's and the report's name for the lift there, Green Mountain Flying Carpet (OSM draws it as a rope tow and gives the East Peak triple two seats a chair; overrides cannot change either). The six runs OSM tags piste:grooming=backcountry (I-75, Holmberg Glade, Notch, Slot, South Peak Trail and Stagshead Bowl) lie inside the polygon and stay in bounds. Not on the map today, not in OSM: Green Mountain's triple chair and its runs GM 1 to GM 3 (the map's Green Mountain Future Expansion, coming 2027/28). OSM gaps: the map's Backcountry Terrain (an outlined wood between Green Mountain and East Peak, a slope in the report) and its one Terrain Park (an orange pill beside RW, unnamed) are not in OSM.",
+  "overrides": [
+    {
+      "id": "way/1241940644",
+      "reason": "1-75: the double-diamond run from North Peak's top west down towards Olympia, which Caberfae Peaks' trail map (CABERFAE-PEAKS-01.4-07312025forWEBkey.jpg, the VistaMap painting the resort's Trail Map page on caberfaepeaks.com shows, dated 2025-07-31) labels I-75 with two black diamonds, as the resort's Snow Report (caberfaepeaks.com/snow-report, read 2026-11-15) lists it: a letter I, not a digit. Spelling from the map; OSM's rating (expert) is the map's.",
+      "expect": {
+        "name": "1-75",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "name": "I-75"
+      }
+    },
+    {
+      "id": "way/1241940635",
+      "reason": "BB Boulevarde: the green run from below Bubble Gum and Ski Shop along the foot of the East Peak side to the base by the Vista and North Peak chairs, which Caberfae Peaks' trail map (CABERFAE-PEAKS-01.4-07312025forWEBkey.jpg, the VistaMap painting the resort's Trail Map page on caberfaepeaks.com shows, dated 2025-07-31) labels BB BOULEVARD with a green circle, as the resort's Snow Report (caberfaepeaks.com/snow-report, read 2026-11-15) lists it. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "BB Boulevarde",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "BB Boulevard"
+      }
+    },
+    {
+      "id": "way/761116248",
+      "reason": "Olympia: from South Peak's top east along the summit, down past Holmberg Glade and west to the South Peak Triple's bottom, which Caberfae Peaks' trail map (CABERFAE-PEAKS-01.4-07312025forWEBkey.jpg, the VistaMap painting the resort's Trail Map page on caberfaepeaks.com shows, dated 2025-07-31) draws as a blue line with a blue square (More Difficult) labelled OLYMPIA; OSM rates it advanced. The printed map wins.",
+      "expect": {
+        "name": "Olympia",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/95985032",
+      "reason": "Taxi Surface Lift: the 85 m surface lift beside Hot Dog by the Green Mountain Day Lodge, where Caberfae Peaks' trail map (CABERFAE-PEAKS-01.4-07312025forWEBkey.jpg, the VistaMap painting the resort's Trail Map page on caberfaepeaks.com shows, dated 2025-07-31) draws the GREEN MOUNTAIN FLYING CARPET (a magic carpet in its key) and no other lift; the resort's Snow Report (caberfaepeaks.com/snow-report, read 2026-11-15) lists its five lifts as the four chairs and the Green Mountain Flying Carpet. A stale name: the map's.",
+      "expect": {
+        "name": "Taxi Surface Lift",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Green Mountain Flying Carpet"
+      }
+    }
+  ]
+}

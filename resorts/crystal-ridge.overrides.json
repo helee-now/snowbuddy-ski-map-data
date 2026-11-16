@@ -1,0 +1,64 @@
+{
+  "slug": "crystal-ridge",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. OpenStreetMap has no landuse=winter_sports polygon for Crystal Ridge (checked 2026-11-15: the hill lies inside way/741728808, The Rock Sports Complex, a leisure=sports_centre of the Ballpark Commons development with its baseball and soccer fields, which is no ski area), so its ski area is derived from its own lifts and runs (\"derived\" in resorts.json, the 100 m buffer, as at Mountain High, Nakiska and Paoli Peaks). Crystal Ridge (The Rock Snowpark from 2012, its original name again since 2024-08-14, the resort's About Us page) is one hill built of construction fill in Franklin, its Main Lodge and parking on top by Ballpark Drive and its runs falling north to the Double Chair's and the High-Speed Rope's bottoms, on one ticket and one map (Ikon Bonus Mountain, new for 26/27); every lift and run is reached by lift or trail, none only by road or shuttle. No ski-area polygon of any other resort lies in the box or the Overpass window. Every named run and lift checked on 2026-11-15 against Crystal Ridge's trail map (Crystal Rige Trail Map Build_FINAL.pdf, the map crystalridge.com/mountain-info/trail-map links under 'open for the 24/25 Season', the newest the resort publishes; one 792 x 446 pt page, a rendered 3D view with only the key as text, rendered at four times its size and read tile by tile, with the 1651 x 929 px PNG the page shows) and the resort's snow report (crystalridge.com/mountain-info/snow-report, read 2026-11-15, last updated on March 27), which lists 9 trails (Beginner Conveyor, Easy Street, Crystal Bowl, Ridge Runner, The Drop and Whitnall Way with their ratings, and the parks Rubble Stoke (Large), Pebble Park (Small) and Rocky Road (Medium)) and 5 lifts (Double Chair Lift, High Speed Rope Tow, Summit Handle Tow, Tubing Conveyor Lifts, Beginner Conveyor). The map's key: Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond; no double black), Freestyle Terrain (an orange pill) and Slow Zone; read as OSM's easy, intermediate and advanced. Every rated run in OSM carries the map's rating: The Drop and Whitnall Way advanced, Crystal Bowl and Ridge Runner intermediate, Easy Street and Ricci Road easy. Lift names as the map's: Double Chair, High Speed Rope (the map's HIGH-SPEED ROPE), Summit Handle Tow, Beginner Conveyor and Easy Street Conveyor. Parks: Pebble Park and Rubble Stoke, the map's two orange pills in its Freestyle Terrain, and OSM's Freestyle Terrain line along the top of that zone under the map's FREESTYLE TERRAIN banner, get the park flag with their rating left unknown (freeride in OSM, which would draw them as ungroomed double blacks; the map rates no park). Hidden: the Tubing Conveyor, the snow-tubing hill's carpet (as Brandywine's, Mad River Mountain's and Snow Creek's), and an unnamed backcountry run in Whitnall Park 800 m west, which is no part of the resort. The tubing lanes, the Whitnall Park and Wilson Park sledding hills and toboggan run, and the Whitnall Park golf course's Red, Purple and Blue cross-country trails are left out by the type rule. OSM gaps: the map's Beginner Area (a green circle in the yellow slow zone beside the Beginner Conveyor) is no run line in OSM, and the report's third park, Rocky Road (Medium), is on neither the map nor OSM by that name.",
+  "overrides": [
+    {
+      "id": "way/741726415",
+      "reason": "Pebble Park: the freestyle line from the top down the middle of the Freestyle Terrain, which Crystal Ridge's trail map (Crystal Rige Trail Map Build_FINAL.pdf, the map crystalridge.com/mountain-info/trail-map links for the 24/25 season) labels PEBBLE PARK on an orange Freestyle Terrain pill with no rating symbol, and the resort's snow report (crystalridge.com/mountain-info/snow-report, read 2026-11-15) lists as Pebble Park (Small) among its terrain parks. Park flag from the map. OSM rates it freeride, which would draw it as an ungroomed double black; the map gives its parks no rating, so the rating is left unknown, as Mad River Mountain's and Granite Peak's parks.",
+      "expect": {
+        "name": "Pebble Park",
+        "piste:difficulty": "freeride",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true,
+        "difficulty": "unknown"
+      }
+    },
+    {
+      "id": "way/741726414",
+      "reason": "Rubble Stoke: the freestyle line from the top down the Freestyle Terrain beside Crystal Bowl, which Crystal Ridge's trail map (Crystal Rige Trail Map Build_FINAL.pdf, the map crystalridge.com/mountain-info/trail-map links for the 24/25 season) labels RUBBLE STOKE on an orange Freestyle Terrain pill with no rating symbol, and the resort's snow report (crystalridge.com/mountain-info/snow-report, read 2026-11-15) lists as Rubble Stoke (Large) among its terrain parks. Park flag from the map. OSM rates it freeride, which would draw it as an ungroomed double black; the map gives its parks no rating, so the rating is left unknown, as Mad River Mountain's and Granite Peak's parks.",
+      "expect": {
+        "name": "Rubble Stoke",
+        "piste:difficulty": "freeride",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true,
+        "difficulty": "unknown"
+      }
+    },
+    {
+      "id": "way/741726416",
+      "reason": "Freestyle Terrain: OSM's line along the top edge of the terrain park, from Ridge Runner's start to Easy Street's top, where Crystal Ridge's trail map (Crystal Rige Trail Map Build_FINAL.pdf, the map crystalridge.com/mountain-info/trail-map links for the 24/25 season) draws the orange FREESTYLE TERRAIN banner over the shaded park zone that holds Pebble Park and Rubble Stoke. Park flag from the map. OSM rates it freeride, which would draw it as an ungroomed double black; the map gives its freestyle terrain no rating, so the rating is left unknown, as Mad River Mountain's and Granite Peak's parks.",
+      "expect": {
+        "name": "Freestyle Terrain",
+        "piste:difficulty": "freeride",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true,
+        "difficulty": "unknown"
+      }
+    },
+    {
+      "id": "way/733681543",
+      "reason": "Tubing Conveyor: the snow-tubing hill's carpet beside the Tubing Lanes, which Crystal Ridge's trail map (Crystal Rige Trail Map Build_FINAL.pdf, the map crystalridge.com/mountain-info/trail-map links for the 24/25 season) labels TUBING CONVEYOR beside SNOW TUBING, and the snow report (crystalridge.com/mountain-info/snow-report, read 2026-11-15) lists under Tubing (Tubing Conveyor Lifts): it serves the tubing lanes, which the map does not draw (the type rule leaves them out), not a ski run. Hidden as Brandywine's, Mad River Mountain's and Snow Creek's tube-park carpets.",
+      "expect": {
+        "name": "Tubing Conveyor",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1501439090",
+      "reason": "An unnamed easy downhill line tagged backcountry (118 m) on Whitnall Park's sledding hill about 800 m west of Crystal Ridge, from the top of the Whitnall Park Toboggan Run (way/914782116), whose node it shares: a county park's slope, on no Crystal Ridge map and no part of the resort. Hidden, so that the derived ski area takes no second part around it.",
+      "expect": {
+        "name": null,
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    }
+  ]
+}

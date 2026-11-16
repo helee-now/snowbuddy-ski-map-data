@@ -1,0 +1,73 @@
+{
+  "key": "caberfae-peaks-v1",
+  "ski_sha256": "0f852a61df8daa7c3eb9206f805feec04447a9cc32946161031a8b218852b743",
+  "osm_timestamp": "2026-11-16T03:05:46Z",
+  "box": [
+    -85.75,
+    44.21,
+    -85.68,
+    44.27
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -85.723072,
+    44.237437,
+    -85.712085,
+    44.246875
+  ],
+  "margins_km": {
+    "west": 2.15,
+    "south": 3.05,
+    "east": 2.56,
+    "north": 2.57
+  },
+  "counts": {
+    "lifts": 5,
+    "runs_in_bounds": 26,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 8,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 2.1,
+    "runs_in_bounds": 7.9,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -85.78125,
+      44.087585,
+      -85.605469,
+      44.339565
+    ],
+    "12": [
+      -85.78125,
+      44.150681,
+      -85.605469,
+      44.276671
+    ],
+    "13": [
+      -85.78125,
+      44.182204,
+      -85.649414,
+      44.276671
+    ],
+    "14": [
+      -85.759277,
+      44.197959,
+      -85.671387,
+      44.276671
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

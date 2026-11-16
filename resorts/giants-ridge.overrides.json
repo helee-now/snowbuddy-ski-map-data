@@ -1,0 +1,58 @@
+{
+  "slug": "giants-ridge",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. A derived ski area (resorts.json \"ski_area\": \"derived\", the default 100 m buffer; the README's Derived ski area), by the owner's decision of 2026-11-15: OpenStreetMap's only landuse=winter_sports polygon here, way/1314867881 (Giants Ridge Resort), is the resort's whole ground north of Giants Ridge Road near Biwabik, about 3.1 by 5.9 km and 12.43 km² with the cross-country trails (Gold, Silver, Bronze, Cedar, Laurentian, Northern Lights, Summit, Wynne Creek, Oslo and the Biwabik Spur), while the alpine hill on its east edge by the road is 0.94 km across, so a map built on that polygon opened on the whole property (z11.8 on the 412 dp phone, the hill about a sixth of the screen's width) and not on the hill. The area is derived from the kept lifts and runs: one part, 0.89 km², the five chairs, two carpets and 39 run lines on the hill's north-east-facing slopes, on one ticket and one map (an Ikon Bonus Mountain); no part of the alpine hill is reached only by road or shuttle. The property polygon is the resort's own, not another resort's, so it is no listed neighbour: its ground keeps the base map, and the ski file does not draw it. The build on the polygon (2026-11-15) and this one keep the same 39 runs, 7 lifts and 14 stations. No other ski area lies in the box or the Overpass window; the 33 cross-country ways and the Snow Tubing Park's lane (piste:type=sled) are left out by the type rule, and none of them is a downhill run. Every named run and lift checked on 2026-11-15 against Giants Ridge's 2025-26 run map (Daily-Open.Close-Runs-Map_NT_NoRace.webp, uploaded to giantsridge.com/wp-content/uploads/2026/02/), the newest map the resort publishes: the resort's site serves curl and WebFetch a bot wall (403), its trail-map page could not be read, and The Wayback Machine's index of the site's uploads lists no newer alpine map (its 2019 alpine-map-giants-ridge.pdf and 2022 Winter-Map-2022-Front-scaled.jpg answered 404 when it last read them); the upload itself, the 2025-26 VistaMap painting with the day's open runs shaded blue, was fetched from the resort's server with curl (SnowBuddy-maps User-Agent; 2688 x 1760 px) and read in crops at full size. The shading hides the runs' colours but not the rating symbol on each label: green circle (Easiest), blue square (More Difficult), black diamond (Most Difficult; the key's double diamond, Experts Only, marks no run) and the orange Terrain Park pill. Its lifts are 1 Calgary Chair, 2 Helsinki Chair, 3 Sarajevo Express, 4 Chamonix Chair, 5 Rocky Top Chair, 6 Conveyor (Greely's Way), 7 Covered Conveyor (St. Moritz), 8 the Snow Tubing Park's tow and 9 Placid Rope Tow. All the map's 37 run names are in OSM, every one with the map's rating: Helsinki, Helsinki Race, Nagano, 2002, Alta, Whiteface and Snowbasin advanced; Kitzbuhel, Chamonix, Innsbruck, Innsbruck Race, Lower Olympic Valley, Olympic Valley, Grenoble, Sapporo, Cortina, Calgary, Sarajevo, Sarajevo Pass, Whistler, Sochi, Rocky Top, Deer Valley and Solitude intermediate; Easy Way, Placid, Valdisere, Melbourne, Sunshine, Snowbird, Park City, Upper and Lower Cat Track easy, and Greely's Way and St. Moritz novice (green on the map); Garmisch Terrain Park and Placid Terrain Park are snow parks in OSM (advanced and easy, kept: the map gives parks no rating). Names from the map: Insbruck and Insbruck Race become Innsbruck and Innsbruck Race, Mango (the black run between Helsinki and Olympic Valley) Nagano, and the Sarajevo Chair the Sarajevo Express. Hidden: the Snow Tubing Park's rope tow, which serves the tubing lane. Kept as OSM has them: the two carpets, unnamed (the map's CONVEYOR and COVERED CONVEYOR are descriptions), and the chairs' occupancy tags. OSM gap: the Placid Rope Tow, beside Placid Terrain Park, is not in OSM.",
+  "overrides": [
+    {
+      "id": "way/1013345203",
+      "reason": "Insbruck: the blue run between Chamonix and Helsinki from the summit to the Helsinki Chair's bottom, which Giants Ridge's 2025-26 run map (Daily-Open.Close-Runs-Map_NT_NoRace.webp, uploaded to giantsridge.com/wp-content/uploads/2026/02/) labels INNSBRUCK with a blue square. The map's spelling; OSM's intermediate stays.",
+      "expect": {
+        "name": "Insbruck",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Innsbruck"
+      }
+    },
+    {
+      "id": "way/1013345204",
+      "reason": "Insbruck Race: the lower piece beside Innsbruck to the Helsinki Chair's bottom, which Giants Ridge's 2025-26 run map (Daily-Open.Close-Runs-Map_NT_NoRace.webp, uploaded to giantsridge.com/wp-content/uploads/2026/02/) labels INNSBRUCK RACE with a blue square. The map's spelling; OSM's intermediate stays.",
+      "expect": {
+        "name": "Insbruck Race",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Innsbruck Race"
+      }
+    },
+    {
+      "id": "way/1202057487",
+      "reason": "Mango: the 145 m black run from Olympic Valley down to Lower Olympic Valley between Helsinki and Whistler, which Giants Ridge's 2025-26 run map (Daily-Open.Close-Runs-Map_NT_NoRace.webp, uploaded to giantsridge.com/wp-content/uploads/2026/02/) labels NAGANO with a black diamond, in the Olympic host cities every other run is named after. The map's name; OSM's advanced stays.",
+      "expect": {
+        "name": "Mango",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Nagano"
+      }
+    },
+    {
+      "id": "way/148221724",
+      "reason": "Sarajevo Chair: the chair from the base by the Main Chalet to the summit, between Calgary and Sarajevo, which Giants Ridge's 2025-26 run map (Daily-Open.Close-Runs-Map_NT_NoRace.webp, uploaded to giantsridge.com/wp-content/uploads/2026/02/) numbers 3 and labels SARAJEVO EXPRESS. The map's name.",
+      "expect": {
+        "name": "Sarajevo Chair",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Sarajevo Express"
+      }
+    },
+    {
+      "id": "way/1202110117",
+      "reason": "An unnamed rope tow beside the Snow Tubing Park's lane (way/1202110116, piste:type=sled), which Giants Ridge's 2025-26 run map (Daily-Open.Close-Runs-Map_NT_NoRace.webp, uploaded to giantsridge.com/wp-content/uploads/2026/02/) draws as lift 8 in the SNOW TUBING PARK beside the Snow Sports Pavilion, away from the ski runs: it serves the tubing lane, not skiers, so hidden as Mad River Mountain's, Brandywine's and Snow Creek's tubing lifts.",
+      "expect": {
+        "aerialway": "rope_tow"
+      },
+      "hide": true
+    }
+  ]
+}

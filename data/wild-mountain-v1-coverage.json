@@ -1,0 +1,73 @@
+{
+  "key": "wild-mountain-v1",
+  "ski_sha256": "df3b4242ba1e1c1ff552c85b89e10d49309f7efe0b1830efb0685258fa71f466",
+  "osm_timestamp": "2026-11-16T03:25:06Z",
+  "box": [
+    -92.74,
+    45.46,
+    -92.67,
+    45.52
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -92.714082,
+    45.48359,
+    -92.70272,
+    45.493124
+  ],
+  "margins_km": {
+    "west": 2.02,
+    "south": 2.62,
+    "east": 2.55,
+    "north": 2.99
+  },
+  "counts": {
+    "lifts": 9,
+    "runs_in_bounds": 20,
+    "run_areas_in_bounds": 1,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 13,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 2,
+    "runs_in_bounds": 6,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -92.8125,
+      45.336702,
+      -92.636719,
+      45.58329
+    ],
+    "12": [
+      -92.8125,
+      45.39845,
+      -92.636719,
+      45.521744
+    ],
+    "13": [
+      -92.768555,
+      45.429299,
+      -92.636719,
+      45.521744
+    ],
+    "14": [
+      -92.746582,
+      45.444717,
+      -92.658691,
+      45.521744
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

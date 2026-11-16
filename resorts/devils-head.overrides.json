@@ -1,0 +1,85 @@
+{
+  "slug": "devils-head",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/302670313 (Devil's Head Ski Area, landuse=winter_sports with leisure=sports_centre): the south face of the Baraboo Range's South Range above Merrimac, its runs falling south from the ridge to the base village (the Inn, Cliffhaus and the lodge wings) and the bottoms of chairs 0, 1, 3, 4 and 4 1/4, with Cirque and The Burns off chairs 0 and 000 to the west, on one ticket and one map (Ikon Bonus Mountain); every lift and run is reached by lift or trail, none only by road or shuttle. No ski-area polygon of any other resort lies in the box or the Overpass window (Cascade Mountain, Portage, lies beyond it). Every named run and lift checked on 2026-11-15 against Devil's Head's trail map (IMG_4516-scaled-1.jpeg, the James Niehues painting devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/trail-map/ shows, 2560 x 1746 px, read tile by tile at full size; the site publishes no other map) and the resort's snow report (devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/snow-report/, read 2026-11-15, the end-of-season report), which lists 8 lifts (Sunkid (Short), Sunkid (Long), Chair 0, Chair 1, Chair 000, Chair 3, Chair 4, Chair 4 1/4) and 30 slopes by name without ratings. The map's symbols: green circle, blue square, black diamond and double black diamond, orange pills for terrain park features; read as OSM's easy, intermediate, advanced and expert. Every rated run in OSM carries the map's rating: Cirque, Devil's Playground, The Burns, The Meadows, Pete's Dragon and Pete's Dragon II easy; Chicken Ridge, Dante's Inferno and The Cauldron intermediate; Devil's Alley, Cyclops, Cyclops Chute, The Serpent, The Zone, Revenge, Roundabout and Way Back advanced; Outer Limits, the map's one double diamond, expert. Chair names from the report and the map's numbers: OSM's 0, 000, 1 and 3 become Chair 0, Chair 000, Chair 1 and Chair 3, its two unnamed quads east of Chair 3 Chair 4 (the long one, to the ridge beside Revenge) and Chair 4 1/4 (the short one, to Outer Limits' top; the map's 4¼, the report's Chair 4 1/4). The two carpets by Pete's Dragon and Pete's Dragon II (the map's 10 and 12, the report's Sunkid (Short) and Sunkid (Long)) stay unnamed, as OSM has them. Parks: Devil's Air Park, the map's line of orange park features from the ridge by Cyclops down past Sidewinder and beside Chair 1 to the base, gets the park flag with its rating left unknown (freeride in OSM, which would draw it as an ungroomed double black; the map rates no park). Kept as OSM has them: three unnamed backcountry lines east of Chair 4 1/4, in the area the map labels FUTURE LIFT AND 5 RUNS (the report lists a slope named The Glade, which the map does not place), the unnamed connectors along the ridge and the base, and three unnamed rated pieces (black ones below Roundabout and above The Zone, a green one by Cirque). OSM gaps: Sidewinder (blue), Dante's Cutoff, Cauldron's Cutoff (blue), Lower Cyclops, The Serpent's Mogul, Lower Serpent, Serpent's Escape, Way Over and Lower Revenge (black) are not in OSM by name (some may be among the unnamed pieces, which are not matched by guesswork), nor is the report's Snowshoe / XC Trail.",
+  "overrides": [
+    {
+      "id": "way/208286544",
+      "reason": "OSM's chair named 0, from the base by Pete's Dragon up to Cirque, which Devil's Head's trail map (IMG_4516-scaled-1.jpeg, the James Niehues painting devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/trail-map/ shows) numbers 0 and the resort's snow report (devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/snow-report/, read 2026-11-15) lists as Chair 0. Name from the report.",
+      "expect": {
+        "name": "0",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Chair 0"
+      }
+    },
+    {
+      "id": "way/256892320",
+      "reason": "OSM's chair named 000, from Cirque up past The Meadows to the top of The Burns, which Devil's Head's trail map (IMG_4516-scaled-1.jpeg, the James Niehues painting devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/trail-map/ shows) numbers 000 and the resort's snow report (devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/snow-report/, read 2026-11-15) lists as Chair 000. Name from the report.",
+      "expect": {
+        "name": "000",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Chair 000"
+      }
+    },
+    {
+      "id": "way/256892319",
+      "reason": "OSM's chair named 1, from the base by the Avalanche Bar & Grill to the ridge between Dante's Inferno and Sidewinder, which Devil's Head's trail map (IMG_4516-scaled-1.jpeg, the James Niehues painting devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/trail-map/ shows) numbers 1 and the resort's snow report (devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/snow-report/, read 2026-11-15) lists as Chair 1. Name from the report.",
+      "expect": {
+        "name": "1",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Chair 1"
+      }
+    },
+    {
+      "id": "way/256892321",
+      "reason": "OSM's chair named 3, from the base below Lower Cyclops to the ridge beside The Serpent, which Devil's Head's trail map (IMG_4516-scaled-1.jpeg, the James Niehues painting devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/trail-map/ shows) numbers 3 and the resort's snow report (devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/snow-report/, read 2026-11-15) lists as Chair 3. Name from the report.",
+      "expect": {
+        "name": "3",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Chair 3"
+      }
+    },
+    {
+      "id": "way/256892324",
+      "reason": "OSM's unnamed quad (792 m) from the base by Lower Revenge to the ridge beside Revenge, the long chair east of Chair 3, which Devil's Head's trail map (IMG_4516-scaled-1.jpeg, the James Niehues painting devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/trail-map/ shows) numbers 4 and the resort's snow report (devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/snow-report/, read 2026-11-15) lists as Chair 4. Name from the report.",
+      "expect": {
+        "name": null,
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Chair 4"
+      }
+    },
+    {
+      "id": "way/256892325",
+      "reason": "OSM's unnamed quad (403 m) at the east end of the base, to the top of Outer Limits, the short chair east of Chair 4, which Devil's Head's trail map (IMG_4516-scaled-1.jpeg, the James Niehues painting devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/trail-map/ shows) numbers 4¼ and the resort's snow report (devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/snow-report/, read 2026-11-15) lists as Chair 4 1/4. Name from the report, written as it writes it.",
+      "expect": {
+        "name": null,
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Chair 4 1/4"
+      }
+    },
+    {
+      "id": "way/755068676",
+      "reason": "Devil's Air Park: the terrain park from the ridge by Cyclops down past Sidewinder and beside Chair 1 to the base, which Devil's Head's trail map (IMG_4516-scaled-1.jpeg, the James Niehues painting devilsheadresort.com/ski-resort-mountain-sauk-merrimac-wi-wisconsin/trail-map/ shows) labels DEVIL'S AIR PARK with a line of orange park features and no rating symbol; the resort's snow report (read 2026-11-15) lists Devil's Air Park and its Mini Park and Big Park. Park flag from the map. OSM rates it freeride, which would draw it as an ungroomed double black; the map gives its park no rating, so the rating is left unknown, as Mad River Mountain's and Granite Peak's parks.",
+      "expect": {
+        "name": "Devil's Air Park",
+        "piste:difficulty": "freeride",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true,
+        "difficulty": "unknown"
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "slug": "nordic-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/734699864 (Nordic Mountain, landuse=winter_sports with leisure=sports_centre, on Mount Morris south of Wild Rose): the hill's one north face, from the summit ridge down to the chalet, the learning area and the terrain parks, with the tubing park at its east end, on one ticket and one map (an Ikon Bonus Mountain); it holds every lift and run. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-15 against Nordic Mountain's trail map, the winter map the resort's Trail Maps page (nordicmountain.com/mountain-info/trail-maps) links as its Trail Map PDF (NORDICTRAILMAP (1)_1.pdf, uploaded 2024-08, one 612 x 792 pt page holding the painting) and shows as an image (NORDICTRAILMAP (1).png, 2401 x 1581 px), fetched with curl and read tile by tile, and the resort's Snow Report page (nordicmountain.com/mountain-info/snow-report-0, read 2026-11-15, last updated March 23), which lists its lifts and its 16 ski trails and parks with their ratings (Beginner, Intermediate, Advanced; parks Small, Medium, Large). The map has no key; the Trail Maps page names the rating system: Green Circle, Blue Square, Black Diamond and Double Black Diamond, read as OSM's easy, intermediate, advanced and expert. Every rated run in OSM has the map's rating: Gentle Giant and Memory Lane green, Dynamite, Hari Kari, Me Nords, Nitro and Crisis blue, Nordy's Narrows, Lightning and Avalanche black (the report agrees); OSM's Learning Area, the run beside the beginners' handle tow that the map labels LEARNING AREA with a green circle (the report's Element Mobile Learning Area, Beginner), stays novice. Parks: the map's Freestyle Terrain, The Nord!, is Skiers Outlet Park (Large), Thunder (Medium) and Shortcut (Small) by the park's handle tow, and Poma Park (Small) beside the double chair; all four are snow_park ways in OSM, which draw as parks without a flag, their OSM ratings left as they are (the map rates no park). Names: Me Nords from the map (OSM's Menords; the Trail Maps page's text also writes Me Nords, the report MeNords); Skier's Outlet Park, Shortcut and Poma Park as OSM has them (the map's SKIERS OUTLET PARK under the Skier's Outlet logo, SHORTCUT and POMA PARK; the report's Skiers Outlet, Short Cut and Poma Pass). Lifts as the map names them, as OSM does: Triple Chair, Double Chair, the two Handle Tows (the park's and the learning area's) and the learning area's two Conveyors. Hidden: the tubing park's lanes and its conveyor, and the two glades the map no longer names (below). Kept as OSM has them, unnamed: the four short easy lines along the summit ridge, from Memory Lane's top to the park's top, which the map paints as open snow. OSM gap: Nordy's Playground (the learning area's green run between the two conveyors) is not in OSM.",
+  "overrides": [
+    {
+      "id": "way/736284371",
+      "reason": "Menords: the blue run west of the double chair's top, between Hari Kari and Nitro, which Nordic Mountain's trail map (NORDICTRAILMAP (1)_1.pdf, the map nordicmountain.com/mountain-info/trail-maps links, uploaded 2024-08) labels ME NORDS with a blue square, as the Trail Maps page's text writes it ('Me Nords will be your new favorite'). Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Menords",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Me Nords"
+      }
+    },
+    {
+      "id": "way/736284361",
+      "reason": "Tubing Lanes: the tubing park's lanes at the hill's east end, which OSM tags as an unrated downhill run (piste:type=downhill), so the map would draw a 354 m ski run there. Nordic Mountain's trail map (NORDICTRAILMAP (1)_1.pdf, the map nordicmountain.com/mountain-info/trail-maps links) paints them as the TUBING PARK beside the TUBING CONVEYOR, apart from its ski trails, and the resort's Snow Report lists snow tubing apart from its 16 ski trails and parks. Not a ski run: hidden, as other tube parks are left out by the type rule.",
+      "expect": {
+        "name": "Tubing Lanes",
+        "piste:type": "downhill"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/256897937",
+      "reason": "Tubing Lift: the tubing park's conveyor beside the tubing lanes (hidden above), which Nordic Mountain's trail map (NORDICTRAILMAP (1)_1.pdf, the map nordicmountain.com/mountain-info/trail-maps links) labels TUBING CONVEYOR inside the TUBING PARK. It serves no ski run: a lift of another venue, hidden as Brandywine's and Mad River Mountain's tubing carpets are.",
+      "expect": {
+        "name": "Tubing Lift",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/736284376",
+      "reason": "Take 8 Glade (expert in OSM), from Memory Lane's upper part down through the woods west of Crisis: named with two black diamonds on Nordic Mountain's 2021 trail map (Nordic_TrailMap.pdf, the copy of 2021-09-15 in the Internet Archive), but the current map (NORDICTRAILMAP (1)_1.pdf, the map nordicmountain.com/mountain-info/trail-maps links, uploaded 2024-08) paints that wood as a purple-shaded area with no name and no rating symbol, and the resort's Snow Report lists its 16 ski trails and parks without it. On no current source by name, hidden as Laurel Mountain's DOC's Forest Glades and the parks on no current map are.",
+      "expect": {
+        "name": "Take 8 Glade",
+        "piste:difficulty": "expert"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/736284377",
+      "reason": "Solsbury Glade (expert in OSM), from Memory Lane's west end east through the woods inside its bend to Take 8 Glade's lower part: named with two black diamonds on Nordic Mountain's 2021 trail map (Nordic_TrailMap.pdf, the copy of 2021-09-15 in the Internet Archive), but the current map (NORDICTRAILMAP (1)_1.pdf, the map nordicmountain.com/mountain-info/trail-maps links, uploaded 2024-08) paints that wood as a purple-shaded area with no name and no rating symbol, and the resort's Snow Report lists its 16 ski trails and parks without it. On no current source by name, hidden as Take 8 Glade.",
+      "expect": {
+        "name": "Solsbury Glade",
+        "piste:difficulty": "expert"
+      },
+      "hide": true
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "key": "buck-hill-v1",
+  "ski_sha256": "1c1be220a6ece75755fdfc6050f483fdcb093c82229bdefc51dd95259755a562",
+  "osm_timestamp": "2026-11-16T03:20:56Z",
+  "box": [
+    -93.32,
+    44.7,
+    -93.25,
+    44.75
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -93.288866,
+    44.721027,
+    -93.282297,
+    44.726442
+  ],
+  "margins_km": {
+    "west": 2.46,
+    "south": 2.34,
+    "east": 2.55,
+    "north": 2.62
+  },
+  "counts": {
+    "lifts": 11,
+    "runs_in_bounds": 17,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 16,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 1.9,
+    "runs_in_bounds": 3.3,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -93.339844,
+      44.590467,
+      -93.164062,
+      44.840291
+    ],
+    "12": [
+      -93.339844,
+      44.653024,
+      -93.164062,
+      44.777936
+    ],
+    "13": [
+      -93.339844,
+      44.684277,
+      -93.208008,
+      44.777936
+    ],
+    "14": [
+      -93.339844,
+      44.699898,
+      -93.22998,
+      44.762337
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

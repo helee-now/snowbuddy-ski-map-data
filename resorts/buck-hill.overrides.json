@@ -1,0 +1,140 @@
+{
+  "slug": "buck-hill",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1344641638 (Buck Hill, landuse=winter_sports with leisure=sports_centre): the hill on Buck Hill Road in Burnsville, from the Lookout Lounge on its summit down to the Main Chalet, the Buck '54 Bar & Grill and the tubing area along Interstate 35, on one ticket and one map (an Ikon Bonus Mountain); it holds every lift and run, and no part of it is reached only by road or shuttle. No other ski area lies in the box or the Overpass window; 22 cross-country ways and 37 bike, bridle and hiking ways tagged piste:type=hike, on the park trails around the hill, are left out by the type rule, with the Snow Tubing Area's lane (piste:type=sled); none of them is a downhill run. Every named run and lift checked on 2026-11-15 against Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links), the newest the resort publishes: the trail-map page shows it as the Winter Trail Map (15 runs, 6 parks and 10 lifts in its key, the page listing the same names with their status); a 4000 x 2514 px painting looking west, fetched with curl (SnowBuddy-maps User-Agent) and read in crops at full size. Its key: Beginner (green circle), Intermediate (blue square), Expert (a single black diamond: OSM's advanced, as the map has no double diamond) and Freestyle Terrain (orange hatching with a numbered pill and its feature sizes). Its trails are 1 The Knob, 2 Rail Yard, 3 Warner's Way, 4 Sailer's Chute, 5 Olympic Dreams, 6 Mouse Pass, 7 Dash's Drop, 8 Crossroads, 9 Milk Run, 10 Redtail Ridge, 11 Teacher's Pet, 12 Little Jibber, 13 Woodchuck Way, 14 Coyote Cutoff and 15 School Yard; its parks 1 Halfpipe, 2 The Knob Park, 3 Slopestyle Park, 4 Redtail Ridge Park, 5 Little Jibber Park and 6 Never-Ever Park; its lifts 1 Freeway Rope Tow, 2 Lakeview - Quad Lift, 3 Kildow's Climb Rope Tow, 4 Lookout - Quad Lift, 5 Redtail Rope Tow, 6 Snow Days - Triple Lift, 7 Wonder Carpet, 8 Magic Carpet, 9 Little Jibber Rope Tow and 10 Snow Tubing Carpet, numbered at their bottoms from south to north along the base. The resort's history page counts 15 runs and 11 lifts and publishes no elevations. Of the map's 15 trail names, 13 are in OSM, every rated one with the map's rating but Teacher's Pet (green in OSM, the map's blue square: intermediate), and Sailer's Chute, unrated in OSM, takes the map's blue square. Parks: Halfpipe takes the park flag with its rating left unknown (freeride in OSM, which would draw it as an ungroomed double black; the map gives its parks no rating), and three trails that carry a park on the same slope take it with the map's rating of the trail, as Granite Peak's Fun Slopes: The Knob (blue, The Knob Park), the lower piece of Redtail Ridge along the Redtail Rope Tow (blue, Redtail Ridge Park; freeride in OSM, the upper piece blue) and Little Jibber along its rope tow (green, Little Jibber Park; freeride in OSM). Lifts: the three chairs take the map's names, matched by their order along the base and their tops (OSM's Quad Chair - South is lift 2, Lakeview; Quad Chair - Center is lift 4, Lookout, to the Lookout Lounge on the summit; Triple Chair is lift 6, Snow Days), and Little Jibber Tow Rope and Red Tail Rope Tow the map's spellings. Hidden: the Snow Tubing Lift, the map's Snow Tubing Carpet in the Tubing Area beside the tubing lanes, which serves the tubing lanes and not skiers, as at Mad River Mountain, Brandywine and Snow Creek. Kept as OSM has them: Woodchuck Way, OSM's novice (green, as the map); the three Magic Carpet ways, one carpet of 239 m beside School Yard with a bridge, the map's lift 8; and Deer Run (blue, 119 m), a run OSM names that the map does not print, at the top of the slope the map labels School Yard, with an unnamed 88 m link from Little Jibber's top to Woodchuck Way, as at Afton Alps, Big Boulder and Telluride. OSM gaps: Dash's Drop (blue, a short drop from the summit beside the Lookout Lounge), Coyote Cutoff (green, through the trees between Little Jibber Park and the Magic Carpet's top), Slopestyle Park (along Rail Yard and Warner's Way) and Never-Ever Park (by the Snow Tubing Carpet's bottom) are not in OSM.",
+  "overrides": [
+    {
+      "id": "way/749919243",
+      "reason": "Teacher's Pet: the run from the top of the Snow Days triple down to the base beside the Little Jibber Rope Tow, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) labels 11 with a blue square (Intermediate) in its key and on the slope; OSM rates it easy. The printed map wins.",
+      "expect": {
+        "name": "Teacher's Pet",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1030840325",
+      "reason": "Sailer's Chute: the chute through the trees west of the Lakeview quad's upper half, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) labels 4 with a blue square (Intermediate); OSM gives it no rating. The printed map rates it.",
+      "expect": {
+        "name": "Sailer's Chute",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/749919232",
+      "reason": "Halfpipe: the pipe along the base at the hill's south end, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) marks as park 1, Halfpipe (size L), with the orange Freestyle Terrain hatching and no rating symbol, so it gets the park flag; OSM rates it freeride, which would draw it as an ungroomed double black, and the map gives its parks no rating, so the rating is left unknown, as Mad River Mountain's parks and Granite Peak's Sky High.",
+      "expect": {
+        "name": "Halfpipe",
+        "piste:difficulty": "freeride",
+        "piste:type": "downhill"
+      },
+      "set": {
+        "park": true,
+        "difficulty": "unknown"
+      }
+    },
+    {
+      "id": "way/749919234",
+      "reason": "The Knob: the slope at the hill's south end above the Halfpipe, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) labels 1 with a blue square (Intermediate) and covers with park 2, The Knob Park (sizes S and M, orange hatching): a rated trail with a park on it takes the park flag with the map's rating, as Granite Peak's Fun Slopes.",
+      "expect": {
+        "name": "The Knob",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/749919241",
+      "reason": "Redtail Ridge: the run's lower piece, 161 m along the Redtail Rope Tow, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) covers with park 4, Redtail Ridge Park (sizes M and L, orange hatching), on the trail it labels 10 with a blue square (Intermediate); OSM rates this piece freeride and the run's upper piece (way/749919240) intermediate. The printed map wins: the piece takes the trail's blue and the park flag, so the run reads as one blue trail with its park.",
+      "expect": {
+        "name": "Redtail Ridge",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "difficulty": "intermediate",
+        "park": true
+      }
+    },
+    {
+      "id": "way/749919244",
+      "reason": "Little Jibber: the slope along the Little Jibber Rope Tow, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) labels 12 with a green circle (Beginner) at its top and covers with park 5, Little Jibber Park (sizes S, M and L, orange hatching); OSM rates it freeride. The printed map wins: the map's green, with the park flag, as Granite Peak's Fun Slopes.",
+      "expect": {
+        "name": "Little Jibber",
+        "piste:difficulty": "freeride"
+      },
+      "set": {
+        "difficulty": "easy",
+        "park": true
+      }
+    },
+    {
+      "id": "way/246969630",
+      "reason": "Quad Chair - South: the southernmost chair, between Olympic Dreams and Warner's Way, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) numbers 2 at its bottom and names Lakeview - Quad Lift (the second lift from the south along the base, after the Freeway Rope Tow, and before Kildow's Climb Rope Tow and the Lookout quad). The map's name.",
+      "expect": {
+        "name": "Quad Chair - South",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Lakeview - Quad Lift"
+      }
+    },
+    {
+      "id": "way/246969632",
+      "reason": "Quad Chair - Center: the middle chair, from beside the Main Chalet to the Lookout Lounge on the summit, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) numbers 4 at its bottom and names Lookout - Quad Lift. The map's name.",
+      "expect": {
+        "name": "Quad Chair - Center",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Lookout - Quad Lift"
+      }
+    },
+    {
+      "id": "way/246969629",
+      "reason": "Triple Chair: the northern chair, between Teacher's Pet and Redtail Ridge, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) numbers 6 at its bottom by the Main Chalet and names Snow Days - Triple Lift, its only triple. The map's name.",
+      "expect": {
+        "name": "Triple Chair",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Snow Days - Triple Lift"
+      }
+    },
+    {
+      "id": "way/256868614",
+      "reason": "Little Jibber Tow Rope: the rope tow along Little Jibber Park, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) numbers 9 and names Little Jibber Rope Tow. The map's name.",
+      "expect": {
+        "name": "Little Jibber Tow Rope",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Little Jibber Rope Tow"
+      }
+    },
+    {
+      "id": "way/749919242",
+      "reason": "Red Tail Rope Tow: the rope tow along Redtail Ridge Park, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) numbers 5 and names Redtail Rope Tow, as it spells the run and the park. The map's spelling.",
+      "expect": {
+        "name": "Red Tail Rope Tow",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Redtail Rope Tow"
+      }
+    },
+    {
+      "id": "way/1030840330",
+      "reason": "Snow Tubing Lift: the carpet beside the Snow Tubing Area's lanes at the hill's north end, which Buck Hill's Winter 2025-26 trail map (W2526-Buck-Hill-Trail-Map-FOR-WEB.jpg, the map buckhill.com/skiing-snowboarding/winter-trail-map links) draws as lift 10, Snow Tubing Carpet, in the TUBING AREA beside the tubing lanes, away from the ski runs; it serves the tubing lanes, not skiers, so hidden as Mad River Mountain's, Brandywine's and Snow Creek's tubing carpets.",
+      "expect": {
+        "name": "Snow Tubing Lift",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    }
+  ]
+}

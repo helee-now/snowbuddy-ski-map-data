@@ -1233,6 +1233,58 @@
       "coverage": "data/brighton-v2-coverage.json"
     },
     {
+      "slug": "buck-hill",
+      "name": "Buck Hill",
+      "version": 1,
+      "key": "buck-hill-v1",
+      "box": [
+        -93.32,
+        44.7,
+        -93.25,
+        44.75
+      ],
+      "ski_area": "way/1344641638",
+      "elevation": "3dep1",
+      "elevation_project": "MN_CentralMissRiver_B22",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T03:20:56Z",
+      "overpass_box": [
+        -93.36,
+        44.68,
+        -93.21,
+        44.77
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MN_CentralMissRiver_B22/TIFF/USGS_1M_15_x47y495_MN_CentralMissRiver_B22.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MN_CentralMissRiver_B22/TIFF/USGS_1M_15_x47y496_MN_CentralMissRiver_B22.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MN_CentralMissRiver_B22/TIFF/USGS_1M_15_x48y495_MN_CentralMissRiver_B22.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MN_CentralMissRiver_B22/TIFF/USGS_1M_15_x48y496_MN_CentralMissRiver_B22.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "MN_CentralMissRiver_B22",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -93.32,
+          44.7,
+          -93.25,
+          44.75
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-16T03:23:19Z",
+      "ski_file": {
+        "path": "data/buck-hill-v1-ski.pmtiles",
+        "bytes": 40423,
+        "sha256": "1c1be220a6ece75755fdfc6050f483fdcb093c82229bdefc51dd95259755a562"
+      },
+      "coverage": "data/buck-hill-v1-coverage.json"
+    },
+    {
       "slug": "buttermilk",
       "name": "Buttermilk",
       "version": 1,
@@ -1301,6 +1353,58 @@
         "sha256": "8694499e85c3094695cc027a0c9d25261514a717a07e6fb728d8186ab42d7e6f"
       },
       "coverage": "data/buttermilk-v1-coverage.json"
+    },
+    {
+      "slug": "caberfae-peaks",
+      "name": "Caberfae Peaks",
+      "version": 1,
+      "key": "caberfae-peaks-v1",
+      "box": [
+        -85.75,
+        44.21,
+        -85.68,
+        44.27
+      ],
+      "ski_area": "way/1241940633",
+      "elevation": "3dep1",
+      "elevation_project": "MI_Wexford_2016",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T03:05:46Z",
+      "overpass_box": [
+        -85.79,
+        44.19,
+        -85.64,
+        44.29
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MI_Wexford_2016/TIFF/USGS_one_meter_x59y490_MI_Wexford_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MI_Wexford_2016/TIFF/USGS_one_meter_x59y491_MI_Wexford_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MI_Wexford_2016/TIFF/USGS_one_meter_x60y490_MI_Wexford_2016.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MI_Wexford_2016/TIFF/USGS_one_meter_x60y491_MI_Wexford_2016.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "MI_Wexford_2016",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -85.75,
+          44.21,
+          -85.68,
+          44.27
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-16T03:08:59Z",
+      "ski_file": {
+        "path": "data/caberfae-peaks-v1-ski.pmtiles",
+        "bytes": 46436,
+        "sha256": "0f852a61df8daa7c3eb9206f805feec04447a9cc32946161031a8b218852b743"
+      },
+      "coverage": "data/caberfae-peaks-v1-coverage.json"
     },
     {
       "slug": "camelback",
@@ -1545,6 +1649,60 @@
       "coverage": "data/crystal-mountain-v1-coverage.json"
     },
     {
+      "slug": "crystal-ridge",
+      "name": "Crystal Ridge",
+      "version": 1,
+      "key": "crystal-ridge-v1",
+      "box": [
+        -88.05,
+        42.9,
+        -87.98,
+        42.95
+      ],
+      "ski_area": "derived",
+      "elevation": "3dep1",
+      "elevation_project": "WI_SEWRPC_2017",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T03:10:51Z",
+      "overpass_box": [
+        -88.09,
+        42.88,
+        -87.94,
+        42.97
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_SEWRPC_2017/TIFF/USGS_one_meter_x41y475_WI_SEWRPC_2017.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_SEWRPC_2017/TIFF/USGS_one_meter_x41y476_WI_SEWRPC_2017.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_SEWRPC_2017/TIFF/USGS_one_meter_x41y477_WI_SEWRPC_2017.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_SEWRPC_2017/TIFF/USGS_one_meter_x42y475_WI_SEWRPC_2017.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_SEWRPC_2017/TIFF/USGS_one_meter_x42y476_WI_SEWRPC_2017.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_SEWRPC_2017/TIFF/USGS_one_meter_x42y477_WI_SEWRPC_2017.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "WI_SEWRPC_2017",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -88.05,
+          42.9,
+          -87.98,
+          42.95
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-16T03:12:38Z",
+      "ski_file": {
+        "path": "data/crystal-ridge-v1-ski.pmtiles",
+        "bytes": 31455,
+        "sha256": "2b2188dd089ddc8af854ce8d8df0adf764ab2bccab4c76475bc834514c4d910c"
+      },
+      "coverage": "data/crystal-ridge-v1-coverage.json"
+    },
+    {
       "slug": "cypress-mountain",
       "name": "Cypress Mountain",
       "version": 1,
@@ -1624,6 +1782,58 @@
         "sha256": "9abd659e028939783defd5de7c610fc235ddcd2787b0ceb8e1e27038ecd19b7a"
       },
       "coverage": "data/deer-valley-v2-coverage.json"
+    },
+    {
+      "slug": "devils-head",
+      "name": "Devil's Head",
+      "version": 1,
+      "key": "devils-head-v1",
+      "box": [
+        -89.67,
+        43.39,
+        -89.59,
+        43.45
+      ],
+      "ski_area": "way/302670313",
+      "elevation": "3dep1",
+      "elevation_project": "WI_8County_2020_A20",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T03:22:01Z",
+      "overpass_box": [
+        -89.71,
+        43.37,
+        -89.55,
+        43.47
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_8County_2020_A20/TIFF/USGS_1M_16_x28y481_WI_8County_2020_A20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_8County_2020_A20/TIFF/USGS_1M_16_x28y482_WI_8County_2020_A20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_8County_2020_A20/TIFF/USGS_1M_16_x29y481_WI_8County_2020_A20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_8County_2020_A20/TIFF/USGS_1M_16_x29y482_WI_8County_2020_A20.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "WI_8County_2020_A20",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -89.67,
+          43.39,
+          -89.59,
+          43.45
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-16T03:24:52Z",
+      "ski_file": {
+        "path": "data/devils-head-v1-ski.pmtiles",
+        "bytes": 49780,
+        "sha256": "5f7769af038c3dcdcab43693f191aeab6172be49bf7ec7df8f8a52eef364e233"
+      },
+      "coverage": "data/devils-head-v1-coverage.json"
     },
     {
       "slug": "diamond-peak",
@@ -1786,6 +1996,38 @@
         "sha256": "00cc8661e9893c26a26b7c5a58945241bbc03d0d8bf9b06c352fddb22d8033da"
       },
       "coverage": "data/fernie-v1-coverage.json"
+    },
+    {
+      "slug": "giants-ridge",
+      "name": "Giants Ridge",
+      "version": 1,
+      "key": "giants-ridge-v1",
+      "box": [
+        -92.35,
+        47.55,
+        -92.27,
+        47.6
+      ],
+      "ski_area": "derived",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T04:27:43Z",
+      "overpass_box": [
+        -92.39,
+        47.53,
+        -92.23,
+        47.62
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w093/USGS_13_n48w093.tif"
+      ],
+      "built_at": "2026-11-16T04:29:30Z",
+      "ski_file": {
+        "path": "data/giants-ridge-v1-ski.pmtiles",
+        "bytes": 49544,
+        "sha256": "3fb5c724b0d0aa3e4c3f38715a43ca5d7fe1175a2d812f58e9e2a515b99ddcfb"
+      },
+      "coverage": "data/giants-ridge-v1-coverage.json"
     },
     {
       "slug": "granite-peak",
@@ -2644,6 +2886,65 @@
       "coverage": "data/liberty-mountain-v1-coverage.json"
     },
     {
+      "slug": "little-switzerland",
+      "name": "Little Switzerland",
+      "version": 1,
+      "key": "little-switzerland-v1",
+      "box": [
+        -88.31,
+        43.31,
+        -88.23,
+        43.36
+      ],
+      "ski_area": "way/534284011",
+      "neighbours": [
+        {
+          "id": "way/828173278",
+          "name": "Fox Hill Ski Area",
+          "reason": "Fox Hill, the Milwaukee Ski Club's private members' hill (OpenStreetMap's operator tag; skiresort.info names the club as its lift operator) on County Highway NN, about 4 km north-east of Little Switzerland's boundary, with its own four rope tows and runs and no lift, trail or ticket shared with Little Switzerland: a separate ski area. Its polygon, with its lifts and runs, lies north of the box in the Overpass window; left off by the owner's rule of 2026-10-21."
+        }
+      ],
+      "elevation": "3dep1",
+      "elevation_project": "WI_SEWRPC_2017",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T03:36:21Z",
+      "overpass_box": [
+        -88.35,
+        43.29,
+        -88.19,
+        43.38
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_SEWRPC_2017/TIFF/USGS_one_meter_x39y480_WI_SEWRPC_2017.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_SEWRPC_2017/TIFF/USGS_one_meter_x39y481_WI_SEWRPC_2017.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_SEWRPC_2017/TIFF/USGS_one_meter_x40y480_WI_SEWRPC_2017.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_SEWRPC_2017/TIFF/USGS_one_meter_x40y481_WI_SEWRPC_2017.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "WI_SEWRPC_2017",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -88.31,
+          43.31,
+          -88.23,
+          43.36
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-16T03:38:35Z",
+      "ski_file": {
+        "path": "data/little-switzerland-v1-ski.pmtiles",
+        "bytes": 37971,
+        "sha256": "87d72425aa4ca6027bfcc00a02802c7443d7e01293250d99bbf66a4456353c78"
+      },
+      "coverage": "data/little-switzerland-v1-coverage.json"
+    },
+    {
       "slug": "loon-mountain",
       "name": "Loon Mountain",
       "version": 1,
@@ -3231,6 +3532,63 @@
         "sha256": "67b94b207408a2244324f96d3f1df412a342283fda2c10c985617997dca48cf2"
       },
       "coverage": "data/nakiska-v1-coverage.json"
+    },
+    {
+      "slug": "nordic-mountain",
+      "name": "Nordic Mountain",
+      "version": 1,
+      "key": "nordic-mountain-v1",
+      "box": [
+        -89.22,
+        44.09,
+        -89.15,
+        44.15
+      ],
+      "ski_area": "way/734699864",
+      "elevation": "3dep1",
+      "elevation_project": "WI_5County_B24",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T03:03:38Z",
+      "overpass_box": [
+        -89.26,
+        44.07,
+        -89.11,
+        44.17
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_5County_B24/TIFF/USGS_1M_16_x31y488_WI_5County_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_5County_B24/TIFF/USGS_1M_16_x31y489_WI_5County_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_5County_B24/TIFF/USGS_1M_16_x31y490_WI_5County_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_5County_B24/TIFF/USGS_1M_16_x32y488_WI_5County_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_5County_B24/TIFF/USGS_1M_16_x32y489_WI_5County_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_5County_B24/TIFF/USGS_1M_16_x32y490_WI_5County_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_5County_B24/TIFF/USGS_1M_16_x33y488_WI_5County_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_5County_B24/TIFF/USGS_1M_16_x33y489_WI_5County_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_5County_B24/TIFF/USGS_1M_16_x33y490_WI_5County_B24.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "WI_5County_B24",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -89.22,
+          44.09,
+          -89.15,
+          44.15
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-16T03:05:49Z",
+      "ski_file": {
+        "path": "data/nordic-mountain-v1-ski.pmtiles",
+        "bytes": 32806,
+        "sha256": "9208565f82ee4b5046bcbc0eade91fb6052d9bee4a04702583a460a85bc339d4"
+      },
+      "coverage": "data/nordic-mountain-v1-coverage.json"
     },
     {
       "slug": "northstar",
@@ -5378,6 +5736,38 @@
         "sha256": "6c6d98083e6015976c3915d7274dcff176a4b2961d5f84c0445338b03e10903d"
       },
       "coverage": "data/whitetail-v1-coverage.json"
+    },
+    {
+      "slug": "wild-mountain",
+      "name": "Wild Mountain",
+      "version": 1,
+      "key": "wild-mountain-v1",
+      "box": [
+        -92.74,
+        45.46,
+        -92.67,
+        45.52
+      ],
+      "ski_area": "way/1240327159",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T03:25:06Z",
+      "overpass_box": [
+        -92.78,
+        45.44,
+        -92.63,
+        45.54
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n46w093/USGS_13_n46w093.tif"
+      ],
+      "built_at": "2026-11-16T03:26:24Z",
+      "ski_file": {
+        "path": "data/wild-mountain-v1-ski.pmtiles",
+        "bytes": 48977,
+        "sha256": "df3b4242ba1e1c1ff552c85b89e10d49309f7efe0b1830efb0685258fa71f466"
+      },
+      "coverage": "data/wild-mountain-v1-coverage.json"
     },
     {
       "slug": "wildcat",

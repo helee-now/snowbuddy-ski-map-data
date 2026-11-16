@@ -1,0 +1,129 @@
+{
+  "slug": "little-switzerland",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/534284011 (Little Switzerland Ski Hill, landuse=winter_sports with leisure=sports_centre): the hill at Slinger with its front side, which falls north-west from the crest to the Main Lodge and the beginner area, and its back side, which falls south-east to the bottoms of chairs 2 and 4, on one ticket and one map (Ikon Bonus Mountain, new for 26/27); every lift and run is reached by lift or trail, none only by road or shuttle. It leaves off Fox Hill Ski Area (way/828173278), the Milwaukee Ski Club's private hill 4 km north-east in the Overpass window, a listed neighbour. Every named run and lift checked on 2026-11-15 against Little Switzerland's trail map (LittleSwitzMap2023_Front and LittleSwitzMap2023_Back, the two sides littleswitz.com/mountain-info/little-switz-trail-map links as PDFs and shows as 3000 x 1397 px PNGs, the newest the resort publishes; rendered images with only the key as text, read tile by tile at full size) and the resort's snow report (littleswitz.com/mountain-info/snow-report, read 2026-11-15, last updated on March 1), which lists 16 trails with their ratings (Beginner Area, Bomber Bowl, Easy Cheesy, Grandpa's Run, Sno Bowl, Turnpike; Death Valley, Jane's Deal, Matterhorn, Southern Comfort, Wineskin; Big Deal, Holy Switz!, Schuss, Shorty's, Slingshot), 3 terrain parks (Happy Little Park (Small), Expedition Supply Park (Medium), 41 Park (Large); the terrain-parks page names them Happy Trail Park, Expo Park and 41 Park) and 9 lifts (Double Chairlift 1 to 4, Beginner Conveyor Lift, Beginner Conveyor 2, Big Deal Rope Tow, Happy Rope Tow, Park Rope Tow). The map's key: Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond; no double black), Freestyle Terrain (an orange band) and Slow Zone; read as OSM's easy, intermediate and advanced. Every rated run in OSM carries the map's and the report's rating. Chairs 1 and 2, the original up-and-over 1-2 double chair, were replaced over the summer of 2026 by two independent Skytrac quads (the resort's blog, 'Two New Independent Quad Chairlifts to Replace 1-2', read 2026-11-15: towers set on the front and the back, load testing planned for the fall of 2026); the 2023 map still draws the old lift, and OSM's Chair 1 (front) and Chair 2 (back) lines, already tagged as quads, are kept as they are, chairs 3 and 4 as OSM has them. Names from the map: Jane's Deal (one way spelled Janes Deal), Easy Cheesy (OSM Easy Cheezy), Slingshot (OSM Sling Shot), Switz 41 Park (OSM 1941 Park), Happy Trail Park (OSM Happy Trail), Beginner Area for OSM's two Beginner Hill lines, and the report's Park Rope Tow for OSM's Terrain Park Rope Tow; OSM's Beginner Holl Handle Tow takes the obvious spelling Beginner Hill Handle Tow (the 2023 map draws two conveyors in the beginner area and the report lists two conveyors and no handle tow, while the trail-map page's text speaks of a conveyor belt and a handle tow; nothing settles which, so OSM's rope tow is kept). Parks: Switz 41 Park and Expedition Supply Park, the front side's Freestyle Terrain, and Happy Trail Park, the back side's, get the park flag (Happy Trail Park keeps OSM's easy, a beginner park by the resort's page; the two front parks have no rating in OSM, and none is guessed). Hidden: 102.1 Park, an old park line on the back side between Death Valley and Chair 4 on no current map (the resort's three parks are the ones above). Kept as OSM has them: the unnamed connectors along the crest and the unnamed blue branch of Death Valley to Chair 4's bottom. OSM gaps: Bomber Bowl (blue, from the crest by Matterhorn down to Chair 4's bottom) and the Happy Rope Tow beside Happy Trail Park are not in OSM. The Wolf Run sledding hill in Slinger and the cross-country trails in the Overpass window (the CLCF network's loops by Fox Hill and the Blue Ski Loop, Brown Ski Loop and Campground Loop south-west of Slinger) are left out by the type rule.",
+  "overrides": [
+    {
+      "id": "way/1303182006",
+      "reason": "Janes Deal: the upper way of Jane's Deal on the front side, from the crest by Chair 3's top down to the fork above the Main Lodge, which Little Switzerland's trail map (LittleSwitzMap2023_Front, the map littleswitz.com/mountain-info/little-switz-trail-map links) labels JANE'S DEAL and the resort's snow report (littleswitz.com/mountain-info/snow-report, read 2026-11-15) lists as Jane's Deal, as OSM names its lower way (way/728113275). Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Janes Deal",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Jane's Deal"
+      }
+    },
+    {
+      "id": "way/728113277",
+      "reason": "Easy Cheezy: the front side's easiest way down, from Chair 1's top along the crest past the fire tower to the beginner area, which Little Switzerland's trail map (LittleSwitzMap2023_Front, the map littleswitz.com/mountain-info/little-switz-trail-map links) labels EASY CHEESY (EASIEST WAY DOWN) with green circles, and the resort's snow report (littleswitz.com/mountain-info/snow-report, read 2026-11-15) lists as Easy Cheesy, Beginner. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Easy Cheezy",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Easy Cheesy"
+      }
+    },
+    {
+      "id": "way/1303182004",
+      "reason": "Sling Shot: the black run on the front side between Easy Cheesy's crest and the beginner area, which Little Switzerland's trail map (LittleSwitzMap2023_Front, the map littleswitz.com/mountain-info/little-switz-trail-map links) labels SLINGSHOT with black diamonds, and the resort's snow report (littleswitz.com/mountain-info/snow-report, read 2026-11-15) lists as Slingshot, Advanced. Spelling from the map; OSM's rating is the map's.",
+      "expect": {
+        "name": "Sling Shot",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Slingshot"
+      }
+    },
+    {
+      "id": "way/728113273",
+      "reason": "1941 Park: the large park's line in the front side's Freestyle Terrain beside Chair 3, which Little Switzerland's trail map (LittleSwitzMap2023_Front, the map littleswitz.com/mountain-info/little-switz-trail-map links) marks with the SWITZ 41 PARK shield in the orange FREESTYLE TERRAIN band; the trail-map page's text names it Switz 41 Park (large features for advanced riders), the terrain-parks page and the snow report (read 2026-11-15) 41 Park. Name from the map, and the park flag; OSM gives it no rating, and none is guessed.",
+      "expect": {
+        "name": "1941 Park",
+        "piste:type": "downhill",
+        "piste:difficulty": null
+      },
+      "set": {
+        "name": "Switz 41 Park",
+        "park": true
+      }
+    },
+    {
+      "id": "way/376556113",
+      "reason": "Expedition Supply Park: the medium park's line in the front side's Freestyle Terrain, which Little Switzerland's trail map (LittleSwitzMap2023_Front, the map littleswitz.com/mountain-info/little-switz-trail-map links) marks with the EXPEDITION SUPPLY PARK badge in the orange FREESTYLE TERRAIN band, and the snow report (littleswitz.com/mountain-info/snow-report, read 2026-11-15) lists as Expedition Supply Park (Medium) among its terrain parks. Park flag from the map; OSM gives it no rating, and none is guessed.",
+      "expect": {
+        "name": "Expedition Supply Park",
+        "piste:type": "downhill",
+        "piste:difficulty": null
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/733681550",
+      "reason": "Happy Trail: the back side's park, from the crest down the south-west edge to Chair 2's bottom, which Little Switzerland's trail map (LittleSwitzMap2023_Back, the map littleswitz.com/mountain-info/little-switz-trail-map links) labels HAPPY TRAIL PARK in the orange FREESTYLE TERRAIN band beside its rope tow; the terrain-parks page (littleswitz.com/mountain-info/terrain-parks-little-switz, read 2026-11-15) describes Happy Trail Park as the beginner-focused park (the trail-map page's text calls the back side's park Progression Park, the snow report Happy Little Park (Small)). Name from the map, and the park flag; OSM's easy is kept, as nothing rates it otherwise.",
+      "expect": {
+        "name": "Happy Trail",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Happy Trail Park",
+        "park": true
+      }
+    },
+    {
+      "id": "way/728113284",
+      "reason": "102.1 Park: an unrated park line on the back side from the crest down between Death Valley and Chair 4 to Chair 2's bottom. Little Switzerland's trail map (LittleSwitzMap2023_Back, the map littleswitz.com/mountain-info/little-switz-trail-map links) draws no park or run there, and the resort's three parks are Happy Trail Park on the back side and Expedition Supply Park and Switz 41 Park on the front (the terrain-parks page and the snow report, read 2026-11-15): a park the resort no longer has.",
+      "expect": {
+        "name": "102.1 Park",
+        "piste:type": "downhill"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/376556140",
+      "reason": "Beginner Hill: one of OSM's two lines down the beginner area at the front side's south-west end, which Little Switzerland's trail map (LittleSwitzMap2023_Front, the map littleswitz.com/mountain-info/little-switz-trail-map links) labels BEGINNER AREA between its two conveyor lifts, and the resort's snow report (littleswitz.com/mountain-info/snow-report, read 2026-11-15) lists as Beginner Area, Beginner. Name from the map; OSM's rating is the report's.",
+      "expect": {
+        "name": "Beginner Hill",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Beginner Area"
+      }
+    },
+    {
+      "id": "way/728113276",
+      "reason": "Beginner Hill: the other of OSM's two lines down the beginner area at the front side's south-west end, which Little Switzerland's trail map (LittleSwitzMap2023_Front, the map littleswitz.com/mountain-info/little-switz-trail-map links) labels BEGINNER AREA between its two conveyor lifts, and the resort's snow report (littleswitz.com/mountain-info/snow-report, read 2026-11-15) lists as Beginner Area, Beginner. Name from the map; OSM's rating is the report's.",
+      "expect": {
+        "name": "Beginner Hill",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Beginner Area"
+      }
+    },
+    {
+      "id": "way/728113290",
+      "reason": "Beginner Holl Handle Tow: the short tow (49 m) at the beginner area's south-west edge; the obvious misspelling of Hill fixed. Little Switzerland's 2023 trail map (LittleSwitzMap2023_Front) draws a conveyor lift about there and the snow report (read 2026-11-15) lists two beginner conveyors and no handle tow, while the trail-map page's own text speaks of a conveyor belt and a handle tow in the beginner area; nothing settles which, so OSM's rope tow is kept, under its own name.",
+      "expect": {
+        "name": "Beginner Holl Handle Tow",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Beginner Hill Handle Tow"
+      }
+    },
+    {
+      "id": "way/728113288",
+      "reason": "Terrain Park Rope Tow: the rope tow inside the front side's Freestyle Terrain, which Little Switzerland's trail map (LittleSwitzMap2023_Front, the map littleswitz.com/mountain-info/little-switz-trail-map links) labels ROPE TOW and the resort's snow report (littleswitz.com/mountain-info/snow-report, read 2026-11-15) lists as Park Rope Tow. Name from the report.",
+      "expect": {
+        "name": "Terrain Park Rope Tow",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Park Rope Tow"
+      }
+    }
+  ]
+}

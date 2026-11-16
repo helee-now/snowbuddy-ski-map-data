@@ -1,0 +1,40 @@
+{
+  "slug": "snowy-range",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/391284413 (Snowy Range Ski Area, landuse=winter_sports): the ski area on Wyoming 130 in the Medicine Bow National Forest west of Centennial, from the tops of the Chute and Virginian lifts down to the lodge and from Round Up down to the Sundance lift's bottom, on one ticket and one map (an Ikon Bonus Mountain); it holds every lift and run, and no part of it is reached only by road or shuttle (Warpath and Lower Drifter run down from the base area to the Sundance lift's bottom, the resort's lowest point, and the Sundance lift with Blackfoot, Round Up and Centennial brings skiers back to the lodge). An unnamed second polygon, way/670968299 (landuse=winter_sports, area=yes), lies 0.2 km south-east of it among the Medicine Bow cross-country trails (Corner Mountain Loop, Camp Loop, Spruce Loop): it holds no lift or downhill run and has no name, so it cannot be listed as a neighbour and is not drawn; its nordic and hiking ways, with the rest of the forest's cross-country trails in the window (21 ways), are left out by the type rule. No other ski area lies in the box or the Overpass window. Every named run and lift checked on 2026-11-15 against Snowy Range's trail map (trailmap.jpg, the painting snowyrangeski.com shows, uploaded 2022-05), the only map the resort publishes (a 1903 x 1159 px painting looking south-west up the mountain, fetched with curl with the SnowBuddy-maps User-Agent and read in crops enlarged two times: each run's name sits in a green, blue or black pill, with no double black; the Medicine Bow Terrain Park in orange), and against Snowy Range's lifts and trails report (snowyrangeski.com/lifts-and-trails-report, read 2026-11-15), which rates 33 trails Easiest (green circle), More Difficult (blue square) or Most Difficult (black diamond) and lists the five lifts (Pioneer, The Colt, Chute, Sundance and Virginian). The two sources agree on every rating, and every rated run in OSM carries it; Gun Barrel (black) and Old 30 Meter (blue), on the map and not in the report, keep the map's colours, as OSM rates them. Names from the map and the report: OSM's Calamity becomes Calamity Jane; Med Bow Ski Area Road, the Forest Service road (FR 340) from the Virginian lift's top along the upper mountain and down past Round Up and Old 30 Meter to the base, is the trail the map and the report name Centennial (green); and Ski Area Spur Road (FR 340.A), whose alt_name is Blackfoot, is the western stretch of the green trail the map labels Blackfoot, from Centennial to the Sundance lift's top. Names that differ only by an article or a space stay as OSM has them, as on the map: The Chute (the report's Chute), The Crow's Nest (Crow's Nest) and Round Up (Roundup). Kept as OSM has it: Crazy Woman, a 122 m black link from Geronimo to the Sundance lift's bottom that neither the map nor the report names, as Buck Hill's Deer Run. Lifts: the five are in OSM with the map's names (Chute Lift, Pioneer Lift, Sundance Lift, Virginian Lift and The Colt, a carpet), none hidden. Parks: the Medicine Bow Terrain Park is a snow-park line in OSM and draws as a park. OSM gaps: Little Buckaroo (green, from Autobahn down beside the terrain park to the base) and The Colt's beginner slope (green in the report), so no override is needed.",
+  "overrides": [
+    {
+      "id": "way/258507642",
+      "reason": "The blue run between Cheyenne and The Chute below the Chute Lift's top, which Snowy Range's trail map (trailmap.jpg, the painting snowyrangeski.com shows, uploaded 2022-05) labels Calamity Jane in a blue pill and Snowy Range's lifts and trails report (snowyrangeski.com/lifts-and-trails-report, read 2026-11-15) lists as Calamity Jane, More Difficult; OSM names it Calamity. Name from the map; OSM's rating (intermediate) is the map's.",
+      "expect": {
+        "name": "Calamity",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Calamity Jane"
+      }
+    },
+    {
+      "id": "way/353290988",
+      "reason": "OSM's Med Bow Ski Area Road (ref:usfs FR 340), a Forest Service road tagged as an easy downhill run (1,648 m) from the Virginian Lift's top along the upper mountain below Upper Drifter, then down past Round Up and the top of Old 30 Meter to the base by the Chute Lift's bottom: the green trail Snowy Range's trail map (trailmap.jpg, the painting snowyrangeski.com shows, uploaded 2022-05) labels Centennial along that line (from Upper Drifter down beside the Pioneer Lift to the lodge), which Snowy Range's lifts and trails report (snowyrangeski.com/lifts-and-trails-report, read 2026-11-15) lists as Centennial, Easiest; neither names a Med Bow Ski Area Road. Name from the map; OSM's rating (easy) is the map's.",
+      "expect": {
+        "name": "Med Bow Ski Area Road",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Centennial"
+      }
+    },
+    {
+      "id": "way/1349831350",
+      "reason": "OSM's Ski Area Spur Road (ref:usfs FR 340.A, alt_name Blackfoot), an easy downhill run of 220 m from Centennial (OSM's Med Bow Ski Area Road) to the junction of Blackfoot and Upper Drifter: the western stretch of the green trail Snowy Range's trail map (trailmap.jpg, the painting snowyrangeski.com shows, uploaded 2022-05) labels Blackfoot, from Centennial across to the Sundance Lift's top, which Snowy Range's lifts and trails report (snowyrangeski.com/lifts-and-trails-report, read 2026-11-15) lists as Blackfoot, Easiest. Name from the map (OSM's alt_name), so Blackfoot reads as one trail; OSM's rating (easy) is the map's.",
+      "expect": {
+        "name": "Ski Area Spur Road",
+        "alt_name": "Blackfoot",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Blackfoot"
+      }
+    }
+  ]
+}

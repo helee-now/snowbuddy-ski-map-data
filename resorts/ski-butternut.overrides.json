@@ -1,0 +1,37 @@
+{
+  "slug": "ski-butternut",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1244085914 (Ski Butternut, landuse=winter_sports, operator Ski Butternut): the north face of the mountain on State Road (Massachusetts Route 23) east of Great Barrington, from the 1,800 ft summit and the tops of the Top Flight Quad and Jane's Quad down to the Clubhouse, the Upper Lodge and the tubing center, on one ticket and one map (an Ikon Bonus Mountain); it holds every lift and run, and no part of it is reached only by road or shuttle. No other ski area lies in the box or the Overpass window: Catamount (way/1176086204, Catamount Mountain Resort, on the New York line) lies 12 km west and Otis Ridge (lifts and runs in OSM, no polygon) about 17 km east, both beyond the window, so nothing is left out as a neighbour. Every named run and lift checked on 2026-11-15 against Ski Butternut's trail map (2025-butternut-trail-map-final-web-2.webp, the map skibutternut.com/the-mountain/trails-conditions/trail-map-videos shows and offers to download, a 1920 x 1344 px painting looking south with the new Jane's Quad, fetched with curl with the SnowBuddy-maps User-Agent and read in crops at full size), the newest the resort publishes, against the same page's trail list (Beginner, Intermediate and Advanced trails and the two terrain parks, each described) and against the resort's condition report (skibutternut.com/the-mountain/trails-conditions/condition-report, read 2026-11-15, closed since 2026-03-29), which lists every trail, park and lift. The map's key has three classes, Easiest (green circle), More Difficult (blue square) and Most Difficult (black diamond), OSM's easy, intermediate and advanced; the stats count 22 trails and 10 lifts (5 quads, 4 carpets and 1 tubing carpet). The three sources agree on every rating, and every rated run in OSM carries it: Cruiser, Crosstown, Nuthatch, Pied Piper and Uptown easy and Paddy's, the beginners' area, novice; Dipsy, Upper and Lower Applejack, Hob Nob, Main Street, Twist, Fiddler and Freewheeler intermediate; Lucifer's Leap, Whip, Race Course, West Way, Downspout and Chute advanced. No rating override. The two terrain parks are snow-park outlines in OSM and draw as parks: Cruiser Progression Park beside Cruiser, and the Twisted Terrain Park over lower Twist and upper West Way, which the map hatches orange over those two trails (the report lists West Way Park as its own park); Twist and West Way keep their ratings, the park drawn by its outline. Names: OSM's Nut Hatch takes the resort's Nuthatch, and its Paddy Wagon the report's Paddy's Quad (PADDY'S with the quad symbol on the map); the Top Flight Quad, Highline Quad, Cruiser Quad and Jane's Quad are in OSM under those names, and the four learning carpets as Carpet #1 to Carpet #4 (the map's carpets 1 to 4, the report's Learning Carpet #1 to #4). Hidden: the Tubing Carpet Lift, which serves the tubing lanes. Kept as OSM has them: Hob Nob (the map's HOB NOB; the trail page writes Hobnob), and Freewheeler and Downspout as one way each where the report lists upper and lower parts. OSM gaps: Skiwee, the learning area at the four carpets, is not in OSM; Jane's Quad, which replaced the Overbrook Triple for 2025-26 (opened 2026-01-03) with its top terminal moved up above the old one to take out Uptown's uphill section (3,693 ft horizontal, 757 ft vertical, by the resort's New Lift page), is 942 m long in OSM with 219 m (719 ft) of rise on the lidar: OSM's line looks like the Overbrook Triple's, its top 3 m below the high point of Uptown's first section, the uphill section the new top took out, so the new top terminal is not drawn yet; and Paddy's Quad is tagged a double (aerialway:occupancy=2).",
+  "overrides": [
+    {
+      "id": "way/143793269",
+      "reason": "Nut Hatch: the green trail from Crosstown down between the Top Flight and Highline quads, a slow zone, which Ski Butternut's trail map (2025-butternut-trail-map-final-web-2.webp, the map skibutternut.com/the-mountain/trails-conditions/trail-map-videos shows, with Jane's Quad) labels NUTHATCH with a green circle; the trail page and the resort's condition report (skibutternut.com/the-mountain/trails-conditions/condition-report, read 2026-11-15) write Nuthatch (named for the bird). The resort's spelling, as batch 13 took Me Nords and Expressway; OSM's easy stays.",
+      "expect": {
+        "name": "Nut Hatch",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Nuthatch"
+      }
+    },
+    {
+      "id": "way/143792515",
+      "reason": "Paddy Wagon: the short beginner chair at the base beside the Upper Lodge, serving Paddy's, which Ski Butternut's trail map (2025-butternut-trail-map-final-web-2.webp, the map skibutternut.com/the-mountain/trails-conditions/trail-map-videos shows, with Jane's Quad) labels PADDY'S with its quad symbol, as the resort's condition report (skibutternut.com/the-mountain/trails-conditions/condition-report, read 2026-11-15) lists Paddy's Quad among the five quads. The resort's name.",
+      "expect": {
+        "name": "Paddy Wagon",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Paddy's Quad"
+      }
+    },
+    {
+      "id": "way/255836217",
+      "reason": "Tubing Carpet Lift: the carpet of the Tubing Center at the base's east end, which Ski Butternut's trail map (2025-butternut-trail-map-final-web-2.webp, the map skibutternut.com/the-mountain/trails-conditions/trail-map-videos shows, with Jane's Quad) draws as TUBING beside the tubing lanes and the resort's condition report (skibutternut.com/the-mountain/trails-conditions/condition-report, read 2026-11-15) lists as the Tubing Carpet; it serves the tubing lanes, not skiers, so hidden as Buck Hill's, Mad River Mountain's, Brandywine's and Snow Creek's tubing carpets.",
+      "expect": {
+        "name": "Tubing Carpet Lift",
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    }
+  ]
+}

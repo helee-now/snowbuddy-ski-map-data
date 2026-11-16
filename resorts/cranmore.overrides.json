@@ -1,0 +1,179 @@
+{
+  "slug": "cranmore",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/334089267 (Cranmore Mountain Resort, landuse=winter_sports with leisure=sports_centre): Mount Cranmore above North Conway, from the Meister Hut on the summit down to the base lodges on Skimobile Road, on one ticket and one map (an Ikon Bonus Mountain); it holds every lift and run, and no part of it is reached only by road or shuttle (the trail map draws one ski area whose trails all come down to the one base). OSM's second polygon inside it, way/1017192437 (Cranmore Tubing Park), is the resort's own tubing park, no ski terrain and no other resort, so it is neither the ski area nor a listed neighbour (the ski file draws only the listed ski area): its carpet is hidden below. No other ski area lies in the box or the Overpass window (Attitash's polygon lies west of the window, Black Mountain's north of it). The resort's summer and year-round rides are not ski lifts: the Soaring Eagle Zipline is a zip line, left out by the type rule, and the Mountain Coaster and the Giant Swing are not in OSM's aerialway or piste data; 99 cross-country ways of the Whitaker Woods and Mount Washington Valley trails and 6 ski-touring skin tracks are left out by the type rule. Every named run and lift checked on 2026-11-15 against Cranmore's 2026-27 trail map (2627_Cranmore_TrailMapGuide_digital2-1.png, the James Niehues painting cranmore.com/trail-map shows), the only map the resort publishes (a 1368 x 1296 px painting looking east up the mountain, fetched with curl with the SnowBuddy-maps User-Agent and read in crops enlarged two to three times: each label carries its symbol, green circle, blue square or black diamond, with no double black; the parks are orange), and against Cranmore's snow report (cranmore.com/snow-report, read 2026-11-15), which lists 62 trails under Beginner, Intermediate, Expert, Glades and Terrain Parks and the seven lifts (C-More Double, Flying Carpet, Lookout Triple, Magic Carpet, Schneider Triple, Skimobile Express and South Quad), with the tubing park, the Mountain Coaster, the Giant Swing and the Soaring Eagle zipline apart under Tubing and Rides; the trail-map page counts 60 trails (18 beginner, 27 intermediate, 15 expert), 7 lifts and 4 terrain parks. The two sources agree on every rating, and every named run in OSM carries it (the map's glades carry a black diamond but Roundabout Glade, a blue square, as OSM rates them; Beginner's Basin is OSM's novice, green on the map). Names from the map and the report: Pine Line Glades, Jughandle, Roundabout and Beginner's Basin become Pipe Line Glades, Jughandle Glade, Roundabout Glade and Beginner Basin. Names that differ from the map only by an abbreviation stay as OSM has them: Easy Street (EASY ST.). OSM's East Slope is one way from the summit down the east boundary to Upper Tommy's Trail, the map's East Slope and Lower East Slope together; kept as one. Lifts: the map's seven (Skimobile Express, Lookout Triple, South Quad, Schneider Triple Chair, C-More Double, Flying Carpet and Magic Carpet) are all in OSM with the map's names (the report says Schneider Triple), none hidden. Hidden: the Tubing Carpet in the Cranmore Tubing Park, and the twelve downhill lines of the Granite Backcountry Alliance's Maple Villa zone in Intervale, 3 km north of the resort in the Overpass window's margin, whose East Branch shares its name with a blue trail of Cranmore's own. OSM gaps (shipped as at Palisades Tahoe): the blue trails East Branch (between Schneider and Gibson Pitch), Quick Way and Southway (to the South Quad's top), the green C-More's Return and Gentoo Lane in the learning area, the glades Red Line Glade (REDLINE GLADE on the map) and Stemboggen Glades, and the four terrain parks, Morton's 60, Reed's Progression Park, The 38 Terrain Park and Tschol's Terrain Garden, so the map draws no park.",
+  "overrides": [
+    {
+      "id": "way/260127657",
+      "reason": "The glade between Black Forest Glades and Jughandle Glade below Kandahar, which Cranmore's 2026-27 trail map (2627_Cranmore_TrailMapGuide_digital2-1.png, the James Niehues painting cranmore.com/trail-map shows) labels PIPE LINE GLADES with a black diamond and Cranmore's snow report (cranmore.com/snow-report, read 2026-11-15) lists as Pipe Line Glades under Glades; OSM names it Pine Line Glades. Name from the map; OSM's rating (advanced) is the map's.",
+      "expect": {
+        "name": "Pine Line Glades",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Pipe Line Glades"
+      }
+    },
+    {
+      "id": "way/260127664",
+      "reason": "The glade between Pipe Line Glades and Arlberg, which Cranmore's 2026-27 trail map (2627_Cranmore_TrailMapGuide_digital2-1.png, the James Niehues painting cranmore.com/trail-map shows) labels JUGHANDLE GLADE with a black diamond and Cranmore's snow report (cranmore.com/snow-report, read 2026-11-15) lists as Jughandle Glade under Glades; OSM names it Jughandle. Name from the map; OSM's rating (advanced) is the map's.",
+      "expect": {
+        "name": "Jughandle",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Jughandle Glade"
+      }
+    },
+    {
+      "id": "way/260125053",
+      "reason": "The glade from Snow Train down to Lucky Pitch, which Cranmore's 2026-27 trail map (2627_Cranmore_TrailMapGuide_digital2-1.png, the James Niehues painting cranmore.com/trail-map shows) labels ROUNDABOUT GLADE with a blue square and Cranmore's snow report (cranmore.com/snow-report, read 2026-11-15) lists as Roundabout Glade under Glades; OSM names it Roundabout. Name from the map; OSM's rating (intermediate) is the map's.",
+      "expect": {
+        "name": "Roundabout",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Roundabout Glade"
+      }
+    },
+    {
+      "id": "way/260125057",
+      "reason": "The beginner slope by the Karen Dolan Learning Center between the Flying Carpet and the Magic Carpet, which Cranmore's 2026-27 trail map (2627_Cranmore_TrailMapGuide_digital2-1.png, the James Niehues painting cranmore.com/trail-map shows) labels BEGINNER BASIN with a green circle and Cranmore's snow report (cranmore.com/snow-report, read 2026-11-15) lists as Beginner Basin under Beginner; OSM names it Beginner's Basin. Name from the map; OSM's rating (novice, drawn green) is kept.",
+      "expect": {
+        "name": "Beginner's Basin",
+        "piste:difficulty": "novice"
+      },
+      "set": {
+        "name": "Beginner Basin"
+      }
+    },
+    {
+      "id": "way/1017192436",
+      "reason": "An unnamed magic carpet inside OSM's Cranmore Tubing Park polygon (way/1017192437) south of the South Quad's bottom: the TUBING CARPET of Cranmore's 2026-27 trail map (2627_Cranmore_TrailMapGuide_digital2-1.png, the James Niehues painting cranmore.com/trail-map shows), drawn in the Tubing Park beside the Mountain Adventure Park, which Cranmore's snow report (cranmore.com/snow-report, read 2026-11-15) lists under Tubing and Rides, not under its seven lifts; it serves the tubing lanes, not skiers, so hidden as Mad River Mountain's, Wild Mountain's and Buck Hill's tubing carpets.",
+      "expect": {
+        "name": null,
+        "aerialway": "magic_carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/739064067",
+      "reason": "East Branch (1,002 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box (Cranmore's own East Branch, a blue trail between Schneider and Gibson Pitch on its trail map, is not in OSM; kept, this line would draw as an East Branch out of bounds 3 km from it).",
+      "expect": {
+        "name": "East Branch",
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/739064068",
+      "reason": "Intervale Dream (1,053 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": "Intervale Dream",
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/739064074",
+      "reason": "B & M (689 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": "B & M",
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/739064073",
+      "reason": "No. 3 (810 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": "No. 3",
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/739064072",
+      "reason": "Spine (842 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": "Spine",
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/739064071",
+      "reason": "PBR (762 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": "PBR",
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/915085174",
+      "reason": "Roger That (781 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": "Roger That",
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/915085172",
+      "reason": "Twister (489 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": "Twister",
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/915085168",
+      "reason": "Poma Line (465 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": "Poma Line",
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/739064069",
+      "reason": "An unnamed line (318 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": null,
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/915085169",
+      "reason": "An unnamed line (154 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": null,
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/739064075",
+      "reason": "An unnamed line (87 m), a backcountry glade line (piste:grooming=backcountry) of the Granite Backcountry Alliance's Maple Villa zone on the hill above East Branch Road in Intervale, the old Intervale Ski Area (mwvvibe.com/backcountry-preview-with-gba names Intervale Dream, East Branch and B & M as its upper lines), 3.0 to 3.3 km north of Cranmore's polygon and 1.0 to 1.7 km beyond the box's north edge, in the Overpass window's margin: no lift, no patrol, not on Cranmore's ticket, trail map or snow report. Left off, as Wildcat's Mount Washington lines are; kept, it would draw as an out-of-bounds run in the edge tiles north of the box.",
+      "expect": {
+        "name": null,
+        "piste:type": "downhill",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    }
+  ]
+}

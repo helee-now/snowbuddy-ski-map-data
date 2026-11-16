@@ -1520,6 +1520,60 @@
       "coverage": "data/copper-mountain-v1-coverage.json"
     },
     {
+      "slug": "cranmore",
+      "name": "Cranmore",
+      "version": 1,
+      "key": "cranmore-v1",
+      "box": [
+        -71.15,
+        44.03,
+        -71.05,
+        44.09
+      ],
+      "ski_area": "way/334089267",
+      "elevation": "3dep1",
+      "elevation_project": "NH_Umbagog_LiDAR_2016_D16",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T06:03:01Z",
+      "overpass_box": [
+        -71.19,
+        44.01,
+        -71.01,
+        44.11
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x32y488_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x32y489_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x33y488_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/NH_Umbagog_LiDAR_2016_D16/TIFF/USGS_1M_19_x33y489_NH_Umbagog_LiDAR_2016_D16.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w072/USGS_13_n44w072.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n45w072/USGS_13_n45w072.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "NH_Umbagog_LiDAR_2016_D16",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -71.15,
+          44.03,
+          -71.05,
+          44.09
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 99.081,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 0.919
+      },
+      "built_at": "2026-11-16T06:05:32Z",
+      "ski_file": {
+        "path": "data/cranmore-v1-ski.pmtiles",
+        "bytes": 85704,
+        "sha256": "65580b4adfed3d9e45ea4210a3309d873677a16734a71c38b4731eff01df943a"
+      },
+      "coverage": "data/cranmore-v1-coverage.json"
+    },
+    {
       "slug": "crested-butte",
       "name": "Crested Butte",
       "version": 1,
@@ -2082,6 +2136,38 @@
       "coverage": "data/granite-peak-v1-coverage.json"
     },
     {
+      "slug": "grouse-mountain",
+      "name": "Grouse Mountain",
+      "version": 1,
+      "key": "grouse-mountain-v1",
+      "box": [
+        -123.13,
+        49.35,
+        -123.04,
+        49.41
+      ],
+      "ski_area": "relation/21277926",
+      "elevation": "mrdem30",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T06:01:59Z",
+      "overpass_box": [
+        -123.17,
+        49.33,
+        -123,
+        49.43
+      ],
+      "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+      ],
+      "built_at": "2026-11-16T06:03:37Z",
+      "ski_file": {
+        "path": "data/grouse-mountain-v1-ski.pmtiles",
+        "bytes": 129648,
+        "sha256": "c7a1d4759ca51471fb603c2a91f90dc46c544e4d4e743d42b3e35f4a7c928d4b"
+      },
+      "coverage": "data/grouse-mountain-v1-coverage.json"
+    },
+    {
       "slug": "heavenly",
       "name": "Heavenly",
       "version": 1,
@@ -2396,6 +2482,61 @@
         "sha256": "22dbdf11efd1fbeef12650fae024e25281c003b617dc27b9d791813e8cdfb325"
       },
       "coverage": "data/jackson-hole-v1-coverage.json"
+    },
+    {
+      "slug": "jiminy-peak",
+      "name": "Jiminy Peak",
+      "version": 1,
+      "key": "jiminy-peak-v1",
+      "box": [
+        -73.33,
+        42.52,
+        -73.24,
+        42.58
+      ],
+      "ski_area": "way/1021872776",
+      "elevation": "3dep1",
+      "elevation_project": "MA_Western_B24",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T06:01:59Z",
+      "overpass_box": [
+        -73.37,
+        42.5,
+        -73.2,
+        42.6
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MA_Western_B24/TIFF/USGS_1M_18_x63y471_MA_Western_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MA_Western_B24/TIFF/USGS_1M_18_x63y472_MA_Western_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MA_Western_B24/TIFF/USGS_1M_18_x63y473_MA_Western_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MA_Western_B24/TIFF/USGS_1M_18_x64y471_MA_Western_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MA_Western_B24/TIFF/USGS_1M_18_x64y472_MA_Western_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MA_Western_B24/TIFF/USGS_1M_18_x64y473_MA_Western_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n43w074/USGS_13_n43w074.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "MA_Western_B24",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -73.33,
+          42.52,
+          -73.24,
+          42.58
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 87.938,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 12.062
+      },
+      "built_at": "2026-11-16T06:09:36Z",
+      "ski_file": {
+        "path": "data/jiminy-peak-v1-ski.pmtiles",
+        "bytes": 85115,
+        "sha256": "dda0d7f89614ae0aa7343c86ee3f4afb268c33779fb9379ceb53b6805abb1c67"
+      },
+      "coverage": "data/jiminy-peak-v1-coverage.json"
     },
     {
       "slug": "june-mountain",
@@ -4389,6 +4530,58 @@
       "coverage": "data/silverstar-v1-coverage.json"
     },
     {
+      "slug": "ski-butternut",
+      "name": "Ski Butternut",
+      "version": 1,
+      "key": "ski-butternut-v1",
+      "box": [
+        -73.36,
+        42.15,
+        -73.28,
+        42.21
+      ],
+      "ski_area": "way/1244085914",
+      "elevation": "3dep1",
+      "elevation_project": "MA_Western_B24",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T06:04:06Z",
+      "overpass_box": [
+        -73.4,
+        42.13,
+        -73.24,
+        42.23
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MA_Western_B24/TIFF/USGS_1M_18_x63y467_MA_Western_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MA_Western_B24/TIFF/USGS_1M_18_x63y468_MA_Western_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MA_Western_B24/TIFF/USGS_1M_18_x64y467_MA_Western_B24.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/MA_Western_B24/TIFF/USGS_1M_18_x64y468_MA_Western_B24.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "MA_Western_B24",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -73.36,
+          42.15,
+          -73.28,
+          42.21
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-16T06:11:20Z",
+      "ski_file": {
+        "path": "data/ski-butternut-v1-ski.pmtiles",
+        "bytes": 62817,
+        "sha256": "67a3a5d65b112ff445f059aa8cf227c515ff93ecccd3b76e02626c14d78ad985"
+      },
+      "coverage": "data/ski-butternut-v1-coverage.json"
+    },
+    {
       "slug": "snow-creek",
       "name": "Snow Creek",
       "version": 1,
@@ -4712,6 +4905,60 @@
         "sha256": "6463916ca73343efd2b73c8f8c5e98350761f36da97420d68cf06c4b85e53111"
       },
       "coverage": "data/snowshoe-v2-coverage.json"
+    },
+    {
+      "slug": "snowy-range",
+      "name": "Snowy Range",
+      "version": 1,
+      "key": "snowy-range-v1",
+      "box": [
+        -106.22,
+        41.31,
+        -106.14,
+        41.37
+      ],
+      "ski_area": "way/391284413",
+      "elevation": "3dep1",
+      "elevation_project": "WY_SouthCentral_2020_D20",
+      "baseline_checked": "2026-11-15",
+      "osm_timestamp": "2026-11-16T06:05:09Z",
+      "overpass_box": [
+        -106.26,
+        41.29,
+        -106.1,
+        41.39
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WY_SouthCentral_2020_D20/TIFF/USGS_1M_13_x39y457_WY_SouthCentral_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WY_SouthCentral_2020_D20/TIFF/USGS_1M_13_x39y458_WY_SouthCentral_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WY_SouthCentral_2020_D20/TIFF/USGS_1M_13_x39y459_WY_SouthCentral_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WY_SouthCentral_2020_D20/TIFF/USGS_1M_13_x40y457_WY_SouthCentral_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WY_SouthCentral_2020_D20/TIFF/USGS_1M_13_x40y458_WY_SouthCentral_2020_D20.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WY_SouthCentral_2020_D20/TIFF/USGS_1M_13_x40y459_WY_SouthCentral_2020_D20.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "WY_SouthCentral_2020_D20",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -106.22,
+          41.31,
+          -106.14,
+          41.37
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
+      },
+      "built_at": "2026-11-16T06:08:27Z",
+      "ski_file": {
+        "path": "data/snowy-range-v1-ski.pmtiles",
+        "bytes": 77048,
+        "sha256": "d0b581a88c7367b4c7dec641203efd0c1ca336ed8f16689a6a4451f030b225a6"
+      },
+      "coverage": "data/snowy-range-v1-coverage.json"
     },
     {
       "slug": "solitude",

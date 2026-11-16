@@ -1,0 +1,73 @@
+{
+  "key": "jiminy-peak-v1",
+  "ski_sha256": "dda0d7f89614ae0aa7343c86ee3f4afb268c33779fb9379ceb53b6805abb1c67",
+  "osm_timestamp": "2026-11-16T06:01:59Z",
+  "box": [
+    -73.33,
+    42.52,
+    -73.24,
+    42.58
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -73.299656,
+    42.540832,
+    -73.272008,
+    42.556803
+  ],
+  "margins_km": {
+    "west": 2.49,
+    "south": 2.32,
+    "east": 2.62,
+    "north": 2.58
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 44,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 13,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.4,
+    "runs_in_bounds": 18.7,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -73.476562,
+      42.423457,
+      -73.125,
+      42.682435
+    ],
+    "12": [
+      -73.388672,
+      42.488302,
+      -73.212891,
+      42.617791
+    ],
+    "13": [
+      -73.344727,
+      42.488302,
+      -73.212891,
+      42.585444
+    ],
+    "14": [
+      -73.344727,
+      42.504503,
+      -73.234863,
+      42.585444
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

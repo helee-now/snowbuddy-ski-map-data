@@ -1,0 +1,136 @@
+{
+  "slug": "grouse-mountain",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/21277926 (Grouse Mountain, a multipolygon of two open outer ways that make one ring, 1.15 km\u00b2): the ski area on the plateau and upper face above North Vancouver, from the Peak Chalet and the Peak Chair's bottom to the Peak, Blueberry Bowl at the Olympic Express's bottom and The Cut's bottom at the Screaming Eagle Chair's, on one ticket and one map (an Ikon Bonus Mountain). Skiers reach it from the base on Nancy Greene Way by the Red Skyride (aerialway=cable_car, the resort's aerial tramway: grousemountain.com/skyride) or the Blue Grouse Gondola (opened 2024-12-12: grousemountain.com/gondola), both kept as OpenStreetMap has them (the gondola, drawn downhill, is turned uphill by orient.py); their base stations lie 1.0 km west of the polygon, inside the box. Every run and chair of the ski area is joined to the others by lift or trail, and no part of it is reached only by road or shuttle. NEIGHBOURS: none. No other landuse=winter_sports polygon lies in the box: Cypress Mountain's (relation/15317924) ends 2.8 km west of it, its Hollyburn Nordic ring reaching about 0.1 km into the Overpass window's west margin, where its only features are two nordic ways (Thomas Framton Experience, Far East Powerline) that the type rule leaves out; Mt Seymour's (way/1052361696) lies 6.3 km east of the box, beyond the window. Left out by the type and kind rules: Grouse Mountain's five Mountain Zipline Tours lines (aerialway=zip_line, Zip Line #1 to #5), its snowshoe trails (Snowshoe Grind, Blue Grouse Loop, Light Walk, Dam Mountain Loop and Thunderbird Ridge, piste:type=hike) and its Sliding Zone (piste:type=sled), the sled runs of Cleveland Park at the foot of the mountain, and the two Hollyburn nordic ways; the Grouse Grind, the BCMC Trail and the bike-park trails carry no piste tags and are not in the answer. Every named run and lift checked on 2026-11-15 against Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg on files.grousemountain.com, 2000 x 2000 px, the James Niehues painting looking up the mountain over the plateau to The Lions), the newest winter map the resort publishes, fetched with curl (SnowBuddy-maps User-Agent) and read in crops enlarged two and three times; with the resort's run and lift list (grousemountain.com/winter-activities, names without ratings: Chalet Road, Paradise, Ski Wee, The Cut, Blue Face, Centennial, Deliverance, Dogleg, Expo, Heaven's Sake, Lower Buckhorn, Lower Peak, Lower Side Cut, Paper Trail, Peak, Side Cut, Skyline, Tyee Chute, Upper Buckhorn, Blazes, Coffin, Hades, Inferno, Outer Limits, Devil's Advocate, Upper Purgatory, Purgatory, Peak Glades, Grinder Tracks, Expo Glades, Coola's Corner, Chimney, Upper Blazes, Mountain Highway and No Man's Land; the Olympic Express, Peak, Screaming Eagle and Greenway chairs, the Magic Carpet and the Short Cut Handle Tow), its terrain-parks page (grousemountain.com/terrain-parks: The Cut Jump Line, The Cut Park, Side Cut Park, Rookie Park and Paradise Park) and its handle-tow page (grousemountain.com/handletow). The map's legend: Easiest (green circle), More Difficult (blue square), Most Difficult (one black diamond), Experts Only (two), which are OSM's easy, intermediate, advanced and expert, with Night Skiing, Terrain Park and Freestyle Terrain, Slow Zone, the Ski Area Boundary and Permanently Closed (red hatching). Of OSM's named runs all carry the map's rating but two: the upper 153 m of Centennial, which OSM rates easy, and Teddy Bear Lane (easy in OSM, 259 m in four ways), the link the map draws blue from Heaven's Sake to the Peak Chair's bottom and the Greenway Chair's top, both become intermediate. OSM's piste:name already gives the map's Chalet Road and Mountain Highway on the ways of the Grouse Mountain Highway road that carry them. Names from the map: Centenial (a 139 m piece of Centennial) becomes Centennial; the lowest 302 m way OSM names Purgatory (rated intermediate), the map's blue Mountain Highway turning down to Blueberry Bowl below the corner where Purgatory (two diamonds) ends, becomes Mountain Highway; Jib Park, the park beside Paradise, becomes Paradise Park; and the handle tow beside Side Cut, Side Cut Handle Tow in OSM, becomes the Short Cut Handle Tow. Names that differ from the map only by a suffix stay as OSM has them (Olympic Express for the map's OLYMPIC EXPRESS CHAIR). Blazes stays one name: the map labels its part below Mountain Highway LOWER BLAZES (the run list: Upper Blazes and Blazes), but OSM's 641 m way runs on across Mountain Highway to Blueberry Bowl, and both parts carry one diamond. Purgatory's 94 m top way, from the summit to where Outer Limits branches off, stays advanced as OSM has it: the map draws that shared start with no symbol of its own. Coffin, tagged closed=2017 in OSM, is kept: the map draws it with one diamond and the run list lists it. Paper Trail keeps OSM's gladed=yes (a partly gladed run, OSM's note), which the style draws as ungroomed; the map draws it as a plain blue run. Runs OSM names and the map does not print stay as OSM has them: Learning Zone (novice) and Rental Road (green) at the chalet; Toilet Bowl, Berm, Peak Cliffs and Coffin Side Entrance, short in-bounds lines OSM tags informal=yes, none in a zone the map marks closed; and Glades, an expert run area (backcountry) in the trees between the Olympic Express and Purgatory, inside the boundary and not hatched. Parks: the map's five parks are Rookie Park, Jump Line / Cut Park, Side Cut Park, Lower Side Cut and Paradise Park; Side Cut, the blue run the hatching of Side Cut Park and Lower Side Cut covers from its top to Skyline, takes the park flag with its blue rating, and Paradise Park (OSM's Jib Park) is a snow_park. Lifts: all eight on the map are in OSM (the Red Skyride, the Blue Grouse Gondola, the Screaming Eagle, Greenway, Peak and Olympic Express chairs, the Short Cut Handle Tow and the Magic Carpet); no name repeats and none is hidden; the Screaming Eagle's mid-station (open only sometimes, OSM's note; the run list's The Cut - Mid Station) stays as a station. Hidden: Olympic Lift Line and Inferno Chair Lift Line, informal lines on two strips the map hatches Permanently Closed. OSM gaps (shipped as at Palisades Tahoe): Rookie Park and Jump Line / Cut Park (The Cut Jump Line and The Cut Park) have no feature in OSM; Lower Blazes is not a way of its own; the map's closed strips and slow zones are not mapped.",
+  "overrides": [
+    {
+      "id": "way/1122811647",
+      "reason": "The upper 153 m of Centennial, from the traverse below Ski Wee down to Chalet Road: Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) draws Centennial as one blue line with blue squares (More Difficult) from its top, across Chalet Road and down to Dogleg; OSM rates this piece easy and the run's lower ways intermediate. The printed map wins.",
+      "expect": {
+        "name": "Centennial",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1122811645",
+      "reason": "A 139 m piece of Centennial below Chalet Road, misspelt Centenial in OSM; Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) and the resort's run list (grousemountain.com/winter-activities) write Centennial.",
+      "expect": {
+        "name": "Centenial",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Centennial"
+      }
+    },
+    {
+      "id": "way/1052932804",
+      "reason": "The 302 m cat track from where Purgatory meets Mountain Highway east of the Olympic Express down to Blueberry Bowl at the chair's bottom, where Outer Limits also ends: Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) draws it as Mountain Highway's blue line, which turns down the slope there and runs on to Blueberry Bowl, and draws Purgatory (two diamonds) only down to that corner; OSM names this way Purgatory and rates it intermediate, as the map's blue. The printed map wins: Mountain Highway, so no blue run is labelled Purgatory beside the double black.",
+      "expect": {
+        "name": "Purgatory",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Mountain Highway"
+      }
+    },
+    {
+      "id": "way/392390967",
+      "reason": "A 122 m piece of Teddy Bear Lane, the 259 m track from the Peak Chair's bottom and the Greenway Chair's top to where Heaven's Sake, Peak and Lower Peak meet: Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) prints no name there and draws that link as a blue line (More Difficult), the continuation of Heaven's Sake to the two chairs; OSM rates it easy. The printed map wins; OSM's name is kept, as for runs the map does not label.",
+      "expect": {
+        "name": "Teddy Bear Lane",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/392390966",
+      "reason": "A 78 m piece of Teddy Bear Lane, the 259 m track from the Peak Chair's bottom and the Greenway Chair's top to where Heaven's Sake, Peak and Lower Peak meet: Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) prints no name there and draws that link as a blue line (More Difficult), the continuation of Heaven's Sake to the two chairs; OSM rates it easy. The printed map wins; OSM's name is kept, as for runs the map does not label.",
+      "expect": {
+        "name": "Teddy Bear Lane",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/480136962",
+      "reason": "A 25 m piece of Teddy Bear Lane, the 259 m track from the Peak Chair's bottom and the Greenway Chair's top to where Heaven's Sake, Peak and Lower Peak meet: Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) prints no name there and draws that link as a blue line (More Difficult), the continuation of Heaven's Sake to the two chairs; OSM rates it easy. The printed map wins; OSM's name is kept, as for runs the map does not label.",
+      "expect": {
+        "name": "Teddy Bear Lane",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/877414833",
+      "reason": "A 34 m piece of Teddy Bear Lane, the 259 m track from the Peak Chair's bottom and the Greenway Chair's top to where Heaven's Sake, Peak and Lower Peak meet: Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) prints no name there and draws that link as a blue line (More Difficult), the continuation of Heaven's Sake to the two chairs; OSM rates it easy. The printed map wins; OSM's name is kept, as for runs the map does not label.",
+      "expect": {
+        "name": "Teddy Bear Lane",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/39807048",
+      "reason": "Side Cut, the blue run (More Difficult) beside the Short Cut Handle Tow: Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) draws it inside the terrain-park hatching of SIDE CUT PARK and LOWER SIDE CUT from its top to Skyline, and the resort's terrain-parks page (grousemountain.com/terrain-parks) names Side Cut Park with the handle tow in it. A rated trail with a park on it takes the park flag with the map's rating, as Buck Hill's The Knob and Granite Peak's Fun Slopes.",
+      "expect": {
+        "name": "Side Cut",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "park": true
+      }
+    },
+    {
+      "id": "way/1352837826",
+      "reason": "OSM's Jib Park, a 70 m snow_park beside Paradise under the Greenway Chair: Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) labels the park there PARADISE PARK, as the resort's terrain-parks page (grousemountain.com/terrain-parks) does (its run list calls it Paradise Jib Park). The printed map's name; the park keeps its park flag.",
+      "expect": {
+        "name": "Jib Park",
+        "piste:type": "snow_park"
+      },
+      "set": {
+        "name": "Paradise Park"
+      }
+    },
+    {
+      "id": "way/1120473840",
+      "reason": "The handle tow beside Side Cut, which Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) labels SHORT CUT HANDLE TOW, as the resort's handle-tow page (grousemountain.com/handletow: the Short Cut Handle Tow in Side Cut Park, opened 2022-12-21) and run list do; OSM names it Side Cut Handle Tow.",
+      "expect": {
+        "name": "Side Cut Handle Tow",
+        "aerialway": "rope_tow"
+      },
+      "set": {
+        "name": "Short Cut Handle Tow"
+      }
+    },
+    {
+      "id": "way/1489013705",
+      "reason": "Olympic Lift Line, an informal 289 m line (freeride, backcountry) down the Olympic Express's lift line below Devil's Advocate: Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) hatches that strip of the lift line in red, PERMANENTLY CLOSED in its legend, and draws no run there. Hidden, as a closed run the resort's map does not show (Park City Mountain's precedent).",
+      "expect": {
+        "name": "Olympic Lift Line",
+        "piste:difficulty": "freeride",
+        "informal": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1489010536",
+      "reason": "Inferno Chair Lift Line, an informal 172 m line (expert, backcountry) through the trees between Hades and Inferno below Chimney, the old Inferno chair's line: Grouse Mountain's 2025 winter trail map (grousemountain.com/maps/winter-map, InfoboardWinterMap_2025-Web Size.jpg, the James Niehues painting) hatches that strip in red, PERMANENTLY CLOSED in its legend, and draws no run there. Hidden, as a closed run the resort's map does not show (Park City Mountain's precedent).",
+      "expect": {
+        "name": "Inferno Chair Lift Line",
+        "piste:difficulty": "expert",
+        "informal": "yes"
+      },
+      "hide": true
+    }
+  ]
+}

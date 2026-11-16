@@ -1,0 +1,585 @@
+{
+  "slug": "jiminy-peak",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1021872776 (Jiminy Peak Resort, landuse=winter_sports): the north face of Jiminy Peak above Hancock, from the Hendricks Summit Lodge down to the base village, the Country Inn and Wyndham Bentley Brook, on one ticket and one map (an Ikon Bonus Mountain); it holds every lift and run, and no part of it is reached only by road or shuttle. No other ski area's polygon lies in the box or the Overpass window (the Mount Greylock Ski Club's, way/29785325, a private club hill with two rope tows about 9 km north-north-east, lies beyond the window), so nothing is left out as a neighbour. Brodie Mountain in New Ashford, on the next ridge north, closed since its last season of 2001-02, is drawn in OSM as five lifts and 40 trails with no lifecycle tag and no polygon of its own, 4.1 to 5.1 km north-north-east of Jiminy's boundary and inside the Overpass window: all 45 are hidden below (none is Jiminy's). Every named run and lift checked on 2026-11-15 against Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows; a 2560 x 1675 px image looking south from the base, fetched with curl with the SnowBuddy-maps User-Agent from the resort's uploads folder, its pages being behind a bot wall that answers curl and WebFetch with 403, the file found through the Internet Archive's index of the site; read in crops at full size), the newest the resort publishes, and against its 2022-23 map (TrailMap2022-23_1740px.jpg, the Internet Archive's copy of 2023-01-13), which numbers, names and rates the same 45 trails. The map's key lists 45 trails in six classes and nine lifts lettered A to J: Easiest (green circle, 1 to 17); More Difficult, Low Intermediate (a green circle on a blue square, 18 to 23); More Difficult, Intermediate (blue square, 24 to 30); More Difficult, High Intermediate (a black diamond on a blue square, 31 to 36); Expert, Most Difficult (one black diamond, 37 to 42); and Expert, Extremely Difficult (two black diamonds, 43 to 45), the map noting that its designations are specific to the mountain. Easiest is OSM's easy, Intermediate its intermediate, Most Difficult its advanced and Extremely Difficult its expert; the two split classes take the harder of their two symbols, as Fernie's split symbols do: Low Intermediate is intermediate (also the class's name, More Difficult) and High Intermediate advanced (OSM rates all six of them advanced already, so no override). Overrides: the six Low Intermediate trails in OSM, rated easy there (West Way, Grand Slam, Willie's Gulch, Raccoon's Den, Out To Sea and Scooter), become intermediate, and Jericho and Upper Lift Line, advanced in OSM, expert (Upper Exhibition, the third double diamond, is expert in OSM already). Every other rated run in OSM carries the map's rating. Names from the map: Raccoon's Den (OSM Racoon's Den), Upper Lift Line (OSM Upper Liftline) and Widow White's Quad (OSM Widows White's Quad, the map's lift H, Q3-Widow White's Quad); OSM's The Mogul Thing, the connector from the Grand Slam slope into Lower Slingshot, is the map's Kimber's Way (30, blue) by its place on both maps (its piste:grooming=mogul stays, so it draws as ungroomed); To 180 and connector to west way, short connectors with no name on the map, lose the mappers' descriptions; names that differ from the map only by case stay (Ace Of Spades, Out To Sea). Lifts: the map's Summit Triple (A), Grand Slam Chair (B), Novice Chair (C), Berkshire Express (D, the high-speed six) and the Q1-Whitetail Quad (F) are in OSM under those names (Whitetail Quad without its number), the Cricket Triple Chair (E) as Cricket Triple and the Carpet Lift at Alex's Park (J) as Alex's Park Carpet Lift. Kept as OSM has them: Whitetail, one 771 m way along the Whitetail Quad that the map splits into Upper Whitetail (39) and Lower Whitetail (40), both one black diamond as OSM's advanced. OSM gaps: Chipmunk (1) and Jiminy Cricket (2), the green trails at the base by the Cricket Triple Chair, and the Magic Carpet Lift (G) beside Chipmunk are not in OSM, nor are the map's three terrain parks (Grommetville Terrain Park, S, by the Novice Chair; Alex's Terrain Park, S and M, by the Carpet Lift; Coyote Ridge Terrain Park, S, M and L, between Grand Slam and Ace of Spades), so no run carries the park flag; the Mountain Coaster and the Soaring Eagle zip ride, which the map draws, are no ski lifts and not in the Overpass answer.",
+  "overrides": [
+    {
+      "id": "way/205006655",
+      "reason": "West Way: the trail from the Hendricks Summit Lodge along the summit and down the mountain's west edge, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) numbers 18 and lists under More Difficult (Low Intermediate), its symbol a green circle on a blue square; OSM rates it easy. The printed map wins, and of a split symbol the harder is kept (as Fernie's): intermediate.",
+      "expect": {
+        "name": "West Way",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/205006651",
+      "reason": "Grand Slam: the wide trail along the Grand Slam Chair beside the Race Arena, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) numbers 19 under More Difficult (Low Intermediate), a green circle on a blue square; OSM rates it easy. The printed map wins, the harder of the split symbol kept: intermediate.",
+      "expect": {
+        "name": "Grand Slam",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/205007368",
+      "reason": "Willie's Gulch: the trail between Deer Run and Lower Fox, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) numbers 20 under More Difficult (Low Intermediate), a green circle on a blue square; OSM rates it easy. The printed map wins, the harder of the split symbol kept: intermediate.",
+      "expect": {
+        "name": "Willie's Gulch",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/205007373",
+      "reason": "Racoon's Den: the trail down beside the Soaring Eagle zip ride to the base between 180 and Lower Slingshot, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) names Raccoon's Den and numbers 21 under More Difficult (Low Intermediate), a green circle on a blue square; OSM rates it easy. The map's spelling, and its rating, the harder of the split symbol kept: intermediate.",
+      "expect": {
+        "name": "Racoon's Den",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Raccoon's Den",
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/205007451",
+      "reason": "Out To Sea: the trail from Easy Does It down the mountain's east side between Panorama and Noreaster, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) numbers 22 under More Difficult (Low Intermediate), a green circle on a blue square; OSM rates it easy. The printed map wins, the harder of the split symbol kept: intermediate (OSM's capital To stays: the names differ only by case).",
+      "expect": {
+        "name": "Out To Sea",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/205007455",
+      "reason": "Scooter: the short trail between Out To Sea and Panorama on the mountain's east side, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) numbers 23 under More Difficult (Low Intermediate), a green circle on a blue square; OSM rates it easy. The printed map wins, the harder of the split symbol kept: intermediate.",
+      "expect": {
+        "name": "Scooter",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/205007374",
+      "reason": "Jericho: the trail from the summit between Wild Turkey and the Catacombs, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) numbers 43 under Expert (Extremely Difficult), two black diamonds; OSM rates it advanced. The printed map wins: expert.",
+      "expect": {
+        "name": "Jericho",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/205007350",
+      "reason": "Upper Liftline: the trail under the Summit Triple's upper half, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) names Upper Lift Line and numbers 45 under Expert (Extremely Difficult), two black diamonds; OSM rates it advanced. The printed map wins: expert, with the map's spelling.",
+      "expect": {
+        "name": "Upper Liftline",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Upper Lift Line",
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/205006649",
+      "reason": "The Mogul Thing: the 101 m connector from the Grand Slam slope below the Race Arena east into Lower Slingshot, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) names Kimber's Way and numbers 30 with a blue square (More Difficult, Intermediate), drawn from the Grand Slam slope above Alex's Terrain Park into Lower Slingshot at its marker 15, as on the resort's 2022-23 map (TrailMap2022-23_1740px.jpg, the Internet Archive's copy of 2023-01-13); neither map has a run called The Mogul Thing. Matched by place: the map's name, OSM's intermediate stays (the map's blue).",
+      "expect": {
+        "name": "The Mogul Thing",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Kimber's Way"
+      }
+    },
+    {
+      "id": "way/205092189",
+      "reason": "To 180: a 170 m connector from Lower Slingshot east to the top of 180 by the Novice Chair's top, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) draws inside its green non-speed zone with no name or number; \"To 180\" describes where it leads, not a trail name. Shown unnamed; OSM's easy stays.",
+      "expect": {
+        "name": "To 180",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/1308628681",
+      "reason": "connector to west way: a 92 m link from the Summit Triple's top to West Way, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) draws with no name; the mapper's description, not a trail name. Shown unnamed; OSM's easy stays.",
+      "expect": {
+        "name": "connector to west way",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/143873081",
+      "reason": "Widows White's Quad: the quad on the mountain's east side, from Left Bank above the base to the top of Panorama and Easy Does It, which Jiminy Peak's trail map (Jiminy-Peak-Trail-Map.webp, uploaded to jiminypeak.com in 2025-10, the James Niehues painting the resort's trail-map page shows) letters H and names Q3-Widow White's Quad. The map's spelling of Widow White (OSM's Widows is a typo); its lift number is left off, as the Q1-Whitetail Quad keeps OSM's Whitetail Quad.",
+      "expect": {
+        "name": "Widows White's Quad",
+        "aerialway": "chair_lift"
+      },
+      "set": {
+        "name": "Widow White's Quad"
+      }
+    },
+    {
+      "id": "way/1195645658",
+      "reason": "Dot's Lift: a chairlift of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the lift is hidden, as Big Bear's Magic Mountain lifts were.",
+      "expect": {
+        "name": "Dot's Lift",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925716",
+      "reason": "Andy's Lift: a chairlift of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the lift is hidden, as Big Bear's Magic Mountain lifts were.",
+      "expect": {
+        "name": "Andy's Lift",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925717",
+      "reason": "Gramp's Chair: a chairlift of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the lift is hidden, as Big Bear's Magic Mountain lifts were.",
+      "expect": {
+        "name": "Gramp's Chair",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925718",
+      "reason": "Matt' Chair: a chairlift of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the lift is hidden, as Big Bear's Magic Mountain lifts were.",
+      "expect": {
+        "name": "Matt' Chair",
+        "aerialway": "chair_lift"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925719",
+      "reason": "Novice Rope Tow: a rope tow of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the lift is hidden, as Big Bear's Magic Mountain lifts were.",
+      "expect": {
+        "name": "Novice Rope Tow",
+        "aerialway": "rope_tow"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925720",
+      "reason": "Harp's Hump: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Harp's Hump",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925721",
+      "reason": "Irish Stew: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Irish Stew",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925722",
+      "reason": "Molly's Lane: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Molly's Lane",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925723",
+      "reason": "Galway Glade: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Galway Glade",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925724",
+      "reason": "Mickie's Chute: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Mickie's Chute",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925725",
+      "reason": "Mickie's Glade: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Mickie's Glade",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925726",
+      "reason": "Gramp's Drop: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Gramp's Drop",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925727",
+      "reason": "Shamrock Glade: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Shamrock Glade",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925728",
+      "reason": "Gilhooly's Glade: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Gilhooly's Glade",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925729",
+      "reason": "Kelly's Leep: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Kelly's Leep",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925730",
+      "reason": "Shamrock Trail: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Shamrock Trail",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925731",
+      "reason": "Jim's Chute: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Jim's Chute",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925732",
+      "reason": "Shamrock University: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Shamrock University",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925733",
+      "reason": "Fire Tower Road: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Fire Tower Road",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925734",
+      "reason": "O'Connell's Run: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "O'Connell's Run",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925735",
+      "reason": "Leprachaun's Loop: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Leprachaun's Loop",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925736",
+      "reason": "Jamie's Trail: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Jamie's Trail",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925737",
+      "reason": "Joyce's Cat Walk: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Joyce's Cat Walk",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925738",
+      "reason": "Veronica's Way: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Veronica's Way",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925739",
+      "reason": "Haley's Crossover: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Haley's Crossover",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925740",
+      "reason": "O'Neil's Jaunt: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "O'Neil's Jaunt",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925741",
+      "reason": "Sean's Glade: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Sean's Glade",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925742",
+      "reason": "Clover Trail: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Clover Trail",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925743",
+      "reason": "Dot's Chute: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Dot's Chute",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925744",
+      "reason": "Abby Road: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Abby Road",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925745",
+      "reason": "Shaun's Drop: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Shaun's Drop",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925746",
+      "reason": "Doug's Drop: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Doug's Drop",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925747",
+      "reason": "Tipperary Trail: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Tipperary Trail",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925748",
+      "reason": "Tipperary Glade: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Tipperary Glade",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925749",
+      "reason": "Finnegan's Wake: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Finnegan's Wake",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925750",
+      "reason": "Shillelagh Trail: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Shillelagh Trail",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925751",
+      "reason": "Paddy's Promenade: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Paddy's Promenade",
+        "piste:type": "downhill",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925752",
+      "reason": "Killarney Trail: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Killarney Trail",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925753",
+      "reason": "Becky's Bridge: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Becky's Bridge",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925754",
+      "reason": "McGatty's Gulch: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "McGatty's Gulch",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925755",
+      "reason": "JFK Trail: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "JFK Trail",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925756",
+      "reason": "Mary's Garden: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Mary's Garden",
+        "piste:type": "downhill",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925757",
+      "reason": "Ryan's Express: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Ryan's Express",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925758",
+      "reason": "Danny Boy's Trail: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Danny Boy's Trail",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1464925759",
+      "reason": "Waxford Glade: a trail of Brodie Mountain (New Ashford), the old ski area on the next ridge north, its lifts and trails 4.1 to 5.1 km north-north-east of Jiminy Peak's boundary: closed since its last season of 2001-02 (newenglandskihistory.com lists it as lost, the last season 2001-02; sold at auction in 2023, a revival only proposed in 2026), it is no part of Jiminy Peak and no lift there runs. OpenStreetMap draws its old lifts and trails with no lifecycle tag and no landuse=winter_sports polygon, so the neighbour rule cannot list it; it lies in the Overpass window north of the box, so the trail is hidden with its lifts.",
+      "expect": {
+        "name": "Waxford Glade",
+        "piste:type": "downhill",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    }
+  ]
+}

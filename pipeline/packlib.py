@@ -19,9 +19,13 @@
                                                 A new version without a record yet takes the osm_timestamp of the
                                                 newest earlier version's record (packs/<slug>-v<N>/pack.json), so a
                                                 pack rebuilt for new elevation keeps its runs and lifts
-  packlib.py tnm-tiles ANSWER.json PROJECT [LON] prints the GeoTIFF URLs of one 3DEP project in an answer of The
+  packlib.py tnm-tiles ANSWER.json PROJECT [LON] [PRODUCT]
+                                                prints the GeoTIFF URLs of one 3DEP project in an answer of The
                                                 National Map's product API, sorted (fetch-dem.sh 3dep1); tiles in
-                                                several UTM zones keep the zone of LON, the window's centre
+                                                several UTM zones keep the zone of LON, the window's centre. PRODUCT
+                                                is 1m (the default) or opr, the original-resolution DEM
+                                                (fetch-dem.sh 3depopr: Projects/<project>/<survey>/TIFF/, refused
+                                                when the project's tiles come from more than one survey)
   packlib.py stac-assets ANSWER.json ASSET      prints the ASSET hrefs of the items in a STAC item search answer,
                                                 sorted (fetch-dem.sh hrdem1)
   packlib.py lidar-plan COVERAGE_JSON MIN_PCT   what fetch-dem.sh does with a 1 m window whose coverage (dem.py
@@ -256,6 +260,10 @@ HTTPS_TIF_RE = re.compile(r'^https://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+-]+\.tif$')
 # The UTM zone in a 3DEP 1 m tile's name (USGS_1M_11_x24y432_<project>.tif); the older names (USGS_one_meter_x…)
 # carry none.
 TNM_ZONE_RE = re.compile(r'/USGS_1M_(\d{1,2})_x\d+y\d+_')
+# The products tnm-tiles reads: the 1 m DEM (fetch-dem.sh 3dep1), and the original-resolution DEM (3depopr), whose
+# tiles sit one folder deeper, under the survey (work unit) of the project:
+# OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866760.tif.
+TNM_PRODUCTS = ('1m', 'opr')
 
 
 def utm_zone(lon):
@@ -263,28 +271,48 @@ def utm_zone(lon):
     return min(60, int((float(lon) + 180) // 6) + 1)
 
 
-def tnm_tiles(doc, project, lon=None):
+def tnm_tiles(doc, project, lon=None, product='1m'):
     """The GeoTIFF URLs of one 3DEP project in a TNM product API answer, sorted. Refuses an answer that says it
     holds more products than it lists (another page would be needed). A project near a UTM zone boundary delivers
     tiles in both zones (CA_SierraNevada_B22 and NV_USFSR4_D23 at Lake Tahoe, 120° W: zone 10 and zone 11 tiles over
     the same ground, each zone's set whole only on its own side), and gdalbuildvrt mosaics one projection, skipping
     the rest with a warning: the lidar then seemed to hold 63% of Heavenly's box (2026-10-31). When the tiles span
-    zones, only the zone of `lon` (the window's centre) is kept; without it such an answer is refused."""
+    zones, only the zone of `lon` (the window's centre) is kept; without it such an answer is refused.
+    `product` 'opr' reads the original-resolution DEM's tiles (Projects/<project>/<survey>/TIFF/) and refuses a
+    project whose tiles over the window come from more than one survey: one survey, no seams between surveys of
+    different years, as the 1 m DEM's pinned project. Their names carry no UTM zone, so fetch-dem.sh checks that the
+    mosaic kept every tile (one projection)."""
     if not PROJECT_RE.match(project or ''):
         raise ValueError(f'bad 3DEP project {project!r}')
+    if product not in TNM_PRODUCTS:
+        raise ValueError(f'unknown 3DEP product {product!r}; known: {", ".join(TNM_PRODUCTS)}')
     items = doc.get('items')
     if not isinstance(items, list):
         raise ValueError('not a product API answer (no items)')
     total = doc.get('total')
     if isinstance(total, int) and total > len(items):
         raise ValueError(f'the answer lists {len(items)} of {total} products; ask for more per page')
+    opr_re = re.compile(rf'/OPR/Projects/{re.escape(project)}/([A-Za-z0-9_]+)/TIFF/[^/]+$')
     urls = set()
+    surveys = set()
     for it in items:
         url = it.get('downloadURL') if isinstance(it, dict) else None
-        if isinstance(url, str) and f'/Projects/{project}/TIFF/' in url:
-            if not HTTPS_TIF_RE.match(url):
-                raise ValueError(f'unexpected tile URL {url!r}')
-            urls.add(url)
+        if not isinstance(url, str):
+            continue
+        if product == '1m':
+            if f'/Projects/{project}/TIFF/' not in url:
+                continue
+        else:
+            m = opr_re.search(url)
+            if not m:
+                continue
+            surveys.add(m.group(1))
+        if not HTTPS_TIF_RE.match(url):
+            raise ValueError(f'unexpected tile URL {url!r}')
+        urls.add(url)
+    if len(surveys) > 1:
+        raise ValueError(f'{project} lists tiles of {len(surveys)} surveys over the window ({", ".join(sorted(surveys))}): '
+                         'one survey per map')
     by_zone = {}
     for url in urls:
         m = TNM_ZONE_RE.search(url)
@@ -535,7 +563,8 @@ def main(argv):
         if cmd in ('tnm-tiles', 'stac-assets'):
             with open(args[0], encoding='utf-8') as f:
                 doc = json.load(f)
-            urls = tnm_tiles(doc, args[1], args[2] if len(args) > 2 else None) if cmd == 'tnm-tiles' else stac_assets(doc, args[1])
+            urls = tnm_tiles(doc, args[1], args[2] if len(args) > 2 else None, args[3] if len(args) > 3 else '1m') \
+                if cmd == 'tnm-tiles' else stac_assets(doc, args[1])
             for url in urls:
                 print(url)
             return 0

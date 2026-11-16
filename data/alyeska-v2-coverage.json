@@ -1,7 +1,7 @@
 {
-  "key": "alyeska-v1",
-  "ski_sha256": "6f58dff11dd94dd46a197dbde1d1126133d478922825e2325a9a41b1b431e004",
-  "osm_timestamp": "2026-11-15T00:53:05Z",
+  "key": "alyeska-v2",
+  "ski_sha256": "ac722043c19a974427951646a8b500dc835505afe3d85f7911db82e21aa9428c",
+  "osm_timestamp": "2026-11-16T08:12:41Z",
   "box": [
     -149.16,
     60.93,

@@ -1,7 +1,7 @@
 {
-  "key": "blue-mountain-ontario-v1",
-  "ski_sha256": "f5d552b41eb2faca545562b0cd7698251cff717ba828d1940a81def2ede023c1",
-  "osm_timestamp": "2026-11-12T17:22:51Z",
+  "key": "blue-mountain-ontario-v2",
+  "ski_sha256": "5ca367e82b6212e144fbdcb2d082749e404476bd5d89ce995eb6bfbd18ad8d43",
+  "osm_timestamp": "2026-11-16T07:28:49Z",
   "box": [
     -80.37,
     44.46,

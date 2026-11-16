@@ -1,7 +1,7 @@
 {
-  "key": "revelstoke-v1",
-  "ski_sha256": "5126fa65242e4bcfba073f4bdb6e2eb81465b3b76603f8a3157f0a7dc070a0bb",
-  "osm_timestamp": "2026-11-11T03:42:47Z",
+  "key": "revelstoke-v2",
+  "ski_sha256": "3cd1ac424da25508a75bf4ecdab3f1e2c02fdcf84863c255cb30b36824b9f548",
+  "osm_timestamp": "2026-11-16T07:30:50Z",
   "box": [
     -118.2,
     50.93,

@@ -16,12 +16,18 @@
 #   3dep1    USGS 3DEP 1 m DEM (lidar, bare earth, NAVD88 metres, UTM): the 10 km tiles of one 3DEP project
 #            (--project, pinned per resort in resorts.json), found with The National Map's product API and mosaicked
 #            with a VRT
+#   3depopr  USGS 3DEP original-resolution DEM (lidar, bare earth, as delivered to the USGS, in its own CRS): the
+#            tiles of one survey of a 3DEP project (--project), for lidar The National Map lists only so (Anchorage's,
+#            whose 1 km tiles in UTM zone 6 cover Alyeska); found and mosaicked as 3dep1. The tiles' headers carry no
+#            vertical datum: pin a project only when its metadata gives NAVD88 metres, the fill's
 #   hrdem1   NRCan HRDEM mosaic 1 m DTM (lidar, bare earth, CGVD2013 metres, EPSG:3979), found with NRCan's STAC API.
-#            No resort uses it: on 2026-10-17 it held only the valley floor of Whistler Blackcomb's window (7.3%) and
-#            0.6% of Big White's, none of either ski area. Add its verified credit to resorts.json before using it.
+#            Used since 2026-11-16 (its credit verified 2026-11-15) by Blue Mountain, Tremblant, Mont-Sainte-Anne,
+#            Stoneham and Revelstoke; on 2026-10-17 it held only the valley floor of Whistler Blackcomb's window (7.3%)
+#            and 0.6% of Big White's, none of either ski area.
 #   The lidar must hold at least MIN_LIDAR_BOX_PCT of the box (--box, the pack's box; default the window), counted by
 #   pixel centres. Holes in the window are filled from the coarser model of the same country, on the same vertical
-#   datum and in the same units (3dep1 from 3dep13, hrdem1 from mrdem30), resampled onto the grid with a cubic spline.
+#   datum and in the same units (3dep1 and 3depopr from 3dep13, hrdem1 from mrdem30), resampled onto the grid with a
+#   cubic spline.
 #   <out>.coverage.json records the shares.
 # <out.tif> must be under packages/maps. Writes <out>.inputs.txt with the URLs read (the fill's too, when used).
 set -euo pipefail
@@ -91,15 +97,18 @@ fetch_json() {
 lidar_inputs() {
   local answer="${OUT%.tif}.catalogue.json"
   case "$SRC" in
-    3dep1)
-      [ -n "$PROJECT" ] || die "3dep1 needs --project (the 3DEP project, pinned per resort in resorts.json)"
-      fetch_json "$answer" -G "$TNM_API" --data-urlencode "datasets=Digital Elevation Model (DEM) 1 meter" \
+    3dep1|3depopr)
+      [ -n "$PROJECT" ] || die "$SRC needs --project (the 3DEP project, pinned per resort in resorts.json)"
+      # 3dep1 reads the 1 m DEM; 3depopr the original-resolution DEM, the only form of some projects' lidar.
+      local dataset="Digital Elevation Model (DEM) 1 meter" product=1m
+      if [ "$SRC" = 3depopr ]; then dataset="Original Product Resolution (OPR) Digital Elevation Model (DEM)"; product=opr; fi
+      fetch_json "$answer" -G "$TNM_API" --data-urlencode "datasets=$dataset" \
         --data-urlencode "bbox=$W,$S,$E,$N" --data-urlencode "max=1000" --data-urlencode "outputFormat=JSON" \
         || die "The National Map's product API did not answer"
       # A project near a UTM zone boundary lists tiles in both zones; the window centre's zone is kept (gdalbuildvrt
       # mosaics one projection and would skip the rest).
       python3 -I "$PIPE/packlib.py" tnm-tiles "$answer" "$PROJECT" \
-        "$(python3 -I -c 'import sys; print((float(sys.argv[1]) + float(sys.argv[2])) / 2)' "$W" "$E")" ;;
+        "$(python3 -I -c 'import sys; print((float(sys.argv[1]) + float(sys.argv[2])) / 2)' "$W" "$E")" "$product" ;;
     hrdem1)
       fetch_json "$answer" -G "$STAC_API/collections/hrdem-mosaic-1m/items" --data-urlencode "bbox=$W,$S,$E,$N" \
         --data-urlencode "limit=100" || die "NRCan's STAC API did not answer"
@@ -115,6 +124,14 @@ warp_lidar() {
   while IFS= read -r url; do sources+=("/vsicurl/$url"); done < "$INPUTS"
   nd="$(gd gdalinfo -json "${sources[0]}" | python3 -I -c 'import json,sys; print(json.load(sys.stdin)["bands"][0]["noDataValue"])')"
   gd gdalbuildvrt -q -overwrite -srcnodata "$nd" -vrtnodata "$nd" "$(in_root "$vrt")" "${sources[@]}"
+  if [ "$SRC" = 3depopr ]; then
+    # The original-resolution tiles' names carry no UTM zone for packlib.py tnm-tiles to keep one by, and gdalbuildvrt
+    # mosaics one projection, skipping the rest: every listed tile must be in the mosaic.
+    local kept
+    kept="$(grep -c '<SourceFilename' "$vrt" || true)"
+    [ "$kept" = "${#sources[@]}" ] \
+      || die "the mosaic of $PROJECT holds $kept of its ${#sources[@]} tiles: they come in more than one projection (or failed to open)"
+  fi
   gd gdalwarp -q -overwrite -t_srs EPSG:3857 -tr "$DEM_GRID_M" "$DEM_GRID_M" -tap -te_srs EPSG:4326 -te "$W" "$S" "$E" "$N" \
     -r average -srcnodata "$nd" -dstnodata -32768 -ot Float32 -co COMPRESS=DEFLATE -co PREDICTOR=3 -co TILED=YES \
     -wm 1024 -multi -wo NUM_THREADS=ALL_CPUS "$(in_root "$vrt")" "$(in_root "$fine")"
@@ -159,7 +176,7 @@ EOF
 
 if [ "$LIST" = 1 ]; then
   case "$SRC" in
-    3dep1|hrdem1) lidar_inputs > "$INPUTS.part" ;;
+    3dep1|3depopr|hrdem1) lidar_inputs > "$INPUTS.part" ;;
     *) static_inputs "$SRC" > "$INPUTS.part" ;;
   esac
   mv "$INPUTS.part" "$INPUTS"
@@ -187,12 +204,13 @@ case "$SRC" in
     # shellcheck disable=SC2086
     gd gdalwarp -q -overwrite -t_srs "$TSRS" -tr $TR -tap -te_srs EPSG:4326 -te "$W" "$S" "$E" "$N" -r "$RESAMPLE" \
       -co COMPRESS=DEFLATE -co PREDICTOR=3 -co TILED=YES -ot Float32 -dstnodata -32768 "${SOURCES[@]}" "$(in_root "$OUT")" ;;
-  3dep1|hrdem1)
+  3dep1|3depopr|hrdem1)
     lidar_inputs > "$INPUTS.part"
     mv "$INPUTS.part" "$INPUTS"
     [ -s "$INPUTS" ] || die "no $SRC tiles${PROJECT:+ of $PROJECT} over $BOX"
     case "$SRC" in
       3dep1) warp_lidar 3dep13 ;;
+      3depopr) warp_lidar 3dep13 ;;
       hrdem1) warp_lidar mrdem30 ;;
     esac ;;
   *) die "unknown elevation source $SRC" ;;

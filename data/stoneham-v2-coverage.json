@@ -1,7 +1,7 @@
 {
-  "key": "stoneham-v1",
-  "ski_sha256": "07341e7f21d9baf99620bec18a5cd9d81d3118aee1f48fc86e78a49a4322c250",
-  "osm_timestamp": "2026-11-12T17:36:09Z",
+  "key": "stoneham-v2",
+  "ski_sha256": "bd19195281cc88d03224af7015f40f8103a2babaf3d00fe643ee71d38f84bde1",
+  "osm_timestamp": "2026-11-16T07:30:50Z",
   "box": [
     -71.44,
     46.99,

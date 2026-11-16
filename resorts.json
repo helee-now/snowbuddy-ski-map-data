@@ -30,6 +30,25 @@
       "contour_smoothing_m": 15,
       "credit_html": "<a href=\"https://www.usgs.gov/3d-elevation-program\">3DEP data courtesy of the U.S. Geological Survey</a>",
       "credit_text": "Contours and shaded relief: 3DEP data courtesy of the U.S. Geological Survey."
+    },
+    "3depopr": {
+      "name": "USGS 3DEP original-resolution lidar DEM",
+      "resolution_m": 1,
+      "licence": "Public domain (U.S. Geological Survey)",
+      "data_url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/",
+      "needs_project": true,
+      "contour_smoothing_m": 15,
+      "credit_html": "<a href=\"https://www.usgs.gov/3d-elevation-program\">3DEP data courtesy of the U.S. Geological Survey</a>",
+      "credit_text": "Contours and shaded relief: 3DEP data courtesy of the U.S. Geological Survey."
+    },
+    "hrdem1": {
+      "name": "NRCan HRDEM mosaic 1 m DTM",
+      "resolution_m": 1,
+      "licence": "Open Government Licence - Canada",
+      "data_url": "https://canelevation-dem.s3.ca-central-1.amazonaws.com/hrdem-mosaic-1m/",
+      "contour_smoothing_m": 15,
+      "credit_html": "<a href=\"https://open.canada.ca/en/open-government-licence-canada\">Contains information licensed under the Open Government Licence &ndash; Canada</a> (NRCan HRDEM mosaic 1 m, its gaps filled from NRCan MRDEM-30, produced using Copernicus WorldDEM-30 &copy; DLR e.V. 2010-2014 and &copy; Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved)",
+      "credit_text": "Contours and shaded relief: Contains information licensed under the Open Government Licence – Canada (NRCan HRDEM mosaic 1 m; its gaps filled from NRCan MRDEM-30). This product was in part produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved. The organisations in charge of the Copernicus program by law or by delegation do not incur any liability for any use of the Copernicus WorldDEM-30."
     }
   },
   "resorts": [
@@ -220,8 +239,8 @@
     {
       "slug": "alyeska",
       "name": "Alyeska",
-      "version": 1,
-      "key": "alyeska-v1",
+      "version": 2,
+      "key": "alyeska-v2",
       "box": [
         -149.16,
         60.93,
@@ -229,9 +248,10 @@
         61
       ],
       "ski_area": "way/934351306",
-      "elevation": "3dep13",
-      "baseline_checked": "2026-11-14",
-      "osm_timestamp": "2026-11-15T00:53:05Z",
+      "elevation": "3depopr",
+      "elevation_project": "Anchorage_Lidar",
+      "baseline_checked": "2026-11-16",
+      "osm_timestamp": "2026-11-16T08:12:41Z",
       "overpass_box": [
         -149.2,
         60.91,
@@ -239,18 +259,274 @@
         61.02
       ],
       "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63806765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63816769.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63826769.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63836769.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63846769.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63856769.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63866769.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63876769.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63886769.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63896768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63906768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63916768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63926768.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936752.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936753.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936754.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936755.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936756.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936757.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936758.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936759.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936760.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936761.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936762.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936763.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936764.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936765.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936766.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936767.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/OPR/Projects/Anchorage_Lidar/AK_Anchorage_2015/TIFF/USGS_OPR_Anchorage_Lidar_63936768.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n61w149/USGS_13_n61w149.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n61w150/USGS_13_n61w150.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n62w149/USGS_13_n62w149.tif",
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n62w150/USGS_13_n62w150.tif"
       ],
-      "built_at": "2026-11-15T00:55:36Z",
-      "ski_file": {
-        "path": "data/alyeska-v1-ski.pmtiles",
-        "bytes": 242504,
-        "sha256": "6f58dff11dd94dd46a197dbde1d1126133d478922825e2325a9a41b1b431e004"
+      "elevation_coverage": {
+        "source": "3depopr",
+        "project": "Anchorage_Lidar",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -149.16,
+          60.93,
+          -149.01,
+          61
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 97.761,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 2.239
       },
-      "coverage": "data/alyeska-v1-coverage.json"
+      "built_at": "2026-11-16T08:17:40Z",
+      "ski_file": {
+        "path": "data/alyeska-v2-ski.pmtiles",
+        "bytes": 222060,
+        "sha256": "ac722043c19a974427951646a8b500dc835505afe3d85f7911db82e21aa9428c"
+      },
+      "coverage": "data/alyeska-v2-coverage.json"
     },
     {
       "slug": "arapahoe-basin",
@@ -808,8 +1084,8 @@
     {
       "slug": "blue-mountain-ontario",
       "name": "Blue Mountain",
-      "version": 1,
-      "key": "blue-mountain-ontario-v1",
+      "version": 2,
+      "key": "blue-mountain-ontario-v2",
       "box": [
         -80.37,
         44.46,
@@ -839,9 +1115,9 @@
           "reason": "A private members' ski club on the Niagara Escarpment north-west of Alpine, not on Blue Mountain's ticket or trail map: its polygon ends about 175 m west of the box, in the Overpass margin, so its lifts (Champlain Express, Roger's Chair, Minute Mile Chair, Bay Street Chair and the Riot Platter) and runs would otherwise draw at the box's north-west corner. Left off by the owner's rule (\"leave them off\"): the neighbouring private clubs are never drawn as Blue Mountain's."
         }
       ],
-      "elevation": "mrdem30",
-      "baseline_checked": "2026-11-12",
-      "osm_timestamp": "2026-11-12T17:22:51Z",
+      "elevation": "hrdem1",
+      "baseline_checked": "2026-11-16",
+      "osm_timestamp": "2026-11-16T07:28:49Z",
       "overpass_box": [
         -80.41,
         44.44,
@@ -849,15 +1125,32 @@
         44.55
       ],
       "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/hrdem-mosaic-1m/8_2-mosaic-1m-dtm.tif",
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
-      "built_at": "2026-11-12T17:24:59Z",
-      "ski_file": {
-        "path": "data/blue-mountain-ontario-v1-ski.pmtiles",
-        "bytes": 68820,
-        "sha256": "f5d552b41eb2faca545562b0cd7698251cff717ba828d1940a81def2ede023c1"
+      "elevation_coverage": {
+        "source": "hrdem1",
+        "project": null,
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -80.37,
+          44.46,
+          -80.27,
+          44.53
+        ],
+        "lidar_box_pct": 98.416,
+        "lidar_window_pct": 75.387,
+        "min_lidar_box_pct": 95,
+        "fill_source": "mrdem30",
+        "filled_window_pct": 24.613
       },
-      "coverage": "data/blue-mountain-ontario-v1-coverage.json"
+      "built_at": "2026-11-16T07:31:04Z",
+      "ski_file": {
+        "path": "data/blue-mountain-ontario-v2-ski.pmtiles",
+        "bytes": 72841,
+        "sha256": "5ca367e82b6212e144fbdcb2d082749e404476bd5d89ce995eb6bfbd18ad8d43"
+      },
+      "coverage": "data/blue-mountain-ontario-v2-coverage.json"
     },
     {
       "slug": "blue-mountain-resort",
@@ -3317,8 +3610,8 @@
     {
       "slug": "mont-sainte-anne",
       "name": "Mont-Sainte-Anne",
-      "version": 1,
-      "key": "mont-sainte-anne-v1",
+      "version": 2,
+      "key": "mont-sainte-anne-v2",
       "box": [
         -70.98,
         47.05,
@@ -3326,9 +3619,9 @@
         47.12
       ],
       "ski_area": "way/391681261",
-      "elevation": "mrdem30",
-      "baseline_checked": "2026-11-12",
-      "osm_timestamp": "2026-11-12T17:21:49Z",
+      "elevation": "hrdem1",
+      "baseline_checked": "2026-11-16",
+      "osm_timestamp": "2026-11-16T07:28:49Z",
       "overpass_box": [
         -71.02,
         47.03,
@@ -3336,15 +3629,32 @@
         47.14
       ],
       "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/hrdem-mosaic-1m/9_3-mosaic-1m-dtm.tif",
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
-      "built_at": "2026-11-12T17:23:44Z",
-      "ski_file": {
-        "path": "data/mont-sainte-anne-v1-ski.pmtiles",
-        "bytes": 102331,
-        "sha256": "6c59d5634a926e60157725153d9450b571dd671aaded227c20f2af6aa20c0774"
+      "elevation_coverage": {
+        "source": "hrdem1",
+        "project": null,
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -70.98,
+          47.05,
+          -70.87,
+          47.12
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 97.538,
+        "min_lidar_box_pct": 95,
+        "fill_source": "mrdem30",
+        "filled_window_pct": 2.462
       },
-      "coverage": "data/mont-sainte-anne-v1-coverage.json"
+      "built_at": "2026-11-16T07:31:01Z",
+      "ski_file": {
+        "path": "data/mont-sainte-anne-v2-ski.pmtiles",
+        "bytes": 107051,
+        "sha256": "dc662698a181b5c41c1a25954e703e6a04647d3cb2847d849d9905e2db78394b"
+      },
+      "coverage": "data/mont-sainte-anne-v2-coverage.json"
     },
     {
       "slug": "mount-snow",
@@ -4186,8 +4496,8 @@
     {
       "slug": "revelstoke",
       "name": "Revelstoke",
-      "version": 1,
-      "key": "revelstoke-v1",
+      "version": 2,
+      "key": "revelstoke-v2",
       "box": [
         -118.2,
         50.93,
@@ -4195,9 +4505,9 @@
         51.01
       ],
       "ski_area": "way/475720359",
-      "elevation": "mrdem30",
-      "baseline_checked": "2026-11-10",
-      "osm_timestamp": "2026-11-11T03:42:47Z",
+      "elevation": "hrdem1",
+      "baseline_checked": "2026-11-16",
+      "osm_timestamp": "2026-11-16T07:30:50Z",
       "overpass_box": [
         -118.24,
         50.91,
@@ -4205,15 +4515,33 @@
         51.03
       ],
       "elevation_inputs": [
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/hrdem-mosaic-1m/2_3-mosaic-1m-dtm.tif",
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/hrdem-mosaic-1m/2_4-mosaic-1m-dtm.tif",
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
-      "built_at": "2026-11-11T03:44:41Z",
-      "ski_file": {
-        "path": "data/revelstoke-v1-ski.pmtiles",
-        "bytes": 233292,
-        "sha256": "5126fa65242e4bcfba073f4bdb6e2eb81465b3b76603f8a3157f0a7dc070a0bb"
+      "elevation_coverage": {
+        "source": "hrdem1",
+        "project": null,
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -118.2,
+          50.93,
+          -118.06,
+          51.01
+        ],
+        "lidar_box_pct": 96.238,
+        "lidar_window_pct": 69.748,
+        "min_lidar_box_pct": 95,
+        "fill_source": "mrdem30",
+        "filled_window_pct": 30.252
       },
-      "coverage": "data/revelstoke-v1-coverage.json"
+      "built_at": "2026-11-16T07:35:13Z",
+      "ski_file": {
+        "path": "data/revelstoke-v2-ski.pmtiles",
+        "bytes": 246334,
+        "sha256": "3cd1ac424da25508a75bf4ecdab3f1e2c02fdcf84863c255cb30b36824b9f548"
+      },
+      "coverage": "data/revelstoke-v2-coverage.json"
     },
     {
       "slug": "roundtop",
@@ -5093,8 +5421,8 @@
     {
       "slug": "stoneham",
       "name": "Stoneham",
-      "version": 1,
-      "key": "stoneham-v1",
+      "version": 2,
+      "key": "stoneham-v2",
       "box": [
         -71.44,
         46.99,
@@ -5102,9 +5430,9 @@
         47.07
       ],
       "ski_area": "way/422827842",
-      "elevation": "mrdem30",
-      "baseline_checked": "2026-11-12",
-      "osm_timestamp": "2026-11-12T17:36:09Z",
+      "elevation": "hrdem1",
+      "baseline_checked": "2026-11-16",
+      "osm_timestamp": "2026-11-16T07:30:50Z",
       "overpass_box": [
         -71.48,
         46.97,
@@ -5112,15 +5440,31 @@
         47.09
       ],
       "elevation_inputs": [
-        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/hrdem-mosaic-1m/9_3-mosaic-1m-dtm.tif"
       ],
-      "built_at": "2026-11-12T17:38:22Z",
-      "ski_file": {
-        "path": "data/stoneham-v1-ski.pmtiles",
-        "bytes": 100018,
-        "sha256": "07341e7f21d9baf99620bec18a5cd9d81d3118aee1f48fc86e78a49a4322c250"
+      "elevation_coverage": {
+        "source": "hrdem1",
+        "project": null,
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -71.44,
+          46.99,
+          -71.35,
+          47.07
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
       },
-      "coverage": "data/stoneham-v1-coverage.json"
+      "built_at": "2026-11-16T07:32:46Z",
+      "ski_file": {
+        "path": "data/stoneham-v2-ski.pmtiles",
+        "bytes": 105147,
+        "sha256": "bd19195281cc88d03224af7015f40f8103a2babaf3d00fe643ee71d38f84bde1"
+      },
+      "coverage": "data/stoneham-v2-coverage.json"
     },
     {
       "slug": "stowe",
@@ -5826,8 +6170,8 @@
     {
       "slug": "tremblant",
       "name": "Tremblant",
-      "version": 1,
-      "key": "tremblant-v1",
+      "version": 2,
+      "key": "tremblant-v2",
       "box": [
         -74.62,
         46.17,
@@ -5835,9 +6179,9 @@
         46.28
       ],
       "ski_area": "way/671144531",
-      "elevation": "mrdem30",
-      "baseline_checked": "2026-11-12",
-      "osm_timestamp": "2026-11-12T17:29:01Z",
+      "elevation": "hrdem1",
+      "baseline_checked": "2026-11-16",
+      "osm_timestamp": "2026-11-16T07:30:50Z",
       "overpass_box": [
         -74.66,
         46.15,
@@ -5845,15 +6189,31 @@
         46.3
       ],
       "elevation_inputs": [
-        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
+        "https://canelevation-dem.s3.ca-central-1.amazonaws.com/hrdem-mosaic-1m/9_2-mosaic-1m-dtm.tif"
       ],
-      "built_at": "2026-11-12T17:40:04Z",
-      "ski_file": {
-        "path": "data/tremblant-v1-ski.pmtiles",
-        "bytes": 189023,
-        "sha256": "1f5c16d176b23460f302fa9cec18b316e205f8ed7b89e66b988626e44b1515cb"
+      "elevation_coverage": {
+        "source": "hrdem1",
+        "project": null,
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -74.62,
+          46.17,
+          -74.49,
+          46.28
+        ],
+        "lidar_box_pct": 100,
+        "lidar_window_pct": 100,
+        "min_lidar_box_pct": 95,
+        "fill_source": null,
+        "filled_window_pct": 0
       },
-      "coverage": "data/tremblant-v1-coverage.json"
+      "built_at": "2026-11-16T07:35:04Z",
+      "ski_file": {
+        "path": "data/tremblant-v2-ski.pmtiles",
+        "bytes": 199317,
+        "sha256": "631411c406c33251f8733f7ed4161d02c6d17673de94d41ae6128f8a74ecec28"
+      },
+      "coverage": "data/tremblant-v2-coverage.json"
     },
     {
       "slug": "vail",

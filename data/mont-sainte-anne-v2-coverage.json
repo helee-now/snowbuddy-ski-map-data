@@ -1,7 +1,7 @@
 {
-  "key": "mont-sainte-anne-v1",
-  "ski_sha256": "6c59d5634a926e60157725153d9450b571dd671aaded227c20f2af6aa20c0774",
-  "osm_timestamp": "2026-11-12T17:21:49Z",
+  "key": "mont-sainte-anne-v2",
+  "ski_sha256": "dc662698a181b5c41c1a25954e703e6a04647d3cb2847d849d9905e2db78394b",
+  "osm_timestamp": "2026-11-16T07:28:49Z",
   "box": [
     -70.98,
     47.05,

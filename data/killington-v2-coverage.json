@@ -1,0 +1,284 @@
+{
+  "key": "killington-v2",
+  "ski_sha256": "348d7bbc509cf7d526990870f582b4f9bd76569c8522a500b9e4ebeba67297aa",
+  "osm_timestamp": "2026-11-15T07:12:21Z",
+  "box": [
+    -72.85,
+    43.57,
+    -72.73,
+    43.65
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -72.821331,
+    43.591004,
+    -72.755477,
+    43.631309
+  ],
+  "margins_km": {
+    "west": 2.31,
+    "south": 2.34,
+    "east": 2.05,
+    "north": 2.08
+  },
+  "counts": {
+    "lifts": 19,
+    "runs_in_bounds": 204,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 15,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 36,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 20.9,
+    "runs_in_bounds": 112.9,
+    "runs_out_of_bounds": 10.3
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1509284160",
+      "name": "Horn",
+      "difficulty": "freeride",
+      "length_m": 568,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509284161",
+      "name": "Old Vagabond",
+      "difficulty": "freeride",
+      "length_m": 348,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509284162",
+      "name": "Old Swirl",
+      "difficulty": "freeride",
+      "length_m": 322,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509284163",
+      "name": "Old Timberline",
+      "difficulty": "freeride",
+      "length_m": 501,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509284164",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 59,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509284165",
+      "name": null,
+      "difficulty": "freeride",
+      "length_m": 146,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509390700",
+      "name": "Old Sundog",
+      "difficulty": "freeride",
+      "length_m": 3035,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509390701",
+      "name": "Old Gold Dust",
+      "difficulty": "freeride",
+      "length_m": 332,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509390702",
+      "name": "Hawkeye",
+      "difficulty": "freeride",
+      "length_m": 419,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509390703",
+      "name": "Nor'easter",
+      "difficulty": "freeride",
+      "length_m": 550,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509390704",
+      "name": "Thunderball",
+      "difficulty": "freeride",
+      "length_m": 596,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509390705",
+      "name": "Gold Dust - Upper",
+      "difficulty": "freeride",
+      "length_m": 476,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509390706",
+      "name": "Gold Dust - Lower",
+      "difficulty": "freeride",
+      "length_m": 252,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509390707",
+      "name": "Nor'easter - Lower",
+      "difficulty": "freeride",
+      "length_m": 380,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1509391101",
+      "name": "Old Sunrise Trail",
+      "difficulty": "freeride",
+      "length_m": 2365,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -72.949219,
+      43.452919,
+      -72.597656,
+      43.707594
+    ],
+    "12": [
+      -72.861328,
+      43.516689,
+      -72.685547,
+      43.707594
+    ],
+    "13": [
+      -72.861328,
+      43.548548,
+      -72.729492,
+      43.675818
+    ],
+    "14": [
+      -72.861328,
+      43.564472,
+      -72.729492,
+      43.659924
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

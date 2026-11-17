@@ -1,0 +1,73 @@
+{
+  "key": "boston-mills-v2",
+  "ski_sha256": "3c5f138579d12fd1cc577f62cbe0012c090eb8a4f9a0f9f1f33086e4fd257910",
+  "osm_timestamp": "2026-11-15T00:42:02Z",
+  "box": [
+    -81.6,
+    41.24,
+    -81.53,
+    41.29
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -81.569551,
+    41.260883,
+    -81.561722,
+    41.267504
+  ],
+  "margins_km": {
+    "west": 2.54,
+    "south": 2.32,
+    "east": 2.65,
+    "north": 2.5
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 7,
+    "run_areas_in_bounds": 1,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 13,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 1.6,
+    "runs_in_bounds": 1.7,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -81.738281,
+      41.112469,
+      -81.386719,
+      41.376809
+    ],
+    "12": [
+      -81.650391,
+      41.178654,
+      -81.474609,
+      41.310824
+    ],
+    "13": [
+      -81.606445,
+      41.211722,
+      -81.518555,
+      41.310824
+    ],
+    "14": [
+      -81.606445,
+      41.228249,
+      -81.518555,
+      41.294317
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

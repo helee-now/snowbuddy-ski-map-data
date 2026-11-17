@@ -5,11 +5,14 @@
   "fontstacks": ["Noto Sans Regular", "Noto Sans Medium", "Noto Sans Italic"],
   "roles": {
     "base": {
+      "comment": "The base map from z8 (ADR-046 amendment of 2026-11-16): the app never draws a map below zoom 8 (mapMinZoom), so new builds cut z8-15 and a carried base file is trimmed to it (build-pack.sh). legacy_minzoom is the minzoom a base file may still have in a pack built before legacy_built_before (a UTC instant, against the record's built_at): the packs built until then hold z0-15, and a published file never changes, so each keeps it until its next version. A pack built at or after it must have minzoom (write-packs.mjs zoomsProblem, test/packs.test.mjs). The frozen formats hold no base zooms, so this is a schema change, not a new pack format.",
       "suffix": "",
       "tile_type": "mvt",
       "tile_compression": ["gzip", "none"],
-      "minzoom": 0,
+      "minzoom": 8,
       "maxzoom": 15,
+      "legacy_minzoom": 0,
+      "legacy_built_before": "2026-11-17T09:00:00Z",
       "placeholder": "__PMTILES_URL__",
       "source": "protomaps"
     },
@@ -125,7 +128,7 @@
     "rank": [1, 2, 3]
   },
   "field_notes": {
-    "piste.rank": "importance, from normalize_osm.py: 1 the trunk runs (within each rating as the style colours it, the longest named runs making up half of that rating's named in-bounds run length), 3 runs under 300 m, 2 the others",
+    "piste.rank": "importance, from normalize_osm.py: 1 the trunk runs (within each rating as the style colours it, the longest named runs making up half of that rating's named in-bounds run length; a rating's only named run only when it is 300 m or more), 3 runs under 300 m, 2 the others",
     "piste.oriented": "the line runs downhill as drawn, checked against the elevation model (orient.py); absent when too flat or ambiguous: no arrows",
     "lift.oriented": "the line runs uphill as drawn, checked against the elevation model (orient.py)",
     "lift_station": "OpenStreetMap stations within 100 m of a kept lift, and the two ends of every kept lift unless a station is within 40 m",
@@ -194,8 +197,8 @@
     "rule": { "id": 1, "min_lines": 10, "min_km": 3, "min_r": 0.4, "round_deg": 5, "north_up_within_deg": 30, "keep_within_deg": 10, "override_within_deg": 10 }
   },
   "style": {
-    "comment": "How the app's styles carry the shading of every format the app draws, and how staging picks a pack's (scripts/lib/style-contract.mjs, ported by MapAssets.buildStyle; docs/MAPS_TRAILVIEW_DESIGN.md section 4). Metadata source_roles names each source's role; format_layers lists, under each format the style draws, the layers drawn only for that format's packs: a layer listed under no format is drawn for every format, and a style without the key draws format 1 only. shading names each format's shading layer and its source.",
-    "metadata": { "source_roles": "snowbuddy:sourceRoles", "format_layers": "snowbuddy:formatLayers", "unit_layers": "snowbuddy:unitLayers" },
+    "comment": "How the app's styles carry the shading of every format the app draws, and how staging picks a pack's (scripts/lib/style-contract.mjs, ported by MapAssets.buildStyle; docs/MAPS_TRAILVIEW_DESIGN.md section 4). Metadata source_roles names each source's role; format_layers lists, under each format the style draws, the layers drawn only for that format's packs: a layer listed under no format is drawn for every format, and a style without the key draws format 1 only. shading names each format's shading layer and its source. base_edge names { source, zooms }: an inline GeoJSON source, empty in the style, and one fill layer per zoom in the background colour right above the shading; staging writes, for each zoom n, the world less the tiles of zoom n touching the pack's box, the base file's tiles at camera zooms n to n + 1 (the last zoom: and up), so the shading, whose deepest tiles are z13, never draws where the base map has ended (from z14). A style without the key has no edge.",
+    "metadata": { "source_roles": "snowbuddy:sourceRoles", "format_layers": "snowbuddy:formatLayers", "unit_layers": "snowbuddy:unitLayers", "base_edge": "snowbuddy:baseEdge" },
     "shading": {
       "1": { "layer": "sb_hillshade", "type": "raster", "source": "hillshade" },
       "2": { "layer": "sb_hillshade_live", "type": "hillshade", "source": "dem" }

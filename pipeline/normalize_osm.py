@@ -5,7 +5,9 @@ In order, it:
   1. copies piste tags from route relations (type=route or superroute, with a piste:type) onto member ways that
      lack them: piste:type, piste:difficulty, piste:grooming, patrolled, the name (only when the way has no name of
      its own) and the ref. Routes of a kept type (downhill and the others the map draws) go first, so a way shared
-     by a downhill route and a ski-touring or nordic one stays a run; within each group, in relation id order;
+     by a downhill route and a ski-touring or nordic one stays a run; within each group, in relation id order. A
+     relation of a kept type that lists several runs rather than being one run (its member ways carry other names of
+     their own and do not make one line; lists_runs) gives no name: it fills the other tags only;
   2. applies the resort's overrides file (resorts/<slug>.overrides.json): renamed or hidden names, rating
      corrections, park flags, out-of-bounds flags and hidden elements. Every entry carries a reason. An entry whose
      `expect` no longer matches OSM, or whose element is gone, stops the build, so a fix made in OSM is never
@@ -40,10 +42,10 @@ In order, it:
      OSM name resorts.json gives, or the build stops, as for a stale override;
   4. ranks every run line by importance (sb:rank, for the style's overview zooms): 1 for the trunk runs, in each
      rating the style draws in its own colour (easy, intermediate, advanced, expert, park, unrated) the longest named
-     runs that together make up half of that rating's named in-bounds run length; 3 for runs under 300 m (a named
-     run's length summed over all its ways, an unnamed way's own length); 2 for the others. With several mountains a
-     named run is the ways of that name on one mountain (the listed polygon owning each way by the rule above, else
-     the nearest one);
+     runs that together make up half of that rating's named in-bounds run length (a rating's only named run only
+     when it is 300 m or more); 3 for runs under 300 m (a named run's length summed over all its ways, an unnamed
+     way's own length); 2 for the others. With several mountains a named run is the ways of that name on one
+     mountain (the listed polygon owning each way by the rule above, else the nearest one);
   5. reduces every string to the glyph ranges the app bundles (ADR-015).
 
 orient.py then turns runs downhill and lifts uphill from the elevation model (ski.sh runs it after the contours).
@@ -93,6 +95,12 @@ FLAG_KEYS = {'sb:ungroomed', 'sb:gladed', 'sb:park', 'sb:out_of_bounds'}
 # blue cruisers, and short expert runs never had it (8% of Mammoth's expert length, none of Big White's).
 TRUNK_SHARE = 0.5
 MINOR_RUN_M = 300.0
+# A rating with ONE named run has nothing to choose from: the share rule takes that run whatever its size, so a short
+# one became a trunk run drawn heavy at the overview zooms, where every other run that short is a minor run and hidden
+# (Tremblant's only named unrated run, an 89 m passage in the village, worked around with an override on 2026-11-12).
+# A rating's lone named run is therefore a trunk run only when it is no minor run (at least MINOR_RUN_M); else the
+# rating has no trunk run and that run is a minor run (rank 3) like any other that short. With two or more named runs
+# nothing changes: the longest is still a trunk run, however short, as the share rule has always done.
 # The ratings as the style colours a run, the harder first: a named run split equally between two belongs to the harder.
 RATINGS = ('expert', 'advanced', 'intermediate', 'easy', 'park', 'unrated')
 RATING_OF_DIFFICULTY = {'novice': 'easy', 'easy': 'easy', 'intermediate': 'intermediate', 'advanced': 'advanced',
@@ -809,6 +817,53 @@ def glyph_safe(value, ranges):
     return text or None
 
 
+# --- route relations -------------------------------------------------------------------------------------------
+
+def branches(node_lists):
+    """Whether ways (each a list of node ids) fail to make one line: they fall apart into pieces that share no node, or
+    more than two of their segments meet at a node (a fork, a junction, a crossing). A path or a loop is one line, and
+    so is a run whose ways overlap along a stretch. Ways without a segment say nothing (False)."""
+    adj = {}
+    for nds in node_lists:
+        for u, v in zip(nds, nds[1:]):
+            if u != v:
+                adj.setdefault(u, set()).add(v)
+                adj.setdefault(v, set()).add(u)
+    if not adj:
+        return False
+    if any(len(near) > 2 for near in adj.values()):
+        return True
+    start = min(adj)
+    seen, todo = {start}, [start]
+    while todo:
+        for v in adj[todo.pop()]:
+            if v not in seen:
+                seen.add(v)
+                todo.append(v)
+    return len(seen) < len(adj)
+
+
+def lists_runs(name, members):
+    """Whether a named route relation lists several runs rather than being one run made of several ways, read from its
+    member ways as OpenStreetMap tags them (before any relation fills them): `members` is (node ids, tags) of each
+    member way that the relation would fill (its piste:type the relation's, or none). It lists runs when both hold:
+      - its member ways carry names of their own other than the relation's (compared without case and extra spaces);
+      - they do not make one line (branches).
+    Either sign alone would also mark relations that are one run (checked on the published packs' data, 2026-11-16):
+    Lutsen's Bridge Run is its Upper and Lower Bridge Run and an unnamed way between them, Mount Snow's Witch Way
+    runs over a stretch of Flying Dutchman, Schweitzer's Phineas Forest and Springboard over one of Wolf Ridge, each
+    in one line; Whistler's Blackcomb Home Run (relation/17887652: eight ways, one of them named after it) and
+    Taos's White Feather (thirteen) do not make one line, with no other name on any way. Tremblant's Versant Soleil
+    relation (relation/19235702, Station Mont Tremblant - Versant Soleil) lists the side's runs, 18 ways with 15
+    names of their own that fork and join: both signs."""
+    def plain(value):
+        return ' '.join(value.split()).casefold() if value else None
+    own = {plain(t.get('piste:name') or t.get('name')) for _, t in members}
+    if not own - {None, plain(name)}:
+        return False
+    return branches([nds for nds, _ in members])
+
+
 # --- ranks -----------------------------------------------------------------------------------------------------
 
 def rating_of(difficulty, park):
@@ -825,8 +880,9 @@ def run_ranks(runs, trunk_share=TRUNK_SHARE, minor_m=MINOR_RUN_M):
     A named run is all the ways of that name, whose lengths add up; it belongs to the rating holding most of its
     in-bounds length (equal lengths: the harder rating, in RATINGS order). In each rating, its trunk runs (rank 1) are
     the longest of its named runs with at least one in-bounds way, taken longest first (ties by name) until they make
-    up `trunk_share` of the rating's named in-bounds length. Runs shorter than `minor_m` (a named run's total, an
-    unnamed way's own length) are rank 3, the others rank 2."""
+    up `trunk_share` of the rating's named in-bounds length; a rating's only named run is a trunk run only when it is
+    no minor run (see MINOR_RUN_M). Runs shorter than `minor_m` (a named run's total, an unnamed way's own length) are
+    rank 3, the others rank 2."""
     totals, inbound, split = {}, {}, {}
     for name, length, oob, rating in runs:
         if rating not in RATINGS:
@@ -846,7 +902,7 @@ def run_ranks(runs, trunk_share=TRUNK_SHARE, minor_m=MINOR_RUN_M):
         target = trunk_share * sum(inbound[n] for n in names)
         acc, taken, shortest = 0.0, 0, None
         for name in names:
-            if acc >= target:
+            if acc >= target or (len(names) == 1 and totals[name] < minor_m):
                 break
             trunk.add(name)
             acc += inbound[name]
@@ -953,7 +1009,7 @@ def run(a):
     proj = Projection((w + e) / 2.0, (s + n) / 2.0)
     report = {
         'slug': a.slug, 'key': resort['key'], 'osm_base': osm_base, 'input_bounds': bounds,
-        'kept': {}, 'dropped': {}, 'relation_fills': 0, 'relation_fill_conflicts': [],
+        'kept': {}, 'dropped': {}, 'relation_fills': 0, 'relation_fill_conflicts': [], 'relation_names_withheld': [],
         'overrides': {'applied': [], 'stale': []}, 'out_of_bounds': [], 'outside_ski_area_in_bounds': [],
         'names_changed_by_glyph_filter': [], 'difficulty_unknown': 0,
     }
@@ -966,6 +1022,24 @@ def run(a):
     def kept_type(value):
         return any(v.strip().lower() in keep_types for v in (value or '').split(';'))
 
+    # A relation that lists several runs (lists_runs) is no run's name: Tremblant's relation/19235702 gave its title,
+    # Station Mont Tremblant - Versant Soleil, to two short unnamed ways at the foot of the side (worked around with
+    # overrides on 2026-11-12). Such a relation fills every other piste tag as before, and a member way it leaves
+    # unnamed can still take the name of a relation that is its run. Decided on the ways as OSM tags them, before any
+    # fill, so the order of the relations does not change the answer. Only for relations of a type the map draws: a
+    # nordic or ski-touring relation fills only ways the map leaves out, so its name never reaches a run, and leaving
+    # it as it was keeps the other packs' counts (relation_fills) as they were.
+    list_rels = set()
+    for rid, rel in rels.items():
+        rt = rel['tags']
+        rtype = rt.get('piste:type')
+        if rt.get('type') not in ('route', 'superroute') or not kept_type(rtype):
+            continue
+        members = [(ways[ref]['nds'], ways[ref]['tags']) for mtype, ref, _ in rel['members']
+                   if mtype == 'way' and ref in ways and ways[ref]['tags'].get('piste:type', rtype) == rtype]
+        if lists_runs(rt.get('piste:name') or rt.get('name'), members):
+            list_rels.add(rid)
+
     filled_from = {}
     for rid in sorted(rels, key=lambda r: (not kept_type(rels[r]['tags'].get('piste:type')), r)):
         rt = rels[rid]['tags']
@@ -974,6 +1048,7 @@ def run(a):
             continue
         rname = rt.get('piste:name') or rt.get('name')
         rref = rt.get('piste:ref') or rt.get('ref')
+        withheld = 0
         for mtype, ref, _role in rels[rid]['members']:
             if mtype != 'way' or ref not in ways:
                 continue
@@ -995,14 +1070,20 @@ def run(a):
                     report['relation_fill_conflicts'].append(
                         {'way': ref, 'key': k, 'kept': wt[k], 'from': f'relation/{got[k]}', 'ignored': v, 'ignored_from': f'relation/{rid}'})
             if rname and not (wt.get('piste:name') or wt.get('name')):
-                wt['piste:name'] = rname
-                got['piste:name'] = rid
-                changed = True
+                if rid in list_rels:
+                    withheld += 1
+                else:
+                    wt['piste:name'] = rname
+                    got['piste:name'] = rid
+                    changed = True
             if rref and not (wt.get('piste:ref') or wt.get('ref')):
                 wt['piste:ref'] = rref
                 got['piste:ref'] = rid
                 changed = True
             report['relation_fills'] += 1 if changed else 0
+        if withheld:
+            # The member ways it left without a name at its turn (a later relation can still name them).
+            report['relation_names_withheld'].append({'relation': f'relation/{rid}', 'name': rname, 'ways': withheld})
 
     # 2. Overrides (checked against the tags as filled from relations).
     def element(oid):

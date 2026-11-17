@@ -1,0 +1,73 @@
+{
+  "key": "boyne-mountain-v2",
+  "ski_sha256": "0de3ee3e31f74c74b9fb03bdeaa32b49bc717fed5938928f394338aa9c4cfa62",
+  "osm_timestamp": "2026-11-14T09:54:35Z",
+  "box": [
+    -85,
+    45.13,
+    -84.89,
+    45.2
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -84.968026,
+    45.15482,
+    -84.924977,
+    45.175872
+  ],
+  "margins_km": {
+    "west": 2.51,
+    "south": 2.76,
+    "east": 2.74,
+    "north": 2.68
+  },
+  "counts": {
+    "lifts": 10,
+    "runs_in_bounds": 62,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 20,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.7,
+    "runs_in_bounds": 26.2,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -85.078125,
+      45.089036,
+      -84.726562,
+      45.213004
+    ],
+    "12": [
+      -85.078125,
+      45.089036,
+      -84.814453,
+      45.213004
+    ],
+    "13": [
+      -85.03418,
+      45.120053,
+      -84.858398,
+      45.213004
+    ],
+    "14": [
+      -85.012207,
+      45.120053,
+      -84.880371,
+      45.213004
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

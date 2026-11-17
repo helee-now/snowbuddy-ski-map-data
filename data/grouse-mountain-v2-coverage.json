@@ -1,0 +1,73 @@
+{
+  "key": "grouse-mountain-v2",
+  "ski_sha256": "c7a1d4759ca51471fb603c2a91f90dc46c544e4d4e743d42b3e35f4a7c928d4b",
+  "osm_timestamp": "2026-11-16T06:01:59Z",
+  "box": [
+    -123.13,
+    49.35,
+    -123.04,
+    49.41
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -123.099507,
+    49.370969,
+    -123.067842,
+    49.38801
+  ],
+  "margins_km": {
+    "west": 2.21,
+    "south": 2.33,
+    "east": 2.02,
+    "north": 2.45
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 69,
+    "run_areas_in_bounds": 2,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 16,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.5,
+    "runs_in_bounds": 17.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -123.222656,
+      49.267805,
+      -122.871094,
+      49.496675
+    ],
+    "12": [
+      -123.134766,
+      49.325122,
+      -122.958984,
+      49.439557
+    ],
+    "13": [
+      -123.134766,
+      49.325122,
+      -123.00293,
+      49.410973
+    ],
+    "14": [
+      -123.134766,
+      49.339441,
+      -123.024902,
+      49.410973
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

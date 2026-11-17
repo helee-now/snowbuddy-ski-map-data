@@ -1,0 +1,73 @@
+{
+  "key": "giants-ridge-v2",
+  "ski_sha256": "3fb5c724b0d0aa3e4c3f38715a43ca5d7fe1175a2d812f58e9e2a515b99ddcfb",
+  "osm_timestamp": "2026-11-16T04:27:43Z",
+  "box": [
+    -92.35,
+    47.55,
+    -92.27,
+    47.6
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -92.31538,
+    47.569334,
+    -92.300208,
+    47.579628
+  ],
+  "margins_km": {
+    "west": 2.6,
+    "south": 2.15,
+    "east": 2.27,
+    "north": 2.27
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 39,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 14,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.1,
+    "runs_in_bounds": 12.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -92.460938,
+      47.517201,
+      -92.109375,
+      47.635784
+    ],
+    "12": [
+      -92.373047,
+      47.517201,
+      -92.197266,
+      47.635784
+    ],
+    "13": [
+      -92.373047,
+      47.546872,
+      -92.241211,
+      47.606163
+    ],
+    "14": [
+      -92.351074,
+      47.546872,
+      -92.263184,
+      47.606163
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

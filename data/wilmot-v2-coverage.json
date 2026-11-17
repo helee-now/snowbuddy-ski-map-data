@@ -1,0 +1,73 @@
+{
+  "key": "wilmot-v2",
+  "ski_sha256": "f7bd5d9508388742305a7e96bd7d28580539284346841b269f619f6ad7e943d7",
+  "osm_timestamp": "2026-11-14T09:59:49Z",
+  "box": [
+    -88.24,
+    42.47,
+    -88.16,
+    42.53
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -88.198512,
+    42.494941,
+    -88.185743,
+    42.504745
+  ],
+  "margins_km": {
+    "west": 3.4,
+    "south": 2.77,
+    "east": 2.11,
+    "north": 2.81
+  },
+  "counts": {
+    "lifts": 12,
+    "runs_in_bounds": 24,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 20,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 2.3,
+    "runs_in_bounds": 5.3,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -88.242188,
+      42.423457,
+      -88.066406,
+      42.55308
+    ],
+    "12": [
+      -88.242188,
+      42.423457,
+      -88.154297,
+      42.55308
+    ],
+    "13": [
+      -88.242188,
+      42.455888,
+      -88.154297,
+      42.55308
+    ],
+    "14": [
+      -88.242188,
+      42.455888,
+      -88.154297,
+      42.536892
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

@@ -1,0 +1,73 @@
+{
+  "key": "alpine-valley-ohio-v2",
+  "ski_sha256": "26b1a0bd9a9920034ccb235151365473f27ad54d44fe6ea22733d21af8449c1d",
+  "osm_timestamp": "2026-11-15T00:33:50Z",
+  "box": [
+    -81.3,
+    41.5,
+    -81.23,
+    41.55
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -81.266206,
+    41.52592,
+    -81.256332,
+    41.530813
+  ],
+  "margins_km": {
+    "west": 2.81,
+    "south": 2.88,
+    "east": 2.19,
+    "north": 2.13
+  },
+  "counts": {
+    "lifts": 5,
+    "runs_in_bounds": 9,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 9,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 1.2,
+    "runs_in_bounds": 2.6,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -81.386719,
+      41.376809,
+      -81.210938,
+      41.640078
+    ],
+    "12": [
+      -81.386719,
+      41.442726,
+      -81.210938,
+      41.574361
+    ],
+    "13": [
+      -81.342773,
+      41.47566,
+      -81.210938,
+      41.574361
+    ],
+    "14": [
+      -81.320801,
+      41.492121,
+      -81.210938,
+      41.557922
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

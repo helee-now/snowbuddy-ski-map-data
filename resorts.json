@@ -1,5 +1,5 @@
 {
-  "comment": "Resorts of the SnowBuddy ski map data, one per published ski file (written by scripts/export-public-data.mjs in the SnowBuddy repository). Boxes are W, S, E, N in degrees (WGS84): the resort's lifts and runs with at least 2 km to spare on every side, and the out-of-bounds runs in out_of_bounds_named whole at every zoom. osm_timestamp is the OpenStreetMap data the file was built from; pipeline/build-ski.sh rebuilds from it and compares the result with ski_file.sha256.",
+  "comment": "Resorts of the SnowBuddy ski map data, one per published ski file (written by scripts/export-public-data.mjs in the SnowBuddy repository). Boxes are W, S, E, N in degrees (WGS84): the resort's lifts and runs with at least 2 km to spare on every side, and the out-of-bounds runs in out_of_bounds_named whole at every zoom. osm_timestamp is the OpenStreetMap data the file was built from, and built_at when it was built; pipeline/build-ski.sh rebuilds from it and compares the result with ski_file.sha256. derived_from, where present, names the earlier version whose ski file this is, byte for byte: it rebuilds with the scripts of the commit that published that version.",
   "credits": {
     "osm_html": "<a href=\"https://www.openstreetmap.org/copyright\">&copy; OpenStreetMap contributors</a>",
     "osm_text": "Map data © OpenStreetMap contributors, available under the Open Database License (ODbL) 1.0. openstreetmap.org/copyright"
@@ -55,8 +55,8 @@
     {
       "slug": "afton-alps",
       "name": "Afton Alps",
-      "version": 1,
-      "key": "afton-alps-v1",
+      "version": 2,
+      "key": "afton-alps-v2",
       "box": [
         -92.82,
         44.83,
@@ -77,18 +77,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n45w093/USGS_13_n45w093.tif"
       ],
       "built_at": "2026-11-14T09:42:39Z",
+      "derived_from": "afton-alps-v1",
       "ski_file": {
-        "path": "data/afton-alps-v1-ski.pmtiles",
+        "path": "data/afton-alps-v2-ski.pmtiles",
         "bytes": 52340,
         "sha256": "adb2d128df77b0c6917b7230af7a46f9e03fb4fe0ef3c6763d6866c33258f170"
       },
-      "coverage": "data/afton-alps-v1-coverage.json"
+      "coverage": "data/afton-alps-v2-coverage.json"
     },
     {
       "slug": "alpental",
       "name": "Alpental",
-      "version": 1,
-      "key": "alpental-v1",
+      "version": 2,
+      "key": "alpental-v2",
       "box": [
         -121.48,
         47.41,
@@ -121,18 +122,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w122/USGS_13_n48w122.tif"
       ],
       "built_at": "2026-11-15T07:19:28Z",
+      "derived_from": "alpental-v1",
       "ski_file": {
-        "path": "data/alpental-v1-ski.pmtiles",
+        "path": "data/alpental-v2-ski.pmtiles",
         "bytes": 200663,
         "sha256": "65afff8b1bf63291f55b38a64ac2508e14c7faa284db02af708ed6c7c6f4fc9e"
       },
-      "coverage": "data/alpental-v1-coverage.json"
+      "coverage": "data/alpental-v2-coverage.json"
     },
     {
       "slug": "alpine-valley-ohio",
       "name": "Alpine Valley",
-      "version": 1,
-      "key": "alpine-valley-ohio-v1",
+      "version": 2,
+      "key": "alpine-valley-ohio-v2",
       "box": [
         -81.3,
         41.5,
@@ -175,18 +177,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-15T00:40:41Z",
+      "derived_from": "alpine-valley-ohio-v1",
       "ski_file": {
-        "path": "data/alpine-valley-ohio-v1-ski.pmtiles",
+        "path": "data/alpine-valley-ohio-v2-ski.pmtiles",
         "bytes": 35781,
         "sha256": "26b1a0bd9a9920034ccb235151365473f27ad54d44fe6ea22733d21af8449c1d"
       },
-      "coverage": "data/alpine-valley-ohio-v1-coverage.json"
+      "coverage": "data/alpine-valley-ohio-v2-coverage.json"
     },
     {
       "slug": "alta",
       "name": "Alta",
-      "version": 1,
-      "key": "alta-v1",
+      "version": 2,
+      "key": "alta-v2",
       "box": [
         -111.68,
         40.54,
@@ -229,18 +232,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n41w112/USGS_13_n41w112.tif"
       ],
       "built_at": "2026-11-04T09:29:29Z",
+      "derived_from": "alta-v1",
       "ski_file": {
-        "path": "data/alta-v1-ski.pmtiles",
+        "path": "data/alta-v2-ski.pmtiles",
         "bytes": 305562,
         "sha256": "67128d0ad3671218301364571497aab7f09a10023b1c0d7c0cdf6e0b24c14cba"
       },
-      "coverage": "data/alta-v1-coverage.json"
+      "coverage": "data/alta-v2-coverage.json"
     },
     {
       "slug": "alyeska",
       "name": "Alyeska",
-      "version": 2,
-      "key": "alyeska-v2",
+      "version": 3,
+      "key": "alyeska-v3",
       "box": [
         -149.16,
         60.93,
@@ -521,18 +525,19 @@
         "filled_window_pct": 2.239
       },
       "built_at": "2026-11-16T08:17:40Z",
+      "derived_from": "alyeska-v2",
       "ski_file": {
-        "path": "data/alyeska-v2-ski.pmtiles",
+        "path": "data/alyeska-v3-ski.pmtiles",
         "bytes": 222060,
         "sha256": "ac722043c19a974427951646a8b500dc835505afe3d85f7911db82e21aa9428c"
       },
-      "coverage": "data/alyeska-v2-coverage.json"
+      "coverage": "data/alyeska-v3-coverage.json"
     },
     {
       "slug": "arapahoe-basin",
       "name": "Arapahoe Basin",
-      "version": 1,
-      "key": "arapahoe-basin-v1",
+      "version": 2,
+      "key": "arapahoe-basin-v2",
       "box": [
         -105.92,
         39.59,
@@ -596,18 +601,19 @@
         "filled_window_pct": 4.149
       },
       "built_at": "2026-11-04T17:34:54Z",
+      "derived_from": "arapahoe-basin-v1",
       "ski_file": {
-        "path": "data/arapahoe-basin-v1-ski.pmtiles",
+        "path": "data/arapahoe-basin-v2-ski.pmtiles",
         "bytes": 186656,
         "sha256": "911468482c42696cdac3e74dec9449ec9dcbb856a5f6106cf40b5a618b289c6a"
       },
-      "coverage": "data/arapahoe-basin-v1-coverage.json"
+      "coverage": "data/arapahoe-basin-v2-coverage.json"
     },
     {
       "slug": "aspen-highlands",
       "name": "Aspen Highlands",
-      "version": 1,
-      "key": "aspen-highlands-v1",
+      "version": 2,
+      "key": "aspen-highlands-v2",
       "box": [
         -106.91,
         39.1,
@@ -645,18 +651,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w107/USGS_13_n40w107.tif"
       ],
       "built_at": "2026-11-15T07:25:43Z",
+      "derived_from": "aspen-highlands-v1",
       "ski_file": {
-        "path": "data/aspen-highlands-v1-ski.pmtiles",
+        "path": "data/aspen-highlands-v2-ski.pmtiles",
         "bytes": 287285,
         "sha256": "72cdbd3ff099f53b3ea5a9d2f80aacdea0613366753f23540b9c658db4326137"
       },
-      "coverage": "data/aspen-highlands-v1-coverage.json"
+      "coverage": "data/aspen-highlands-v2-coverage.json"
     },
     {
       "slug": "aspen-mountain",
       "name": "Aspen Mountain",
-      "version": 1,
-      "key": "aspen-mountain-v1",
+      "version": 2,
+      "key": "aspen-mountain-v2",
       "box": [
         -106.86,
         39.12,
@@ -689,18 +696,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w107/USGS_13_n40w107.tif"
       ],
       "built_at": "2026-11-15T07:24:40Z",
+      "derived_from": "aspen-mountain-v1",
       "ski_file": {
-        "path": "data/aspen-mountain-v1-ski.pmtiles",
+        "path": "data/aspen-mountain-v2-ski.pmtiles",
         "bytes": 202980,
         "sha256": "b61688dd194610a8362fc863836a0b615865fdceab471509d4cea1b4e24291f5"
       },
-      "coverage": "data/aspen-mountain-v1-coverage.json"
+      "coverage": "data/aspen-mountain-v2-coverage.json"
     },
     {
       "slug": "attitash",
       "name": "Attitash",
-      "version": 1,
-      "key": "attitash-v1",
+      "version": 2,
+      "key": "attitash-v2",
       "box": [
         -71.29,
         44.04,
@@ -750,18 +758,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-12T11:08:16Z",
+      "derived_from": "attitash-v1",
       "ski_file": {
-        "path": "data/attitash-v1-ski.pmtiles",
+        "path": "data/attitash-v2-ski.pmtiles",
         "bytes": 123660,
         "sha256": "47237eabd9b549bc6037976b9bfb7457b2b0a9219e74665f21d8ee53a9ae9e72"
       },
-      "coverage": "data/attitash-v1-coverage.json"
+      "coverage": "data/attitash-v2-coverage.json"
     },
     {
       "slug": "banff-sunshine",
       "name": "Banff Sunshine",
-      "version": 1,
-      "key": "banff-sunshine-v1",
+      "version": 2,
+      "key": "banff-sunshine-v2",
       "box": [
         -115.83,
         51.04,
@@ -782,18 +791,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T03:38:37Z",
+      "derived_from": "banff-sunshine-v1",
       "ski_file": {
-        "path": "data/banff-sunshine-v1-ski.pmtiles",
+        "path": "data/banff-sunshine-v2-ski.pmtiles",
         "bytes": 265165,
         "sha256": "4e52c3e91602e16325d8c8da38ca940bf0f95b526a330b9ef61b8f140eee76f6"
       },
-      "coverage": "data/banff-sunshine-v1-coverage.json"
+      "coverage": "data/banff-sunshine-v2-coverage.json"
     },
     {
       "slug": "bear-mountain",
       "name": "Bear Mountain",
-      "version": 1,
-      "key": "bear-mountain-v1",
+      "version": 2,
+      "key": "bear-mountain-v2",
       "box": [
         -116.9,
         34.19,
@@ -852,18 +862,19 @@
         "filled_window_pct": 0.343
       },
       "built_at": "2026-10-29T08:02:24Z",
+      "derived_from": "bear-mountain-v1",
       "ski_file": {
-        "path": "data/bear-mountain-v1-ski.pmtiles",
+        "path": "data/bear-mountain-v2-ski.pmtiles",
         "bytes": 107809,
         "sha256": "8ef8a1b2cb17e8798068b39d9b2963d9ca2d8b9bce86a278d12a86f8d92c3786"
       },
-      "coverage": "data/bear-mountain-v1-coverage.json"
+      "coverage": "data/bear-mountain-v2-coverage.json"
     },
     {
       "slug": "beaver-creek",
       "name": "Beaver Creek",
-      "version": 1,
-      "key": "beaver-creek-v1",
+      "version": 2,
+      "key": "beaver-creek-v2",
       "box": [
         -106.61,
         39.54,
@@ -909,18 +920,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-05T03:30:48Z",
+      "derived_from": "beaver-creek-v1",
       "ski_file": {
-        "path": "data/beaver-creek-v1-ski.pmtiles",
+        "path": "data/beaver-creek-v2-ski.pmtiles",
         "bytes": 328106,
         "sha256": "7e3ee1790b5019e0a3bece84b729ed1514eca5484aa33b0738c5bd19f0cdb92d"
       },
-      "coverage": "data/beaver-creek-v1-coverage.json"
+      "coverage": "data/beaver-creek-v2-coverage.json"
     },
     {
       "slug": "big-boulder",
       "name": "Big Boulder",
-      "version": 1,
-      "key": "big-boulder-v1",
+      "version": 2,
+      "key": "big-boulder-v2",
       "box": [
         -75.64,
         41.02,
@@ -963,18 +975,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-13T03:54:25Z",
+      "derived_from": "big-boulder-v1",
       "ski_file": {
-        "path": "data/big-boulder-v1-ski.pmtiles",
+        "path": "data/big-boulder-v2-ski.pmtiles",
         "bytes": 48325,
         "sha256": "8f0780c7b38e6ee3ca5d7ce95dcbffdec9f9307ff4fab84ef7288f20c95598a7"
       },
-      "coverage": "data/big-boulder-v1-coverage.json"
+      "coverage": "data/big-boulder-v2-coverage.json"
     },
     {
       "slug": "big-sky",
       "name": "Big Sky",
-      "version": 1,
-      "key": "big-sky-v1",
+      "version": 2,
+      "key": "big-sky-v2",
       "box": [
         -111.49,
         45.22,
@@ -1002,18 +1015,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n46w112/USGS_13_n46w112.tif"
       ],
       "built_at": "2026-11-10T08:19:46Z",
+      "derived_from": "big-sky-v1",
       "ski_file": {
-        "path": "data/big-sky-v1-ski.pmtiles",
+        "path": "data/big-sky-v2-ski.pmtiles",
         "bytes": 448182,
         "sha256": "33b313fa4abbfbba4223cbe7e10b8d712ed1781526c0503844b53281ee32960b"
       },
-      "coverage": "data/big-sky-v1-coverage.json"
+      "coverage": "data/big-sky-v2-coverage.json"
     },
     {
       "slug": "big-white",
       "name": "Big White",
-      "version": 3,
-      "key": "big-white-v3",
+      "version": 4,
+      "key": "big-white-v4",
       "box": [
         -119.01,
         49.68,
@@ -1034,18 +1048,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-10-23T06:22:25Z",
+      "derived_from": "big-white-v3",
       "ski_file": {
-        "path": "data/big-white-v3-ski.pmtiles",
+        "path": "data/big-white-v4-ski.pmtiles",
         "bytes": 159044,
         "sha256": "2441855b7379ad42f1de4f2e7fa815755a8926626e387ab01b00d11bbef3921a"
       },
-      "coverage": "data/big-white-v3-coverage.json"
+      "coverage": "data/big-white-v4-coverage.json"
     },
     {
       "slug": "black-river-basin",
       "name": "Black River Basin",
-      "version": 1,
-      "key": "black-river-basin-v1",
+      "version": 2,
+      "key": "black-river-basin-v2",
       "box": [
         -90.04,
         46.48,
@@ -1074,18 +1089,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n47w091/USGS_13_n47w091.tif"
       ],
       "built_at": "2026-11-15T07:17:04Z",
+      "derived_from": "black-river-basin-v1",
       "ski_file": {
-        "path": "data/black-river-basin-v1-ski.pmtiles",
+        "path": "data/black-river-basin-v2-ski.pmtiles",
         "bytes": 49699,
         "sha256": "d4c99fcead4d55d8954be22cfee6a571f05f4e1453cb9167452b8202301f0af8"
       },
-      "coverage": "data/black-river-basin-v1-coverage.json"
+      "coverage": "data/black-river-basin-v2-coverage.json"
     },
     {
       "slug": "blue-mountain-ontario",
       "name": "Blue Mountain",
-      "version": 2,
-      "key": "blue-mountain-ontario-v2",
+      "version": 3,
+      "key": "blue-mountain-ontario-v3",
       "box": [
         -80.37,
         44.46,
@@ -1145,18 +1161,19 @@
         "filled_window_pct": 24.613
       },
       "built_at": "2026-11-16T07:31:04Z",
+      "derived_from": "blue-mountain-ontario-v2",
       "ski_file": {
-        "path": "data/blue-mountain-ontario-v2-ski.pmtiles",
+        "path": "data/blue-mountain-ontario-v3-ski.pmtiles",
         "bytes": 72841,
         "sha256": "5ca367e82b6212e144fbdcb2d082749e404476bd5d89ce995eb6bfbd18ad8d43"
       },
-      "coverage": "data/blue-mountain-ontario-v2-coverage.json"
+      "coverage": "data/blue-mountain-ontario-v3-coverage.json"
     },
     {
       "slug": "blue-mountain-resort",
       "name": "Blue Mountain Resort",
-      "version": 1,
-      "key": "blue-mountain-resort-v1",
+      "version": 2,
+      "key": "blue-mountain-resort-v2",
       "box": [
         -75.56,
         40.79,
@@ -1199,18 +1216,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-13T03:34:19Z",
+      "derived_from": "blue-mountain-resort-v1",
       "ski_file": {
-        "path": "data/blue-mountain-resort-v1-ski.pmtiles",
+        "path": "data/blue-mountain-resort-v2-ski.pmtiles",
         "bytes": 81676,
         "sha256": "1c2adca6cf58c38e8932d41441b5362dc29c2359fd02f956c09adb00354a2a64"
       },
-      "coverage": "data/blue-mountain-resort-v1-coverage.json"
+      "coverage": "data/blue-mountain-resort-v2-coverage.json"
     },
     {
       "slug": "boston-mills",
       "name": "Boston Mills",
-      "version": 1,
-      "key": "boston-mills-v1",
+      "version": 2,
+      "key": "boston-mills-v2",
       "box": [
         -81.6,
         41.24,
@@ -1258,18 +1276,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-15T00:46:45Z",
+      "derived_from": "boston-mills-v1",
       "ski_file": {
-        "path": "data/boston-mills-v1-ski.pmtiles",
+        "path": "data/boston-mills-v2-ski.pmtiles",
         "bytes": 47235,
         "sha256": "3c5f138579d12fd1cc577f62cbe0012c090eb8a4f9a0f9f1f33086e4fd257910"
       },
-      "coverage": "data/boston-mills-v1-coverage.json"
+      "coverage": "data/boston-mills-v2-coverage.json"
     },
     {
       "slug": "boyne-mountain",
       "name": "Boyne Mountain",
-      "version": 1,
-      "key": "boyne-mountain-v1",
+      "version": 2,
+      "key": "boyne-mountain-v2",
       "box": [
         -85,
         45.13,
@@ -1314,18 +1333,19 @@
         "filled_window_pct": 14.538
       },
       "built_at": "2026-11-14T09:57:09Z",
+      "derived_from": "boyne-mountain-v1",
       "ski_file": {
-        "path": "data/boyne-mountain-v1-ski.pmtiles",
+        "path": "data/boyne-mountain-v2-ski.pmtiles",
         "bytes": 66386,
         "sha256": "0de3ee3e31f74c74b9fb03bdeaa32b49bc717fed5938928f394338aa9c4cfa62"
       },
-      "coverage": "data/boyne-mountain-v1-coverage.json"
+      "coverage": "data/boyne-mountain-v2-coverage.json"
     },
     {
       "slug": "brandywine",
       "name": "Brandywine",
-      "version": 1,
-      "key": "brandywine-v1",
+      "version": 2,
+      "key": "brandywine-v2",
       "box": [
         -81.59,
         41.26,
@@ -1373,18 +1393,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-15T00:49:52Z",
+      "derived_from": "brandywine-v1",
       "ski_file": {
-        "path": "data/brandywine-v1-ski.pmtiles",
+        "path": "data/brandywine-v2-ski.pmtiles",
         "bytes": 44276,
         "sha256": "2f7ab5360f30d9c25566313046f46fc495c1988f5214c25ae0a5bb3c630512f3"
       },
-      "coverage": "data/brandywine-v1-coverage.json"
+      "coverage": "data/brandywine-v2-coverage.json"
     },
     {
       "slug": "breckenridge",
       "name": "Breckenridge",
-      "version": 1,
-      "key": "breckenridge-v1",
+      "version": 2,
+      "key": "breckenridge-v2",
       "box": [
         -106.14,
         39.43,
@@ -1436,18 +1457,19 @@
         "filled_window_pct": 0.637
       },
       "built_at": "2026-11-04T17:20:04Z",
+      "derived_from": "breckenridge-v1",
       "ski_file": {
-        "path": "data/breckenridge-v1-ski.pmtiles",
+        "path": "data/breckenridge-v2-ski.pmtiles",
         "bytes": 223181,
         "sha256": "31d09c98c5c2004e0af42963e4556fca16c0e84b2fd860e41aff317c508cbd3d"
       },
-      "coverage": "data/breckenridge-v1-coverage.json"
+      "coverage": "data/breckenridge-v2-coverage.json"
     },
     {
       "slug": "brighton",
       "name": "Brighton",
-      "version": 2,
-      "key": "brighton-v2",
+      "version": 3,
+      "key": "brighton-v3",
       "box": [
         -111.63,
         40.56,
@@ -1518,18 +1540,19 @@
         "filled_window_pct": 16.758
       },
       "built_at": "2026-10-23T06:25:21Z",
+      "derived_from": "brighton-v2",
       "ski_file": {
-        "path": "data/brighton-v2-ski.pmtiles",
+        "path": "data/brighton-v3-ski.pmtiles",
         "bytes": 168044,
         "sha256": "a3c2201ad03cdc0289bdfed276bd7e01af833d0b4462415aa9067cfbe4c6f48b"
       },
-      "coverage": "data/brighton-v2-coverage.json"
+      "coverage": "data/brighton-v3-coverage.json"
     },
     {
       "slug": "buck-hill",
       "name": "Buck Hill",
-      "version": 1,
-      "key": "buck-hill-v1",
+      "version": 2,
+      "key": "buck-hill-v2",
       "box": [
         -93.32,
         44.7,
@@ -1570,18 +1593,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-16T03:23:19Z",
+      "derived_from": "buck-hill-v1",
       "ski_file": {
-        "path": "data/buck-hill-v1-ski.pmtiles",
+        "path": "data/buck-hill-v2-ski.pmtiles",
         "bytes": 40423,
         "sha256": "1c1be220a6ece75755fdfc6050f483fdcb093c82229bdefc51dd95259755a562"
       },
-      "coverage": "data/buck-hill-v1-coverage.json"
+      "coverage": "data/buck-hill-v2-coverage.json"
     },
     {
       "slug": "buttermilk",
       "name": "Buttermilk",
-      "version": 1,
-      "key": "buttermilk-v1",
+      "version": 2,
+      "key": "buttermilk-v2",
       "box": [
         -106.91,
         39.16,
@@ -1640,18 +1664,19 @@
         "filled_window_pct": 15.5
       },
       "built_at": "2026-11-15T07:26:44Z",
+      "derived_from": "buttermilk-v1",
       "ski_file": {
-        "path": "data/buttermilk-v1-ski.pmtiles",
+        "path": "data/buttermilk-v2-ski.pmtiles",
         "bytes": 128924,
         "sha256": "8694499e85c3094695cc027a0c9d25261514a717a07e6fb728d8186ab42d7e6f"
       },
-      "coverage": "data/buttermilk-v1-coverage.json"
+      "coverage": "data/buttermilk-v2-coverage.json"
     },
     {
       "slug": "caberfae-peaks",
       "name": "Caberfae Peaks",
-      "version": 1,
-      "key": "caberfae-peaks-v1",
+      "version": 2,
+      "key": "caberfae-peaks-v2",
       "box": [
         -85.75,
         44.21,
@@ -1692,18 +1717,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-16T03:08:59Z",
+      "derived_from": "caberfae-peaks-v1",
       "ski_file": {
-        "path": "data/caberfae-peaks-v1-ski.pmtiles",
+        "path": "data/caberfae-peaks-v2-ski.pmtiles",
         "bytes": 46436,
         "sha256": "0f852a61df8daa7c3eb9206f805feec04447a9cc32946161031a8b218852b743"
       },
-      "coverage": "data/caberfae-peaks-v1-coverage.json"
+      "coverage": "data/caberfae-peaks-v2-coverage.json"
     },
     {
       "slug": "camelback",
       "name": "Camelback",
-      "version": 1,
-      "key": "camelback-v1",
+      "version": 2,
+      "key": "camelback-v2",
       "box": [
         -75.39,
         41.02,
@@ -1746,18 +1772,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-12T17:26:46Z",
+      "derived_from": "camelback-v1",
       "ski_file": {
-        "path": "data/camelback-v1-ski.pmtiles",
+        "path": "data/camelback-v2-ski.pmtiles",
         "bytes": 79801,
         "sha256": "4b7b57e5168e8d8a8db65dffba787a35123596e70665dc6d99a7e47e5a4588bc"
       },
-      "coverage": "data/camelback-v1-coverage.json"
+      "coverage": "data/camelback-v2-coverage.json"
     },
     {
       "slug": "copper-mountain",
       "name": "Copper Mountain",
-      "version": 1,
-      "key": "copper-mountain-v1",
+      "version": 2,
+      "key": "copper-mountain-v2",
       "box": [
         -106.22,
         39.43,
@@ -1805,18 +1832,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-04T17:23:41Z",
+      "derived_from": "copper-mountain-v1",
       "ski_file": {
-        "path": "data/copper-mountain-v1-ski.pmtiles",
+        "path": "data/copper-mountain-v2-ski.pmtiles",
         "bytes": 207767,
         "sha256": "258a5362af386f6130c30cdffe24a70c3450d907bad8b930e518bb9e6606ca29"
       },
-      "coverage": "data/copper-mountain-v1-coverage.json"
+      "coverage": "data/copper-mountain-v2-coverage.json"
     },
     {
       "slug": "cranmore",
       "name": "Cranmore",
-      "version": 1,
-      "key": "cranmore-v1",
+      "version": 2,
+      "key": "cranmore-v2",
       "box": [
         -71.15,
         44.03,
@@ -1859,18 +1887,19 @@
         "filled_window_pct": 0.919
       },
       "built_at": "2026-11-16T06:05:32Z",
+      "derived_from": "cranmore-v1",
       "ski_file": {
-        "path": "data/cranmore-v1-ski.pmtiles",
+        "path": "data/cranmore-v2-ski.pmtiles",
         "bytes": 85704,
         "sha256": "65580b4adfed3d9e45ea4210a3309d873677a16734a71c38b4731eff01df943a"
       },
-      "coverage": "data/cranmore-v1-coverage.json"
+      "coverage": "data/cranmore-v2-coverage.json"
     },
     {
       "slug": "crested-butte",
       "name": "Crested Butte",
-      "version": 1,
-      "key": "crested-butte-v1",
+      "version": 2,
+      "key": "crested-butte-v2",
       "box": [
         -107,
         38.86,
@@ -1922,18 +1951,19 @@
         "filled_window_pct": 2.133
       },
       "built_at": "2026-11-10T08:03:35Z",
+      "derived_from": "crested-butte-v1",
       "ski_file": {
-        "path": "data/crested-butte-v1-ski.pmtiles",
+        "path": "data/crested-butte-v2-ski.pmtiles",
         "bytes": 183843,
         "sha256": "8193e5b5054075e0cbb3ec4d0a671ca333dbe8a6f8b54880e4fb0781c69a00c5"
       },
-      "coverage": "data/crested-butte-v1-coverage.json"
+      "coverage": "data/crested-butte-v2-coverage.json"
     },
     {
       "slug": "crotched-mountain",
       "name": "Crotched Mountain",
-      "version": 1,
-      "key": "crotched-mountain-v1",
+      "version": 2,
+      "key": "crotched-mountain-v2",
       "box": [
         -71.91,
         42.98,
@@ -1955,18 +1985,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w072/USGS_13_n44w072.tif"
       ],
       "built_at": "2026-11-12T11:19:27Z",
+      "derived_from": "crotched-mountain-v1",
       "ski_file": {
-        "path": "data/crotched-mountain-v1-ski.pmtiles",
+        "path": "data/crotched-mountain-v2-ski.pmtiles",
         "bytes": 64869,
         "sha256": "ba1ddcae0c25253a0d4a444328142fb59660e06035069798358dd2cacbd64bc3"
       },
-      "coverage": "data/crotched-mountain-v1-coverage.json"
+      "coverage": "data/crotched-mountain-v2-coverage.json"
     },
     {
       "slug": "crystal-mountain",
       "name": "Crystal Mountain",
-      "version": 1,
-      "key": "crystal-mountain-v1",
+      "version": 2,
+      "key": "crystal-mountain-v2",
       "box": [
         -121.54,
         46.89,
@@ -1988,18 +2019,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w122/USGS_13_n48w122.tif"
       ],
       "built_at": "2026-11-10T17:47:32Z",
+      "derived_from": "crystal-mountain-v1",
       "ski_file": {
-        "path": "data/crystal-mountain-v1-ski.pmtiles",
+        "path": "data/crystal-mountain-v2-ski.pmtiles",
         "bytes": 251692,
         "sha256": "42a9ae907c5e20dcc12f331640b34aa394687b22ed6f5a57bcb18d0cab7caa93"
       },
-      "coverage": "data/crystal-mountain-v1-coverage.json"
+      "coverage": "data/crystal-mountain-v2-coverage.json"
     },
     {
       "slug": "crystal-ridge",
       "name": "Crystal Ridge",
-      "version": 1,
-      "key": "crystal-ridge-v1",
+      "version": 2,
+      "key": "crystal-ridge-v2",
       "box": [
         -88.05,
         42.9,
@@ -2042,18 +2074,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-16T03:12:38Z",
+      "derived_from": "crystal-ridge-v1",
       "ski_file": {
-        "path": "data/crystal-ridge-v1-ski.pmtiles",
+        "path": "data/crystal-ridge-v2-ski.pmtiles",
         "bytes": 31455,
         "sha256": "2b2188dd089ddc8af854ce8d8df0adf764ab2bccab4c76475bc834514c4d910c"
       },
-      "coverage": "data/crystal-ridge-v1-coverage.json"
+      "coverage": "data/crystal-ridge-v2-coverage.json"
     },
     {
       "slug": "cypress-mountain",
       "name": "Cypress Mountain",
-      "version": 1,
-      "key": "cypress-mountain-v1",
+      "version": 2,
+      "key": "cypress-mountain-v2",
       "box": [
         -123.25,
         49.35,
@@ -2074,18 +2107,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T05:27:03Z",
+      "derived_from": "cypress-mountain-v1",
       "ski_file": {
-        "path": "data/cypress-mountain-v1-ski.pmtiles",
+        "path": "data/cypress-mountain-v2-ski.pmtiles",
         "bytes": 192522,
         "sha256": "5e57cdb19561b4cb5d282a309002e52b07deb270ee7c43ff9c03222bee049d4f"
       },
-      "coverage": "data/cypress-mountain-v1-coverage.json"
+      "coverage": "data/cypress-mountain-v2-coverage.json"
     },
     {
       "slug": "deer-valley",
       "name": "Deer Valley",
-      "version": 2,
-      "key": "deer-valley-v2",
+      "version": 3,
+      "key": "deer-valley-v3",
       "box": [
         -111.56,
         40.56,
@@ -2123,18 +2157,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n41w112/USGS_13_n41w112.tif"
       ],
       "built_at": "2026-10-23T06:26:37Z",
+      "derived_from": "deer-valley-v2",
       "ski_file": {
-        "path": "data/deer-valley-v2-ski.pmtiles",
+        "path": "data/deer-valley-v3-ski.pmtiles",
         "bytes": 349533,
         "sha256": "9abd659e028939783defd5de7c610fc235ddcd2787b0ceb8e1e27038ecd19b7a"
       },
-      "coverage": "data/deer-valley-v2-coverage.json"
+      "coverage": "data/deer-valley-v3-coverage.json"
     },
     {
       "slug": "devils-head",
       "name": "Devil's Head",
-      "version": 1,
-      "key": "devils-head-v1",
+      "version": 2,
+      "key": "devils-head-v2",
       "box": [
         -89.67,
         43.39,
@@ -2175,18 +2210,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-16T03:24:52Z",
+      "derived_from": "devils-head-v1",
       "ski_file": {
-        "path": "data/devils-head-v1-ski.pmtiles",
+        "path": "data/devils-head-v2-ski.pmtiles",
         "bytes": 49780,
         "sha256": "5f7769af038c3dcdcab43693f191aeab6172be49bf7ec7df8f8a52eef364e233"
       },
-      "coverage": "data/devils-head-v1-coverage.json"
+      "coverage": "data/devils-head-v2-coverage.json"
     },
     {
       "slug": "diamond-peak",
       "name": "Diamond Peak",
-      "version": 1,
-      "key": "diamond-peak-v1",
+      "version": 2,
+      "key": "diamond-peak-v2",
       "box": [
         -119.96,
         39.22,
@@ -2207,18 +2243,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w120/USGS_13_n40w120.tif"
       ],
       "built_at": "2026-10-31T22:22:40Z",
+      "derived_from": "diamond-peak-v1",
       "ski_file": {
-        "path": "data/diamond-peak-v1-ski.pmtiles",
+        "path": "data/diamond-peak-v2-ski.pmtiles",
         "bytes": 124662,
         "sha256": "4b38917f0833a8b8a89292363d9fcede2f4ade6aa6642cf5a8d11fe0eb267565"
       },
-      "coverage": "data/diamond-peak-v1-coverage.json"
+      "coverage": "data/diamond-peak-v2-coverage.json"
     },
     {
       "slug": "dollar-mountain",
       "name": "Dollar Mountain",
-      "version": 1,
-      "key": "dollar-mountain-v1",
+      "version": 2,
+      "key": "dollar-mountain-v2",
       "box": [
         -114.38,
         43.65,
@@ -2246,18 +2283,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w115/USGS_13_n44w115.tif"
       ],
       "built_at": "2026-11-15T07:13:21Z",
+      "derived_from": "dollar-mountain-v1",
       "ski_file": {
-        "path": "data/dollar-mountain-v1-ski.pmtiles",
+        "path": "data/dollar-mountain-v2-ski.pmtiles",
         "bytes": 115251,
         "sha256": "d24a7a49a95ab5d17ae82fa2d6e244532f4ec6b1b422f86dc61ec22833ab67e5"
       },
-      "coverage": "data/dollar-mountain-v1-coverage.json"
+      "coverage": "data/dollar-mountain-v2-coverage.json"
     },
     {
       "slug": "eldora",
       "name": "Eldora",
-      "version": 1,
-      "key": "eldora-v1",
+      "version": 2,
+      "key": "eldora-v2",
       "box": [
         -105.64,
         39.91,
@@ -2298,18 +2336,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-10T07:56:35Z",
+      "derived_from": "eldora-v1",
       "ski_file": {
-        "path": "data/eldora-v1-ski.pmtiles",
+        "path": "data/eldora-v2-ski.pmtiles",
         "bytes": 105971,
         "sha256": "4832b43b40a86d040b6d07412888e9b52e59147422aa897af60b1c6ef07b1289"
       },
-      "coverage": "data/eldora-v1-coverage.json"
+      "coverage": "data/eldora-v2-coverage.json"
     },
     {
       "slug": "fernie",
       "name": "Fernie",
-      "version": 1,
-      "key": "fernie-v1",
+      "version": 2,
+      "key": "fernie-v2",
       "box": [
         -115.16,
         49.41,
@@ -2337,18 +2376,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T05:12:00Z",
+      "derived_from": "fernie-v1",
       "ski_file": {
-        "path": "data/fernie-v1-ski.pmtiles",
+        "path": "data/fernie-v2-ski.pmtiles",
         "bytes": 218514,
         "sha256": "00cc8661e9893c26a26b7c5a58945241bbc03d0d8bf9b06c352fddb22d8033da"
       },
-      "coverage": "data/fernie-v1-coverage.json"
+      "coverage": "data/fernie-v2-coverage.json"
     },
     {
       "slug": "giants-ridge",
       "name": "Giants Ridge",
-      "version": 1,
-      "key": "giants-ridge-v1",
+      "version": 2,
+      "key": "giants-ridge-v2",
       "box": [
         -92.35,
         47.55,
@@ -2369,18 +2409,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w093/USGS_13_n48w093.tif"
       ],
       "built_at": "2026-11-16T04:29:30Z",
+      "derived_from": "giants-ridge-v1",
       "ski_file": {
-        "path": "data/giants-ridge-v1-ski.pmtiles",
+        "path": "data/giants-ridge-v2-ski.pmtiles",
         "bytes": 49544,
         "sha256": "3fb5c724b0d0aa3e4c3f38715a43ca5d7fe1175a2d812f58e9e2a515b99ddcfb"
       },
-      "coverage": "data/giants-ridge-v1-coverage.json"
+      "coverage": "data/giants-ridge-v2-coverage.json"
     },
     {
       "slug": "granite-peak",
       "name": "Granite Peak",
-      "version": 1,
-      "key": "granite-peak-v1",
+      "version": 2,
+      "key": "granite-peak-v2",
       "box": [
         -89.73,
         44.9,
@@ -2421,18 +2462,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-14T10:38:49Z",
+      "derived_from": "granite-peak-v1",
       "ski_file": {
-        "path": "data/granite-peak-v1-ski.pmtiles",
+        "path": "data/granite-peak-v2-ski.pmtiles",
         "bytes": 45812,
         "sha256": "41e0733e45f6019d5611eec40cb85369e493c9b77ac76b0a0f2c67e7c1b2657e"
       },
-      "coverage": "data/granite-peak-v1-coverage.json"
+      "coverage": "data/granite-peak-v2-coverage.json"
     },
     {
       "slug": "grouse-mountain",
       "name": "Grouse Mountain",
-      "version": 1,
-      "key": "grouse-mountain-v1",
+      "version": 2,
+      "key": "grouse-mountain-v2",
       "box": [
         -123.13,
         49.35,
@@ -2453,18 +2495,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-16T06:03:37Z",
+      "derived_from": "grouse-mountain-v1",
       "ski_file": {
-        "path": "data/grouse-mountain-v1-ski.pmtiles",
+        "path": "data/grouse-mountain-v2-ski.pmtiles",
         "bytes": 129648,
         "sha256": "c7a1d4759ca51471fb603c2a91f90dc46c544e4d4e743d42b3e35f4a7c928d4b"
       },
-      "coverage": "data/grouse-mountain-v1-coverage.json"
+      "coverage": "data/grouse-mountain-v2-coverage.json"
     },
     {
       "slug": "heavenly",
       "name": "Heavenly",
-      "version": 1,
-      "key": "heavenly-v1",
+      "version": 2,
+      "key": "heavenly-v2",
       "box": [
         -119.97,
         38.89,
@@ -2488,18 +2531,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w121/USGS_13_n40w121.tif"
       ],
       "built_at": "2026-10-31T22:23:12Z",
+      "derived_from": "heavenly-v1",
       "ski_file": {
-        "path": "data/heavenly-v1-ski.pmtiles",
+        "path": "data/heavenly-v2-ski.pmtiles",
         "bytes": 265008,
         "sha256": "17aea3dea47c73712cc8445a6a6daf5b030400500314e3f7e1ed4a02bab79794"
       },
-      "coverage": "data/heavenly-v1-coverage.json"
+      "coverage": "data/heavenly-v2-coverage.json"
     },
     {
       "slug": "hidden-valley-missouri",
       "name": "Hidden Valley",
-      "version": 1,
-      "key": "hidden-valley-missouri-v1",
+      "version": 2,
+      "key": "hidden-valley-missouri-v2",
       "box": [
         -90.69,
         38.51,
@@ -2520,18 +2564,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w091/USGS_13_n39w091.tif"
       ],
       "built_at": "2026-11-15T00:35:58Z",
+      "derived_from": "hidden-valley-missouri-v1",
       "ski_file": {
-        "path": "data/hidden-valley-missouri-v1-ski.pmtiles",
+        "path": "data/hidden-valley-missouri-v2-ski.pmtiles",
         "bytes": 60380,
         "sha256": "639acca224e7bd4594dce49a637c677672f4e6ec57768a1debdc6f06ee5a622c"
       },
-      "coverage": "data/hidden-valley-missouri-v1-coverage.json"
+      "coverage": "data/hidden-valley-missouri-v2-coverage.json"
     },
     {
       "slug": "hidden-valley-pennsylvania",
       "name": "Hidden Valley",
-      "version": 1,
-      "key": "hidden-valley-pennsylvania-v1",
+      "version": 2,
+      "key": "hidden-valley-pennsylvania-v2",
       "box": [
         -79.29,
         40.03,
@@ -2581,18 +2626,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-13T03:53:22Z",
+      "derived_from": "hidden-valley-pennsylvania-v1",
       "ski_file": {
-        "path": "data/hidden-valley-pennsylvania-v1-ski.pmtiles",
+        "path": "data/hidden-valley-pennsylvania-v2-ski.pmtiles",
         "bytes": 69361,
         "sha256": "2bf18626f2091cdb4e54f3520b50b71560914e718a4a8c04c1f1bc8a365663df"
       },
-      "coverage": "data/hidden-valley-pennsylvania-v1-coverage.json"
+      "coverage": "data/hidden-valley-pennsylvania-v2-coverage.json"
     },
     {
       "slug": "hunter-mountain",
       "name": "Hunter Mountain",
-      "version": 1,
-      "key": "hunter-mountain-v1",
+      "version": 2,
+      "key": "hunter-mountain-v2",
       "box": [
         -74.27,
         42.17,
@@ -2638,18 +2684,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-12T17:49:30Z",
+      "derived_from": "hunter-mountain-v1",
       "ski_file": {
-        "path": "data/hunter-mountain-v1-ski.pmtiles",
+        "path": "data/hunter-mountain-v2-ski.pmtiles",
         "bytes": 99770,
         "sha256": "5ae9652bb34dd203960488a113e5f1eb654472790f6ee5a42b0a735f8825b6c5"
       },
-      "coverage": "data/hunter-mountain-v1-coverage.json"
+      "coverage": "data/hunter-mountain-v2-coverage.json"
     },
     {
       "slug": "jack-frost",
       "name": "Jack Frost",
-      "version": 1,
-      "key": "jack-frost-v1",
+      "version": 2,
+      "key": "jack-frost-v2",
       "box": [
         -75.69,
         41.08,
@@ -2693,18 +2740,19 @@
         "filled_window_pct": 20.847
       },
       "built_at": "2026-11-13T03:49:56Z",
+      "derived_from": "jack-frost-v1",
       "ski_file": {
-        "path": "data/jack-frost-v1-ski.pmtiles",
+        "path": "data/jack-frost-v2-ski.pmtiles",
         "bytes": 53322,
         "sha256": "f701f7ccbdc9b7b5fea3dcaedade2c3b1603ec832ffb8f3186ed348b28875ba1"
       },
-      "coverage": "data/jack-frost-v1-coverage.json"
+      "coverage": "data/jack-frost-v2-coverage.json"
     },
     {
       "slug": "jackson-creek-summit",
       "name": "Jackson Creek Summit",
-      "version": 1,
-      "key": "jackson-creek-summit-v1",
+      "version": 2,
+      "key": "jackson-creek-summit-v2",
       "box": [
         -90.02,
         46.47,
@@ -2733,18 +2781,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n47w091/USGS_13_n47w091.tif"
       ],
       "built_at": "2026-11-15T07:15:27Z",
+      "derived_from": "jackson-creek-summit-v1",
       "ski_file": {
-        "path": "data/jackson-creek-summit-v1-ski.pmtiles",
+        "path": "data/jackson-creek-summit-v2-ski.pmtiles",
         "bytes": 54271,
         "sha256": "0a3fbfb94e0665c14199baa0405cc23d66143ec0579c222d9546708837585f60"
       },
-      "coverage": "data/jackson-creek-summit-v1-coverage.json"
+      "coverage": "data/jackson-creek-summit-v2-coverage.json"
     },
     {
       "slug": "jackson-hole",
       "name": "Jackson Hole",
-      "version": 1,
-      "key": "jackson-hole-v1",
+      "version": 2,
+      "key": "jackson-hole-v2",
       "box": [
         -110.91,
         43.56,
@@ -2769,18 +2818,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w111/USGS_13_n44w111.tif"
       ],
       "built_at": "2026-11-10T08:08:26Z",
+      "derived_from": "jackson-hole-v1",
       "ski_file": {
-        "path": "data/jackson-hole-v1-ski.pmtiles",
+        "path": "data/jackson-hole-v2-ski.pmtiles",
         "bytes": 246586,
         "sha256": "22dbdf11efd1fbeef12650fae024e25281c003b617dc27b9d791813e8cdfb325"
       },
-      "coverage": "data/jackson-hole-v1-coverage.json"
+      "coverage": "data/jackson-hole-v2-coverage.json"
     },
     {
       "slug": "jiminy-peak",
       "name": "Jiminy Peak",
-      "version": 1,
-      "key": "jiminy-peak-v1",
+      "version": 2,
+      "key": "jiminy-peak-v2",
       "box": [
         -73.33,
         42.52,
@@ -2824,18 +2874,19 @@
         "filled_window_pct": 12.062
       },
       "built_at": "2026-11-16T06:09:36Z",
+      "derived_from": "jiminy-peak-v1",
       "ski_file": {
-        "path": "data/jiminy-peak-v1-ski.pmtiles",
+        "path": "data/jiminy-peak-v2-ski.pmtiles",
         "bytes": 85115,
         "sha256": "dda0d7f89614ae0aa7343c86ee3f4afb268c33779fb9379ceb53b6805abb1c67"
       },
-      "coverage": "data/jiminy-peak-v1-coverage.json"
+      "coverage": "data/jiminy-peak-v2-coverage.json"
     },
     {
       "slug": "june-mountain",
       "name": "June Mountain",
-      "version": 1,
-      "key": "june-mountain-v1",
+      "version": 2,
+      "key": "june-mountain-v2",
       "box": [
         -119.12,
         37.72,
@@ -2878,18 +2929,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-04T09:00:43Z",
+      "derived_from": "june-mountain-v1",
       "ski_file": {
-        "path": "data/june-mountain-v1-ski.pmtiles",
+        "path": "data/june-mountain-v2-ski.pmtiles",
         "bytes": 122216,
         "sha256": "b2e4e99274fff78d40896729baf54fd9542396c069a401aa25f337354f6035b5"
       },
-      "coverage": "data/june-mountain-v1-coverage.json"
+      "coverage": "data/june-mountain-v2-coverage.json"
     },
     {
       "slug": "keystone",
       "name": "Keystone",
-      "version": 1,
-      "key": "keystone-v1",
+      "version": 2,
+      "key": "keystone-v2",
       "box": [
         -105.99,
         39.51,
@@ -2943,18 +2995,19 @@
         "filled_window_pct": 5.099
       },
       "built_at": "2026-11-04T17:25:31Z",
+      "derived_from": "keystone-v1",
       "ski_file": {
-        "path": "data/keystone-v1-ski.pmtiles",
+        "path": "data/keystone-v2-ski.pmtiles",
         "bytes": 260604,
         "sha256": "47b7b72789bf3ab0a48b8f13684474b9c195835c9532b0cb4037226f0fa93950"
       },
-      "coverage": "data/keystone-v1-coverage.json"
+      "coverage": "data/keystone-v2-coverage.json"
     },
     {
       "slug": "kicking-horse",
       "name": "Kicking Horse",
-      "version": 1,
-      "key": "kicking-horse-v1",
+      "version": 2,
+      "key": "kicking-horse-v2",
       "box": [
         -117.14,
         51.25,
@@ -2975,18 +3028,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T03:33:41Z",
+      "derived_from": "kicking-horse-v1",
       "ski_file": {
-        "path": "data/kicking-horse-v1-ski.pmtiles",
+        "path": "data/kicking-horse-v2-ski.pmtiles",
         "bytes": 185123,
         "sha256": "498f721a8114fb023bb2bca6dcfb9a83e5f8e237030db5593d23c901b3230af4"
       },
-      "coverage": "data/kicking-horse-v1-coverage.json"
+      "coverage": "data/kicking-horse-v2-coverage.json"
     },
     {
       "slug": "killington",
       "name": "Killington",
-      "version": 1,
-      "key": "killington-v1",
+      "version": 2,
+      "key": "killington-v2",
       "box": [
         -72.85,
         43.57,
@@ -3035,18 +3089,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-15T07:19:14Z",
+      "derived_from": "killington-v1",
       "ski_file": {
-        "path": "data/killington-v1-ski.pmtiles",
+        "path": "data/killington-v2-ski.pmtiles",
         "bytes": 188331,
         "sha256": "348d7bbc509cf7d526990870f582b4f9bd76569c8522a500b9e4ebeba67297aa"
       },
-      "coverage": "data/killington-v1-coverage.json"
+      "coverage": "data/killington-v2-coverage.json"
     },
     {
       "slug": "kimberley",
       "name": "Kimberley",
-      "version": 1,
-      "key": "kimberley-v1",
+      "version": 2,
+      "key": "kimberley-v2",
       "box": [
         -116.09,
         49.65,
@@ -3067,18 +3122,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T05:18:51Z",
+      "derived_from": "kimberley-v1",
       "ski_file": {
-        "path": "data/kimberley-v1-ski.pmtiles",
+        "path": "data/kimberley-v2-ski.pmtiles",
         "bytes": 133075,
         "sha256": "13b09a441d6ca545cfc01aa268b3573e58f0d9eddf5d72f0b44a0f6636fee3eb"
       },
-      "coverage": "data/kimberley-v1-coverage.json"
+      "coverage": "data/kimberley-v2-coverage.json"
     },
     {
       "slug": "kirkwood",
       "name": "Kirkwood",
-      "version": 1,
-      "key": "kirkwood-v1",
+      "version": 2,
+      "key": "kirkwood-v2",
       "box": [
         -120.12,
         38.63,
@@ -3130,18 +3186,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-10-31T22:20:22Z",
+      "derived_from": "kirkwood-v1",
       "ski_file": {
-        "path": "data/kirkwood-v1-ski.pmtiles",
+        "path": "data/kirkwood-v2-ski.pmtiles",
         "bytes": 186881,
         "sha256": "2aced16f47fb987f4ebc05958a82db53f98041c89443e68c9ee72576e29c09ef"
       },
-      "coverage": "data/kirkwood-v1-coverage.json"
+      "coverage": "data/kirkwood-v2-coverage.json"
     },
     {
       "slug": "lake-louise",
       "name": "Lake Louise",
-      "version": 1,
-      "key": "lake-louise-v1",
+      "version": 2,
+      "key": "lake-louise-v2",
       "box": [
         -116.2,
         51.41,
@@ -3162,18 +3219,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T03:31:06Z",
+      "derived_from": "lake-louise-v1",
       "ski_file": {
-        "path": "data/lake-louise-v1-ski.pmtiles",
+        "path": "data/lake-louise-v2-ski.pmtiles",
         "bytes": 212408,
         "sha256": "c88b7fe9d6a635efc1d387cd21b8fc2db96012c70049fca5ff631cbb5727f5ca"
       },
-      "coverage": "data/lake-louise-v1-coverage.json"
+      "coverage": "data/lake-louise-v2-coverage.json"
     },
     {
       "slug": "laurel-mountain",
       "name": "Laurel Mountain",
-      "version": 1,
-      "key": "laurel-mountain-v1",
+      "version": 2,
+      "key": "laurel-mountain-v2",
       "box": [
         -79.21,
         40.14,
@@ -3216,18 +3274,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-13T04:01:51Z",
+      "derived_from": "laurel-mountain-v1",
       "ski_file": {
-        "path": "data/laurel-mountain-v1-ski.pmtiles",
+        "path": "data/laurel-mountain-v2-ski.pmtiles",
         "bytes": 54358,
         "sha256": "e5b2a74992baa69d8c1136308a87e326557d1566de341a156c54eb0a36a84fe5"
       },
-      "coverage": "data/laurel-mountain-v1-coverage.json"
+      "coverage": "data/laurel-mountain-v2-coverage.json"
     },
     {
       "slug": "le-massif",
       "name": "Le Massif de Charlevoix",
-      "version": 1,
-      "key": "le-massif-v1",
+      "version": 2,
+      "key": "le-massif-v2",
       "box": [
         -70.65,
         47.25,
@@ -3255,18 +3314,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-12T17:17:27Z",
+      "derived_from": "le-massif-v1",
       "ski_file": {
-        "path": "data/le-massif-v1-ski.pmtiles",
+        "path": "data/le-massif-v2-ski.pmtiles",
         "bytes": 91076,
         "sha256": "270088d76b4742e31d24f6c5c3f024304e46c21a38b553ac264af62cba75d3ec"
       },
-      "coverage": "data/le-massif-v1-coverage.json"
+      "coverage": "data/le-massif-v2-coverage.json"
     },
     {
       "slug": "liberty-mountain",
       "name": "Liberty Mountain",
-      "version": 1,
-      "key": "liberty-mountain-v1",
+      "version": 2,
+      "key": "liberty-mountain-v2",
       "box": [
         -77.41,
         39.73,
@@ -3312,18 +3372,19 @@
         "filled_window_pct": 21.405
       },
       "built_at": "2026-11-13T03:37:01Z",
+      "derived_from": "liberty-mountain-v1",
       "ski_file": {
-        "path": "data/liberty-mountain-v1-ski.pmtiles",
+        "path": "data/liberty-mountain-v2-ski.pmtiles",
         "bytes": 59368,
         "sha256": "45421c1fa611247ac1299f8c599677207219b50cd4e7fcce08451384f7b40b2c"
       },
-      "coverage": "data/liberty-mountain-v1-coverage.json"
+      "coverage": "data/liberty-mountain-v2-coverage.json"
     },
     {
       "slug": "little-switzerland",
       "name": "Little Switzerland",
-      "version": 1,
-      "key": "little-switzerland-v1",
+      "version": 2,
+      "key": "little-switzerland-v2",
       "box": [
         -88.31,
         43.31,
@@ -3371,18 +3432,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-16T03:38:35Z",
+      "derived_from": "little-switzerland-v1",
       "ski_file": {
-        "path": "data/little-switzerland-v1-ski.pmtiles",
+        "path": "data/little-switzerland-v2-ski.pmtiles",
         "bytes": 37971,
         "sha256": "87d72425aa4ca6027bfcc00a02802c7443d7e01293250d99bbf66a4456353c78"
       },
-      "coverage": "data/little-switzerland-v1-coverage.json"
+      "coverage": "data/little-switzerland-v2-coverage.json"
     },
     {
       "slug": "loon-mountain",
       "name": "Loon Mountain",
-      "version": 1,
-      "key": "loon-mountain-v1",
+      "version": 2,
+      "key": "loon-mountain-v2",
       "box": [
         -71.69,
         44.01,
@@ -3432,18 +3494,19 @@
         "filled_window_pct": 33.303
       },
       "built_at": "2026-11-12T11:13:09Z",
+      "derived_from": "loon-mountain-v1",
       "ski_file": {
-        "path": "data/loon-mountain-v1-ski.pmtiles",
+        "path": "data/loon-mountain-v2-ski.pmtiles",
         "bytes": 129312,
         "sha256": "22f000385c24507c00bae490de29d8374d9fb631708974261ad17dd5c527998e"
       },
-      "coverage": "data/loon-mountain-v1-coverage.json"
+      "coverage": "data/loon-mountain-v2-coverage.json"
     },
     {
       "slug": "lutsen-mountains",
       "name": "Lutsen Mountains",
-      "version": 1,
-      "key": "lutsen-mountains-v1",
+      "version": 2,
+      "key": "lutsen-mountains-v2",
       "box": [
         -90.77,
         47.62,
@@ -3485,18 +3548,19 @@
         "filled_window_pct": 19.2
       },
       "built_at": "2026-11-14T10:25:11Z",
+      "derived_from": "lutsen-mountains-v1",
       "ski_file": {
-        "path": "data/lutsen-mountains-v1-ski.pmtiles",
+        "path": "data/lutsen-mountains-v2-ski.pmtiles",
         "bytes": 71057,
         "sha256": "d6334fef4af286530c904511accadf6648656915b65357d9f5f324f0574c5731"
       },
-      "coverage": "data/lutsen-mountains-v1-coverage.json"
+      "coverage": "data/lutsen-mountains-v2-coverage.json"
     },
     {
       "slug": "mad-river-mountain",
       "name": "Mad River Mountain",
-      "version": 1,
-      "key": "mad-river-mountain-v1",
+      "version": 2,
+      "key": "mad-river-mountain-v2",
       "box": [
         -83.71,
         40.29,
@@ -3539,18 +3603,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-15T00:47:37Z",
+      "derived_from": "mad-river-mountain-v1",
       "ski_file": {
-        "path": "data/mad-river-mountain-v1-ski.pmtiles",
+        "path": "data/mad-river-mountain-v2-ski.pmtiles",
         "bytes": 46913,
         "sha256": "fa77529e7435b7a43d920917ff343d60bbe76e01bc70ee99679bb436b917954b"
       },
-      "coverage": "data/mad-river-mountain-v1-coverage.json"
+      "coverage": "data/mad-river-mountain-v2-coverage.json"
     },
     {
       "slug": "mammoth-mountain",
       "name": "Mammoth Mountain",
-      "version": 3,
-      "key": "mammoth-mountain-v3",
+      "version": 4,
+      "key": "mammoth-mountain-v4",
       "box": [
         -119.1,
         37.59,
@@ -3600,18 +3665,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-10-23T06:23:06Z",
+      "derived_from": "mammoth-mountain-v3",
       "ski_file": {
-        "path": "data/mammoth-mountain-v3-ski.pmtiles",
+        "path": "data/mammoth-mountain-v4-ski.pmtiles",
         "bytes": 220545,
         "sha256": "c2ef3f52f95a4917baa935d461b28af9526c0af1bcee0c74ee314a90085006c8"
       },
-      "coverage": "data/mammoth-mountain-v3-coverage.json"
+      "coverage": "data/mammoth-mountain-v4-coverage.json"
     },
     {
       "slug": "mont-sainte-anne",
       "name": "Mont-Sainte-Anne",
-      "version": 2,
-      "key": "mont-sainte-anne-v2",
+      "version": 3,
+      "key": "mont-sainte-anne-v3",
       "box": [
         -70.98,
         47.05,
@@ -3649,18 +3715,19 @@
         "filled_window_pct": 2.462
       },
       "built_at": "2026-11-16T07:31:01Z",
+      "derived_from": "mont-sainte-anne-v2",
       "ski_file": {
-        "path": "data/mont-sainte-anne-v2-ski.pmtiles",
+        "path": "data/mont-sainte-anne-v3-ski.pmtiles",
         "bytes": 107051,
         "sha256": "dc662698a181b5c41c1a25954e703e6a04647d3cb2847d849d9905e2db78394b"
       },
-      "coverage": "data/mont-sainte-anne-v2-coverage.json"
+      "coverage": "data/mont-sainte-anne-v3-coverage.json"
     },
     {
       "slug": "mount-snow",
       "name": "Mount Snow",
-      "version": 1,
-      "key": "mount-snow-v1",
+      "version": 2,
+      "key": "mount-snow-v2",
       "box": [
         -72.96,
         42.93,
@@ -3708,18 +3775,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-12T09:40:49Z",
+      "derived_from": "mount-snow-v1",
       "ski_file": {
-        "path": "data/mount-snow-v1-ski.pmtiles",
+        "path": "data/mount-snow-v2-ski.pmtiles",
         "bytes": 106439,
         "sha256": "94d0370d5bad9f75204a36a04cbd3f344c021b15e35357e8d0a06508600e9256"
       },
-      "coverage": "data/mount-snow-v1-coverage.json"
+      "coverage": "data/mount-snow-v2-coverage.json"
     },
     {
       "slug": "mount-sunapee",
       "name": "Mount Sunapee",
-      "version": 1,
-      "key": "mount-sunapee-v1",
+      "version": 2,
+      "key": "mount-sunapee-v2",
       "box": [
         -72.12,
         43.29,
@@ -3766,18 +3834,19 @@
         "filled_window_pct": 0.039
       },
       "built_at": "2026-11-12T11:15:37Z",
+      "derived_from": "mount-sunapee-v1",
       "ski_file": {
-        "path": "data/mount-sunapee-v1-ski.pmtiles",
+        "path": "data/mount-sunapee-v2-ski.pmtiles",
         "bytes": 95165,
         "sha256": "d6ae2f7aaa03f688540587734c457576a53f0c17dbb88d9364065411d84359b3"
       },
-      "coverage": "data/mount-sunapee-v1-coverage.json"
+      "coverage": "data/mount-sunapee-v2-coverage.json"
     },
     {
       "slug": "mountain-high",
       "name": "Mountain High",
-      "version": 1,
-      "key": "mountain-high-v1",
+      "version": 2,
+      "key": "mountain-high-v2",
       "box": [
         -117.73,
         34.33,
@@ -3823,18 +3892,19 @@
         "filled_window_pct": 26.159
       },
       "built_at": "2026-10-30T08:47:15Z",
+      "derived_from": "mountain-high-v1",
       "ski_file": {
-        "path": "data/mountain-high-v1-ski.pmtiles",
+        "path": "data/mountain-high-v2-ski.pmtiles",
         "bytes": 197923,
         "sha256": "c3bc80468f3cbba6f083566ee2b5949a41b46a961118edbfef21827af7caf313"
       },
-      "coverage": "data/mountain-high-v1-coverage.json"
+      "coverage": "data/mountain-high-v2-coverage.json"
     },
     {
       "slug": "mt-bachelor",
       "name": "Mt. Bachelor",
-      "version": 1,
-      "key": "mt-bachelor-v1",
+      "version": 2,
+      "key": "mt-bachelor-v2",
       "box": [
         -121.75,
         43.94,
@@ -3856,18 +3926,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n45w122/USGS_13_n45w122.tif"
       ],
       "built_at": "2026-11-10T17:12:31Z",
+      "derived_from": "mt-bachelor-v1",
       "ski_file": {
-        "path": "data/mt-bachelor-v1-ski.pmtiles",
+        "path": "data/mt-bachelor-v2-ski.pmtiles",
         "bytes": 210529,
         "sha256": "7a73f185d88d496421657baeab7a34e18060b640d8d9d09be9c1e7844fcc7e29"
       },
-      "coverage": "data/mt-bachelor-v1-coverage.json"
+      "coverage": "data/mt-bachelor-v2-coverage.json"
     },
     {
       "slug": "mt-brighton",
       "name": "Mt Brighton",
-      "version": 1,
-      "key": "mt-brighton-v1",
+      "version": 2,
+      "key": "mt-brighton-v2",
       "box": [
         -83.84,
         42.51,
@@ -3913,18 +3984,19 @@
         "filled_window_pct": 0.372
       },
       "built_at": "2026-11-14T10:05:19Z",
+      "derived_from": "mt-brighton-v1",
       "ski_file": {
-        "path": "data/mt-brighton-v1-ski.pmtiles",
+        "path": "data/mt-brighton-v2-ski.pmtiles",
         "bytes": 38254,
         "sha256": "cdd6a874530341f1e3c1657ad9bd518046ebe69f16426fa3b6b1df1c7ea95599"
       },
-      "coverage": "data/mt-brighton-v1-coverage.json"
+      "coverage": "data/mt-brighton-v2-coverage.json"
     },
     {
       "slug": "mt-norquay",
       "name": "Mt. Norquay",
-      "version": 1,
-      "key": "mt-norquay-v1",
+      "version": 2,
+      "key": "mt-norquay-v2",
       "box": [
         -115.65,
         51.16,
@@ -3945,18 +4017,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T03:45:59Z",
+      "derived_from": "mt-norquay-v1",
       "ski_file": {
-        "path": "data/mt-norquay-v1-ski.pmtiles",
+        "path": "data/mt-norquay-v2-ski.pmtiles",
         "bytes": 160062,
         "sha256": "77eec762ba2a82d269a0f8ebd4ae72187361b0c0e9900e117e6a0975a714ac77"
       },
-      "coverage": "data/mt-norquay-v1-coverage.json"
+      "coverage": "data/mt-norquay-v2-coverage.json"
     },
     {
       "slug": "nakiska",
       "name": "Nakiska",
-      "version": 1,
-      "key": "nakiska-v1",
+      "version": 2,
+      "key": "nakiska-v2",
       "box": [
         -115.23,
         50.92,
@@ -3977,18 +4050,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T03:40:49Z",
+      "derived_from": "nakiska-v1",
       "ski_file": {
-        "path": "data/nakiska-v1-ski.pmtiles",
+        "path": "data/nakiska-v2-ski.pmtiles",
         "bytes": 152035,
         "sha256": "67b94b207408a2244324f96d3f1df412a342283fda2c10c985617997dca48cf2"
       },
-      "coverage": "data/nakiska-v1-coverage.json"
+      "coverage": "data/nakiska-v2-coverage.json"
     },
     {
       "slug": "nordic-mountain",
       "name": "Nordic Mountain",
-      "version": 1,
-      "key": "nordic-mountain-v1",
+      "version": 2,
+      "key": "nordic-mountain-v2",
       "box": [
         -89.22,
         44.09,
@@ -4034,18 +4108,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-16T03:05:49Z",
+      "derived_from": "nordic-mountain-v1",
       "ski_file": {
-        "path": "data/nordic-mountain-v1-ski.pmtiles",
+        "path": "data/nordic-mountain-v2-ski.pmtiles",
         "bytes": 32806,
         "sha256": "9208565f82ee4b5046bcbc0eade91fb6052d9bee4a04702583a460a85bc339d4"
       },
-      "coverage": "data/nordic-mountain-v1-coverage.json"
+      "coverage": "data/nordic-mountain-v2-coverage.json"
     },
     {
       "slug": "northstar",
       "name": "Northstar California",
-      "version": 1,
-      "key": "northstar-v1",
+      "version": 2,
+      "key": "northstar-v2",
       "box": [
         -120.2,
         39.21,
@@ -4101,18 +4176,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-10-31T22:14:06Z",
+      "derived_from": "northstar-v1",
       "ski_file": {
-        "path": "data/northstar-v1-ski.pmtiles",
+        "path": "data/northstar-v2-ski.pmtiles",
         "bytes": 148604,
         "sha256": "ad70d089bc11a2796dd9570f962aec204e083c1d0aacad0ad6737ba30475ecb7"
       },
-      "coverage": "data/northstar-v1-coverage.json"
+      "coverage": "data/northstar-v2-coverage.json"
     },
     {
       "slug": "okemo",
       "name": "Okemo",
-      "version": 1,
-      "key": "okemo-v1",
+      "version": 2,
+      "key": "okemo-v2",
       "box": [
         -72.79,
         43.36,
@@ -4158,18 +4234,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-12T09:48:13Z",
+      "derived_from": "okemo-v1",
       "ski_file": {
-        "path": "data/okemo-v1-ski.pmtiles",
+        "path": "data/okemo-v2-ski.pmtiles",
         "bytes": 128794,
         "sha256": "26843cc03cfb6d608dbde3f6352d987b5f34ccceb1cd0a7846b7a2bc1dde9973"
       },
-      "coverage": "data/okemo-v1-coverage.json"
+      "coverage": "data/okemo-v2-coverage.json"
     },
     {
       "slug": "palisades-tahoe",
       "name": "Palisades Tahoe",
-      "version": 2,
-      "key": "palisades-tahoe-v2",
+      "version": 3,
+      "key": "palisades-tahoe-v3",
       "box": [
         -120.32,
         39.09,
@@ -4242,18 +4319,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-10-23T07:41:09Z",
+      "derived_from": "palisades-tahoe-v2",
       "ski_file": {
-        "path": "data/palisades-tahoe-v2-ski.pmtiles",
+        "path": "data/palisades-tahoe-v3-ski.pmtiles",
         "bytes": 387907,
         "sha256": "1314525c3bc992dae110188e6a89a83cf2e6e5ee0a620df933b9d74f2b14d2ad"
       },
-      "coverage": "data/palisades-tahoe-v2-coverage.json"
+      "coverage": "data/palisades-tahoe-v3-coverage.json"
     },
     {
       "slug": "panorama",
       "name": "Panorama",
-      "version": 1,
-      "key": "panorama-v1",
+      "version": 2,
+      "key": "panorama-v2",
       "box": [
         -116.28,
         50.4,
@@ -4274,18 +4352,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T05:28:59Z",
+      "derived_from": "panorama-v1",
       "ski_file": {
-        "path": "data/panorama-v1-ski.pmtiles",
+        "path": "data/panorama-v2-ski.pmtiles",
         "bytes": 254819,
         "sha256": "ce6c652f2042b84e4e378ad9b75601df2620585fca5a0cbf9bfe4cf8075efff9"
       },
-      "coverage": "data/panorama-v1-coverage.json"
+      "coverage": "data/panorama-v2-coverage.json"
     },
     {
       "slug": "paoli-peaks",
       "name": "Paoli Peaks",
-      "version": 1,
-      "key": "paoli-peaks-v1",
+      "version": 2,
+      "key": "paoli-peaks-v2",
       "box": [
         -86.54,
         38.53,
@@ -4326,18 +4405,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-15T00:53:06Z",
+      "derived_from": "paoli-peaks-v1",
       "ski_file": {
-        "path": "data/paoli-peaks-v1-ski.pmtiles",
+        "path": "data/paoli-peaks-v2-ski.pmtiles",
         "bytes": 53481,
         "sha256": "b21112b3f55a84d18c358b2779b7d422cce486b9c0b5e4c6dc998e6a58244516"
       },
-      "coverage": "data/paoli-peaks-v1-coverage.json"
+      "coverage": "data/paoli-peaks-v2-coverage.json"
     },
     {
       "slug": "park-city-mountain",
       "name": "Park City Mountain",
-      "version": 2,
-      "key": "park-city-mountain-v2",
+      "version": 3,
+      "key": "park-city-mountain-v3",
       "box": [
         -111.63,
         40.59,
@@ -4390,18 +4470,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n41w112/USGS_13_n41w112.tif"
       ],
       "built_at": "2026-10-23T06:26:00Z",
+      "derived_from": "park-city-mountain-v2",
       "ski_file": {
-        "path": "data/park-city-mountain-v2-ski.pmtiles",
+        "path": "data/park-city-mountain-v3-ski.pmtiles",
         "bytes": 442987,
         "sha256": "3b945de31b84783c3abceda7bc6fbaca725c9806b9153f6e8365148e47d358cb"
       },
-      "coverage": "data/park-city-mountain-v2-coverage.json"
+      "coverage": "data/park-city-mountain-v3-coverage.json"
     },
     {
       "slug": "pico",
       "name": "Pico Mountain",
-      "version": 1,
-      "key": "pico-v1",
+      "version": 2,
+      "key": "pico-v2",
       "box": [
         -72.88,
         43.62,
@@ -4454,18 +4535,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-15T07:23:57Z",
+      "derived_from": "pico-v1",
       "ski_file": {
-        "path": "data/pico-v1-ski.pmtiles",
+        "path": "data/pico-v2-ski.pmtiles",
         "bytes": 93680,
         "sha256": "4d0656244bef70a887bbaffd595e1e347c22b750688249f63fd51992e7a230fb"
       },
-      "coverage": "data/pico-v1-coverage.json"
+      "coverage": "data/pico-v2-coverage.json"
     },
     {
       "slug": "red-mountain",
       "name": "RED Mountain",
-      "version": 1,
-      "key": "red-mountain-v1",
+      "version": 2,
+      "key": "red-mountain-v2",
       "box": [
         -117.9,
         49.06,
@@ -4486,18 +4568,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T05:14:27Z",
+      "derived_from": "red-mountain-v1",
       "ski_file": {
-        "path": "data/red-mountain-v1-ski.pmtiles",
+        "path": "data/red-mountain-v2-ski.pmtiles",
         "bytes": 197292,
         "sha256": "5e2cf896d40defffa926a4d580acc518822609477c51a478486cc06830f149fa"
       },
-      "coverage": "data/red-mountain-v1-coverage.json"
+      "coverage": "data/red-mountain-v2-coverage.json"
     },
     {
       "slug": "revelstoke",
       "name": "Revelstoke",
-      "version": 2,
-      "key": "revelstoke-v2",
+      "version": 3,
+      "key": "revelstoke-v3",
       "box": [
         -118.2,
         50.93,
@@ -4536,18 +4619,19 @@
         "filled_window_pct": 30.252
       },
       "built_at": "2026-11-16T07:35:13Z",
+      "derived_from": "revelstoke-v2",
       "ski_file": {
-        "path": "data/revelstoke-v2-ski.pmtiles",
+        "path": "data/revelstoke-v3-ski.pmtiles",
         "bytes": 246334,
         "sha256": "3cd1ac424da25508a75bf4ecdab3f1e2c02fdcf84863c255cb30b36824b9f548"
       },
-      "coverage": "data/revelstoke-v2-coverage.json"
+      "coverage": "data/revelstoke-v3-coverage.json"
     },
     {
       "slug": "roundtop",
       "name": "Roundtop",
-      "version": 1,
-      "key": "roundtop-v1",
+      "version": 2,
+      "key": "roundtop-v2",
       "box": [
         -76.97,
         40.08,
@@ -4590,18 +4674,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-13T03:47:54Z",
+      "derived_from": "roundtop-v1",
       "ski_file": {
-        "path": "data/roundtop-v1-ski.pmtiles",
+        "path": "data/roundtop-v2-ski.pmtiles",
         "bytes": 54658,
         "sha256": "242c941cc9aada0c842b85fc6e82dbce8c9b26228edf0aa807179924e11ee4c4"
       },
-      "coverage": "data/roundtop-v1-coverage.json"
+      "coverage": "data/roundtop-v2-coverage.json"
     },
     {
       "slug": "schweitzer",
       "name": "Schweitzer",
-      "version": 1,
-      "key": "schweitzer-v1",
+      "version": 2,
+      "key": "schweitzer-v2",
       "box": [
         -116.68,
         48.34,
@@ -4644,18 +4729,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-10T16:59:30Z",
+      "derived_from": "schweitzer-v1",
       "ski_file": {
-        "path": "data/schweitzer-v1-ski.pmtiles",
+        "path": "data/schweitzer-v2-ski.pmtiles",
         "bytes": 199473,
         "sha256": "29f11135dd11750b38599aed8c4c69c439f650a969ced73c303759221dc77494"
       },
-      "coverage": "data/schweitzer-v1-coverage.json"
+      "coverage": "data/schweitzer-v2-coverage.json"
     },
     {
       "slug": "seven-springs",
       "name": "Seven Springs",
-      "version": 1,
-      "key": "seven-springs-v1",
+      "version": 2,
+      "key": "seven-springs-v2",
       "box": [
         -79.35,
         39.98,
@@ -4708,18 +4794,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-13T03:35:08Z",
+      "derived_from": "seven-springs-v1",
       "ski_file": {
-        "path": "data/seven-springs-v1-ski.pmtiles",
+        "path": "data/seven-springs-v2-ski.pmtiles",
         "bytes": 105820,
         "sha256": "e05945f9d04eabd438d3bd419b6650a5d7c8654cc9dad96c2c429dc2aa848d80"
       },
-      "coverage": "data/seven-springs-v1-coverage.json"
+      "coverage": "data/seven-springs-v2-coverage.json"
     },
     {
       "slug": "sierra-at-tahoe",
       "name": "Sierra-at-Tahoe",
-      "version": 1,
-      "key": "sierra-at-tahoe-v1",
+      "version": 2,
+      "key": "sierra-at-tahoe-v2",
       "box": [
         -120.13,
         38.76,
@@ -4771,18 +4858,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-10-31T22:15:02Z",
+      "derived_from": "sierra-at-tahoe-v1",
       "ski_file": {
-        "path": "data/sierra-at-tahoe-v1-ski.pmtiles",
+        "path": "data/sierra-at-tahoe-v2-ski.pmtiles",
         "bytes": 144879,
         "sha256": "e78fc28eae1d83c85a98fdd9fe60cc5ab042299115d2fba0d53db1a734bf74b5"
       },
-      "coverage": "data/sierra-at-tahoe-v1-coverage.json"
+      "coverage": "data/sierra-at-tahoe-v2-coverage.json"
     },
     {
       "slug": "silver-creek",
       "name": "Silver Creek",
-      "version": 1,
-      "key": "silver-creek-v1",
+      "version": 2,
+      "key": "silver-creek-v2",
       "box": [
         -80.03,
         38.42,
@@ -4811,18 +4899,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w081/USGS_13_n39w081.tif"
       ],
       "built_at": "2026-11-15T07:15:58Z",
+      "derived_from": "silver-creek-v1",
       "ski_file": {
-        "path": "data/silver-creek-v1-ski.pmtiles",
+        "path": "data/silver-creek-v2-ski.pmtiles",
         "bytes": 76456,
         "sha256": "6f07489f6395177dd656e0cc933970cac487652b9ce4b8f75e2fb2a73ac28c25"
       },
-      "coverage": "data/silver-creek-v1-coverage.json"
+      "coverage": "data/silver-creek-v2-coverage.json"
     },
     {
       "slug": "silverstar",
       "name": "SilverStar",
-      "version": 1,
-      "key": "silverstar-v1",
+      "version": 2,
+      "key": "silverstar-v2",
       "box": [
         -119.11,
         50.31,
@@ -4850,18 +4939,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T05:28:20Z",
+      "derived_from": "silverstar-v1",
       "ski_file": {
-        "path": "data/silverstar-v1-ski.pmtiles",
+        "path": "data/silverstar-v2-ski.pmtiles",
         "bytes": 211477,
         "sha256": "52fb8d77130bcf43dbc70c6e8b4aa8a2d5cc5ce1cbc6cb2b5e39cea1fa192b8d"
       },
-      "coverage": "data/silverstar-v1-coverage.json"
+      "coverage": "data/silverstar-v2-coverage.json"
     },
     {
       "slug": "ski-butternut",
       "name": "Ski Butternut",
-      "version": 1,
-      "key": "ski-butternut-v1",
+      "version": 2,
+      "key": "ski-butternut-v2",
       "box": [
         -73.36,
         42.15,
@@ -4902,18 +4992,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-16T06:11:20Z",
+      "derived_from": "ski-butternut-v1",
       "ski_file": {
-        "path": "data/ski-butternut-v1-ski.pmtiles",
+        "path": "data/ski-butternut-v2-ski.pmtiles",
         "bytes": 62817,
         "sha256": "67a3a5d65b112ff445f059aa8cf227c515ff93ecccd3b76e02626c14d78ad985"
       },
-      "coverage": "data/ski-butternut-v1-coverage.json"
+      "coverage": "data/ski-butternut-v2-coverage.json"
     },
     {
       "slug": "snow-creek",
       "name": "Snow Creek",
-      "version": 1,
-      "key": "snow-creek-v1",
+      "version": 2,
+      "key": "snow-creek-v2",
       "box": [
         -95,
         39.44,
@@ -4956,18 +5047,19 @@
         "filled_window_pct": 11.917
       },
       "built_at": "2026-11-15T00:57:44Z",
+      "derived_from": "snow-creek-v1",
       "ski_file": {
-        "path": "data/snow-creek-v1-ski.pmtiles",
+        "path": "data/snow-creek-v2-ski.pmtiles",
         "bytes": 39262,
         "sha256": "e67926c39b02789ef0260695d30fbc78c062d578b3ee05cc5f8cbdd4231aa353"
       },
-      "coverage": "data/snow-creek-v1-coverage.json"
+      "coverage": "data/snow-creek-v2-coverage.json"
     },
     {
       "slug": "snow-summit",
       "name": "Snow Summit",
-      "version": 1,
-      "key": "snow-summit-v1",
+      "version": 2,
+      "key": "snow-summit-v2",
       "box": [
         -116.93,
         34.2,
@@ -5023,18 +5115,19 @@
         "filled_window_pct": 1.755
       },
       "built_at": "2026-10-29T08:00:07Z",
+      "derived_from": "snow-summit-v1",
       "ski_file": {
-        "path": "data/snow-summit-v1-ski.pmtiles",
+        "path": "data/snow-summit-v2-ski.pmtiles",
         "bytes": 88758,
         "sha256": "e467ca780b28d23bb9e1eed30789b6bc54d9975166f8cef335548c4535f7faf4"
       },
-      "coverage": "data/snow-summit-v1-coverage.json"
+      "coverage": "data/snow-summit-v2-coverage.json"
     },
     {
       "slug": "snow-valley",
       "name": "Snow Valley",
-      "version": 2,
-      "key": "snow-valley-v2",
+      "version": 3,
+      "key": "snow-valley-v3",
       "box": [
         -117.07,
         34.18,
@@ -5056,18 +5149,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n35w118/USGS_13_n35w118.tif"
       ],
       "built_at": "2026-10-23T06:24:09Z",
+      "derived_from": "snow-valley-v2",
       "ski_file": {
-        "path": "data/snow-valley-v2-ski.pmtiles",
+        "path": "data/snow-valley-v3-ski.pmtiles",
         "bytes": 164349,
         "sha256": "ba03bd7803225c79a07817980fa5622a2b3cfd721347007f6685b5de1b03c4ea"
       },
-      "coverage": "data/snow-valley-v2-coverage.json"
+      "coverage": "data/snow-valley-v3-coverage.json"
     },
     {
       "slug": "snowbasin",
       "name": "Snowbasin",
-      "version": 1,
-      "key": "snowbasin-v1",
+      "version": 2,
+      "key": "snowbasin-v2",
       "box": [
         -111.92,
         41.16,
@@ -5088,18 +5182,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n42w112/USGS_13_n42w112.tif"
       ],
       "built_at": "2026-11-04T09:22:56Z",
+      "derived_from": "snowbasin-v1",
       "ski_file": {
-        "path": "data/snowbasin-v1-ski.pmtiles",
+        "path": "data/snowbasin-v2-ski.pmtiles",
         "bytes": 279131,
         "sha256": "29fd0239b333b9f8f5de6a404036fce5c6e006a9e5c4427b3b1ead5cc42d0950"
       },
-      "coverage": "data/snowbasin-v1-coverage.json"
+      "coverage": "data/snowbasin-v2-coverage.json"
     },
     {
       "slug": "snowbird",
       "name": "Snowbird",
-      "version": 1,
-      "key": "snowbird-v1",
+      "version": 2,
+      "key": "snowbird-v2",
       "box": [
         -111.71,
         40.52,
@@ -5142,18 +5237,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n41w112/USGS_13_n41w112.tif"
       ],
       "built_at": "2026-11-04T09:30:45Z",
+      "derived_from": "snowbird-v1",
       "ski_file": {
-        "path": "data/snowbird-v1-ski.pmtiles",
+        "path": "data/snowbird-v2-ski.pmtiles",
         "bytes": 371395,
         "sha256": "3aed69e80aba992de40835133cc40fbef284653929beef2142dd247290d7ae25"
       },
-      "coverage": "data/snowbird-v1-coverage.json"
+      "coverage": "data/snowbird-v2-coverage.json"
     },
     {
       "slug": "snowmass",
       "name": "Snowmass",
-      "version": 1,
-      "key": "snowmass-v1",
+      "version": 2,
+      "key": "snowmass-v2",
       "box": [
         -107.01,
         39.14,
@@ -5187,18 +5283,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w108/USGS_13_n40w108.tif"
       ],
       "built_at": "2026-11-15T07:23:03Z",
+      "derived_from": "snowmass-v1",
       "ski_file": {
-        "path": "data/snowmass-v1-ski.pmtiles",
+        "path": "data/snowmass-v2-ski.pmtiles",
         "bytes": 344274,
         "sha256": "492434f41e471fb4e6682acc7a96eb55115dc54c190b2f83174199803d685c5f"
       },
-      "coverage": "data/snowmass-v1-coverage.json"
+      "coverage": "data/snowmass-v2-coverage.json"
     },
     {
       "slug": "snowshoe",
       "name": "Snowshoe",
-      "version": 2,
-      "key": "snowshoe-v2",
+      "version": 3,
+      "key": "snowshoe-v3",
       "box": [
         -80.05,
         38.38,
@@ -5227,18 +5324,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n39w081/USGS_13_n39w081.tif"
       ],
       "built_at": "2026-11-15T07:11:09Z",
+      "derived_from": "snowshoe-v2",
       "ski_file": {
-        "path": "data/snowshoe-v2-ski.pmtiles",
+        "path": "data/snowshoe-v3-ski.pmtiles",
         "bytes": 140642,
         "sha256": "6463916ca73343efd2b73c8f8c5e98350761f36da97420d68cf06c4b85e53111"
       },
-      "coverage": "data/snowshoe-v2-coverage.json"
+      "coverage": "data/snowshoe-v3-coverage.json"
     },
     {
       "slug": "snowy-range",
       "name": "Snowy Range",
-      "version": 1,
-      "key": "snowy-range-v1",
+      "version": 2,
+      "key": "snowy-range-v2",
       "box": [
         -106.22,
         41.31,
@@ -5281,18 +5379,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-16T06:08:27Z",
+      "derived_from": "snowy-range-v1",
       "ski_file": {
-        "path": "data/snowy-range-v1-ski.pmtiles",
+        "path": "data/snowy-range-v2-ski.pmtiles",
         "bytes": 77048,
         "sha256": "d0b581a88c7367b4c7dec641203efd0c1ca336ed8f16689a6a4451f030b225a6"
       },
-      "coverage": "data/snowy-range-v1-coverage.json"
+      "coverage": "data/snowy-range-v2-coverage.json"
     },
     {
       "slug": "solitude",
       "name": "Solitude",
-      "version": 1,
-      "key": "solitude-v1",
+      "version": 2,
+      "key": "solitude-v2",
       "box": [
         -111.65,
         40.57,
@@ -5340,18 +5439,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n41w112/USGS_13_n41w112.tif"
       ],
       "built_at": "2026-11-04T09:10:44Z",
+      "derived_from": "solitude-v1",
       "ski_file": {
-        "path": "data/solitude-v1-ski.pmtiles",
+        "path": "data/solitude-v2-ski.pmtiles",
         "bytes": 209897,
         "sha256": "bd92310ea22f58fc0eb206b505a57a718549542228467e93495445682c5690a1"
       },
-      "coverage": "data/solitude-v1-coverage.json"
+      "coverage": "data/solitude-v2-coverage.json"
     },
     {
       "slug": "steamboat",
       "name": "Steamboat",
-      "version": 2,
-      "key": "steamboat-v2",
+      "version": 3,
+      "key": "steamboat-v3",
       "box": [
         -106.85,
         40.41,
@@ -5379,18 +5479,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n41w107/USGS_13_n41w107.tif"
       ],
       "built_at": "2026-10-23T06:27:12Z",
+      "derived_from": "steamboat-v2",
       "ski_file": {
-        "path": "data/steamboat-v2-ski.pmtiles",
+        "path": "data/steamboat-v3-ski.pmtiles",
         "bytes": 250322,
         "sha256": "1a40436ff7ae6734ab7b8b040f82c7fec6f76dbf40e6351554879a08afc13b8a"
       },
-      "coverage": "data/steamboat-v2-coverage.json"
+      "coverage": "data/steamboat-v3-coverage.json"
     },
     {
       "slug": "stevens-pass",
       "name": "Stevens Pass",
-      "version": 1,
-      "key": "stevens-pass-v1",
+      "version": 2,
+      "key": "stevens-pass-v2",
       "box": [
         -121.14,
         47.7,
@@ -5411,18 +5512,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w122/USGS_13_n48w122.tif"
       ],
       "built_at": "2026-11-10T17:47:55Z",
+      "derived_from": "stevens-pass-v1",
       "ski_file": {
-        "path": "data/stevens-pass-v1-ski.pmtiles",
+        "path": "data/stevens-pass-v2-ski.pmtiles",
         "bytes": 216337,
         "sha256": "c36cf3b5f6270226b233b9c47d37bacf762e77a567eb413312b5fb2d6135c1d3"
       },
-      "coverage": "data/stevens-pass-v1-coverage.json"
+      "coverage": "data/stevens-pass-v2-coverage.json"
     },
     {
       "slug": "stoneham",
       "name": "Stoneham",
-      "version": 2,
-      "key": "stoneham-v2",
+      "version": 3,
+      "key": "stoneham-v3",
       "box": [
         -71.44,
         46.99,
@@ -5459,18 +5561,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-16T07:32:46Z",
+      "derived_from": "stoneham-v2",
       "ski_file": {
-        "path": "data/stoneham-v2-ski.pmtiles",
+        "path": "data/stoneham-v3-ski.pmtiles",
         "bytes": 105147,
         "sha256": "bd19195281cc88d03224af7015f40f8103a2babaf3d00fe643ee71d38f84bde1"
       },
-      "coverage": "data/stoneham-v2-coverage.json"
+      "coverage": "data/stoneham-v3-coverage.json"
     },
     {
       "slug": "stowe",
       "name": "Stowe",
-      "version": 1,
-      "key": "stowe-v1",
+      "version": 2,
+      "key": "stowe-v2",
       "box": [
         -72.84,
         44.48,
@@ -5533,18 +5636,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-12T09:23:54Z",
+      "derived_from": "stowe-v1",
       "ski_file": {
-        "path": "data/stowe-v1-ski.pmtiles",
+        "path": "data/stowe-v2-ski.pmtiles",
         "bytes": 194647,
         "sha256": "312502bacf9d6b73f67e98f46c06eebab230f1f7709ed9f681c3a3c528de60d4"
       },
-      "coverage": "data/stowe-v1-coverage.json"
+      "coverage": "data/stowe-v2-coverage.json"
     },
     {
       "slug": "stratton",
       "name": "Stratton",
-      "version": 1,
-      "key": "stratton-v1",
+      "version": 2,
+      "key": "stratton-v2",
       "box": [
         -72.96,
         43.07,
@@ -5587,18 +5691,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-12T09:40:05Z",
+      "derived_from": "stratton-v1",
       "ski_file": {
-        "path": "data/stratton-v1-ski.pmtiles",
+        "path": "data/stratton-v2-ski.pmtiles",
         "bytes": 115745,
         "sha256": "383e7ca202dde08b42a2163a308ec634e8c61c73d80a5014d96f65004cb6670a"
       },
-      "coverage": "data/stratton-v1-coverage.json"
+      "coverage": "data/stratton-v2-coverage.json"
     },
     {
       "slug": "sugar-bowl",
       "name": "Sugar Bowl",
-      "version": 1,
-      "key": "sugar-bowl-v1",
+      "version": 2,
+      "key": "sugar-bowl-v2",
       "box": [
         -120.39,
         39.26,
@@ -5651,18 +5756,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-10-31T22:24:22Z",
+      "derived_from": "sugar-bowl-v1",
       "ski_file": {
-        "path": "data/sugar-bowl-v1-ski.pmtiles",
+        "path": "data/sugar-bowl-v2-ski.pmtiles",
         "bytes": 158240,
         "sha256": "e603b8454f0ecb0678f724239802bf1acf3683002643d6ddb8e6927fd97314da"
       },
-      "coverage": "data/sugar-bowl-v1-coverage.json"
+      "coverage": "data/sugar-bowl-v2-coverage.json"
     },
     {
       "slug": "sugarbush",
       "name": "Sugarbush",
-      "version": 1,
-      "key": "sugarbush-v1",
+      "version": 2,
+      "key": "sugarbush-v2",
       "box": [
         -72.96,
         44.1,
@@ -5715,18 +5821,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-12T09:26:39Z",
+      "derived_from": "sugarbush-v1",
       "ski_file": {
-        "path": "data/sugarbush-v1-ski.pmtiles",
+        "path": "data/sugarbush-v2-ski.pmtiles",
         "bytes": 177565,
         "sha256": "0d50790a0f68a04ec0969cbc25d8c301a7435b76f94048969b80334ecde66c80"
       },
-      "coverage": "data/sugarbush-v1-coverage.json"
+      "coverage": "data/sugarbush-v2-coverage.json"
     },
     {
       "slug": "sugarloaf",
       "name": "Sugarloaf",
-      "version": 1,
-      "key": "sugarloaf-v1",
+      "version": 2,
+      "key": "sugarloaf-v2",
       "box": [
         -70.37,
         45.01,
@@ -5778,18 +5885,19 @@
         "filled_window_pct": 1.537
       },
       "built_at": "2026-11-12T11:36:10Z",
+      "derived_from": "sugarloaf-v1",
       "ski_file": {
-        "path": "data/sugarloaf-v1-ski.pmtiles",
+        "path": "data/sugarloaf-v2-ski.pmtiles",
         "bytes": 158312,
         "sha256": "343f23403ee823a0f4467eaa06d81eec791ba3eb763e0dee6fb13608159ffcc3"
       },
-      "coverage": "data/sugarloaf-v1-coverage.json"
+      "coverage": "data/sugarloaf-v2-coverage.json"
     },
     {
       "slug": "summit-at-snoqualmie",
       "name": "The Summit at Snoqualmie",
-      "version": 2,
-      "key": "summit-at-snoqualmie-v2",
+      "version": 3,
+      "key": "summit-at-snoqualmie-v3",
       "box": [
         -121.47,
         47.36,
@@ -5827,18 +5935,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n48w122/USGS_13_n48w122.tif"
       ],
       "built_at": "2026-11-15T07:30:28Z",
+      "derived_from": "summit-at-snoqualmie-v2",
       "ski_file": {
-        "path": "data/summit-at-snoqualmie-v2-ski.pmtiles",
+        "path": "data/summit-at-snoqualmie-v3-ski.pmtiles",
         "bytes": 253365,
         "sha256": "6d738ae89f991dc0048db52ccbabb8065859a9d19fd079ae8adbfde4a87b9cc4"
       },
-      "coverage": "data/summit-at-snoqualmie-v2-coverage.json"
+      "coverage": "data/summit-at-snoqualmie-v3-coverage.json"
     },
     {
       "slug": "sun-peaks",
       "name": "Sun Peaks",
-      "version": 1,
-      "key": "sun-peaks-v1",
+      "version": 2,
+      "key": "sun-peaks-v2",
       "box": [
         -119.97,
         50.82,
@@ -5859,18 +5968,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-11-11T05:18:18Z",
+      "derived_from": "sun-peaks-v1",
       "ski_file": {
-        "path": "data/sun-peaks-v1-ski.pmtiles",
+        "path": "data/sun-peaks-v2-ski.pmtiles",
         "bytes": 266815,
         "sha256": "9aab9ca3215a38b509c3d6ed91415517edb5587488c15cd4cebe26f251b304be"
       },
-      "coverage": "data/sun-peaks-v1-coverage.json"
+      "coverage": "data/sun-peaks-v2-coverage.json"
     },
     {
       "slug": "sun-valley",
       "name": "Sun Valley",
-      "version": 2,
-      "key": "sun-valley-v2",
+      "version": 3,
+      "key": "sun-valley-v3",
       "box": [
         -114.45,
         43.62,
@@ -5898,18 +6008,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w115/USGS_13_n44w115.tif"
       ],
       "built_at": "2026-11-15T07:07:32Z",
+      "derived_from": "sun-valley-v2",
       "ski_file": {
-        "path": "data/sun-valley-v2-ski.pmtiles",
+        "path": "data/sun-valley-v3-ski.pmtiles",
         "bytes": 262991,
         "sha256": "356c6390dd2578a85e680a5d68c67abbc9be38ba7520d1b48507eb211ca9e98b"
       },
-      "coverage": "data/sun-valley-v2-coverage.json"
+      "coverage": "data/sun-valley-v3-coverage.json"
     },
     {
       "slug": "sunday-river",
       "name": "Sunday River",
-      "version": 1,
-      "key": "sunday-river-v1",
+      "version": 2,
+      "key": "sunday-river-v2",
       "box": [
         -70.94,
         44.43,
@@ -5952,18 +6063,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-12T11:35:46Z",
+      "derived_from": "sunday-river-v1",
       "ski_file": {
-        "path": "data/sunday-river-v1-ski.pmtiles",
+        "path": "data/sunday-river-v2-ski.pmtiles",
         "bytes": 165228,
         "sha256": "a398a55321c049e7dc350caff2679a3ab64a3c3f9fcd25ee1e2397712ece9324"
       },
-      "coverage": "data/sunday-river-v1-coverage.json"
+      "coverage": "data/sunday-river-v2-coverage.json"
     },
     {
       "slug": "tamarack",
       "name": "Tamarack",
-      "version": 1,
-      "key": "tamarack-v1",
+      "version": 2,
+      "key": "tamarack-v2",
       "box": [
         -116.2,
         44.64,
@@ -5988,18 +6100,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n45w117/USGS_13_n45w117.tif"
       ],
       "built_at": "2026-11-10T17:02:32Z",
+      "derived_from": "tamarack-v1",
       "ski_file": {
-        "path": "data/tamarack-v1-ski.pmtiles",
+        "path": "data/tamarack-v2-ski.pmtiles",
         "bytes": 145619,
         "sha256": "a3f0e1d066fdfee8248c591416f19ecf7b06b1dc4562ff4ffb5642f939729080"
       },
-      "coverage": "data/tamarack-v1-coverage.json"
+      "coverage": "data/tamarack-v2-coverage.json"
     },
     {
       "slug": "taos-ski-valley",
       "name": "Taos Ski Valley",
-      "version": 1,
-      "key": "taos-ski-valley-v1",
+      "version": 2,
+      "key": "taos-ski-valley-v2",
       "box": [
         -105.49,
         36.54,
@@ -6042,18 +6155,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-10T08:10:39Z",
+      "derived_from": "taos-ski-valley-v1",
       "ski_file": {
-        "path": "data/taos-ski-valley-v1-ski.pmtiles",
+        "path": "data/taos-ski-valley-v2-ski.pmtiles",
         "bytes": 192207,
         "sha256": "19d80f99af417125c12771ab8aa915de29810f00b0fbdee8261ea5f81aea2c83"
       },
-      "coverage": "data/taos-ski-valley-v1-coverage.json"
+      "coverage": "data/taos-ski-valley-v2-coverage.json"
     },
     {
       "slug": "telluride",
       "name": "Telluride",
-      "version": 1,
-      "key": "telluride-v1",
+      "version": 2,
+      "key": "telluride-v2",
       "box": [
         -107.89,
         37.86,
@@ -6097,18 +6211,19 @@
         "filled_window_pct": 6.823
       },
       "built_at": "2026-11-10T08:31:02Z",
+      "derived_from": "telluride-v1",
       "ski_file": {
-        "path": "data/telluride-v1-ski.pmtiles",
+        "path": "data/telluride-v2-ski.pmtiles",
         "bytes": 255880,
         "sha256": "3ba0b1778e27bbe70a4f0e20f9e2d43e064c7de6290c7f96fda7eb0402c915b6"
       },
-      "coverage": "data/telluride-v1-coverage.json"
+      "coverage": "data/telluride-v2-coverage.json"
     },
     {
       "slug": "the-highlands",
       "name": "The Highlands",
-      "version": 1,
-      "key": "the-highlands-v1",
+      "version": 2,
+      "key": "the-highlands-v2",
       "box": [
         -84.99,
         45.44,
@@ -6160,18 +6275,19 @@
         "filled_window_pct": 8.139
       },
       "built_at": "2026-11-14T10:02:27Z",
+      "derived_from": "the-highlands-v1",
       "ski_file": {
-        "path": "data/the-highlands-v1-ski.pmtiles",
+        "path": "data/the-highlands-v2-ski.pmtiles",
         "bytes": 70773,
         "sha256": "1cc2264aee1eac09a76cb556e1b4f85b7748c81fe9032f2a013ba7c96538ba32"
       },
-      "coverage": "data/the-highlands-v1-coverage.json"
+      "coverage": "data/the-highlands-v2-coverage.json"
     },
     {
       "slug": "tremblant",
       "name": "Tremblant",
-      "version": 2,
-      "key": "tremblant-v2",
+      "version": 3,
+      "key": "tremblant-v3",
       "box": [
         -74.62,
         46.17,
@@ -6208,18 +6324,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-16T07:35:04Z",
+      "derived_from": "tremblant-v2",
       "ski_file": {
-        "path": "data/tremblant-v2-ski.pmtiles",
+        "path": "data/tremblant-v3-ski.pmtiles",
         "bytes": 199317,
         "sha256": "631411c406c33251f8733f7ed4161d02c6d17673de94d41ae6128f8a74ecec28"
       },
-      "coverage": "data/tremblant-v2-coverage.json"
+      "coverage": "data/tremblant-v3-coverage.json"
     },
     {
       "slug": "vail",
       "name": "Vail",
-      "version": 1,
-      "key": "vail-v1",
+      "version": 2,
+      "key": "vail-v2",
       "box": [
         -106.43,
         39.53,
@@ -6265,18 +6382,19 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-11-05T03:36:13Z",
+      "derived_from": "vail-v1",
       "ski_file": {
-        "path": "data/vail-v1-ski.pmtiles",
+        "path": "data/vail-v2-ski.pmtiles",
         "bytes": 454648,
         "sha256": "7599e11a31a63b2784fa7600cd93181c3de37b55d14c3a10831cb0b88f0aa8a2"
       },
-      "coverage": "data/vail-v1-coverage.json"
+      "coverage": "data/vail-v2-coverage.json"
     },
     {
       "slug": "whistler-blackcomb",
       "name": "Whistler Blackcomb",
-      "version": 4,
-      "key": "whistler-blackcomb-v4",
+      "version": 5,
+      "key": "whistler-blackcomb-v5",
       "box": [
         -123.08,
         49.98,
@@ -6304,18 +6422,19 @@
         "https://canelevation-dem.s3.ca-central-1.amazonaws.com/mrdem-30/mrdem-30-dtm.tif"
       ],
       "built_at": "2026-10-23T06:21:58Z",
+      "derived_from": "whistler-blackcomb-v4",
       "ski_file": {
-        "path": "data/whistler-blackcomb-v4-ski.pmtiles",
+        "path": "data/whistler-blackcomb-v5-ski.pmtiles",
         "bytes": 838922,
         "sha256": "ff73c9a03c7c9484f2a4a3137401acd1df8b16e62c22bd1948ae9b37e261a366"
       },
-      "coverage": "data/whistler-blackcomb-v4-coverage.json"
+      "coverage": "data/whistler-blackcomb-v5-coverage.json"
     },
     {
       "slug": "whitetail",
       "name": "Whitetail",
-      "version": 1,
-      "key": "whitetail-v1",
+      "version": 2,
+      "key": "whitetail-v2",
       "box": [
         -77.98,
         39.71,
@@ -6337,18 +6456,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w079/USGS_13_n40w079.tif"
       ],
       "built_at": "2026-11-13T03:47:28Z",
+      "derived_from": "whitetail-v1",
       "ski_file": {
-        "path": "data/whitetail-v1-ski.pmtiles",
+        "path": "data/whitetail-v2-ski.pmtiles",
         "bytes": 80541,
         "sha256": "6c6d98083e6015976c3915d7274dcff176a4b2961d5f84c0445338b03e10903d"
       },
-      "coverage": "data/whitetail-v1-coverage.json"
+      "coverage": "data/whitetail-v2-coverage.json"
     },
     {
       "slug": "wild-mountain",
       "name": "Wild Mountain",
-      "version": 1,
-      "key": "wild-mountain-v1",
+      "version": 2,
+      "key": "wild-mountain-v2",
       "box": [
         -92.74,
         45.46,
@@ -6369,18 +6489,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n46w093/USGS_13_n46w093.tif"
       ],
       "built_at": "2026-11-16T03:26:24Z",
+      "derived_from": "wild-mountain-v1",
       "ski_file": {
-        "path": "data/wild-mountain-v1-ski.pmtiles",
+        "path": "data/wild-mountain-v2-ski.pmtiles",
         "bytes": 48977,
         "sha256": "df3b4242ba1e1c1ff552c85b89e10d49309f7efe0b1830efb0685258fa71f466"
       },
-      "coverage": "data/wild-mountain-v1-coverage.json"
+      "coverage": "data/wild-mountain-v2-coverage.json"
     },
     {
       "slug": "wildcat",
       "name": "Wildcat",
-      "version": 1,
-      "key": "wildcat-v1",
+      "version": 2,
+      "key": "wildcat-v2",
       "box": [
         -71.28,
         44.23,
@@ -6436,18 +6557,19 @@
         "filled_window_pct": 2.422
       },
       "built_at": "2026-11-12T11:13:31Z",
+      "derived_from": "wildcat-v1",
       "ski_file": {
-        "path": "data/wildcat-v1-ski.pmtiles",
+        "path": "data/wildcat-v2-ski.pmtiles",
         "bytes": 115121,
         "sha256": "ea725a2acb8f8b88a95133244f331b6a8c1bcc56132dcfc3db76a7665ff6a2a6"
       },
-      "coverage": "data/wildcat-v1-coverage.json"
+      "coverage": "data/wildcat-v2-coverage.json"
     },
     {
       "slug": "wilmot",
       "name": "Wilmot",
-      "version": 1,
-      "key": "wilmot-v1",
+      "version": 2,
+      "key": "wilmot-v2",
       "box": [
         -88.24,
         42.47,
@@ -6468,18 +6590,19 @@
         "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n43w089/USGS_13_n43w089.tif"
       ],
       "built_at": "2026-11-14T10:01:07Z",
+      "derived_from": "wilmot-v1",
       "ski_file": {
-        "path": "data/wilmot-v1-ski.pmtiles",
+        "path": "data/wilmot-v2-ski.pmtiles",
         "bytes": 36909,
         "sha256": "f7bd5d9508388742305a7e96bd7d28580539284346841b269f619f6ad7e943d7"
       },
-      "coverage": "data/wilmot-v1-coverage.json"
+      "coverage": "data/wilmot-v2-coverage.json"
     },
     {
       "slug": "winter-park",
       "name": "Winter Park",
-      "version": 2,
-      "key": "winter-park-v2",
+      "version": 3,
+      "key": "winter-park-v3",
       "box": [
         -105.84,
         39.81,
@@ -6525,12 +6648,13 @@
         "filled_window_pct": 0
       },
       "built_at": "2026-10-23T06:27:51Z",
+      "derived_from": "winter-park-v2",
       "ski_file": {
-        "path": "data/winter-park-v2-ski.pmtiles",
+        "path": "data/winter-park-v3-ski.pmtiles",
         "bytes": 249857,
         "sha256": "5d52e6713962012370bc41e3fc6c98ebbc5152a2f5a3e8d92547fb71d2ba4216"
       },
-      "coverage": "data/winter-park-v2-coverage.json"
+      "coverage": "data/winter-park-v3-coverage.json"
     }
   ]
 }

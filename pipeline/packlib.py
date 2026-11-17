@@ -19,13 +19,21 @@
                                                 A new version without a record yet takes the osm_timestamp of the
                                                 newest earlier version's record (packs/<slug>-v<N>/pack.json), so a
                                                 pack rebuilt for new elevation keeps its runs and lifts
-  packlib.py tnm-tiles ANSWER.json PROJECT [LON] [PRODUCT]
+  packlib.py tnm-tiles ANSWER.json PROJECT [LON] [PRODUCT] [ZONES]
                                                 prints the GeoTIFF URLs of one 3DEP project in an answer of The
                                                 National Map's product API, sorted (fetch-dem.sh 3dep1); tiles in
                                                 several UTM zones keep the zone of LON, the window's centre. PRODUCT
                                                 is 1m (the default) or opr, the original-resolution DEM
                                                 (fetch-dem.sh 3depopr: Projects/<project>/<survey>/TIFF/, refused
-                                                when the project's tiles come from more than one survey)
+                                                when the project's tiles come from more than one survey). ZONES is a
+                                                file of `<url> <zone>` lines: the zones of tiles whose names carry
+                                                none, read from their headers (fetch-dem.sh 3dep1)
+  packlib.py tnm-unzoned ANSWER.json PROJECT [PRODUCT]
+                                                prints the tiles of tnm-tiles whose names carry no UTM zone (the
+                                                older 1 m names, USGS_one_meter_x…), sorted: fetch-dem.sh 3dep1 reads
+                                                each one's zone from its header
+  packlib.py utm-zone < PROJJSON                prints the UTM zone of a tile's CRS (`gdalsrsinfo -o projjson`), read
+                                                from its projection's parameters; exit 1 when it is not UTM (north)
   packlib.py stac-assets ANSWER.json ASSET      prints the ASSET hrefs of the items in a STAC item search answer,
                                                 sorted (fetch-dem.sh hrdem1)
   packlib.py lidar-plan COVERAGE_JSON MIN_PCT   what fetch-dem.sh does with a 1 m window whose coverage (dem.py
@@ -258,7 +266,7 @@ def earlier_record(pack_json, slug, field):
 
 HTTPS_TIF_RE = re.compile(r'^https://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+-]+\.tif$')
 # The UTM zone in a 3DEP 1 m tile's name (USGS_1M_11_x24y432_<project>.tif); the older names (USGS_one_meter_x…)
-# carry none.
+# carry none, so fetch-dem.sh reads those tiles' zones from their own headers (utm_zone_of_crs).
 TNM_ZONE_RE = re.compile(r'/USGS_1M_(\d{1,2})_x\d+y\d+_')
 # The products tnm-tiles reads: the 1 m DEM (fetch-dem.sh 3dep1), and the original-resolution DEM (3depopr), whose
 # tiles sit one folder deeper, under the survey (work unit) of the project:
@@ -271,17 +279,49 @@ def utm_zone(lon):
     return min(60, int((float(lon) + 180) // 6) + 1)
 
 
-def tnm_tiles(doc, project, lon=None, product='1m'):
-    """The GeoTIFF URLs of one 3DEP project in a TNM product API answer, sorted. Refuses an answer that says it
-    holds more products than it lists (another page would be needed). A project near a UTM zone boundary delivers
-    tiles in both zones (CA_SierraNevada_B22 and NV_USFSR4_D23 at Lake Tahoe, 120° W: zone 10 and zone 11 tiles over
-    the same ground, each zone's set whole only on its own side), and gdalbuildvrt mosaics one projection, skipping
-    the rest with a warning: the lidar then seemed to hold 63% of Heavenly's box (2026-10-31). When the tiles span
-    zones, only the zone of `lon` (the window's centre) is kept; without it such an answer is refused.
-    `product` 'opr' reads the original-resolution DEM's tiles (Projects/<project>/<survey>/TIFF/) and refuses a
-    project whose tiles over the window come from more than one survey: one survey, no seams between surveys of
-    different years, as the 1 m DEM's pinned project. Their names carry no UTM zone, so fetch-dem.sh checks that the
-    mosaic kept every tile (one projection)."""
+def utm_zone_of_crs(doc):
+    """The UTM zone (north) of a CRS given as PROJJSON (`gdalsrsinfo -o projjson` of a tile), from its projection's
+    parameters rather than its name: Transverse Mercator from the equator, scale 0.9996, false easting 500,000 m,
+    false northing 0, on a zone's central meridian (-183 + 6 x zone degrees). A compound CRS (the 1 m tiles' NAD83(2011)
+    / UTM + NAVD88 height) is read by its horizontal part. None for any other projection."""
+    while isinstance(doc, dict) and doc.get('type') in ('CompoundCRS', 'BoundCRS'):
+        doc = (doc.get('components') or [None])[0] if doc['type'] == 'CompoundCRS' else doc.get('source_crs')
+    if not isinstance(doc, dict) or doc.get('type') != 'ProjectedCRS':
+        return None
+    conv = doc.get('conversion') or {}
+    if (conv.get('method') or {}).get('name') != 'Transverse Mercator':
+        return None
+    units = {'Latitude of natural origin': 'degree', 'Longitude of natural origin': 'degree',
+             'Scale factor at natural origin': 'unity', 'False easting': 'metre', 'False northing': 'metre'}
+    p = {}
+    for x in conv.get('parameters') or []:
+        if isinstance(x, dict) and x.get('name') in units and x.get('unit') == units[x['name']] \
+                and isinstance(x.get('value'), (int, float)) and not isinstance(x.get('value'), bool):
+            p[x['name']] = float(x['value'])
+    if len(p) != len(units) or p['Latitude of natural origin'] != 0 or p['Scale factor at natural origin'] != 0.9996 \
+            or p['False easting'] != 500000 or p['False northing'] != 0:
+        return None
+    zone = (p['Longitude of natural origin'] + 183) / 6
+    return int(round(zone)) if abs(zone - round(zone)) < 1e-9 and 1 <= round(zone) <= 60 else None
+
+
+def read_tile_zones(path):
+    """The `<url> <zone>` lines fetch-dem.sh writes from the tiles' headers, as {url: zone}."""
+    zones = {}
+    with open(path, encoding='utf-8') as f:
+        for line in f:
+            parts = line.split()
+            if not parts:
+                continue
+            if len(parts) != 2 or not HTTPS_TIF_RE.match(parts[0]) or not re.fullmatch(r'[1-9][0-9]?', parts[1]) \
+                    or int(parts[1]) > 60:
+                raise ValueError(f'bad tile zone line {line.strip()!r}')
+            zones[parts[0]] = int(parts[1])
+    return zones
+
+
+def tnm_project_tiles(doc, project, product='1m'):
+    """The GeoTIFF URLs of one 3DEP project in a TNM product API answer, as a set (tnm_tiles before the zone rule)."""
     if not PROJECT_RE.match(project or ''):
         raise ValueError(f'bad 3DEP project {project!r}')
     if product not in TNM_PRODUCTS:
@@ -313,10 +353,33 @@ def tnm_tiles(doc, project, lon=None, product='1m'):
     if len(surveys) > 1:
         raise ValueError(f'{project} lists tiles of {len(surveys)} surveys over the window ({", ".join(sorted(surveys))}): '
                          'one survey per map')
+    return urls
+
+
+def tnm_unzoned(doc, project, product='1m'):
+    """The tiles of tnm_tiles whose names carry no UTM zone, sorted."""
+    return sorted(u for u in tnm_project_tiles(doc, project, product) if not TNM_ZONE_RE.search(u))
+
+
+def tnm_tiles(doc, project, lon=None, product='1m', tile_zones=None):
+    """The GeoTIFF URLs of one 3DEP project in a TNM product API answer, sorted. Refuses an answer that says it
+    holds more products than it lists (another page would be needed). A project near a UTM zone boundary delivers
+    tiles in both zones (CA_SierraNevada_B22 and NV_USFSR4_D23 at Lake Tahoe, 120° W: zone 10 and zone 11 tiles over
+    the same ground, each zone's set whole only on its own side), and gdalbuildvrt mosaics one projection, skipping
+    the rest with a warning: the lidar then seemed to hold 63% of Heavenly's box (2026-10-31). When the tiles span
+    zones, only the zone of `lon` (the window's centre) is kept; without it such an answer is refused. A tile's zone
+    comes from its name, else from `tile_zones` ({url: zone}, read by fetch-dem.sh 3dep1 from the tiles' own headers):
+    the older 1 m names (USGS_one_meter_x…) carry none, and a project's tiles in two zones were then all kept, the
+    mosaic taking one zone by sort order (Mt Brighton's MI_31Co_Livingston_2018, zones 16 and 17, 2026-11-14).
+    `product` 'opr' reads the original-resolution DEM's tiles (Projects/<project>/<survey>/TIFF/) and refuses a
+    project whose tiles over the window come from more than one survey: one survey, no seams between surveys of
+    different years, as the 1 m DEM's pinned project. Their names carry no UTM zone either, so fetch-dem.sh checks that
+    the mosaic kept every tile (one projection), as it does for the 1 m tiles."""
+    urls = tnm_project_tiles(doc, project, product)
     by_zone = {}
     for url in urls:
         m = TNM_ZONE_RE.search(url)
-        by_zone.setdefault(int(m.group(1)) if m else None, set()).add(url)
+        by_zone.setdefault(int(m.group(1)) if m else (tile_zones or {}).get(url), set()).add(url)
     if len(by_zone) > 1:
         zones = ', '.join(str(z) for z in sorted(by_zone, key=lambda z: (z is None, z or 0)))
         if lon is None:
@@ -560,13 +623,25 @@ def main(argv):
                 print(f'packlib lidar-plan: {err}', file=sys.stderr)
                 return 1
             return 0
-        if cmd in ('tnm-tiles', 'stac-assets'):
+        if cmd in ('tnm-tiles', 'tnm-unzoned', 'stac-assets'):
             with open(args[0], encoding='utf-8') as f:
                 doc = json.load(f)
-            urls = tnm_tiles(doc, args[1], args[2] if len(args) > 2 else None, args[3] if len(args) > 3 else '1m') \
-                if cmd == 'tnm-tiles' else stac_assets(doc, args[1])
+            if cmd == 'tnm-tiles':
+                urls = tnm_tiles(doc, args[1], args[2] if len(args) > 2 else None, args[3] if len(args) > 3 else '1m',
+                                 read_tile_zones(args[4]) if len(args) > 4 and args[4] else None)
+            elif cmd == 'tnm-unzoned':
+                urls = tnm_unzoned(doc, args[1], args[2] if len(args) > 2 else '1m')
+            else:
+                urls = stac_assets(doc, args[1])
             for url in urls:
                 print(url)
+            return 0
+        if cmd == 'utm-zone':
+            zone = utm_zone_of_crs(json.loads(sys.stdin.read()))
+            if zone is None:
+                print('packlib utm-zone: the CRS is not UTM (north)', file=sys.stderr)
+                return 1
+            print(zone)
             return 0
         if cmd == 'published':
             with open(args[1], encoding='utf-8') as f:

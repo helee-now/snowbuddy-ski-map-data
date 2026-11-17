@@ -1,0 +1,73 @@
+{
+  "key": "afton-alps-v2",
+  "ski_sha256": "adb2d128df77b0c6917b7230af7a46f9e03fb4fe0ef3c6763d6866c33258f170",
+  "osm_timestamp": "2026-11-14T09:40:16Z",
+  "box": [
+    -92.82,
+    44.83,
+    -92.75,
+    44.88
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -92.792725,
+    44.848261,
+    -92.778774,
+    44.857869
+  ],
+  "margins_km": {
+    "west": 2.15,
+    "south": 2.03,
+    "east": 2.27,
+    "north": 2.46
+  },
+  "counts": {
+    "lifts": 18,
+    "runs_in_bounds": 60,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 36,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.1,
+    "runs_in_bounds": 13.5,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -92.988281,
+      44.715514,
+      -92.636719,
+      44.964798
+    ],
+    "12": [
+      -92.900391,
+      44.777936,
+      -92.724609,
+      44.902578
+    ],
+    "13": [
+      -92.856445,
+      44.809122,
+      -92.724609,
+      44.902578
+    ],
+    "14": [
+      -92.834473,
+      44.824708,
+      -92.746582,
+      44.887012
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

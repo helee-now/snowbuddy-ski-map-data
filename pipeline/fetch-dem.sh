@@ -3,7 +3,8 @@
 # cloud-optimised GeoTIFFs over HTTPS (/vsicurl/); no account or key.
 #
 # Usage: fetch-dem.sh <source> <out.tif> <W,S,E,N> [--box=W,S,E,N] [--project=NAME] [--list]
-#   --list writes <out>.inputs.txt, prints the URLs it would read and stops (no elevation data is downloaded)
+#   --list writes <out>.inputs.txt, prints the URLs it would read and stops (no elevation data is downloaded; 3dep1
+#   reads the headers of tiles whose names carry no UTM zone, in the GDAL image)
 # The 30 m and 10 m sources keep their own grid: same CRS, same resolution, -tap alignment, nearest neighbour, so no
 # resampling happens here.
 #   mrdem30  NRCan MRDEM-30 DTM (bare earth, 30 m, EPSG:3979, CGVD2013 metres), one COG for all of Canada
@@ -15,7 +16,9 @@
 # then averages whole pixels), reading the COGs' overviews when shrinking:
 #   3dep1    USGS 3DEP 1 m DEM (lidar, bare earth, NAVD88 metres, UTM): the 10 km tiles of one 3DEP project
 #            (--project, pinned per resort in resorts.json), found with The National Map's product API and mosaicked
-#            with a VRT
+#            with a VRT. A tile's UTM zone comes from its name (USGS_1M_<zone>_…), or for the older names
+#            (USGS_one_meter_x…) from its own header, so a project listing tiles in two zones keeps the window centre's
+#            zone either way
 #   3depopr  USGS 3DEP original-resolution DEM (lidar, bare earth, as delivered to the USGS, in its own CRS): the
 #            tiles of one survey of a 3DEP project (--project), for lidar The National Map lists only so (Anchorage's,
 #            whose 1 km tiles in UTM zone 6 cover Alyeska); found and mosaicked as 3dep1. The tiles' headers carry no
@@ -50,7 +53,7 @@ IFS=, read -r W S E N <<< "$BOX"
 mkdir -p "$(dirname "$OUT")"
 INPUTS="${OUT%.tif}.inputs.txt"
 COVERAGE="${OUT%.tif}.coverage.json"
-trap 'rm -f "$INPUTS.part" "${OUT%.tif}.catalogue.json"' EXIT
+trap 'rm -f "$INPUTS.part" "${OUT%.tif}.catalogue.json" "${OUT%.tif}.zones.txt" "${OUT%.tif}.zones.txt.urls"' EXIT
 DEM_GRID_M=4.777314267823516   # 2 x 20037508.342789244 m / 2^14 tiles / 512 px
 MIN_LIDAR_BOX_PCT=95
 TNM_API="${TNM_API:-https://tnmaccess.nationalmap.gov/api/v1/products}"
@@ -106,9 +109,26 @@ lidar_inputs() {
         --data-urlencode "bbox=$W,$S,$E,$N" --data-urlencode "max=1000" --data-urlencode "outputFormat=JSON" \
         || die "The National Map's product API did not answer"
       # A project near a UTM zone boundary lists tiles in both zones; the window centre's zone is kept (gdalbuildvrt
-      # mosaics one projection and would skip the rest).
+      # mosaics one projection and would skip the rest). The older 1 m names (USGS_one_meter_x…) carry no zone, so
+      # each such tile's zone is read from its own header: GDAL reads the GeoTIFF's first bytes over HTTPS for its
+      # projection, no elevation data (Mt Brighton's MI_31Co_Livingston_2018 lists them in zones 16 and 17).
+      local zones="${OUT%.tif}.zones.txt" url zone
+      : > "$zones"
+      if [ "$SRC" = 3dep1 ]; then
+        python3 -I "$PIPE/packlib.py" tnm-unzoned "$answer" "$PROJECT" > "$zones.urls"
+        while IFS= read -r url <&3; do
+          zone="$(gd gdalsrsinfo -o projjson "/vsicurl/$url" | python3 -I "$PIPE/packlib.py" utm-zone)" \
+            || die "no UTM zone read from the header of $url"
+          printf '%s %s\n' "$url" "$zone" >> "$zones"
+        done 3< "$zones.urls"
+        if [ -s "$zones" ]; then
+          log "elevation $SRC: the UTM zones in the headers of the tiles named without one (zone x tiles):" \
+            "$(python3 -I -c 'import collections,sys; c=collections.Counter(int(l.split()[1]) for l in open(sys.argv[1]) if l.strip()); print(", ".join(f"{z} x{n}" for z, n in sorted(c.items())))' "$zones")"
+        fi
+      fi
       python3 -I "$PIPE/packlib.py" tnm-tiles "$answer" "$PROJECT" \
-        "$(python3 -I -c 'import sys; print((float(sys.argv[1]) + float(sys.argv[2])) / 2)' "$W" "$E")" "$product" ;;
+        "$(python3 -I -c 'import sys; print((float(sys.argv[1]) + float(sys.argv[2])) / 2)' "$W" "$E")" "$product" "$zones"
+      rm -f "$zones" "$zones.urls" ;;
     hrdem1)
       fetch_json "$answer" -G "$STAC_API/collections/hrdem-mosaic-1m/items" --data-urlencode "bbox=$W,$S,$E,$N" \
         --data-urlencode "limit=100" || die "NRCan's STAC API did not answer"
@@ -124,9 +144,10 @@ warp_lidar() {
   while IFS= read -r url; do sources+=("/vsicurl/$url"); done < "$INPUTS"
   nd="$(gd gdalinfo -json "${sources[0]}" | python3 -I -c 'import json,sys; print(json.load(sys.stdin)["bands"][0]["noDataValue"])')"
   gd gdalbuildvrt -q -overwrite -srcnodata "$nd" -vrtnodata "$nd" "$(in_root "$vrt")" "${sources[@]}"
-  if [ "$SRC" = 3depopr ]; then
-    # The original-resolution tiles' names carry no UTM zone for packlib.py tnm-tiles to keep one by, and gdalbuildvrt
-    # mosaics one projection, skipping the rest: every listed tile must be in the mosaic.
+  if [ "$SRC" = 3dep1 ] || [ "$SRC" = 3depopr ]; then
+    # gdalbuildvrt mosaics one projection and skips the rest (and any tile it cannot open) with only a warning: every
+    # listed tile must be in the mosaic. The original-resolution tiles' names carry no UTM zone for packlib.py
+    # tnm-tiles to keep one by; for the 1 m tiles, whose zones it reads, this is a guard.
     local kept
     kept="$(grep -c '<SourceFilename' "$vrt" || true)"
     [ "$kept" = "${#sources[@]}" ] \

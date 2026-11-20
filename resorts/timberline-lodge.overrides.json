@@ -1,0 +1,90 @@
+{
+  "slug": "timberline-lodge",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/679189584 (Timberline Lodge Ski Area, 3.93 km²): Mt. Hood's south side from the top of the Palmer (8,540 ft) down past the lodge (6,000 ft) to the bottoms of the Jeff Flood (4,850 ft) and Molly's (4,950 ft). Summit Pass, Timberline's beginner area at the east end of Government Camp (the Summit chair, Heidi's conveyor and their green and blue runs; Timberline's lift status page lists Summit Pass and Heidi's at Summit Pass, and its winter trail map gives it a page of its own), is joined to that area by trail: the Alpine (way/48946329, 4,072 m from the lodge to the bottom of Summit Pass, its foot 18 m from the Summit chair's bottom) and the West Leg Road (ways 50427210 and 909155604, 4,446 m and 2,908 m, the lower one ending on a node of Yellowjacket at Summit Pass), 'within the Timberline permit area ... patrolled and groomed' (timberlinelodge.com, 4,540' Vertical), skied down and ridden back up by the resort's shuttle, and the resort's map draws one area boundary round both. So one map (the owner's rule of 2026-11-14). OpenStreetMap has no polygon for Summit Pass, and Timberline's ends near the 4,850 ft level, 1.5 km above it, so ski_area is the one polygon and Summit Pass's chair and runs (Bumblebee, Yellowjacket's two ways and an unnamed green) are drawn as the resort's, beside the Alpine and the West Leg Road, outside the drawn boundary (an OSM gap). A derived area was tried on the same data and not chosen: it would take in the six out-of-bounds lines and Meadows' features beyond its polygon (three parts, 11.35 km²). The Glade Trail (way/1378207220, 3,096 m, patrolled=no and piste:grooming=backcountry) leaves the Glade's west end at the area boundary and ends in Government Camp north of US 26, 0.63 km from Summit Pass's nearest run and 0.79 km from its chair, 1.19 km from Skibowl's polygon: it reaches neither Summit Pass's lifts nor any polygon, and Timberline's map does not draw it (its Glade ends at Kruser), so it stays out of bounds as OSM tags it (1% inside the polygon), drawn dashed like Sand Canyon, Zigzag Side Country, Zigzag Glacier, West Crater Rim and Old Chute above and west of the boundary. Neighbours: Mt. Hood Skibowl south of US 26 and Mt. Hood Meadows east across the White River canyon (resorts.json). Summer: the Palmer chair 'is only open when conditions permit (typically spring/summer)' (the winter map); the 2024 summer snow map draws the Palmer Snowfield's racing lanes, Celebrity (for racing camps), the Slow Midway Road, the Freestyle Training Center and the Public Park, and the Freestyle Training Center page says its park is reached by the Palmer chair and three handle tows (June 15 to July 11, 2026). OpenStreetMap marks only those three tows as summer lifts (FTC Handle Tow, note 'Seasonal FTC Lift'); Celebrity, Midway Road, Mile Canyon, the Palmer Snowfield and Outer West areas, the Freestyle Training Center and its Superpipe carry no season tag. All are the resort's own and are kept. Every named run and lift checked on 2026-11-19 against the resort's current winter trail map (timberlinelodge.com/mountain/trail-map: timberline_winter_trail_map.pdf, two pages, Timberline (a James Niehues painting) and Summit Pass, rendered at four times their size and read in crops), the 2024 summer trail map, the lift status page (timberlinelodge.com/conditions) and the skiing page's figures. Every named OpenStreetMap run on the map already carries its rating (green circle easy, blue square intermediate, black diamond advanced): the changes are names (OSM's piste:name, which the pipeline reads first, differs from the map at the Alpine, Joszi, Christine's, Bumblebee and Yellowjacket; The Bonezone is the map's Liam's Bonzone) and the map's orange freestyle terrain (Spraypaint, Paintbrush, Conway's, Liam's Bonzone, Blossom and Christine's take the park flag, as their outlines have; Nona's Bologna, green on the map, loses OSM's snow-park type's flag; the Superpipe takes it). JoJaMi keeps OSM's piste:name (JOJAMI on the all-capitals map). Lifts: nine of the status page's ten are in OpenStreetMap (Heidi's at Summit Pass is not), with the three summer tows; OSM's names stay (Jeff Flood Express for the map's JEFF FLOOD-STILL CREEK, Pucci Express, Summit for Summit Pass's chair) but the unnamed carpet below the lodge, which is the Timber Tiger. OSM gaps against the map (shipped as at Palisades Tahoe): Heidi's conveyor and most of Summit Pass's runs (the map draws several short unnamed green and blue lines between Bumblebee and the Alpine; OSM has one unnamed green), Summit Pass's polygon, the Schoolyard park's line (OSM has its outline), the unnamed bone-zone park beside Liam's Bonzone; Mile Canyon (1.6 km between the Magic Mile and Otto Lang, the summer map's Public Park) is in OpenStreetMap but not on the winter map, and stays.",
+  "overrides": [
+    {
+      "id": "way/48946329",
+      "reason": "The Alpine, the patrolled and groomed trail from the lodge down to the bottom of Summit Pass in Government Camp (timberlinelodge.com, 4,540' Vertical: 'The Alpine Trail and West Leg Road are within the Timberline permit area ... patrolled and groomed'): Timberline's winter trail map labels it ALPINE on both pages, blue as OSM rates it; OSM's piste:name, which the pipeline reads first, is Alpine Run, its name tag Alpine. The map's name.",
+      "expect": { "name": "Alpine", "piste:name": "Alpine Run", "piste:difficulty": "intermediate" },
+      "set": { "name": "Alpine" }
+    },
+    {
+      "id": "way/52549431",
+      "reason": "Joszi, the black run from the Pucci chair's top towards Molly's: Timberline's winter trail map labels it JOSZI with a black diamond, as OSM's name tag and rating have it; OSM's piste:name, which the pipeline reads first, is Slalom. The map's name.",
+      "expect": { "name": "Joszi", "piste:name": "Slalom", "piste:difficulty": "advanced" },
+      "set": { "name": "Joszi" }
+    },
+    {
+      "id": "way/53542866",
+      "reason": "Liam's Bonzone, the natural halfpipe beside Conway's under the Stormin' Norman (OSM's note: 'Natural halfpipe'): Timberline's winter trail map draws it orange, freestyle terrain (its key: 'BONE ZONE=TERRAIN GULLY'), and names it LIAM'S BONZONE; OSM names it The Bonezone and rates it intermediate. The map's name, and the park flag.",
+      "expect": { "name": "The Bonezone", "piste:name": "The Bonezone", "piste:difficulty": "intermediate" },
+      "set": { "name": "Liam's Bonzone", "park": true }
+    },
+    {
+      "id": "way/48946324",
+      "reason": "Christine's, the short run from the Magic Mile's bottom down to Thunder: Timberline's winter trail map draws it orange, freestyle terrain, and names it CHRISTINE'S, as OSM's name tag; OSM's piste:name, which the pipeline reads first, is Christine's Run, rated easy. The map's name, and the park flag.",
+      "expect": { "name": "Christine's", "piste:name": "Christine's Run", "piste:difficulty": "easy" },
+      "set": { "name": "Christine's", "park": true }
+    },
+    {
+      "id": "way/151455223",
+      "reason": "Spraypaint, beside the Stormin' Norman: Timberline's winter trail map draws it orange with an L (freestyle terrain, large features), and OSM's note says '\"large\" terrain park'; OSM rates the line advanced and tags it downhill. The park flag, as its outline (a snow_park area of the same name) has.",
+      "expect": { "name": "Spraypaint", "piste:type": "downhill", "piste:difficulty": "advanced" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/50612343",
+      "reason": "Paintbrush, west of the Stormin' Norman: Timberline's winter trail map draws it orange with an L (freestyle terrain, large features), and OSM's note says '\"large\" terrain park'; OSM rates the line advanced and tags it downhill. The park flag, as its outline (a snow_park area of the same name) has.",
+      "expect": { "name": "Paintbrush", "piste:type": "downhill", "piste:difficulty": "advanced" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/50427209",
+      "reason": "Conway's, under the Stormin' Norman: Timberline's winter trail map draws it orange with an M (freestyle terrain, medium features), and OSM's note says '\"medium\" terrain park'; OSM rates the line intermediate and tags it downhill. The park flag, as its outline (a snow_park area of the same name) has.",
+      "expect": { "name": "Conway's", "piste:type": "downhill", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/48946323",
+      "reason": "Blossom, west of the Magic Mile's bottom: Timberline's winter trail map draws it orange with an S (freestyle terrain, small features); OSM rates the line easy and tags it downhill. The park flag, as its outline (a snow_park area of the same name) has.",
+      "expect": { "piste:name": "Blossom", "piste:type": "downhill", "piste:difficulty": "easy" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/50427212",
+      "reason": "Nona's Bologna, the short link from the Glade to the West Leg Road: Timberline's winter trail map labels it NONA'S BOLOGNA with a green circle, an easy run, not freestyle terrain; OSM tags it a snow park (piste:type=snow_park), rated easy. Not a park: OSM's easy stands.",
+      "expect": { "piste:name": "Nona's Bologna", "piste:type": "snow_park", "piste:difficulty": "easy" },
+      "set": { "park": false }
+    },
+    {
+      "id": "way/1378401132",
+      "reason": "Superpipe, the Freestyle Training Center's 22-foot superpipe on the Palmer Snowfield (timberlinelodge.com, Freestyle Training Center: summer terrain park, June 15 to July 4, 2026), drawn on neither the winter nor the summer map: OSM tags it a downhill run rated freeride. The park flag, as the Freestyle Training Center's outline (a snow_park area) has.",
+      "expect": { "name": "Superpipe", "piste:type": "downhill", "piste:difficulty": "freeride" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/149478666",
+      "reason": "Bumblebee, Summit Pass's green run from the Summit chair's top: Timberline's winter trail map (the Summit Pass page) labels it BUMBLEBEE, one word, as OSM's name tag; OSM's piste:name, which the pipeline reads first, is Bumble Bee. The map's name.",
+      "expect": { "name": "Bumblebee", "piste:name": "Bumble Bee", "piste:difficulty": "easy" },
+      "set": { "name": "Bumblebee" }
+    },
+    {
+      "id": "way/149478636",
+      "reason": "Yellowjacket, Summit Pass's blue run beside the Summit chair: Timberline's winter trail map (the Summit Pass page) labels it YELLOWJACKET, one word, blue as OSM rates it; OSM's piste:name, which the pipeline reads first, is Yellow jacket, its name tag Yellow Jacket. The map's name.",
+      "expect": { "name": "Yellow Jacket", "piste:name": "Yellow jacket", "piste:difficulty": "intermediate" },
+      "set": { "name": "Yellowjacket" }
+    },
+    {
+      "id": "way/1000962991",
+      "reason": "Yellowjacket, its upper way from the Summit chair's top: Timberline's winter trail map (the Summit Pass page) labels the run YELLOWJACKET, one word; OSM's piste:name is Yellow jacket. The map's name, as the lower way.",
+      "expect": { "name": "Yellow Jacket", "piste:name": "Yellow jacket", "piste:difficulty": "intermediate" },
+      "set": { "name": "Yellowjacket" }
+    },
+    {
+      "id": "way/257542070",
+      "reason": "The unnamed carpet between Main Run Pucci and Bruno's below the lodge: Timberline's winter trail map draws its Timber Tiger Conveyor (2) there, west of Bruno's Chair Lift (1) as this carpet lies 120 m west of Bruno's, and the resort's lift status page lists Timber Tiger, a conveyor. The status page's name, short like OSM's Bruno's.",
+      "expect": { "aerialway": "magic_carpet", "name": null },
+      "set": { "name": "Timber Tiger" }
+    }
+  ]
+}

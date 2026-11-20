@@ -1,0 +1,73 @@
+{
+  "key": "mt-shasta-ski-park-v1",
+  "ski_sha256": "f63f374595d061469befdef5b9a1ae22a90d8485b7734c8d7d4e71f2d1e0eb1e",
+  "osm_timestamp": "2026-11-20T01:18:21Z",
+  "box": [
+    -122.24,
+    41.3,
+    -122.15,
+    41.37
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -122.211186,
+    41.319064,
+    -122.183425,
+    41.346766
+  ],
+  "margins_km": {
+    "west": 2.41,
+    "south": 2.12,
+    "east": 2.79,
+    "north": 2.58
+  },
+  "counts": {
+    "lifts": 6,
+    "runs_in_bounds": 37,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 11,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 4.4,
+    "runs_in_bounds": 29.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -122.34375,
+      41.244772,
+      -121.992188,
+      41.376809
+    ],
+    "12": [
+      -122.255859,
+      41.244772,
+      -122.080078,
+      41.376809
+    ],
+    "13": [
+      -122.255859,
+      41.277806,
+      -122.124023,
+      41.376809
+    ],
+    "14": [
+      -122.255859,
+      41.294317,
+      -122.145996,
+      41.376809
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

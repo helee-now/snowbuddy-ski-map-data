@@ -1,0 +1,192 @@
+{
+  "slug": "mt-hood-skibowl",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. The resort writes its name Mt. Hood Skibowl (skibowl.com). One polygon, way/1155730256 (Mt. Hood Skibowl, 2.36 km²), holds both of its areas: Skibowl West (the Lower Bowl and Upper Bowl chairs from the West Side Base Area up to Skibowl Peak, 5,027 ft, and the Outback beyond to Tom Dick Peak) and Skibowl East (the Multorpor and Cascade chairs above the East base, the Snow Tube and Adventure Park). They are joined by lift and trail: the Multorpor chair climbs from East's base to the top of Skyline and High Road, which with Low Road and Broadway run between the two, on one ticket and one map; no part is reached only by road or shuttle. US 26 separates Skibowl from Government Camp, Summit Pass and Timberline: no lift or run crosses it (the 2026/27 map ends at the highway, OpenStreetMap has none), so Timberline, with Summit Pass, has a map of its own, and Mt. Hood Meadows is far beyond it (resorts.json lists both polygons). Summit Pass has no polygon in OpenStreetMap, so its chair and four runs are hidden one by one below, and so is Sand Canyon, Timberline's backcountry line just beyond the neighbour rule's 250 m. The summer adventure park is not skiing and never reaches the ski file (its query reads lifts, runs, ski areas and snow parks only): OpenStreetMap holds the Alpine Slide on Skibowl West (two ways, attraction=summer_toboggan), the Amaze'n Maze, three karting tracks and a miniature golf course at Skibowl East, and no zip line. Every named run and lift checked on 2026-11-19 against the resort's current trail map (skibowl.com/about-winter/trail-map: 4x8-Trail-Map-26_27-WEB-ONLY.png, the 2026/27 painting by James Niehues uploaded 2026-11, 6,691 x 4,138 px, read in crops), its lift status page (skibowl.com/winter-condition-and-lift-status) and its stats page. The map's key: Easiest Way Down (green circle), More Difficult (blue square), Most Difficult (black diamond), Expert Only (two black diamonds), Terrain Park (orange). Ratings: Outback 1, 2 and 3, Tom Dick Bowl, Treviso's Traverse, Ruins of Bruun, Upper and Lower Cutoff, Kelly's Cut and Log Road take the map's two diamonds over OSM's advanced or intermediate; Spotlight the map's black and Tally Ho its blue. Names: the map's Surprise, Roundhouse, Stumpgarden, Joe's Run, Pizzaz and Canyon (OSM's Upper and Lower Canyon) and The Chutes (OSM's two numbered ways); the two Tom Dick Bowl ways OSM's piste:name calls Outback 2 and Outback 3 lie west of the Outback Glades, where the map puts Tom Dick Bowl, and take its name. Lower Traverse (OSM advanced, 586 m below East Traverse) is not on the map and stays; Hanna Ridge, drawn without a symbol, keeps OSM's advanced; names that differ only by the all-capitals map's case stay (Fistful Of Willows, Ruins Of Bruun, Mt. Hood Lane). Lifts: the map's four chairs and six surface lifts (Conveyor Lift 1 and 2, Mogul Buster Tow, Platter Tow, West Rope Tow, Ski School Conveyor), the lift status page's Lower Bowl Chair, Upper Bowl Chair, West Rope Tow, West Learning Conveyor Lift, Multorpor Chair, Handle Tow, Cascade Chair and Snow Tube Conveyor Lift. OSM's names stay but the parking-lot tow's, which is the map's Ski School Conveyor; OSM's Conveyor Lift is one of the tube hill's two conveyors and is hidden. OSM gaps against the map (shipped as at Palisades Tahoe): Cliffhanger, Parent Trap, Rock Garden and Five Lakes Basin, the Multiverse Terrain Park, Kev's Korner Terrain Park and Jesse's Flight Rope Tow Park (OpenStreetMap maps no park at Skibowl), Lake Road between the bases, the tube hill's second conveyor; Banfield is in OpenStreetMap with piste:type=yes and Peak Hike, the walk to Tom Dick Peak, as a ski-touring way, so the type rule leaves both out.",
+  "overrides": [
+    {
+      "id": "way/1298703495",
+      "reason": "Outback 1, in the Outback below Hanna Ridge: Mt. Hood Skibowl's 2026/27 trail map marks it with two black diamonds (Expert Only); OSM rates it advanced. The map's rating.",
+      "expect": { "name": "Outback 1", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/149478657",
+      "reason": "Outback 2, in the Outback below Hanna Ridge: Mt. Hood Skibowl's 2026/27 trail map marks it with two black diamonds (Expert Only); OSM rates it advanced. The map's rating.",
+      "expect": { "name": "Outback 2", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1299124515",
+      "reason": "Outback 3, in the Outback below Hanna Ridge: Mt. Hood Skibowl's 2026/27 trail map marks it with two black diamonds (Expert Only); OSM rates it advanced. The map's rating.",
+      "expect": { "name": "Outback 3", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/149478643",
+      "reason": "Tom Dick Bowl, below Tom Dick Peak west of the Outback Glades: Mt. Hood Skibowl's 2026/27 trail map marks it with two black diamonds (Expert Only); OSM rates this way advanced (name Tom Dick Bowl (3), piste:name Tom Dick Bowl). The map's rating.",
+      "expect": { "name": "Tom Dick Bowl (3)", "piste:name": "Tom Dick Bowl", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/149478648",
+      "reason": "Tom Dick Bowl, its eastern way: OSM's name tag says Tom Dick Bowl (1), but its piste:name, which the pipeline reads first, says Outback 2, the name of the way 0.22 km east (way/149478657). The way lies west of the Outback Glades (way/1299124512), where Mt. Hood Skibowl's 2026/27 trail map puts Tom Dick Bowl (its Outback 1 to 3 lie east of the glades, as OSM's own Outback 1 to 3 do). The map's name, as the bowl's other ways; OSM's expert stands.",
+      "expect": { "name": "Tom Dick Bowl (1)", "piste:name": "Outback 2", "piste:difficulty": "expert" },
+      "set": { "name": "Tom Dick Bowl" }
+    },
+    {
+      "id": "way/149478649",
+      "reason": "Tom Dick Bowl, its middle way: OSM's name tag says Tom Dick Bowl (2), but its piste:name, which the pipeline reads first, says Outback 3, the name of the way 0.22 km east (way/1299124515). The way lies west of the Outback Glades (way/1299124512), where Mt. Hood Skibowl's 2026/27 trail map puts Tom Dick Bowl. The map's name, as the bowl's other ways; OSM's expert stands.",
+      "expect": { "name": "Tom Dick Bowl (2)", "piste:name": "Outback 3", "piste:difficulty": "expert" },
+      "set": { "name": "Tom Dick Bowl" }
+    },
+    {
+      "id": "way/1298702809",
+      "reason": "Treviso's Traverse, from Hanna Ridge west towards Tom Dick Bowl: Mt. Hood Skibowl's 2026/27 trail map marks it with two black diamonds (Expert Only); OSM rates it advanced. The map's rating.",
+      "expect": { "name": "Treviso's Traverse", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/1299124513",
+      "reason": "The Chutes below Tom Dick Peak: Mt. Hood Skibowl's 2026/27 trail map names the three lines THE CHUTES, with two black diamonds; OSM numbers its two ways The Chutes (1) and The Chutes (2). The map's name, so the two are one run; OSM's expert stands.",
+      "expect": { "name": "The Chutes (1)", "piste:difficulty": "expert" },
+      "set": { "name": "The Chutes" }
+    },
+    {
+      "id": "way/1298702810",
+      "reason": "The Chutes below Tom Dick Peak: Mt. Hood Skibowl's 2026/27 trail map names the three lines THE CHUTES, with two black diamonds; OSM numbers its two ways The Chutes (1) and The Chutes (2). The map's name, so the two are one run; OSM's expert stands.",
+      "expect": { "name": "The Chutes (2)", "piste:difficulty": "expert" },
+      "set": { "name": "The Chutes" }
+    },
+    {
+      "id": "way/149478667",
+      "reason": "Ruins of Bruun (RUINS OF BRUUN on the map), from the Five Lakes Basin down to Gunsight Notch: Mt. Hood Skibowl's 2026/27 trail map marks it with two black diamonds (Expert Only); OSM rates it advanced. The map's rating.",
+      "expect": { "name": "Ruins Of Bruun", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/149478656",
+      "reason": "Lower Cutoff, below Bob Strand's Downhill: Mt. Hood Skibowl's 2026/27 trail map marks it with two black diamonds (Expert Only); OSM rates it advanced. The map's rating.",
+      "expect": { "name": "Lower Cutoff", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/149478641",
+      "reason": "Upper Cutoff, from Bob Strand's Downhill down to Kelly's Cut and TT5: Mt. Hood Skibowl's 2026/27 trail map marks it with two black diamonds (Expert Only); OSM rates it advanced. The map's rating.",
+      "expect": { "name": "Upper Cutoff", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/149478655",
+      "reason": "Kelly's Cut, from Dog Foote across to Upper Cutoff: Mt. Hood Skibowl's 2026/27 trail map draws it black with two black diamonds (Expert Only); OSM rates it intermediate. The map's rating.",
+      "expect": { "name": "Kelly's Cut", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/149478634",
+      "reason": "Log Road, the way out of the Outback along the boundary back to Skibowl West's base: Mt. Hood Skibowl's 2026/27 trail map marks it with two black diamonds (Expert Only); OSM rates it advanced. The map's rating.",
+      "expect": { "name": "Log Road", "piste:difficulty": "advanced" },
+      "set": { "difficulty": "expert" }
+    },
+    {
+      "id": "way/144953994",
+      "reason": "Spotlight, under the Multorpor chair: Mt. Hood Skibowl's 2026/27 trail map draws it black with a black diamond; OSM rates it intermediate. The map's rating.",
+      "expect": { "name": "Spotlight", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/149478654",
+      "reason": "Tally Ho, beside the Lower Bowl chair: Mt. Hood Skibowl's 2026/27 trail map draws it blue with a blue square; OSM rates it easy. The map's rating.",
+      "expect": { "name": "Tally Ho", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/144953996",
+      "reason": "Surprise, the blue run from below Upper Surprise down to Broadway: Mt. Hood Skibowl's 2026/27 trail map labels it SURPRISE with a blue square (and its short black head UPPER SURPRISE); OSM names it Lower Surprise, rated intermediate as the map. The map's name.",
+      "expect": { "name": "Lower Surprise", "piste:difficulty": "intermediate" },
+      "set": { "name": "Surprise" }
+    },
+    {
+      "id": "way/144953987",
+      "reason": "Roundhouse, Skibowl East's green run round Multorpor Mountain's top: Mt. Hood Skibowl's 2026/27 trail map labels it ROUNDHOUSE, one word; OSM names it Round House. The map's name.",
+      "expect": { "name": "Round House", "piste:difficulty": "easy" },
+      "set": { "name": "Roundhouse" }
+    },
+    {
+      "id": "way/149093805",
+      "reason": "Stumpgarden, Skibowl East's black run from Roundhouse: Mt. Hood Skibowl's 2026/27 trail map labels it STUMPGARDEN, one word; OSM names it Stump Garden. The map's name.",
+      "expect": { "name": "Stump Garden", "piste:difficulty": "advanced" },
+      "set": { "name": "Stumpgarden" }
+    },
+    {
+      "id": "way/1298702816",
+      "reason": "Joe's Run, Skibowl West's green run down to its base: Mt. Hood Skibowl's 2026/27 trail map labels it JOE'S RUN; OSM spells it Joes Run. The map's spelling.",
+      "expect": { "name": "Joes Run", "piste:difficulty": "easy" },
+      "set": { "name": "Joe's Run" }
+    },
+    {
+      "id": "way/105200810",
+      "reason": "Pizzaz, the black run below Skibowl Peak beside the Upper Bowl chair's top: Mt. Hood Skibowl's 2026/27 trail map labels it PIZZAZ; OSM spells it Pizazz. The map's spelling.",
+      "expect": { "name": "Pizazz", "piste:difficulty": "advanced" },
+      "set": { "name": "Pizzaz" }
+    },
+    {
+      "id": "way/105333329",
+      "reason": "Canyon, from Skibowl Peak down beside the Upper Bowl chair: Mt. Hood Skibowl's 2026/27 trail map labels the run CANYON (twice along it, with a black diamond); OSM names its two ways Upper Canyon and Lower Canyon. The map's name, so the two ways are one run.",
+      "expect": { "name": "Upper Canyon", "piste:difficulty": "advanced" },
+      "set": { "name": "Canyon" }
+    },
+    {
+      "id": "way/105333330",
+      "reason": "Canyon, its lower way: Mt. Hood Skibowl's 2026/27 trail map labels the run CANYON; OSM names this way Lower Canyon. The map's name, so the two ways are one run.",
+      "expect": { "name": "Lower Canyon", "piste:difficulty": "advanced" },
+      "set": { "name": "Canyon" }
+    },
+    {
+      "id": "way/144953981",
+      "reason": "The surface lift at the north end of Skibowl West's base slope by the parking lot: Mt. Hood Skibowl's 2026/27 trail map numbers it 6, SKI SCHOOL CONVEYOR, north of the West Rope Tow (5), as this lift lies 70 m north of OSM's West Rope Tow, and the resort's lift status page lists it as the West Learning Conveyor Lift; OSM names it Parking Lot Rope Tow and tags it a rope tow (an override cannot change the kind). The map's name.",
+      "expect": { "aerialway": "rope_tow", "name": "Parking Lot Rope Tow" },
+      "set": { "name": "Ski School Conveyor" }
+    },
+    {
+      "id": "way/149093801",
+      "reason": "Conveyor Lift, at Skibowl East's base: one of the two conveyors (1 and 2) that Mt. Hood Skibowl's 2026/27 trail map draws on its pink tube hill in the Winter Adventure Park, north of the Cascade chair's bottom as this carpet lies 0.12 km north-east of it; the resort's lift status page lists Skibowl East's conveyor as the Snow Tube Conveyor Lift. The tubing hill's lift, not a ski lift (as China Peak's Tubing Hill Carpet).",
+      "expect": { "aerialway": "magic_carpet", "name": "Conveyor Lift" },
+      "hide": true
+    },
+    {
+      "id": "way/45230418",
+      "reason": "Summit, the double chair of Summit Pass, Timberline's beginner area at the east end of Government Camp, north of US 26 (Timberline's winter trail map, its Summit Pass page; Timberline's lift status page lists it as Summit Pass): Timberline's, not Skibowl's, and joined to Skibowl by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Summit Pass and Timberline's polygon (a listed neighbour) ends 1.5 km above it, so the neighbour rule cannot leave it out; it lies 0.88 km from Skibowl's polygon, inside the box, so it is hidden one by one, as Mt. Rose hides Sky Tavern's.",
+      "expect": { "aerialway": "chair_lift", "name": "Summit" },
+      "hide": true
+    },
+    {
+      "id": "way/149478666",
+      "reason": "Bumblebee, a green run of Summit Pass, Timberline's beginner area north of US 26 (Timberline's winter trail map, its Summit Pass page): Timberline's, not Skibowl's. OpenStreetMap has no polygon for Summit Pass and Timberline's polygon ends 1.5 km above it, so the neighbour rule cannot leave it out; it lies 0.89 km from Skibowl's polygon, inside the box, so it is hidden one by one.",
+      "expect": { "name": "Bumblebee", "piste:name": "Bumble Bee", "piste:difficulty": "easy" },
+      "hide": true
+    },
+    {
+      "id": "way/149478636",
+      "reason": "Yellowjacket, a blue run of Summit Pass, Timberline's beginner area north of US 26 (Timberline's winter trail map, its Summit Pass page): Timberline's, not Skibowl's. OpenStreetMap has no polygon for Summit Pass and Timberline's polygon ends 1.5 km above it, so the neighbour rule cannot leave it out; it lies 0.89 km from Skibowl's polygon, inside the box, so it is hidden one by one.",
+      "expect": { "name": "Yellow Jacket", "piste:name": "Yellow jacket", "piste:difficulty": "intermediate" },
+      "hide": true
+    },
+    {
+      "id": "way/1000962991",
+      "reason": "Yellowjacket, its upper way, at Summit Pass, Timberline's beginner area north of US 26: Timberline's, not Skibowl's. OpenStreetMap has no polygon for Summit Pass and Timberline's polygon ends 1.5 km above it, so the neighbour rule cannot leave it out; inside the box, so it is hidden one by one.",
+      "expect": { "name": "Yellow Jacket", "piste:name": "Yellow jacket", "piste:difficulty": "intermediate" },
+      "hide": true
+    },
+    {
+      "id": "way/1000962989",
+      "reason": "An unnamed green run of Summit Pass, Timberline's beginner area north of US 26, below the Summit chair's top (Timberline's winter trail map, its Summit Pass page, draws its unnamed green runs there): Timberline's, not Skibowl's. OpenStreetMap has no polygon for Summit Pass and Timberline's polygon ends 1.5 km above it, so the neighbour rule cannot leave it out; it lies 1.1 km from Skibowl's polygon, inside the box, so it is hidden one by one.",
+      "expect": { "name": null, "piste:type": "downhill", "piste:difficulty": "easy" },
+      "hide": true
+    },
+    {
+      "id": "way/1378207221",
+      "reason": "Sand Canyon, a backcountry line west of Timberline's area boundary (patrolled=no, piste:grooming=backcountry), drawn out of bounds on Timberline's map: Timberline's side of the mountain, 3.1 km from Skibowl's polygon, not Skibowl's. Timberline's polygon is a listed neighbour, but the line lies 272 m from it at the nearest, just beyond the neighbour rule's 250 m, so the rule keeps it; hidden by name of its neighbour, as the batch-15 maps hide their neighbours' features outside the neighbours' polygons.",
+      "expect": { "name": "Sand Canyon", "piste:difficulty": "extreme", "piste:grooming": "backcountry" },
+      "hide": true
+    }
+  ]
+}

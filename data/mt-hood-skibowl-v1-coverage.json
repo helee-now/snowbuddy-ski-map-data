@@ -1,0 +1,73 @@
+{
+  "key": "mt-hood-skibowl-v1",
+  "ski_sha256": "3e809a92f4cd1aa232c1c4e9ab8104ec76c133e8022f302f334633b837b71da9",
+  "osm_timestamp": "2026-11-20T01:25:28Z",
+  "box": [
+    -121.82,
+    45.26,
+    -121.72,
+    45.33
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -121.792244,
+    45.286449,
+    -121.753127,
+    45.302082
+  ],
+  "margins_km": {
+    "west": 2.17,
+    "south": 2.94,
+    "east": 2.59,
+    "north": 3.1
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 73,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 17,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.2,
+    "runs_in_bounds": 29.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -121.992188,
+      45.213004,
+      -121.640625,
+      45.336702
+    ],
+    "12": [
+      -121.904297,
+      45.213004,
+      -121.640625,
+      45.336702
+    ],
+    "13": [
+      -121.860352,
+      45.243953,
+      -121.68457,
+      45.336702
+    ],
+    "14": [
+      -121.838379,
+      45.259422,
+      -121.706543,
+      45.336702
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

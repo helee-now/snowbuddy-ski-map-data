@@ -1,0 +1,73 @@
+{
+  "key": "willamette-pass-v1",
+  "ski_sha256": "d91b016937ad79fea093768c08b53178f3e04098c9379a0810f91cb91e00b428",
+  "osm_timestamp": "2026-11-20T01:20:20Z",
+  "box": [
+    -122.07,
+    43.57,
+    -121.98,
+    43.64
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -122.04138,
+    43.597279,
+    -122.005572,
+    43.617367
+  ],
+  "margins_km": {
+    "west": 2.3,
+    "south": 3.03,
+    "east": 2.06,
+    "north": 2.52
+  },
+  "counts": {
+    "lifts": 6,
+    "runs_in_bounds": 37,
+    "run_areas_in_bounds": 2,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 11,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 4.5,
+    "runs_in_bounds": 23.5,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -122.167969,
+      43.452919,
+      -121.816406,
+      43.707594
+    ],
+    "12": [
+      -122.080078,
+      43.516689,
+      -121.904297,
+      43.644026
+    ],
+    "13": [
+      -122.080078,
+      43.548548,
+      -121.948242,
+      43.644026
+    ],
+    "14": [
+      -122.080078,
+      43.564472,
+      -121.970215,
+      43.644026
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

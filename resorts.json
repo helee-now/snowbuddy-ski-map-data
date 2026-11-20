@@ -2999,6 +2999,38 @@
       "coverage": "data/homewood-v1-coverage.json"
     },
     {
+      "slug": "hoodoo",
+      "name": "Hoodoo",
+      "version": 1,
+      "key": "hoodoo-v1",
+      "box": [
+        -121.92,
+        44.37,
+        -121.84,
+        44.44
+      ],
+      "ski_area": "way/1260579139",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-19",
+      "osm_timestamp": "2026-11-20T01:25:28Z",
+      "overpass_box": [
+        -121.96,
+        44.35,
+        -121.8,
+        44.46
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n45w122/USGS_13_n45w122.tif"
+      ],
+      "built_at": "2026-11-20T01:36:35Z",
+      "ski_file": {
+        "path": "data/hoodoo-v1-ski.pmtiles",
+        "bytes": 75885,
+        "sha256": "1a890a365d349334240242f5b387419c1425c10f90a0c557389fbcb63acc67b8"
+      },
+      "coverage": "data/hoodoo-v1-coverage.json"
+    },
+    {
       "slug": "hunter-mountain",
       "name": "Hunter Mountain",
       "version": 2,
@@ -4414,6 +4446,94 @@
       "coverage": "data/mt-brighton-v2-coverage.json"
     },
     {
+      "slug": "mt-hood-meadows",
+      "name": "Mt. Hood Meadows",
+      "version": 1,
+      "key": "mt-hood-meadows-v1",
+      "box": [
+        -121.72,
+        45.3,
+        -121.6,
+        45.39
+      ],
+      "ski_area": "way/866496711",
+      "neighbours": [
+        {
+          "id": "way/679189584",
+          "name": "Timberline Lodge Ski Area",
+          "reason": "Timberline, a separate resort on its own ticket at Timberline Lodge above Government Camp, west of Mt. Hood Meadows across White River Canyon: most of its polygon (the Magic Mile, Palmer, Pucci, Stormin' Norman and the Jeff Flood Express) lies in the box's west part, 1.6 km from Meadows' polygon, and the rest in the Overpass window; no lift or trail joins the two (Meadows' map marks the slopes west of its boundary out of bounds). Left off by the owner's rule of 2026-10-21, so the map draws only Meadows; its out-of-bounds lines beyond 250 m of its polygon are hidden in the overrides."
+        },
+        {
+          "id": "way/1155730256",
+          "name": "Mt. Hood Skibowl",
+          "reason": "Mt. Hood Skibowl, a separate resort on its own ticket at Government Camp, 6.5 km south-west of Mt. Hood Meadows' polygon: its polygon's north-east corner, with its Cascade chair, conveyor and tows, lies in the Overpass window's south-west corner beyond the box, where they would otherwise draw in the z10 to z12 edge tiles."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-19",
+      "osm_timestamp": "2026-11-20T01:23:21Z",
+      "overpass_box": [
+        -121.76,
+        45.28,
+        -121.56,
+        45.41
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n46w122/USGS_13_n46w122.tif"
+      ],
+      "built_at": "2026-11-20T01:30:49Z",
+      "ski_file": {
+        "path": "data/mt-hood-meadows-v1-ski.pmtiles",
+        "bytes": 257829,
+        "sha256": "554d5d57dec9970ccecd210bd3122587ce75b61304ad89cd65492af77bb37b16"
+      },
+      "coverage": "data/mt-hood-meadows-v1-coverage.json"
+    },
+    {
+      "slug": "mt-hood-skibowl",
+      "name": "Mt. Hood Skibowl",
+      "version": 1,
+      "key": "mt-hood-skibowl-v1",
+      "box": [
+        -121.82,
+        45.26,
+        -121.72,
+        45.33
+      ],
+      "ski_area": "way/1155730256",
+      "neighbours": [
+        {
+          "id": "way/679189584",
+          "name": "Timberline Lodge Ski Area",
+          "reason": "Timberline Lodge, a separate resort on its own lift tickets on Mt. Hood's south side above Government Camp, north of US 26 (Timberline and Skibowl share an owner, and the Mt. Hood Fusion pass covers both): its polygon's south-west corner lies in the box's north-east and the rest in the Overpass window, 3.1 km from Skibowl's polygon, and no lift or trail joins the two (Skibowl's 2026/27 trail map ends at US 26). Left off by the owner's rule of 2026-10-21 (\"leave them off\"); it has a map of its own."
+        },
+        {
+          "id": "way/866496711",
+          "name": "Mt. Hood Meadows Ski Resort",
+          "reason": "Mt. Hood Meadows, a separate resort on its own ticket on Mt. Hood's south-east side, 6.5 km north-east of Skibowl's polygon beyond Timberline and the White River canyon: its polygon's west edge and the lifts and runs of its west side (the Vista Express, the Cascade Express, Vista Ridge, Texas Trails) lie in the Overpass window's north-east corner, outside the box, where they would otherwise draw in the z10-12 edge tiles and count as Skibowl's terrain. Left off by the owner's rule of 2026-10-21 (\"leave them off\"); it has a map of its own."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-19",
+      "osm_timestamp": "2026-11-20T01:25:28Z",
+      "overpass_box": [
+        -121.86,
+        45.24,
+        -121.68,
+        45.35
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n46w122/USGS_13_n46w122.tif"
+      ],
+      "built_at": "2026-11-20T01:27:51Z",
+      "ski_file": {
+        "path": "data/mt-hood-skibowl-v1-ski.pmtiles",
+        "bytes": 140952,
+        "sha256": "3e809a92f4cd1aa232c1c4e9ab8104ec76c133e8022f302f334633b837b71da9"
+      },
+      "coverage": "data/mt-hood-skibowl-v1-coverage.json"
+    },
+    {
       "slug": "mt-norquay",
       "name": "Mt. Norquay",
       "version": 2,
@@ -4500,6 +4620,61 @@
         "sha256": "33f9e8a42205a516b6bd2baf255c46031a83c48f4342c44d1e7a53e437415df0"
       },
       "coverage": "data/mt-rose-v1-coverage.json"
+    },
+    {
+      "slug": "mt-shasta-ski-park",
+      "name": "Mt. Shasta Ski Park",
+      "version": 1,
+      "key": "mt-shasta-ski-park-v1",
+      "box": [
+        -122.24,
+        41.3,
+        -122.15,
+        41.37
+      ],
+      "ski_area": "derived",
+      "elevation": "3dep1",
+      "elevation_project": "CA_CarrHirzDeltaFires_2019_B19",
+      "baseline_checked": "2026-11-19",
+      "osm_timestamp": "2026-11-20T01:18:21Z",
+      "overpass_box": [
+        -122.28,
+        41.28,
+        -122.11,
+        41.39
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_CarrHirzDeltaFires_2019_B19/TIFF/USGS_1M_10_x56y457_CA_CarrHirzDeltaFires_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_CarrHirzDeltaFires_2019_B19/TIFF/USGS_1M_10_x56y458_CA_CarrHirzDeltaFires_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_CarrHirzDeltaFires_2019_B19/TIFF/USGS_1M_10_x56y459_CA_CarrHirzDeltaFires_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_CarrHirzDeltaFires_2019_B19/TIFF/USGS_1M_10_x57y457_CA_CarrHirzDeltaFires_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_CarrHirzDeltaFires_2019_B19/TIFF/USGS_1M_10_x57y458_CA_CarrHirzDeltaFires_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_CarrHirzDeltaFires_2019_B19/TIFF/USGS_1M_10_x57y459_CA_CarrHirzDeltaFires_2019_B19.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n42w123/USGS_13_n42w123.tif"
+      ],
+      "elevation_coverage": {
+        "source": "3dep1",
+        "project": "CA_CarrHirzDeltaFires_2019_B19",
+        "grid": "EPSG:3857, 4.777314 m",
+        "box": [
+          -122.24,
+          41.3,
+          -122.15,
+          41.37
+        ],
+        "lidar_box_pct": 99.864,
+        "lidar_window_pct": 83.976,
+        "min_lidar_box_pct": 95,
+        "fill_source": "3dep13",
+        "filled_window_pct": 16.024
+      },
+      "built_at": "2026-11-20T01:21:02Z",
+      "ski_file": {
+        "path": "data/mt-shasta-ski-park-v1-ski.pmtiles",
+        "bytes": 110295,
+        "sha256": "f63f374595d061469befdef5b9a1ae22a90d8485b7734c8d7d4e71f2d1e0eb1e"
+      },
+      "coverage": "data/mt-shasta-ski-park-v1-coverage.json"
     },
     {
       "slug": "nakiska",
@@ -6760,6 +6935,50 @@
       "coverage": "data/the-highlands-v2-coverage.json"
     },
     {
+      "slug": "timberline-lodge",
+      "name": "Timberline Lodge",
+      "version": 1,
+      "key": "timberline-lodge-v1",
+      "box": [
+        -121.78,
+        45.28,
+        -121.67,
+        45.38
+      ],
+      "ski_area": "way/679189584",
+      "neighbours": [
+        {
+          "id": "way/1155730256",
+          "name": "Mt. Hood Skibowl",
+          "reason": "Mt. Hood Skibowl, a separate ski area on its own lift tickets south of US 26 across Government Camp (Timberline and Skibowl share an owner, and the Mt. Hood Fusion pass covers both, but Timberline's lift status page lists neither of Skibowl's chairs): its polygon, East and West, lies in the box's south-west, 0.87 km from Summit Pass's lowest run (the Alpine's foot), and no lift or trail joins the two (Skibowl's 2026/27 trail map ends at US 26; Timberline's Summit Pass map at Government Camp). Left off by the owner's rule of 2026-10-21 (\"leave them off\"); it has a map of its own."
+        },
+        {
+          "id": "way/866496711",
+          "name": "Mt. Hood Meadows Ski Resort",
+          "reason": "Mt. Hood Meadows, a separate resort on its own ticket east across the White River canyon, 1.58 km from Timberline's polygon at the nearest, joined to it by no lift or trail (Timberline's map: 'all canyons lead away from the ski area'): its polygon's west edge and the lifts and runs of its west side (the Vista Express, the Cascade Express, Daisy and Easy Rider) lie in the box's east and the Overpass window. Left off by the owner's rule of 2026-10-21 (\"leave them off\"); it has a map of its own."
+        }
+      ],
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-19",
+      "osm_timestamp": "2026-11-20T01:21:21Z",
+      "overpass_box": [
+        -121.82,
+        45.26,
+        -121.63,
+        45.4
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n46w122/USGS_13_n46w122.tif"
+      ],
+      "built_at": "2026-11-20T01:23:15Z",
+      "ski_file": {
+        "path": "data/timberline-lodge-v1-ski.pmtiles",
+        "bytes": 256605,
+        "sha256": "e2168cc0f8c3e4fa8259a2362108324c7ca3e7fba3fa07e9601f682f8d04622d"
+      },
+      "coverage": "data/timberline-lodge-v1-coverage.json"
+    },
+    {
       "slug": "tremblant",
       "name": "Tremblant",
       "version": 3,
@@ -7040,6 +7259,39 @@
         "sha256": "ea725a2acb8f8b88a95133244f331b6a8c1bcc56132dcfc3db76a7665ff6a2a6"
       },
       "coverage": "data/wildcat-v2-coverage.json"
+    },
+    {
+      "slug": "willamette-pass",
+      "name": "Willamette Pass",
+      "version": 1,
+      "key": "willamette-pass-v1",
+      "box": [
+        -122.07,
+        43.57,
+        -121.98,
+        43.64
+      ],
+      "ski_area": "way/1278124828",
+      "elevation": "3dep13",
+      "baseline_checked": "2026-11-19",
+      "osm_timestamp": "2026-11-20T01:20:20Z",
+      "overpass_box": [
+        -122.11,
+        43.55,
+        -121.94,
+        43.66
+      ],
+      "elevation_inputs": [
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w122/USGS_13_n44w122.tif",
+        "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n44w123/USGS_13_n44w123.tif"
+      ],
+      "built_at": "2026-11-20T01:22:20Z",
+      "ski_file": {
+        "path": "data/willamette-pass-v1-ski.pmtiles",
+        "bytes": 82563,
+        "sha256": "d91b016937ad79fea093768c08b53178f3e04098c9379a0810f91cb91e00b428"
+      },
+      "coverage": "data/willamette-pass-v1-coverage.json"
     },
     {
       "slug": "wilmot",

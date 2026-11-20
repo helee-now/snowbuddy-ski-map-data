@@ -1,0 +1,158 @@
+{
+  "key": "timberline-lodge-v1",
+  "ski_sha256": "e2168cc0f8c3e4fa8259a2362108324c7ca3e7fba3fa07e9601f682f8d04622d",
+  "osm_timestamp": "2026-11-20T01:21:21Z",
+  "box": [
+    -121.78,
+    45.28,
+    -121.67,
+    45.38
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -121.746122,
+    45.303305,
+    -121.701726,
+    45.359532
+  ],
+  "margins_km": {
+    "west": 2.65,
+    "south": 2.59,
+    "east": 2.48,
+    "north": 2.28
+  },
+  "counts": {
+    "lifts": 12,
+    "runs_in_bounds": 66,
+    "run_areas_in_bounds": 9,
+    "runs_out_of_bounds": 6,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 23,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 10.5,
+    "runs_in_bounds": 53.3,
+    "runs_out_of_bounds": 9.4
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1378207220",
+      "name": "Glade Trail",
+      "difficulty": "easy",
+      "length_m": 3096,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1378207221",
+      "name": "Sand Canyon",
+      "difficulty": "extreme",
+      "length_m": 2323,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1378207230",
+      "name": "Zigzag Side Country",
+      "difficulty": "extreme",
+      "length_m": 2129,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1378207231",
+      "name": "Old Chute",
+      "difficulty": "extreme",
+      "length_m": 147,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1378207232",
+      "name": "West Crater Rim",
+      "difficulty": "extreme",
+      "length_m": 695,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1378207235",
+      "name": "Zigzag Glacier",
+      "difficulty": "extreme",
+      "length_m": 1021,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -121.816406,
+      45.213004,
+      -121.640625,
+      45.460131
+    ],
+    "12": [
+      -121.816406,
+      45.274886,
+      -121.640625,
+      45.39845
+    ],
+    "13": [
+      -121.816406,
+      45.274886,
+      -121.640625,
+      45.39845
+    ],
+    "14": [
+      -121.794434,
+      45.274886,
+      -121.662598,
+      45.383019
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

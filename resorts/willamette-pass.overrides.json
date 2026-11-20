@@ -1,0 +1,54 @@
+{
+  "slug": "willamette-pass",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1278124828 (Willamette Pass, landuse=winter_sports, 4.38 km²): the South Face above the base lodge on Highway 58 (Eagle Peak Accelerator, Twilight, Midway, Sleepy Hollow and the Magic Carpet) and the North Face backside below Peak 2 (the Peak 2 chair), on one ticket (the Power Pass, neither Ikon nor Epic) and one map. The two faces are joined by trail at Eagle Peak and Peak 2 (Southbound, Kris Kross, Boundary Pass, Upper Rosary Run and Kaleidoscope); no part is reached only by road or shuttle. No other ski area's polygon lies in the box or the Overpass window; the resort's 20 km of cross-country trails and the Forest Service's nordic trails round it (South Waldo Nordic Trail, Fuji Shelter Tie Trail, Jo Ann-Lorin Lakes Trail), 13 nordic ways, are left out by the type rule. Every named run and lift checked on 2026-11-19 against the resort's current trail map (willamettepass.ski/trail-map links Studio-Project-3.png, an older map at 713 x 1053 px too small to read; the 2026 map is 26-Willamette-Pass-Trail-Map.pdf, uploaded 2025-09 under the same site, two pages, the South Face Alpine Trails and the North Face Backside Trails, rendered from the PDF at four times its size) and the resort's lifts and trails page (willamettepass.ski/weather-conditions-webcams/lifts-trails: its six lifts and 30 trails, each rated green, blue or black). The map's key: Easier (green circle), More Difficult (blue square), Most Difficult (black diamond), Terrain Park, Caution Cliff Area; it has no double diamond. All 30 of the resort's trails are in OpenStreetMap with the map's and the page's rating, but RTS, rated expert (set to the resort's black). Names: Perserverance as the map and the page spell it (OSM's name Perseverence, its piste:name Perserverence) and Upper Rosary Run (OSM's piste:name Upper Rosay Run, which the pipeline reads first). The lifts take the map's and the page's names: Twilight, Midway and Peak 2 (OSM adds Lift), Sleepy Hollow and the Magic Carpet (unnamed in OSM); the Eagle Peak Accelerator keeps OSM's name, the map's. On neither of the resort's sources and kept as OpenStreetMap has them: Dragon's Back (way/1578393201, expert, 261 m) between Where's Waldo and June's Run, west of the Peak 2 chair; the run areas SDN (way/1578771809, freeride) north of Eagle Peak and Backside trees (way/1579943510, advanced) south-east of Boundary Pass, both tagged piste:grooming=backcountry but lying inside the polygon, so in bounds, as the map draws the whole backside inside its boundary; Terrain Park (way/1341691342, piste:type=playground, unrated, 243 m) below the Midway chair's top (the 2026 map's key lists a terrain park but the map draws none, and the lifts and trails page lists none, so it takes no park flag); and four free-standing two-node connection lines (way/1341691340, 1341691341, 1341691343 and 1341691344; three tagged piste:grooming=classic, one easy) on the front side, joined to no run or lift. OSM gaps: none of the 30 trails is missing.",
+  "overrides": [
+    {
+      "id": "way/130939391",
+      "reason": "Perserverance, the long blue run from Kaleidoscope's end down the east side to the base: Willamette Pass's 2026 trail map (willamettepass.ski/trail-map, 26-Willamette-Pass-Trail-Map.pdf, uploaded 2025-09, its South Face page) prints PERSERVERANCE and the resort's lifts and trails page (willamettepass.ski/weather-conditions-webcams/lifts-trails) lists Perserverance, both rated blue as OSM has it. OSM names the way Perseverence and its piste:name, which the pipeline reads first, Perserverence: the resort's own spelling, written the same in both of its sources.",
+      "expect": { "name": "Perseverence", "piste:name": "Perserverence", "piste:difficulty": "intermediate" },
+      "set": { "name": "Perserverance" }
+    },
+    {
+      "id": "way/130941658",
+      "reason": "Misspelt piste:name ('Upper Rosay Run'), which the pipeline reads before the way's name, Upper Rosary Run: Willamette Pass's 2026 trail map (willamettepass.ski/trail-map, 26-Willamette-Pass-Trail-Map.pdf, its North Face page) prints UPPER ROSARY RUN and the lifts and trails page lists Upper Rosary Run, blue as OSM has it.",
+      "expect": { "name": "Upper Rosary Run", "piste:name": "Upper Rosay Run", "piste:difficulty": "intermediate" },
+      "set": { "name": "Upper Rosary Run" }
+    },
+    {
+      "id": "way/130939398",
+      "reason": "RTS, from Eagle Peak's top west to Amber's Way: one black diamond (Most Difficult) on Willamette Pass's 2026 trail map (willamettepass.ski/trail-map, 26-Willamette-Pass-Trail-Map.pdf, its South Face page; the map's key has no double diamond) and black on the resort's lifts and trails page (willamettepass.ski/weather-conditions-webcams/lifts-trails); OSM rates it expert. The resort's sources agree and win: advanced.",
+      "expect": { "name": "RTS", "piste:difficulty": "expert" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/130939385",
+      "reason": "Willamette Pass's 2026 trail map (willamettepass.ski/trail-map, 26-Willamette-Pass-Trail-Map.pdf) labels this triple chair TWILIGHT and the lifts and trails page lists Twilight; OSM names it Twilight Lift.",
+      "expect": { "name": "Twilight Lift", "aerialway": "chair_lift" },
+      "set": { "name": "Twilight" }
+    },
+    {
+      "id": "way/257534257",
+      "reason": "Willamette Pass's 2026 trail map (willamettepass.ski/trail-map, 26-Willamette-Pass-Trail-Map.pdf) labels this triple chair MIDWAY and the lifts and trails page lists Midway; OSM names it Midway Lift.",
+      "expect": { "name": "Midway Lift", "aerialway": "chair_lift" },
+      "set": { "name": "Midway" }
+    },
+    {
+      "id": "way/130941646",
+      "reason": "Willamette Pass's 2026 trail map (willamettepass.ski/trail-map, 26-Willamette-Pass-Trail-Map.pdf, its North Face page) labels the triple chair from the backside's bottom (5,183 ft) to Peak 2 (6,696 ft) PEAK 2, and the lifts and trails page lists Peak 2; OSM names it Peak 2 Lift.",
+      "expect": { "name": "Peak 2 Lift", "aerialway": "chair_lift" },
+      "set": { "name": "Peak 2" }
+    },
+    {
+      "id": "way/257534256",
+      "reason": "The unnamed 195 m lift east of the Eagle Peak Accelerator's bottom, beside the Sleepy Hollow run, is Sleepy Hollow: Willamette Pass's 2026 trail map (willamettepass.ski/trail-map, 26-Willamette-Pass-Trail-Map.pdf) draws the SLEEPY HOLLOW lift there (without a lift-type symbol; OSM's chair_lift is kept), and the lifts and trails page lists Sleepy Hollow among its six lifts.",
+      "expect": { "name": null, "aerialway": "chair_lift" },
+      "set": { "name": "Sleepy Hollow" }
+    },
+    {
+      "id": "way/257534255",
+      "reason": "The unnamed 35 m carpet at the bottom of Sleepy Hollow is the Magic Carpet: Willamette Pass's 2026 trail map (willamettepass.ski/trail-map, 26-Willamette-Pass-Trail-Map.pdf) labels the conveyor there MAGIC CARPET, and the lifts and trails page lists The Magic Carpet (Conveyor).",
+      "expect": { "name": null, "aerialway": "magic_carpet" },
+      "set": { "name": "Magic Carpet" }
+    }
+  ]
+}

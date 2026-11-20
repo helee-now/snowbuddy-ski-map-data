@@ -1,0 +1,54 @@
+{
+  "slug": "mt-shasta-ski-park",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. No polygon: OpenStreetMap has no landuse=winter_sports area for Mt. Shasta Ski Park (checked 2026-11-19 over the box and well beyond it): relation/4666979, named Mt. Shasta Ski Park, is a type=site relation (site=piste) of its lifts and runs, and node/2635667013 a leisure=sports_centre point at the lodge. So its ski area is derived from its own lifts and runs (resorts.json \"derived\", the README's rule, 100 m buffer): one part of 3.29 km², from Marmot Ridge, Coyote Butte and Douglas Butte above the Panther Creek and Red Fir lodges on the Ski Park Highway to Gray Butte (7,536 ft) and the backside, on one ticket and one map. Every part is reached by lift or trail (Gray Butte by Beeline and Get Back, the backside from Douglas Butte back to the base by the Catchline); none only by road or shuttle. No other ski area has a polygon in the box or the Overpass window, so there is no neighbour: the abandoned old Mt. Shasta Ski Bowl higher on the mountain has none, only its two parking lots (way/613529226 and way/613529229, Old Ski Bowl - Lower and Upper Lot, 1.8 to 1.9 km north-west of the Gray Butte Quad's top, inside the box); Mt. Shasta Nordic's cross-country trails south-west of the base (network MtShastaNordic) and the Forest Service's winter trails at Bunny Flat, 68 nordic ways and a snowshoe way, are left out by the type rule; the Avalanche Gulch Main Ski Route on Mt. Shasta itself (way/1103348797, backcountry) lies 5.3 km north of the Gray Butte Quad's top, outside the window. Every named run and lift checked on 2026-11-19 against the resort's current trail map (skipark.com/winter/trail-map-stats: MtSHASTA -02.4 12062022forWEB.jpg, the VistaMap painting at 2048 x 1863 px, the largest the resort serves, read in crops enlarged two to three times) and the lift table of its trail map and statistics page (Gray Butte Quad, Douglas, Coyote and Marmot Triples, the Moving Carpet Lift and the Magic Carpet; terrain parks beginner and intermediate). The map's key: Easiest (green circle), More Difficult (blue square), Most Difficult (black diamond), Experts Only (two diamonds), Freestyle Terrain (orange). Every named OpenStreetMap run the map prints carries the map's rating already (Richard's Way, the map's one double diamond, is expert), but Revolution, below. Names: Haley's Comet, Eagle's Flight and Snowshoe as the map spells them, and Revolution for OSM's Revolution Superpipe. Silvertip, the map's beginner Freestyle Terrain on Marmot Ridge, is a snow park in OSM. The lifts take the map's and the lift table's names (OSM has Marmot, Douglas, Coyote and Gray Butte Lift); the Magic Carpet and the Panther Creek Carpet (the lift table's Moving Carpet Lift) keep OSM's names, the map's. Not on the map and kept as OSM has them: Douglas Get Back (way/332412616, freeride, gladed), from Douglas Butte down the backside the map labels BACKSIDE and west along the map's Catchline to the Douglas Triple's bottom, and Little Canada (way/332412618, freeride, gladed) across the backside to it; and an unnamed 79 m black line beside the Coyote Triple. OSM gaps against the map (shipped as at Palisades Tahoe): Buffalo Gulch (black) beside the Coyote Triple, Easy Money (green) and the lower Easy Street across to Panther Creek (green) on Marmot Ridge.",
+  "overrides": [
+    {
+      "id": "way/332412630",
+      "reason": "Misspelt name ('Halley's Comet'): Mt. Shasta Ski Park's current trail map (skipark.com/winter/trail-map-stats: MtSHASTA -02.4 12062022forWEB.jpg, the VistaMap painting at 2048 x 1863 px) prints HALEY'S COMET, a black diamond between Highland Glide and Red Tail below Douglas Butte; OSM's rating, advanced, is the map's.",
+      "expect": { "name": "Halley's Comet", "piste:difficulty": "advanced" },
+      "set": { "name": "Haley's Comet" }
+    },
+    {
+      "id": "way/332412626",
+      "reason": "Misspelt name ('Eagles Flight'): Mt. Shasta Ski Park's current trail map (skipark.com/winter/trail-map-stats: MtSHASTA -02.4 12062022forWEB.jpg, the VistaMap painting at 2048 x 1863 px) prints EAGLE'S FLIGHT, the blue run round the west side of Coyote Butte; OSM's rating, intermediate, is the map's.",
+      "expect": { "name": "Eagles Flight", "piste:difficulty": "intermediate" },
+      "set": { "name": "Eagle's Flight" }
+    },
+    {
+      "id": "way/332412653",
+      "reason": "Mt. Shasta Ski Park's current trail map (skipark.com/winter/trail-map-stats: MtSHASTA -02.4 12062022forWEB.jpg, the VistaMap painting at 2048 x 1863 px) prints SNOWSHOE, one word, for the blue run beside the Marmot Triple; OSM writes Snow Shoe. Its rating, intermediate, is the map's.",
+      "expect": { "name": "Snow Shoe", "piste:difficulty": "intermediate" },
+      "set": { "name": "Snowshoe" }
+    },
+    {
+      "id": "way/332412638",
+      "reason": "Revolution: Mt. Shasta Ski Park's current trail map (skipark.com/winter/trail-map-stats: MtSHASTA -02.4 12062022forWEB.jpg, the VistaMap painting at 2048 x 1863 px) names REVOLUTION both the blue run from Coyote Butte's top down to Coyote Road (blue square) and the Freestyle Terrain below Coyote Road to the Coyote Triple's bottom; OSM draws the two as this one snow_park way (522 m above Coyote Road, 481 m below), named Revolution Superpipe and rated advanced. The map's name, and its blue: the trail map and stats page (Terrain Parks: beginner & intermediate) rate nothing here black. The way keeps OSM's snow_park type, so it is drawn as a park, as the map's Freestyle Terrain band below Coyote Road (one way cannot be drawn half run, half park).",
+      "expect": { "name": "Revolution Superpipe", "piste:type": "snow_park", "piste:difficulty": "advanced" },
+      "set": { "name": "Revolution", "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/188552094",
+      "reason": "Mt. Shasta Ski Park's current trail map (skipark.com/winter/trail-map-stats: MtSHASTA -02.4 12062022forWEB.jpg) labels the chair from the base to Marmot Ridge MARMOT TRIPLE, and the stats page's lift table lists the Marmot Triple; OSM names it Marmot.",
+      "expect": { "name": "Marmot", "aerialway": "chair_lift" },
+      "set": { "name": "Marmot Triple" }
+    },
+    {
+      "id": "way/188552097",
+      "reason": "Mt. Shasta Ski Park's current trail map (skipark.com/winter/trail-map-stats: MtSHASTA -02.4 12062022forWEB.jpg) labels the chair from the base to Douglas Butte DOUGLAS TRIPLE, and the stats page's lift table lists the Douglas Triple; OSM names it Douglas.",
+      "expect": { "name": "Douglas", "aerialway": "chair_lift" },
+      "set": { "name": "Douglas Triple" }
+    },
+    {
+      "id": "way/188552136",
+      "reason": "Mt. Shasta Ski Park's current trail map (skipark.com/winter/trail-map-stats: MtSHASTA -02.4 12062022forWEB.jpg) labels the chair to Coyote Butte COYOTE TRIPLE, and the stats page's lift table lists the Coyote Triple; OSM names it Coyote.",
+      "expect": { "name": "Coyote", "aerialway": "chair_lift" },
+      "set": { "name": "Coyote Triple" }
+    },
+    {
+      "id": "way/1088248964",
+      "reason": "Mt. Shasta Ski Park's current trail map (skipark.com/winter/trail-map-stats: MtSHASTA -02.4 12062022forWEB.jpg) labels the chair to Gray Butte (7,536 ft) GRAY BUTTE QUAD, and the stats page's lift table lists the Gray Butte Quad; OSM names it Gray Butte Lift.",
+      "expect": { "name": "Gray Butte Lift", "aerialway": "chair_lift" },
+      "set": { "name": "Gray Butte Quad" }
+    }
+  ]
+}

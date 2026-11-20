@@ -1,0 +1,363 @@
+{
+  "slug": "mt-hood-meadows",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/866496711 (Mt. Hood Meadows Ski Resort, landuse=winter_sports): the main base (Main Lodge and Sahale, 5,366 ft) with Easy Rider, Vista Express, Buttercup, Daisy, the Ballroom Carpet, the Mt. Hood Express and the Stadium Express; the Cascade Express to 7,305 ft; the Shooting Star Express and Heather above the Private Reserve; and the Hood River Express from the Hood River Meadows (HRM) lodge at 4,528 ft, all joined by lift and trail on one ticket and one map; no part is reached only by road or shuttle (the HRM lodge and the main base are joined by the Hood River Express and the runs between them). The ski area boundary on the resort's map (its yellow dotted line) takes in Super Bowl up to 9,000 ft (hiked from the Cascade Express's top, 'Super Bowl Skiing 1,700 Vert. Ft.' on the 2023-24 map) and the gated expert terrain of Heather Canyon, Clark Canyon and the Private Reserve, entered through access gates only ('Gate Access Only': not patrolled on a regular basis, the names for reference only, per the 2023-24 map); OpenStreetMap's polygon ends lower on the east and north, and OpenStreetMap tags the gated runs piste:grooming=backcountry, so the seven of them lying mostly outside the polygon (Superbowl, Pea Gravel Ridge, Dallas Bowl, Chute 225, S&R Cliffs, The Curtains, FBW) are kept in bounds below, as Sugarloaf's Brackett Basin is; those inside it (Heather Canyon, Clark Canyon, the Private Reserve, the bowls and woods between them) stay in bounds by the rule, drawn as ungroomed runs. Neighbours (resorts.json): Timberline (way/679189584) across White River Canyon to the west, in the box, and Mt. Hood Skibowl (way/1155730256) at Government Camp, in the Overpass window's south-west. Hidden one by one below because they have no landuse=winter_sports polygon of their own: Summit Pass, Timberline's beginner area at Government Camp (its chair and four runs, in the window beyond the box), and Cooper Spur, Meadows' small ski area 7 km north (its chair and eight runs at the window's north edge); and four out-of-bounds descents of Mt. Hood's south side skied from Timberline (Sand Canyon, Zigzag Glacier, West Crater Rim, Old Chute), which lie beyond the 250 m that would give them to Timberline. Every named run and lift checked on 2026-11-19 against the resort's current trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) and its 2023-24 map (the PDF the grooming report page still links, with its lift and mountain statistics); the grooming report (skihood.com/mountain-report/grooming-report, /api/weather/trails) lists no runs before the season opens. The map's key: Easier (green circle), More Difficult (blue square), Most Difficult (black diamond), Extremely Difficult/Experts Only (two black diamonds) and Freestyle Terrain (orange), OSM's easy, intermediate, advanced and expert. Every named OpenStreetMap run the map prints carries its rating already but Clark Canyon, Jack's Woods' line and the lower Heather Canyon, set to the map's two diamonds below. Names: Wee Bee Gee Bee and Heather Canyon from the map; Outrigger and Lower Outrigger by their place for OpenStreetMap's Park Place and Boardwalk, names on neither map. Kept as OpenStreetMap has them: 'Superbowl', 'Wyeast', '1 1/2 Bowl' and '1/2 Moon Bowl' (the map's SUPER BOWL, WY EAST, 1½ BOWL and ½ MOON BOWL differ only in a space or the fraction's form), the lift 'Mount Hood Express' (the map's MT. HOOD EXPRESS, the same name unabbreviated), and runs the map does not print: HRM Face (the face above the HRM lodge), Race Start, Learning Area, 7 Towers, Elevator Shaft, Conan's Nose, Heather Lift Line, Ho Chi Minh, The Toilet Bowl, A-Zone to Clark, Twilight to Accordion (traverse names, as the 2023-24 map's own 'A-Zone to H.C.' label), Chute 225 and Pea Gravel Ridge. Parks: Forest Park is a snow_park area and the Superpipe a halfpipe in OpenStreetMap, so both draw as parks already. The three unnamed backcountry areas at Bennett Pass, 2.5 km south-east of the polygon at the box's south edge, are drawn out of bounds by the rule. OSM gaps (shipped as at Palisades Tahoe): I Hear Cars (blue), Lucky Lady (green), Jigsaw, Endor and Rescue Hill (black), Hinterlands, Elk Cliffs and Picnic Rock (double black), and the parks The Zoo, Naster Park (round Nastar Hill and Wall Flower) and Banked Slalom.",
+  "overrides": [
+    {
+      "id": "way/1378188197",
+      "reason": "Clark Canyon, the gated canyon east of Heather Canyon, has two black diamonds (Extremely Difficult/Experts Only) on Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size); OSM rates it advanced. The map wins.",
+      "expect": {
+        "name": "Clark Canyon",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1283491540",
+      "reason": "Jack's Woods, in the gated woods north-east of the Shooting Star Express's bottom, has two black diamonds on Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size); OSM rates this line advanced and its outline of the same name (way/1378188230) expert. The map wins.",
+      "expect": {
+        "name": "Jack's Woods",
+        "piste:difficulty": "advanced",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1283491529",
+      "reason": "Misspelt name ('Heater Canyon'): this way is the canyon floor from the point where Heather Canyon (way/1148045582) and Clark Canyon (way/1378188197) both end down to the Heather chair's bottom, the lower part of Heather Canyon, which Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) names HEATHER CANYON with two black diamonds and draws down to the Heather chair. One name, so the canyon ranks as one run; its rating the harder of the map's and OSM's advanced.",
+      "expect": {
+        "name": "Heater Canyon",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Heather Canyon",
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/1228346641",
+      "reason": "Misspelt name ('Wee Gee Bee Gee'): Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) and its 2023-24 trail map (Trail_Map_20x17_2023_24_Webv2.pdf, the edition the site's grooming report still links) both print WEE BEE GEE BEE, with one black diamond (advanced, as OSM rates it).",
+      "expect": {
+        "name": "Wee Gee Bee Gee",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Wee Bee Gee Bee"
+      }
+    },
+    {
+      "id": "way/53543836",
+      "reason": "Outrigger, named by its place: Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) and its 2023-24 trail map (Trail_Map_20x17_2023_24_Webv2.pdf, the edition the site's grooming report still links) draw two blue runs down the east side of the Hood River Express from its top, Pipeline along the lift line and Outrigger beyond it beside the gated boundary of the Private Reserve, Outrigger forking at its foot into Breakaway and Lower Outrigger, which cross under the lift. This way (piste:name Park Place, no name) is that run: it leaves the lift's top on its east side, runs 10 to 80 m east of the lift line along the Private Reserve's outline, and ends where Breakaway (way/150578204) and Lower Outrigger (way/53543838) start. Neither map names a Park Place.",
+      "expect": {
+        "name": null,
+        "piste:name": "Park Place",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Outrigger"
+      }
+    },
+    {
+      "id": "way/53543838",
+      "reason": "Lower Outrigger, named by its place (see way/53543836): from Outrigger's foot, where Breakaway also starts, this way (piste:name Boardwalk, no name) swings east beside the gated boundary and back west under the Hood River Express to rejoin Breakaway above the Knot Hole junction, as Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) and its 2023-24 trail map (Trail_Map_20x17_2023_24_Webv2.pdf, the edition the site's grooming report still links) draw Lower Outrigger (blue). Neither map names a Boardwalk.",
+      "expect": {
+        "name": null,
+        "piste:name": "Boardwalk",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Lower Outrigger"
+      }
+    },
+    {
+      "id": "way/1378188209",
+      "reason": "Super Bowl, the hike-to bowl above the Cascade Express's top (two black diamonds on the map, 'Super Bowl Skiing 1,700 Vert. Ft.' on the 2023-24 map), OSM's outline of it, lies inside the ski area boundary Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) draws (its yellow dotted line round Super Bowl up to 9,000 ft, Heather Canyon, Clark Canyon and the Private Reserve, east to beyond the Heather Canyon Runout), behind the gated access boundary ('Gate Access Only': not patrolled on a regular basis, per the 2023-24 map), but mostly outside OpenStreetMap's polygon, which ends lower (in_frac 0.0); tagged piste:grooming=backcountry, the rule would draw it out of bounds. In bounds, as the resort draws it, as Sugarloaf's Brackett Basin is; still drawn ungroomed.",
+      "expect": {
+        "area": "yes",
+        "name": "Superbowl",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1378188210",
+      "reason": "Pea Gravel Ridge, OSM's outline of the upper Heather and Clark Canyons below Super Bowl (a name the map does not print), lies inside the ski area boundary Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) draws (its yellow dotted line round Super Bowl up to 9,000 ft, Heather Canyon, Clark Canyon and the Private Reserve, east to beyond the Heather Canyon Runout), behind the gated access boundary ('Gate Access Only': not patrolled on a regular basis, per the 2023-24 map), but mostly outside OpenStreetMap's polygon, which ends lower (in_frac 0.33); tagged piste:grooming=backcountry, the rule would draw it out of bounds. In bounds, as the resort draws it, as Sugarloaf's Brackett Basin is; still drawn ungroomed.",
+      "expect": {
+        "area": "yes",
+        "name": "Pea Gravel Ridge",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1378188196",
+      "reason": "Dallas Bowl, from the Cascade Express's top into upper Heather Canyon (two black diamonds on the map), lies inside the ski area boundary Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) draws (its yellow dotted line round Super Bowl up to 9,000 ft, Heather Canyon, Clark Canyon and the Private Reserve, east to beyond the Heather Canyon Runout), behind the gated access boundary ('Gate Access Only': not patrolled on a regular basis, per the 2023-24 map), but mostly outside OpenStreetMap's polygon, which ends lower (in_frac 0.15); tagged piste:grooming=backcountry, the rule would draw it out of bounds. In bounds, as the resort draws it, as Sugarloaf's Brackett Basin is; still drawn ungroomed.",
+      "expect": {
+        "name": "Dallas Bowl",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1378188208",
+      "reason": "Chute 225, from the Cascade Express's top into upper Heather Canyon beside Dallas Bowl (a name the map does not print), lies inside the ski area boundary Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) draws (its yellow dotted line round Super Bowl up to 9,000 ft, Heather Canyon, Clark Canyon and the Private Reserve, east to beyond the Heather Canyon Runout), behind the gated access boundary ('Gate Access Only': not patrolled on a regular basis, per the 2023-24 map), but mostly outside OpenStreetMap's polygon, which ends lower (in_frac 0.28); tagged piste:grooming=backcountry, the rule would draw it out of bounds. In bounds, as the resort draws it, as Sugarloaf's Brackett Basin is; still drawn ungroomed.",
+      "expect": {
+        "name": "Chute 225",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1378188223",
+      "reason": "S&R Cliffs, on the east wall of lower Heather Canyon above the Heather Canyon Runout (two black diamonds on the map), lies inside the ski area boundary Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) draws (its yellow dotted line round Super Bowl up to 9,000 ft, Heather Canyon, Clark Canyon and the Private Reserve, east to beyond the Heather Canyon Runout), behind the gated access boundary ('Gate Access Only': not patrolled on a regular basis, per the 2023-24 map), but mostly outside OpenStreetMap's polygon, which ends lower (in_frac 0.0); tagged piste:grooming=backcountry, the rule would draw it out of bounds. In bounds, as the resort draws it, as Sugarloaf's Brackett Basin is; still drawn ungroomed.",
+      "expect": {
+        "name": "S&R Cliffs",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1378188224",
+      "reason": "The Curtains, on the east wall of lower Heather Canyon above the Heather Canyon Runout (two black diamonds on the map), lies inside the ski area boundary Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) draws (its yellow dotted line round Super Bowl up to 9,000 ft, Heather Canyon, Clark Canyon and the Private Reserve, east to beyond the Heather Canyon Runout), behind the gated access boundary ('Gate Access Only': not patrolled on a regular basis, per the 2023-24 map), but mostly outside OpenStreetMap's polygon, which ends lower (in_frac 0.0); tagged piste:grooming=backcountry, the rule would draw it out of bounds. In bounds, as the resort draws it, as Sugarloaf's Brackett Basin is; still drawn ungroomed.",
+      "expect": {
+        "name": "The Curtains",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/1378188231",
+      "reason": "FBW, on the east wall of lower Heather Canyon above the Heather Canyon Runout (two black diamonds on the map), lies inside the ski area boundary Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) draws (its yellow dotted line round Super Bowl up to 9,000 ft, Heather Canyon, Clark Canyon and the Private Reserve, east to beyond the Heather Canyon Runout), behind the gated access boundary ('Gate Access Only': not patrolled on a regular basis, per the 2023-24 map), but mostly outside OpenStreetMap's polygon, which ends lower (in_frac 0.0); tagged piste:grooming=backcountry, the rule would draw it out of bounds. In bounds, as the resort draws it, as Sugarloaf's Brackett Basin is; still drawn ungroomed.",
+      "expect": {
+        "name": "FBW",
+        "piste:difficulty": "expert",
+        "piste:grooming": "backcountry"
+      },
+      "set": {
+        "out_of_bounds": false
+      }
+    },
+    {
+      "id": "way/102128891",
+      "reason": "The Blue chair, a double beside the Mt. Hood Express from the main base, is in the lift statistics of the resort's 2023-24 map (5,378 to 6,555 ft) but on no lift line of Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size), whose lifts are the eleven others OSM has; OSM tags it abandoned=yes. Hidden, as Pico's replaced Outpost and Bonanza lifts are.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Blue",
+        "abandoned": "yes"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/53543840",
+      "reason": "Honey Suckle, a 1.5 km green line from beside the Stadium Express's bottom through the woods to the Hood River Meadows base, is named 'Honey Suckle (Abandoned)' in OSM, with the note 'Unmarked on MHM trail map as of 2023/24 season' and piste:grooming=backcountry; neither Mt. Hood Meadows' 2026-27 trail map (skihood.com/explore/trail-maps: Trail_Map_20x17_2026_27_map_APPROVED.jpg, the VistaMap painting at 6000 x 5100 px, read in crops at full size) nor its 2023-24 trail map (Trail_Map_20x17_2023_24_Webv2.pdf, the edition the site's grooming report still links) draws or names it. Hidden, as Nordic Mountain's glades named only on an old map are, so the map shows no beginner run the resort does not mark.",
+      "expect": {
+        "name": "Honey Suckle (Abandoned)",
+        "piste:name": "Honey Suckle",
+        "piste:difficulty": "easy",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1378207221",
+      "reason": "Sand Canyon: an out-of-bounds descent of Mt. Hood's south side west of Timberline (patrolled=no), 270 m from Timberline's polygon and 2.9 km west of Meadows' across White River Canyon, skied from Timberline's Palmer lift; reached from none of Meadows' lifts, whose map marks the slopes west of its boundary out of bounds. Timberline Lodge Ski Area is a listed neighbour (resorts.json), but the neighbour rule gives it only what lies within 250 m of its polygon, so this line would be drawn on Meadows' map; hidden, as Wildcat hides Mount Washington's lines beyond Tuckerman Ravine, so Meadows' map draws none of Timberline's terrain.",
+      "expect": {
+        "name": "Sand Canyon",
+        "patrolled": "no",
+        "piste:difficulty": "extreme",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1378207235",
+      "reason": "Zigzag Glacier: an out-of-bounds descent of Mt. Hood's south side above Timberline's Palmer snowfield (patrolled=no), 410 m from Timberline's polygon and 2.5 km west of Meadows' across White River Canyon, skied from Timberline's Palmer lift; reached from none of Meadows' lifts, whose map marks the slopes west of its boundary out of bounds. Timberline Lodge Ski Area is a listed neighbour (resorts.json), but the neighbour rule gives it only what lies within 250 m of its polygon, so this line would be drawn on Meadows' map; hidden, as Wildcat hides Mount Washington's lines beyond Tuckerman Ravine, so Meadows' map draws none of Timberline's terrain.",
+      "expect": {
+        "name": "Zigzag Glacier",
+        "patrolled": "no",
+        "piste:difficulty": "extreme",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1378207232",
+      "reason": "West Crater Rim: an out-of-bounds descent from the crater rim below Mt. Hood's summit, 930 m above Timberline's polygon and 2.6 km west of Meadows' across White River Canyon, reached by the South Side climbing route from Timberline Lodge; reached from none of Meadows' lifts, whose map marks the slopes west of its boundary out of bounds. Timberline Lodge Ski Area is a listed neighbour (resorts.json), but the neighbour rule gives it only what lies within 250 m of its polygon, so this line would be drawn on Meadows' map; hidden, as Wildcat hides Mount Washington's lines beyond Tuckerman Ravine, so Meadows' map draws none of Timberline's terrain.",
+      "expect": {
+        "name": "West Crater Rim",
+        "piste:difficulty": "extreme",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1378207231",
+      "reason": "Old Chute: the summit pitch of the South Side climbing route from Timberline Lodge, 1.5 km above Timberline's polygon and 2.7 km west of Meadows' across White River Canyon; reached from none of Meadows' lifts, whose map marks the slopes west of its boundary out of bounds. Timberline Lodge Ski Area is a listed neighbour (resorts.json), but the neighbour rule gives it only what lies within 250 m of its polygon, so this line would be drawn on Meadows' map; hidden, as Wildcat hides Mount Washington's lines beyond Tuckerman Ravine, so Meadows' map draws none of Timberline's terrain.",
+      "expect": {
+        "name": "Old Chute",
+        "piste:difficulty": "extreme",
+        "piste:grooming": "backcountry"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/45230418",
+      "reason": "Summit Pass's chairlift Summit. Summit Pass is Timberline's beginner area at the east end of Government Camp (formerly Summit Ski Area), another resort's, 5 km south-west of Meadows' polygon: beyond the box, in the Overpass window's south-west corner, 0.9 km from Skibowl's polygon and 1.5 km from Timberline's. It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Summit"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/149478666",
+      "reason": "Summit Pass's run Bumble Bee. Summit Pass is Timberline's beginner area at the east end of Government Camp (formerly Summit Ski Area), another resort's, 5 km south-west of Meadows' polygon: beyond the box, in the Overpass window's south-west corner, 0.9 km from Skibowl's polygon and 1.5 km from Timberline's. It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": "Bumblebee",
+        "piste:name": "Bumble Bee",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/149478636",
+      "reason": "Summit Pass's run Yellow Jacket. Summit Pass is Timberline's beginner area at the east end of Government Camp (formerly Summit Ski Area), another resort's, 5 km south-west of Meadows' polygon: beyond the box, in the Overpass window's south-west corner, 0.9 km from Skibowl's polygon and 1.5 km from Timberline's. It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": "Yellow Jacket",
+        "piste:name": "Yellow jacket",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1000962991",
+      "reason": "Summit Pass's run Yellow Jacket (its upper way). Summit Pass is Timberline's beginner area at the east end of Government Camp (formerly Summit Ski Area), another resort's, 5 km south-west of Meadows' polygon: beyond the box, in the Overpass window's south-west corner, 0.9 km from Skibowl's polygon and 1.5 km from Timberline's. It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": "Yellow Jacket",
+        "piste:name": "Yellow jacket",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1000962989",
+      "reason": "An unnamed green run of Summit Pass. Summit Pass is Timberline's beginner area at the east end of Government Camp (formerly Summit Ski Area), another resort's, 5 km south-west of Meadows' polygon: beyond the box, in the Overpass window's south-west corner, 0.9 km from Skibowl's polygon and 1.5 km from Timberline's. It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": null,
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/150727656",
+      "reason": "Cooper Spur's chairlift, The Homestead Chair. Cooper Spur Mountain Resort is Meadows' small ski area on Mt. Hood's north-east side (50 acres of beginner and intermediate terrain with 400 ft of vertical, per Meadows' 2023-24 map), 7 km north of Meadows' polygon at the Overpass window's north edge, beyond the box, joined to Meadows by no lift or trail (the drive is by Highway 35 and Cooper Spur Road), a separate ski area too small for a map of its own (the owner's rule of 2026-11-16: on request). It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "The Homestead Chair"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/150727650",
+      "reason": "Cooper Spur's run Sugar. Cooper Spur Mountain Resort is Meadows' small ski area on Mt. Hood's north-east side (50 acres of beginner and intermediate terrain with 400 ft of vertical, per Meadows' 2023-24 map), 7 km north of Meadows' polygon at the Overpass window's north edge, beyond the box, joined to Meadows by no lift or trail (the drive is by Highway 35 and Cooper Spur Road), a separate ski area too small for a map of its own (the owner's rule of 2026-11-16: on request). It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": null,
+        "piste:name": "Sugar",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/150727652",
+      "reason": "Cooper Spur's run Homestead. Cooper Spur Mountain Resort is Meadows' small ski area on Mt. Hood's north-east side (50 acres of beginner and intermediate terrain with 400 ft of vertical, per Meadows' 2023-24 map), 7 km north of Meadows' polygon at the Overpass window's north edge, beyond the box, joined to Meadows by no lift or trail (the drive is by Highway 35 and Cooper Spur Road), a separate ski area too small for a map of its own (the owner's rule of 2026-11-16: on request). It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": null,
+        "piste:name": "Homestead",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/150727653",
+      "reason": "Cooper Spur's run Accelerator. Cooper Spur Mountain Resort is Meadows' small ski area on Mt. Hood's north-east side (50 acres of beginner and intermediate terrain with 400 ft of vertical, per Meadows' 2023-24 map), 7 km north of Meadows' polygon at the Overpass window's north edge, beyond the box, joined to Meadows by no lift or trail (the drive is by Highway 35 and Cooper Spur Road), a separate ski area too small for a map of its own (the owner's rule of 2026-11-16: on request). It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": null,
+        "piste:name": "Accelerator",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/150727654",
+      "reason": "Cooper Spur's run Race Way. Cooper Spur Mountain Resort is Meadows' small ski area on Mt. Hood's north-east side (50 acres of beginner and intermediate terrain with 400 ft of vertical, per Meadows' 2023-24 map), 7 km north of Meadows' polygon at the Overpass window's north edge, beyond the box, joined to Meadows by no lift or trail (the drive is by Highway 35 and Cooper Spur Road), a separate ski area too small for a map of its own (the owner's rule of 2026-11-16: on request). It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": null,
+        "piste:name": "Race Way",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/150727655",
+      "reason": "Cooper Spur's run Skip's Run. Cooper Spur Mountain Resort is Meadows' small ski area on Mt. Hood's north-east side (50 acres of beginner and intermediate terrain with 400 ft of vertical, per Meadows' 2023-24 map), 7 km north of Meadows' polygon at the Overpass window's north edge, beyond the box, joined to Meadows by no lift or trail (the drive is by Highway 35 and Cooper Spur Road), a separate ski area too small for a map of its own (the owner's rule of 2026-11-16: on request). It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": null,
+        "piste:name": "Skip's Run",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/150727657",
+      "reason": "Cooper Spur's run Face. Cooper Spur Mountain Resort is Meadows' small ski area on Mt. Hood's north-east side (50 acres of beginner and intermediate terrain with 400 ft of vertical, per Meadows' 2023-24 map), 7 km north of Meadows' polygon at the Overpass window's north edge, beyond the box, joined to Meadows by no lift or trail (the drive is by Highway 35 and Cooper Spur Road), a separate ski area too small for a map of its own (the owner's rule of 2026-11-16: on request). It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": null,
+        "piste:name": "Face",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/150727658",
+      "reason": "Cooper Spur's run Fir Street. Cooper Spur Mountain Resort is Meadows' small ski area on Mt. Hood's north-east side (50 acres of beginner and intermediate terrain with 400 ft of vertical, per Meadows' 2023-24 map), 7 km north of Meadows' polygon at the Overpass window's north edge, beyond the box, joined to Meadows by no lift or trail (the drive is by Highway 35 and Cooper Spur Road), a separate ski area too small for a map of its own (the owner's rule of 2026-11-16: on request). It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": null,
+        "piste:name": "Fir Street",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/150727659",
+      "reason": "Cooper Spur's run Fox Run. Cooper Spur Mountain Resort is Meadows' small ski area on Mt. Hood's north-east side (50 acres of beginner and intermediate terrain with 400 ft of vertical, per Meadows' 2023-24 map), 7 km north of Meadows' polygon at the Overpass window's north edge, beyond the box, joined to Meadows by no lift or trail (the drive is by Highway 35 and Cooper Spur Road), a separate ski area too small for a map of its own (the owner's rule of 2026-11-16: on request). It has no landuse=winter_sports polygon in OpenStreetMap, so the neighbour rule cannot list it; hidden one by one, as Mt. Rose hides Sky Tavern, so none of it draws in the edge tiles.",
+      "expect": {
+        "name": null,
+        "piste:name": "Fox Run",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    }
+  ]
+}

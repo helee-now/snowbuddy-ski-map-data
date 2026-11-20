@@ -1,0 +1,116 @@
+{
+  "key": "mt-hood-meadows-v1",
+  "ski_sha256": "554d5d57dec9970ccecd210bd3122587ce75b61304ad89cd65492af77bb37b16",
+  "osm_timestamp": "2026-11-20T01:23:21Z",
+  "box": [
+    -121.72,
+    45.3,
+    -121.6,
+    45.39
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -121.688441,
+    45.323186,
+    -121.634889,
+    45.362958
+  ],
+  "margins_km": {
+    "west": 2.47,
+    "south": 2.58,
+    "east": 2.73,
+    "north": 3.01
+  },
+  "counts": {
+    "lifts": 11,
+    "runs_in_bounds": 138,
+    "run_areas_in_bounds": 10,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 3,
+    "lift_stations": 22,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 11.4,
+    "runs_in_bounds": 78.4,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [
+    {
+      "osm": "way/1160228584",
+      "name": null,
+      "difficulty": "unknown",
+      "area_m2": 33807,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1160228585",
+      "name": null,
+      "difficulty": "unknown",
+      "area_m2": 14433,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    },
+    {
+      "osm": "way/1160228586",
+      "name": null,
+      "difficulty": "unknown",
+      "area_m2": 19559,
+      "inside_box": true,
+      "drawn_whole_at": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "drawn_part_at": []
+    }
+  ],
+  "tile_footprints": {
+    "11": [
+      -121.816406,
+      45.213004,
+      -121.464844,
+      45.460131
+    ],
+    "12": [
+      -121.728516,
+      45.274886,
+      -121.552734,
+      45.39845
+    ],
+    "13": [
+      -121.728516,
+      45.274886,
+      -121.59668,
+      45.39845
+    ],
+    "14": [
+      -121.728516,
+      45.290347,
+      -121.59668,
+      45.39845
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

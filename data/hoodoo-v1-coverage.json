@@ -1,0 +1,73 @@
+{
+  "key": "hoodoo-v1",
+  "ski_sha256": "1a890a365d349334240242f5b387419c1425c10f90a0c557389fbcb63acc67b8",
+  "osm_timestamp": "2026-11-20T01:25:28Z",
+  "box": [
+    -121.92,
+    44.37,
+    -121.84,
+    44.44
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -121.89196,
+    44.395448,
+    -121.869884,
+    44.41281
+  ],
+  "margins_km": {
+    "west": 2.23,
+    "south": 2.83,
+    "east": 2.37,
+    "north": 3.02
+  },
+  "counts": {
+    "lifts": 6,
+    "runs_in_bounds": 50,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 13,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.1,
+    "runs_in_bounds": 20.9,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -121.992188,
+      44.339565,
+      -121.816406,
+      44.465151
+    ],
+    "12": [
+      -121.992188,
+      44.339565,
+      -121.816406,
+      44.465151
+    ],
+    "13": [
+      -121.948242,
+      44.339565,
+      -121.816406,
+      44.465151
+    ],
+    "14": [
+      -121.92627,
+      44.355278,
+      -121.838379,
+      44.449468
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

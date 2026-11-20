@@ -1,0 +1,85 @@
+{
+  "slug": "hoodoo",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1260579139 (Hoodoo Ski Area, landuse=winter_sports): Hoodoo Butte on Santiam Pass, the front side from the lodge (Big Green Machine to the summit, Ed Chair, Manzanita Chair, Easy Rider and Harold's Carpet Lift) and the north-west side (Hodag Chair), with Chuck's Backside off the back of the summit brought back round by the Catch Line, on one ticket and one map; every lift and downhill run in OpenStreetMap lies inside the polygon, and no part is reached only by road or shuttle. No other ski area's polygon lies in the box or the Overpass window. The Autobahn Tubing Park (OpenStreetMap's 'Autobahn Tubing Area', a sled area, and another sled area beside it) and the cross-country trails round the butte (Hoodoo's Nordic trails and the Forest Service's ski trails, nordic and skitour ways) are left out by the type rule; the Autobahn Tube Lift is not in OpenStreetMap. The resort calls itself Hoodoo Ski Area on its site (hoodoo.com/things-to-do/about) and Hoodoo on its trail map and logo; the map is named Hoodoo, as the batch's maps drop 'Ski Area'. Every named run and lift checked on 2026-11-19 against the resort's current trail map (hoodoo.com/explore/trail-map: Hoodoo-map-Web-digital.jpg, uploaded 2025-02, 2500 x 1853 px) and the trail table of its conditions report (hoodoo.com/the-mountain/mountain-lift-status, the 2025-26 season's last report of 2026-03-14: 42 rows for 37 runs, Over Easy in three parts and Big Dipper and Impossible Dream in two, each with Easier, More Difficult or Most Difficult and the colour icon; Dive, Crater and Chuck's Backside written DIFFICULT with the black diamond's icon). The map's key has three grades, Easier (green circle), More Difficult (blue square) and Most Difficult (black diamond), and a terrain park mark; OSM's easy, intermediate and advanced. The map and the table agree on every run both rate, and the differences are overrides below: Art's Alley and Catch Line blue, Blue Valley green, the upper Big Dipper and Chuck's Backside one black diamond. So no run is rated expert, and the named runs fall in three ratings (packs.test.mjs allows it, as Donner Ski Ranch). Names: the Catch Line and Harold's Carpet Lift from the map. Kept as OpenStreetMap has them: the lift Manzanita (the map's Manzanita Chair, the table's MANZANITA), Midway (the table's MIDWAY VALLEY, the map's Midway), Powder Valley Road (in the table, not on the map), Hayrick (a forest road on the back side the map does not draw) and Upper and Lower Midway Chute (forest roads where the map prints one green Midway Road; neither OpenStreetMap name is on the map or in the table). OSM gaps (shipped as at Palisades Tahoe): Mirkwood and Todd's Trees (black), the Catch Line's lower stretch beside Tiny Treat down to the Hodag Chair, RV Row (green, in the table), and the terrain park the map marks by Blue Valley.",
+  "overrides": [
+    {
+      "id": "way/159251397",
+      "reason": "Art's Alley, the long road along the ski area's south-east edge from the back side's foot to the Ed Chair's bottom (its upper way), has the blue square on Hoodoo's current trail map (hoodoo.com/explore/trail-map: Hoodoo-map-Web-digital.jpg, uploaded 2025-02, 2500 x 1853 px, read in crops at full size) and is MORE DIFFICULT in the trail table of its conditions report (hoodoo.com/the-mountain/mountain-lift-status, the season's last report of 2026-03-14, each run with its difficulty and colour icon); OSM rates it easy. The resort's sources agree and win.",
+      "expect": {
+        "name": "Art's Alley",
+        "piste:difficulty": "easy",
+        "highway": "track"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/908149168",
+      "reason": "Art's Alley's lower way, down to the Ed Chair's bottom: the blue square on Hoodoo's current trail map (hoodoo.com/explore/trail-map: Hoodoo-map-Web-digital.jpg, uploaded 2025-02, 2500 x 1853 px, read in crops at full size) and MORE DIFFICULT in the trail table of its conditions report (hoodoo.com/the-mountain/mountain-lift-status, the season's last report of 2026-03-14, each run with its difficulty and colour icon); OSM rates it easy. The resort's sources agree and win.",
+      "expect": {
+        "name": "Art's Alley",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/338051026",
+      "reason": "The upper Big Dipper, from Schuss Chute's top by Red Road to Top of the Wall, has the black diamond on Hoodoo's current trail map (hoodoo.com/explore/trail-map: Hoodoo-map-Web-digital.jpg, uploaded 2025-02, 2500 x 1853 px, read in crops at full size) (its upper label beside Schuss Chute) and is BIG DIPPER, UPPER (RED ROAD to TOP OF THE WALL), MOST DIFFICULT, in the trail table of its conditions report (hoodoo.com/the-mountain/mountain-lift-status, the season's last report of 2026-03-14, each run with its difficulty and colour icon); OSM rates this way easy and the run's lower way (way/338051027) advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "Big Dipper",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/366749142",
+      "reason": "Blue Valley, beside the Manzanita Chair, has the green circle (and green lettering) on Hoodoo's current trail map (hoodoo.com/explore/trail-map: Hoodoo-map-Web-digital.jpg, uploaded 2025-02, 2500 x 1853 px, read in crops at full size) and is EASIER in the trail table of its conditions report (hoodoo.com/the-mountain/mountain-lift-status, the season's last report of 2026-03-14, each run with its difficulty and colour icon); OSM rates it intermediate. The resort's sources agree and win.",
+      "expect": {
+        "name": "Blue Valley",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "easy"
+      }
+    },
+    {
+      "id": "way/1007515421",
+      "reason": "Chuck's Backside, off the back of the summit (its south side), has one black diamond on Hoodoo's current trail map (hoodoo.com/explore/trail-map: Hoodoo-map-Web-digital.jpg, uploaded 2025-02, 2500 x 1853 px, read in crops at full size), whose key stops at Most Difficult, and is written DIFFICULT with the black diamond's icon in the trail table of its conditions report (hoodoo.com/the-mountain/mountain-lift-status, the season's last report of 2026-03-14, each run with its difficulty and colour icon); OSM rates it expert. The resort's scale tops at one black diamond, as Diamond Peak's and Mt. Norquay's do: advanced.",
+      "expect": {
+        "name": "Chuck's Backside",
+        "piste:difficulty": "expert"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/1206505296",
+      "reason": "The Catch Line: the traverse that brings skiers from the foot of Chuck's Backside and Art's Alley's top round the butte's west side to Tiny Treat and the Hodag Chair. Hoodoo's current trail map (hoodoo.com/explore/trail-map: Hoodoo-map-Web-digital.jpg, uploaded 2025-02, 2500 x 1853 px, read in crops at full size) prints CATCH LINE with the blue square (twice, along its way to the Hodag Chair) and the trail table of its conditions report (hoodoo.com/the-mountain/mountain-lift-status, the season's last report of 2026-03-14, each run with its difficulty and colour icon) has CATCHLINE, MORE DIFFICULT; OSM names it Catch Road and rates it easy. The resort's sources win.",
+      "expect": {
+        "name": "Catch Road",
+        "piste:difficulty": "easy"
+      },
+      "set": {
+        "name": "Catch Line",
+        "difficulty": "intermediate"
+      }
+    },
+    {
+      "id": "way/1009399521",
+      "reason": "The carpet beside Easy Rider at the lodge is Harold's Carpet Lift on Hoodoo's current trail map (hoodoo.com/explore/trail-map: Hoodoo-map-Web-digital.jpg, uploaded 2025-02, 2500 x 1853 px, read in crops at full size) (HAROLD'S MAGIC CARPET in the lift schedule of the same report); OSM calls it The Magic Carpet.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": "The Magic Carpet"
+      },
+      "set": {
+        "name": "Harold's Carpet Lift"
+      }
+    }
+  ]
+}

@@ -9,9 +9,9 @@ In order, it:
      relation of a kept type that lists several runs rather than being one run (its member ways carry other names of
      their own and do not make one line; lists_runs) gives no name: it fills the other tags only;
   2. applies the resort's overrides file (resorts/<slug>.overrides.json): renamed or hidden names, rating
-     corrections, park flags, out-of-bounds flags and hidden elements. Every entry carries a reason. An entry whose
-     `expect` no longer matches OSM, or whose element is gone, stops the build, so a fix made in OSM is never
-     silently overwritten;
+     corrections, park flags, out-of-bounds flags, hidden elements and walking paths. Every entry carries a reason.
+     An entry whose `expect` no longer matches OSM, or whose element is gone, stops the build, so a fix made in OSM
+     is never silently overwritten;
   3. keeps only what the map draws, with the attributes the style needs:
        piste, piste_area  downhill, snow_park, playground and connection runs. Nordic, ski-touring and snowshoe
                           trails are left out (owner decision 2026-10-15), and so are the other winter trails
@@ -21,10 +21,29 @@ In order, it:
                           or on its route relation through step 1). Those runs
                           stay in the file and the style draws them in their own out-of-bounds style (owner
                           decision 2026-10-15);
+       walk               walking paths: the ways a reviewer names in the overrides file with "walk": true (since
+                          2026-11-17, the owner's option B), such as a resort's walk out of a canyon that its own
+                          trail map draws as a dotted path. Only those: OpenStreetMap's hiking trails in general are
+                          still left out. The way is a line with a piste:type the map draws as a run, or hike
+                          (WALK_PISTE_TYPES). A walking path is never a run: it keeps its name and nothing else (no
+                          type, rating, flags, rank or direction), takes no share of the ranks, is never out of
+                          bounds and never shapes a derived ski area; it belongs to the resort by the run lines'
+                          neighbour rule, and one that a listed neighbour holds stops the build, as a stale override
+                          does. The report lists each one (walks) with its length and the share inside the ski area;
        lift               aerialway in the lift list. Zip lines and goods lifts are dropped; lifecycle keys such as
                           proposed:aerialway are ignored, so only `aerialway` decides;
-       lift_station       aerialway=station within 100 m of a kept lift, and the two ends of every kept lift (its
-                          bottom and top terminals) unless a station is already within 40 m of the end;
+       lift_station       aerialway=station (a node, or a closed way by its centre) within 100 m of a kept lift, and
+                          the two ends of every kept lift (its bottom and top terminals) unless a station is already
+                          within 40 m of the end. A station of a lift that was hidden by an override or left out (a zip
+                          line, a goods lift, a listed neighbour's) goes with it, unless it is also a kept lift's (since
+                          2026-11-17). Which lift a station belongs to is read from OpenStreetMap's topology: the lifts
+                          whose way it lies on (one of its nodes; a station building: a node they share), else, for a
+                          station on no lift's way, the lifts with an end it is the nearest such station to, within
+                          40 m (an end that is a station node itself has that one). A station of no lift goes with a
+                          hidden or left-out lift only when that lift's end is clearly the nearest (within 100 m, every
+                          kept lift at least twice as far); else the 100 m rule keeps or drops it, as before. The
+                          report lists each station that goes with a hidden or left-out lift
+                          (stations_of_removed_lifts), with its lift and how it was found;
        ski_area           the resort's own polygon, picked by its OSM id. A resort of several mountains on one map
                           lists one landuse=winter_sports polygon per mountain (`ski_area` as a list); they must not
                           overlap (touching is fine), their union is the ski area of every inside test, and they make
@@ -52,8 +71,8 @@ orient.py then turns runs downhill and lifts uphill from the elevation model (sk
 
 Outputs: an OSM XML file whose elements carry only `sb:*` tags (osmium turns it into the PBF that
 ski-overlay.yml reads through Planetiler), a GeoJSON file of the kept features (read by coverage.py) and a JSON
-report (with, per listed neighbour, the ids of what was left out). No OSM user names, user ids or changesets are
-written.
+report (with, per listed neighbour, the ids of what was left out, and the stations that went with a hidden or left-out
+lift). No OSM user names, user ids or changesets are written.
 
 Usage:
   python3 -I normalize_osm.py --resorts resorts.json --schema pack-schema.json --slug big-white \
@@ -85,6 +104,10 @@ OOB_MAX_INSIDE_FRACTION = 0.5
 STATION_MAX_DISTANCE_M = 100.0
 DENSIFY_STEP_M = 10.0
 OVERRIDE_SET_KEYS = {'name', 'difficulty', 'park', 'out_of_bounds'}
+# Walking paths (since 2026-11-17, the owner's option B): an overrides entry with "walk": true keeps a way as a walking
+# path, never a run. Besides the run types the map draws (pack-schema.json values.piste_type), a way OpenStreetMap tags
+# as a winter hiking trail may be one: the map leaves those out unless a reviewer names one.
+WALK_PISTE_TYPES = {'hike'}
 UNGROOMED_GROOMING = {'backcountry', 'mogul', 'no'}
 UNGROOMED_DIFFICULTY = {'freeride', 'extreme'}
 PARK_TAGS = (('amenity', 'snow_park'), ('leisure', 'snow_park'), ('man_made', 'piste:halfpipe'))
@@ -108,6 +131,15 @@ RATING_OF_DIFFICULTY = {'novice': 'easy', 'easy': 'easy', 'intermediate': 'inter
 # A lift's end is a station of its own unless a kept station is this close (an OSM station node at the end, or a
 # station building's centre beside it).
 LIFT_END_STATION_M = 40.0
+# The stations of a lift that was hidden or left out go with it (since 2026-11-17; before, the 100 m rule kept them
+# near another lift, drawn as circles with no lift, and overrides hid them by hand). Which lift a station belongs to is
+# read from OpenStreetMap's topology first: the lifts whose way it lies on (one of its nodes; a station building: a node
+# they share), else, for a station on no lift's way, the lifts with an end it is the nearest such station to within
+# LIFT_END_STATION_M (an end that is a station node itself has that one). A station whose lifts are all hidden or left
+# out goes; one with a kept lift among them stays. Where topology says nothing, a hidden or left-out lift takes the
+# station only when its end is clearly the nearest lift: within STATION_MAX_DISTANCE_M, with every kept lift at least
+# STATION_CLEAR_RATIO times as far. Any other station is kept or dropped by the 100 m rule, as before.
+STATION_CLEAR_RATIO = 2.0
 # A resort of several mountains on one map lists each mountain's polygon in `ski_area`; their union is the ski area of
 # every inside test. They are written as ONE ski_area feature, as one id is: in the OSM file a multipolygon relation of
 # the union's rings, which needs an id of its own. Planetiler refuses negative ids and writes the id into the tiles
@@ -939,16 +971,28 @@ def load_overrides(path, slug, difficulties):
         seen.add(e['id'])
         if not str(e.get('reason', '')).strip():
             raise InputError(f'{where}: every override needs a reason')
-        unknown = set(e) - {'id', 'reason', 'expect', 'set', 'hide'}
+        unknown = set(e) - {'id', 'reason', 'expect', 'set', 'hide', 'walk'}
         if unknown:
             raise InputError(f'{where}: unknown keys {sorted(unknown)}')
         if e.get('hide') not in (None, True):
             raise InputError(f'{where}: hide must be true when present')
+        if e.get('walk') not in (None, True):
+            raise InputError(f'{where}: walk must be true when present')
         changes = e.get('set', {})
+        if e.get('walk'):
+            # A walking path is drawn, and never as a run: it takes no rating, name, park or out-of-bounds change,
+            # and it is not also hidden.
+            if e.get('hide'):
+                raise InputError(f'{where}: a walking path is drawn; it is not also hidden (use walk or hide)')
+            if 'set' in e:
+                raise InputError(f'{where}: a walking path takes no other change: it keeps its OSM name and is never '
+                                 'a run (no rating, name, park or out_of_bounds)')
+            if not e['id'].startswith('way/'):
+                raise InputError(f'{where}: a walking path is a way, not {e["id"]}')
         if e.get('hide') and changes:
             raise InputError(f'{where}: a hidden element takes no other change')
-        if not e.get('hide') and not changes:
-            raise InputError(f'{where}: nothing to change (use set or hide)')
+        if not e.get('hide') and not e.get('walk') and not changes:
+            raise InputError(f'{where}: nothing to change (use set, hide or walk)')
         if set(changes) - OVERRIDE_SET_KEYS:
             raise InputError(f'{where}: set may only hold {sorted(OVERRIDE_SET_KEYS)}')
         if 'name' in changes and changes['name'] is not None and not str(changes['name']).strip():
@@ -1011,7 +1055,7 @@ def run(a):
         'slug': a.slug, 'key': resort['key'], 'osm_base': osm_base, 'input_bounds': bounds,
         'kept': {}, 'dropped': {}, 'relation_fills': 0, 'relation_fill_conflicts': [], 'relation_names_withheld': [],
         'overrides': {'applied': [], 'stale': []}, 'out_of_bounds': [], 'outside_ski_area_in_bounds': [],
-        'names_changed_by_glyph_filter': [], 'difficulty_unknown': 0,
+        'names_changed_by_glyph_filter': [], 'difficulty_unknown': 0, 'walks': [],
     }
 
     def drop(reason):
@@ -1106,7 +1150,8 @@ def run(a):
             report['overrides']['stale'].append({'id': o['id'], 'problem': 'expect no longer matches OSM', 'tags': mismatch})
             continue
         applied[o['id']] = o
-        report['overrides']['applied'].append({'id': o['id'], 'hide': bool(o.get('hide')), 'set': o.get('set', {}), 'reason': o['reason']})
+        report['overrides']['applied'].append({'id': o['id'], 'hide': bool(o.get('hide')), 'set': o.get('set', {}), 'reason': o['reason'],
+                                               **({'walk': True} if o.get('walk') else {})})
     if report['overrides']['stale'] and not a.allow_stale_overrides:
         write_json(a.out_report, report)
         for st in report['overrides']['stale']:
@@ -1272,10 +1317,52 @@ def run(a):
             report['outside_ski_area_in_bounds'].append(info)
         extra.update({'out_of_bounds': oob, 'in_frac': round(in_frac, 3), **size})
 
+    # Walking paths (overrides with "walk": true; WALK_PISTE_TYPES): a line the map draws as a path, never as a run.
+    # Each entry must name a way that could be one: a line (not a closed area) with a piste:type the map draws as a run,
+    # or hike; never a lift or the ski area itself. Checked before the runs, so a wrong entry stops the build however
+    # the way is tagged.
+    walk_types = keep_types | WALK_PISTE_TYPES
+    walk_ids = sorted((int(oid.split('/')[1]) for oid, o in applied.items() if o.get('walk')))
+    for wid in walk_ids:
+        t = ways[wid]['tags']
+        types = [v.strip().lower() for v in (t.get('piste:type') or '').split(';') if v.strip()]
+        if t.get('aerialway'):
+            raise InputError(f'way/{wid}: its override says walk, but it is a lift (aerialway={t["aerialway"]})')
+        if f'way/{wid}' in listed or not any(v in walk_types for v in types):
+            raise InputError(f'way/{wid}: its override says walk, but a walking path is a way with a piste:type of '
+                             f'{", ".join(sorted(walk_types))} (it has {t.get("piste:type")!r})')
+        if is_closed(wid) and t.get('area') == 'yes':
+            raise InputError(f'way/{wid}: its override says walk, but it is an area (area=yes), not a path')
+    walks = []   # (index in kept, its id, its name, its projected line, its tags)
+
+    def walk_path(wid, t):
+        """Keeps way wid as a walking path: its name, nothing a run carries; the run lines' neighbour rule decides
+        whose it is, and a listed neighbour's stops the build."""
+        key = f'way/{wid}'
+        coords = way_coords(wid)
+        if coords is None or len(coords) < 2:
+            raise InputError(f'{key}: its override says walk, but the Overpass answer has no line for it')
+        xy = [proj(*p) for p in coords]
+        n, _ = neighbour_owner([xy])
+        if n is not None:
+            nb = report['neighbours'][n]
+            raise InputError(f'{key}: its override says walk, but it is the listed neighbour {nb["id"]}\'s ({nb["name"]}): '
+                             'each map draws only its own resort, so remove the entry')
+        sb = {'sb:layer': 'walk'}
+        name = safe(t.get('piste:name') or t.get('name'), key, 'name')
+        if name:
+            sb['sb:name'] = name
+        kept.append(('way', wid, sb, {'type': 'LineString', 'coordinates': coords}, {'length_m': round(line_length(xy))}))
+        walks.append((len(kept) - 1, key, name, xy, t))
+
     candidates = [('way', wid, ways[wid]['tags']) for wid in sorted(ways)]
     candidates += [('relation', rid, rels[rid]['tags']) for rid in sorted(rels) if rels[rid]['tags'].get('type') == 'multipolygon']
+    walk_set = set(walk_ids)
     for otype, oid, t in candidates:
         if t.get('aerialway') in lift_kinds or f'{otype}/{oid}' in listed:
+            continue
+        if otype == 'way' and oid in walk_set:
+            walk_path(oid, t)
             continue
         ptype, other = piste_type(t)
         if ptype is None:
@@ -1363,6 +1450,10 @@ def run(a):
     lift_xy = []   # the kept lifts' projected lines (the derived ski area, step 5a)
     lift_ends = set()   # node ids of the kept lifts' ends
     neighbour_lifts = []   # (segment, neighbour index) of the lifts left out as a listed neighbour's
+    # Every way read as a lift (an aerialway other than station and pylon), kept or not, for its stations (step 6): its
+    # id -> None when kept, else why not: the drop reason (hidden_by_override, aerialway:<kind>, lift_without_geometry)
+    # or ('neighbour', the index of the listed neighbour it is left out as).
+    lift_fate = {}
     for wid in sorted(ways):
         t = ways[wid]['tags']
         kind = t.get('aerialway')
@@ -1370,15 +1461,18 @@ def run(a):
             continue
         if kind not in lift_kinds:
             drop(f'aerialway:{kind}')
+            lift_fate[wid] = f'aerialway:{kind}'
             continue
         key = f'way/{wid}'
         o = applied.get(key)
         if o and o.get('hide'):
             drop('hidden_by_override')
+            lift_fate[wid] = 'hidden_by_override'
             continue
         coords = way_coords(wid)
         if coords is None or len(coords) < 2:
             drop('lift_without_geometry')
+            lift_fate[wid] = 'lift_without_geometry'
             continue
         n, near = neighbour_owner([[proj(*p) for p in coords]])
         if n is not None:
@@ -1386,7 +1480,9 @@ def run(a):
             left_out(n, 'lifts', key, near)
             xy = [proj(*p) for p in coords]
             neighbour_lifts += [(seg, n) for seg in zip(xy, xy[1:])]
+            lift_fate[wid] = ('neighbour', n)
             continue
+        lift_fate[wid] = None
         sb = {'sb:layer': 'lift', 'sb:kind': kind}
         name = safe(t.get('name'), key, 'name')
         if o and 'name' in o.get('set', {}):
@@ -1461,6 +1557,14 @@ def run(a):
             if nb['overlaps_ski_area']:
                 print(f'normalize_osm: note: the neighbour {nb["id"]} overlaps the derived ski area', file=sys.stderr)
 
+    # The walking paths' share inside the ski area (the polygon, the union, or the derived area, which they never shape),
+    # for the report: a walking path is never out of bounds, wherever it leads.
+    for i, key, name, xy, t in walks:
+        in_frac, _ = inside_fraction(xy, sa_poly)
+        kept[i][4]['in_frac'] = round(in_frac, 3)
+        report['walks'].append({'id': key, 'name': name, 'piste_type': t.get('piste:type'), 'length_m': kept[i][4]['length_m'],
+                                'in_frac': round(in_frac, 3)})
+
     # Ranks: the trunk runs, minor runs and the others (the style draws the overview zooms by rank). A named run is all
     # the ways of that name; with several mountains, all the ways of that name on one mountain (the listed polygon
     # that owns the way by the neighbour rule, else the nearest one), so same-named runs on two mountains rank apart.
@@ -1481,7 +1585,8 @@ def run(a):
     if len(ski_ids) > 1:
         report['ranks']['named_run'] = 'the ways of one name on one mountain'
 
-    # 6. Lift stations near a kept lift.
+    # 6. Lift stations: a kept lift's, or no lift's near a kept one. A station of a lift that was hidden or left out goes
+    # with it (since 2026-11-17; before, the 100 m rule kept it near another lift, and overrides hid it).
     def near_lift(lonlat):
         p = proj(*lonlat)
         return any(point_segment_distance(p, a2, b2) <= STATION_MAX_DISTANCE_M for a2, b2 in lift_segments)
@@ -1508,6 +1613,14 @@ def run(a):
         ours = min((point_segment_distance(p, a2, b2) for a2, b2 in lift_segments), default=math.inf)
         return None if ours <= theirs[0] else theirs[1]
 
+    # Which lift ways each node lies on (every way read as a lift, kept or not).
+    on_lifts = {}
+    for wid in lift_fate:
+        for nid in ways[wid]['nds']:
+            on_lifts.setdefault(nid, set()).add(wid)
+
+    # First as before: hidden by an override; nearest a listed neighbour's lift; no kept lift within 100 m.
+    candidates = []   # (osm type, id, tags, centre, projected centre, the lift ways it lies on)
     for otype, oid, t, centre in stations:
         key = f'{otype}/{oid}'
         o = applied.get(key)
@@ -1520,6 +1633,66 @@ def run(a):
             continue
         if not near_lift(centre):
             drop('station_far_from_lifts')
+            continue
+        on = set(on_lifts.get(oid, ())) if otype == 'node' else {w for nid in ways[oid]['nds'] for w in on_lifts.get(nid, ())}
+        candidates.append((otype, oid, t, centre, proj(*centre), on))
+
+    # The lifts a station on no lift's way belongs to: those with an end it is the nearest of those stations to, within
+    # LIFT_END_STATION_M (an end that is a station node itself has its station: that one, on the lift's way).
+    free = [(c[4], i) for i, c in enumerate(candidates) if not c[5]]
+    end_station_of = {}   # index in candidates -> the lift ways whose end it stands for
+    for wid in sorted(lift_fate):
+        nds = ways[wid]['nds']
+        for nid in sorted({nds[0], nds[-1]} if nds else ()):
+            if nid not in nodes or node_tags.get(nid, {}).get('aerialway') == 'station':
+                continue
+            p = proj(*nodes[nid])
+            best = min(((math.hypot(p[0] - q[0], p[1] - q[1]), i) for q, i in free), default=None)
+            if best is not None and best[0] <= LIFT_END_STATION_M:
+                end_station_of.setdefault(best[1], set()).add(wid)
+    removed_ends = [(proj(*nodes[nid]), wid) for wid in sorted(lift_fate) if lift_fate[wid] is not None
+                    for nid in sorted({ways[wid]['nds'][0], ways[wid]['nds'][-1]} if ways[wid]['nds'] else ()) if nid in nodes]
+
+    def lift_end_m(p, wid):
+        nds = ways[wid]['nds']
+        return min((math.hypot(p[0] - q[0], p[1] - q[1]) for q in (proj(*nodes[nid]) for nid in {nds[0], nds[-1]} if nid in nodes)),
+                   default=math.inf)
+
+    def metres(d):
+        return round(d) if math.isfinite(d) else None
+
+    def removed_first(wid):
+        """The order in which a station's hidden or left-out lifts claim it: a listed neighbour's (as before), then one
+        hidden by an override, then one left out by its kind; then by id."""
+        fate = lift_fate[wid]
+        return (0 if isinstance(fate, tuple) else 1 if fate == 'hidden_by_override' else 2, wid)
+
+    report['stations_of_removed_lifts'] = []
+    for i, (otype, oid, t, centre, p, on) in enumerate(candidates):
+        key = f'{otype}/{oid}'
+        o = applied.get(key)
+        # Its lifts by OpenStreetMap's topology: the ways it lies on, else the ends it stands for.
+        lifts, by = (on, 'node') if on else (end_station_of.get(i, set()), 'end')
+        gone = None
+        kept_m = min((point_segment_distance(p, a2, b2) for a2, b2 in lift_segments), default=math.inf)
+        if lifts:
+            if all(lift_fate[w] is not None for w in lifts):
+                gone = min(lifts, key=removed_first)
+        elif removed_ends:
+            # Topology says nothing: a hidden or left-out lift takes it only when that lift's end is clearly the
+            # nearest lift (within STATION_MAX_DISTANCE_M, and every kept lift STATION_CLEAR_RATIO times as far).
+            d, w = min((math.hypot(p[0] - q[0], p[1] - q[1]), w) for q, w in removed_ends)
+            if d <= STATION_MAX_DISTANCE_M and kept_m >= STATION_CLEAR_RATIO * d:
+                gone, by = w, 'nearest_end'
+        if gone is not None:
+            fate = lift_fate[gone]
+            if isinstance(fate, tuple):
+                left_out(fate[1], 'stations', key)
+            else:
+                drop('station_of_hidden_lift' if fate == 'hidden_by_override' else 'station_of_left_out_lift')
+                report['stations_of_removed_lifts'].append({
+                    'id': key, 'name': glyph_safe(t.get('name'), ranges), 'lift': f'way/{gone}', 'lift_dropped': fate,
+                    'by': by, 'lift_end_m': metres(lift_end_m(p, gone)), 'kept_lift_m': metres(kept_m)})
             continue
         sb = {'sb:layer': 'lift_station'}
         name = safe(t.get('name'), key, 'name')
@@ -1576,7 +1749,9 @@ def run(a):
     write_json(a.out_report, report)
     k = report['kept']
     print(f'{a.slug}: osm_base {osm_base}; kept {k.get("piste", 0)} runs, {k.get("piste_area", 0)} run areas, '
-          f'{k.get("lift", 0)} lifts, {k.get("lift_station", 0)} stations; {len(report["out_of_bounds"])} out of bounds; '
+          f'{k.get("lift", 0)} lifts, {k.get("lift_station", 0)} stations'
+          + (f', {k["walk"]} walking path{"s" if k["walk"] != 1 else ""}' if k.get('walk') else '')
+          + f'; {len(report["out_of_bounds"])} out of bounds; '
           f'{len(report["overrides"]["applied"])} overrides applied; dropped {sum(report["dropped"].values())}'
           + (f' ({report["dropped"].get("neighbour", 0)} as {len(neighbours)} listed neighbours\')' if neighbours else ''))
     return 0

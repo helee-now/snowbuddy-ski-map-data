@@ -1,6 +1,6 @@
 {
   "slug": "whistler-blackcomb",
-  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). Each entry names one OSM element, the reason, what OSM holds today (`expect`, checked on every build: if OSM changes, the build stops so a fix made in OSM is never silently overwritten) and the change: `set` (name, or null to hide it; difficulty; park; out_of_bounds) or `hide: true`. Plain factual errors should also be fixed in OSM itself.",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). Each entry names one OSM element, the reason, what OSM holds today (`expect`, checked on every build: if OSM changes, the build stops so a fix made in OSM is never silently overwritten) and the change: `set` (name, or null to hide it; difficulty; park; out_of_bounds), `hide: true`, or `walk: true` (since 2026-11-17: a way drawn as a walking path, never a run; it keeps its OSM name and takes no other change). Plain factual errors should also be fixed in OSM itself.",
   "overrides": [
     {
       "id": "way/1323298990",

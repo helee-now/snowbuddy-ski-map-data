@@ -1,0 +1,73 @@
+{
+  "key": "mt-rose-v1",
+  "ski_sha256": "33f9e8a42205a516b6bd2baf255c46031a83c48f4342c44d1e7a53e437415df0",
+  "osm_timestamp": "2026-11-19T09:40:00Z",
+  "box": [
+    -119.93,
+    39.29,
+    -119.84,
+    39.35
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -119.896844,
+    39.309332,
+    -119.869552,
+    39.329057
+  ],
+  "margins_km": {
+    "west": 2.85,
+    "south": 2.15,
+    "east": 2.54,
+    "north": 2.33
+  },
+  "counts": {
+    "lifts": 8,
+    "runs_in_bounds": 77,
+    "run_areas_in_bounds": 2,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 15,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.5,
+    "runs_in_bounds": 32,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -120.058594,
+      39.232253,
+      -119.707031,
+      39.368279
+    ],
+    "12": [
+      -119.970703,
+      39.232253,
+      -119.794922,
+      39.368279
+    ],
+    "13": [
+      -119.970703,
+      39.266284,
+      -119.838867,
+      39.368279
+    ],
+    "14": [
+      -119.94873,
+      39.283294,
+      -119.838867,
+      39.35129
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

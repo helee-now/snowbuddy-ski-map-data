@@ -1,0 +1,73 @@
+{
+  "key": "bear-valley-v1",
+  "ski_sha256": "db183f1fd9d226f8275a937b6dd3ca311be5ab610e8a335801ae41911015b368",
+  "osm_timestamp": "2026-11-19T09:55:27Z",
+  "box": [
+    -120.1,
+    38.44,
+    -120.01,
+    38.53
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -120.070119,
+    38.465397,
+    -120.0365,
+    38.501953
+  ],
+  "margins_km": {
+    "west": 2.6,
+    "south": 2.82,
+    "east": 2.31,
+    "north": 3.12
+  },
+  "counts": {
+    "lifts": 9,
+    "runs_in_bounds": 99,
+    "run_areas_in_bounds": 1,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 17,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.4,
+    "runs_in_bounds": 51.2,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -120.234375,
+      38.410558,
+      -119.882812,
+      38.548165
+    ],
+    "12": [
+      -120.146484,
+      38.410558,
+      -119.970703,
+      38.548165
+    ],
+    "13": [
+      -120.102539,
+      38.410558,
+      -119.970703,
+      38.548165
+    ],
+    "14": [
+      -120.102539,
+      38.427774,
+      -119.992676,
+      38.530979
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

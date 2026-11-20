@@ -1,6 +1,6 @@
 {
   "slug": "park-city-mountain",
-  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Checked 2026-10-21 against Park City Mountain's own 2025-2026 winter trail map (the resort's PDF, read from its copy on skimap.org because parkcitymountain.com refuses this pipeline's user agent): names follow its labels, ratings its symbols, parks its orange runs (no park carries a park tag in OSM). That map is the resort's only source here, so its symbols win where OpenStreetMap rates a run harder (Cobalt Woods, Mid-Mtn Cutoff) as where it rates one easier. The Cabriolet is renamed for its replacement on the same line, the Canyons Village Skyway (2026-27). The stations of the zip lines (left out, as every zip line is) and Payday's summer mid-station are hidden, so they draw no lift-station circle with no lift (review of 2026-10-22).",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Checked 2026-10-21 against Park City Mountain's own 2025-2026 winter trail map (the resort's PDF, read from its copy on skimap.org because parkcitymountain.com refuses this pipeline's user agent): names follow its labels, ratings its symbols, parks its orange runs (no park carries a park tag in OSM). That map is the resort's only source here, so its symbols win where OpenStreetMap rates a run harder (Cobalt Woods, Mid-Mtn Cutoff) as where it rates one easier. The Cabriolet is renamed for its replacement on the same line, the Canyons Village Skyway (2026-27). Payday's summer mid-station is hidden, so no circle partway up suggests a winter stop (review of 2026-10-22); the stations of the zip lines (left out, as every zip line is) and Eaglet's bottom station go with their lifts by the station rule (normalize_osm.py, since 2026-11-17; overrides hid them before).",
   "overrides": [
     {
       "id": "way/260779451",
@@ -288,42 +288,6 @@
       "id": "way/257820569",
       "reason": "EAGLET is the only lift the resort's 2025-26 trail map draws in grey, with grey ends and no seat badge (every working lift is maroon, and the legend has no grey lift), and the map's CHAIRLIFTS table of 42 lifts leaves it out: not a lift the public rides this season, so it is not drawn as one.",
       "expect": { "name": "Eaglet Lift", "aerialway": "chair_lift" },
-      "hide": true
-    },
-    {
-      "id": "node/2632829195",
-      "reason": "The unnamed bottom station of Eaglet (way/257820569, hidden above), 42 m from the Eagle lift: it would otherwise draw as a lift-end circle 59 m from Eagle's top station, with no lift.",
-      "expect": { "aerialway": "station", "name": null },
-      "hide": true
-    },
-    {
-      "id": "node/3698124926",
-      "reason": "Red Pine Zip's entry station, an end of the zip line way/365800780: zip lines are left out (not ski lifts), but the 100 m rule would keep this station, 33 m from a magic carpet's end (way/257815624) at the top of the Red Pine Gondola, as a lift-station circle with no lift (review of 2026-10-22).",
-      "expect": { "aerialway": "station", "name": "Red Pine Zip" },
-      "hide": true
-    },
-    {
-      "id": "node/3698125125",
-      "reason": "Red Pine Zip's exit station (zip line way/365800780, left out), 10 m from the end of the magic carpet way/257815624: it stood in for the carpet's own end circle, which the build draws at the carpet's end once this zip-line station is hidden (review of 2026-10-22).",
-      "expect": { "aerialway": "station", "name": "Red Pine Zip" },
-      "hide": true
-    },
-    {
-      "id": "node/3698124243",
-      "reason": "Lookout Zip's exit station (zip line way/365800781, left out), 44 m from the magic carpet way/257815624 at the top of the Red Pine Gondola: a zip-line station, not a ski lift's (review of 2026-10-22).",
-      "expect": { "aerialway": "station", "name": "Lookout Zip" },
-      "hide": true
-    },
-    {
-      "id": "node/3698124432",
-      "reason": "Lookout Zip's entry station (zip line way/365800781, left out), 26 m beside the Orange Bubble Express, 1 km from its ends: a zip-line station, not a ski lift's (review of 2026-10-22).",
-      "expect": { "aerialway": "station", "name": "Lookout Zip" },
-      "hide": true
-    },
-    {
-      "id": "node/8912713514",
-      "reason": "The unnamed station of the zip line way/963534636 (left out), 53 m from the Crescent Express's end: a zip-line station, not a ski lift's (review of 2026-10-22).",
-      "expect": { "aerialway": "station", "name": null },
       "hide": true
     },
     {

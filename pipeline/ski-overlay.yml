@@ -136,6 +136,21 @@ layers:
           sb:layer: piste_area
         attributes: *piste_attributes
 
+  # Walking paths (since 2026-11-17): the ways a reviewer names in the resort's overrides file with "walk": true, such
+  # as a walk out of a canyon that the resort's own trail map draws as a dotted path. Never a run: the name alone, no
+  # type, rating, rank or direction (normalize_osm.py). From the zoom the runs start at; a layer outside the pack
+  # formats (pack-schema.json), so an app whose style does not read it ignores it. No merge, as for the runs.
+  - id: walk
+    features:
+      - source: osm
+        geometry: line
+        min_zoom: 11
+        include_when:
+          sb:layer: walk
+        attributes:
+          - key: name
+            tag_value: sb:name
+
   - id: lift
     features:
       - source: osm

@@ -1,0 +1,66 @@
+{
+  "slug": "bear-valley",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, relation/16792393 (Bear Valley, a multipolygon): the front side from Bear Top (8,495 ft) and Koala Top down to the Day Lodge (7,750 ft), Grizzly Bowl down to The Pad (6,595 ft), the Backside under the Polar Express, and the Dardanelles Vista Bowl and Sunrise Bowl above Bear Valley Village (7,100 ft), on one ticket and one map. Every part is reached by lift or trail: the village side is skied down to the village, and the map's second panel says the village has no return lift and a shuttle brings skiers back to the resort's base, so no part is reached only by road or shuttle. The map shades the Dardanelles Vista Bowl and Sunrise Bowl pink, 'not patrolled or maintained by ski patrol', inside the ski area boundary; OSM gives their runs no backcountry tag and the polygon holds them, so they are drawn as in-bounds runs with their black ratings, as the map draws them. Listed neighbours: the Bear Valley Adventure Company's cross-country centre and its snow play and sledding areas (resorts.json); none holds a lift or run of the resort, and 136 nordic, 5 sled and 2 hike ways are left out by the type rule. Every named run and lift checked on 2026-11-19 against the resort's 2025-26 trail map (the PDF bearvalley.com/trail-map links, 93e5c3_52b21f7febd941d2a9ffc9fe51275f87.pdf, the same painting as its BearValley_MAP_25-26_WEB.jpg; no text layer, so it was rendered at 8,000 px and read in crops), whose key is Easiest (green circle and green line), More Difficult (blue square and line), Most Difficult (black diamond and line), Extreme (two diamonds) and Freestyle Terrain (orange), with its lift table (Koala, Super Cub, Cub, Grizzly, Pooh Bear and Polar Express chairs, the Mokelumne Express, the Panda and Lil' Cub carpets). All named OSM runs carry the map's rating but two unrated ones (Bronco and Lower Snow Valley, black on the map). Names from the map: Red Baron, Maury's Meadow, Porridge Bowl and Sea Hunt (OSM's spellings Red Barron, Murry's Meadow, Porrige Bowl and Sea of Hunt), and Mokelumne West for OSM's Upper Mokelumne, the run's upper piece from Bear Top, which the map labels Mokelumne West along its whole length. Bad Boy and Snoopy's Hanger, black runs the map draws inside the hard boundary west of the Day Lodge, are tagged backcountry in OSM and drawn partly beyond the polygon (OSM's fixme says their lines are a best guess from the trail map): kept in bounds. Hidden: the old Cub chair's line, tagged abandoned, beside the current Cub. OSM's Cub Park is the map's Cub Park; Rodeo, an easy run along the Super Cub chair, is on the map as a green line labelled only at its foot (MIKEY'S MEADOW), and stays as OSM names it. OSM gaps against the map (shipped as at Palisades Tahoe): Kodiak Park and Forest Park (terrain parks) and the Beacon Basin transceiver park, Mikey's Meadow, the Lift Line under the Koala chair, Hank's, Australia St and Cliff Run below Tuck's Traverse, Goat Trails and Grizzly Road in Grizzly Bowl.",
+  "overrides": [
+    {
+      "id": "way/258027230",
+      "reason": "The old Cub chair: OSM keeps its line, tagged abandoned=yes, beside the current Cub (way/258027232, a triple, as the 2025-26 trail map's lift table and map show one Cub chair); hidden, as a lift the resort no longer runs.",
+      "expect": { "name": "Cub", "aerialway": "chair_lift", "abandoned": "yes" },
+      "hide": true
+    },
+    {
+      "id": "way/1156122839",
+      "reason": "Bronco, in Grizzly Bowl beside Grizzly Ridge: Bear Valley's 2025-26 trail map labels it with a black diamond (Most Difficult); OSM gives it no rating. The printed map rates it.",
+      "expect": { "name": "Bronco", "piste:type": "downhill" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1156122845",
+      "reason": "Lower Snow Valley, the run down the west side of Grizzly Bowl from Upper Snow Valley to Grizzly Road: Bear Valley's 2025-26 trail map labels it with a black diamond (Most Difficult); OSM gives it no rating. The printed map rates it.",
+      "expect": { "name": "Lower Snow Valley", "piste:type": "downhill" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1156122849",
+      "reason": "Red Baron, below Lunch Rock in Grizzly Bowl: OSM spells it Red Barron; Bear Valley's 2025-26 trail map names it Red Baron (black, as OSM rates it).",
+      "expect": { "name": "Red Barron", "piste:difficulty": "advanced" },
+      "set": { "name": "Red Baron" }
+    },
+    {
+      "id": "way/1156122834",
+      "reason": "Maury's Meadow, down to The Pad beside the Grizzly chair: OSM spells it Murry's Meadow; Bear Valley's 2025-26 trail map names it Maury's Meadow (black, as OSM rates it).",
+      "expect": { "name": "Murry's Meadow", "piste:difficulty": "advanced" },
+      "set": { "name": "Maury's Meadow" }
+    },
+    {
+      "id": "way/911365643",
+      "reason": "Porridge Bowl, on the ridge between Koala Top and Bear Top above Tuck's Traverse: OSM spells it Porrige Bowl; Bear Valley's 2025-26 trail map names it Porridge Bowl (black, as OSM rates it).",
+      "expect": { "name": "Porrige Bowl", "piste:difficulty": "advanced" },
+      "set": { "name": "Porridge Bowl" }
+    },
+    {
+      "id": "way/1565257491",
+      "reason": "Sea Hunt, in the Dardanelles Vista Bowl between Single Tree Slot and Outer Space: OSM names it Sea of Hunt; Bear Valley's 2025-26 trail map names it Sea Hunt (black, as OSM rates it), beside Sea of Holes in Sunrise Bowl.",
+      "expect": { "name": "Sea of Hunt", "piste:difficulty": "advanced" },
+      "set": { "name": "Sea Hunt" }
+    },
+    {
+      "id": "way/371280058",
+      "reason": "The upper piece of Mokelumne West, from Bear Top down beside the Mokelumne Express: OSM names it Upper Mokelumne and the piece below it Mokelumne West (way/371280057); Bear Valley's 2025-26 trail map labels the whole run Mokelumne West (blue, as OSM rates both), with one label just below Bear Top and one where it turns towards Lodge Run. The map's name, so the run is one name.",
+      "expect": { "name": "Upper Mokelumne", "piste:difficulty": "intermediate" },
+      "set": { "name": "Mokelumne West" }
+    },
+    {
+      "id": "way/1565257479",
+      "reason": "Bad Boy, west of the Day Lodge: Bear Valley's 2025-26 trail map draws it as a black run inside the hard boundary (Ski Area Boundary Closed, Do Not Cross), which runs west of it. OSM tags it piste:grooming=backcountry and draws it 35% inside the polygon (its fixme: a best guess from the trail map), so the half rule would draw it out of bounds; kept in bounds, as the map shows it.",
+      "expect": { "name": "Bad Boy", "piste:difficulty": "advanced", "piste:grooming": "backcountry" },
+      "set": { "out_of_bounds": false }
+    },
+    {
+      "id": "way/1565257478",
+      "reason": "Snoopy's Hanger, west of the Day Lodge beside Bad Boy: Bear Valley's 2025-26 trail map draws it as a black run inside the hard boundary. OSM tags it piste:grooming=backcountry and draws it wholly outside the polygon (its fixme: a best guess from the trail map), so the half rule would draw it out of bounds; kept in bounds, as the map shows it.",
+      "expect": { "name": "Snoopy's Hanger", "piste:difficulty": "advanced", "piste:grooming": "backcountry" },
+      "set": { "out_of_bounds": false }
+    }
+  ]
+}

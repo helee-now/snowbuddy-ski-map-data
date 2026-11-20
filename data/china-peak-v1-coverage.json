@@ -1,0 +1,73 @@
+{
+  "key": "china-peak-v1",
+  "ski_sha256": "40da0facc18d64d939a69a46b5bb7c0ae1894a3757bf68caf57f790710c044ea",
+  "osm_timestamp": "2026-11-19T09:43:03Z",
+  "box": [
+    -119.19,
+    37.19,
+    -119.12,
+    37.26
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -119.16739,
+    37.2149,
+    -119.146258,
+    37.237541
+  ],
+  "margins_km": {
+    "west": 2,
+    "south": 2.77,
+    "east": 2.32,
+    "north": 2.5
+  },
+  "counts": {
+    "lifts": 9,
+    "runs_in_bounds": 103,
+    "run_areas_in_bounds": 5,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 25,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 5.8,
+    "runs_in_bounds": 36.3,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -119.355469,
+      37.160317,
+      -119.003906,
+      37.300275
+    ],
+    "12": [
+      -119.267578,
+      37.160317,
+      -119.091797,
+      37.300275
+    ],
+    "13": [
+      -119.223633,
+      37.160317,
+      -119.091797,
+      37.26531
+    ],
+    "14": [
+      -119.20166,
+      37.177826,
+      -119.11377,
+      37.26531
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

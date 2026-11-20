@@ -1,0 +1,73 @@
+{
+  "key": "boreal-v1",
+  "ski_sha256": "614959c57d5357017667dc3b5debb38c7c6f1e85d64399cc729a5c06854171a9",
+  "osm_timestamp": "2026-11-19T09:42:02Z",
+  "box": [
+    -120.39,
+    39.3,
+    -120.31,
+    39.36
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -120.359767,
+    39.325353,
+    -120.336854,
+    39.337346
+  ],
+  "margins_km": {
+    "west": 2.6,
+    "south": 2.82,
+    "east": 2.31,
+    "north": 2.52
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 31,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 14,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.7,
+    "runs_in_bounds": 14,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -120.410156,
+      39.232253,
+      -120.234375,
+      39.368279
+    ],
+    "12": [
+      -120.410156,
+      39.232253,
+      -120.234375,
+      39.368279
+    ],
+    "13": [
+      -120.410156,
+      39.266284,
+      -120.27832,
+      39.368279
+    ],
+    "14": [
+      -120.410156,
+      39.283294,
+      -120.300293,
+      39.368279
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

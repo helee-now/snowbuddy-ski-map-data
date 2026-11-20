@@ -1,0 +1,73 @@
+{
+  "key": "donner-ski-ranch-v1",
+  "ski_sha256": "c527c8baa5d3982252c99bbbc7a078c4a008e1d7f66a80093115b2c25658ce10",
+  "osm_timestamp": "2026-11-19T09:40:00Z",
+  "box": [
+    -120.38,
+    39.29,
+    -120.3,
+    39.35
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -120.348803,
+    39.315234,
+    -120.328878,
+    39.330949
+  ],
+  "margins_km": {
+    "west": 2.68,
+    "south": 2.81,
+    "east": 2.48,
+    "north": 2.12
+  },
+  "counts": {
+    "lifts": 7,
+    "runs_in_bounds": 47,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 12,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 2.8,
+    "runs_in_bounds": 18.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -120.410156,
+      39.232253,
+      -120.234375,
+      39.368279
+    ],
+    "12": [
+      -120.410156,
+      39.232253,
+      -120.234375,
+      39.368279
+    ],
+    "13": [
+      -120.410156,
+      39.266284,
+      -120.27832,
+      39.368279
+    ],
+    "14": [
+      -120.388184,
+      39.283294,
+      -120.27832,
+      39.35129
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

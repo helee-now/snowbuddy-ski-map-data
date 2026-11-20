@@ -1,0 +1,79 @@
+{
+  "slug": "homewood",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. THE POLYGON: OpenStreetMap has two landuse=winter_sports areas at Homewood (checked 2026-11-19): relation/8391726, 'Homewood Ski Area' (operator Homewood Mountain Resort), a multipolygon whose outer ring (way/599019469) outlines the lift-served terrain from Quail Village and Madden Village on the West Shore up to the summit at 7,880 ft and holds every lift and run (3.64 km²), and way/599019465, 'Homewood Snowcat Adventures', the snowcat terrain on Ellis Peak's slopes west of the boundary, with no lift or run. The ski area is relation/8391726. Its inner ring, way/599019467 (natural=wood since 2023, untagged before; never a named ski-area polygon in OSM's history), is a wood between the two bases that the map draws as a hole in the boundary; the runs near it are in bounds by the half rule. The snowcat area is the resort's own, so it is not a listed neighbour, and like any polygon not listed it is not drawn (the trail map draws it apart, as Homewood Snowcat Adventures Terrain, beyond the ski area boundary). Quail Village and Madden Village are joined on the mountain by its runs and lifts (one map, one ticket), so no part is reached only by road or shuttle. No other ski area lies in the box or the Overpass window (Palisades Tahoe's Alpine Meadows lies north of the window). LIFTS: the Homewood Gondola, new for 2026-27, replaced the Madden Chair (the resort's gondola page: from Madden Village to just above the Madden Chair's top, the future Mid Mountain Lodge, with the beginner terrain lifted 1,000 feet up the mountain). OpenStreetMap still has the Madden Chair and no gondola, under any tag (checked 2026-11-19), so the Madden Chair is hidden and the gondola is a gap, not drawn until it is mapped; the Alpine Platter and the Happy Platter at Madden Village, which the 2026 map does not draw there (the snow report lists the Happy Platter in the Mid Mountain Learning Zone and no Alpine Platter), are hidden too. Kept: the Ellis Chair, the Old Homewood Express, the Quail Chair and the South Carpet, all four on the map and the report. RATINGS AND NAMES: every named run and lift checked on 2026-11-19 against the resort's current trail map (skihomewood.com/trailmap, HW-Trail-Map-Sign-EDIT-2026.04.16-V1.png, 8364 x 7200 px, read in crops: green circle, blue square, black diamond and double black diamond, with the Homewood Gondola) and its snow report (skihomewood.com/snowreport: 7 lifts and 67 runs, each under its lift and rated Beginner, Intermediate, Advanced or Expert). OSM names most runs in piste:name, which the pipeline reads before name (name carries the summer roads' names on many of them). Every named OSM run carries the resort's rating but one way: the middle of Ego Alley, intermediate in OSM, which the map draws in one black line and the report rates advanced, becomes advanced (Lower Ego Alley stays intermediate). Names: Gilbert's Gluch becomes Gilbert's Gulch (the map and the report); two ways that carry only a summer road's name and no piste name, Lower Mountain Road (across Kolby's to Miner's Delight) and a 97 m piece of the summit road named Quail Peak, lose the road's name, which the map and the report do not use, and stay as unnamed blue runs. Names that differ from the map or the report only by a space or punctuation stay as OSM has them (Jughandle for JUG HANDLE, Shortcut for SHORT CUT, Drainpipe for DRAIN PIPE, '55' Chutes for '55 CHUTES); White Lightning is the report's spelling (the map prints WHITE LIGHTENING); Kolby's is the map's label (the report's Kolby's Escape). OSM GAPS (shipped as at Palisades Tahoe): the Homewood Gondola; the Mid Mountain Learning Zone's Happy Platter and Magic Carpet with its Joyride, Smooth Ride and Easy Slider; the South Carpet's Children's Lesson Area; and Wash Pan (blue, beside the Old Homewood Express): 5 of the report's 67 runs and 3 of its 7 lifts.",
+  "overrides": [
+    {
+      "id": "way/258140909",
+      "reason": "The Madden Chair no longer runs: the Homewood Gondola replaced it for the 2026-27 season (the resort's gondola page: from Madden Village to just above the Madden Chair's top, the future Mid Mountain Lodge), and neither the resort's 2026 trail map (HW-Trail-Map-Sign-EDIT-2026.04.16) nor its snow report's seven lifts list it. The gondola is not yet in OpenStreetMap (a gap), so the map draws no lift from Madden Village until it is mapped.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Madden Chair"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/258140911",
+      "reason": "The Alpine Platter at Madden Village (the north base) is on neither the resort's 2026 trail map, which draws only the Homewood Gondola there, nor its snow report, whose seven lifts are the Ellis Chair, the Homewood Gondola, the Old Homewood Express, the Quail Chair, the South Carpet and the Mid Mountain Learning Zone's Happy Platter and Magic Carpet: a lift the resort no longer runs; hidden.",
+      "expect": {
+        "aerialway": "platter",
+        "name": "Alpine Platter"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/258140910",
+      "reason": "OSM draws the Happy Platter at Madden Village (the north base), where the resort's 2026 trail map draws only the Homewood Gondola: the snow report now lists the Happy Platter in the Mid Mountain Learning Zone, the beginner area the gondola lifts 1,000 feet up the mountain (the resort's gondola page), so the line is where the platter no longer runs; hidden. The learning zone's platter and carpet are not yet in OpenStreetMap (a gap).",
+      "expect": {
+        "aerialway": "platter",
+        "name": "Happy Platter"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/599019595",
+      "reason": "Misspelling: the resort's 2026 trail map labels the run GILBERT'S GULCH and its snow report lists Gilbert's Gulch (OSM Gilbert's Gluch).",
+      "expect": {
+        "piste:name": "Gilbert's Gluch",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Gilbert's Gulch"
+      }
+    },
+    {
+      "id": "way/599019542",
+      "reason": "The middle of Ego Alley beside the Ellis Chair, which OSM rates intermediate (its top way, way/599019551, is advanced): the resort's 2026 trail map draws Ego Alley as one black-diamond line from the summit and its snow report rates Ego Alley advanced, apart from Lower Ego Alley (intermediate, way/599019545). The resort's sources agree and win.",
+      "expect": {
+        "piste:name": "Ego Alley",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/599019587",
+      "reason": "A summer road OSM names Lower Mountain Road, tagged as a blue run with no piste name, crossing Kolby's from the Lake Louise junction to Miner's Delight: neither the resort's 2026 trail map nor its snow report has a run of that name, so the road's name is hidden and the run stays, unnamed, as OSM rates it.",
+      "expect": {
+        "name": "Lower Mountain Road",
+        "piste:name": null,
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": null
+      }
+    },
+    {
+      "id": "way/599019552",
+      "reason": "A 97 m piece of the summit road OSM names Quail Peak, tagged as a blue run with no piste name, between the tops of the Old Homewood Express and the Ellis Chair: neither the resort's 2026 trail map nor its snow report has a run of that name, so the road's name is hidden and the piece stays, unnamed, as OSM rates it (the road's other pieces carry the piste name Noonchester Traverse).",
+      "expect": {
+        "name": "Quail Peak",
+        "piste:name": null,
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": null
+      }
+    }
+  ]
+}

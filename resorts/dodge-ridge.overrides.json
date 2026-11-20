@@ -1,0 +1,30 @@
+{
+  "slug": "dodge-ridge",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/242382005 (Dodge Ridge Ski Area; OpenStreetMap's relation/3139919 of the same name is a type=site relation, not a polygon): the north face of the ridge above Pinecrest, from the summit (8,200 ft on the map) down to the Creekside and Helm Family Lodges (6,600 ft) and to the Boulder Creek chair's bottom (7,045 ft) on the east side, on one ticket and one map; it holds every lift and run, and no part of it is reached only by road or shuttle. No other ski area's landuse=winter_sports polygon lies in the box (Leland Snowplay, way/582377669, a snow play hill with no lift or run in OSM, lies 4.8 km north-west of the polygon, just beyond the box's north edge, in the Overpass window); 16 cross-country ways are left out by the type rule. Every named run and lift checked on 2026-11-19 against the resort's current trail map (DodgeRidge_TrailMap_freestyle-update-12-4-LRG-min-scaled.jpg, the large file dodgeridge.com/the-mountain/trail-map links, 2560 x 1244 px, the James Niehues painting looking south up the mountain with the freestyle update of 2025-12-04, read in crops enlarged 1.6 to 1.8 times) and the resort's terrain-parks page (dodgeridge.com/terrain-parks: Rocky's Road Terrain Park off the top of Prospector Chair 7, and Stagecoach Park, the medium-to-large park). The map's key: Easier (green circle), More Difficult (blue square), Most Difficult (black diamond), Expert (two diamonds), Freestyle Terrain (orange, with sizes XS to L). All 66 named OSM runs carry the map's rating, so no rating changes. The two parks the resort names take the park flag (Rocky's Road and Stagecoach, whose map labels carry the M and M/L freestyle symbols); the map's other freestyle symbols (S on Clementine, M on Lower Gold Nugget and by Saddleback, XS in the Learning Area) mark features on rated runs, not named parks, and are left as OSM rates the runs. OSM's Powder Keg run area, a double black glade between the Powder Keg line and Elevator Shaft, is the map's Fast Eddies glade by its place and rating, and takes that name; Granite Bowl, an outline drawn as a closed line, is hidden as other glade outlines are. Lifts: all of the map's are in OSM (Triple Nugget 1, Motherlode 3, Comstock 4, Gold Rush 5, Clementine 6, Prospector 7, Boulder Creek 8, T-Bar 643 and three conveyors), none hidden. Names that differ from the map only by a space stay as OSM has them (Head Wall for Headwall, West Side for Westside). OSM gaps against the map (shipped as at Palisades Tahoe): Morningside (blue, between Ego Alley and Triple Nugget), an unnamed black line by the boundary below Quicksilver, Granite Bowl as a run area, the Children's Lesson Area and Learning Area, and the Snowplay & Tubing area.",
+  "overrides": [
+    {
+      "id": "way/1564807576",
+      "reason": "The double black glade between the Powder Keg line (way/235515420, black) and Elevator Shaft: Dodge Ridge's trail map (the 2025-12-04 freestyle update) labels it FAST EDDIES with two black diamonds, beside POWDER KEG with one; OSM names this run area Powder Keg and rates it expert, the map's double black for Fast Eddies. Named by its place, so the map's Powder Keg is one black run and Fast Eddies is not lost.",
+      "expect": { "name": "Powder Keg", "piste:difficulty": "expert", "area": "yes" },
+      "set": { "name": "Fast Eddies" }
+    },
+    {
+      "id": "way/235526558",
+      "reason": "Granite Bowl: the open bowl above the Boulder Creek chair's bottom, which Dodge Ridge's trail map labels with a black diamond. OSM draws its outline as a closed way without area=yes (with natural=scree), which the map would draw as a 1.4 km black run looping round the bowl and rank as a trunk run; hidden, as Copper Mountain's Lower Enchanted Forest and Eldora's glade outlines. The bowl's runs (Diamond Back, Boulder Over and the shots above it) are drawn.",
+      "expect": { "name": "Granite Bowl", "piste:difficulty": "advanced", "natural": "scree" },
+      "hide": true
+    },
+    {
+      "id": "way/235515425",
+      "reason": "Rocky's Road: the run off the top of the Prospector chair, which Dodge Ridge's terrain-parks page names Rocky's Road Terrain Park (boxes, rails, transitions and a banked run in the trees beside Stampmill) and its trail map marks with the M freestyle symbol at the summit; it takes the park flag with the map's blue, as Granite Peak's Fun Slopes.",
+      "expect": { "name": "Rocky's Road", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/235515430",
+      "reason": "Stagecoach: the run beside the Prospector chair that holds Stagecoach Park, the resort's medium-to-large park (dodgeridge.com/terrain-parks), which the trail map marks with the M/L freestyle symbol on it; it takes the park flag with the map's blue, as Rocky's Road. Lower Stagecoach, below it, stays a blue run.",
+      "expect": { "name": "Stagecoach", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    }
+  ]
+}

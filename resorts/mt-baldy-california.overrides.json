@@ -1,0 +1,74 @@
+{
+  "slug": "mt-baldy-california",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/907508350 (Mt. Baldy Resort, landuse=winter_sports; relation/4642894, named Mt. Baldy, is a type=site relation of the runs and lifts, not a polygon): Chair 1 from the base at Manker Flats on Mt. Baldy Road up the face to the Top of the Notch (7,800 ft), and above the Notch Chairs 2, 3 and 4 on Thunder Mountain and the west side, on one ticket and one map. Every part is reached by lift: skiers ride Chair 1 to the Notch (the map marks it a downloading chair, so they may ride it down too); none only by road or shuttle. No other ski area's polygon lies in the box or the Overpass window: Mountain High, whose terrain begins about 9 km north-west of Mt. Baldy's polygon, has no polygon in OpenStreetMap (its map's ski area is derived), and none of its lifts or runs reaches the window. Every named run and lift checked on 2026-11-19 against the resort's current trail map (mtbaldyresort.com/trail-map-and-mountain-stats: mt-baldy-trail-map-full.jpg, the VistaMap painting at 7150 x 4888 px, read in crops at full size) and the run list of its mountain report (mtbaldyresort.com/mountain-report: 30 runs by chair, each with the map's level). The map's key has seven classes: Easiest (green circle), More Difficult (a green circle on a blue square), Still More Difficult (blue square), Even More Difficult (a blue square on a black diamond), Most Difficult (black diamond), Extremely Difficult (two black diamonds) and Freestyle Terrain (orange). Easiest is OSM's easy, Still More Difficult its intermediate, Most Difficult its advanced and Extremely Difficult its expert; the two split classes take the harder of their two symbols, as Jiminy Peak's and Fernie's do: More Difficult is intermediate (Bonanza, intermediate in OSM already) and Even More Difficult advanced (Robin's Run and Shortcut become advanced; Skyline is advanced already). South Bowl takes the map's two diamonds. Morgan's Grove has two diamonds on the map and level 5 (Most difficult) in the run list: the resort's sources disagree, so the harder of theirs and OpenStreetMap's stays, expert as OSM has it (the rule of 2026-10-22). Comeback Trail is on the map with no symbol and not in the run list, and stays advanced as OSM has it. Names: Emilie's Bowl from the map and the list; Roller Coaster on both of OSM's Rollercoaster ways; the runs OpenStreetMap draws on roads and tracks (Mt. Baldy Road, Three Ts Trail, Devils Backbone Road) carry their run names in piste:name (Bentley's Dream, Mullin's Mile, Easy Road, Toilet Bowl, Skyline, Roller Coaster), which the pipeline reads first. The lifts keep OSM's Chair 1 to Chair 4, the map's CHAIR 1 to CHAIR 4 (the resort also calls them Sugar Pine, The Gulch, Thunder Mountain and West Side). The Extreme Danger Zones the map outlines (Holumac, The Face, Clementine, Bill's) are no runs in OpenStreetMap but Holumac's line, expert. OSM gaps (shipped as at Palisades Tahoe): Sugarpine (black, down Chair 1's line), Chappie's Chutes and South Trees (double black), Spring Ridge (blue) and the Catalina Vista Park; the zip line and the Snow Play Park at the Notch are not in OpenStreetMap's lift data.",
+  "overrides": [
+    {
+      "id": "way/330997488",
+      "reason": "Robin's Run, from Chair 3's top past the Catalina Vista Park, has the Even More Difficult symbol (a blue square on a black diamond) on Mt. Baldy's current trail map (mtbaldyresort.com/trail-map-and-mountain-stats: mt-baldy-trail-map-full.jpg, the VistaMap painting at 7150 x 4888 px), and the run list of the resort's mountain report (mtbaldyresort.com/mountain-report, its runs and grooming table) rates it 4, Even more difficult; the split symbol takes the harder of its two, black (advanced), as Jiminy Peak's High Intermediate does. OSM rates it intermediate. The resort's sources agree and win.",
+      "expect": {
+        "name": "Robin's Run",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/330997489",
+      "reason": "Shortcut, below Toilet Bowl at Chair 3's top, has the Even More Difficult symbol (a blue square on a black diamond) on Mt. Baldy's current trail map (mtbaldyresort.com/trail-map-and-mountain-stats: mt-baldy-trail-map-full.jpg, the VistaMap painting at 7150 x 4888 px), and the run list of the resort's mountain report (mtbaldyresort.com/mountain-report, its runs and grooming table) rates it 4, Even more difficult; the split symbol takes the harder of its two, black (advanced), as Jiminy Peak's High Intermediate does. OSM rates it intermediate. The resort's sources agree and win.",
+      "expect": {
+        "name": "Shortcut",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/330997492",
+      "reason": "South Bowl, off the ridge south of Chair 3's top, has two black diamonds (Extremely Difficult) on Mt. Baldy's current trail map (mtbaldyresort.com/trail-map-and-mountain-stats: mt-baldy-trail-map-full.jpg, the VistaMap painting at 7150 x 4888 px), and the run list of the resort's mountain report (mtbaldyresort.com/mountain-report, its runs and grooming table) rates it 6, Extremely difficult; OSM rates it advanced. The resort's sources agree and win.",
+      "expect": {
+        "name": "South Bowl",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "difficulty": "expert"
+      }
+    },
+    {
+      "id": "way/330997481",
+      "reason": "Misspelt name ('Emile's Bowl'): Mt. Baldy's current trail map (mtbaldyresort.com/trail-map-and-mountain-stats: mt-baldy-trail-map-full.jpg, the VistaMap painting at 7150 x 4888 px) prints EMILIE'S BOWL and the run list of the resort's mountain report (mtbaldyresort.com/mountain-report, its runs and grooming table) spells it Emilie's Bowl.",
+      "expect": {
+        "name": "Emile's Bowl",
+        "piste:difficulty": "advanced"
+      },
+      "set": {
+        "name": "Emilie's Bowl"
+      }
+    },
+    {
+      "id": "way/7196045",
+      "reason": "Roller Coaster, the ridge run along the Devil's Backbone from Chair 4's top, is one run of two spellings in OSM (piste:name Rollercoaster on this way and way/178915155, Roller Coaster on way/330997478, the road's name Devils Backbone Road under them); Mt. Baldy's current trail map (mtbaldyresort.com/trail-map-and-mountain-stats: mt-baldy-trail-map-full.jpg, the VistaMap painting at 7150 x 4888 px) and the run list of the resort's mountain report (mtbaldyresort.com/mountain-report, its runs and grooming table) spell it Roller Coaster, so the run takes one name, as Steamboat's Jess' Cut-Off does.",
+      "expect": {
+        "name": "Devils Backbone Road",
+        "piste:name": "Rollercoaster",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Roller Coaster"
+      }
+    },
+    {
+      "id": "way/178915155",
+      "reason": "Roller Coaster, the ridge run along the Devil's Backbone from Chair 4's top, is one run of two spellings in OSM (piste:name Rollercoaster on this way and way/7196045, Roller Coaster on way/330997478); Mt. Baldy's current trail map (mtbaldyresort.com/trail-map-and-mountain-stats: mt-baldy-trail-map-full.jpg, the VistaMap painting at 7150 x 4888 px) and the run list of the resort's mountain report (mtbaldyresort.com/mountain-report, its runs and grooming table) spell it Roller Coaster, so the run takes one name, as Steamboat's Jess' Cut-Off does.",
+      "expect": {
+        "name": null,
+        "piste:name": "Rollercoaster",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "name": "Roller Coaster"
+      }
+    }
+  ]
+}

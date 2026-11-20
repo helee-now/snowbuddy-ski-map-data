@@ -1,0 +1,728 @@
+{
+  "slug": "donner-ski-ranch",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. NO POLYGON: OpenStreetMap has no landuse=winter_sports polygon for Donner Ski Ranch (checked 2026-11-19: relation/3184079, 'Donner Ski Ranch', is a type=site, site=piste relation that lists its lifts and runs, not an area), so resorts.json sets \"ski_area\": \"derived\": the area is drawn from the resort's own kept lifts and runs, buffered by 100 m (one part, 1.54 km²; the resort says more than 500 acres). Donner Ski Ranch's front side (Chairs 1, 4 and 6 from the main lodge on Donner Pass Road) and back side (Chairs 2, 3 and 5 from the summit and the back-side lodge) are one ski area on one ticket and one map, joined at the summit by their runs; no part is reached only by road or shuttle (the trail map draws one area, front side and back side). NEIGHBOURS: no lift or trail joins Donner Ski Ranch to Sugar Bowl or to Boreal on either side's map or in OpenStreetMap, so each has its own map (the owner's rule of 2026-11-14). Sugar Bowl (relation/10326057, across Donner Pass Road; the nearest Donner Ski Ranch run, South Bowl Road, ends 250 m from its polygon) and Tahoe Donner (relation/10906075, in the Overpass window's north-east corner) are listed neighbours in resorts.json (157 and 23 features left out). Boreal (relation/3184061) and Soda Springs (relation/3185906) have only type=site relations, no polygon, so they cannot be listed, and each of their lifts and runs in the Overpass window is hidden here one by one, as Sugar Bowl's file hides Donner Ski Ranch's, Boreal's and Soda Springs': Boreal's 7 lifts and 31 runs (its Sunrise Blvd. passes 150 m from the bottom of Chair 5, the two areas' closest approach), Boreal's disused Quicksilver chair, Soda Springs' 5 lifts and 18 runs, and the two unnamed rope tows by Soda Springs Road on no resort's relation. With a derived ski area a listed neighbour leaves out only what its polygon holds at least half of, so three Sugar Bowl features outside Sugar Bowl's polygon are hidden too (the Sugar Rush tubing carpet, an unnamed run on the Crow's Peak side and the Lincoln East Face backcountry area): otherwise they would be kept and add parts to the derived area. Each hide expects the element's kind and name only, so a rating edit at a neighbour never stops this build; a polygon mapped for Boreal or Soda Springs later replaces its hides with a neighbours entry, and one mapped for Donner Ski Ranch itself replaces \"derived\" with its id (a new version). Nothing of Donner Ski Ranch's own is lost: every lift and run its site relation lists is kept but the tubing hill's carpet (hidden below) and its lanes (piste:type=sled, left out by the type rule). RATINGS AND NAMES: every named run and lift checked on 2026-11-19 against the resort's trail map (donnerskiranch.com/mountain-info, DonnerSkiRanch_TrailMap, the painting with its numbered run list, fetched at 2500 x 2500 px and read in crops: three grades, Easier (green), More Difficult (blue) and Most Difficult (black), the front side's runs 1 to 26 and the back side's 27 to 52) and its lift status page (donnerskiranch.com/liftstatus: Chair 1 to Chair 6, the Ski Moving Carpet and the Tubing Hill). OSM's easy and novice, intermediate and advanced match the three grades, and every named OSM run carries the map's rating but three, where the run list colours the run black and the painting's marker on the line is a blue square: the resort's own sources disagree, so the harder rating is kept (the rule of 2026-10-22) for Hut Run, Trail Blazer and Castle Peak's lower traverse (its top way is black in OSM and on the painting). Names: OSM's Chairlift 1 to Chairlift 6 become Chair 1 to Chair 6 (the lift status page; the map labels CHAIR #1 to CHAIR #6), and the unnamed ski carpet by Chair 4 takes the map's MOVING CARPET. Names that differ from the map only by a space, a hyphen or an apostrophe stay as OSM has them (Easy Rider for EASYRIDER, Crossover for CROSS OVER, Cross Under for CROSSUNDER, Lake View for LAKEVIEW, Springboard for SPRING BOARD, Sidewinder for SIDE WINDER, Mertyl's Cut-off for MERTYL'S CUTOFF), and so does Sanctuary, which the run list misspells SANTUARY. Half Pipe (33) is a black run on the map, not a terrain park, and the map draws no park. OSM's Lance's Leap (advanced) is not on the map and stays as OSM has it. OSM GAPS (shipped as at Palisades Tahoe): 7 of the map's 52 runs are not in OpenStreetMap: Palisades (black), Sand Pit Road and Not So Private Road (green), Snow Catch (blue in the run list, a green circle on the painting), Lift Off (black), Cat Tracks and Boomerang (blue).",
+  "overrides": [
+    {
+      "id": "way/82867160",
+      "reason": "The resort's lift status page lists its chairs as Chair 1 to Chair 6 and its trail map labels them CHAIR #1 to CHAIR #6; OSM names this one Chairlift 1 (the front side's chair from the main lodge to the summit).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 1"
+      },
+      "set": {
+        "name": "Chair 1"
+      }
+    },
+    {
+      "id": "way/187356831",
+      "reason": "The resort's lift status page lists its chairs as Chair 1 to Chair 6 and its trail map labels them CHAIR #1 to CHAIR #6; OSM names this one Chairlift 2 (the back side's chair from the back-side lodge to the summit).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 2"
+      },
+      "set": {
+        "name": "Chair 2"
+      }
+    },
+    {
+      "id": "way/107704732",
+      "reason": "The resort's lift status page lists its chairs as Chair 1 to Chair 6 and its trail map labels them CHAIR #1 to CHAIR #6; OSM names this one Chairlift 3 (the back side's chair west of the summit, over Hut Run and Trail Blazer).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 3"
+      },
+      "set": {
+        "name": "Chair 3"
+      }
+    },
+    {
+      "id": "way/187436934",
+      "reason": "The resort's lift status page lists its chairs as Chair 1 to Chair 6 and its trail map labels them CHAIR #1 to CHAIR #6; OSM names this one Chairlift 4 (the front side's beginner chair beside the moving carpet).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 4"
+      },
+      "set": {
+        "name": "Chair 4"
+      }
+    },
+    {
+      "id": "way/187356829",
+      "reason": "The resort's lift status page lists its chairs as Chair 1 to Chair 6 and its trail map labels them CHAIR #1 to CHAIR #6; OSM names this one Chairlift 5 (the back side's lowest chair, up to the back-side lodge beside Lytton and Sun Slide).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 5"
+      },
+      "set": {
+        "name": "Chair 5"
+      }
+    },
+    {
+      "id": "way/236641651",
+      "reason": "The resort's lift status page lists its chairs as Chair 1 to Chair 6 and its trail map labels them CHAIR #1 to CHAIR #6; OSM names this one Chairlift 6 (the short front-side chair from the main lodge beside Chair 1).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Chairlift 6"
+      },
+      "set": {
+        "name": "Chair 6"
+      }
+    },
+    {
+      "id": "way/258160913",
+      "reason": "The ski carpet beside the bottom of Chair 4, unnamed in OSM: the trail map labels it MOVING CARPET and the lift status page lists it as the Ski Moving Carpet.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "set": {
+        "name": "Moving Carpet"
+      }
+    },
+    {
+      "id": "way/879912936",
+      "reason": "Hut Run is listed in black (most difficult) in the trail map's run list (36. Hut Run) while the painting marks its line with a blue square and OSM rates it intermediate: the resort's own sources disagree, so the harder rating is kept (the rule of 2026-10-22).",
+      "expect": {
+        "name": "Hut Run",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/879912933",
+      "reason": "Trail Blazer is listed in black (most difficult) in the trail map's run list (40. Trail Blazer) while the painting marks its line with a blue square and OSM rates it intermediate: the resort's own sources disagree, so the harder rating is kept (the rule of 2026-10-22).",
+      "expect": {
+        "name": "Trail Blazer",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/879912941",
+      "reason": "Castle Peak's lower way, the traverse west to the bottom of Chair 3 (482 m), which OSM rates intermediate (its 117 m top way, way/879912942, is advanced): the trail map's run list gives Castle Peak in black (most difficult, 38. Castle Peak), while the painting marks the run's top with a black diamond and this traverse with a blue square. The resort's own sources disagree on this way, so the harder rating is kept (the rule of 2026-10-22), as for Hut Run and Trail Blazer.",
+      "expect": {
+        "name": "Castle Peak",
+        "piste:difficulty": "intermediate"
+      },
+      "set": {
+        "difficulty": "advanced"
+      }
+    },
+    {
+      "id": "way/187436932",
+      "reason": "Boreal's chairlift 49er: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "49er"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436935",
+      "reason": "Boreal's chairlift Accelerator: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Accelerator"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1370990331",
+      "reason": "Boreal's chairlift California Cruiser: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "California Cruiser"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436933",
+      "reason": "Boreal's chairlift Castle Peak Quad: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Castle Peak Quad"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436928",
+      "reason": "Boreal's chairlift Cedar Ridge: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Cedar Ridge"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436936",
+      "reason": "Boreal's chairlift Flying Dutchman: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Flying Dutchman"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1039221744",
+      "reason": "Boreal's carpet Magic Carpet: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": "Magic Carpet"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1039221743",
+      "reason": "Boreal's run Cedar Return: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Cedar Return"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332416743",
+      "reason": "Boreal's run Central Pacific: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Central Pacific"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1119475875",
+      "reason": "Boreal's run Chukker: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Chukker"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332416742",
+      "reason": "Boreal's run D. & R. G.: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "D. & R. G."
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332416744",
+      "reason": "Boreal's run Dutchman Gully: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Dutchman Gully"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765280",
+      "reason": "Boreal's run Halfpipe: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Halfpipe"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765286",
+      "reason": "Boreal's run Hers: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Hers"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765287",
+      "reason": "Boreal's run His: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "His"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765282",
+      "reason": "Boreal's park Jibassic Park: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "snow_park",
+        "name": "Jibassic Park"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415930",
+      "reason": "Boreal's run Juniper: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Juniper"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1119475876",
+      "reason": "Boreal's run Kangroo Cornice: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Kangroo Cornice"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415931",
+      "reason": "Boreal's run Kiss A Bear: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Kiss A Bear"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1039221742",
+      "reason": "Boreal's run Lower Cut: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lower Cut"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415932",
+      "reason": "Boreal's run Mariposa: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Mariposa"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765281",
+      "reason": "Boreal's park Pacific Highline Park: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "snow_park",
+        "name": "Pacific Highline Park"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415933",
+      "reason": "Boreal's run Ponderosa: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Ponderosa"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1039221745",
+      "reason": "Boreal's park Progression Park: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "snow_park",
+        "name": "Progression Park"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1039221741",
+      "reason": "Boreal's run Prospector: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Prospector"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765279",
+      "reason": "Boreal's run Ptarmigan: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Ptarmigan"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765284",
+      "reason": "Boreal's run Race Course: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Race Course"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415934",
+      "reason": "Boreal's run Rick's Return: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Rick's Return"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1119475874",
+      "reason": "Boreal's run Road Island: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Road Island"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415935",
+      "reason": "Boreal's run South 40: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "South 40"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187475863",
+      "reason": "Boreal's run Sunrise Blvd.: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sunrise Blvd."
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415936",
+      "reason": "Boreal's run Sunrise Blvd.: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sunrise Blvd."
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415937",
+      "reason": "Boreal's run Sunset Blvd.: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sunset Blvd."
+      },
+      "hide": true
+    },
+    {
+      "id": "way/10465506",
+      "reason": "Boreal's run Undertow: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Undertow"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/332415938",
+      "reason": "Boreal's run Walt's Run: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Walt's Run"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765278",
+      "reason": "Boreal's run Waterfall: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Waterfall"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765285",
+      "reason": "Boreal's run Yours: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Yours"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1042765283",
+      "reason": "Boreal's run Bonanza: Boreal Mountain is a separate resort on the ridge north-west of Donner Ski Ranch's back side (its Sunrise Blvd. passes 150 m from the bottom of Donner Ski Ranch's Chair 5), with no lift or trail between the two on either resort's trail map, and OpenStreetMap has no landuse=winter_sports polygon for it (only a type=site relation, relation/3184061), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Bonanza"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/258164606",
+      "reason": "Soda Springs' unnamed carpet: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/258164607",
+      "reason": "Soda Springs' unnamed carpet: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/144931287",
+      "reason": "Soda Springs' chairlift Crystal Bowl: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Crystal Bowl"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/144931286",
+      "reason": "Soda Springs' chairlift Lion's Head: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Lion's Head"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/236772145",
+      "reason": "Soda Springs' carpet Tube Express: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": "Tube Express"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899955",
+      "reason": "Soda Springs' run Alley Cat: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Alley Cat"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899961",
+      "reason": "Soda Springs' run Cat Track: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Cat Track"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/236772146",
+      "reason": "Soda Springs' run Creampuff: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Sunshine"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899958",
+      "reason": "Soda Springs' run Fun Slope: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Fun Slope"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899957",
+      "reason": "Soda Springs' run Lodge Return: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lodge Return"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899964",
+      "reason": "Soda Springs' run Lower Crystal: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lower Crystal"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899960",
+      "reason": "Soda Springs' run Lower Mad Dog: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lower Mad Dog"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899956",
+      "reason": "Soda Springs' run Meadow Trail: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Meadow Trail"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899967",
+      "reason": "Soda Springs' run Nose Dive: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Nose Dive"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899966",
+      "reason": "Soda Springs' run Race Course: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Race Course"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899969",
+      "reason": "Soda Springs' run Roaring 20's: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Roaring 20's"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899968",
+      "reason": "Soda Springs' run Scooter: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Scooter"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/236772147",
+      "reason": "Soda Springs' run Sunshine: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Cream Puff"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899962",
+      "reason": "Soda Springs' run Tree Trail: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Tree Trail"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899963",
+      "reason": "Soda Springs' run Upper Crystal: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Upper Crystal"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899970",
+      "reason": "Soda Springs' run Crespillo: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Crespillo"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899959",
+      "reason": "Soda Springs' run Home Run: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Home Run"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/879899965",
+      "reason": "Soda Springs' run Upper Mad Dog: a separate resort 3 km west of Donner Ski Ranch with no landuse=winter_sports polygon in OpenStreetMap (only a type=site relation, relation/3185906), so it cannot be listed as a neighbour; hidden one by one (file comment).",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Upper Mad Dog"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/187436931",
+      "reason": "Boreal's disused chairlift Quicksilver (OSM disused=yes, operator Boreal, 'inoperable with no chairs attached'), between Boreal and Donner Ski Ranch's back side: neither resort's trail map or lift list has it, and as a lift of no polygon it would be kept and shape Donner Ski Ranch's derived ski area; hidden.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Quicksilver"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/302983979",
+      "reason": "An unnamed rope tow by Soda Springs Road, 0.6 km south of Soda Springs' lifts and 4.5 km west of Donner Ski Ranch, in no ski-area polygon and on no resort's site relation: not Donner Ski Ranch's (its map and lift list have six chairs, a ski carpet and the tubing carpet), and as a lift of no polygon it would be kept and add a part to the derived ski area; hidden, as at Sugar Bowl.",
+      "expect": {
+        "aerialway": "rope_tow",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/472036588",
+      "reason": "An unnamed rope tow by Soda Springs Road, 0.6 km south of Soda Springs' lifts and 3.9 km west of Donner Ski Ranch, in no ski-area polygon and on no resort's site relation: not Donner Ski Ranch's (its map and lift list have six chairs, a ski carpet and the tubing carpet), and as a lift of no polygon it would be kept and add a part to the derived ski area; hidden, as at Sugar Bowl.",
+      "expect": {
+        "aerialway": "rope_tow",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1570571115",
+      "reason": "Sugar Bowl's Sugar Rush tubing carpet by Sugar Bowl Road, outside Sugar Bowl's polygon (a listed neighbour), so with a derived ski area the neighbour rule does not leave it out (a neighbour takes only what its polygon holds at least half of): not Donner Ski Ranch's, and hidden as Sugar Bowl's own file hides it.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1474527476",
+      "reason": "An unnamed blue run on Sugar Bowl's Crow's Peak side (west of the Crow's Peak chair), mostly outside Sugar Bowl's polygon (a listed neighbour), so with a derived ski area the neighbour rule does not leave it out: Sugar Bowl's terrain, not Donner Ski Ranch's, and it would add a part to the derived ski area 1.5 km from Donner Ski Ranch's runs; hidden.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1473727299",
+      "reason": "Lincoln East Face, Sugar Bowl's backcountry area beyond its gate C on Mt. Lincoln (sugar-bowl's out_of_bounds_named), of which Sugar Bowl's polygon (a listed neighbour) holds 43%, so with a derived ski area the neighbour rule does not leave it out: Sugar Bowl's, not Donner Ski Ranch's, and it would add a part to the derived ski area 3 km away; hidden.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lincoln East Face"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/258160914",
+      "reason": "Tube Hill, Donner Ski Ranch's snow tubing carpet beside the tubing lanes (OSM's Tube Hill, piste:type=sled, left out by the type rule) east of the main lodge: not a ski lift (the lift status page lists the Tubing Hill apart from the six chairs and the Ski Moving Carpet, and the map labels it SNOW TUBING), and without its lanes it would draw as a lift with no run; hidden as Sugar Bowl's and Winter Park's tubing carpets are.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": "Tube Hill"
+      },
+      "hide": true
+    }
+  ]
+}

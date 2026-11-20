@@ -1,0 +1,262 @@
+{
+  "slug": "mt-rose",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/534160668 (Mount Rose Ski Tahoe, landuse=winter_sports): the Main side above the Main Lodge on the Mt. Rose Highway (Northwest Express, Lakeview Express, Galena, Wizard, Magic and Little Mule), the Chutes (Chuter) and the Slide side above Winters Creek Lodge (Zephyr Express, Slide Bowl), on one ticket and one map. The sides are one polygon and joined by lift and trail: the Zephyr Express and the Northwest Express top out 0.3 km apart below Slide Mountain's summit, and Main Lodge Return, Silver Dollar and the Chutes' gates join the sides; no part is reached only by road or shuttle (the road to Winters Creek Lodge serves its own parking). No other ski area's polygon lies in the box or the Overpass window: Diamond Peak's (way/467831000) ends 3 km south of the box, beyond the window. Sky Tavern, the separate non-profit junior ski area north of the Mt. Rose Highway below the Main Lodge, has no polygon in OpenStreetMap, so its 2 chairlifts, 2 carpets and 22 runs are hidden one by one below, as Sugar Bowl hides Donner Ski Ranch's. Every named run and lift checked on 2026-11-19 against the resort's current trail map (skirose.com/trail-maps: MtROSE-frontside-1.jpg, the VistaMap painting uploaded 2025-08, 2000 x 894 px, the largest the resort serves, read in crops enlarged two to four times; MtROSE-beginner-01.jpg, the beginner area at 1264 x 2000 px) and its Slide Bowl map (Slide2019.jpg, 1352 x 800 px, the 2019 edition the page still links, with the old lift names Blazing Zephyr 6 and Northwest Magnum 6), and against the grooming report of its snow report page (skirose.com/snow-report, which lists 55 runs by side as Green, Blue or Black). The maps rate runs green circle, blue square, black diamond and double black diamond, OSM's easy, intermediate, advanced and expert: every named OpenStreetMap run the maps print carries their rating already (the eleven double-diamond Chutes, Hornet's Nest, Nightmare, Chaos, Yellow Jacket, Charge, Detonator, Fuse, Saddle, El Cap, Jackpot and Cardiac Ridge, are expert; Beehive, Miller Time, Tailings, Lowball and Cutthroat at their edges single black, advanced), and the grooming report agrees with the maps on every run both rate, so no rating changes. Badlands is a snow park in OpenStreetMap, as the maps' park symbol says (the grooming report lists it with the blue runs). Little Red Glade and Comstock Glade carry no symbol on the maps and stay advanced as OpenStreetMap has them; Playground, an advanced run between Tailings and Show Off, and Divine Line, a 141 m expert line beside Cardiac Ridge (its name in piste:name), are on none of the resort's maps or lists and stay as OpenStreetMap has them. Wild Card, from the summit ridge, is tagged piste:grooming=backcountry in OpenStreetMap, but it lies wholly inside the polygon, as the maps draw it inside the boundary, so the pipeline keeps it in bounds. Easy Street (three unnamed ways, one a TIGER service road) and a piece of Ponderosa carry their run names in piste:name, which the pipeline reads first. Lakeside (the grooming report's Lakeside Trail) keeps the maps' name. All eight lifts in OpenStreetMap are on the 2025 map and in the snow report's lift table, with its names. OSM gaps (shipped as at Palisades Tahoe): Macho Bowl, Ore Cart, Central Pacific and Outlaw (black), Olympic Trees, Powder Ridge, Pony Express, Overland Glade, Pioneer Glade, Climax Bowl and Hollywood Chute (unrated tree and bowl names), Wild Horse Adventure (the grooming report's Adventure Trail; green), Bonanza Traverse (blue, the grooming report only), and the Pondo and Double Down parks; the Wildslide Tubing Park's carpets are not in OpenStreetMap either.",
+  "overrides": [
+    {
+      "id": "way/38795552",
+      "reason": "Sky Tavern's chairlift America. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "America"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/38795553",
+      "reason": "Sky Tavern's chairlift Skyridge Chair. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "aerialway": "chair_lift",
+        "name": "Skyridge Chair"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522973",
+      "reason": "Sky Tavern's carpet Rocco. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": "Rocco"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522974",
+      "reason": "Sky Tavern's unnamed carpet beside Rocco. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "aerialway": "magic_carpet",
+        "name": null
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522991",
+      "reason": "Sky Tavern's run 10 G. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "10 G",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522984",
+      "reason": "Sky Tavern's run 4 of a Kind. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "4 of a Kind",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522986",
+      "reason": "Sky Tavern's run 5 Bowl. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "5 Bowl",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522988",
+      "reason": "Sky Tavern's run 5 Trees. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "5 Trees",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522971",
+      "reason": "Sky Tavern's run 7th Heaven. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "7th Heaven",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522969",
+      "reason": "Sky Tavern's run 9 Lives. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "9 Lives",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522968",
+      "reason": "Sky Tavern's run Barry's Cornice. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Barry's Cornice",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522990",
+      "reason": "Sky Tavern's run Cascade. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Cascade",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522982",
+      "reason": "Sky Tavern's run Chicken Chute. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Chicken Chute",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522978",
+      "reason": "Sky Tavern's run Creekside. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Creekside",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522987",
+      "reason": "Sky Tavern's run Flat Pine. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Flat Pine",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522983",
+      "reason": "Sky Tavern's run Four Fun. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Four Fun",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522981",
+      "reason": "Sky Tavern's run Hertz Trail. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Hertz Trail",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522985",
+      "reason": "Sky Tavern's run High Five. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "High Five",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522976",
+      "reason": "Sky Tavern's run Lower Cascade. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Lower Cascade",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522975",
+      "reason": "Sky Tavern's run Olsen Cutoff. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Olsen Cutoff",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522970",
+      "reason": "Sky Tavern's run Pieces of Eight. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Pieces of Eight",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522979",
+      "reason": "Sky Tavern's run Pony Express (Mt. Rose's map prints its own Pony Express in the trees by Around the World, which OpenStreetMap does not draw). Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Pony Express",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522980",
+      "reason": "Sky Tavern's run Rich's Run. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Rich's Run",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522977",
+      "reason": "Sky Tavern's run Schoolyard. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Schoolyard",
+        "piste:difficulty": "easy"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522972",
+      "reason": "Sky Tavern's run Six Gun (Mt. Rose's own Six Gun on the Main side, way/534348139, stays). Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Six Gun",
+        "piste:difficulty": "advanced"
+      },
+      "hide": true
+    },
+    {
+      "id": "way/1211522989",
+      "reason": "Sky Tavern's run Upper Cascade. Sky Tavern is the separate non-profit ski area of the Sky Tavern Junior Ski Program on the north side of the Mt. Rose Highway below Mt. Rose's Main Lodge (21130 Mt. Rose Highway; base 7,340 ft, top 8,240 ft): no part of Mt. Rose Ski Tahoe, absent from its 2025 trail map and grooming report, and joined to it by no lift or trail. OpenStreetMap has no landuse=winter_sports polygon for Sky Tavern, so the neighbour rule cannot list it (file comment); it lies 0.3 to 1.0 km north of Mt. Rose's polygon, inside the box, so it is hidden one by one, as Sugar Bowl hides Donner Ski Ranch's and Boreal's lifts and runs.",
+      "expect": {
+        "piste:type": "downhill",
+        "name": "Upper Cascade",
+        "piste:difficulty": "intermediate"
+      },
+      "hide": true
+    }
+  ]
+}

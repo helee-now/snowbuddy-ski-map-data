@@ -89,6 +89,42 @@ examples:
         rank: null
         oriented: null
 
+  - name: walking path keeps its name and nothing a run carries
+    input:
+      source: osm
+      geometry: line
+      tags:
+        sb:layer: walk
+        sb:name: Example Hike Out
+        sb:type: downhill
+        sb:difficulty: expert
+        sb:rank: '1'
+        sb:oriented: 'yes'
+    output:
+      layer: walk
+      geometry: line
+      min_zoom: 11
+      tags:
+        name: Example Hike Out
+        type: null
+        difficulty: null
+        rank: null
+        oriented: null
+        out_of_bounds: null
+
+  - name: unnamed walking path
+    input:
+      source: osm
+      geometry: line
+      tags:
+        sb:layer: walk
+    output:
+      layer: walk
+      geometry: line
+      min_zoom: 11
+      tags:
+        name: null
+
   - name: chair lift with occupancy, running uphill as drawn
     input:
       source: osm

@@ -1,0 +1,73 @@
+{
+  "key": "homewood-v1",
+  "ski_sha256": "e5d84b5c6faca3ccfbc0e08e65d5a23bff9bc8699645f1ef9064b66e1ce313ce",
+  "osm_timestamp": "2026-11-19T09:42:02Z",
+  "box": [
+    -120.22,
+    39.04,
+    -120.13,
+    39.11
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -120.18823,
+    39.066706,
+    -120.158597,
+    39.088011
+  ],
+  "margins_km": {
+    "west": 2.74,
+    "south": 2.97,
+    "east": 2.47,
+    "north": 2.45
+  },
+  "counts": {
+    "lifts": 4,
+    "runs_in_bounds": 100,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 7,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.3,
+    "runs_in_bounds": 36.2,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -120.234375,
+      38.959409,
+      -120.058594,
+      39.232253
+    ],
+    "12": [
+      -120.234375,
+      39.027719,
+      -120.058594,
+      39.164141
+    ],
+    "13": [
+      -120.234375,
+      39.027719,
+      -120.102539,
+      39.13006
+    ],
+    "14": [
+      -120.234375,
+      39.027719,
+      -120.124512,
+      39.113014
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

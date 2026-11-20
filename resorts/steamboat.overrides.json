@@ -1,6 +1,6 @@
 {
   "slug": "steamboat",
-  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Checked 2026-10-21 against Steamboat's own trail map (the current map with Mahogany Ridge and Greenhorn Ranch, as OnTheSnow serves it; steamboat.com is behind a bot wall): every rated OSM run name matched the map's symbol, so only the unrated pieces of rated runs get a rating. Howelsen Hill, the city's ski area in town, is left off through resorts.json's neighbours, not here. Two terrain parks are rated runs in OSM; Maverick's Halfpipe needs nothing (man_made=piste:halfpipe) and Perry Park is a black-diamond run on the map, not a park. The Wildhorse Gondola stays drawn: a working gondola that skiers staying at Wildhorse Meadows use to reach the base (lead's decision 2026-10-22). The Hike Out, which the map draws as an unrated dotted path out of Fish Creek Canyon, is hidden as the pipeline leaves out hiking trails (review of 2026-10-21).",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. Checked 2026-10-21 against Steamboat's own trail map (the current map with Mahogany Ridge and Greenhorn Ranch, as OnTheSnow serves it; steamboat.com is behind a bot wall): every rated OSM run name matched the map's symbol, so only the unrated pieces of rated runs get a rating. Howelsen Hill, the city's ski area in town, is left off through resorts.json's neighbours, not here. Two terrain parks are rated runs in OSM; Maverick's Halfpipe needs nothing (man_made=piste:halfpipe) and Perry Park is a black-diamond run on the map, not a park. The Wildhorse Gondola stays drawn: a working gondola that skiers staying at Wildhorse Meadows use to reach the base (lead's decision 2026-10-22). The Hike Out, which the map draws as an unrated dotted path out of Fish Creek Canyon, is drawn as a walking path since 2026-11-17 (the owner's option B; hidden from the review of 2026-10-21 until then, as the pipeline leaves out hiking trails).",
   "overrides": [
     {
       "id": "way/697652161",
@@ -100,9 +100,9 @@
     },
     {
       "id": "way/1246223457",
-      "reason": "Hike Out: the walk out of Fish Creek Canyon, from the foot of Endless Gully to the bottom of the Mahogany Ridge Express. The resort's map draws HIKE OUT as a black dotted path with no rating symbol, not a run; tagged as a 2.7 km expert run it would be Steamboat's longest expert line and an expert trunk run in the overview. Hidden, as the pipeline leaves out hiking trails (OSM's Mt. Werner Hike is piste:type=hike and dropped).",
+      "reason": "Hike Out: the walk out of Fish Creek Canyon, from the foot of Endless Gully to the bottom of the Mahogany Ridge Express. The resort's map draws HIKE OUT as a black dotted path with no rating symbol, not a run; tagged as a 2.7 km expert run it would be Steamboat's longest expert line and an expert trunk run in the overview. Drawn as a walking path since 2026-11-17 (the owner's option B): round dots, with a walker badge and its name, never as a run; hidden from 2026-10-21 until then, as the pipeline leaves out hiking trails (OSM's Mt. Werner Hike is piste:type=hike and still dropped).",
       "expect": { "name": "Hike Out", "piste:type": "downhill", "piste:difficulty": "expert" },
-      "hide": true
+      "walk": true
     },
     {
       "id": "way/51722274",

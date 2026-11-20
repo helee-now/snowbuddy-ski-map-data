@@ -1,0 +1,73 @@
+{
+  "key": "mt-baldy-california-v1",
+  "ski_sha256": "2176fecba39838cc6536df826052165b130544d20f791a427c37f9aae6df62bc",
+  "osm_timestamp": "2026-11-19T09:44:04Z",
+  "box": [
+    -117.65,
+    34.24,
+    -117.58,
+    34.31
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -117.625397,
+    34.264854,
+    -117.602007,
+    34.282199
+  ],
+  "margins_km": {
+    "west": 2.26,
+    "south": 2.76,
+    "east": 2.02,
+    "north": 3.09
+  },
+  "counts": {
+    "lifts": 4,
+    "runs_in_bounds": 33,
+    "run_areas_in_bounds": 0,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 8,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 3.1,
+    "runs_in_bounds": 15.1,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -117.773438,
+      34.161818,
+      -117.421875,
+      34.452218
+    ],
+    "12": [
+      -117.685547,
+      34.234512,
+      -117.509766,
+      34.379713
+    ],
+    "13": [
+      -117.685547,
+      34.234512,
+      -117.553711,
+      34.343436
+    ],
+    "14": [
+      -117.663574,
+      34.234512,
+      -117.575684,
+      34.325292
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

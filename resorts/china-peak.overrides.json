@@ -1,0 +1,120 @@
+{
+  "slug": "china-peak",
+  "comment": "Per-resort corrections applied by pipeline/normalize_osm.py (ADR-036). See whistler-blackcomb.overrides.json for the format. One polygon, way/1162245573 (China Peak Mountain Resort; OpenStreetMap's relation/15717134 of the same name is a type=site relation of its lifts and runs, not a polygon): the north face of China Peak above Huntington Lake, from the summit (Chinese Peak, 8,709 ft on the map) down to the Day Lodge, Mainstream Station and The Inn at China Peak (7,030 ft), on one ticket and one map; it holds every lift and run, and no part of it is reached only by road or shuttle. No other ski area's landuse=winter_sports polygon lies in the box or the Overpass window. Every named run and lift checked on 2026-11-19 against the resort's current trail map (CPBASEMAP2026.jpg, the map skichinapeak.com/trail-map links, a 1600 x 771 px painting looking south up the mountain, read in crops enlarged two to six times) and the resort's lift and trail status page (skichinapeak.com/conditions, its run list by chair with a rating icon per run: level_mod a blue square, level_diff a black diamond, level_dd two black diamonds; it uses no green icon, although the site has one). The map's key: Beginner Area (yellow), Easiest (green circle), More Difficult (blue square), Advanced (black diamond), Expert (two diamonds), Terrain Park (orange). The conditions page uses no green icon, so where the printed map shows green, green stands (the lead's decision of 2026-11-19): Academy, Sundown Ridge and Easy Street, green on the map (Academy blue only at its top below Stadium and on its west leg) and blue on the status page, keep the map's and OSM's easy. Elsewhere, where the map and the status page disagree, the harder of their ratings and OSM's is kept (the rule of 2026-10-22): Exhibition, blue on the map, takes the status page's black; Upper Dynamite and Lower Mainstream, blue on the status page, take the map's black; Huntington and Dick's, blue on the status page, keep the map's and OSM's black. Runs only the status page rates (Hokey Pokey, Peter-built and Skid Row, which the map prints without a symbol or not at all) take its blue over OSM's easier rating; Arroyo, Echo and Parkway already carry it. Toll House is three runs on the map: black from the summit to the Buckhorn Bar & Grill (OSM advanced), blue below it towards the Park Chair's bottom (OSM freeride, set to the map's blue) and OSM's Tollhouse pieces at its foot, renamed to the map's spelling. The Park, the terrain park the map draws below the Buckhorn Chair, holds OSM's Halfpipe line and its outline: both take the park flag. Lifts: the map's six chairs (Summit 1, Buckhorn 2, Park 4, Peak 5, Canyon 6, Lakeview 7) and three carpets are in OSM, named Chair 1 - Summit to Chair 7 - Lakeview as the resort's status page (Chair 1 to Chair 7) and its map (SUMMIT 1 to LAKEVIEW 7) together name them; kept as OSM has them. Hidden: the Firebowl T-bar (on neither the map nor the status page; OSM notes its planned replacement, which neither shows), the Tubing Hill Carpet (the status page: Tubing Hill not available this season) and two Forest Service sno-parks drawn as playground areas near Huntington Lake. Cat Track (advanced, 237 m, below China Bowl) and an unnamed expert line beside Waterfall are on neither source and stay as OSM has them. Names that differ from the map only by case the all-capitals map cannot settle or a space stay (Peter-built for PETER BUILT, Copout for the status page's Cop Out). OSM gaps against the map (shipped as at Palisades Tahoe): Upper Buck (black) below the summit, Upper Toad's and Lower Toad's down to Mainstream Station, the lower Copout, the Beginner Area and two park zones along Academy; East Bowl is drawn as OSM has it (a short double-black line off the summit), the map pointing round to the backside.",
+  "overrides": [
+    {
+      "id": "way/1188530747",
+      "reason": "The Canyon, its lower piece: China Peak's 2026 trail map labels The Canyon blue and the status page rates Canyon blue; OSM rates this piece easy and the upper piece (way/1188530745) intermediate. The resort's sources agree and win: blue.",
+      "expect": { "name": "The Canyon", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1227023477",
+      "reason": "Skid Row, under the Canyon Chair: not printed on China Peak's 2026 trail map; the resort's lift and trail status page rates it blue (Chair 6's runs); OSM rates it easy. Only the status page rates it, so the harder of its rating and OSM's is kept: blue.",
+      "expect": { "name": "Skid Row", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1168416265",
+      "reason": "Hokey Pokey, the traverse from the Buckhorn Bar & Grill to the Lakeview Chair's bottom: China Peak's 2026 trail map names it with no rating symbol, and the resort's lift and trail status page rates it blue (Chair 7's runs); OSM rates it novice. Only the status page rates it, so the harder is kept: blue.",
+      "expect": { "name": "Hokey Pokey", "piste:difficulty": "novice" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1168416266",
+      "reason": "Peter-built (PETER BUILT on China Peak's 2026 trail map, which prints it with no rating symbol; Peterbuilt on the status page): the status page rates it blue (Chair 4's runs); OSM rates it easy. Only the status page rates it, so the harder is kept: blue.",
+      "expect": { "name": "Peter-built", "piste:difficulty": "easy" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1223581699",
+      "reason": "Exhibition, beside the Buckhorn Chair (the race course on the map): blue on China Peak's 2026 trail map, black (level_diff) on the resort's lift and trail status page; OSM rates it intermediate. The resort's sources disagree, so the harder is kept (the rule of 2026-10-22): black.",
+      "expect": { "name": "Exhibition", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1223581711",
+      "reason": "Exhibition: a piece of the run that China Peak's 2026 trail map labels blue and the status page rates black; OSM rates it intermediate. The harder is kept, as for the run's main way.",
+      "expect": { "name": "Exhibition", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1223581714",
+      "reason": "Exhibition: a piece of the run that China Peak's 2026 trail map labels blue and the status page rates black; OSM rates it intermediate. The harder is kept, as for the run's main way.",
+      "expect": { "name": "Exhibition", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1168416250",
+      "reason": "Dynamite, its upper piece (OSM's alt_name Upper Dynamite) beside Big Creek below the summit: black on China Peak's 2026 trail map (UPPER BUCK and DYNAMITE, black diamonds), blue on the resort's lift and trail status page (Dynamite - Upper); OSM rates it intermediate. The resort's sources disagree, so the harder is kept: black, as the run's lower way (way/1218570614).",
+      "expect": { "name": "Dynamite", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1264349152",
+      "reason": "Mainstream, its lowest piece to the Summit Chair's bottom: China Peak's 2026 trail map labels it with a black diamond there (and blue higher up, by Razorback), the resort's lift and trail status page rates Mainstream - Lower blue, and OSM rates it intermediate. The resort's sources disagree, so the harder is kept: black.",
+      "expect": { "name": "Mainstream", "piste:difficulty": "intermediate" },
+      "set": { "difficulty": "advanced" }
+    },
+    {
+      "id": "way/1168416256",
+      "reason": "Toll House, its middle stretch from the Buckhorn Bar & Grill towards the Park Chair's bottom: China Peak's 2026 trail map labels it blue there (TOLL HOUSE beside the Park Chair; black only for the stretch above the Buckhorn, OSM's way/1223581701) and the status page rates Tollhouse - Middle blue; OSM rates it freeride, which would draw it as a double black. The resort's sources agree and win: blue.",
+      "expect": { "name": "Toll House", "piste:difficulty": "freeride" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1223581702",
+      "reason": "Toll House: a 49 m piece at the Buckhorn Bar & Grill joining the run's upper stretch to its middle one, which China Peak's 2026 trail map labels blue and the status page rates blue (Tollhouse - Middle); OSM rates it freeride. Blue, as the middle stretch.",
+      "expect": { "name": "Toll House", "piste:difficulty": "freeride" },
+      "set": { "difficulty": "intermediate" }
+    },
+    {
+      "id": "way/1168416257",
+      "reason": "Toll House's foot by the Park Chair's bottom: OSM spells these two pieces Tollhouse and the run's other ways Toll House; China Peak's 2026 trail map names the run TOLL HOUSE (blue here, as OSM rates it). The map's spelling, so the run is one name.",
+      "expect": { "name": "Tollhouse", "piste:difficulty": "intermediate" },
+      "set": { "name": "Toll House" }
+    },
+    {
+      "id": "way/1168416258",
+      "reason": "Toll House's foot by the Park Chair's bottom: OSM spells these two pieces Tollhouse and the run's other ways Toll House; China Peak's 2026 trail map names the run TOLL HOUSE (blue here, as OSM rates it). The map's spelling, so the run is one name.",
+      "expect": { "name": "Tollhouse", "piste:difficulty": "intermediate" },
+      "set": { "name": "Toll House" }
+    },
+    {
+      "id": "way/1168416267",
+      "reason": "Halfpipe: the line in The Park, the terrain park China Peak's 2026 trail map draws below the Buckhorn Chair with its Terrain Park symbol (the map shows no halfpipe of its own); it takes the park flag with OSM's blue, as Buck Hill's Halfpipe and Granite Peak's Fun Slopes.",
+      "expect": { "name": "Halfpipe", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/1225785425",
+      "reason": "The outline of OSM's halfpipe (man_made=piste:halfpipe) in The Park, the terrain park China Peak's 2026 trail map draws below the Buckhorn Chair: the park flag, as its Halfpipe line.",
+      "expect": { "name": null, "man_made": "piste:halfpipe", "piste:difficulty": "intermediate" },
+      "set": { "park": true }
+    },
+    {
+      "id": "way/258020271",
+      "reason": "The Firebowl T-bar below the summit's east side: on neither China Peak's 2026 trail map (six chairs and three carpets) nor the resort's lift and trail status page (Chairs 1, 2, 4, 5, 6 and 7 and three carpets); OSM notes it was to be replaced by a quad named Firebowl (construction=proposed), which neither source shows either. Firebowl's runs are reached from the summit lifts.",
+      "expect": { "name": "Firebowl", "aerialway": "t-bar" },
+      "hide": true
+    },
+    {
+      "id": "way/1190054662",
+      "reason": "The Tubing Hill Carpet: the tubing hill's lift, not a ski lift; the resort's lift and trail status page says Tubing Hill: Not Available This Season, and the trail map does not draw it.",
+      "expect": { "name": "Tubing Hill Carpet", "aerialway": "magic_carpet" },
+      "hide": true
+    },
+    {
+      "id": "way/1242975849",
+      "reason": "Eastwood Sno-Park, a Forest Service sno-park (sledding and snow play) by Highway 168 north of the base, 2.1 km from China Peak's polygon, drawn in OSM as a playground area: another venue, not on the resort's map.",
+      "expect": { "name": "Eastwood Sno-Park", "piste:type": "playground;sled" },
+      "hide": true
+    },
+    {
+      "id": "way/1242975850",
+      "reason": "Huntington Lake Sno-Park, a Forest Service sno-park (sledding and snow play) by Huntington Lake north-west of the base, 2.0 km from China Peak's polygon, drawn in OSM as a playground area: another venue, not on the resort's map; unhidden it would draw as a beginner area and widen the box.",
+      "expect": { "name": "Huntington Lake Sno-Park", "piste:type": "playground;sled" },
+      "hide": true
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "key": "dodge-ridge-v1",
+  "ski_sha256": "885f25afaa62e62238ba05450abc2430c1e55ae0d4bc29135de3dc76023fd8ac",
+  "osm_timestamp": "2026-11-19T09:49:16Z",
+  "box": [
+    -119.99,
+    38.16,
+    -119.89,
+    38.23
+  ],
+  "min_margin_km": 2,
+  "terrain_extent": [
+    -119.958748,
+    38.178749,
+    -119.918748,
+    38.203469
+  ],
+  "margins_km": {
+    "west": 2.73,
+    "south": 2.08,
+    "east": 2.51,
+    "north": 2.95
+  },
+  "counts": {
+    "lifts": 11,
+    "runs_in_bounds": 65,
+    "run_areas_in_bounds": 2,
+    "runs_out_of_bounds": 0,
+    "run_areas_out_of_bounds": 0,
+    "lift_stations": 18,
+    "ski_area": 1,
+    "other_lifts_and_runs": 0
+  },
+  "length_km": {
+    "lifts": 7,
+    "runs_in_bounds": 34.8,
+    "runs_out_of_bounds": 0
+  },
+  "lifts_outside_box": [],
+  "runs_outside_box": [],
+  "out_of_bounds_named": [],
+  "out_of_bounds_runs": [],
+  "tile_footprints": {
+    "11": [
+      -120.058594,
+      38.134557,
+      -119.882812,
+      38.272689
+    ],
+    "12": [
+      -120.058594,
+      38.134557,
+      -119.882812,
+      38.272689
+    ],
+    "13": [
+      -120.014648,
+      38.134557,
+      -119.882812,
+      38.23818
+    ],
+    "14": [
+      -119.992676,
+      38.151837,
+      -119.882812,
+      38.23818
+    ]
+  },
+  "resort_radius_km": 2,
+  "other_lifts_and_runs": [],
+  "problems": [],
+  "ok": true
+}

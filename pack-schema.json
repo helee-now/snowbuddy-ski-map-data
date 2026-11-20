@@ -1,5 +1,5 @@
 {
-  "comment": "What a resort map pack contains (ADR-036). One source of truth for the pipeline (normalize_osm.py, build-pack.sh), the style generator, write-packs.mjs and the tests. Changing a layer, a field or a zoom here is a schema change: rebuild the packs and the styles. pack_format is the format new builds get (MAPS_PLAN D9); a format, once defined in formats, never changes. roles describes every file role a defined format uses (its file suffix, the pipeline's tile spec, the style's source and placeholder); a pack of format n holds exactly the roles of formats[n].roles. trail_view and style are the trail-map view's contract (docs/MAPS_TRAILVIEW_DESIGN.md), outside formats.",
+  "comment": "What a resort map pack contains (ADR-036). One source of truth for the pipeline (normalize_osm.py, build-pack.sh), the style generator, write-packs.mjs and the tests. Changing a layer, a field or a zoom here is a schema change: rebuild the packs and the styles. pack_format is the format new builds get (MAPS_PLAN D9); a format, once defined in formats, never changes. roles describes every file role a defined format uses (its file suffix, the pipeline's tile spec, the style's source and placeholder); a pack of format n holds exactly the roles of formats[n].roles. trail_view and style are the trail-map view's contract (docs/MAPS_TRAILVIEW_DESIGN.md), outside formats. A ski layer marked outside_formats (walk, since 2026-11-17) is in no format: optional in every pack, absent from every pack built before it, and drawn by the styles from layers of their own that read nothing else, so a pack of any format without it draws as before and an app whose style does not read it ignores it; a style may read it, and only its fields, from a pack of any format. Adding one is not a format change; changing what a format holds still is.",
   "pack_format": 2,
   "glyph_ranges": [[0, 1023], [8192, 8447]],
   "fontstacks": ["Noto Sans Regular", "Noto Sans Medium", "Noto Sans Italic"],
@@ -110,6 +110,16 @@
       },
       "required": []
     },
+    "walk": {
+      "geometry": "line",
+      "minzoom": 11,
+      "fields": {
+        "name": "String"
+      },
+      "required": [],
+      "optional_layer": true,
+      "outside_formats": true
+    },
     "contour": {
       "geometry": "line",
       "minzoom": 11,
@@ -132,6 +142,7 @@
     "piste.oriented": "the line runs downhill as drawn, checked against the elevation model (orient.py); absent when too flat or ambiguous: no arrows",
     "lift.oriented": "the line runs uphill as drawn, checked against the elevation model (orient.py)",
     "lift_station": "OpenStreetMap stations within 100 m of a kept lift, and the two ends of every kept lift unless a station is within 40 m",
+    "walk": "walking paths (since 2026-11-17, ADR-036 and ADR-046 amendments): the ways a reviewer names in the resort's overrides file with \"walk\": true, such as a walk out of a canyon that the resort's own trail map draws as a dotted path; never a run, so the name alone (no type, rating, rank or direction). Outside the formats (outside_formats): optional in every pack and absent from every pack built before it, drawn by the styles from layers of their own, so a pack of either format without it draws as before and an app whose style does not read it ignores it",
     "ski_area": "one feature: the resort's ski-area polygon, or for a resort of several mountains on one map (resorts.json ski_area as a list) one multipolygon, the union of their polygons (a border two of them share is not drawn), named after the resort; or, for a resort with no landuse=winter_sports polygon in OpenStreetMap (resorts.json ski_area \"derived\"), one multipolygon derived from its own lifts and runs, each buffered by ski_area_buffer_m (100 m by default) and unioned, every hole filled, one polygon per group of lifts and runs whose buffers touch. A listed neighbour's polygon, lifts, runs and stations are never in the file"
   },
   "contours": {
